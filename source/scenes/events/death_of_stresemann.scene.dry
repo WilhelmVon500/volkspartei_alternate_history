@@ -5,13 +5,13 @@ max-visits: 1
 tags: event
 on-arrival: stresemann_dead = 1; spd_relation -= 5; n_advisors -= 1 if stresemann_advisor == 1; stresemann_advisor = 0; foreign_minister = "Curtius" if foreign_minister = "Stresemann"
 face-image: img/portraits/StresemannGustav.jpg
+go-to: votedvp
 new-page: true
 
 = The Death of Gustav Stresemann
 
 Gustav Stresemann, leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
 
-- @votedvp: The party votes...
 
 @votedvp
 
