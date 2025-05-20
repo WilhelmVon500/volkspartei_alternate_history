@@ -291,7 +291,7 @@ frequency: 1
 
 
 - @centrist: Add Centrists
-- @left: Add Leftists
+- @nationalist: Add Nationalists
 - @liberal: Add Liberals
 - @labor: Add Labor
 - @neorev: Add Neorevisionists
@@ -440,7 +440,7 @@ card-image: img/portraits/LeviPaul.jpg
 view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
 on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: nationalist_advisor
 
 Paul Levi is now an advisor.
 
@@ -452,7 +452,7 @@ card-image: img/portraits/SenderToni.jpg
 view-if: sender_advisor = 0 and n_advisors < 3
 on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: nationalist_advisor
 
 Toni Sender is now an advisor.
 
@@ -464,7 +464,7 @@ card-image: img/portraits/RosenfeldKurt.jpg
 view-if: rosenfeld_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: rosenfeld_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: nationalist_advisor
 
 Kurt Rosenfeld is now an advisor.
 
@@ -476,7 +476,7 @@ card-image: img/portraits/SeydewitzMax.jpg
 view-if: seydewitz_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: seydewitz_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: nationalist_advisor
 
 Max Seydewitz is now an advisor.
 
@@ -488,7 +488,7 @@ card-image: img/portraits/SiemsenAnna.jpg
 view-if: siemsen_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: siemsen_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: nationalist_advisor
 
 Anna Siemsen is now an advisor.
 
