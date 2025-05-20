@@ -23,7 +23,7 @@ However, the Allies, especially France, are likely to object. This agreement wou
 - @end_toleration: Attempt to stop this arrangement!
 
 @let_it_happen
-on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2; curtius_resignation_timer = time + 5 if dvp_leader == "Curtius" or lvp_leader == "Curtius" and not in_weimar_coalition; nationalist_strength += 5
+on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2; curtius_resignation_timer = time + 4 if dvp_leader == "Curtius" and dvp_in_government; nationalist_strength += 5
 
 The customs union has been formed. Immediately, France and other neighboring countries lodge their protests. The longer-term response is yet to be seen.
 
