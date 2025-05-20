@@ -3,7 +3,7 @@ view-if: year = 1929 and month >= 9
 frequency: 1000
 max-visits: 1
 tags: event
-on-arrival: stresemann_dead = 1; spd_relation -= 5; n_advisors -= 1 if stresemann_advisor == 1; stresemann_advisor = 0
+on-arrival: stresemann_dead = 1; spd_relation -= 5; n_advisors -= 1 if stresemann_advisor == 1; stresemann_advisor = 0; foreign_minister = "Curtius" if foreign_minister = "Stresemann"
 face-image: img/portraits/StresemannGustav.jpg
 new-page: true
 
