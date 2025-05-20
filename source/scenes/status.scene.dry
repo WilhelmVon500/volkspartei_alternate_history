@@ -88,6 +88,20 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
 
+= Party Leadership
+
+{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ Q.z_party_leader +]
+
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: Koch-Weser
+
+{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: Wels
+
+{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ Q.kpd_party_leader +]
+
+{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: Hugenberg
+
+{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ Q.nsdap_leader +]
+
 = Internal Factions of the DVP
 
 {!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Nationalist</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
