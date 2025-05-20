@@ -13,7 +13,6 @@ The <span style="color: #C0A054;">**DVP**</span> is now having an internal party
 - @scholz: Ernst Scholz
 - @hugo: Otto Hugo
 
-
 @curtius
 on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 4; workers_dvp += 1; pro_republic += 3
 
