@@ -6,7 +6,7 @@ go-to: post_event if started = 1; start_menu if started = 0
 new-page: true
 go-to: start_menu_2
 
-= Social Democracy: An Alternate History
+= Volkspartei: An Alternate History
 
 @start_menu_2
 
@@ -126,6 +126,7 @@ Q.hindenburg_relation = 25;
 
 // Does the SPD lead in Prussia?
 Q.spd_prussia = 1;
+Q.dvp_prussia = 0;
 // Options: spd, z, dnvp, papen, nsdap
 Q.prussian_government = "SPD";
 
@@ -364,11 +365,12 @@ Q.in_minority_government = 0;
 
 // if you're in a coalition, this is an incremental counter for how many times dissent has happened from the right.
 Q.coalition_dissent = 0;
-// dissent from the KPD, in a popular front or left front government
-Q.kpd_coalition_dissent = 0;
+// dissent from the KPD, in a grand coalition government
+Q.spd_coalition_dissent = 0;
 
-// does the SPD tolerate the government even if it is not a participant?
+// does the DVP or SPD tolerate the government even if it is not a participant?
 Q.spd_toleration = 0;
+Q.dvp_toleration = 0;
 
 // is the current government a presidential minority government?
 Q.minority_government = 0;
