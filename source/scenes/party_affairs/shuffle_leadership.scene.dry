@@ -158,7 +158,7 @@ tags: remove_advisor
 on-arrival: levi_advisor = 0; left_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Levi has been removed as an advisor. The Leftist faction disapproves.
+Levi has been removed as an advisor. The Nationalist faction disapproves.
 
 @remove_sender
 title: Remove Sender
@@ -167,16 +167,16 @@ tags: remove_advisor
 on-arrival: sender_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Sender has been removed as an advisor. The Leftist faction disapproves.
+Sender has been removed as an advisor. The Nationalist faction disapproves.
 
-@remove_rosenfeld
-title: Remove Rosenfeld
-view-if: rosenfeld_advisor = 1
+@remove_hugo
+title: Remove Hugo
+view-if: hugo_advisor = 1
 tags: remove_advisor
-on-arrival: rosenfeld_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: hugo_advisor = 0; nationalist_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Rosenfeld has been removed as an advisor. The Leftist faction disapproves.
+Hugo has been removed as an advisor. The Nationalist faction disapproves.
 
 @remove_seydewitz
 title: Remove Seydewitz
@@ -185,7 +185,7 @@ tags: remove_advisor
 on-arrival: seydewitz_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Seydewitz has been removed as an advisor. The Leftist faction disapproves.
+Seydewitz has been removed as an advisor. The Nationalist faction disapproves.
 
 @remove_siemsen
 title: Remove Siemsen
@@ -194,7 +194,7 @@ tags: remove_advisor
 on-arrival: siemsen_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Siemsen has been removed as an advisor. The Leftist faction disapproves.
+Siemsen has been removed as an advisor. The Nationalist faction disapproves.
 
 
 
@@ -382,7 +382,7 @@ Carl Severing is now an advisor.
 
 @add_stresemann
 title: Gustav Stresemann
-subtitle: Gustav Stresemann is the last <span style="color: #C0A054;">**DVP**</span> Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
+subtitle: Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
 is-card: true
 card-image: img/portraits/StresemannGustav.jpg
 tags: liberal_advisor
@@ -456,17 +456,17 @@ tags: nationalist_advisor
 
 Toni Sender is now an advisor.
 
-@add_rosenfeld
-title: Kurt Rosenfeld
-subtitle: Kurt Rosenfeld is a lawyer, anti-militarist activist, and Reichstag member. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
+@add_hugo
+title: Otto Hugo
+subtitle: Otto Hugo is a prominent member of the right wing in the <span style="color: #C0A054;">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
 is-card: true
-card-image: img/portraits/RosenfeldKurt.jpg
-view-if: rosenfeld_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: rosenfeld_advisor = 1; n_advisors += 1; left_strength += 5
+card-image: img/portraits/HugoOtto.jpg
+view-if: hugo_advisor = 0 and n_advisors < 3 and left_split = 0
+on-arrival: hugo_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
 
-Kurt Rosenfeld is now an advisor.
+Otto Hugo is now an advisor.
 
 @add_seydewitz
 title: Max Seydewitz
