@@ -48,16 +48,16 @@ Q.dissent_percent = 5;
 // factions
 Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'neorevisionist'];
 // should this be normalized to 100%?
-Q.nationalist_strength = 15;
-Q.nationalist_dissent = 20;
-Q.industrialist_strength = 30;
+Q.nationalist_strength = 20;
+Q.nationalist_dissent = 15;
+Q.industrialist_strength = 25;
 Q.industrialist_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.liberal_strength = 25;
+Q.labor_strength = 10;
+Q.labor_dissent = 20;
+Q.liberal_strength = 40;
 Q.liberal_dissent = 5;
 Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
+Q.neorevisionist_dissent = 0;
 
 // secret events...
 Q.unions_independent = 0;
