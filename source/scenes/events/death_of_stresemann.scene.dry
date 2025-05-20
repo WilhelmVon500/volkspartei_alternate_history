@@ -10,3 +10,22 @@ new-page: true
 = The Death of Gustav Stresemann
 
 Gustav Stresemann, leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
+
+@votedvp
+
+The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
+
+- @curtius
+on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 4; workers_dvp += 1; pro_republic += 3
+
+Julius Curtius has won. The party leadership stays committed to Weimar system.
+
+- @scholz
+on-arrival: dvp_leader = "Scholz"
+
+Ernst Scholz was elected party leader. He represents compromise between the left and right wings of our party.
+
+- @hugo
+on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3
+
+Otto Hugo has won. He represents a sharp rightward turn from Stresemann.
