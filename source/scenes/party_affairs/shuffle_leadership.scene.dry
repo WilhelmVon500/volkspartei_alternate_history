@@ -510,7 +510,7 @@ Theodor Leipart is now an advisor.
 
 @add_thiel
 title: Otto Thiel
-subtitle: Otto Thiel is a German politician and unionist affiliated with the DHV, the right-wing trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
+subtitle: Otto Thiel is a politician and unionist affiliated with the DHV, the right-wing trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/ThielOtto.jpg
 tags: labor_advisor
