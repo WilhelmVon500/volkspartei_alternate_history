@@ -286,13 +286,13 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
+tags: center_advisor, left_advisor, liberal_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
 frequency: 1
 
 
 - @centrist: Add Centrists
 - @left: Add Leftists
-- @reformist: Add Reformists
+- @liberal: Add Liberals
 - @labor: Add Labor
 - @neorev: Add Neorevisionists
 - @nonfactional: Add non-factional advisors
@@ -304,10 +304,10 @@ view-if: n_advisors < 3
 
 - #center_advisor
 
-@reformist
+@liberal
 view-if: n_advisors < 3
 
-- #reformist_advisor
+- #liberal_advisor
 
 @left
 view-if: n_advisors < 3
@@ -365,7 +365,7 @@ tags: center_advisor
 
 Rudolf Breitscheid is now an advisor.
 
-# reformist
+# liberal
 
 
 @add_severing
@@ -373,7 +373,7 @@ title: Carl Severing
 subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
 is-card: true
 card-image: img/portraits/SeveringCarl.jpg
-tags: reformist_advisor
+tags: liberal_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
 on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
@@ -385,8 +385,8 @@ title: Gustav Stresemann
 subtitle: Gustav Stresemann is the last <span style="color: #C0A054;">**DVP**</span> Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
 is-card: true
 card-image: img/portraits/StresemannGustav.jpg
-tags: center_advisor
-view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 3 and centrists_resign = 0
+tags: liberal_advisor
+view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 3
 on-arrival: stresemann_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -397,7 +397,7 @@ title: Otto Braun
 subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
 is-card: true
 card-image: img/portraits/BraunOtto.jpg
-tags: reformist_advisor
+tags: liberal_advisor
 view-if: braun_advisor = 0 and n_advisors < 3
 on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
@@ -412,7 +412,7 @@ card-image: img/portraits/JuchaczMarie.jpg
 view-if: juchacz_advisor = 0 and n_advisors < 3
 on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
-tags: reformist_advisor
+tags: liberal_advisor
 
 Marie Juchacz is now an advisor.
 
@@ -424,7 +424,7 @@ card-image: img/portraits/PfülfAntonie.jpg
 view-if: pfulf_advisor = 0 and n_advisors < 3
 on-arrival: pfulf_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: reformist_advisor
+tags: liberal_advisor
 
 Antonie Pfülf is now an advisor.
 
