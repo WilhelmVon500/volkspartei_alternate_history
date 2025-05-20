@@ -1,1 +1,30 @@
+title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
+subtitle: Julius Curtius has resigned!
+view-if: curtius_resignation_timer == time and dvp_leader == "Curtius"
+max-visits: 1
+tags: event
+new-page: true
 
+= <span style="color: #C0A054;">**DVP**</span> Congress
+
+The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
+
+- @kardorff: Siegfried Kardorff
+- @thiel: Otto Thiel
+- @hugo: Otto Hugo
+
+
+@kardorff
+on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 4; workers_dvp += 1; pro_republic += 3; liberal_strength += 5; nationalist_dissent += 5
+
+Siegfried Kardorff has won. He is another Stresemann follower and supporter of the Weimar system.
+
+@thiel
+on-arrival: dvp_leader = "Thiel"; workers_dvp += 3; new_middle_dvp += 1; labor_strength += 8; industrialist_dissent += 10
+
+Surprisingly, Otto Thiel was elected party leader. He is a representative of the party’s unionist faction.
+
+@dingeldey
+on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 10; DNVP_relation += 5; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3; nationalist_strength += 15; industrialist_strength += 5; liberal_dissent += 5
+
+Eduard Dingeldey has won. Backed by the party's right wing, he represents a significant shift to the right.
