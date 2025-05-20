@@ -21,7 +21,7 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; nationalist_strength += 6; nationalist_dissent -= 8; liberal_dissent += 2
 
-We have increased the strength of the left faction with the SPD.
+We have increased the strength of the nationalist faction with the <span style="color: #C0A054;">**DVP**</span>.
 
 @nsdap_cooperation
 title: Cooperation with the NSDAP
@@ -30,7 +30,7 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; nationalist_strength += 5; nsdap_relation += 2*(1-dissent); liberal_dissent += 5
 
-Through his work, Rosenfeld has defended individual KPD members; this should make some connections possible.
+WIP
 
 @against_toleration
 title: Against toleration
