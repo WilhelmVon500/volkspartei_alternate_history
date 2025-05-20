@@ -94,6 +94,8 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: Koch-Weser
 
+{!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">**DVP**</span>!}: [+ dvp_leader +]
+
 {!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: Wels
 
 {!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_party_leader +]
