@@ -1,34 +1,34 @@
-title: Kurt Rosenfeld
+title: Otto Hugo
 is-pinned-card: true
 tags: advisor, left
-card-image: img/portraits/RosenfeldKurt.jpg
-view-if: rosenfeld_advisor = 1
+card-image: img/portraits/HugoOtto.jpg
+view-if: hugo_advisor = 1
 new-page: true 
 
-= Kurt Rosenfeld
+= Otto Hugo
 
-Rosenfeld works as a lawyer in Berlin who defends left-wing individuals and causes. He favors cooperation with the KPD and a path of class struggle for the SPD.
+Otto Hugo is a prominent member of the right wing in the <span style="color: #C0A054;">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. [? if dvp_leader = "Hugo" : He is also the current party leader. ?]
 
-- @building_the_left
-- @kpd_cooperation
+- @building_the_right
+- @nsdap_cooperation
 - @against_toleration
 - @root: Return to main
 
-@building_the_left
-title: Building the Left
-subtitle: Push the SPD to the left.
+@building_the_right
+title: Building the Right
+subtitle: Push the <span style="color: #C0A054;">**DVP**</span> to the right.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; left_strength += 6; left_dissent -= 8; reformist_dissent += 2
+on-arrival: advisor_action_timer = 6; nationalist_strength += 6; nationalist_dissent -= 8; liberal_dissent += 2
 
 We have increased the strength of the left faction with the SPD.
 
-@kpd_cooperation
-title: Cooperation with the KPD
-subtitle: Push the party to be more friendly towards the KPD.
+@nsdap_cooperation
+title: Cooperation with the NSDAP
+subtitle: Push the party to be more friendly towards the NSDAP.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; left_strength += 5; kpd_relation += 4*(1-dissent); reformist_dissent += 2; communist_coalition += 1 if kpd_cooperation_seen <= 1; kpd_cooperation_seen += 1
+on-arrival: advisor_action_timer = 6; nationalist_strength += 5; nsdap_relation += 2*(1-dissent); liberal_dissent += 5
 
 Through his work, Rosenfeld has defended individual KPD members; this should make some connections possible.
 
@@ -36,8 +36,8 @@ Through his work, Rosenfeld has defended individual KPD members; this should mak
 title: Against toleration
 view-if: not constructive_vonc
 subtitle: Break our current toleration arrangement, and bring down the government via a no-confidence vote.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_toleration == 0 : The SPD is not currently in toleration. ?]
-choose-if: advisor_action_timer == 0 and spd_toleration
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_toleration == 0 : The <span style="color: #C0A054;">**DVP**</span> is not currently in toleration. ?]
+choose-if: advisor_action_timer == 0 and dvp_toleration
 on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time + 3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; left_strength += 8; pro_republic -= 4; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 8
 
 We have grown tired of the burdens of toleration, and have called a vote of no confidence in the current minority government.
