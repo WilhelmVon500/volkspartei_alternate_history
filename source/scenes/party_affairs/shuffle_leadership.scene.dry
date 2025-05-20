@@ -309,7 +309,7 @@ view-if: n_advisors < 3
 
 - #liberal_advisor
 
-@left
+@nationalist
 view-if: n_advisors < 3
 
 - #left_advisor
