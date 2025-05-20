@@ -1,10 +1,8 @@
 title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
 subtitle: We are choosing a new leader...
 view-if: year = 1929 and month = 12
-on-arrival: new_middle_dvp -= 1
 max-visits: 1
 tags: event
-face-image: img/dvp.jpg
 new-page: true
 
 = <span style="color: #C0A054;">**DVP**</span> Congress
