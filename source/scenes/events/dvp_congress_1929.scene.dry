@@ -9,22 +9,22 @@ new-page: true
 
 The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
 
-- @curtius: Julius Curtius
-- @scholz: Ernst Scholz
-- @hugo: Otto Hugo
+- @curtius_lead: Julius Curtius
+- @scholz_lead: Ernst Scholz
+- @hugo_lead: Otto Hugo
 
 
-@curtius
+@curtius_lead
 on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 4; workers_dvp += 1; pro_republic += 3; liberal_strength += 5; nationalist_dissent += 5
 
 Julius Curtius has won. The party leadership stays committed to Weimar system.
 
-@scholz
+@scholz_lead
 on-arrival: dvp_leader = "Scholz"; industrialist_strength += 3
 
 Ernst Scholz was elected party leader. He represents compromise between the left and right wings of our party.
 
-@hugo
+@hugo_lead
 on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 7; liberal_dissent += 5
 
 Otto Hugo has won. He represents a sharp rightward turn from Stresemann.
