@@ -1,11 +1,11 @@
 title: Gustav Stresemann
 is-pinned-card: true 
-tags: advisor, centrist
+tags: advisor, reformist
 card-image: img/portraits/StresemannGustav.jpg
 new-page: true
 view-if: stresemann_advisor = 1
 
-= Herman Müller
+= Gustav Stresemann
 
 
 Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancellor, and is a long-time <span style="color: #C0A054;">**DVP**</span> leader.
