@@ -16,6 +16,7 @@ Gustav Stresemann, leader of our party and longtime foreign minister, has died a
 - @votedvp: No...
 
 @votedvp
+on-arrival: old_middle_dvp -= 1; new_middle_dvp -=1
 The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
 
 - @curtius: Julius Curtius
