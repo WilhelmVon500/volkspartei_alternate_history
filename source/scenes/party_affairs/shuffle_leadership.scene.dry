@@ -312,7 +312,7 @@ view-if: n_advisors < 3
 @nationalist
 view-if: n_advisors < 3
 
-- #left_advisor
+- #nationalist_advisor
 
 @labor
 view-if: n_advisors < 3
