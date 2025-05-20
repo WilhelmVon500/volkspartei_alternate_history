@@ -121,14 +121,14 @@ go-to: rm_main
 
 Leipart has been removed as an advisor. The Labor faction disapproves.
 
-@remove_aufhauser
-title: Remove Aufhäuser
-view-if: aufhauser_advisor = 1
+@remove_thiel
+title: Remove Thiel
+view-if: thiel_advisor = 1
 tags: remove_advisor
-on-arrival: aufhauser_advisor = 0; labor_dissent += 5; n_advisors -= 1
+on-arrival: thiel_advisor = 0; labor_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Aufhäuser has been removed as an advisor. The Labor faction disapproves.
+Thiel has been removed as an advisor. The Labor faction disapproves.
 
 @remove_wissell
 title: Remove Wissell
@@ -508,17 +508,17 @@ go-to: advisor_menu
 
 Theodor Leipart is now an advisor.
 
-@add_aufhauser
-title: Siegfried Aufhäuser
-subtitle: Siegfried Aufhäuser is the leader of the AfA-Bund, the white-collar trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
+@add_thiel
+title: Otto Thiel
+subtitle: Otto Thiel is a German politician and unionist affiliated with the DHV, the right-wing trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
 is-card: true
-card-image: img/portraits/AufhäuserSiegfried.jpg
+card-image: img/portraits/ThielOtto.jpg
 tags: labor_advisor
-view-if: aufhauser_advisor = 0 and n_advisors < 3
+view-if: thiel_advisor = 0 and n_advisors < 3
 on-arrival: aufhauser_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
-Siegfried Aufhäuser is now an advisor.
+Otto Thiel is now an advisor.
 
 @add_wissell
 title: Rudolf Wissell
