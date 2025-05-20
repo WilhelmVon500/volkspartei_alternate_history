@@ -540,6 +540,7 @@ Q.march_on_berlin_timer = 0;
 // all the initial advisors are centrists.
 Q.wels_advisor = 1; // Otto Wels
 Q.stresemann_advisor = 1; // Gustav Stresemann
+Q.hugo_advisor = 1; // Otto Hugo
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 Q.crispien_advisor = 0; // Arthur Crispien
@@ -549,7 +550,6 @@ Q.hilferding_advisor = 1; // Rudolf Hilferding
 Q.sender_advisor = 0; // Toni Sender
 Q.levi_advisor = 0; // Paul Levi
 Q.levi_dead = 0;
-Q.rosenfeld_advisor = 0; // Kurt Rosenfeld
 Q.seydewitz_advisor = 0; // Max Seydewitz
 
 // centrist alternate advisors
