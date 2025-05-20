@@ -12,9 +12,11 @@ new-page: true
 
 Gustav Stresemann, leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
 
-- @votedvp: No...
+
+- @votedvp: No
 
 @votedvp
+on-arrival: dvp_leader = "Scholz" 
 
 The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
 
