@@ -14,7 +14,6 @@ In our media and campaign materials, who should we consider as our main opponent
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
 - @anti_dem: The anti-democratic parties of the far right and left - the KPD, NSDAP, and DNVP.
-- @far_right: The far right - the NSDAP and DNVP.
 - @nsdap: The NSDAP alone.
 - @kpd: The KPD.
 - @socialist: The socialist parties - the SPD and KPD.
@@ -24,11 +23,6 @@ In our media and campaign materials, who should we consider as our main opponent
 on-arrival: enemies = "anti-democratic parties"; liberal_strength += 5; liberal_strength += 5; nationalist_dissent += 5; workers_kpd -= 2; new_middle_nsdap -= 2; rural_dnvp -= 2; DNVP_relation -= 10; NSDAP_relation -= 10
 
 Attacking the far right and left is popular among all but the nationalist wing of our party, who would prefer to be fighting the socialist parties. This might also hamper our ability to reconcile with DNVP and NSDAP in the future.
-
-@far_right
-on-arrival: enemies = "far right"; liberal_strength += 5; nationalist_dissent += 7; new_middle_nsdap -= 3; rural_dnvp -= 3;
-
-Attacking the far right is popular among the left wing of our party, although the nationalist wing considers the far right parties our possible allies. This might also hamper our ability to reconcile with DNVP and NSDAP in the future.
 
 @nsdap
 on-arrival: enemies = "NSDAP"; liberal_strength += 5; nazi_urgency += 1; new_middle_nsdap -= 4;
