@@ -33,15 +33,6 @@ go-to: root
 tags: remove_advisor
 
 
-@remove_hilferding
-title: Remove Hilferding
-view-if: hilferding_advisor = 1
-on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
-tags: remove_advisor
-go-to: rm_main
-
-Hilferding has been removed as an advisor. The Centrist faction disapproves.
-
 @remove_wels
 title: Remove Wels
 view-if: wels_advisor = 1
@@ -261,6 +252,15 @@ go-to: rm_main
 
 Luther has been removed as an advisor. 
 
+@remove_moldenhauer
+title: Remove Moldenhauer
+view-if: moldenhauer_advisor = 1
+on-arrival: moldenhauer_advisor = 0; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+Moldenhauer has been removed as an advisor.
+
 @remove_radbruch
 title: Remove Radbruch
 view-if: radbruch_advisor = 1
@@ -326,18 +326,6 @@ view-if: neorevisionism > 0 and n_advisors < 3
 view-if: n_advisors < 3
 
 - #nonfactional_advisor
-
-@add_hilferding
-title: Rudolf Hilferding
-subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
-is-card: true
-card-image: img/portraits/HilferdingRudolf.jpg
-tags: center_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Rudolf Hilferding is now an advisor.
 
 @add_wels
 title: Otto Wels
@@ -636,3 +624,14 @@ tags: nonfactional_advisor
 Hans Luther is now an advisor.
 
 
+@add_moldenhauer
+title: Paul Moldenhauer
+subtitle: Paul Moldenhauer is an economist and politician. He is a professor at the University of Cologne. {!<br><br>!}[? if difficulty < 0 : Actions - Defending Toleration, Fiscal Policy ?]
+is-card: true
+card-image: img/portraits/MoldenhauerPaul.jpg
+view-if: moldenhauer_advisor = 0 and n_advisors < 3
+on-arrival: moldenhauer_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
+
+Paul Moldenhauer is now an advisor.
