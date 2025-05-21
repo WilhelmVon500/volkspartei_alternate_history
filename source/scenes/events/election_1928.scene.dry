@@ -125,8 +125,6 @@ Q.kpd_coalition_dissent = 0;
 Q.spd_in_government = 0;
 Q.in_weimar_coalition = 0;
 Q.in_grand_coalition = 0;
-Q.in_left_front = 0;
-Q.in_popular_front = 0;
 Q.in_emergency_government = 0;
 Q.in_minority_government = 0;
 Q.in_unity_government = 0;
@@ -318,8 +316,6 @@ There are some potential coalition arrangements.
 - @far_right_coalition
 - @no_majority
 - @brauns_dilemma
-- @left_coalition
-- @popular_front_coalition
 - @right_coalition
 
 # TODO: black-brown coalition
@@ -451,7 +447,7 @@ The third option is to have new elections.
 title: A "New Grand Coalition" of all the constitutional parties?
 subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
-choose-if: z_relation >= 50 and dvp_relation >= 30
+choose-if: z_relation >= 50 and spd_relation >= 30
 unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 30 : We do not have adequate relations with the DVP. ?]
 
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DVP may allow us some leverage.
@@ -466,12 +462,12 @@ title: Use our resources to smooth over the creation of a coalition.
 subtitle: -2 resources
 unavailable-subtitle: Not enough resources (need 2).
 choose-if: resources >= 2
-on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; left_dissent += 4;
+on-arrival: resources -= 2; dvp_in_government = 1; in_grand_coalition = 1; nationalist_dissent += 4;
 achievement: constitutional_coalition
 
 We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
 
-Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Leftists in our party are somewhat skeptical of this arrangement. 
+Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Nationalists in our party are somewhat skeptical of this arrangement. 
 
 
 Who should be chancellor?
