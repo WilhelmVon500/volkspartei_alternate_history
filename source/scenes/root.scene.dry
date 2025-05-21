@@ -539,7 +539,7 @@ Q.march_on_berlin_timer = 0;
 
 Q.stresemann_advisor = 1; // Gustav Stresemann
 Q.hugo_advisor = 1; // Otto Hugo
-Q.thiel_advisor = 1; // Otto Thiel
+Q.luther_advisor = 0; // Hans Luther
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 
@@ -563,20 +563,19 @@ Q.juchacz_advisor = 0; // Marie Juchacz
 Q.baade_advisor = 0; // Fritz Baade
 
 // Labor advisors
+Q.thiel_advisor = 1; // Otto Thiel
 Q.leipart_advisor = 0; // Theodor Leipart
 Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
 Q.wissell_advisor = 0; // Rudolf Wissell
 
 // Revisionist advisors
 Q.mierendorff_advisor = 0; // Carlo Mierendorf (post-1930)
-
 Q.leber_advisor = 0; // Julius Leber (post-1930)
 Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 
 // Nonfactional advisors
 Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
-Q.luther_advisor = 0; // Hans Luther
 !}
 set-bg: img/map_2.jpg
 new-page: true
