@@ -1,0 +1,32 @@
+title: Paul Moldenhauer
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/MoldenhauerPaul.jpg
+view-if: moldenhauer_advisor = 1
+new-page: true
+#face-image: img/portraits/MoldenhauerPaul.jpg
+
+= Paul Moldenhauer
+
+Paul Moldenhauer, born in 1876 in Cologne, is an economist and politician. He is a professor at the University of Cologne.
+
+- @toleration
+- @finance_ministry_
+- @root: Return to main
+
+@toleration
+title: Defending Toleration
+subtitle: Moldenhauer supports cooperation with the bourgeois parties.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_toleration: The <span style="color: #C0A054;">**DVP**</span> is not in toleration. ?]
+choose-if: spd_in_government = 0 and spd_toleration = 1 and advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6; left_dissent -= 10; neorevisionist_dissent -= 8; center_dissent -= 5
+
+We have reduced dissent among the anti-toleration factions.
+
+@finance_ministry_
+title: Fiscal Policy
+subtitle: As Finance Minister, Moldenhauer can enact tax policies.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_in_government = 0 : <span style="color: #C0A054;">**DVP**</span> not in government: ?] [? if finance_minister_party != "DVP" : The <span style="color: #C0A054;">**DVP**</span> does not control the finance ministry. ?]
+choose-if: advisor_action_timer == 0 and dvp_in_government == 1 and finance_minister_party == "DVP"
+on-arrival: advisor_action_timer = 6; fiscal_policy_timer -= 6; last_advisor_action = 1
+go-to: fiscal_policy
