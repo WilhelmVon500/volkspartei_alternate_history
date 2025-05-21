@@ -21,7 +21,7 @@ if (Q.economic_growth) {
 Resources available: [+ resources +]
 
 <span style="color: #C0A054;">**DVP**</span> position: [? if dvp_toleration : toleration ?][? if dvp_in_government : in government - ?][? if dvp_toleration == 0 and dvp_in_government == 0 and dvp_caretaker == 0 : opposition ?][? if dvp_caretaker : caretaker government ?]
-[? if in_grand_coalition and dvp_in_government: Grand Coalition ?][? if in_neo_weimar_coalition and dvp_in_government: New Grand Coalition ?][? if in_bourgeois_coalition and dvp_in_government: Bourgeois Coalition ?][? if in_center_right_coalition and dvp_in_government: Center-Right Coalition ?][? if in_right_coalition and dvp_in_government: Right Coalition ?][? if in_dvp_majority and dvp_in_government: <span style="color: #C0A054;">**DVP**</span> majority ?][? if in_minority_government and dvp_in_government: minority government ?][? if in_emergency_government and dvp_in_government: emergency government ?]
+[? if in_grand_coalition and dvp_in_government: Grand Coalition ?][? if in_bourgeois_coalition and dvp_in_government: Bourgeois Coalition ?][? if in_center_right_coalition and dvp_in_government: Center-Right Coalition ?][? if in_right_coalition and dvp_in_government: Right Coalition ?][? if in_dvp_majority and dvp_in_government: <span style="color: #C0A054;">**DVP**</span> majority ?][? if in_minority_government and dvp_in_government: minority government ?][? if in_emergency_government and dvp_in_government: emergency government ?]
 
 [? if dvp_in_government and not in_dvp_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
