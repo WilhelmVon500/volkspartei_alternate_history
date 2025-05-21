@@ -14,7 +14,8 @@ The <span style="color: #C0A054;">**DVP**</span> cannot govern by itself yet. Be
 
 - @liberals: Strengthen our bonds with the left-liberal German Democratic Party
 - @center: Strengthen our bonds with the Catholic Center Party.
-- @spd: Work towards repairing relationships with the Communist Party.
+- @spd: Strengthen our bonds with the Social Democratic Party.
+- @dnvp: Strengthen our bonds with the German National People's Party.
 - @dvp_alone: The <span style="color: #C0A054;">**DVP**</span> can stand alone for now.
 - @easy_discard
 
@@ -58,6 +59,15 @@ unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; ddp_relation += 5*(1 - dissent)
 
 The [+ ddp_name +] has been one of our closest allies through the course of the Republic.
+
+
+@dnvp
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; DNVP_relation += 5*(1 - dissent)
+
+The DNVP is another right wing party.
 
 
 @dvp_alone
