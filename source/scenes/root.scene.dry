@@ -536,12 +536,12 @@ Q.sh_ban_timer = 0;
 Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
+Q.muller_dead = 0;
+
 
 Q.stresemann_advisor = 1; // Gustav Stresemann
 Q.hugo_advisor = 1; // Otto Hugo
-Q.luther_advisor = 0; // Hans Luther
-Q.muller_dead = 0;
-// okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
+Q.luther_advisor = 1; // Hans Luther
 
 // left advisors
 Q.sender_advisor = 0; // Toni Sender
