@@ -10,7 +10,7 @@ max-visits: 4
 
 At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
-- @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
+- @fr_uk: Build relationships with the French AD and British Liberal Party to move their governments in Germany's favor.
 - @austria: Learn organization and street fighting from the Austrian SDAPÖ.
 - @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
 - @comintern: Forget the second international - embed a spy in the Comintern's conference.
@@ -23,9 +23,9 @@ At the Labor and Socialist International, we can forge contacts with our fratern
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 1; reformist_strength += 5; pacifism += 1; moderate_plan_support += 1
+on-arrival: resources -= 1; west_relation += 1; liberal_strength += 5; pacifism += 1
 
-The socialists of France and Britain can influence their governments to be friendlier towards Germany. Hopefully they will reduce our reparations burden.
+The liberals of France and Britain can influence their governments to be friendlier towards Germany.
 
 @austria
 subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war_seen: - We will also help the Austrians oppose their dictatorship. ?]
