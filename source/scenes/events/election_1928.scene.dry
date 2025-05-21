@@ -116,11 +116,7 @@ Q.hitler_right_coalition = Q.z_r + Q.dnvp_r + Q.nsdap_r;
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
 Q.progressive_coalition = Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r;
 
-if (Q.kpd_relation >= 30) {
-    Q.weimar_coalition += Q.sapd_r;
-}
-
-Q.leverage = Q.spd_r;
+Q.leverage = Q.dvp_r;
 
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
@@ -136,13 +132,13 @@ Q.in_minority_government = 0;
 Q.in_unity_government = 0;
 Q.spd_toleration = 0;
 Q.spd_caretaker = 0;
-Q.foreign_minister_party = 'DVP';
+Q.foreign_minister_party = 'Z';
 Q.interior_minister_party = 'Z';
 Q.justice_minister_party = 'I';
 Q.labor_minister_party = 'Z';
 Q.reichswehr_minister_party = 'I';
 Q.economic_minister_party = Q.ddp_name;
-Q.finance_minister_party = 'DVP';
+Q.finance_minister_party = Q.ddp_name;
 Q.agriculture_minister_party = 'Z';
 
 // reset KPD goals
@@ -329,86 +325,6 @@ There are some potential coalition arrangements.
 # TODO: black-brown coalition
 
 
-@popular_front_coalition
-title: A new "Popular Front" coalition?
-subtitle: SPD + KPD + Z + [+ ddp_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
-unavailable-subtitle: SPD + KPD + Z + [+ ddp_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((kpd_relation < 65 and kpd_party_leader == "Thälmann") or (kpd_relation < 45 and kpd_party_leader == "Conciliators")): We do not have good enough relations with the KPD. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
-view-if: popular_front_coalition >= 50
-choose-if: (((kpd_relation >= 65 and kpd_party_leader == "Thälmann") or (kpd_relation >= 45 and kpd_party_leader == "Conciliators")) and ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and kpd_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and kpd_party_leader == "Conciliators")) and ddp_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and kpd_party_leader == "Conciliators" and z_relation >= 30 and kpd_relation >= 30)
-
-Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
-
-The far-right might attempt a coup, if such a coalition were formed.
-
-- @popular_front_2: Form the Popular Front!
-- @great_popular_front: Form the Popular Front!
-
-@popular_front_2
-view-if: z_party_leader != "Joos" or kpd_party_leader != "Conciliators"
-
-Somehow, both the Communists and Center are at the very least willing to entertain negotiations. Of course, KPD radicals and Center conservatives derail the negotiations almost immediately. The KPD demands leadership of the coalition for themselves and their chairman Ernst Thälmann, [? if spd_r > kpd_r : despite our higher vote share, ?]while the Center is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
-
-- @popular_front_resources
-- @popular_front_democracy
-- @popular_front_braun
-- @coalition_menu: This is impossible. Try another governing arrangement.
-
-@popular_front_resources
-title: Use our resources to smooth things over.
-unavailable-subtitle: Required: 4 resources
-subtitle: -4 resources
-choose-if: resources >= 4
-on-arrival: resources -= 4
-go-to: popular_front_success
-
-@popular_front_democracy
-title: Convince the KPD to accept democracy.
-subtitle: [? if kpd_party_leader == "Conciliators" : The Conciliator leadership of the KPD at least claim to support the Popular Front. ?]
-unavailable-subtitle: Our relationship with the KPD is not high enough.
-choose-if: (kpd_relation >= 60 and communist_coalition >= 3) or kpd_party_leader == "Conciliators"
-go-to: popular_front_success
-
-@popular_front_braun
-title: Use pressure from President Braun to force the parties to cooperate.
-view-if: president == "Braun"
-go-to: popular_front_success
-
-@great_popular_front
-view-if: z_party_leader == "Joos" and kpd_party_leader == "Conciliators"
-on-arrival: spd_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; kpd_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
-achievement: grosse_volksfront
-go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
-
-Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and KPD helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the SPD, acceptable to the Center and KPD [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
-
-@popular_front_success
-on-arrival: spd_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; kpd_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
-go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
-achievement: volksfront
-
-Somehow, surprisingly, the coalition is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the SPD, acceptable to the Center and KPD [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
-
-@popular_front_no_civil_war
-on-arrival: kpd_goals_seen = 0; finance_minister_party = "Z"; interior_minister_party = "Z"; economic_minister_party = "Z"; labor_minister_party = "Z"; foreign_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_minister = "I"; leverage += kpd_r
-achievement: volksfront
-
-In response to the KPD's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that the Popular Front government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and center and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
-
-The KPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" within the Popular Front government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that the Popular Front would inevitably fail, and that our failure would benefit them.
-
-- @ministries: First, we must select our ministries.
-
-
-@popular_front_civil_war
-on-arrival: kpd_relation = 80; reichswehr_loyalty += 0.25;
-
-In response to the KPD's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
-
-The Center manages to diffuse some of the hostility from the Reichswehr and the Stahlhelm, but fail to prevent the outbreak of fighting. We are forced to fight on the same side as the KPD, whether we want to or not.
-
-- @civil_war: A civil war, then.
-
-
 
 @far_right_coalition
 title: Far-right coalition
@@ -448,90 +364,6 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 - @far_right_win: Let the Nazis form their government.
 
 
-@left_coalition
-title: Is a United Left coalition possible?
-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
-unavailable-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
-view-if: left_coalition >= 50
-choose-if: (kpd_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40)) and communist_coalition >= 3
-
-There are enough votes for a SPD + KPD coalition government, if such a thing were actually possible.
-
-The far-right might attempt a coup, if such a coalition were formed.
-
-- @left_coalition_impossible: This is impossible.
-- @left_coalition_possible: This could be possible.
-
-@left_coalition_impossible
-go-to: coalition_menu
-
-A far left coalition is impossible.
-
-
-@left_coalition_possible
-
-The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
-
-- @thalmann_chancellor: Appoint Thälmann as chancellor.
-- @left_coalition_resources
-- @left_coalition_relations
-- @coalition_menu: Try a different governing arrangement.
-
-@thalmann_chancellor
-choose-if: president == "Braun" and reformist_strength + neorevisionist_strength < left_strength
-unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
-on-arrival: chancellor = "Thälmann"; chancellor_party = "KPD"; kpd_relation = 80; in_left_front = 1; spd_in_government = 1 
-
-With great reluctance, President [+ president +] appoints [+ chancellor +] as chancellor.
-
-Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the KPD, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
-
-In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the KPD from taking power. We are forced to be on the same side as the KPD, whether we want to or not.
-
-- @civil_war
-
-
-@left_coalition_resources
-title: Use our resources to smooth things over.
-unavailable-subtitle: Required: 3 resources
-subtitle: -3 resources
-choose-if: resources >= 3
-on-arrival: resources -= 3
-go-to: left_coalition_success
-
-@left_coalition_relations
-title: Convince the KPD to accept democracy.
-unavailable-subtitle: Our relationships with the KPD are not good enough.
-choose-if: kpd_relation >= 60 or kpd_party_leader == "Conciliators"
-go-to: left_coalition_success
-
-
-@left_coalition_success
-on-arrival: spd_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; coup_progress += 3; capital_strike_progress += 2; in_popular_front = 0; in_grand_coalition = 0; in_weimar_coalition = 0; kpd_relation += 10
-go-to: left_coalition_civil_war if coup_progress >= 10; left_coalition_no_civil_war if coup_progress < 10
-achievement: einheitsfront
-
-Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the SPD, KPD, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the SPD, but was acceptable to the left due to his previous membership in the left-wing anti-war USPD.
-
-# just raise the coup limit, don't immediately go to civil war
-
-@left_coalition_no_civil_war
-on-arrival: kpd_goals_seen = 0; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD"; reichswehr_loyalty -= 0.05
-
-In response to the KPD's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that our government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
-
-The KPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
-
-Whatever their reasoning is, the SPD has control over the ministries of government.
-
-@left_coalition_civil_war
-on-arrival: reichswehr_loyalty += 0.1
-
-In response to the KPD's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
-
-- @civil_war: A civil war, then.
-
-
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
@@ -542,7 +374,7 @@ choose-if: year < 1929
 
 There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DNVP, and minor conservative parties. [? if largest_party == "SPD": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
-- @right_coalition_sure: Yes, we will abdicate our responsibility for government formation, and let a right-wing coalition take power.
+- @right_coalition_sure: Yes, we will participate in a right coalition.
 - @grand_coalition: Actually, we wish to form a grand coalition after all.
 
 @no_right_coalition
@@ -551,8 +383,8 @@ go-to: no_majority
 However, the DNVP and its leader Hugenberg is refusing to partake in a coalition with the "November criminals" in the Center Party. Thus, there is no clear path towards a Reichstag majority.
 
 @right_coalition_sure
-subtitle: This will be extremely unpopular within our party.
-on-arrival: pro_republic -= 5; center_dissent += 15; left_dissent += 10; labor_dissent += 25; reformist_dissent += 25; neorevisionist_dissent += 15; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5
+subtitle: This will be extremely unpopular within the left of our party.
+on-arrival: pro_republic -= 5; liberal_dissent += 10; labor_dissent += 5; spd_relation -= 10
 go-to: right_coalition_2
 
 
@@ -560,7 +392,7 @@ go-to: right_coalition_2
 unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
 choose-if: year < 1929
-on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
+on-arrival: dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
 
 Even though the DNVP is very reluctant to participate in such a coalition, they still accede to President Hindenburg's wishes. Thus, a majority center-right coalition is formed, with Brüning as chancellor.
 
@@ -1071,55 +903,55 @@ Unfortunately, the DVP and BVP are unwilling to enter into another coalition wit
 - @no_majority: Thus, there is no clear majority.
 - @brauns_dilemma
 - @right_coalition_2: Perhaps a right-wing coalition may form.
-- @beg_dvp: Perhaps we could ask the DVP to change their minds?
+- @beg_spd: Perhaps we could ask the DVP to change their minds?
 - @unity_government
 - @coalition_menu: What are the other governing arrangements?
 
 
-@beg_dvp
+@beg_spd
 view-if: dvp_relation >= 15
-go-to: dvp_conservative if stresemann_dead == 1; dvp_majority if stresemann_dead == 0
+go-to: spd_socialist if stresemann_dead == 1; spd_majority if stresemann_dead == 0
 
-@dvp_majority
+@spd_majority
 go-to: join_bruning
 
-Under the influence of Gustav Stresemann, the DVP agrees to allow us into the coalition, and so does the BVP.
+Under the influence of Gustav Stresemann, the SPD agrees to allow us into the coalition.
 
 
-@dvp_conservative
+@spd_socialist
 
-The DVP asks us to adhere to their conservative economic policies (that is, extreme austerity and labor discipline) in exchange for us joining the coalition.
+The DVP asks us to adhere to their socialist economic policies in exchange for us joining the coalition.
 
-- @beg_dvp_2: But they would not have a majority without the SPD! The DNVP and NSDAP have no interest in participating in government.
+- @beg_spd_2: But they would not have a majority without the SPD! The DNVP and NSDAP have no interest in participating in government.
 - @no_majority: There is no chance that we would agree.
 - @brauns_dilemma
 - @coalition_menu: What are the other governing arrangements?
 
 
-@beg_dvp_2
-go-to: beg_dvp_succeed; beg_dvp_fail
+@beg_spd_2
+go-to: beg_spd_succeed; beg_spd_fail
 
 We make the case that without the SPD, there is no parliamentary majority, given the DNVP and NSDAP's hostility to constitutional government.
 
-@beg_dvp_succeed
+@beg_spd_succeed
 go-to: join_bruning
 
 Somehow, we succeed in convincing them! We are now in a coalition.
 
 
-@beg_dvp_fail
+@beg_spd_fail
 go-to: no_majority
 
-As expected, the DVP is too set in their anti-democratic ways.
+As expected, the SPD is too set in their socialist ways.
 
 
 
 @grand_coalition_spd_lead
-on-arrival: leverage -= 15 if dvp_relation < 20
+on-arrival: leverage -= 15 if spd_relation < 20
 
-As expected, the SPD is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and People's (DVP) parties.
+As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and <span style="color: #C0A054;">People's (**DVP**)</span> parties.
 
-[? if dvp_relation < 20 : As our relation with the DVP is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
+[? if spd_relation < 20 : As our relation with the SPD is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 
 Who should be the chancellor?
 
@@ -1135,7 +967,7 @@ Who should be the chancellor?
 title: Hermann Müller for Chancellor
 view-if: muller_dead = 0
 subtitle: Müller is popular within the party, and is the preferred candidate of the Center and other parties.
-on-arrival: spd_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: dvp_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
 Müller's appointment as chancellor is approved by all our potential allies.
@@ -1144,7 +976,7 @@ Müller's appointment as chancellor is approved by all our potential allies.
 title: Otto Wels for Chancellor
 view-if: muller_dead = 1
 subtitle: Otto Wels is a party leader, but can he also be chancellor?
-on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: dvp_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
 Otto Wels's appointment as chancellor is approved by our potential allies.
@@ -1163,7 +995,7 @@ The Center party has significant qualms about appointing Braun as chancellor, gi
 @braun_2
 subtitle: Otto Braun will be Chancellor.
 view-if: not historical_mode
-on-arrival: spd_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; leverage -= 10; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: dvp_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; leverage += 10; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
 
 We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
@@ -1172,7 +1004,7 @@ We have promised to let the Center have more influence in the government in resp
 @z_chancellor
 title: Let the Center Party have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; dvp_relation += 5; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5
+on-arrival: nationalist_dissent += 5; z_relation += 10; spd_relation -= 5; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
 go-to: ministries
 
 This is highly unexpected, and many in the left and center of our party are criticizing this decision.
@@ -1184,7 +1016,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 title: Let Joseph Wirth of the Center Party be chancellor.
 view-if: z_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; kpd_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; leverage += 5
+on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; spd_relation += 3; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
 go-to: ministries
 
 
@@ -1239,58 +1071,58 @@ We are seen as responsible for the failure to form a government, and many of our
 
 @ministries
 
-We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the KPD. ?] [? if in_left_front and reichswehr_minister_party == "KPD" : If the KPD controls the Reichswehr Ministry, the army will most likely revolt. ?]
+We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area.
 
 - #mins_1928
 - #drop_mins_1928
 
 @labor
 title: Labor Ministry
-subtitle: Taking the Labor Ministry is expected of us.
+subtitle: This is not our usual domain.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
-view-if: labor_minister_party != "SPD"
-on-arrival: leverage -= 5; labor_minister_party = "SPD"; labor_minister = "Wissell"
+choose-if: leverage >= 15
+view-if: labor_minister_party != "DVP"
+on-arrival: leverage -= 15; labor_minister_party = "DVP"; labor_minister = "Thiel"
 go-to: ministries
 
-Rudolf Wissell of the SPD has been appointed labor minister.
+Otto Thiel of the <span style="color: #C0A054;">**DVP**</span> has been appointed labor minister.
 
 @interior
 title: Interior Ministry
-subtitle: Taking the Interior Ministry is expected of us. The Interior Ministry controls domestic security.
+subtitle: The Interior Ministry controls domestic security.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
-view-if: interior_minister_party != "SPD"
-on-arrival: leverage -= 5; interior_minister_party = "SPD"; interior_minister = "Severing"
+choose-if: leverage >= 10
+view-if: interior_minister_party != "DVP"
+on-arrival: leverage -= 10; interior_minister_party = "DVP"; interior_minister = "Jarres"
 go-to: ministries
 
-Carl Severing of the SPD has been appointed Interior Minister.
+Karl Jarres of the <span style="color: #C0A054;">**DVP**</span> has been appointed Interior Minister.
 
 @finance
 title: Finance Ministry
 subtitle: The Finance Ministry controls the government budget and taxes.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 10 
-view-if: finance_minister_party != "SPD"
-on-arrival: leverage -= 10; finance_minister_party = "SPD"; finance_minister = "Hilferding"
+choose-if: leverage >= 5 
+view-if: finance_minister_party != "DVP"
+on-arrival: leverage -= 5; finance_minister_party = "DVP"; finance_minister = "Moldenhauer"
 go-to: ministries
 
-Rudolf Hilferding of the SPD has been appointed Finance Minister.
+Paul Moldenhauer of the <span style="color: #C0A054;">**DVP**</span> has been appointed Finance Minister.
 
 @economic
 title: Economic Ministry
 subtitle: The Economic Ministry controls broader economic policy.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 10 
-view-if: economic_minister_party != "SPD"
-on-arrival: leverage -= 10; economic_minister_party = "SPD"; economic_minister = "Schmidt"
+choose-if: leverage >= 5 
+view-if: economic_minister_party != "DVP"
+on-arrival: leverage -= 5; economic_minister_party = "DVP"; economic_minister = "Raumer"
 go-to: ministries
 
-Robert Schmidt of the SPD has been appointed Economic Minister.
+Hans von Raumer of the <span style="color: #C0A054;">**DVP**</span> has been appointed Economic Minister.
 
 @justice
 title: Justice Ministry
@@ -1298,23 +1130,23 @@ subtitle: The Justice Ministry controls the courts.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
-view-if: justice_minister_party != "SPD"
-on-arrival: leverage -= 10; justice_minister_party = "SPD"; justice_minister = "Radbruch"
+view-if: justice_minister_party != "DVP"
+on-arrival: leverage -= 10; justice_minister_party = "DVP"; justice_minister = "Heinze"
 go-to: ministries
 
-Gustav Radbruch of the SPD has been appointed Justice Minister.
+Rudolf Heinze of the <span style="color: #C0A054;">**DVP**</span> has been appointed Justice Minister.
 
 @foreign
 title: Foreign Ministry
-subtitle: This is usually the domain of Gustav Stresemann of the DVP.
+subtitle: Taking the Foreign Ministry is expected of us.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 10 
-view-if: foreign_minister_party != "SPD"
-on-arrival: leverage -= 10; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"
+choose-if: leverage >= 5 
+view-if: foreign_minister_party != "DVP"
+on-arrival: leverage -= 5; foreign_minister_party = "DVP"; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if streseman_dead
 go-to: ministries
 
-Rudolf Breitscheid of the SPD has been appointed Foreign Minister.
+[? if streseman_dead = 0: Gustav Stresemann ?][? if streseman_dead = 1: Julius Curtius ?] of the <span style="color: #C0A054;">**DVP**</span> has been appointed Foreign Minister.
 
 
 @agriculture
@@ -1322,12 +1154,12 @@ title: Agricultural Ministry
 subtitle: This is not our usual domain.
 unavailable-subtitle: We do not have enough leverage.
 choose-if: leverage >= 10 
-view-if: agriculture_minister_party != "SPD"
-on-arrival: leverage -= 10; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"
+view-if: agriculture_minister_party != "DVP"
+on-arrival: leverage -= 10; agriculture_minister_party = "DVP"; agriculture_minister = "Baade"
 go-to: ministries
 tags: mins_1928
 
-Fritz Baade of the SPD has been appointed Agriculture Minister.
+Fritz Baade of the <span style="color: #C0A054;">**DVP**</span> has been appointed Agriculture Minister.
 
 @reichswehr
 title: Reichswehr Ministry
@@ -1335,11 +1167,11 @@ subtitle: The Ministry responsible for the armed forces is not typically our dom
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 15 
-view-if: reichswehr_minister_party != "SPD"
-on-arrival: leverage -= 15; reichswehr_minister_party = "SPD"; reichswehr_minister = "Leber"
+view-if: reichswehr_minister_party != "DVP"
+on-arrival: leverage -= 15; reichswehr_minister_party = "DVP"; reichswehr_minister = "Seeckt"
 go-to: ministries
 
-Julius Leber of the SPD has been appointed Reichswehr Minister.
+Hans von Seeckt of the <span style="color: #C0A054;">**DVP**</span> has been appointed Reichswehr Minister.
 
 
 
@@ -1352,56 +1184,56 @@ This coalition arrangement is tolerable to all.
 
 @drop_labor
 title: Drop the Labor Ministry.
-view-if: labor_minister_party = "SPD"
-on-arrival: labor_minister_party = "Z"; labor_minister = "Stegerwald"; leverage += 5;
+view-if: labor_minister_party = "DVP"
+on-arrival: labor_minister_party = "Z"; labor_minister = "Stegerwald"; leverage += 15;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_interior
 title: Drop the Interior Ministry.
-view-if: interior_minister_party = "SPD"
-on-arrival: interior_minister_party = "Z"; interior_minister = "Wirth"; leverage += 5;
+view-if: interior_minister_party = "DVP"
+on-arrival: interior_minister_party = "Z"; interior_minister = "Wirth"; leverage += 10;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_finance
 title: Drop the Finance Ministry.
-view-if: finance_minister_party = "SPD"
-on-arrival: finance_minister_party = "DVP"; finance_minister = "Moldenhauer"; leverage += 10; finance_minister_party = "Z" if in_weimar_coalition or in_popular_front; finance_minister = "Köhler" if in_weimar_coalition or in_popular_front
+view-if: finance_minister_party = "DVP"
+on-arrival: finance_minister_party = "Z"; finance_minister = "Köhler"; leverage += 5
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_economic
 title: Drop the Economic Ministry.
-view-if: economic_minister_party = "SPD"
-on-arrival: economic_minister_party = "DVP"; economic_minister = "Curtius"; leverage += 10; economic_minister_party = ddp_name if in_weimar_coalition or in_popular_front; economic_minister = "Dietrich" if in_weimar_coalition or in_popular_front;
+view-if: economic_minister_party = "DVP"
+on-arrival: economic_minister_party = ddp_name; economic_minister = "Hamm"; leverage += 5; economic_minister_party = "SPD" if in_weimar_coalition; economic_minister = "Schmidt" if in_weimar_coalition;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_justice
 title: Drop the Justice Ministry.
-view-if: justice_minister_party = "SPD"
+view-if: justice_minister_party = "DVP"
 on-arrival: justice_minister_party = ddp_name; justice_minister = "Koch-Weser"; leverage += 10;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_foreign
 title: Drop the Foreign Ministry.
-view-if: foreign_minister_party = "SPD"
-on-arrival: foreign_minister_party = "DVP"; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if streseman_dead; leverage += 10; foreign_minister_party = "Z" if in_weimar_coalition or in_popular_front; foreign_minister = "Wirth" if in_weimar_coalition or in_popular_front;
+view-if: foreign_minister_party = "DVP"
+on-arrival: foreign_minister_party = "Z"; foreign_minister = "Wirth"; leverage += 5
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_agriculture
 title: Drop the Agriculture Ministry.
-view-if: agriculture_minister_party = "SPD"
-on-arrival: agriculture_minister_party = ddp_name; agriculture_minister = "Dietrich"; leverage += 10; agriculture_minister_party = "Z" if in_weimar_coalition; agriculture_minister = "Hermes" if in_weimar_coalition
+view-if: agriculture_minister_party = "DVP"
+on-arrival: leverage += 10; agriculture_minister_party = "Z"; agriculture_minister = "Hermes"
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_reichswehr
 title: Drop the Reichswehr Ministry.
-view-if: reichswehr_minister_party = "SPD"
+view-if: reichswehr_minister_party = "DVP"
 on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15;
 tags: drop_mins_1928
 go-to: ministries
