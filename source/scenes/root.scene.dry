@@ -563,7 +563,7 @@ Q.juchacz_advisor = 0; // Marie Juchacz
 Q.baade_advisor = 0; // Fritz Baade
 
 // Labor advisors
-Q.thiel_advisor = 1; // Otto Thiel
+Q.thiel_advisor = 0; // Otto Thiel
 Q.leipart_advisor = 0; // Theodor Leipart
 Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
 Q.wissell_advisor = 0; // Rudolf Wissell
