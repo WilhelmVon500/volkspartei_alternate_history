@@ -1155,11 +1155,11 @@ subtitle: This is not our usual domain.
 unavailable-subtitle: We do not have enough leverage.
 choose-if: leverage >= 10 
 view-if: agriculture_minister_party != "DVP"
-on-arrival: leverage -= 10; agriculture_minister_party = "DVP"; agriculture_minister = "Baade"
+on-arrival: leverage -= 10; agriculture_minister_party = "DVP"; agriculture_minister = "Kanitz"
 go-to: ministries
 tags: mins_1928
 
-Fritz Baade of the <span style="color: #C0A054;">**DVP**</span> has been appointed Agriculture Minister.
+Gerhard von Kanitz of the <span style="color: #C0A054;">**DVP**</span> has been appointed Agriculture Minister.
 
 @reichswehr
 title: Reichswehr Ministry
