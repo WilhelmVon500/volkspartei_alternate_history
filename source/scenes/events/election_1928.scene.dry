@@ -910,9 +910,9 @@ Unfortunately, the DVP and BVP are unwilling to enter into another coalition wit
 
 @beg_spd
 view-if: dvp_relation >= 15
-go-to: spd_socialist if stresemann_dead == 1; spd_majority if stresemann_dead == 0
+go-to: spd_socialist if stresemann_dead == 1; dvp_majority if stresemann_dead == 0
 
-@spd_majority
+@dvp_majority
 go-to: join_bruning
 
 Under the influence of Gustav Stresemann, the SPD agrees to allow us into the coalition.
