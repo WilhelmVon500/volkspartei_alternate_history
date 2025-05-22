@@ -23,16 +23,16 @@ if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
 
-if (Q.pro_republic >= 50) {
-    Q.dvp_left += 1
+if (Q.pro_republic >= (Q.nsdap_votes + Q.dnvp_votes + Q.kpd_votes + Q.other_votes + 30)) {
+    Q.dvp_left += 0.1
 } else {
-    Q.dvp_right += 1
+    Q.dvp_right += 0.1
 }
 
 if (Q.liberal_strength > Q.nationalist_strength + (Q.industrialist_strength * 0.5)) {
-    Q.dvp_left += 1
+    Q.dvp_left += 0.1
 } else {
-    Q.dvp_right += 1
+    Q.dvp_right += 0.1
 }
 
 if (Q.dvp_left + Q.dvp_right >= 30) {
