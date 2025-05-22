@@ -45,6 +45,10 @@ Q.dues = 2;
 Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
+
+Q.dvp_left = 5
+Q.dvp_right = 0
+
 // factions
 Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'neorevisionist'];
 // should this be normalized to 100%?
