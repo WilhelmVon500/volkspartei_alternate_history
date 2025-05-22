@@ -29,7 +29,7 @@ Pushing against both the far-right and far-left appeases our liberal wing, thoug
 @nsdap
 on-arrival: enemies = "NSDAP"; liberal_strength += 3; liberal_dissent -= 3; nazi_urgency += 1; new_middle_nsdap -= 4;
 choose-if: liberal_strength > nationalist_strength
-unavailable-subtitle: The nationalist wing of our party is too strong. They will not allow this.
+unavailable-subtitle: The right wing of our party is too strong. They will not allow this.
 
 [? if nsdap_votes < 7 : Rallying against a politically moribund party does not rouse our base, and only strengthens the Nazis through the publicity we give them. ?][? if nsdap_votes >= 7 : The Nazis’ rising ascendancy as the party of the right is also eating into our base. We must fight back against the brown tide, even if our parties are both nationalistic by nature. ?]
 
