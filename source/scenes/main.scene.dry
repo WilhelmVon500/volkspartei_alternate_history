@@ -47,7 +47,7 @@ max-cards: 4
 
 @party
 title: Party Affairs
-card-image: img/Kolnische_zeitung.png
+card-image: img/Konigsberger_Allgemeine_Zeitung.png
 is-deck: true
 
 - #party_affairs
