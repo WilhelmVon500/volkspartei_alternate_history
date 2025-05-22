@@ -1,7 +1,6 @@
 title: DNVP Leadership Vote
 subtitle: The DNVP chooses a new leader...
 view-if: dnvp_leader = "Westarp" and year = 1928 and month = 10
-frequency: 1000
 max-visits: 1
 tags: event
 face-image: img/dnvp_congress.jpg
