@@ -24,23 +24,28 @@ if (Q.pro_republic >= 100) {
 }
 
 if Q.pro_republic >= 70 {
-    dvp_left += 2
+    Q.dvp_left += 2
 } else if Q.pro_republic >= 50 {
-    dvp_left += 1
+    Q.dvp_left += 1
 } else {
-    dvp_right += 1
+    Q.dvp_right += 1
 }
 
-if liberal_strength > nationalist_strength + (industrialist_strength * 0.5) {
-    dvp_left += 1
+if Q.liberal_strength > Q.nationalist_strength + (Q.industrialist_strength * 0.5) {
+    Q.dvp_left += 1
 } else {
-    dvp_right += 1
+    Q.dvp_right += 1
 }
 
-if dvp_left > dvp_right {
-    dvp_ideology = "Left"
+if (Q.dvp_left + Q.dvp_right >= 30) {
+    Q.dvp_left *= 0.9;
+    Q.dvp_right *= 0.9;
+}
+
+if Q.dvp_left > Q.dvp_right {
+    Q.dvp_ideology = "Left"
 } else {
-    dvp_ideology = "Right"
+    Q.dvp_ideology = "Right"
 }
 
 // re-calculate party support
