@@ -20,21 +20,24 @@ In our media and campaign materials, who should we consider as our main opponent
 - @easy_discard
 
 @anti_dem
-on-arrival: enemies = "anti-democratic parties"; liberal_strength += 5; liberal_strength += 5; nationalist_dissent += 5; workers_kpd -= 2; new_middle_nsdap -= 2; rural_dnvp -= 2; DNVP_relation -= 10; NSDAP_relation -= 10
+on-arrival: enemies = "anti-democratic parties"; liberal_strength += 5; liberal_dissent -= 5; nationalist_strength -= 3; nationalist_dissent += 5; workers_kpd -= 2; new_middle_nsdap -= 2; rural_dnvp -= 2; DNVP_relation -= 7; NSDAP_relation -= 7
+choose-if: liberal_strength > nationalist_strength + industrialist_strength - 10
 
-Attacking the far right and left is popular among all but the nationalist wing of our party, who would prefer to be fighting the socialist parties. This might also hamper our ability to reconcile with DNVP and NSDAP in the future.
+Pushing against both the far-right and far-left appeases our liberal wing, though the industrialists and nationalists would prefer to solely go against the Marxist parties. The Weimar Parties also appear to soften their opposition against our more nationalist tendencies, if only slightly.
 
 @nsdap
-on-arrival: enemies = "NSDAP"; liberal_strength += 5; nazi_urgency += 1; new_middle_nsdap -= 4;
+on-arrival: enemies = "NSDAP"; liberal_strength += 3; liberal_dissent -= 3; nazi_urgency += 1; new_middle_nsdap -= 4;
+choose-if: liberal_strength > nationalist_strength
 
-[? if nazi_urgency == 0 or nsdap_r < 10 : The NSDAP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and nsdap_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
+[? if nsdap_votes < 7 : Rallying against a politically moribund party does not rouse our base, and only strengthens the Nazis through the publicity we give them. ?][? if nsdap_votes >= 7 : The Nazis’ rising ascendancy as the party of the right is also eating into our base. We must fight back against the brown tide, even if our parties are both nationalistic by nature. ?]
 
 @kpd
-on-arrival: enemies = "KPD"; nationalist_strength += 5; nationalist_dissent -= 5; kpd_relation -= 5
+on-arrival: enemies = "KPD"; nationalist_strength += 3; nationalist_dissent -= 3; industrialist_strength += 3; industrialist_dissent -= 3; workers_kpd -= 1; kpd_relation -= 5; DNVP_relation += 3
 
-Attacking the KPD is supported by all right-wingers.
+Demonizing the Communists has emboldened our voter base, though some nationalists and industrialists question our exclusion of the SPD. At the very least, the right is warming up to us.
 
 @socialist
-on-arrival: enemies = "socialist parties"; nationalist_strength += 8; nationalist_dissent -= 8; liberal_dissent += 8; spd_relation -= 5; kpd_relation -= 5; workers_spd -= 3; coalition_dissent += 1 if in_grand_coalition = 1
+on-arrival: enemies = "socialist parties"; nationalist_strength += 5; nationalist_dissent -= 5; liberal_strength -= 5; liberal_dissent += 5; spd_relation -= 5; kpd_relation -= 5; DNVP_relation += 5; new_middle_spd -= 3; workers_kpd -= 1; coalition_dissent += 1 if in_grand_coalition = 1
+choose-if: liberal_strength < nationalist_strength + industrialist_strength - 10
 
-Our anti-socialist rhetoric is popular among the right, but may make it harder to build the coalitions that are necessary for government in the future.
+Marxism has no place in Germany, and we will vehemently oppose any of its variants. Our nationalist and industrialist base is fired up, though the Liberals and especially the Stressemanites are growing discontent with our attack on a nominally democratic party.
