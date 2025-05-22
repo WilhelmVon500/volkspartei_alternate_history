@@ -31,7 +31,7 @@ Julius Curtius has won. The party leadership stays committed to democratic syste
 
 
 @scholz_lead
-choose-if: nationalist_strength + (industrialist_strength * 0.5) > liberal_strength
+choose-if: nationalist_strength + (industrialist_strength * 0.5) >= liberal_strength
 on-arrival: dvp_leader = "Scholz"; spd_relation -= 7; old_middle_dvp += 1; new_middle_dvp -= 2; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 3; liberal_dissent += 5
 unavailable-subtitle: Nationalists are not strong enough.
 subtitle: The decline of the Weimar Republic has also caused a decline in liberal sentiment, with many of the undecided flocking to the nationalists.
