@@ -9,6 +9,9 @@ new-page: true
 
 = The Death of Gustav Stresemann
 
-Gustav Stresemann, leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
+Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
 
-Ernst Scholz, a compromise candidate, has succeeded him as party leader, and leadership election will be conducted in December.
+- @stresemanndied: New leader will be elected.
+
+@stresemanndied
+go-to: dvp_congress_1929
