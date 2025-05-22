@@ -23,9 +23,7 @@ if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
 
-if (Q.pro_republic >= 70) {
-    Q.dvp_left += 2
-} else if (Q.pro_republic >= 50) {
+if (Q.pro_republic >= 50) {
     Q.dvp_left += 1
 } else {
     Q.dvp_right += 1
