@@ -23,9 +23,35 @@ At the Labor and Socialist International, we can forge contacts with our fratern
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; west_relation += 1; pacifism += 1
+
+Through the French and British Liberals, we can nudge their governments towards rapprochement with Germany. [? if dvp_r < 10 and dvp_votes < 15: Due to our party’s size, our effectiveness is not to the extent that we have hoped for. ?][[? if dvp_ideology = "Left" and spd_relation >= 40: Perhaps through allying with the SPD, the main force of pacifism within the republic, our joint efforts could push this further. ?]
+
+- @spd_joint_influencing: Inquire with the SPD about a potential joint influencing of the Entente’s Liberals and Socialists.
+- @root: Do not cooperate with SPD
+
+@spd_joint_influencing
+
+We have contacted the SPD, and, for a price, they are willing to collaborate with us.
+
+- @pay_spd_joint_influencing: Pay them.
+- @use_relations_spd_joint_influencing: Use our relations.
+- @root: We cannot afford to do so.
+
+@pay_spd_joint_influencing
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; west_relation += 1; liberal_strength += 5; pacifism += 1
 
-The liberals of France and Britain can influence their governments to be friendlier towards Germany.
+Negotiations with the SPD have proven successful, with both the Liberal and Socialist parties of the Entente calling for rapprochement with Germany.
+
+@use_relations_spd_joint_influencing
+choose-if: spd_relation >= 55
+unavailable-subtitle: Our relations are not good enough.
+on-arrival: west_relation += 1; liberal_strength += 5; pacifism += 1
+
+Negotiations with the SPD have proven successful, with both the Liberal and Socialist parties of the Entente calling for rapprochement with Germany.
+
 
 @austria
 subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war_seen: - We will also help the Austrians oppose their dictatorship. ?]
