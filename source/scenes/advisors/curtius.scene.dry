@@ -1,33 +1,33 @@
-title: Rudolf Breitscheid
+title: Julius Curtius
 is-pinned-card: true 
-tags: advisor, centrist
-card-image: img/portraits/BreitscheidRudolf.jpg
+tags: advisor, liberal
+card-image: img/portraits/CurtiusJulius.jpg
 new-page: true
-view-if: breitscheid_advisor = 1
+view-if: curtius_advisor = 1
 
-= Rudolf Breitscheid
+= Julius Curtius
 
-Breitscheid is a long-time SPD leader, who was at one time part of the anti-war USPD. He came from a working-class family, but has a doctorate degree and started his political career as a liberal.
+WIP
 
-- @breitscheid_international
-- @breitscheid_foreign
+- @curtius_international
+- @curtius_foreign
 - @party_discipline
 - @snap_election
 - @root: Return to main
 
-@breitscheid_international
+@curtius_international
 title: International Party Relations
-subtitle: Breitscheid is one of our contacts with international socialist parties.
+subtitle: Curtius is one of our contacts with international parties.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0
 on-arrival: advisor_action_timer = 6; international_relations_timer -= 12; last_advisor_action = 1
 go-to: international_relations
 
-@breitscheid_foreign
+@curtius_foreign
 title: Foreign Policy
-subtitle: As Foreign Minister, Breitscheid can set our foreign policy.
-unavailable-subtitle: [? if not spd_in_government: The SPD is not in government. ?] [? if foreign_minister_party != "SPD" : The SPD does not control the Foreign Ministry. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-choose-if: advisor_action_timer == 0 and spd_in_government and foreign_minister_party == "SPD"
+subtitle: As Foreign Minister, Curtius can set our foreign policy.
+unavailable-subtitle: [? if not dvp_in_government: The <span style="color: #C0A054;">**DVP**</span> is not in government. ?] [? if foreign_minister_party != "DVP" : The <span style="color: #C0A054;">**DVP**</span> does not control the Foreign Ministry. ?][? if foreign_minister != "Curtius" : Curtius is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and dvp_in_government and foreign_minister_party == "DVP" and foreign_minister = "Curtius"
 on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_action = 1
 go-to: foreign_policy
 
