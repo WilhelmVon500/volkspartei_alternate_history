@@ -25,7 +25,7 @@ choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; west_relation += 1; pacifism += 1
 
-Through the French and British Liberals, we can nudge their governments towards rapprochement with Germany. [? if dvp_r <= 15 and dvp_votes <= 15: Due to our party’s size, our effectiveness is not to the extent that we have hoped for. ?][[? if dvp_ideology = "Left" and spd_relation >= 40: Perhaps through allying with the SPD, the main force of pacifism within the republic, our joint efforts could push this further. ?]
+Through the French and British Liberals, we can nudge their governments towards rapprochement with Germany. [? if dvp_r < 15 and dvp_votes < 15: Due to our party’s size, our effectiveness is not to the extent that we have hoped for. ?][[? if dvp_ideology = "Left" and spd_relation >= 40: Perhaps through allying with the SPD, the main force of pacifism within the republic, our joint efforts could push this further. ?]
 
 - @spd_joint_influencing: Inquire with the SPD about a potential joint influencing of the Entente’s Liberals and Socialists.
 - @root: Do not cooperate with SPD
