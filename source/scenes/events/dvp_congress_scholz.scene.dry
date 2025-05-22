@@ -3,6 +3,7 @@ subtitle: Ernst Scholz has resigned!
 view-if: year = 1930 and month = 12 and dvp_leader == "Scholz"
 max-visits: 1
 tags: event
+face-image: img/portraits/ScholzErnst.jpg
 new-page: true
 
 = <span style="color: #C0A054;">**DVP**</span> Congress
@@ -15,10 +16,12 @@ Ernst Scholz has resigned due to health reasons.
 
 @dingeldey_lead
 on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 5; DNVP_relation += 5; old_middle_dvp -= 1; new_middle_dvp -= 2; pro_republic -= 2; nationalist_strength += 3; liberal_dissent += 5; dvp_right += 1
+face-image: img/portraits/DingeldeyEduard.jpg
 
 Eduard Dingeldey has won. Backed by the party's right wing, he represents a significant shift to the right.
 
 @hugo_lead
 on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; DNVP_relation += 10 if dnvp_leader == "Hugenberg"; NSDAP_relation += 5; new_middle_dvp -= 4; workers_dvp -= 8; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 5; industrialist_dissent -= 7; liberal_dissent += 10; dvp_right += 3
+face-image: img/portraits/HugoOtto.jpg
 
 Otto Hugo has won. Backed by the party's far right wing, he represents a significant shift to the right.
