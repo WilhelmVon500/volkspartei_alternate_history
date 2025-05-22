@@ -100,7 +100,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: Stalinism ([+ kpd_party_leader +])
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: Authoritarian Conservatism (Hugenberg)
+{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [? if dnvp_leader = "Westarp": National Conservatism ?][? if dnvp_leader = "Hugenberg": National Conservatism ?] ([+ dnvp_leader +])
 
 {!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: Nazism ([+ nsdap_leader +])
 
