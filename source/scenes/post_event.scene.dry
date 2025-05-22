@@ -25,8 +25,6 @@ if (Q.pro_republic >= 100) {
 
 if (Q.pro_republic >= (Q.nsdap_votes + Q.dnvp_votes + Q.kpd_votes + Q.other_votes + 30)) {
     Q.dvp_left += 0.1
-} else {
-    Q.dvp_right += 0.1
 }
 
 if (Q.liberal_strength > Q.nationalist_strength + (Q.industrialist_strength * 0.5)) {
