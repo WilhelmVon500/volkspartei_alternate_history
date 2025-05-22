@@ -1,30 +1,37 @@
 title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
 subtitle: We are choosing a new leader...
-view-if: year = 1929 and month = 12
+view-if: stresemann_dead = 1
 max-visits: 1
 tags: event
-new-page: true
+new-page: false
 
 = <span style="color: #C0A054;">**DVP**</span> Congress
 
-The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Stresemann.
+Following the death of Gustav Stresemann, leader of the liberal wing despite his monarchist beliefs and the main proponent of republican collaboration, our party has become polarized on the trajectory we should take. 
+
+On one side are the Stresemannites currently rallying around Julius Curtius. a man whose views promise a continuation of Stresemann’s steps towards our transformation into a true <span style="color: #C0A054;">People’s Party</span>. This would essentially be going forward with the status quo, a stance that has seen criticism from the right-wing.
+
+On the other, the nationalists and industrialists have unified themselves against the liberal movement, putting forward Ernst Scholz as their candidate. They support collaboration with the radical forces of the far-right, and their paramilitaries that have seen rapid growth.
+
+Being pulled by both factions, the DHV and the labor wing has become a mirror of our own party, with Frank Glatzel siding with the DNVP-sympathetic nationalists, and Otto Thiel harbouring sympathies for the Stresemannites. Glatzel certainly enjoys more support within the DHV with his nationalist tendencies, but Thiel’s support base should not be underestimated.
 
 - @curtius_lead: Julius Curtius
 - @scholz_lead: Ernst Scholz
-- @hugo_lead: Otto Hugo
 
 
 @curtius_lead
-on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 4; workers_dvp += 1; pro_republic += 3; liberal_strength += 5; nationalist_dissent += 5
+on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 2; workers_dvp += 1; pro_republic += 3; liberal_strength += 5; nationalist_dissent += 5
+unavailable-subtitle: Liberal faction is not strong enough.
+subtitle: Even as the Republic has seen a decline, liberal influence has not diminished, and their position has only seen growth within the party.
 
-Julius Curtius has won. The party leadership stays committed to Weimar system.
+Even as the Republic has seen a decline, liberal influence has not diminished, and their position has only seen growth within the party.
+
+Julius Curtius has won. The party leadership stays committed to democratic system.
+
 
 @scholz_lead
-on-arrival: dvp_leader = "Scholz"; industrialist_strength += 3
+on-arrival: dvp_leader = "Scholz"; spd_relation -= 7; old_middle_dvp += 1; new_middle_dvp -= 2; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 3; liberal_dissent += 5
+unavailable-subtitle: Nationalists are not strong enough.
+subtitle: The decline of the Weimar Republic has also caused a decline in liberal sentiment, with many of the undecided flocking to the nationalists.
 
-Ernst Scholz was elected party leader. He represents compromise between the left and right wings of our party.
-
-@hugo_lead
-on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 7; liberal_dissent += 5
-
-Otto Hugo has won. He represents a sharp rightward turn from Stresemann.
+Ernst Scholz has won. He represents a sharp rightward turn from Stresemann.
