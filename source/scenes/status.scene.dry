@@ -94,7 +94,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: Left Liberalism (Koch-Weser)
 
-{!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**DVP**{!</span>!}: [? if dvp_leader = "Stresemann" or dvp_leader = "Scholz" or dvp_leader = "Curtius" or dvp_leader = "Kardorff": National Liberalism ?][? if dvp_leader = "Hugo" or dvp_leader = "Dingeldey": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +])
+{!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**DVP**{!</span>!}: [? if dvp_leader = "Stresemann" or dvp_leader = "Curtius" or dvp_leader = "Kardorff": National Liberalism ?][? if dvp_leader = "Scholz" or dvp_leader = "Dingeldey": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +])
 
 {!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: Social Democracy (Wels)
 
