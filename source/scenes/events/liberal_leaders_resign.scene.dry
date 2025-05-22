@@ -1,0 +1,11 @@
+title: Liberal leaders resign
+new-page: true 
+subtitle: Liberal disagreements with our policies have grown too severe.
+tags: event
+view-if: liberal_dissent >= 60
+on-arrival: liberal_strength *= 0.3; new_middle_dvp -= 10; new_middle_ddp += 8; new_middle_others += 2; n_advisors -= 1 if braun_advisor == 1; n_advisors -= 1 if severing_advisor == 1; braun_advisor = 0; severing_advisor = 0; liberals_resign = 1
+max-visits: 1
+
+= Liberal leaders resign
+
+Our policy choices have greatly offended the liberal faction. Many of our most experienced leaders have resigned.
