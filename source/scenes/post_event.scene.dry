@@ -31,6 +31,12 @@ if Q.pro_republic >= 70 {
     dvp_right += 1
 }
 
+if liberal_strength > nationalist_strength + (industrialist_strength * 0.5) {
+    dvp_left += 1
+} else {
+    dvp_right += 1
+}
+
 if dvp_left > dvp_right {
     dvp_ideology = "Left"
 } else {
