@@ -11,8 +11,8 @@ A leadership vote is being held at the DNVP's congress following the resignation
 
 The right wing of the party rallied behind Alfred Hugenberg, an industrialist and head of a media empire. The moderate wing supports Westarp's re-election.
 
-- @westarp_lead
-- @hugenberg_lead
+- @westarp_lead: Kuno von Westarp
+- @hugenberg_lead: Alfred Hugenberg
 
 @westarp_lead
 on-arrival: dnvp_leader = "Westarp"; dvp_left += 1
