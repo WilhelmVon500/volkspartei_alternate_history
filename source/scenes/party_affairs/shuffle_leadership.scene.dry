@@ -151,14 +151,14 @@ go-to: rm_main
 
 Levi has been removed as an advisor. The Nationalist faction disapproves.
 
-@remove_sender
-title: Remove Sender
-view-if: sender_advisor = 1
+@remove_seeckt
+title: Remove Seeckt
+view-if: seeckt_advisor = 1
 tags: remove_advisor
-on-arrival: sender_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: seeckt_advisor = 0; left_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Sender has been removed as an advisor. The Nationalist faction disapproves.
+Von Seeckt has been removed as an advisor. The Nationalist faction disapproves.
 
 @remove_hugo
 title: Remove Hugo
@@ -430,17 +430,17 @@ tags: nationalist_advisor
 
 Paul Levi is now an advisor.
 
-@add_sender
-title: Toni Sender
-subtitle: Toni Sender is an anti-war and womens' rights advocate, and Reichstag member. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
+@add_seeckt
+title: Hans von Seeckt
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
 is-card: true
-card-image: img/portraits/SenderToni.jpg
-view-if: sender_advisor = 0 and n_advisors < 3
-on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5
+card-image: img/portraits/SeecktHans.jpg
+view-if: seeckt_advisor = 0 and n_advisors < 3
+on-arrival: seckt_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
 
-Toni Sender is now an advisor.
+Hans von Seeckt is now an advisor.
 
 @add_hugo
 title: Otto Hugo
