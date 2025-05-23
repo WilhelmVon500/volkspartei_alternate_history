@@ -1,1 +1,39 @@
+on-arrival: {!
+// set up the infrastructure
+Q.kvp_formed = 1;
+Q.parties.push('kvp');
 
+Q.workers_kvp = 5;
+Q.workers_dnvp -= 3;
+Q.workers_other -= 2;
+
+Q.new_middle_kvp = 8;
+Q.new_middle_dnvp -= 4;
+Q.new_middle_other -= 4;
+
+Q.old_middle_kvp = 10;
+Q.old_middle_dnvp -= 4;
+Q.old_middle_other -= 6;
+
+Q.rural_kvp = 12;
+Q.rural_dnvp -= 5;
+Q.rural_other -= 7;
+
+Q.unemployed_kvp = 0;
+
+Q.catholics_kvp = 3;
+Q.catholics_dnvp -= 1;
+Q.catholics_other -= 2;
+
+
+
+// update all records
+Q.kvp_r = 0;
+Q.old_kvp_r = 0;
+for (var record of Q.election_records) {
+    record['kvp'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['kvp'] = 0;
+}
+!}
