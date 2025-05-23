@@ -83,6 +83,8 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_relation : relationships +]
 
+{!<span class="tooltip-text" title="Conservative People's Party">KVP</span>!}: [+ kvp_relation : relationships +]
+
 {!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
 
 {!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
@@ -91,13 +93,15 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Party Leadership
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: Christian Democracy([+ z_party_leader +])
+{!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**DVP**{!</span>!}: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +])
+
+{!<span class="tooltip-text" title="Center Party">Z</span>!}: Christian Democracy ([+ z_party_leader +])
 
 {!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: Left Liberalism (Koch-Weser)
 
-{!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**DVP**{!</span>!}: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +])
-
 {!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: Social Democracy (Wels)
+
+{!<span class="tooltip-text" title="Conservative People's Party">KVP</span>!}: Christian Conservatism (Westarp)
 
 {!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: Stalinism ([+ kpd_party_leader +])
 
