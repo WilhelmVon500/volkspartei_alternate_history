@@ -383,7 +383,7 @@ on-arrival: chancellor = "Brüning"; chancellor_party = "Z"
 
 There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker SPD government, his preferred chancellor is Heinrich Brüning of the Center Party, who could lead a "presidential" government.
 
-- @toleration_bruning: We will tolerate Brüning.
+- @toleration_bruning: Will SPD tolerate Brüning?
 - @new_grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 
@@ -411,7 +411,7 @@ Alternatively, we could try to form a "new grand coalition" of all constitutiona
 
 The third option is to have new elections.
 
-- @toleration_bruning: We will tolerate Brüning.
+- @toleration_bruning: Will SPD tolerate Brüning?
 - @new_grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 - @unity_government
@@ -427,7 +427,7 @@ unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weim
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DVP may allow us some leverage.
 
 - @use_resources
-- @toleration_bruning: No. We will tolerate a minority government.
+- @toleration_bruning: No. Will SPD tolerate Brüning?
 - @new_elections: No. We will have new elections.
 - @unity_government
 
@@ -483,8 +483,8 @@ on-arrival: z_relation -= 8; ddp_relation -= 5; dvp_relation -= 5
 Our rejection of the unity government has hurt our relations with the bourgeois and center-right parties.
 
 - @brauns_dilemma
-- @toleration_bruning: We will tolerate a minority government led by Brüning.
-- @toleration_wirth: We will tolerate a minority government led by Joseph Wirth.
+- @toleration_bruning: Will SPD tolerate a minority government led by Brüning?
+- @toleration_wirth: Will SPD tolerate a minority government led by Joseph Wirth?
 - @new_elections: There will be new elections.
 
 
@@ -492,7 +492,7 @@ Our rejection of the unity government has hurt our relations with the bourgeois 
 view-if: z_party_leader = "Joos"
 choose-if: president == "Braun"
 unavailable-subtitle: President Hindenburg will not support a minority government led by Joseph Wirth.
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 0; spd_toleration = 1; z_relation += 5; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; pro_republic -= 2;
+on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 0; spd_toleration = 1; z_relation += 5; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = "Z"; pro_republic -= 2;
 
 We have supported a minority government led by the Center Party under Chancellor Joseph Wirth.
 
@@ -757,7 +757,7 @@ go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD")
 # In the first election, SPD always leads. In subsequent elections, if spd_r >= 29 then SPD leads, otherwise Z leads?
 
 @grand_coalition_z_lead
-go-to: grand_coalition_z_lead_2 if dvp_relation >= 30; grand_coalition_fail if dvp_relation < 30
+go-to: grand_coalition_z_lead_2 if spd_relation >= 30; grand_coalition_fail if spd_relation < 30
 
 There are enough votes to form a majority coalition consisting of the SPD, Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and People's (DVP) parties. Given our rather weak electoral performance, [? if spd_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
 
@@ -767,29 +767,30 @@ There are enough votes to form a majority coalition consisting of the SPD, Cente
 
 The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
-Brüning is not opposed to a coalition with us. Alternatively, we could enter a "toleration" agreement.
+Brüning is not opposed to a coalition with SPD. Alternatively, we could pressure them to enter a "toleration" agreement.
 
-- @join_bruning: Join the Brüning coalition.
-- @bruning_oppo: Join the opposition.
-- @toleration_bruning: We will "tolerate" a minority Brüning government.
+- @join_bruning: SPD joins the Brüning coalition.
+- @bruning_oppo: They join the opposition.
+- @toleration_bruning: Will SPD "tolerate" a minority Brüning government?
 - @unity_government
 
 @join_bruning
 view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
-on-arrival: spd_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; leverage = 25 if leverage >= 25;
+on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; leverage = 15 if leverage >= 15;
 go-to: ministries
 
 Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of ministries.
 
 @bruning_oppo
-on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1
+on-arrival: spd_in_government = 0; dvp_in_government = 1; spd_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1
+go-to: ministries
 
-By refusing to join the grand coalition or tolerating it, we essentially throw the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
+By refusing to join the grand coalition or tolerating it, the SPD essentially throws the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
 
-If we do not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
+If SPD does not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
 
-- @join_bruning: Join the Brüning coalition.
-- @toleration_bruning: We will tolerate Brüning after all.
+- @join_bruning: SPD joins the Brüning coalition.
+- @toleration_bruning: Will SPD tolerate Brüning after all?
 - @brauns_dilemma
 - @new_elections: New elections, it is!
 
@@ -858,15 +859,16 @@ The people's faith in democracy is shaken by this ordeal. Of course, the Nazis a
 
 @toleration_bruning
 choose-if: neo_weimar_coalition >= 50
-unavailable-subtitle: The parties supporting Brüning do not have a majority.
-on-arrival: spd_in_government = 0; spd_toleration = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
+unavailable-subtitle: Parties supporting Brüning do not have a majority.
+on-arrival: spd_in_government = 0; dvp_in_government = 1; spd_toleration = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = "Z"; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
+go-to: ministries
 
-We have decided to tolerate Brüning's government. This means that we will vote against no-confidence votes to make sure they fail, but also that we will not be directly participating as ministers in the government. Thus, we can prevent a new election and stop the far right from entering government.
+SPD has decided to tolerate Brüning's government. This means that they will vote against no-confidence votes to make sure they fail, but also that they will not be directly participating as ministers in the government. Thus, we can prevent a new election and stop the far right from entering government.
 
 @grand_coalition_fail
 on-arrival: grand_coalition_failed = 1
 
-Unfortunately, the DVP and BVP are unwilling to enter into another coalition with the SPD, so the grand coalition is unable to be formed.
+Unfortunately, the SPD is unwilling to enter into another coalition with the DVP and BVP, so the grand coalition is unable to be formed.
 
 - @no_majority: Thus, there is no clear majority.
 - @brauns_dilemma
@@ -877,7 +879,7 @@ Unfortunately, the DVP and BVP are unwilling to enter into another coalition wit
 
 
 @beg_spd
-view-if: dvp_relation >= 15
+view-if: spd_relation >= 15
 go-to: spd_socialist if stresemann_dead == 1; dvp_majority if stresemann_dead == 0
 
 @dvp_majority
@@ -915,7 +917,7 @@ As expected, the SPD is too set in their socialist ways.
 
 
 @grand_coalition_spd_lead
-on-arrival: leverage -= 15 if spd_relation < 20
+on-arrival: leverage -= 5 if spd_relation < 20
 
 As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and <span style="color: #C0A054;">People's (**DVP**)</span> parties.
 
@@ -970,7 +972,7 @@ We have promised to let the Center have more influence in the government in resp
 
 
 @z_chancellor
-title: Let the Center Party have their chancellor.
+title: Support the Center Party candidate for chancellorship.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
 on-arrival: nationalist_dissent += 5; z_relation += 10; spd_relation -= 5; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
 go-to: ministries
@@ -981,7 +983,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 [? if year > 1928: Heinrich Brüning of the Center Party has been appointed chancellor. ?]
 
 @z_chancellor_wirth
-title: Let Joseph Wirth of the Center Party be chancellor.
+title: Support Joseph Wirth of the Center Party for chancellorship.
 view-if: z_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
 on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; spd_relation += 3; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
@@ -993,7 +995,7 @@ go-to: ministries
 @no_govt
 title: We do not form the government.
 subtitle: This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties.
-on-arrival: reformist_dissent += 5; center_dissent += 5; labor_dissent += 5; neorevisionist_dissent += 5
+on-arrival: liberal_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; neorevisionist_dissent += 5
 
 Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and right-wing parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
 
@@ -1006,9 +1008,9 @@ Are we sure about not participating in government? This will cause significant i
 
 What are our goals here, exactly?
 
-- @majority: We hope to reach a socialist majority in the next election.
+- @majority: We hope to reach a majority in the next election.
 - @trap: It is a trap to form a government now. We would be unable to accomplish our goals.
-- @socialism: Revolutionary socialism is our goal.
+- @socialism: Revolutionary nationalism is our goal.
 
 @majority
 go-to: no_govt_2
@@ -1022,19 +1024,19 @@ go-to: no_govt_2
 
 
 @no_govt_2
-on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
-go-to: right_coalition_post_spd if right_coalition >= 50 and president != "Braun" and year < 1929; new_elections_spd if (right_coalition < 50 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
+on-arrival: liberal_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; spd_in_government = 0; grand_coalition_failed = 1
+go-to: weimar_coalition_post_dvp if weimar_coalition >= 50 and president != "Braun" and year < 1929; new_elections_dvp if (weimar_coalition < 50 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
 
 
-@right_coalition_post_spd
-go-to: right_coalition_2
+@weimar_coalition_post_dvp
+go-to: weimar_coalition
 
-@new_elections_spd
+@new_elections_dvp
 on-arrival: next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12; new_middle_spd -= 5; old_middle_spd -= 5; workers_spd -= 3; catholics_spd -= 3; in_election = 1
 
-Since the remaining bourgeois and right-wing parties cannot form a tolerable governing agreement, new elections have been called for [+ next_election_month : month +] [+ next_election_year +]. The previous chancellor has resigned, and has been replaced by Heinrich Brüning, also of the Center Party, ruling as part of a presidential cabinet. 
+Since the remaining bourgeois and left-wing parties cannot form a tolerable governing agreement, new elections have been called for [+ next_election_month : month +] [+ next_election_year +]. The previous chancellor has resigned, and has been replaced by Heinrich Brüning, also of the Center Party, ruling as part of a presidential cabinet. 
 
-We are seen as responsible for the failure to form a government, and many of our middle-class and even some working-class supporters have deserted the party.
+We are seen as responsible for the failure to form a government, and some of our supporters have deserted the party.
 
 
 @ministries
