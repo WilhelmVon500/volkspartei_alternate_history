@@ -366,8 +366,8 @@ Q.in_minority_government = 0;
 
 // if you're in a coalition, this is an incremental counter for how many times dissent has happened from the right.
 Q.coalition_dissent = 0;
-// dissent from the KPD, in a grand coalition government
-Q.spd_coalition_dissent = 0;
+// dissent from the NSDAP, in a far right government
+Q.nsdap_coalition_dissent = 0;
 
 // does the DVP or SPD tolerate the government even if it is not a participant?
 Q.spd_toleration = 0;
