@@ -22,7 +22,7 @@ face-image: img/portraits/WestarpKuno.jpg
 Westarp remains as the DNVP leader, at least for now...
 
 @hugenberg_lead
-on-arrival: dnvp_leader = "Hugenberg"; workers_dnvp -= 2; pro_republic -= 2;dvp_right += 1
+on-arrival: dnvp_leader = "Hugenberg"; workers_dnvp -= 2; pro_republic -= 2; dvp_right += 1
 face-image: img/portraits/HugenbergAlfred.jpg
 
 Hugenberg is elected DNVP chairman.
