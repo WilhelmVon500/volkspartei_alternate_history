@@ -20,7 +20,7 @@ In our media and campaign materials, who should we consider as our main opponent
 - @easy_discard
 
 @anti_dem
-on-arrival: enemies = "anti-democratic parties"; liberal_strength += 5; liberal_dissent -= 5; nationalist_strength -= 3; nationalist_dissent += 5; workers_kpd -= 2; new_middle_nsdap -= 2; rural_dnvp -= 2; DNVP_relation -= 7; NSDAP_relation -= 7; dvp_left += 1
+on-arrival: enemies = "anti-democratic parties"; liberal_strength += 5; liberal_dissent -= 5; nationalist_strength -= 3; nationalist_dissent += 5; workers_kpd -= 2; new_middle_nsdap -= 2; rural_dnvp -= 2; dnvp_relation -= 7 if dnvp_leader == "Hugenberg"; nsdap_relation -= 7; dvp_left += 1
 choose-if: liberal_strength > nationalist_strength + industrialist_strength - 10
 unavailable-subtitle: The right wing of our party is too strong. They will not allow this.
 
@@ -39,7 +39,7 @@ on-arrival: enemies = "KPD"; nationalist_strength += 3; nationalist_dissent -= 3
 Demonizing the Communists has emboldened our voter base, though some nationalists and industrialists question our exclusion of the SPD. At the very least, the right is warming up to us.
 
 @socialist
-on-arrival: enemies = "socialist parties"; nationalist_strength += 5; nationalist_dissent -= 5; liberal_strength -= 5; liberal_dissent += 5; spd_relation -= 5; kpd_relation -= 5; DNVP_relation += 5; new_middle_spd -= 3; workers_kpd -= 1; coalition_dissent += 1 if in_grand_coalition = 1; dvp_right += 2
+on-arrival: enemies = "socialist parties"; nationalist_strength += 5; nationalist_dissent -= 5; liberal_strength -= 5; liberal_dissent += 5; spd_relation -= 5; kpd_relation -= 5; new_middle_spd -= 3; workers_kpd -= 1; coalition_dissent += 1 if in_grand_coalition = 1; dvp_right += 2
 choose-if: liberal_strength < nationalist_strength + industrialist_strength - 10
 unavailable-subtitle: The liberal wing of our party is too strong. They will not allow this.
 
