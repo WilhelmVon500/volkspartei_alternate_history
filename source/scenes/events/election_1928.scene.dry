@@ -272,6 +272,8 @@ Grand Coalition (SPD + Z + BVP + [+ ddp_name +] + <span style="color: #C0A054;">
 
 Bourgeois Coalition (Z + BVP + [+ ddp_name +] + <span style="color: #C0A054;">**DVP**</span> + Others): [+ bourgeois_coalition +]%
 
+Center-right Coalition (Z + BVP + [+ ddp_name +] + <span style="color: #C0A054;">**DVP**</span> + DNVP + Others): [+ center_right_coalition +]%
+
 Right-wing Coalition (Z + BVP + <span style="color: #C0A054;">**DVP**</span> + Others + DNVP): [+ right_coalition +]%
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
@@ -371,7 +373,7 @@ Even though the DNVP is very reluctant to participate in such a coalition, they 
 @weimar_coalition
 title: Refuse to participate in a government, so that a weimar coalition may be formed.
 subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
-view-if: weimar_coalition + dvp_r >= 50
+view-if: weimar_coalition + dvp_r >= 50 and (dvp_leader != "Hugo" and dvp_leader != "Dingeldey")
 
 There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +], [? if weimar_coalition < 50: with DVP toleration ?]. [? if largest_party == "DVP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
@@ -383,7 +385,7 @@ go-to: no_majority
 
 @weimar_coalition_sure
 subtitle: This will be extremely unpopular within the right wing of our party.
-on-arrival: pro_republic += 3; industrialist_dissent += 15; labor_dissent += 15; nationalist_dissent += 25; neorevisionist_dissent += 15; NSDAP_relation -= 5; DNVP_relation -= 5
+on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_leader = "Hugenberg"
 go-to: weimar_coalition_2 if weimar_coalition >= 50; weimar_coalition_3 if weimar_coalition < 50
 
 
@@ -402,7 +404,7 @@ A minority Weimar coalition is formed, tolerated by DVP, with Wels as chancellor
 
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50
+view-if: weimar_coalition < 50 and bourgeois_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50
 on-arrival: no_majority_elections += 1
 go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"
 
