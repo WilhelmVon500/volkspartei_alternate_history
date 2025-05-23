@@ -284,6 +284,7 @@ There are some potential coalition arrangements.
 
 - @spd_majority
 - @weimar_coalition
+- @bourgeois_coalition
 - @grand_coalition
 - @new_grand_coalition
 - @unity_government
@@ -368,7 +369,7 @@ Even though the DNVP is very reluctant to participate in such a coalition, they 
 
 
 @weimar_coalition
-title: Refuse to form a government, so that a weimar coalition may be formed.
+title: Refuse to participate in a government, so that a weimar coalition may be formed.
 subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
 view-if: weimar_coalition + Q.dvp_r >= 50
 
@@ -749,32 +750,28 @@ achievement: minderheitsregierung
 We have won the vote of no confidence, and are currently ruling under an SPD minority government. Now our task is to fix the country.
 
 
-@weimar_coalition
-title: We can form a Weimar Coalition.
-subtitle: SPD + Z + [+ ddp_name +] [? if sapd_formed and kpd_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
-view-if: weimar_coalition >= 50
-on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; spd_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
-achievement: weimar_coalition
+@bourgeois_coalition
+title: We can form a Bourgeois Coalition.
+subtitle: <span style="color: #C0A054;">**DVP**</span> + Z + [+ ddp_name +] + Other ([+ weimar_coalition +]%)
+view-if: bourgeois_coalition >= 50
+on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 
-We have enough votes to form a "Weimar Coalition" government consisting of the SPD, Center (Z) and Democratic ([+ ddp_name +]) parties! This has been our preferred governing coalition since 1919.
+We have enough votes to form a "Bourgeois Coalition" government consisting of the <span style="color: #C0A054;">**DVP**</span>, Center (Z), Democratic ([+ ddp_name +]) and small conservative parties!
 
 Who should be the chancellor?
 
-- @muller
-- @braun
 - @breitscheid_coalition_chancellor
-- @wels
 - @z_chancellor
 - @z_chancellor_wirth
 
-@breitscheid_coalition_chancellor
-title: Rudolf Breitscheid for Chancellor
-subtitle: Breitscheid is viewed as friendlier towards the left of the SPD.
+@kardorff_coalition_chancellor
+title: Siegfried Kardorff for Chancellor
+subtitle: Kardorff is a supporter of bourgeois unity.
 view-if: year >= 1930
-on-arrival: chancellor = "Breitscheid"; chancellor_party = "SPD";
+on-arrival: chancellor = "Kardorff"; chancellor_party = "DVP";
 go-to: ministries
 
-Rudolf Breitscheid has been appointed chancellor.
+Siegfried Kardorff has been appointed chancellor.
 
 
 @grand_coalition
@@ -1025,10 +1022,10 @@ go-to: ministries
 
 @no_govt
 title: We do not form the government.
-subtitle: This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties.
+subtitle: This will cause significant internal dissent, and will lead to increased distrust from other parties.
 on-arrival: liberal_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; neorevisionist_dissent += 5
 
-Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and right-wing parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
+Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the other parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and moderate left parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
 
 - @muller
 - @braun
