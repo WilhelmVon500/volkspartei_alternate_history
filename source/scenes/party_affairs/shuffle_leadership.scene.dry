@@ -155,7 +155,7 @@ Levi has been removed as an advisor. The Nationalist faction disapproves.
 title: Remove Seeckt
 view-if: seeckt_advisor = 1
 tags: remove_advisor
-on-arrival: seeckt_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: seeckt_advisor = 0; nationalist_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
 Von Seeckt has been removed as an advisor. The Nationalist faction disapproves.
@@ -436,7 +436,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Right, 
 is-card: true
 card-image: img/portraits/SeecktHans.jpg
 view-if: seeckt_advisor = 0 and n_advisors < 3
-on-arrival: seckt_advisor = 1; n_advisors += 1; nationalist_strength += 5
+on-arrival: seeckt_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
 
