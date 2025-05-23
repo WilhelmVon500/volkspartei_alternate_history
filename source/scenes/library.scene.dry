@@ -393,7 +393,7 @@ data = data.concat([
         "legend": "Other",
         "name": "Other",
         "seats": Q.other_r*5,
-    },
+    }
 ]);
 if (Q.kvp_formed && Q.kvp_r) {
     data.push({
