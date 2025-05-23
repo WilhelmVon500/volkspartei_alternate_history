@@ -432,7 +432,7 @@ Paul Levi is now an advisor.
 
 @add_seeckt
 title: Hans von Seeckt
-subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Right, Military affairs, Against Toleration ?]
 is-card: true
 card-image: img/portraits/SeecktHans.jpg
 view-if: seeckt_advisor = 0 and n_advisors < 3
