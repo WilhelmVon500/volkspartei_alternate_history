@@ -108,9 +108,9 @@ Q.moderate_plan_adopted = 0;
 Q.z_relation = 50;
 Q.ddp_relation = 60;
 Q.dvp_relation = 35;
-Q.spd_relation = 45;
-Q.DNVP_relation = 35;
-Q.NSDAP_relation = 10;
+Q.spd_relation = 40;
+Q.dnvp_relation = 35;
+Q.nsdap_relation = 10;
 // KPD is invariably hostile
 Q.kpd_relation = 0;
 
