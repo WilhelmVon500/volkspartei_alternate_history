@@ -1,0 +1,12 @@
+title: Anti-Hugenberg conservatives split from DNVP!
+subtitle: Hugenberg has angered his party.
+view-if: dnvp_leader = "Hugenberg" and year = 1929 and month = 11
+max-visits: 1
+tags: event
+face-image: img/KVP_logo.jpg
+new-page: true
+go-to: kvp_formed
+
+= DNVP Split
+
+The anti-Hugenberg forces within the party, like Young Conservatives, have left DNVP to form a new <i>Konservative Volkspartei</i>.
