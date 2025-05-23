@@ -203,7 +203,17 @@ data = data.concat([
         "legend": "Other",
         "name": "Other",
         "seats": Math.round(Q.other_r*5),
-    },
+    }
+]);
+if (Q.kvp_formed && Q.kvp_r) {
+    data.push({
+            "id": "kvp",
+            "legend": "KVP",
+            "name": "KVP",
+            "seats": Math.round(Q.kvp_r*5),
+            });
+}
+data = data.concat([
     {
         "id": "dnvp",
         "legend": "DNVP",
@@ -258,6 +268,8 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **DVP**: {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]** {!</td></tr>!}
  
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+
+[? if kvp_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}KVP: {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
 
