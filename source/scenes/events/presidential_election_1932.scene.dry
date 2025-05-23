@@ -182,6 +182,9 @@ Q.thalmann_votes = 0;
 Q.hitler_votes += Q.nsdap_normalized;
 Q.hindenburg_votes += Q.other_normalized;
 Q.hindenburg_votes += Q.dnvp_normalized;
+if (Q.kvp_formed && Q.kvp_votes) {
+            Q.hindenburg_votes += Q.kvp_normalized;
+}
 
 if (Q.braun_campaign) {
     Q.braun_votes += Q.spd_normalized;
