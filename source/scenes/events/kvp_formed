@@ -28,7 +28,9 @@ Q.catholics_other -= 2;
 
 
 // update all records
-Q.kvp_r = 0;
+Q.kvp_r = Math.round(Q.dnvp_r * 0.3);
+Q.dnvp_r = Q.dnvp_r - Q.kvp_r;
+
 Q.old_kvp_r = 0;
 for (var record of Q.election_records) {
     record['kvp'] = 0;
