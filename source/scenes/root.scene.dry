@@ -109,7 +109,6 @@ Q.z_relation = 50;
 Q.ddp_relation = 60;
 Q.dvp_relation = 35;
 Q.spd_relation = 40;
-Q.kvp_relation = 0;
 Q.dnvp_relation = 35;
 Q.nsdap_relation = 10;
 // KPD is invariably hostile
