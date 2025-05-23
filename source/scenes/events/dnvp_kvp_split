@@ -5,7 +5,6 @@ max-visits: 1
 tags: event
 face-image: img/KVP_logo.jpg
 new-page: true
-go-to: kvp_formed
 
 = DNVP Split
 
