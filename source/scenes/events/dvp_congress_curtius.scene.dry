@@ -28,7 +28,7 @@ face-image: img/portraits/ThielOtto.jpg
 Surprisingly, Otto Thiel was elected party leader. He is a representative of the party’s unionist faction.
 
 @dingeldey_lead
-on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 10; DNVP_relation += 5; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3; nationalist_strength += 15; industrialist_strength += 5; liberal_dissent += 5
+on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 10; dnvp_relation += 5 if dnvp_leader == "Hugenberg"; old_middle_dvp -= 1; new_middle_dvp -= 3; pro_republic -= 3; nationalist_strength += 15; industrialist_strength += 5; liberal_dissent += 5
 face-image: img/portraits/DingeldeyEduard.jpg
 
 Eduard Dingeldey has won. Backed by the party's right wing, he represents a significant shift to the right.
