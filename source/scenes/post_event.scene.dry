@@ -437,9 +437,9 @@ if (Q.month_actions >= 1) {
             if (Q.old_middle_dvp_normalized < 40) {
                 Q.old_middle_dvp += 6/12;
             }
-            if (Q.rural_dnvp_normalized < 40 and not Q.kvp_formed) {
+            if (Q.rural_dnvp_normalized < 40 && not Q.kvp_formed) {
                 Q.rural_dnvp += 6/12;
-            } else if (Q.rural_dnvp_normalized < 25 and Q.kvp_formed) {
+            } else if (Q.rural_dnvp_normalized < 25 && Q.kvp_formed) {
                 Q.rural_dnvp += 4/12;
                 Q.rural_kvp += 2/12;
             }
