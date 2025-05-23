@@ -545,7 +545,7 @@ Q.hugo_advisor = 1; // Otto Hugo
 Q.luther_advisor = 1; // Hans Luther
 
 // left advisors
-Q.sender_advisor = 0; // Toni Sender
+Q.seeckt_advisor = 0; // Hans von Seeckt
 Q.levi_advisor = 0; // Paul Levi
 Q.levi_dead = 0;
 Q.crispien_advisor = 0; // Arthur Crispien
@@ -577,6 +577,7 @@ Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 // Nonfactional advisors
 Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
+Q.moldenhauer_advisor = 0; // Paul Moldenhauer
 !}
 set-bg: img/map_2.jpg
 new-page: true
