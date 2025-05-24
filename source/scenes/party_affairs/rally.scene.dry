@@ -6,6 +6,8 @@ view-if: rally_timer <= 0
 on-arrival: month_actions += 1; rally_timer = 6
 card-image: img/protest.jpg
 
+= Rally
+
 Organizing rallies to rile up their constituents has mainly been a tactic used by the SPD. While our rallies will not have the effectiveness of the socialist parties, simply due to the party’s smaller voter base, we can still galvanize the crowd towards a common message. What will be the primary theme of this rally?
 
 - @attack_republic: Attack the republic’s foundations and gear towards nationalistic rhetoric.
