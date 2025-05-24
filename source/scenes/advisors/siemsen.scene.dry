@@ -14,14 +14,6 @@ Anna Siemsen is an educational reform advocate and pacifist, who was one of the 
 - @curriculum_
 - @root: Return to main
 
-@campaign_pacifism
-title: Rally for pacifism.
-subtitle: Campaign for internationalism and against militarism.
-choose-if: advisor_action_timer = 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6;
-go-to: rally.pacifism
-
 
 @curriculum_
 title: Change the educational curriculum.
