@@ -1,0 +1,51 @@
+title: Monetary Policy
+new-page: true
+is-card: true
+tags: govt_affairs, cabinet
+on-arrival: monetary_policy_timer += 6; month_actions += 1
+view-if: dvp_in_government = 1 and reichsbank_president_party = "DVP" and monetary_policy_timer = 0
+card-image: img/portraits/LutherHans.jpg
+go-to: monetary_menu
+#subtitle: Issues of taxation, budget, and tariffs.
+
+= Monetary Policy
+
+The Reichsbank serves as the "lender of last resort" for German banks, providing access to credit at various interest rates. With Hans Luther leading the Reichsbank, we now have access to a variety of economic policy levers.
+
+@monetary_menu
+
+- @lower_interest_rates
+- @raise_interest_rates
+- @establish_deposit_insurance
+- @suspend_gold_standard
+
+
+@lower_interest_rates
+title: Lower interest rates.
+subtitle: We would inject more currency into the economy, at the risk of increasing inflation.
+on-arrival: economic_growth += 0.5; economic_growth += 0.3 if gold_standard = 0; inflation += 1;
+
+We have expanded the money supply, increasing economic growth, employment, and inflation. [? if gold_standard: The need to maintain parity with gold has decreased the efficiency of our actions. ?]
+
+@raise_interest_rates
+title: Raise interest rates.
+subtitle: The currency would contract, and overall demand would lower.
+on-arrival: economic_growth -= 0.8 if inflation < 0; economic_growth -= 0.4; inflation -= 1.5;
+
+We have lowered the money supply, lowering inflation at the cost of employment and growth. [? if inflation < 0: As our currency is deflating, Germans are refusing to spend their currency so it can accumulate value, which further harms the economy. ?]
+
+@establish_deposit_insurance
+title: Establish a system of deposit insurance.
+subtitle: -1 budget - We will be providing a safety net to banks under strain.
+unavailable-subtitle: [? if budget < 1 : We do not have the necessary budget. ?]
+choose-if: budget >= 1;
+view-if: deposit_insurance = 0;
+on-arrival: budget -= 1; deposit_insurance = 1; workers_dvp -= 1; rural_dvp -= 1
+
+Our bank bailout policy is unpopular among most voters, save for the educated middle class, but the economic benefits are clear.
+
+@suspend_gold_standard
+title: Suspend the gold standard!
+on-arrival: gold_standard = 0; west_relation -= 2;
+
+Our bold action to suspend gold convertibility will allow much more flexibility in policy-making, but the Western powers fear potential instability, and will be less friendly to us in negotiations going forward.
