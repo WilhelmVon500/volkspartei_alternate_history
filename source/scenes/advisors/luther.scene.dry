@@ -18,4 +18,4 @@ subtitle: As Reichsbank president, Luther can enact monetary policies.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if reichsbank_president != "Luther" : Luther does not control the Reichsbank. ?]
 choose-if: advisor_action_timer == 0 and reichsbank_president == "Luther"
 on-arrival: advisor_action_timer = 6; monetary_policy_timer -= 6; last_advisor_action = 1
-go-to: monetary_menu
+go-to: monetary_policy
