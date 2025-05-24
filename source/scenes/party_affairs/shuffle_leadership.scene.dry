@@ -591,7 +591,7 @@ Gustav Radbruch is now an advisor.
 
 @add_luther
 title: Hans Luther
-subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Media, Editorial Line, Cooperation with the KPD ?]
+subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Monetary Policy ?]
 is-card: true
 card-image: img/portraits/LutherHans.jpg
 view-if: luther_advisor = 0 and n_advisors < 3
