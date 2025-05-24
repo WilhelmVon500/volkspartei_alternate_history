@@ -38,7 +38,7 @@ We have lowered the money supply, lowering inflation at the cost of employment a
 title: Establish a system of deposit insurance.
 subtitle: -1 budget - We will be providing a safety net to banks under strain.
 unavailable-subtitle: [? if budget < 1 : We do not have the necessary budget. ?]
-choose-if: budget >= 1;
+choose-if: budget >= 1
 view-if: deposit_insurance = 0
 on-arrival: budget -= 1; deposit_insurance = 1; workers_dvp -= 1; rural_dvp -= 1
 
