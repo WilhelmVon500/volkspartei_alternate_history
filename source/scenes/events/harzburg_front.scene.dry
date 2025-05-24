@@ -11,8 +11,6 @@ max-visits: 1
 The far-right parties and paramilitaries - the NSDAP (and its paramilitary the SA), the Stahlhelm paramilitary group, and the DNVP - have united to form the Harzburg Front, as a force dedicated to the overthrow of the current government.
 
 - @strategy: We must develop a coherent strategy to combat the Right.
-- @confronting_nazis.iron_front: We must form the Iron Front!
-- @iron_front: The Iron Front will be our answer!
 
 @strategy
 view-if: nazi_urgency < 3
