@@ -27,7 +27,7 @@ if (Q.ideology && Q.ideology != "nationalist") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "nationalist"; nationalist_strength += 10; nationalist_dissent -= 5; z_relation -= 3; spd_relation -= 5; nationalization_support += 1; nsdap_relation += 3; dvp_right += 3
+on-departure: ideology = "nationalist"; nationalist_strength += 10; nationalist_dissent -= 5; z_relation -= 3; spd_relation -= 5; nationalization_support += 1; dnvp_relation += 3; dvp_right += 3
 
 Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
 
