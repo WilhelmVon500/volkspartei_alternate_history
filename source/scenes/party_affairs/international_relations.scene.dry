@@ -41,6 +41,7 @@ We have contacted the SPD, and, for a price, they are willing to collaborate wit
 
 @pay_spd_joint_influencing
 choose-if: resources >= 1
+subtitle: -1 resources
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; west_relation += 1; liberal_strength += 5; pacifism += 1; dvp_left += 1
 
