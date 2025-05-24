@@ -21,7 +21,7 @@ choose-if: nationalist_strength > liberal_strength or dvp_ideology = "Right"
 [? if black_thursday_seen = 0 or return_to_normalcy = 1: Believers in continued participation within the Republic are disgusted by our shift, and although we have attracted the support of right-wing voters, the nation has not fallen far enough for desperation to truly energize the party in this manner. ?][? if black_thursday_seen = 1 and return_to_normalcy = 0: As the republic continues to fail its people, our message has become wildly popular with the industrialists, and even the DHV has seen an increase of disillusioned white-collar members. ?]
 
 @need_for_reform
-on-arrival: new_middle_dvp += 3*(1-dissent); old_middle_dvp += 2*(1-dissent); liberal_strength += 3; labor_strength += 4; liberal_dissent -= 3; labor_dissent -= 3;
+on-arrival: new_middle_dvp += 2*(1-dissent); old_middle_dvp += 2*(1-dissent); workers_dvp += 2*(1-dissent); rural_dvp += 1*(1-dissent); liberal_strength += 3; labor_strength += 4; liberal_dissent -= 3; labor_dissent -= 3;
 
 The nationalists and industrialists have grown suspicious of our motives, while the democratic parties and especially the SPD has become curious with the possibility of further cooperation. Voters from outside our traditional blocs have even taken an interest with our rally.
 
