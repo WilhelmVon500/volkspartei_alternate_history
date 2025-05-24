@@ -1132,10 +1132,10 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 5 
 view-if: economic_minister_party != "DVP"
-on-arrival: leverage -= 5; economic_minister_party = "DVP"; economic_minister = "Raumer"
+on-arrival: leverage -= 5; economic_minister_party = "DVP"; economic_minister = "Krohne"
 go-to: ministries
 
-Hans von Raumer of the <span style="color: #C0A054;">**DVP**</span> has been appointed Economic Minister.
+Rudolf Krohne of the <span style="color: #C0A054;">**DVP**</span> has been appointed Economic Minister.
 
 @justice
 title: Justice Ministry
