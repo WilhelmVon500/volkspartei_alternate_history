@@ -33,14 +33,14 @@ go-to: root
 tags: remove_advisor
 
 
-@remove_wels
-title: Remove Wels
-view-if: wels_advisor = 1
+@remove_scholz
+title: Remove Scholz
+view-if: scholz_advisor = 1
 tags: remove_advisor
-on-arrival: wels_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: scholz_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Wels has been removed as an advisor. The Centrist faction disapproves.
+Scholz has been removed as an advisor. The Industrialist faction disapproves.
 
 
 # reformists
@@ -318,17 +318,17 @@ view-if: n_advisors < 3
 
 - #nonfactional_advisor
 
-@add_wels
-title: Otto Wels
-subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
+@add_scholz
+title: Ernst Scholz
+subtitle: Ernst Scholz is the leader of our faction in Reichstag. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
 is-card: true
-card-image: img/portraits/WelsRudolf.jpg
+card-image: img/portraits/ScholzErnst.jpg
 tags: center_advisor
-view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: wels_advisor = 1; n_advisors += 1
+view-if: scholz_advisor = 0 and n_advisors < 3 and industrialists_leave = 0
+on-arrival: scholz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Otto Wels is now an advisor.
+Ernst Scholz is now an advisor.
 
 # liberal
 
