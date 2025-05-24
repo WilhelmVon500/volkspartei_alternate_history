@@ -38,4 +38,4 @@ unavailable-subtitle: Nationalist wing will not allow this.
 @local
 on-arrival: old_middle_dvp += 3*(1-dissent); new_middle_dvp += 3*(1-dissent); workers_dvp += 1*(1-dissent) if dvp_ideology = "Left";
 
-Our speakers have gauged the mood and are speaking to the issues that seem to most affect the workers in this moment.
+Our speakers have gauged the mood and are speaking to the issues that seem to most affect the voters in this moment.
