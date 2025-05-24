@@ -24,11 +24,11 @@ on-arrival: advisor_action_timer = 6; nationalist_strength += 6; nationalist_dis
 We have increased the strength of the nationalist faction with the <span style="color: #C0A054;">**DVP**</span>.
 
 @nsdap_cooperation
-title: Cooperation with the NSDAP
-subtitle: Push the party to be more friendly towards the NSDAP.
+title: Cooperation with the far right
+subtitle: Push the party to be more friendly towards the far right parties.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; nationalist_strength += 5; nsdap_relation += 2*(1-dissent); liberal_dissent += 5; dvp_right += 1
+on-arrival: advisor_action_timer = 6; nationalist_strength += 5; dnvp_relation += 2*(1-dissent) if dnvp_leader = "Hugenberg"; nsdap_relation += 2*(1-dissent); liberal_dissent += 5; dvp_right += 1
 
 WIP
 
