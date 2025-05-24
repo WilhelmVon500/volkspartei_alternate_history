@@ -279,7 +279,7 @@ tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor
 frequency: 1
 
 
-- @centrist: Add Centrists
+- @industrialist: Add Industrialists
 - @nationalist: Add Nationalists
 - @liberal: Add Liberals
 - @labor: Add Labor
@@ -288,7 +288,7 @@ frequency: 1
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
 
-@centrist
+@industrialist
 view-if: n_advisors < 3
 
 - #industrialist_advisor
