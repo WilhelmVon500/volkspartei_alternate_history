@@ -10,37 +10,37 @@ max-visits: 3
 
 = Questions of Ideology
 
-The SPD is torn between many different ideological currents. What should be our primary ideological guidance for now?
+[? if stresemann_dead = 0: Stresemann’s presence in the party has been steadily waning due to his advanced age and duties within the foreign ministry. ?][? if stresemann_dead = 1: Stresemann, who led our party for many years, is dead. ?] As time goes on, the right-wing has slowly been creeping in through lobbyists, poisoning Stresemann’s original vision for the party. Do we reinforce our republican stance and fight against the new nationalists and industrialists, or allow their elements to spread, shifting our party towards the extremist right?
 
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
-- @class_struggle: Class struggle and preparing the proletariat for the revolution are our primary goals.
-- @centrist: The Center Marxism of Karl Kautsky remains the best way to resolve our internal contradictions.
-- @labor: We should work with the trade unions to improve the lives of workers.
-- @reform: Following Eduard Bernstein, we should work for ethical socialism, strengthen democracy, and expand the party's electorate.
+- @nationalist: Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
+- @industrialist: The free enterprise system must be unchained — heavy industry needs a party willing to support it.
+- @labor: In pursuit of a Volksgemeinschaft, we must extend the party to the left, and to nationalist parts of the working class.
+- @liberal: We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
 - @easy_discard
 
-@class_struggle
+@nationalist
 on-arrival: {!
-if (Q.ideology && Q.ideology != "left") {
+if (Q.ideology && Q.ideology != "nationalist") {
     Q.changed = 1;
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "left"; left_strength += 10; communist_coalition += 1; left_dissent -= 5; z_relation -= 3; dvp_relation -= 5; nationalization_support += 1; kpd_relation += 3
+on-departure: ideology = "nationalist"; nationalist_strength += 10; nationalist_dissent -= 5; z_relation -= 3; spd_relation -= 5; nationalization_support += 1; nsdap_relation += 3; dvp_right += 3
 
-The radical left of the party supports a course of class struggle, and potentially a reconcilliation with the Communists.
+Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
 
-@centrist
+@industrialist
 on-arrival: {!
-if (Q.ideology && Q.ideology != "centrist") {
+if (Q.ideology && Q.ideology != "industrialist") {
     Q.changed = 1;
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "centrist"; center_strength += 10; center_dissent -= 10; left_dissent -= 5; reformist_dissent -= 5
+on-departure: ideology = "industrialist"; industrialist_strength += 10; industrialist_dissent -= 10; labor_dissent += 5
 
-The Center Marxists, represented by Kautsky and Hilferding, support a middle course of preparing for revolution while building up the consciousness of the working class.
+The free enterprise system must be unchained — heavy industry needs a party willing to support it.
 
 @labor
 on-arrival: {!
@@ -49,22 +49,22 @@ if (Q.ideology && Q.ideology != "labor") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "labor"; labor_strength += 10; wtb_support += 1; labor_dissent -= 5; kpd_relation -= 3
+on-departure: ideology = "labor"; labor_strength += 10; labor_dissent -= 5; kpd_relation -= 3
 
-The labor wing of the party supports continued particpation in government in order to provide benefits to the workers, and the creation of public works programs for employment.
+In pursuit of a Volksgemeinschaft, we must extend the party to the left, and to nationalist parts of the working class.
 
-@reform
+@liberal
 on-arrival: {!
-if (Q.ideology && Q.ideology != "reformist") {
+if (Q.ideology && Q.ideology != "liberal") {
     Q.changed = 1;
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "reformist"; reformist_strength += 10; democratization += 1; reformist_dissent -= 5; z_relation += 5; dvp_relation += 5; kpd_relation -= 8; moderate_plan_support += 1
+on-departure: ideology = "liberal"; liberal_strength += 10; democratization += 1; liberal_dissent -= 5; z_relation += 5; ddp_relation += 5; spd_relation += 5; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"; nsdap_relation -= 10; dvp_left += 3
 
-The reformist wing of the party seeks to preserve the Republic and the democratic system of government, and is most supportive of coalitions with the other pro-democracy parties.
+We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
 
 @changed
-on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; reformist_dissent += 5
+on-arrival: nationalist_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; liberal_dissent += 5
 
 We have changed ideologies. Many in the party feel unmoored.
