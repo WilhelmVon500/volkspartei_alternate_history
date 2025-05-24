@@ -543,7 +543,7 @@ Q.muller_dead = 0;
 
 Q.stresemann_advisor = 1; // Gustav Stresemann
 Q.hugo_advisor = 1; // Otto Hugo
-Q.luther_advisor = 1; // Hans Luther
+Q.scholz_advisor = 0; // Ernst Scholz
 
 // left advisors
 Q.seeckt_advisor = 0; // Hans von Seeckt
@@ -553,7 +553,6 @@ Q.crispien_advisor = 0; // Arthur Crispien
 Q.seydewitz_advisor = 0; // Max Seydewitz
 
 // centrist alternate advisors
-Q.wels_advisor = 0; // Otto Wels
 Q.pfulf_advisor = 0; // Antonie Pfülf
 Q.breitscheid_advisor = 0; // Rudolf Breitscheid
 Q.hilferding_advisor = 0; // Rudolf Hilferding
@@ -578,6 +577,7 @@ Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 // Nonfactional advisors
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.moldenhauer_advisor = 0; // Paul Moldenhauer
+Q.luther_advisor = 0; // Hans Luther
 !}
 set-bg: img/map_2.jpg
 new-page: true
