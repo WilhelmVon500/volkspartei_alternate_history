@@ -18,6 +18,9 @@ The Reichsbank serves as the "lender of last resort" for German banks, providing
 - @raise_interest_rates
 - @establish_deposit_insurance
 - @suspend_gold_standard
+- @root: Do not change the tax system.
+- @easy_discard
+- @cancel_advisor_action
 
 
 @lower_interest_rates
