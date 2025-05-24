@@ -1,13 +1,13 @@
-title: Otto Wels
+title: Ernst Scholz
 is-pinned-card: true
-tags: advisor, centrist
-card-image: img/portraits/WelsOtto.jpg
-view-if: wels_advisor = 1
+tags: advisor, industrialist
+card-image: img/portraits/ScholzErnst.jpg
+view-if: scholz_advisor = 1
 new-page: true
 
-= Otto Wels
+= Ernst Scholz
 
-Wels is the long-time chairman of the SPD. He is a gifted organizer and a member of the centrist faction.
+Scholz is the long-time chairman of the <span style="color: #C0A054;">**DVP**</span> Reichstag faction. He is a gifted organizer and a member of the centrist faction.
 
 - @clear_agenda
 - @party_discipline
@@ -36,7 +36,7 @@ title: Party Discipline
 subtitle: Reduce dissent across the party.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
+on-arrival: advisor_action_timer = 6; nationalist_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 10; liberal_dissent -= 10; neorevisionist_dissent -= 5
 
 We have enforced party discipline to reduce dissent across all factions.
 
@@ -53,8 +53,8 @@ We have gained +[+ dues +] resources.
 @snap_election
 title: Snap Election
 subtitle: Call a snap election.
-unavailable-subtitle: [? if chancellor != "Wels" : Wels must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-choose-if: advisor_action_timer == 0 and (chancellor == "Wels")
+unavailable-subtitle: [? if chancellor != "Scholz" : Scholz must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and (chancellor == "Scholz")
 on-arrival: advisor_action_timer = 6; time_to_election = 3
 call: set_next_election_time
 
