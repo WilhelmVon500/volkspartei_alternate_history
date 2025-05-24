@@ -46,6 +46,7 @@ Our bank bailout policy is unpopular among most voters, save for the educated mi
 
 @suspend_gold_standard
 title: Suspend the gold standard!
+view-if: gold_standard = 1
 on-arrival: gold_standard = 0; west_relation -= 2;
 
 Our bold action to suspend gold convertibility will allow much more flexibility in policy-making, but the Western powers fear potential instability, and will be less friendly to us in negotiations going forward.
