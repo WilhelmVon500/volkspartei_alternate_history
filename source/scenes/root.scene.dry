@@ -397,6 +397,10 @@ Q.finance_minister_party = 'Z';
 Q.agriculture_minister = 'Schiele';
 Q.agriculture_minister_party = 'DNVP';
 
+
+Q.reichsbank_president = 'Schacht';
+Q.reichsbank_president_party = 'I';
+
 // Events: what has occurred?
 Q.panzerkreuzer_seen = 0;
 Q.panzerkreuzer_funded = 0;
@@ -446,6 +450,8 @@ Q.eu_progress = 0;
 Q.science = 0;
 Q.education_science = 0;
 
+Q.gold_standard = 1;
+
 // Tax rates relative to 1928 baseline
 Q.lower_tax_rates = 0;
 Q.upper_tax_rates = 0;
@@ -472,7 +478,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'shuffle_leadership', 'streetfighting', 'peoples_party',
             'party_disunity',
             // govt
-            'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
+            'agricultural_policy', 'domestic_enemies', 'fiscal_policy', 'monetary_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
             'police', 'prussian_affairs', 'shuffle_cabinet', 'social_welfare',
             'homosexual_rights', 'economic_policy', 'coalition_affairs',
@@ -517,6 +523,7 @@ Q.agricultural_policy_timer = 0;
 Q.domestic_enemies_timer = 0;
 Q.economic_policy_timer = 0;
 Q.fiscal_policy_timer = 0;
+Q.monetary_policy_timer = 0;
 Q.foreign_policy_timer = 0;
 Q.judiciary_timer = 0;
 Q.labor_affairs_timer = 0;
