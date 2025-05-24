@@ -38,7 +38,7 @@ subtitle: -5 resources
 choose-if: resources >= 5
 unavailable-subtitle: Not enough resources.
 view-if: newspaper = 0
-on-arrival: newspaper += 1; resources -= 2; new_middle_dvp += 3*(1 - dissent); old_middle_spd += 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: newspaper += 1; resources -= 5; new_middle_dvp += 3*(1 - dissent); old_middle_spd += 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
 
 Launching our own newspaper is extremely expensive, but effective in garnering support, especially among the middle class.
 
