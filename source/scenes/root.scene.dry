@@ -543,7 +543,7 @@ Q.muller_dead = 0;
 
 Q.stresemann_advisor = 1; // Gustav Stresemann
 Q.hugo_advisor = 1; // Otto Hugo
-Q.scholz_advisor = 0; // Ernst Scholz
+Q.scholz_advisor = 1; // Ernst Scholz
 
 // left advisors
 Q.seeckt_advisor = 0; // Hans von Seeckt
