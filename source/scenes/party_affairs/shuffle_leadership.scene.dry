@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: center_advisor, nationalist_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
+tags: industrialist_advisor, nationalist_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -59,7 +59,7 @@ Severing has been removed as an advisor. The Reformist faction disapproves.
 title: Remove Stresemann
 view-if: stresemann_advisor = 1
 tags: remove_advisor
-on-arrival: stresemann_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: stresemann_advisor = 0; liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Stresemann has been removed as an advisor. The Liberal faction disapproves.
@@ -275,7 +275,7 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: center_advisor, nationalist_advisor, liberal_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
+tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
 frequency: 1
 
 
@@ -291,7 +291,7 @@ frequency: 1
 @centrist
 view-if: n_advisors < 3
 
-- #center_advisor
+- #industrialist_advisor
 
 @liberal
 view-if: n_advisors < 3
@@ -323,7 +323,7 @@ title: Ernst Scholz
 subtitle: Ernst Scholz is the leader of our faction in Reichstag. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/ScholzErnst.jpg
-tags: center_advisor
+tags: industrialist_advisor
 view-if: scholz_advisor = 0 and n_advisors < 3 and industrialists_leave = 0
 on-arrival: scholz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
