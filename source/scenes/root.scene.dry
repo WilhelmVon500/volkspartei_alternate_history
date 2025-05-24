@@ -451,6 +451,7 @@ Q.science = 0;
 Q.education_science = 0;
 
 Q.gold_standard = 1;
+Q.deposit_insurance = 0;
 
 // Tax rates relative to 1928 baseline
 Q.lower_tax_rates = 0;
