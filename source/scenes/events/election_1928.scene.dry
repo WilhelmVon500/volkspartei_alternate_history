@@ -389,12 +389,11 @@ A majority right coalition is formed, with Brüning as chancellor.
 @weimar_coalition
 title: Refuse to participate in a government, so that a weimar coalition may be formed.
 subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
-view-if: weimar_coalition + dvp_r >= 50 and (dvp_leader != "Hugo" and dvp_leader != "Dingeldey")
+view-if: weimar_coalition >= 50
 
-There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +], [? if weimar_coalition < 50: with DVP toleration ?]. [? if largest_party == "DVP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +]. [? if largest_party == "DVP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
-- @weimar_coalition_sure: Yes, we will abdicate our responsibility for participation in government, and let a center-left coalition take power.
-- @grand_coalition: Actually, we wish to form a grand coalition after all.
+- @weimar_coalition_sure: A center-left coalition takes power.
 
 @no_weimar_coalition
 go-to: no_majority
@@ -402,7 +401,7 @@ go-to: no_majority
 @weimar_coalition_sure
 subtitle: This will be extremely unpopular within the right wing of our party.
 on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_leader = "Hugenberg"
-go-to: weimar_coalition_2 if weimar_coalition >= 50; weimar_coalition_3 if weimar_coalition < 50
+go-to: weimar_coalition_2
 
 
 @weimar_coalition_2
@@ -410,12 +409,6 @@ view-if: weimar_coalition >= 50
 on-arrival: spd_in_government = 1; dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 0; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 A majority Weimar coalition is formed, with Wels as chancellor.
-
-@weimar_coalition_3
-view-if: weimar_coalition + dvp_r >= 50
-on-arrival: spd_in_government = 1; dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 1; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
-
-A minority Weimar coalition is formed, tolerated by DVP, with Wels as chancellor.
 
 
 @no_majority
