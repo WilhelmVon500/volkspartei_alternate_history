@@ -355,16 +355,16 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 
 @right_coalition
-title: Refuse to form a government, so that a right-wing coalition may be formed.
+title: A right-wing coalition may be formed.
 subtitle: Z + BVP + DVP + DNVP + Others ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
-choose-if: year < 1929
+choose-if: dnvp_leader != "Hugenberg"
 
 There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DNVP, and minor conservative parties. [? if largest_party == "SPD": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @right_coalition_sure: Yes, we will participate in a right coalition.
-- @grand_coalition: Actually, we wish to form a grand coalition after all.
+- @coalition_menu: Actually, we wish to form other coalition after all.
 
 @no_right_coalition
 go-to: no_majority
@@ -373,17 +373,17 @@ However, the DNVP and its leader Hugenberg is refusing to partake in a coalition
 
 @right_coalition_sure
 subtitle: This will be extremely unpopular within the left of our party.
-on-arrival: pro_republic -= 5; liberal_dissent += 10; labor_dissent += 5; spd_relation -= 10
+on-arrival: pro_republic -= 5 if dnvp_republican = 0; liberal_dissent += 5; labor_dissent += 3; spd_relation -= 5; spd_relation -= 5 if dnvp_leader = "Hugenberg"
 go-to: right_coalition_2
 
 
 @right_coalition_2
 unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
-choose-if: year < 1929
-on-arrival: dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "DVP"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
+on-arrival: dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DNVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
+go-to: ministries
 
-Even though the DNVP is very reluctant to participate in such a coalition, they still accede to President Hindenburg's wishes. Thus, a majority center-right coalition is formed, with Brüning as chancellor.
+A majority right coalition is formed, with Brüning as chancellor.
 
 
 @weimar_coalition
