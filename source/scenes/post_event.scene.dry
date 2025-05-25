@@ -38,6 +38,10 @@ if (Q.dvp_left + Q.dvp_right >= 30) {
     Q.dvp_right *= 0.9;
 }
 
+if (Q.stresemann_dead != 1) {
+    Q.dvp_left += 0.1
+}
+
 if (Q.dvp_left > Q.dvp_right) {
     Q.dvp_ideology = "Left"
 } else {
