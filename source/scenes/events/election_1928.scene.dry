@@ -369,7 +369,7 @@ There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DN
 
 @right_coalition_sure
 subtitle: This will be extremely unpopular within the left of our party.
-on-arrival: pro_republic -= 5 if dnvp_republican = 0; liberal_dissent += 5; labor_dissent += 3; spd_relation -= 5; spd_relation -= 5 if dnvp_leader = "Hugenberg"
+on-arrival: pro_republic -= 5 if dnvp_republican = 0; liberal_dissent += 5; labor_dissent += 3; spd_relation -= 4;
 go-to: right_coalition_2
 
 
