@@ -25,8 +25,6 @@ Resources available: [+ resources +]
 
 [? if dvp_in_government and not in_dvp_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_grand_coalition or in_neo_weimar_coalition): NSDAP coalition dissent: [+ nsdap_coalition_dissent : coalition_dissent +] ?]
-
 Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
