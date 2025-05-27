@@ -678,6 +678,7 @@ on-arrival: constitutional_crisis = 1
 Despite the Nazi threats, supporters of the SPD and the democratic parties refuse to turn out for the referendum, depriving it of the necessary threshold to pass. This is a small victory, as stormtroopers still run rampant in the streets. There is no constitutional path to absolute power, but will that stop the Nazis? 
 
 - @game_over: The ending is yet to be seen...
+- @root: Continue playing
 
 @ref_lose
 
