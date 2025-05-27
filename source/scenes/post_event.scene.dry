@@ -503,6 +503,15 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
+if (lvp_formed = 1) {
+    Q.workers_ddp = 0
+    Q.new_middle_ddp = 0
+    Q.old_middle_ddp = 0
+    Q.rural_ddp = 0
+    Q.unemployed_ddp = 0
+    Q.catholics_ddp = 0
+}
+
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
