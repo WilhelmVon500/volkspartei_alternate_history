@@ -94,7 +94,7 @@ Q.wtb_adopted = 0;
 // have we formed the iron front?
 Q.iron_front_formed = 0;
 // people's party support
-Q.liberal_peoples_party_support = 0;
+Q.liberal_peoples_party_progress = 0;
 // support for nationalizations
 Q.nationalization_support = 0;
 Q.nationalization_adopted = 0;
