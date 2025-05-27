@@ -387,7 +387,7 @@ Who should be the chancellor?
 @scholz_coalition_chancellor
 title: Ernst Scholz for Chancellor
 subtitle: Scholz is a preferred candidate for the right wing.
-on-arrival: chancellor = "Scholz"; chancellor_party = [+ dvp_name +];
+on-arrival: chancellor = "Scholz"; chancellor_party = dvp_name;
 face-image: img/portraits/ScholzErnst.jpg
 go-to: ministries
 
@@ -787,7 +787,7 @@ Who should be the chancellor?
 title: Siegfried Kardorff for Chancellor
 subtitle: Kardorff is a supporter of bourgeois unity.
 view-if: year >= 1930
-on-arrival: chancellor = "Kardorff"; chancellor_party = [+ dvp_name +];
+on-arrival: chancellor = "Kardorff"; chancellor_party = dvp_name;
 face-image: img/portraits/KardorffSiegfried.jpg
 go-to: ministries
 
