@@ -363,19 +363,23 @@ data = data.concat([
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
-        "seats": Q.spd_r*5,
-    },
-    {
+        "seats": Math.round(Q.spd_r*5),
+    }
+]);
+if (Q.lvp_formed == 0) {
+    data.push({
         "id": "ddp",
-        "legend": "DDP",
-        "name": "DDP",
-        "seats": Q.ddp_r*5,
-    },
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_r*5),
+    });
+}
+data = data.concat([
     {
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": (Q.z_r - 3)*5,
+        "seats": Math.round((Q.z_r - 3)*5),
     },
     {
         "id": "bvp",
