@@ -382,7 +382,6 @@ unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
 on-arrival: dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DNVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
-go-to: ministries
 
 A majority right coalition is formed.
 
