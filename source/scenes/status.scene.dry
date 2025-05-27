@@ -43,7 +43,7 @@ Reichstag composition:
 # 1928: 10, 1930: 13
 {!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">[+ ddp_name +]</span>!}: [+ ddp_r +]% ?]
+[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}[+ ddp_name +]{!</span>!}: [+ ddp_r +]% ?]
 # 1928: 9, 1930: 5
 [? if not lvp_formed: {!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
 [? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
