@@ -7,7 +7,6 @@ max-visits: 1
 on-arrival: {!
 !}
 new-page: true
-go-to: game_over_1934
 
 = A New Day in Germany
 
