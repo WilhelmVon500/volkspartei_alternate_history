@@ -1,6 +1,7 @@
 on-arrival: {!
 // set up the infrastructure
 Q.lvp_formed = 1;
+Q.dvp_color = "#FFCC00"
 
 Q.workers_dvp += Q.workers_ddp;
 Q.workers_ddp = 0;
