@@ -24,7 +24,7 @@ go-to: monetary_policy
 @build_support_liberal_peoples_party
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if ddp_relation < 50: Our relations with [+ ddp_name +] are not good enough. ?] [? if peoples_party_support > 4: There is already substantial support for a People's Party. ?]
 view-if: peoples_party = 0
-choose-if: ddp_relation >= 50
+choose-if: advisor_action_timer == 0 and ddp_relation >= 50
 on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 8; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
 
 
