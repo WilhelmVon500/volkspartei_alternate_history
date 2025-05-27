@@ -503,7 +503,7 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
-if (lvp_formed) {
+if (lvp_formed == 1) {
     Q.workers_ddp = 0
     Q.new_middle_ddp = 0
     Q.old_middle_ddp = 0
