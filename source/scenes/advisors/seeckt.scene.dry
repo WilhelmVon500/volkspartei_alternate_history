@@ -26,8 +26,8 @@ We have increased the strength of the nationalist faction with the <span style="
 @military_affairs
 title: Military affairs
 subtitle: We can set our military policy.
-choose-if: advisor_action_timer == 0 and spd_in_government and reichswehr_minister_party == [+ dvp_name +]
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government : The <span style="color: #C0A054;">**[+ dvp_name +]**</span> is not in government. ?][? if reichswehr_minister_party != [+ dvp_name +]: The <span style="color: #C0A054;">**[+ dvp_name +]**</span> does not have the Reichswehr ministry. ?]
+choose-if: advisor_action_timer == 0 and spd_in_government and reichswehr_minister_party == dvp_name
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government : The <span style="color: #C0A054;">**[+ dvp_name +]**</span> is not in government. ?][? if reichswehr_minister_party != dvp_name: The <span style="color: #C0A054;">**[+ dvp_name +]**</span> does not have the Reichswehr ministry. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: military_policy
 
