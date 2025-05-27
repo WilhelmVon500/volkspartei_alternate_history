@@ -179,7 +179,7 @@ data = data.concat([
         "seats": Math.round(Q.spd_r*5),
     }
 ]);
-if (not Q.lvp_formed) {
+if (Q.lvp_formed == 0) {
     data.push({
         "id": "ddp",
         "legend": Q.ddp_name,
