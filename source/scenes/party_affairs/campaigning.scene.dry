@@ -32,7 +32,7 @@ We have increased our campaigning among the workers. [? if unemployed >= 15: The
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_dvp += 6*(1-dissent); resources -= 1
+on-arrival: new_middle_dvp += 4*(1-dissent); resources -= 1
 
 We have increased our campaigning among the new middle class.
 
@@ -40,7 +40,7 @@ We have increased our campaigning among the new middle class.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: old_middle_dvp += 6*(1-dissent); resources -= 1
+on-arrival: old_middle_dvp += 4*(1-dissent); resources -= 1
 
 We have increased our campaigning among the old middle class.
 
@@ -48,14 +48,14 @@ We have increased our campaigning among the old middle class.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_dvp += 5*(1-dissent); resources -= 1
+on-arrival: rural_dvp += 4*(1-dissent); resources -= 1
 
 We have increased our campaigning among farmers.
 @unemployed
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_dvp += 3*(1-dissent); resources -= 1
+on-arrival: unemployed_dvp += 2*(1-dissent); resources -= 1
 
 We have increased our campaigning among the unemployed.
 
@@ -64,6 +64,6 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: peoples_party == 1
-on-arrival: catholics_dvp += 6*(1-dissent); resources -= 1
+on-arrival: catholics_dvp += 4*(1-dissent); resources -= 1
 
 We have increased our campaigning among Catholics.
