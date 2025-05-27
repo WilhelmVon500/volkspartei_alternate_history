@@ -567,7 +567,8 @@ Q.pfulf_advisor = 0; // Antonie Pfülf
 Q.breitscheid_advisor = 0; // Rudolf Breitscheid
 Q.hilferding_advisor = 0; // Rudolf Hilferding
 
-// Reformist advisors
+// Liberal advisors
+Q.luther_advisor = 0; // Hans Luther
 Q.severing_advisor = 0; // Carl Severing
 Q.braun_advisor = 0; // Otto Braun
 Q.juchacz_advisor = 0; // Marie Juchacz
@@ -587,7 +588,6 @@ Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 // Nonfactional advisors
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.moldenhauer_advisor = 0; // Paul Moldenhauer
-Q.luther_advisor = 0; // Hans Luther
 !}
 set-bg: img/map_2.jpg
 new-page: true
