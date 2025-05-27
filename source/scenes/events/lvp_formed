@@ -1,0 +1,31 @@
+on-arrival: {!
+// set up the infrastructure
+Q.lvp_formed = 1;
+
+Q.workers_dvp += Q.workers_ddp;
+Q.workers_ddp = 0;
+
+Q.new_middle_dvp += Q.new_middle_ddp;
+Q.new_middle_ddp = 0;
+
+Q.old_middle_dvp += Q.old_middle_ddp;
+Q.old_middle_ddp = 0;
+
+Q.rural_dvp += Q.rural_ddp;
+Q.rural_ddp = 0;
+
+Q.unemployed_dvp += Q.unemployed_ddp;
+Q.unemployed_ddp = 0;
+
+Q.catholics_dvp += Q.catholics_ddp;
+Q.catholics_ddp = 0;
+
+
+
+// update all records
+Q.dvp_r += Q.ddp_r;
+Q.ddp_r = 0;
+
+Q.old_dvp_r += Q.old_ddp_r;
+Q.old_ddp_r = 0;
+!}
