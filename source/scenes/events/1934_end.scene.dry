@@ -13,3 +13,5 @@ go-to: game_over_1934
 
 After the death of Hindenburg and the presidential election of 1934, it seems as if an era of history is closing. The worst years of political and economic crisis are over, and Nazism's days are numbered. Perhaps Germany will finally enter into a new era of genuine peace...
 
+- @game_over_1934: Trigger game over.
+- @root: Nah.
