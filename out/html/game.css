@@ -550,7 +550,12 @@ table {
     fill: #69A2BE;
 }
 .seat.dvp {
-    fill: #D5AC27;
+    fill: #C0A054;
+    stroke: var(--border-color);
+    stroke-width: 1.5px;
+}
+.seat.lvp {
+    fill: #FFA500;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
