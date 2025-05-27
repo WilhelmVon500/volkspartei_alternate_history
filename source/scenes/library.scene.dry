@@ -472,7 +472,6 @@ if (d3 && window) {
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-
 {!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} [+ dvp_name +]: {!</td><td>!} [+ dvp_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}KPD: {!</td><td>!} [+ kpd_r +]% {!</td></tr>!}
