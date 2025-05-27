@@ -23,7 +23,7 @@ go-to: monetary_policy
 
 @build_support_liberal_peoples_party
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if ddp_relation < 50: Our relations with [+ ddp_name +] are not good enough. ?] [? if peoples_party_support > 4: There is already substantial support for a People's Party. ?]
-view-if: liberal_peoples_party = 0
+view-if: lvp_formed = 0
 choose-if: advisor_action_timer == 0 and ddp_relation >= 50
 on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 8; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
 
@@ -31,6 +31,6 @@ on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_p
 @form_liberal_peoples_party
 choose-if: dvp_ideology = "Left" and liberal_peoples_party_progress >= 3 and ddp_relation >= 65 and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if dvp_ideology != "Left" or liberal_peoples_party_progress < 3: The opposition is too strong. ?] [? if ddp_relation < 65: Our relations with [+ ddp_name +] are not good enough ?]
-view-if: liberal_peoples_party = 0
-on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; liberal_peoples_party = 1; dvp_name = "LVP"; nationalist_dissent += 25; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
+view-if: lvp_formed = 0
+on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; lvp_formed = 1; dvp_name = "LVP"; nationalist_dissent += 25; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
 achievement: volkspartei
