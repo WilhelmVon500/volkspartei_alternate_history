@@ -55,6 +55,15 @@ go-to: rm_main
 
 Severing has been removed as an advisor. The Reformist faction disapproves.
 
+@remove_luther
+title: Remove Luther
+view-if: luther_advisor = 1
+tags: remove_advisor
+on-arrival: luther_advisor = 0; liberal_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Luther has been removed as an advisor. The Liberal faction disapproves.
+
 @remove_stresemann
 title: Remove Stresemann
 view-if: stresemann_advisor = 1
@@ -140,7 +149,7 @@ go-to: rm_main
 
 Woytinsky has been removed as an advisor. The Labor faction disapproves.
 
-# left
+# nationalist
 
 @remove_levi
 title: Remove Levi
@@ -233,15 +242,6 @@ Baade has been removed as an advisor.
 
 #The Reformist faction disapproves.
 
-
-@remove_luther
-title: Remove Luther
-view-if: luther_advisor = 1
-tags: remove_advisor
-on-arrival: luther_advisor = 0; n_advisors -= 1
-go-to: rm_main
-
-Luther has been removed as an advisor. 
 
 @remove_moldenhauer
 title: Remove Moldenhauer
@@ -345,6 +345,20 @@ go-to: advisor_menu
 
 Carl Severing is now an advisor.
 
+
+@add_luther
+title: Hans Luther
+subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Monetary Policy, Support a united liberal party ?]
+is-card: true
+card-image: img/portraits/LutherHans.jpg
+tags: liberal_advisor
+view-if: luther_advisor = 0 and n_advisors < 3
+on-arrival: luther_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Hans Luther is now an advisor.
+
+
 @add_stresemann
 title: Gustav Stresemann
 subtitle: Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
@@ -357,6 +371,7 @@ go-to: advisor_menu
 
 Gustav Stresemann is now an advisor.
 
+
 @add_curtius
 title: Julius Curtius
 subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, Foreign Policy, Party Discipline ?]
@@ -368,6 +383,7 @@ on-arrival: curtius_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Julius Curtius is now an advisor.
+
 
 @add_braun
 title: Otto Braun
@@ -587,19 +603,6 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 Gustav Radbruch is now an advisor.
-
-
-@add_luther
-title: Hans Luther
-subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Monetary Policy, Support a united liberal party ?]
-is-card: true
-card-image: img/portraits/LutherHans.jpg
-view-if: luther_advisor = 0 and n_advisors < 3
-on-arrival: luther_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: nonfactional_advisor
-
-Hans Luther is now an advisor.
 
 
 @add_moldenhauer
