@@ -26,8 +26,8 @@ go-to: international_relations
 @curtius_foreign
 title: Foreign Policy
 subtitle: As Foreign Minister, Curtius can set our foreign policy.
-unavailable-subtitle: [? if not dvp_in_government: The <span style="color: #C0A054;">**DVP**</span> is not in government. ?] [? if foreign_minister_party != "DVP" : The <span style="color: #C0A054;">**DVP**</span> does not control the Foreign Ministry. ?][? if foreign_minister != "Curtius" : Curtius is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-choose-if: advisor_action_timer == 0 and dvp_in_government and foreign_minister_party == "DVP" and foreign_minister = "Curtius"
+unavailable-subtitle: [? if not dvp_in_government: The <span style="color: #C0A054;">**[+ dvp_name +]**</span> is not in government. ?] [? if foreign_minister_party != dvp_name : The <span style="color: #C0A054;">**[+ dvp_name +]**</span> does not control the Foreign Ministry. ?][? if foreign_minister != "Curtius" : Curtius is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and dvp_in_government and foreign_minister_party == dvp_name and foreign_minister = "Curtius"
 on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_action = 1
 go-to: foreign_policy
 
@@ -45,8 +45,8 @@ We have enforced party discipline to reduce dissent across all factions.
 @snap_election
 title: Snap Election
 subtitle: Call a snap election.
-unavailable-subtitle: [? if chancellor != "Breitscheid" : Breitscheid must be Chancellor. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-choose-if: advisor_action_timer == 0 and chancellor == "Breitscheid"
+unavailable-subtitle: [? if chancellor != "Curtius" : Curtius must be Chancellor. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and chancellor == "Curtius"
 on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
 We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
