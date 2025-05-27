@@ -10,6 +10,8 @@ new-page: true
 Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926.
 
 - @monetary_policy_luther: Monetary Policy
+- @support_peoples_party: Build support for a united liberal party
+- @build_peoples_party: Form the Liberal People's Party
 - @root: Return to main
 
 @monetary_policy_luther
