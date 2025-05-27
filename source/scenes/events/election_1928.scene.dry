@@ -357,7 +357,7 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 @right_coalition
 title: A right-wing coalition may be formed.
 subtitle: Z + BVP + DVP + DNVP + Others ([+ right_coalition +]%)
-unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
+unavailable-subtitle: The DNVP is not interested in a coalition with the "November criminals" in the Center Party.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
 
@@ -366,10 +366,6 @@ There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DN
 - @right_coalition_sure: Yes, we will participate in a right coalition.
 - @coalition_menu: Actually, we wish to form other coalition after all.
 
-@no_right_coalition
-go-to: no_majority
-
-However, the DNVP and its leader Hugenberg is refusing to partake in a coalition with the "November criminals" in the Center Party. Thus, there is no clear path towards a Reichstag majority.
 
 @right_coalition_sure
 subtitle: This will be extremely unpopular within the left of our party.
