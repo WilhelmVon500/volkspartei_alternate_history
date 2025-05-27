@@ -21,7 +21,7 @@ The <span style="color: #C0A054;">**DVP**</span> has the fewest supportive newsp
 
 @campaign
 title: Campaign for our party.
-subtitle: Our newspapers will focus on the electoral campaign.
+subtitle: We will coordinate our campaign with supportive newspapers.
 on-arrival: campaign_media += 1; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 3*(1-dissent);
 
 Our campaign media is mostly reaching the middle class who are already saturated with rightist propaganda, but it must be doing *something*, or at least that is what we hope.
