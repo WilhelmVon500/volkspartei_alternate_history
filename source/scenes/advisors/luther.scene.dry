@@ -10,14 +10,36 @@ new-page: true
 Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926.
 
 - @monetary_policy_luther: Monetary Policy
-- @support_peoples_party: Build support for a united liberal party
-- @build_peoples_party: Form the Liberal People's Party
+- @build_support_liberal_peoples_party: Build support for a united liberal party
+- @form_liberal_peoples_party: Form the Liberal People's Party
+- @form_liberal_peoples_party_hard: Form the Liberal People's Party
 - @root: Return to main
 
 @monetary_policy_luther
-title: Monetary
 subtitle: As Reichsbank president, Luther can enact monetary policies.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if reichsbank_president != "Luther" : Luther does not control the Reichsbank. ?]
 choose-if: advisor_action_timer == 0 and reichsbank_president == "Luther"
 on-arrival: advisor_action_timer = 6; monetary_policy_timer -= 6; last_advisor_action = 1
 go-to: monetary_policy
+
+@build_support_liberal_peoples_party
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if ddp_relation < 50: Our relations with [+ ddp_name +] are not good enough. ?] [? if peoples_party_support > 4: There is already substantial support for a People's Party. ?]
+view-if: dvp_ideology = "Left" or liberal_peoples_party_support < 5 and advisor_action_timer = 0 and peoples_party = 0
+choose-if: ddp_relation >= 50
+on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 8; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
+
+
+@form_liberal_peoples_party
+choose-if: dvp_ideology = "Left" and liberal_peoples_party_support >= 4 and ddp_relation >= 65 and advisor_action_timer = 0 and peoples_party = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if dvp_ideology != "Left" or liberal_peoples_party_support < 4: The opposition is too strong. ?] [? if ddp_relation < 65: Our relations with [+ ddp_name +] are not good enough ?]
+view-if: dvp_ideology = "Left" and (liberal_peoples_party_support >= 4)
+on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; liberal_peoples_party = 1; dvp_name = "LVP"; nationalist_dissent += 25; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
+achievement: volkspartei
+
+@form_liberal_peoples_party_hard
+subtitle: This will increase dissent.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if ddp_relation < 50: Our relations with [+ ddp_name +] are not good enough. ?]
+view-if: dvp_ideology = "Right" or (liberal_peoples_party_support < 4)
+choose-if: ddp_relation >= 65 and advisor_action_timer = 0 and peoples_party = 0
+on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 8; liberal_peoples_party = 1; nationalist_dissent += 50; industrialist_dissent += 20; dnvp_relation -= 10; coalition_dissent -= 1; dvp_left += 5
+achievement: volkspartei
