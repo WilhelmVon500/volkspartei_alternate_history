@@ -26,7 +26,7 @@ go-to: international_relations
 @curtius_foreign
 title: Foreign Policy
 subtitle: As Foreign Minister, Curtius can set our foreign policy.
-unavailable-subtitle: [? if not dvp_in_government: The <span style="color: #C0A054;">**[+ dvp_name +]**</span> is not in government. ?] [? if foreign_minister_party != dvp_name : The <span style="color: #C0A054;">**[+ dvp_name +]**</span> does not control the Foreign Ministry. ?][? if foreign_minister != "Curtius" : Curtius is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+unavailable-subtitle: [? if not dvp_in_government: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in government. ?] [? if foreign_minister_party != dvp_name : The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] does not control the Foreign Ministry. ?][? if foreign_minister != "Curtius" : Curtius is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0 and dvp_in_government and foreign_minister_party == dvp_name and foreign_minister = "Curtius"
 on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_action = 1
 go-to: foreign_policy
@@ -37,7 +37,7 @@ title: Party Discipline
 subtitle: Reduce dissent across the party.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
+on-arrival: advisor_action_timer = 6; liberal_dissent -= 10; labor_dissent -= 10; industrialist_dissent -= 5; nationalist_dissent -= 5; neorevisionist_dissent -= 5
 
 We have enforced party discipline to reduce dissent across all factions.
 
