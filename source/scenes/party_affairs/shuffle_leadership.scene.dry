@@ -492,7 +492,7 @@ is-card: true
 card-image: img/portraits/ThielOtto.jpg
 tags: labor_advisor
 view-if: thiel_advisor = 0 and n_advisors < 3
-on-arrival: aufhauser_advisor = 1; n_advisors += 1; labor_strength += 5
+on-arrival: thiel_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
 Otto Thiel is now an advisor.
