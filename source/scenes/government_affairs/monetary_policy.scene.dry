@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: govt_affairs, cabinet
 on-arrival: monetary_policy_timer += 6; month_actions += 1
-view-if: reichsbank_president_party = [+ dvp_name +] and monetary_policy_timer = 0
+view-if: reichsbank_president_party = dvp_name and monetary_policy_timer = 0
 card-image: img/portraits/LutherHans.jpg
 go-to: monetary_menu
 #subtitle: Issues of taxation, budget, and tariffs.
