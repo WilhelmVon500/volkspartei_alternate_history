@@ -399,7 +399,7 @@ title: Refuse to participate in a government, so that a weimar coalition may be 
 subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
-There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +]. [? if largest_party == [+ dvp_name +]: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +]. [? if largest_party == dvp_name: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_sure: A center-left coalition takes power.
 
