@@ -383,7 +383,14 @@ view-if: right_coalition >= 50
 on-arrival: dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DNVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
 go-to: ministries
 
-A majority right coalition is formed, with Brüning as chancellor.
+A majority right coalition is formed.
+
+Who should be the chancellor?
+
+- @kardorff_coalition_chancellor
+- @scholz_coalition_chancellor
+- @z_chancellor
+
 
 
 @weimar_coalition
