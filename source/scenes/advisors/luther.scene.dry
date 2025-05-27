@@ -1,6 +1,6 @@
 title: Hans Luther
 is-pinned-card: true
-tags: advisor
+tags: advisor, liberal
 card-image: img/portraits/LutherHans.jpg
 view-if: luther_advisor = 1
 new-page: true 
