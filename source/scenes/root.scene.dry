@@ -94,7 +94,7 @@ Q.wtb_adopted = 0;
 // have we formed the iron front?
 Q.iron_front_formed = 0;
 // people's party support
-Q.peoples_party_support = 0;
+Q.liberal_peoples_party_support = 0;
 // support for nationalizations
 Q.nationalization_support = 0;
 Q.nationalization_adopted = 0;
@@ -477,7 +477,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'inter_party_relationships', 'international_relations',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally', 'reichsbanner',
-            'shuffle_leadership', 'streetfighting', 'peoples_party',
+            'shuffle_leadership', 'streetfighting', 'liberal_peoples_party',
             'party_disunity',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy', 'monetary_policy',
@@ -510,7 +510,7 @@ Q.rally_timer = 0;
 Q.reichsbanner_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
-Q.peoples_party_timer = 0;
+Q.liberal_peoples_party_timer = 0;
 // n_elections is the number of elections that have happened since the start of the game.
 Q.n_elections = 0;
 // number of elections without a clear majority.
