@@ -1022,7 +1022,7 @@ We have promised to let the Center have more influence in the government in resp
 @z_chancellor
 title: Support the Center Party candidate for chancellorship.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: nationalist_dissent += 5; z_relation += 10; spd_relation -= 5; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
+on-arrival: nationalist_dissent += 5; z_relation += 10; spd_relation -= 5; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0 and in_bourgeois_coalition == 0 and in_right_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
 go-to: ministries
 
 This is highly unexpected, and many in the left and center of our party are criticizing this decision.
