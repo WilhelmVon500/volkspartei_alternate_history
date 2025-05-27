@@ -177,13 +177,17 @@ data = data.concat([
         "legend": "SPD",
         "name": "SPD",
         "seats": Math.round(Q.spd_r*5),
-    },
-    {
-        "id": "ddp",
-        "legend": Q.ddp_name,
+    }
+]);
+if (Q.kvp_formed && Q.kvp_r) {
+    data.push({
+            "id": "ddp",
+            "legend": Q.ddp_name,
         "name": Q.ddp_name,
         "seats": Math.round(Q.ddp_r*5),
-    },
+            });
+}
+data = data.concat([
     {
         "id": "z",
         "legend": "Center",
