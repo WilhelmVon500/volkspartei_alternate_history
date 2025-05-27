@@ -7,7 +7,7 @@ new-page: true
 
 = Otto Hugo
 
-Otto Hugo is a prominent member of the right wing in the <span style="color: #C0A054;">**[+ dvp_name +]**</span>, known for his nationalist views and cooperative stance towards far-right groups. [? if dvp_leader = "Hugo" : He is also the current party leader. ?]
+Otto Hugo is a prominent member of the right wing in the <span style="color: #C0A054;">**[+ dvp_name +]**</span>, known for his nationalist views and cooperative stance towards far-right groups.
 
 - @building_the_right
 - @nsdap_cooperation
