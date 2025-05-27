@@ -179,13 +179,13 @@ data = data.concat([
         "seats": Math.round(Q.spd_r*5),
     }
 ]);
-if (Q.kvp_formed && Q.kvp_r) {
+if (not Q.lvp_formed) {
     data.push({
-            "id": "ddp",
-            "legend": Q.ddp_name,
+        "id": "ddp",
+        "legend": Q.ddp_name,
         "name": Q.ddp_name,
         "seats": Math.round(Q.ddp_r*5),
-            });
+    });
 }
 data = data.concat([
     {
@@ -215,11 +215,11 @@ data = data.concat([
 ]);
 if (Q.kvp_formed && Q.kvp_r) {
     data.push({
-            "id": "kvp",
-            "legend": "KVP",
-            "name": "KVP",
-            "seats": Math.round(Q.kvp_r*5),
-            });
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_r*5),
+    });
 }
 data = data.concat([
     {
