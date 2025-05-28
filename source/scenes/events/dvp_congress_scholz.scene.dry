@@ -1,6 +1,6 @@
 title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
 subtitle: Ernst Scholz has resigned!
-view-if: year = 1930 and month = 12 and dvp_leader == "Scholz"
+view-if: year = 1930 and month = 12 and dvp_leader == "Scholz" and not lvp_formed
 max-visits: 1
 tags: event
 face-image: img/portraits/ScholzErnst.jpg
