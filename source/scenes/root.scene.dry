@@ -589,7 +589,7 @@ Q.dietrich_advisor = 0; // Hermann Dietrich
 Q.leber_advisor = 0; // Julius Leber (post-1930)
 
 // Progressive advisors
-Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
+Q.erkelenz_advisor = 0; // Anton Erkelenz
 
 // Nonfactional advisors
 Q.radbruch_advisor = 0; // Gustav Radbruch
