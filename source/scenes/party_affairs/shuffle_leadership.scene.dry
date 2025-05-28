@@ -313,12 +313,12 @@ view-if: n_advisors < 3
 - #labor_advisor
 
 @democratic
-view-if: democrats_join > 0 and n_advisors < 3
+view-if: democrats_lvp > 0 and n_advisors < 3
 
 - #democratic_advisor
 
 @progressive
-view-if: progressives_join > 0 and n_advisors < 3
+view-if: progressives_lvp > 0 and n_advisors < 3
 
 - #progressive_advisor
 
