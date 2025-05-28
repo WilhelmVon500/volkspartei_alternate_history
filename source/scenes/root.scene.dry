@@ -69,7 +69,7 @@ Q.progressive_dissent = 0;
 Q.unions_independent = 0;
 Q.industrialists_leave = 0;
 Q.nationalist_split = 0;
-Q.reformists_resigned = 0;
+Q.liberals_resigned = 0;
 
 // have we discovered neorevisionism?
 Q.democrats_lvp = 0;
