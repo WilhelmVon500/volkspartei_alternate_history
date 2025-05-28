@@ -23,7 +23,7 @@ The <span style="color: #C0A054;">**DVP**</span> cannot govern by itself yet. Be
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; z_relation += 5*(1 - dissent)
+on-arrival: resources -= 1; spd_relation += 5*(1 - dissent)
 go-to: spd_op if spd_in_government = 1 and dvp_in_government = 0; spd_coalition if spd_in_government = 1 and dvp_in_government = 1; dvp_op if spd_in_government = 0 and dvp_in_government = 1
 
 @spd_op
