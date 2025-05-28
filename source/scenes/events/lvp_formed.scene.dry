@@ -2,6 +2,9 @@ on-arrival: {!
 // set up the infrastructure
 Q.lvp_formed = 1;
 
+Q.democrats_lvp = 1;
+Q.progressives_lvp = 1;
+
 Q.workers_dvp += Q.workers_ddp;
 Q.workers_ddp = 0;
 
