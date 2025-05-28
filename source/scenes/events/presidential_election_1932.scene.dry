@@ -4,7 +4,7 @@ view-if: year = 1932 and (month = 4 or month = 5) and presidential_election_seen
 frequency: 1000
 max-visits: 1
 new-page: true
-on-arrival: braun_campaign = 0; hitler_support_hindenburg = 0; presidential_election_seen = 1; nsdap_candidate = "Hitler" if hitler_deported == 0 else nsdap_candidate = "Göring";
+on-arrival: braun_campaign = 0; hitler_support_hindenburg = 0; presidential_election_seen = 1; nsdap_candidate = "Hitler" if hitler_deported == 0 else nsdap_candidate = "Göring"; next_presidential_election_year = year + 7; next_presidential_election_month = month;
 tags: event
 go-to: election_algorithm
 set-jump: pres_election
