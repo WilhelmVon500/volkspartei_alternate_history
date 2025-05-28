@@ -1,14 +1,14 @@
-title: Carlo Mierendorff
+title: Hermann Dietrich
 is-pinned-card: true
-tags: advisor
-card-image: img/portraits/MierendorffCarlo.jpg
-view-if: mierendorff_advisor = 1
+tags: advisor, democratic
+card-image: img/portraits/DietrichHermann.jpg
+view-if: dietrich_advisor = 1
 new-page: true
-#face-image: img/portraits/MierendorffCarlo.jpg
+#face-image: img/portraits/DietrichHermann.jpg
 
-= Carlo Mierendorff
+= Hermann Dietrich
 
-Carlo Mierendorff is the founder of the neo-revisionist ideological tendency, and supports both democratic reforms and extra-parliamentary action to combat the Nazis and authoritarian parties. He is from a middle-class, academic background, and is one of our youngest leaders.
+WIP
 
 - @nazi_urgency
 - @root: Return to main
