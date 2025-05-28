@@ -5,6 +5,10 @@ Q.lvp_formed = 1;
 Q.democrats_lvp = 1;
 Q.progressives_lvp = 1;
 
+Q.liberal_strength += 10;
+Q.democratic_strength += 15;
+Q.progressive_strength += 5;
+
 Q.workers_dvp += Q.workers_ddp;
 Q.workers_ddp = 0;
 
