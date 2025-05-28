@@ -72,7 +72,6 @@ Q.nationalist_split = 0;
 Q.reformists_resigned = 0;
 
 // have we discovered neorevisionism?
-Q.neorevisionism = 0;
 Q.democrats_lvp = 0;
 Q.progressives_lvp = 0;
 
