@@ -1180,7 +1180,7 @@ view-if: foreign_minister_party != dvp_name
 on-arrival: leverage -= 5; foreign_minister_party = dvp_name; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if stresemann_dead
 go-to: ministries
 
-[? if streseman_dead = 0: Gustav Stresemann ?][? if streseman_dead = 1: Julius Curtius ?] of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Foreign Minister.
+[? if stresemann_dead = 0: Gustav Stresemann ?][? if stresemann_dead = 1: Julius Curtius ?] of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Foreign Minister.
 
 
 @agriculture
