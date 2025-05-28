@@ -32,6 +32,6 @@ on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_p
 choose-if: dvp_ideology = "Left" and liberal_peoples_party_progress >= 3 and ddp_relation >= 65 and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if dvp_ideology != "Left" or liberal_peoples_party_progress < 3: The opposition is too strong. ?] [? if ddp_relation < 65: Our relations with [+ ddp_name +] are not good enough ?]
 view-if: lvp_formed = 0
-on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; lvp_formed = 1; dvp_name = "LVP"; nationalist_dissent += 100; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
+on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; lvp_formed = 1; nationalist_dissent += 100; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
 go-to: lvp_formed
 achievement: volkspartei
