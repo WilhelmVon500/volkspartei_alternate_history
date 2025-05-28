@@ -1,8 +1,11 @@
 on-arrival: {!
 // set up the infrastructure
 Q.lvp_formed = 1;
+
 Q.dvp_name = "LVP";
 Q.dvp_color = "#FFA500";
+
+Q.dvp_leader = "Luther";
 
 Q.democrats_lvp = 1;
 Q.progressives_lvp = 1;
