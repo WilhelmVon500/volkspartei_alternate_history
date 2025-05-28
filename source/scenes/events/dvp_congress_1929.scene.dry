@@ -1,6 +1,6 @@
 title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
 subtitle: We are choosing a new leader...
-view-if: stresemann_dead = 1
+view-if: stresemann_dead = 1 and not lvp_formed
 max-visits: 1
 tags: event
 new-page: false
