@@ -94,7 +94,7 @@ Economic growth: [+ economic_growth_2 +]%
 = Party Leadership
 
 [? if not lvp_formed: {!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**[+ dvp_name +]**{!</span>!}: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +]) ?]
-[? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: Classical Liberalism ([+ dvp_leader +]) ?]
+[? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Lemmer": Left Liberalism ([+ dvp_leader +]) ?] ?]
 
 {!<span class="tooltip-text" title="Center Party">Z</span>!}: Christian Democracy ([+ z_party_leader +])
 
