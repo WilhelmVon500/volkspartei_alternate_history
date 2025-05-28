@@ -349,8 +349,9 @@ data = [
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
-        "seats": Q.kpd_r*5,
-    }];
+        "seats": Math.round(Q.kpd_r*5),
+    }
+];
 if (Q.sapd_formed && Q.sapd_r) {
     data.push({
             "id": "sapd",
@@ -375,6 +376,14 @@ if (Q.lvp_formed == 0) {
         "seats": Math.round(Q.ddp_r*5),
     });
 }
+if (Q.lvp_formed == 1) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_r*5),
+    });
+}
 data = data.concat([
     {
         "id": "z",
@@ -386,41 +395,45 @@ data = data.concat([
         "id": "bvp",
         "legend": "BVP",
         "name": "BVP",
-        "seats": 3*5,
-    },
-    {
+        "seats": Math.round(3*5),
+    }
+]);
+if (Q.lvp_formed == 0) {
+    data.push({
         "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Q.dvp_r*5,
-    },
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_r*5),
+    });
+}
+data = data.concat([
     {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Q.other_r*5,
+        "seats": Math.round(Q.other_r*5),
     }
 ]);
 if (Q.kvp_formed && Q.kvp_r) {
     data.push({
-            "id": "kvp",
-            "legend": "KVP",
-            "name": "KVP",
-            "seats": Math.round(Q.kvp_r*5),
-            });
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_r*5),
+    });
 }
 data = data.concat([
     {
         "id": "dnvp",
         "legend": "DNVP",
         "name": "DNVP",
-        "seats": Q.dnvp_r*5,
+        "seats": Math.round(Q.dnvp_r*5),
     },
     {
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
-        "seats": Q.nsdap_r*5,
+        "seats": Math.round(Q.nsdap_r*5),
     },
 ]);
 if (d3 && window) {
