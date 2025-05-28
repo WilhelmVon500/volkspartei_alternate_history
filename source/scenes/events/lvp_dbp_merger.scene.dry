@@ -1,0 +1,11 @@
+title: [? if lvp_formed: <span style="color: #38C538;">**DBP**</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]!
+subtitle: Hugenberg has angered his party.
+view-if: lvp_formed and agricultural_finance >= 2
+max-visits: 1
+tags: event
+face-image: img/KVP_logo.jpg
+new-page: true
+
+= [? if lvp_formed: <span style="color: #38C538;">German Farmers' Party</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]
+
+WIP
