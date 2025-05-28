@@ -50,7 +50,7 @@ Q.dvp_left = 5
 Q.dvp_right = 0
 
 // factions
-Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'neorevisionist'];
+Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive'];
 // should this be normalized to 100%?
 Q.nationalist_strength = 20;
 Q.nationalist_dissent = 15;
@@ -60,8 +60,10 @@ Q.labor_strength = 10;
 Q.labor_dissent = 20;
 Q.liberal_strength = 40;
 Q.liberal_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 0;
+Q.democratic_strength = 5;
+Q.democratic_dissent = 0;
+Q.progressive_strength = 5;
+Q.progressive_dissent = 0;
 
 // secret events...
 Q.unions_independent = 0;
@@ -71,6 +73,8 @@ Q.reformists_resigned = 0;
 
 // have we discovered neorevisionism?
 Q.neorevisionism = 0;
+Q.democrats_lvp = 0;
+Q.progressives_lvp = 0;
 
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
