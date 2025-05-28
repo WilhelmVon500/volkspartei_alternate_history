@@ -1,13 +1,13 @@
-title: Kurt Schumacher
+title: Anton Erkelenz
 is-pinned-card: true
-tags: advisor, neorevisionist
-card-image: img/portraits/SchumacherKurt.jpg
-view-if: schumacher_advisor = 1
+tags: advisor, progressive
+card-image: img/portraits/ErkelenzAnton.jpg
+view-if: erkelenz_advisor = 1
 new-page: true 
 
-= Kurt Schumacher
+= Anton Erkelenz
 
-A Great War veteran and a neorevisionist leader, Kurt Schumacher argues for a strong resistance against the Nazis.
+WIP
 
 - @emergency_fundraising
 - @moderate_economic_plan
