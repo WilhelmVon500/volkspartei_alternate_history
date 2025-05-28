@@ -120,7 +120,9 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
 
-[? if neorevisionism > 0 : Democratic strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+[? if lvp_formed: Democratic strength: [+ democratic_strength : strength +], dissent: [+ democratic_dissent : dissent +] ?]
+
+[? if lvp_formed: Progressive strength: [+ progressive_strength : strength +], dissent: [+ progressive_dissent : dissent +] ?]
 
 
 @paramilitaries
