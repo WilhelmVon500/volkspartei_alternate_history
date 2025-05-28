@@ -8,7 +8,7 @@ Q.dvp_color = "#FFA500";
 Q.dvp_leader = "Luther";
 
 Q.lvp_next_congress_year = Q.year + 1;
-Q.lvp_next_congress_month = Q.month
+Q.lvp_next_congress_month = Q.month;
 
 Q.democrats_lvp = 1;
 Q.progressives_lvp = 1;
