@@ -34,28 +34,28 @@ Q.unemployed_ddp = 0;
 Q.catholics_dvp += Q.catholics_ddp;
 Q.catholics_ddp = 0;
 
-if (Q.labor_minister_party == "DVP" or Q.labor_minister_party == Q.ddp_name) {
+if (Q.labor_minister_party == "DVP" || Q.labor_minister_party == Q.ddp_name) {
   Q.labor_minister_party = Q.dvp_name
 }
-if (Q.interior_minister_party == "DVP" or Q.interior_minister_party == Q.ddp_name) {
+if (Q.interior_minister_party == "DVP" || Q.interior_minister_party == Q.ddp_name) {
   Q.interior_minister_party = Q.dvp_name
 }
-if (Q.finance_minister_party == "DVP" or Q.finance_minister_party == Q.ddp_name) {
+if (Q.finance_minister_party == "DVP" || Q.finance_minister_party == Q.ddp_name) {
   Q.finance_minister_party = Q.dvp_name
 }
-if (Q.economic_minister_party == "DVP" or Q.economic_minister_party == Q.ddp_name) {
+if (Q.economic_minister_party == "DVP" || Q.economic_minister_party == Q.ddp_name) {
   Q.economic_minister_party = Q.dvp_name
 }
-if (Q.justice_minister_party == "DVP" or Q.justice_minister_party == Q.ddp_name) {
+if (Q.justice_minister_party == "DVP" || Q.justice_minister_party == Q.ddp_name) {
   Q.justice_minister_party = Q.dvp_name
 }
-if (Q.foreign_minister_party == "DVP" or Q.foreign_minister_party == Q.ddp_name) {
+if (Q.foreign_minister_party == "DVP" || Q.foreign_minister_party == Q.ddp_name) {
   Q.foreign_minister_party = Q.dvp_name
 }
-if (Q.agriculture_minister_party == "DVP" or Q.agriculture_minister_party == Q.ddp_name) {
+if (Q.agriculture_minister_party == "DVP" || Q.agriculture_minister_party == Q.ddp_name) {
   Q.agriculture_minister_party = Q.dvp_name
 }
-if (Q.reichswehr_minister_party == "DVP" or Q.reichswehr_minister_party == Q.ddp_name) {
+if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp_name) {
   Q.reichswehr_minister_party = Q.dvp_name
 }
 
