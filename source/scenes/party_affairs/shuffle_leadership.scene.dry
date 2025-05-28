@@ -222,14 +222,14 @@ Leber has been removed as an advisor. The Democratic faction disapproves.
 
 ## Progressive
 
-@remove_schumacher
-title: Remove Schumacher
-view-if: schumacher_advisor = 1
+@remove_erkelenz
+title: Remove Erkelenz
+view-if: erkelenz_advisor = 1
 tags: remove_advisor
-on-arrival: schumacher_advisor = 0; progressive_dissent += 3; n_advisors -= 1
+on-arrival: erkelenz_advisor = 0; progressive_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Schumacher has been removed as an advisor. The Progressive faction disapproves.
+Erkelenz has been removed as an advisor. The Progressive faction disapproves.
 
 
 ## nonfactional
@@ -568,7 +568,7 @@ subtitle: Julius Leber is a former Reichswehr officer who resigned in opposition
 is-card: true
 card-image: img/portraits/LeberJulius.jpg
 view-if: leber_advisor = 0 and n_advisors < 3
-on-arrival: leber_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+on-arrival: leber_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
 
@@ -576,17 +576,17 @@ Julius Leber is now an advisor.
 
 # Progressive advisors
 
-@add_schumacher
-title: Kurt Schumacher
-subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
+@add_erkelenz
+title: Anton Erkelenz
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
 is-card: true
-card-image: img/portraits/SchumacherKurt.jpg
+card-image: img/portraits/ErkelenzAnton.jpg
 tags: progressive_advisor
-view-if: schumacher_advisor = 0 and n_advisors < 3
-on-arrival: schumacher_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+view-if: erkelenz_advisor = 0 and n_advisors < 3
+on-arrival: erkelenz_advisor = 1; n_advisors += 1; progressive_strength += 5
 go-to: advisor_menu
 
-Kurt Schumacher is now an advisor.
+Anton Erkelenz is now an advisor.
 
 # Nonfactional advisors
 
