@@ -6,6 +6,6 @@ tags: event
 face-image: img/KVP_logo.jpg
 new-page: true
 
-= [? if lvp_formed: <span style="color: #38C538;">German Farmers' Party</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]
+= [? if lvp_formed: <span style="color: #38C538;">**DBP**</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]
 
 WIP
