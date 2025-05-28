@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: industrialist_advisor, nationalist_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
+tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, democratic_advisor, progressive_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -50,10 +50,10 @@ Scholz has been removed as an advisor. The Industrialist faction disapproves.
 title: Remove Severing
 view-if: severing_advisor = 1
 tags: remove_advisor
-on-arrival: severing_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: severing_advisor = 0; liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Severing has been removed as an advisor. The Reformist faction disapproves.
+Severing has been removed as an advisor. The Liberal faction disapproves.
 
 @remove_luther
 title: Remove Luther
@@ -199,34 +199,37 @@ Siemsen has been removed as an advisor. The Nationalist faction disapproves.
 
 
 
-# neorevisionists
+# democratic
 
-@remove_mierendorff
-title: Remove Mierendorff
-view-if: mierendorff_advisor = 1
+@remove_dietrich
+title: Remove Dietrich
+view-if: dietrich_advisor = 1
 tags: remove_advisor
-on-arrival: mierendorff_advisor = 0; neorevisionist_dissent += 5; n_advisors -= 1
+on-arrival: dietrich_advisor = 0; democratic_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Mierendorff has been removed as an advisor. The Neorevisionist faction disapproves.
+Dietrich has been removed as an advisor. The Democratic faction disapproves.
 
 @remove_leber
 title: Remove Leber
 view-if: leber_advisor = 1
 tags: remove_advisor
-on-arrival: leber_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
+on-arrival: leber_advisor = 0; democratic_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Leber has been removed as an advisor. The Neorevisionist faction disapproves.
+Leber has been removed as an advisor. The Democratic faction disapproves.
+
+
+## Progressive
 
 @remove_schumacher
 title: Remove Schumacher
 view-if: schumacher_advisor = 1
 tags: remove_advisor
-on-arrival: schumacher_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
+on-arrival: schumacher_advisor = 0; progressive_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Schumacher has been removed as an advisor. The Neorevisionist faction disapproves.
+Schumacher has been removed as an advisor. The Progressive faction disapproves.
 
 
 ## nonfactional
@@ -283,7 +286,8 @@ frequency: 1
 - @nationalist: Add Nationalists
 - @liberal: Add Liberals
 - @labor: Add Labor
-- @neorev: Add Neorevisionists
+- @democratic: Add Democrats
+- @progressive: Add Progressives
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
@@ -308,10 +312,15 @@ view-if: n_advisors < 3
 
 - #labor_advisor
 
-@neorev
-view-if: neorevisionism > 0 and n_advisors < 3
+@democratic
+view-if: democrats_join > 0 and n_advisors < 3
 
-- #neorev_advisor
+- #democratic_advisor
+
+@progressive
+view-if: progressives_join > 0 and n_advisors < 3
+
+- #progressive_advisor
 
 @nonfactional
 view-if: n_advisors < 3
@@ -541,29 +550,17 @@ Wladimir Woytinsky is now an advisor.
 
 # neorevisionist leaders
 
-@add_mierendorff
-title: Carlo Mierendorff
-subtitle: Carlo Mierendorff is one of the youngest members of the Reichstag, and the originator of the "Neo-Revisionist" movement. He is an anti-Nazi strategist. {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
+@add_dietrich
+title: Hermann Dietrich
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
 is-card: true
-card-image: img/portraits/MierendorffCarlo.jpg
-view-if: mierendorff_advisor = 0 and n_advisors < 3
-on-arrival: mierendorff_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+card-image: img/portraits/DietrichHermann.jpg
+view-if: dietrich_advisor = 0 and n_advisors < 3
+on-arrival: dietrich_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
-tags: neorev_advisor
+tags: democratic_advisor
 
-Carlo Mierendorff is now an advisor.
-
-@add_schumacher
-title: Kurt Schumacher
-subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
-is-card: true
-card-image: img/portraits/SchumacherKurt.jpg
-tags: neorev_advisor
-view-if: schumacher_advisor = 0 and n_advisors < 3
-on-arrival: schumacher_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
-go-to: advisor_menu
-
-Kurt Schumacher is now an advisor.
+Hermann Dietrich is now an advisor.
 
 @add_leber
 title: Julius Leber
@@ -573,9 +570,23 @@ card-image: img/portraits/LeberJulius.jpg
 view-if: leber_advisor = 0 and n_advisors < 3
 on-arrival: leber_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
 go-to: advisor_menu
-tags: neorev_advisor
+tags: democratic_advisor
 
 Julius Leber is now an advisor.
+
+# Progressive advisors
+
+@add_schumacher
+title: Kurt Schumacher
+subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
+is-card: true
+card-image: img/portraits/SchumacherKurt.jpg
+tags: progressive_advisor
+view-if: schumacher_advisor = 0 and n_advisors < 3
+on-arrival: schumacher_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+go-to: advisor_menu
+
+Kurt Schumacher is now an advisor.
 
 # Nonfactional advisors
 
