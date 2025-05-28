@@ -1,5 +1,4 @@
 on-arrival: {!
-// set up the infrastructure
 Q.lvp_formed = 1;
 
 Q.dvp_name = "LVP";
