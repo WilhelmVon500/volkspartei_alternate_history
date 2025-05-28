@@ -69,7 +69,7 @@ Q.progressive_dissent = 0;
 Q.unions_independent = 0;
 Q.industrialists_leave = 0;
 Q.nationalist_split = 0;
-Q.liberals_resigned = 0;
+Q.liberals_resign = 0;
 
 // have we discovered neorevisionism?
 Q.democrats_lvp = 0;
@@ -618,7 +618,7 @@ on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_re
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
+on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; liberal_dissent = 25; nationalist_dissent = 30; labor_dissent = 25; industrialist_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
 go-to: 1928_main
 
 @1928_historical
