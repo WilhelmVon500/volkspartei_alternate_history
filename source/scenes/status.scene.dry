@@ -112,17 +112,17 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Internal Factions of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Nationalist</span>!} strength: [+ nationalist_strength : strength +], dissent: [+ nationalist_dissent : dissent +]
+[? if not nationalist_split: {!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Nationalist</span>!} strength: [+ nationalist_strength : strength +], dissent: [+ nationalist_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Industrialist</span>!} strength: [+ industrialist_strength : strength +], dissent: [+ center_dissent : dissent +]
+[? if not industrialists_leave: {!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Industrialist</span>!} strength: [+ industrialist_strength : strength +], dissent: [+ center_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+[? if not unions_independent: {!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
+[? if not liberals_resign: {!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +] ?]
 
-[? if lvp_formed: Democratic strength: [+ democratic_strength : strength +], dissent: [+ democratic_dissent : dissent +] ?]
+[? if democrats_lvp: Democratic strength: [+ democratic_strength : strength +], dissent: [+ democratic_dissent : dissent +] ?]
 
-[? if lvp_formed: Progressive strength: [+ progressive_strength : strength +], dissent: [+ progressive_dissent : dissent +] ?]
+[? if progressives_lvp: Progressive strength: [+ progressive_strength : strength +], dissent: [+ progressive_dissent : dissent +] ?]
 
 
 @paramilitaries
