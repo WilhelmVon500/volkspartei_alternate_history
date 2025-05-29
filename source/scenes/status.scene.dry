@@ -124,6 +124,8 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if progressives_lvp: Progressive strength: [+ progressive_strength : strength +], dissent: [+ progressive_dissent : dissent +] ?]
 
+[? if special_interest_lvp: Special Interest strength: [+ special_interest_strength : strength +], dissent: [+ special_interest_dissent : dissent +] ?]
+
 
 @paramilitaries
 on-arrival: {!
