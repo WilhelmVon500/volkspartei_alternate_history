@@ -578,7 +578,6 @@ Q.hilferding_advisor = 0; // Rudolf Hilferding
 // Liberal advisors
 Q.luther_advisor = 0; // Hans Luther
 Q.severing_advisor = 0; // Carl Severing
-Q.braun_advisor = 0; // Otto Braun
 Q.juchacz_advisor = 0; // Marie Juchacz
 Q.baade_advisor = 0; // Fritz Baade
 
@@ -594,6 +593,9 @@ Q.leber_advisor = 0; // Julius Leber (post-1930)
 
 // Progressive advisors
 Q.erkelenz_advisor = 0; // Anton Erkelenz
+
+// Special Interest advisors
+Q.kubler_advisor = 0; // Konrad Kübler
 
 // Nonfactional advisors
 Q.radbruch_advisor = 0; // Gustav Radbruch
