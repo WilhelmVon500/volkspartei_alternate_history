@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, democratic_advisor, progressive_advisor, nonfactional_advisor 
+tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, democratic_advisor, progressive_advisor, special_interest_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -81,15 +81,6 @@ on-arrival: curtius_advisor = 0; liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Curtius has been removed as an advisor. The Liberal faction disapproves.
-
-@remove_braun
-title: Remove Braun
-view-if: braun_advisor = 1
-tags: remove_advisor
-on-arrival: braun_advisor = 0; reformist_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Braun has been removed as an advisor. The Reformist faction disapproves.
 
 @remove_juchacz
 title: Remove Juchacz
@@ -232,6 +223,18 @@ go-to: rm_main
 Erkelenz has been removed as an advisor. The Progressive faction disapproves.
 
 
+## Special interest
+
+@remove_kubler
+title: Remove Kübler
+view-if: kubler_advisor = 1
+tags: remove_advisor
+on-arrival: kubler_advisor = 0; special_interest_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Kübler has been removed as an advisor. The Special Interest faction disapproves.
+
+
 ## nonfactional
 
 @remove_baade
@@ -327,6 +330,14 @@ view-if: n_advisors < 3
 
 - #nonfactional_advisor
 
+@special_interest
+view-if: n_advisors < 3
+
+- #special_interest_advisor
+
+
+# industrialist
+
 @add_scholz
 title: Ernst Scholz
 subtitle: Ernst Scholz is the leader of our faction in Reichstag. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
@@ -338,6 +349,7 @@ on-arrival: scholz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Ernst Scholz is now an advisor.
+
 
 # liberal
 
@@ -394,18 +406,6 @@ go-to: advisor_menu
 Julius Curtius is now an advisor.
 
 
-@add_braun
-title: Otto Braun
-subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
-is-card: true
-card-image: img/portraits/BraunOtto.jpg
-tags: liberal_advisor
-view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
-go-to: advisor_menu
-
-Otto Braun is now an advisor.
-
 @add_juchacz
 title: Marie Juchacz
 subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organization. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Worker's Welfare, Organizing Women ?]
@@ -417,6 +417,7 @@ go-to: advisor_menu
 tags: liberal_advisor
 
 Marie Juchacz is now an advisor.
+
 
 @add_pfulf
 title: Antonie Pfülf
@@ -574,6 +575,7 @@ tags: democratic_advisor
 
 Julius Leber is now an advisor.
 
+
 # Progressive advisors
 
 @add_erkelenz
@@ -587,6 +589,22 @@ on-arrival: erkelenz_advisor = 1; n_advisors += 1; progressive_strength += 5
 go-to: advisor_menu
 
 Anton Erkelenz is now an advisor.
+
+
+# Special Interest advisors
+
+@add_kubler
+title: Konrad Kübler
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
+is-card: true
+card-image: img/portraits/KublerKonrad.jpg
+tags: special_interest_advisor
+view-if: kubler_advisor = 0 and n_advisors < 3
+on-arrival: kubler_advisor = 1; n_advisors += 1; special_interest_strength += 5
+go-to: advisor_menu
+
+Konrad Kübler is now an advisor.
+
 
 # Nonfactional advisors
 
