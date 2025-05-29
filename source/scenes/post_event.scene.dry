@@ -102,7 +102,7 @@ if (Q.unemployed <= 1) {
 }
 
 // re-calculate dissent.
-var total_strength = Q.nationalist_strength + Q.industrialist_strength + Q.labor_strength + Q.liberal_strength + Q.democratic_strength + Q.democratic_strength;
+var total_strength = Q.nationalist_strength + Q.industrialist_strength + Q.labor_strength + Q.liberal_strength + Q.democratic_strength + Q.democratic_strength + Q.special_interest_strength;
 
 // normalize strength for the different factions
 Q.nationalist_strength = 100*Q.nationalist_strength/total_strength;
@@ -112,7 +112,7 @@ Q.liberal_strength = 100*Q.liberal_strength/total_strength;
 Q.democratic_strength = 100*Q.democratic_strength/total_strength;
 Q.progressive_strength = 100*Q.progressive_strength/total_strength;
 
-var total_dissent = Q.nationalist_strength*Q.nationalist_dissent + Q.industrialist_strength*Q.industrialist_dissent + Q.labor_strength*Q.labor_dissent + Q.liberal_strength*Q.liberal_dissent + Q.democratic_strength*Q.democratic_dissent + Q.progressive_strength*Q.progressive_dissent;
+var total_dissent = Q.nationalist_strength*Q.nationalist_dissent + Q.industrialist_strength*Q.industrialist_dissent + Q.labor_strength*Q.labor_dissent + Q.liberal_strength*Q.liberal_dissent + Q.democratic_strength*Q.democratic_dissent + Q.progressive_strength*Q.progressive_dissent + Q.special_interest_strength*Q.special_interest_dissent;
 
 
 Q.dissent = 0.01*total_dissent/total_strength;
