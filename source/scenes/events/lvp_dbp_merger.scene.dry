@@ -1,11 +1,12 @@
-title: [? if lvp_formed: <span style="color: #38C538;">**DBP**</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]!
+title: DBP merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]!
 subtitle: Farmers appreciate our rural policies.
 view-if: lvp_formed and agricultural_finance >= 2
+on-arrival: dbp_lvp = 1; special_interest_lvp = 1;
 max-visits: 1
 tags: event
-face-image: img/KVP_logo.jpg
+face-image: img/bauernbund.jpg
 new-page: true
 
-= [? if lvp_formed: <span style="color: #38C538;">**DBP**</span> ?] merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]
+= DBP merges into [? if lvp_formed: <span style="color: #FFA500;">**LVP**</span> ?]
 
 WIP
