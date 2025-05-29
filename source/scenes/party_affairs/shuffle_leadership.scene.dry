@@ -291,6 +291,7 @@ frequency: 1
 - @labor: Add Labor
 - @democratic: Add Democrats
 - @progressive: Add Progressives
+- @special_interest: Add Special Interest advisors
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
