@@ -24,7 +24,7 @@ We maintain our current dues.
 @reduce
 subtitle: [+ dues - 1 +] resources gained.
 choose-if: dues > 1
-on-arrival: dues -= 1; resources += dues; nationalist_dissent -= 8; industrialist_dissent -= 8; liberal_dissent -= 8; labor_dissent -= 8
+on-arrival: dues -= 1; resources += dues; nationalist_dissent -= 8; industrialist_dissent -= 8; liberal_dissent -= 8; labor_dissent -= 8; democratic_dissent -= 8; progressive_dissent -= 8; special_interest_dissent -= 8
 
 Our current members appreciate this, but no one decides to join a party because of the low dues.
 
