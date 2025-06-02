@@ -4,7 +4,7 @@ view-if: year == 1931
 new-page: true
 max-visits: 1
 on-arrival: old_middle_other -= 3; new_middle_other -= 3
-face-image: img/ColosserOtto.jpg
+face-image: img/portraits/ColosserOtto.jpg
 tags: event
 
 = WP Split
