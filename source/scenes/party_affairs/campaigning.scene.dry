@@ -62,7 +62,7 @@ We have increased our campaigning among the unemployed.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-view-if: liberal_peoples_party == 1
+view-if: lvp_formed == 1
 on-arrival: catholics_dvp += 4*(1-dissent); catholics_other -= 2; resources -= 1
 
 We have increased our campaigning among Catholics.
