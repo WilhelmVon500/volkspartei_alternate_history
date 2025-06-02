@@ -16,7 +16,7 @@ WIP
 
 @colosser_wp_lvp
 view-if: lvp_formed == 1
-on-arrival: new_middle_dvp += 3; special_interest_strength += 5; colosser_lvp = 1; special_interest_lvp = 1
+on-arrival: new_middle_dvp += 3; special_interest_strength += 3; colosser_lvp = 1; special_interest_lvp = 1
 
 Otto Colosser brings his faction into <span style="color: #FFA500;">**[+ dvp_name +]**</span>.
 
