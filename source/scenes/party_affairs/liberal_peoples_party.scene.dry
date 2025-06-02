@@ -2,7 +2,7 @@ title: Building a unified liberal party
 new-page: true
 is-card: true
 card-image: img/poster_0.jpg
-view-if: liberal_peoples_party_progress >= 3 and lvp_formed = 0 and liberal_peoples_party_timer == 0
+view-if: dvp_ideology == "Left" and ddp_relation >= 45 and liberal_peoples_party_progress >= 1 and lvp_formed = 0 and liberal_peoples_party_timer == 0
 on-arrival: liberal_peoples_party_timer = 6
 tags: party_affairs
 max-visits: 4
