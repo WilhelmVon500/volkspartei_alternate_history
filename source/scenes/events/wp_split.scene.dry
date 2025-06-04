@@ -3,7 +3,7 @@ subtitle: Split in the Economic Party.
 view-if: year == 1931
 new-page: true
 max-visits: 1
-on-arrival: old_middle_other -= 3; new_middle_other -= 3
+on-arrival: old_middle_other -= 3; new_middle_other -= 3; wp_split_seen = 1
 face-image: img/portraits/ColosserOtto.jpg
 tags: event
 
