@@ -159,6 +159,15 @@ Q.prussia_nsdap = 0.65;
 Q.prussia_election_year = 1928;
 Q.prussia_election_month = 5;
 
+Q.spd_pl = 25;
+Q.dnvp_pl = 24;
+Q.z_pl = 18;
+Q.dvp_pl = 10;
+Q.kpd_pl = 10;
+Q.ddp_pl = 6;
+Q.nsdap_pl = 2;
+Q.other_pl = 6;
+
 
 
 // The array of forces - paramilitary groups
