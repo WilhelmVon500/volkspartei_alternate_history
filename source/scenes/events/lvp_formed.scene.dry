@@ -71,6 +71,9 @@ if (wp_split_seen == 1) {
 Q.dvp_r += Q.ddp_r;
 Q.ddp_r = 0;
 
+Q.dvp_pl += Q.ddp_pl;
+Q.ddp_pl = 0;
+
 Q.old_dvp_r += Q.old_ddp_r;
 Q.old_ddp_r = 0;
 !}
