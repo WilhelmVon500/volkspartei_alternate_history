@@ -60,6 +60,13 @@ if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp
 }
 
 
+if (wp_split_seen == 1) {
+  Q.special_interest_strength += 2;
+  Q.colosser_lvp = 1;
+  Q.special_interest_lvp = 1
+}
+
+
 // update all records
 Q.dvp_r += Q.ddp_r;
 Q.ddp_r = 0;
