@@ -2,8 +2,7 @@ title: Prussian Landtag Elections
 new-page: true
 tags: event
 priority: -1
-view-if: landtags_enabled and ((year = prussia_election_year and month >= prussia_election_month) or (year > prussia_election_year)) and not supreme_soviet
-on-arrival: dvp_willing = 0; dvp_willing = 1 if ((dvp_plelation+spd_votes+(pro_republic/6)) >= ((100-pro_republic)+capital_strike_progress+(coup_progress/2))); z_willing = 0; z_willing = 1 if z_plelation >= 50 or (z_plelation >= 25 and bourgeois_coalition < 50)
+view-if: (year = prussia_election_year and month >= prussia_election_month) or (year > prussia_election_year)
 on-departure: in_election = 0; prussia_election_year += 4; prussia_election_month -= 1; prussia_election_year -= 1 if prussia_election_month < 1; prussia_election_month += 12 if prussia_election_month < 1; p_elections += 1; prussia_election_time = time + 47;
 set-jump: prussia_election_1928
 
