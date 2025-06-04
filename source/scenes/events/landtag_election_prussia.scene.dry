@@ -118,93 +118,114 @@ Q.p_national_front_pl = Q.nsdap_pl + Q.dnvp_pl + Q.dvp_pl + Q.other_pl;
 on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_pl >= 15)
 
 on-display: {!
-data = [
-    {
-        "id": "kpd",
-        "legend": "KPD",
-        "name": "KPD",
-        "seats": Math.round(Q.kpd_pl*4.5),
-    }
-];
-if (Q.sapd_formed && Q.sapd_r) {
-    data.push({
-          "id": "sapd",
-          "legend": "SAPD",
-          "name": "SAPD",
-          "seats": Math.round(Q.sapd_pl*4.5),
-    });
+if (Q.sapd_formed == 1) {
+    data = [
+        {    "id": "kpd",
+            "legend": "KPD",
+            "name": "KPD",
+            "seats": Math.round(Q.kpd_pl*4.5),
+        },
+        {
+            "id": "sapd",
+            "legend": "SAPD",
+            "name": "SAPD",
+            "seats": Math.round(Q.sapd_pl*4.5),
+        },
+        {
+            "id": "spd",
+            "legend": "SPD",
+            "name": "SPD",
+            "seats": Math.round(Q.spd_pl*4.5),
+        },
+        {
+            "id": "ddp",
+            "legend": Q.ddp_name,
+            "name": Q.ddp_name,
+            "seats": Math.round(Q.ddp_pl*4.5),
+        },
+        {
+            "id": "z",
+            "legend": "Center",
+            "name": "Center",
+            "seats": Math.round(Q.z_pl*4.5),
+        },
+        {
+            "id": "dvp",
+            "legend": "DVP",
+            "name": "DVP",
+            "seats": Math.round(Q.dvp_pl*4.5),
+        },
+        {
+            "id": "other",
+            "legend": "Other",
+            "name": "Other",
+            "seats": Math.round(Q.other_pl*4.5),
+        },
+        {
+            "id": "dnvp",
+            "legend": "DNVP",
+            "name": "DNVP",
+            "seats": Math.round(Q.dnvp_pl*4.5),
+        },
+        {
+            "id": "nsdap",
+            "legend": "NSDAP",
+            "name": "NSDAP",
+            "seats": Math.round(Q.nsdap_pl*4.5),
+        },
+    ];
 }
-data = data.concat([
-    {
-        "id": "spd",
-        "legend": "SPD",
-        "name": "SPD",
-        "seats": Math.round(Q.spd_pl*4.5),
-    }
-]);
-if (Q.lvp_formed == 0) {
-    data.push({
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_pl*4.5),
-    });
+else {
+    data = [
+        {   "id": "kpd",
+            "legend": "KPD",
+            "name": "KPD",
+            "seats": Math.round(Q.kpd_pl*4.5),
+        },
+        {
+            "id": "spd",
+            "legend": "SPD",
+            "name": "SPD",
+            "seats": Math.round(Q.spd_pl*4.5),
+        },
+        {
+            "id": "ddp",
+            "legend": Q.ddp_name,
+            "name": Q.ddp_name,
+            "seats": Math.round(Q.ddp_pl*4.5),
+        },
+        {
+            "id": "z",
+            "legend": "Center",
+            "name": "Center",
+            "seats": Math.round(Q.z_pl*4.5),
+        },
+        {
+            "id": "dvp",
+            "legend": "DVP",
+            "name": "DVP",
+            "seats": Math.round(Q.dvp_pl*4.5),
+        },
+        {
+            "id": "other",
+            "legend": "Other",
+            "name": "Other",
+            "seats": Math.round(Q.other_pl*4.5),
+        },
+        {
+            "id": "dnvp",
+            "legend": "DNVP",
+            "name": "DNVP",
+            "seats": Math.round(Q.dnvp_pl*4.5),
+        },
+        {
+            "id": "nsdap",
+            "legend": "NSDAP",
+            "name": "NSDAP",
+            "seats": Math.round(Q.nsdap_pl*4.5),
+        },
+    ];
 }
-if (Q.lvp_formed == 1) {
-    data.push({
-        "id": "lvp",
-        "legend": Q.dvp_name,
-        "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_pl*4.5),
-    });
-}
-data = data.concat([
-    {
-        "id": "z",
-        "legend": "Center",
-        "name": "Center",
-        "seats": Math.round(Q.z_pl*4.5),
-    }
-]);
-if (Q.lvp_formed == 0) {
-    data.push({
-        "id": "dvp",
-        "legend": Q.dvp_name,
-        "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_pl*4.5),
-    });
-}
-data = data.concat([
-    {
-        "id": "other",
-        "legend": "Other",
-        "name": "Other",
-        "seats": Math.round(Q.other_pl*4.5),
-    }
-]);
-if (Q.kvp_formed && Q.kvp_r) {
-    data.push({
-        "id": "kvp",
-        "legend": "KVP",
-        "name": "KVP",
-        "seats": Math.round(Q.kvp_pl*4.5),
-    });
-}
-data = data.concat([
-    {
-          "id": "dnvp",
-          "legend": "DNVP",
-          "name": "DNVP",
-          "seats": Math.round(Q.dnvp_pl*4.5),
-      },
-      {
-          "id": "nsdap",
-          "legend": "NSDAP",
-          "name": "NSDAP",
-          "seats": Math.round(Q.nsdap_pl*4.5),
-      },
-]);
-
 if (window && d3) {
     var width = 500; 
     var height = 500;
@@ -222,28 +243,27 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
+go-to: coalition_menu
 
 = Election results
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
-[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_pl +]%** {!</td><td>!} **[+ stpl_change_dvp +]** {!</td></tr>!} ?]
-[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_pl +]%** {!</td><td>!} **[+ stpl_change_dvp +]** {!</td></tr>!} ?]
+{!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SPD:** {!</td><td>!} **[+ spd_pl +]%** {!</td><td>!} **[+ stpl_change_spd +]** {!</td></tr>!}
+
+[? if sapd_formed == 1 : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_pl +]% {!</td><td>!} [+ stpl_change_sapd +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_pl +]% {!</td><td>!} [+ stpl_change_kpd +] {!</td></tr>!}
 
-[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_pl +]% {!</td><td>!} [+ stpl_change_sapd +] {!</td></tr>!} ?]
-
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_pl +]% {!</td><td>!} [+ stpl_change_spd +] {!</td></tr>!}
-
-[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_pl +]% {!</td><td>!} [+ stpl_change_ddp +] {!</td></tr>!} ?]
+{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_pl +]% {!</td><td>!} [+ stpl_change_ddp +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_pl +]% {!</td><td>!} [+ stpl_change_z +] {!</td></tr>!}
 
+{!<tr><td><div class="box" style='background-color:#D5AC27'> </div> !} DVP: {!</td><td>!} [+ dvp_pl +]% {!</td><td>!} [+ stpl_change_dvp +] {!</td></tr>!}
+ 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_pl +] % {!</td><td>!} [+ stpl_change_other +] {!</td></tr>!}
-
-[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !}KVP: {!</td><td>!} [+ kvp_pl +]% {!</td><td>!} [+ stpl_change_kvp +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_pl +]% {!</td><td>!} [+ stpl_change_dnvp +] {!</td></tr>!}
 
