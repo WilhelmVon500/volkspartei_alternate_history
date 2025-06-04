@@ -222,7 +222,6 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
-#go-to: coalition_menu
 
 = Election results
 
