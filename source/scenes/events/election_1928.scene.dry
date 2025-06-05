@@ -990,9 +990,9 @@ Unfortunately, the SPD is unwilling to enter into another coalition with the [? 
 
 @beg_spd
 view-if: spd_relation >= 15
-go-to: spd_socialist if stresemann_dead == 1; dvp_majority if stresemann_dead == 0
+go-to: spd_socialist if stresemann_dead == 1; spd_stresemann if stresemann_dead == 0
 
-@dvp_majority
+@spd_stresemann
 go-to: join_bruning
 
 Under the influence of Gustav Stresemann, the SPD agrees to allow us into the coalition.
