@@ -318,6 +318,7 @@ There are some potential coalition arrangements.
 @coalition_menu
 
 - @spd_majority
+- @dvp_majority
 - @weimar_coalition
 - @bourgeois_coalition
 - @grand_coalition
@@ -640,6 +641,51 @@ on-arrival: chancellor = "Wels"
 Otto Wels has become chancellor of the SPD majority.
 
 # TODO: Otto Wels should be able to be chancellor of a Grand Coalition, Weimar Coalition, or SPD majority after Müller dies.
+
+@dvp_majority
+title: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority alone
+subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?]: [+ dvp_r +]%
+view-if: dvp_r >= 50
+on-arrival: chancellor = "Empty"; chancellor_party = dvp_name; dvp_in_government = 1; in_dvp_majority = 1; foreign_minister_party = dvp_name; foreign_minister = "Stresemann" if not stresemann_dead; foreign_minister = "Curtius" if stresemann_dead; interior_minister_party = dvp_name; interior_minister = "Jarres"; justice_minister_party = dvp_name; justice_minister = "Heinze" if not lvp_formed; justice_minister = "Schiffer" if lvp_formed; labor_minister_party = dvp_name; labor_minister = "Thiel"; reichswehr_minister_party = dvp_name; reichswehr_minister = "Seeckt"; economic_minister_party = dvp_name; economic_minister = "Krohne" if not lvp_formed; economic_minister = "Hamm" if lvp_formed; finance_minister_party = dvp_name; finance_minister = "Moldenhauer"; agriculture_minister_party = dvp_name; agriculture_minister = "Kanitz"; reichswehr_loyalty -= 0.05; 
+achievement: majority_party
+
+Finally, the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
+
+Who should be chancellor?
+
+- @kardorff_majority_chancellor: Siegfried Kardorff for Chancellor.
+- @dietrich_majority_chancellor: Hermann Dietrich for Chancellor.
+- @stresemann_majority_chancellor: Gustav Stresemann for Chancellor.
+- @curtius_majority_chancellor: Julius Curtius for Chancellor.
+
+@kardorff_majority_chancellor
+on-arrival: chancellor = "Kardorff"
+face-image: img/portraits/KardorffSiegfried.jpg
+
+Siegfried Kardorff has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
+
+@dietrich_majority_chancellor
+view-if: lvp_formed = 1
+on-arrival: chancellor = "Dietrich"
+face-image: img/portraits/DietrichHermann.jpg
+
+Hermann Dietrich has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
+
+@stresemann_majority_chancellor
+view-if: stresemann_dead = 0
+on-arrival: chancellor = "Stresemann"
+face-image: img/portraits/StresemannGustav.jpg
+
+Gustav Stresemann has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
+
+@curtius_majority_chancellor
+view-if: stresemann_dead = 1
+on-arrival: chancellor = "Curtius"
+face-image: img/portraits/CurtiusJulius.jpg
+
+Julius Curtius has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
+
+###
 
 
 @brauns_dilemma
