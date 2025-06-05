@@ -653,16 +653,16 @@ Finally, the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +
 
 Who should be chancellor?
 
-- @kardorff_majority_chancellor: Siegfried Kardorff for Chancellor.
+- @scholz_majority_chancellor: Ernst Scholz for Chancellor.
 - @dietrich_majority_chancellor: Hermann Dietrich for Chancellor.
 - @stresemann_majority_chancellor: Gustav Stresemann for Chancellor.
 - @curtius_majority_chancellor: Julius Curtius for Chancellor.
 
-@kardorff_majority_chancellor
-on-arrival: chancellor = "Kardorff"
-face-image: img/portraits/KardorffSiegfried.jpg
+@scholz_majority_chancellor
+on-arrival: chancellor = "Scholz"
+face-image: img/portraits/ScholzErnst.jpg
 
-Siegfried Kardorff has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
+Ernst Scholz has become chancellor of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] majority.
 
 @dietrich_majority_chancellor
 view-if: lvp_formed = 1
