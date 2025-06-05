@@ -13,10 +13,10 @@ The Nazis' strength is gaining, as shown by their recent election results and th
 
 Many in their party are calling for urgent action. The "neorevisionist" faction, led by young socialists like Carlo Mierendorff and Julius Leber, have formed specifically around this cause.
 
-- @iron_front
+- @iron_front_formed
 
 
-@iron_front
+@iron_front_formed
 title: The Iron Front is formed!
 subtitle: The Iron Front consists of the SPD, the trade unions, and the Reichsbanner.
 on-arrival: iron_front_formed = 1; radicalization += 1; nazi_urgency += 1; workers_spd += 5; new_middle_spd += 3; pro_republic += 5*(1-dissent); democratic_dissent -= 8; democratic_strength += 5; progressive_strength += 5
