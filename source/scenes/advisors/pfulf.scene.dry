@@ -9,13 +9,4 @@ new-page: true
 
 Pfülf is a former teacher from Bavaria who came from a conservative Catholic family. She is an activist for women's rights and for broadening the support of the SPD. 
 
-- @womens_rights_
 - @root: Return to main
-
-@womens_rights_
-title: Women's rights
-subtitle: Enact policy with regards to women's rights.
-choose-if: advisor_action_timer = 0 and spd_in_government
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government : The SPD is not currently in government. ?]
-on-arrival: advisor_action_timer = 6; womens_rights_timer -= 10; last_advisor_action = 1
-go-to: womens_rights
