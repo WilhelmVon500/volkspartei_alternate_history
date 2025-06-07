@@ -2,7 +2,7 @@ title: Hjalmar Schacht resigned!
 view-if: year == 1930 and month >= 3
 new-page: true
 max-visits: 1
-on-arrival: reichsbank_president = "Luther", reichsbank_president_party = dvp_name
+on-arrival: reichsbank_president = "Luther"; reichsbank_president_party = dvp_name
 tags: event
 
 = Luther is appointed Reichsbank President!
