@@ -16,7 +16,7 @@ This has led to outcry from the left wing of the party, progressives who would r
 - @nothing: This is none of our concern.
 
 @advantage
-on-arrival: new_middle_spd += 5; peoples_party_support += 1; left_dissent += 5; reformist_strength += 3; neorevisionist_strength += 3; reformist_dissent -= 2; neorevisionist_dissent -= 2
+on-arrival: new_middle_dvp += 5; peoples_party_support += 1; left_dissent += 5; reformist_strength += 3; neorevisionist_strength += 3; reformist_dissent -= 2; neorevisionist_dissent -= 2
 
 With turmoil in the DDP, we have an opportunity to recruit middle-class progressives and portions of the liberal intelligensia into our party. The left of the SPD is opposed to this path, seeing it as diluting the class character of the party. On the other hand, revisionists support this course.
 
