@@ -34,6 +34,10 @@ Q.unemployed_ddp = 0;
 Q.catholics_dvp += Q.catholics_ddp;
 Q.catholics_ddp = 0;
 
+if (Q.in_weimar_coalition == 1) {
+  Q.dvp_in_government = 1
+}
+
 if (Q.labor_minister_party == "DVP" || Q.labor_minister_party == Q.ddp_name) {
   Q.labor_minister_party = Q.dvp_name
 }
