@@ -1,13 +1,13 @@
-title: Gustav Radbruch
+title: Rudolf Heinze
 is-pinned-card: true
 tags: advisor
-card-image: img/portraits/RadbruchGustav.jpg
-view-if: radbruch_advisor = 1
+card-image: img/portraits/HeinzeRudolf.jpg
+view-if: heinze_advisor = 1
 new-page: true 
 
-= Gustav Radbruch
+= Rudolf Heinze
 
-Gustav Radbruch is a renowned legal scholar and long-time SPD justice minister.
+Rudolf Heinze is a renowned legal scholar and long-time [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] justice minister.
 
 
 - @judiciary_
@@ -18,8 +18,8 @@ Gustav Radbruch is a renowned legal scholar and long-time SPD justice minister.
 @judiciary_
 title: Judicial Affairs
 subtitle: Enact judicial reforms.
-choose-if: advisor_action_timer = 0 and spd_in_government and justice_minister_party = "SPD"
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government : The SPD is not currently in government. ?][? if justice_minister_party != "SPD" : We do not have the Justice Ministry. ?]
+choose-if: advisor_action_timer = 0 and dvp_in_government and justice_minister_party = dvp_name
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government : The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not currently in government. ?][? if justice_minister_party != dvp_name : We do not have the Justice Ministry. ?]
 on-arrival: advisor_action_timer = 6; judiciary_timer -= 6; last_advisor_action = 1
 go-to: judiciary
 
@@ -27,8 +27,8 @@ go-to: judiciary
 @constitutional_reform_
 title: Constitutional Reform
 subtitle: Pursue reforms of the inadequate Weimar Constitution.
-choose-if: advisor_action_timer = 0 and spd_in_government and justice_minister_party = "SPD" and ((in_weimar_coalition) or (in_spd_majority) or (in_left_front) or (in_popular_front)) and judicial_reform >= 2
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government : The SPD is not currently in government. ?] [? if justice_minister_party != "SPD" : We do not have the Justice Ministry. ?] [? if judicial_reform < 2: The judiciary is unlikely to tolerate progressive constitutional changes. ?] [? if not ((in_weimar_coalition) or (in_spd_majority) or (in_left_front) or (in_popular_front)) : Our current governing coalition will not support constitutional reforms. ?]
+choose-if: advisor_action_timer = 0 and dvp_in_government and justice_minister_party = dvp_name and ((in_weimar_coalition) or (in_dvp_majority)) and judicial_reform >= 2
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government : The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not currently in government. ?] [? if justice_minister_party != dvp_name : We do not have the Justice Ministry. ?] [? if judicial_reform < 2: The judiciary is unlikely to tolerate progressive constitutional changes. ?] [? if not ((in_weimar_coalition) or (in_dvp_majority)) : Our current governing coalition will not support constitutional reforms. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1; constitutional_reform_timer -= 12
 go-to: constitutional_reform
 
