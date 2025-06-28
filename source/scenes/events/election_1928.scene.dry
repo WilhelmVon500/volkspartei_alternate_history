@@ -418,8 +418,8 @@ Ernst Scholz has been appointed chancellor.
 
 
 @weimar_coalition
-title: Refuse to participate in a government, so that a weimar coalition may be formed.
-subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
+title: [? if not lvp_formed: Refuse to participate in a government, so that a weimar coalition may be formed. ?][? if lvp_formed: We can form a Weimar Coalition. ?]
+subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
 There are enough votes for a weimar coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
