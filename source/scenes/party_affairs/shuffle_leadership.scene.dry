@@ -268,14 +268,14 @@ go-to: rm_main
 
 Moldenhauer has been removed as an advisor.
 
-@remove_radbruch
-title: Remove Radbruch
-view-if: radbruch_advisor = 1
+@remove_heinze
+title: Remove Heinze
+view-if: heinze_advisor = 1
 tags: remove_advisor
-on-arrival: radbruch_advisor = 0; n_advisors -= 1
+on-arrival: heinze_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
-Radbruch has been removed as an advisor. 
+Heinze has been removed as an advisor. 
 
 
 
@@ -645,17 +645,17 @@ tags: nonfactional_advisor
 Fritz Baade is now an advisor.
 
 
-@add_radbruch
-title: Gustav Radbruch
-subtitle: Gustav Radbruch is a renowned legal scholar and long-time SPD justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
+@add_heinze
+title: Rudolf Heinze
+subtitle: Rudolf Heinze is a renowned legal scholar and long-time [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
 is-card: true
-card-image: img/portraits/RadbruchGustav.jpg
-view-if: radbruch_advisor = 0 and n_advisors < 3
-on-arrival: radbruch_advisor = 1; n_advisors += 1
+card-image: img/portraits/HeinzeRudolf.jpg
+view-if: heinze_advisor = 0 and n_advisors < 3
+on-arrival: heinze_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
 
-Gustav Radbruch is now an advisor.
+Rudolf Heinze is now an advisor.
 
 
 @add_moldenhauer
