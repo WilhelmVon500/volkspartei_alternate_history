@@ -422,21 +422,65 @@ title: Refuse to participate in a government, so that a weimar coalition may be 
 subtitle: SPD + Z + [+ ddp_name +] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
-There are enough votes for a weimar coalition of the Center, SPD and [+ ddp_name +]. [? if largest_party == dvp_name: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a weimar coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_sure: A center-left coalition takes power.
+- @weimar_coalition_lvp: <span style="color: #FFA500;">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
 
 @no_weimar_coalition
 go-to: no_majority
 
 @weimar_coalition_sure
 subtitle: This will be extremely unpopular within the right wing of our party.
+view-if: lvp_formed == 0
 on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_leader = "Hugenberg"
 go-to: weimar_coalition_2
 
 
+@weimar_coalition_lvp
+view-if: lvp_formed
+on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+
+Who should be the chancellor?
+
+- @dietrich_weimar_chancellor
+- @wels_weimar_chancellor
+- @wirth_weimar_chancellor
+
+@dietrich_weimar_chancellor
+title: Hermann Dietrich for Chancellor
+subtitle: Dietrich is a former member of DDP Business Wing.
+on-arrival: chancellor = "Dietrich"; chancellor_party = dvp_name;
+face-image: img/portraits/DietrichHermann.jpg
+go-to: ministries
+
+
+Hermann Dietrich has been appointed chancellor.
+
+@wels_weimar_chancellor
+title: Support SPD candidate for chancellorship
+subtitle: This will improve our relations with SPD.
+on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_relation += 5
+face-image: img/portraits/WelsOtto.jpg
+go-to: ministries
+
+
+Otto Wels has been appointed chancellor.
+
+@wirth_weimar_chancellor
+title: Support Joseph Wirth of the Center Party for chancellorship.
+subtitle: This will improve our relations with the Center Party.
+on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; z_relation += 5
+face-image: img/portraits/WirthJoseph.jpg
+go-to: ministries
+
+
+Joseph Wirth has been appointed chancellor.
+
+
+
 @weimar_coalition_2
-view-if: weimar_coalition >= 50
+view-if: weimar_coalition >= 50 and not lvp_formed
 on-arrival: spd_in_government = 1; dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 0; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 A majority Weimar coalition is formed, with Wels as chancellor.
