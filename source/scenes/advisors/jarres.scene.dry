@@ -1,0 +1,39 @@
+title: Karl Jarres
+is-pinned-card: true
+tags: advisor, industrialist
+card-image: img/portraits/JarresKarl.jpg
+view-if: jarres_advisor = 1
+new-page: true
+
+= Karl Jarres
+
+WIP.
+
+- @clear_agenda
+- @party_discipline
+- @root: Return to main
+
+@clear_agenda
+title: Clear the agenda
+subtitle: Removes all cards from the hand.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: {!
+Q.advisor_action_timer = 6;
+if (Q.difficulty >= 0) {
+    window.dendryUI.dendryEngine.state.currentHands['main'] = [];
+} else {
+    window.dendryUI.dendryEngine.state.currentHands['main.main_easy'] = [];
+}
+!}
+
+All items from our agenda have been cleared.
+
+@party_discipline
+title: Party Discipline
+subtitle: Reduce dissent across the party.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; nationalist_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 10; liberal_dissent -= 10; neorevisionist_dissent -= 5
+
+We have enforced party discipline to reduce dissent across all factions.
