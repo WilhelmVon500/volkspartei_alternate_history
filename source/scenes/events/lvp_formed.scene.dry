@@ -38,6 +38,9 @@ if (Q.in_weimar_coalition == 1) {
   Q.dvp_in_government = 1
 }
 
+if (Q.chancellor_party == "DVP" || Q.chancellor_party == Q.ddp_name) {
+  Q.chancellor_party = Q.dvp_name
+}
 if (Q.labor_minister_party == "DVP" || Q.labor_minister_party == Q.ddp_name) {
   Q.labor_minister_party = Q.dvp_name
 }
