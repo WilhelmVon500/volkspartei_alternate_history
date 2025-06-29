@@ -915,7 +915,7 @@ Siegfried Kardorff has been appointed chancellor.
 
 @liberal_coalition
 title: We can form a Liberal Coalition.
-subtitle: <span style="color: #C0A054;">**[+ dvp_name +]**</span> + [+ ddp_name +] ([+ bourgeois_coalition +]%)
+subtitle: <span style="color: #C0A054;">**[+ dvp_name +]**</span> + [+ ddp_name +] ([+ liberal_coalition +]%)
 view-if: liberal_coalition >= 50 and not lvp_formed
 on-arrival: leverage += 5; in_liberal_coalition = 1; dvp_in_government = 1; foreign_minister_party = ddp_name; interior_minister_party = ddp_name; justice_minister_party = ddp_name; labor_minister_party = ddp_name; reichswehr_minister_party = ddp_name; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = ddp_name; foreign_minister = "WIP"; interior_minister = "WIP"; justice_minister = "Koch-Weser"; labor_minister = "WIP"; reichswehr_minister = "WIP"; economic_minister = "Dietrich"; finance_minister = "WIP"; agriculture_minister = "WIP";
 
