@@ -119,6 +119,7 @@ Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r + Q.dnvp_r;
 Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 // Hitler + Right-wing parties
 Q.hitler_right_coalition = Q.dvp_r + Q.dnvp_r + Q.nsdap_r;
+Q.liberal_coalition = Q.dvp_r + Q.ddp_r
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
 Q.progressive_coalition = Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r;
 
@@ -313,6 +314,8 @@ Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if no
 Center-right Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + DNVP + Others): [+ center_right_coalition +]%
 
 Right-wing Coalition (Z + BVP + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others + DNVP): [+ right_coalition +]%
+
+[? if not lvp_formed: Liberal Coalition ([+ ddp_name +] + <span style="color: #C0A054;">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
