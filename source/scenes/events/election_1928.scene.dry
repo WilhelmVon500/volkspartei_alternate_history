@@ -130,17 +130,20 @@ Q.grand_coalition_failed = 0;
 Q.coalition_dissent = 0;
 Q.nsdap_coalition_dissent = 0;
 Q.spd_in_government = 0;
+Q.dvp_in_government = 0;
 Q.in_weimar_coalition = 0;
 Q.in_grand_coalition = 0;
 Q.in_center_right_coalition = 0;
 Q.in_right_coalition = 0;
 Q.in_bourgeois_coalition = 0;
+Q.in_liberal_coalition = 0;
 Q.in_hitler_right_coalition = 0;
 Q.in_far_right_coalition = 0;
 Q.in_emergency_government = 0;
 Q.in_minority_government = 0;
 Q.in_unity_government = 0;
 Q.spd_toleration = 0;
+Q.dvp_toleration = 0;
 Q.spd_caretaker = 0;
 Q.foreign_minister_party = 'Z';
 Q.interior_minister_party = 'Z';
@@ -331,6 +334,7 @@ There are some potential coalition arrangements.
 - @bourgeois_coalition
 - @grand_coalition
 - @new_grand_coalition
+- @liberal_coalition
 - @unity_government
 - @far_right_coalition
 - @no_majority
@@ -484,7 +488,7 @@ Joseph Wirth has been appointed chancellor.
 
 @weimar_coalition_2
 view-if: weimar_coalition >= 50 and not lvp_formed
-on-arrival: spd_in_government = 1; dvp_in_government = 0; spd_toleration = 0; dvp_toleration = 0; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+on-arrival: spd_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 A majority Weimar coalition is formed, with Wels as chancellor.
 
@@ -557,7 +561,7 @@ title: Use our resources to smooth over the creation of a coalition.
 subtitle: -2 resources
 unavailable-subtitle: Not enough resources (need 2).
 choose-if: resources >= 2
-on-arrival: resources -= 2; dvp_in_government = 1; in_grand_coalition = 1; nationalist_dissent += 4;
+on-arrival: resources -= 2; spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; nationalist_dissent += 4;
 achievement: constitutional_coalition
 
 We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
@@ -907,6 +911,29 @@ face-image: img/portraits/KardorffSiegfried.jpg
 go-to: ministries
 
 Siegfried Kardorff has been appointed chancellor.
+
+
+@liberal_coalition
+title: We can form a Liberal Coalition.
+subtitle: <span style="color: #FFA500;">**[+ dvp_name +]**</span> + [+ ddp_name +] ([+ bourgeois_coalition +]%)
+view-if: liberal_coalition >= 50 and not lvp_formed
+on-arrival: leverage += 5; in_liberal_coalition = 1; dvp_in_government = 1; foreign_minister_party = ddp_name; interior_minister_party = ddp_name; justice_minister_party = ddp_name; labor_minister_party = ddp_name; reichswehr_minister_party = ddp_name; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = ddp_name; foreign_minister = "WIP"; interior_minister = "WIP"; justice_minister = "Koch-Weser"; labor_minister = "WIP"; reichswehr_minister = "WIP"; economic_minister = "Dietrich"; finance_minister = "WIP"; agriculture_minister = "WIP";
+
+We have enough votes to form a "Liberal Coalition" government consisting of the <span style="color: #C0A054;">**[+ dvp_name +]**</span> and [+ ddp_name +]!
+
+Who should be the chancellor?
+
+- @kardorff_coalition_chancellor
+- @dietrich_coalition_chancellor
+
+@dietrich_coalition_chancellor
+title: Hermann Dietrich for Chancellor
+subtitle: Dietrich is a member of [+ ddp_name +] Business wing.
+on-arrival: chancellor = "Dietrich"; chancellor_party = ddp_name;
+face-image: img/portraits/DietrichHermann.jpg
+go-to: ministries
+
+Hermann Dietrich has been appointed chancellor.
 
 
 @grand_coalition
