@@ -274,7 +274,7 @@ max-visits: 1
 [? if dvp_candidate = spd_candidate: Thanks to our good relations, the SPD is persuaded to support [+ dvp_candidate +]! ?]
 
 @convince_spd_unity
-title: Convince the DVP to support [+ dvp_candidate +].
+title: Convince the SPD to support [+ dvp_candidate +].
 unavailable-subtitle: The SPD is not willing to support our candidate.
 view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or dvp_candidate = "Braun") and dvp_candidate != spd_candidate
 choose-if: spd_relation >= 40
@@ -593,8 +593,6 @@ The bourgeois and right-wing parties are up in arms about the prospect of a Comm
 @eckener_win
 achievement: zeppelin_kapitan
 go-to: nazis_lose
-
-This is a historic victory - Marie Juchacz is the first woman to be elected president in any republic, anywhere in the world.
 
 @einstein_victory
 achievement: republik_der_wissenschaft
