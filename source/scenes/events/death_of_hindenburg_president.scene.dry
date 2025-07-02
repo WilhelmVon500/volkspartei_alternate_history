@@ -488,9 +488,9 @@ We have successfully united all of the parties of the Republican Coalition behin
 view-if: round = 1
 
 - @convince_z_unity
-- @convince_z_spd
+- @convince_z_dvp
 - @convince_ddp_unity
-- @convince_ddp_spd
+- @convince_ddp_dvp
 - @convince_spd_unity
 - @convince_spd_dvp
 - @convince_kvp_unity
