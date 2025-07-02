@@ -403,7 +403,7 @@ if (Q.Hitler_votes && Q.Seldte_votes) {
 // 2. If Adenauer & Braun are both running and neither are part of the DVP coalition, the smaller of these drops out.
 Q.adenauer_drops_out = 0;
 Q.braun_drops_out = 0;
-if (Q.z_candidate == "Adenauer" && Q.spd_candidate = "Braun" && Q.z_candidate != Q.dvp_candidate && Q.spd_candidate != Q.dvp_candidate) {
+if (Q.z_candidate == "Adenauer" && Q.spd_candidate == "Braun" && Q.z_candidate != Q.dvp_candidate && Q.spd_candidate != Q.dvp_candidate) {
     if (Q.Adenauer_votes > Q.Braun_votes) {
         Q.braun_drops_out = 1;
         if (Q.ddp_candidate != Q.dvp_candidate) {
