@@ -31,22 +31,18 @@ The DNVP will nominate Franz Seldte, leader of the Stahlhelm paramilitary group.
 [? if kpd_party_leader = "Conciliators" : Given the failure of Thälmann's previous runs for president, and his declining stature in the party, the KPD will be running Willi Münzenberg, a controversial figure sometimes called the "Red millionaire". He is a media magnate who leads a number of Communist front organizations. ?]
 [? if kpd_party_leader != "Conciliators" : This will be Ernst Thälmann's third run for president as leader of the KPD. Despite his previous electoral defeats, he retains the loyalty of the party as well as Stalin's Soviet Union. ?]
 
-Many republicans of the Center, [+ ddp_name +], and SPD float the idea of running Hugo Eckener, a nationally renowed Zeppelin captain, as a unity candidate. While he has some nationalistic views, he is also ardently opposed to Nazism.
+Many republicans of the Center, [? if not lvp_formed: [+ ddp_name +]?], and SPD float the idea of running Hugo Eckener, a nationally renowed Zeppelin captain, as a unity candidate. While he has some nationalistic views, he is also ardently opposed to Nazism.
 
-Barring that, the Center and [+ ddp_name +] are planning to run separate candidates in the first round if the SPD runs its own candidate. The Center is considering nominating Konrad Adenauer, mayor of Köln and member of the Prussian state legislature. He calls for an alliance of conservative Christian democrats that encompasses both Catholics and Protestants. The SPD might nominate Otto Braun, the Prussian Social democrat.
+Barring that, the Center and SPD are planning to run separate candidates in the first round if the SPD runs its own candidate. The Center is considering nominating Konrad Adenauer, mayor of Köln and member of the Prussian state legislature. He calls for an alliance of conservative Christian democrats that encompasses both Catholics and Protestants. The SPD might nominate Otto Braun, the Prussian Social democrat.
 
-As for the SPD, we could support a joint Weimar Coalition candidate or run our own.
-[? if braun_campaign : Otto Braun is tired. He ran and failed in the previous two presidential elections, and no longer wishes to run. His wife is ill enough that he wishes to stay by her side. He can be convinced, though. ?][? if braun_campaign = 0 and not spd_prussia: Otto Braun is tired. After being deposed in Prussia, he has largely retired from politics, and is devoting his time to caring for his dying wife. He can be convinced, though. ?][? if braun_campaign = 0 and spd_prussia : Otto Braun is tired. He does not wish to run, but he is willing to be convinced that he is needed at this moment. His wife is terminally ill, and he does not want more responsibilities. ?]
-
-[? if presidential_powers >= 1 and pro_republic >= 60 and pacifism >= 3: Since Germany has been largely democratized and presidential powers reduced, we can also support another non-traditional political figure, someone from the cultural, scientific, or literary spheres. They will perhaps be the symbol of a new Germany that has moved beyond its past. ?]
-# if Otto Braun ran last time: he can only run if he controls Prussia. Otherwise, it's Kurt Schumacher.
+As for the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], we could support a joint Republican candidate or run our own.
 
 # options: 
 # - Otto Braun
 
 @candidate_menu
 
-- @eckener_r1: Support Hugo Eckener as a joint Weimar Coalition candidate.
+- @eckener_r1: Support Hugo Eckener as a joint Republican Coalition candidate.
 - @adenauer_r1: Support Konrad Adenauer of the Center Party.
 - @braun_r1: Support Otto Braun of the SPD.
 - @luther_r1: Support Hans Luther.
