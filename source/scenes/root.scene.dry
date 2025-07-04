@@ -611,7 +611,6 @@ Q.baade_advisor = 0; // Fritz Baade
 // Labor advisors
 Q.thiel_advisor = 0; // Otto Thiel
 Q.leipart_advisor = 0; // Theodor Leipart
-Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
 Q.wissell_advisor = 0; // Rudolf Wissell
 
 // Revisionist advisors
@@ -625,7 +624,7 @@ Q.erkelenz_advisor = 0; // Anton Erkelenz
 Q.kubler_advisor = 0; // Konrad Kübler
 
 // Nonfactional advisors
-Q.radbruch_advisor = 0; // Gustav Radbruch
+Q.heinze_advisor = 0; // Rudolf Heinze
 Q.moldenhauer_advisor = 0; // Paul Moldenhauer
 !}
 set-bg: img/map_2.jpg
