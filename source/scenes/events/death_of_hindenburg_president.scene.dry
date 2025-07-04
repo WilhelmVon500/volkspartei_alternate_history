@@ -2,7 +2,7 @@ title: The Death of Hindenburg
 subtitle: The President has died...
 new-page: true
 view-if: year = 1934 and month >= 7 and president = "Hindenburg"
-on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke (acting)"; president = "Großmann (acting)" if judicial_reform >= 4; spd_candidate = "Braun"; kpd_candidate = "Thälmann"; kpd_candidate = "Münzenberg" if kpd_party_leader = "Conciliators"; z_candidate = "Adenauer"; ddp_candidate = "Braun" if not lvp_formed; nsdap_candidate = "Hitler"; nsdap_candidate = "Göring" if hitler_deported; dnvp_candidate = "Seldte"; dvp_candidate = "Luther"; other_candidate = "Seldte"; is_unity_candidate = 0; sapd_candidate = kpd_candidate; kvp_candidate = dvp_candidate if kvp_formed; next_presidential_election_year = year + 7; next_presidential_election_month = month;
+on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke (acting)"; president = "Großmann (acting)" if judicial_reform >= 4; spd_candidate = "Braun"; kpd_candidate = "Thälmann"; kpd_candidate = "Münzenberg" if kpd_party_leader = "Conciliators"; z_candidate = "Adenauer"; ddp_candidate = "Braun" if not lvp_formed; nsdap_candidate = "Hitler"; nsdap_candidate = "Göring" if hitler_deported; dnvp_candidate = "Seldte"; dvp_candidate = "Luther"; other_candidate = "Seldte"; is_unity_candidate = 0; sapd_candidate = kpd_candidate; kvp_candidate = dnvp_candidate if kvp_formed; next_presidential_election_year = year + 7; next_presidential_election_month = month;
 max-visits: 1
 face-image: img/Hindenburg_head.jpg
 tags: event
