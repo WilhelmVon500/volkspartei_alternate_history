@@ -44,3 +44,8 @@ WIP
 on-arrival: lautenbach_plan_adopted = 1; z_relation += 5*(1-dissent); liberal_dissent -= 10; democratic_dissent -= 10; liberal_strength += 15; democratic_strength += 15; nationalist_dissent += 10; economic_plan = 3
 
 WIP
+
+
+@defer
+
+We hold off on making a decision on economic policy, awaiting more information. Woytinsky and his supporters argue that inaction is a form of action of its own. 
