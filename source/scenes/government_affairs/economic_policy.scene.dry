@@ -57,7 +57,7 @@ achievement: wirtschaftspolitik
 
 [? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
 
-@lautenbach_plan_budget
+@lautenbach_plan_limited_budget
 title: Partially implement the Lautenbach's job-creation plan, with a lower cost.
 subtitle: -1 budget.
 unavailable-subtitle: -1 budget. [? if budget < 1 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
