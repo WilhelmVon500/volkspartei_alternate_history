@@ -565,7 +565,7 @@ Rudolf Wissell is now an advisor.
 
 @add_dietrich
 title: Hermann Dietrich
-subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/DietrichHermann.jpg
 view-if: dietrich_advisor = 0 and n_advisors < 3
