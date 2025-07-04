@@ -19,13 +19,13 @@ WIP WIP WIP WIP WIP
 @support_schacht
 subtitle: Call for [WIP, Schacht Plan].
 on-arrival: industrialist_strength += 5; liberal_strength += 5; schacht_plan_support += 1;
-go-to: schacht_plan_adopted if schacht_plan_support >= 3; schacht_support if schacht_plan_support < 3
+go-to: schacht_adopted if schacht_plan_support >= 3; schacht_support if schacht_plan_support < 3
 
 @schacht_support
 
 WIP
 
-@schacht_plan_adopted
+@schacht_adopted
 on-arrival: schacht_plan_adopted = 1; z_relation += 5*(1-dissent); industrialist_dissent -= 15; liberal_dissent -= 15; industrialist_strength += 10; liberal_strength += 10; progressive_dissent += 10; economic_plan = 2
 
 WIP
@@ -34,13 +34,13 @@ WIP
 @support_lautenbach
 subtitle: Call for [WIP, Lautenbach Plan].
 on-arrival: liberal_strength += 10; democratic_strength += 10; nationalist_dissent += 5; lautenbach_plan_support += 1
-go-to: lautenbach_support if lautenbach_plan_support < 3; lautenbach_plan_adopted if lautenbach_plan_support >= 3
+go-to: lautenbach_support if lautenbach_plan_support < 3; lautenbach_adopted if lautenbach_plan_support >= 3
 
 @lautenbach_support
 
 WIP
 
-@lautenbach_plan_adopted
+@lautenbach_adopted
 on-arrival: lautenbach_plan_adopted = 1; z_relation += 5*(1-dissent); liberal_dissent -= 10; democratic_dissent -= 10; liberal_strength += 15; democratic_strength += 15; nationalist_dissent += 10; economic_plan = 3
 
 WIP
