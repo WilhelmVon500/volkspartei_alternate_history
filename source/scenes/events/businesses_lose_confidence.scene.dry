@@ -1,9 +1,9 @@
 title: Businesses Lose Confidence
 subtitle: Big businesses are losing confidence in our government's policies.
-view-if: (capital_strike_progress >= 6 and capital_strike_progress < 10 and budget > -5) and spd_in_government
+view-if: (capital_strike_progress >= 6 and capital_strike_progress < 10 and budget > -5) and dvp_in_government
 new-page: true
 max-visits: 1
-on-arrival: unemployed += 2; new_middle_spd -= 6; old_middle_spd -= 6; rural_spd -= 5; workers_spd -= 4; unemployed_spd -= 4; dvp_relation -= 6; economic_growth -= 1
+on-arrival: unemployed += 2; new_middle_dvp -= 6; old_middle_dvp -= 6; rural_dvp -= 5; workers_dvp -= 4; unemployed_dvp -= 4; economic_growth -= 1
 tags: event
 
 = Businesses Lose Confidence
@@ -18,12 +18,12 @@ The business community has a variety of suggestions as to how we might improve t
 - @watch: Just watch us. The economy *will* improve.
 
 @taxes
-on-arrival: upper_tax_rates -= 1; budget -= 1; capital_strike_progress -= 1; unemployed -= 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 4*(1-dissent); kpd_coalition_dissent += 1; kpd_relation -= 5; left_dissent += 5
+on-arrival: upper_tax_rates -= 1; budget -= 1; capital_strike_progress -= 1; unemployed -= 1; new_middle_dvp += 5*(1-dissent); old_middle_dvp += 4*(1-dissent); spd_relation -= 5; coalition_dissent += 1 if in_weimar_coalition or in_grand_coalition
 
 Cutting taxes improves our relationship with the capitalists.
 
 @welfare
-on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; new_middle_spd += 4*(1-dissent); old_middle_spd += 4*(1-dissent); workers_spd -= 5; unemployed_spd -= 5; unemployed -= 1; left_dissent += 5; labor_dissent += 5; center_dissent += 5; kpd_coalition_dissent += 1; inflation -= 1;
+on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; new_middle_dvp += 4*(1-dissent); old_middle_dvp += 4*(1-dissent); workers_dvp -= 5; unemployed_dvp -= 5; unemployed -= 1; labor_dissent += 5; spd_relation -= 5;  coalition_dissent += 1 if in_weimar_coalition or in_grand_coalition; inflation -= 1;
 
 Cutting welfare improves our relationship with the capitalists, but it hurts our working-class base.
 
