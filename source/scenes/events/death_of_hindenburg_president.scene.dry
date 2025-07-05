@@ -287,6 +287,7 @@ max-visits: 1
 
 
 @round_1
+on-arrival: ddp_candidate = dvp_candidate if lvp_formed
 go-to: election_algorithm
 set-jump: post_election
 
@@ -496,6 +497,7 @@ view-if: round = 1
 
 
 @r2_vote
+on-arrival: ddp_candidate = dvp_candidate if lvp_formed
 go-to: election_algorithm
 set-jump: post_election
 
