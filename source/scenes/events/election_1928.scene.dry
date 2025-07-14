@@ -1287,10 +1287,10 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 5 
 view-if: economic_minister_party != dvp_name
-on-arrival: leverage -= 5; economic_minister_party = dvp_name; economic_minister = "Krohne"
+on-arrival: leverage -= 5; economic_minister_party = dvp_name; economic_minister = "Krohne"; economic_minister = "Hamm" if lvp_formed
 go-to: ministries
 
-Rudolf Krohne of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Economic Minister.
+[? if economic_minister = "Krohne": Rudolf Krohne ?][? if economic_minister = "Hamm": Eduard Hamm ?] of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Economic Minister.
 
 @justice
 title: Justice Ministry
@@ -1299,10 +1299,10 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
 view-if: justice_minister_party != dvp_name
-on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister = "Heinze"
+on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister = "Heinze"; justice_minister = "Schiffer" if lvp_formed
 go-to: ministries
 
-Rudolf Heinze of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Justice Minister.
+[? if justice_minister = "Heinze": Rudolf Heinze ?][? if justice_minister = "Schiffer": Eugen Schiffer ?] of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Justice Minister.
 
 @foreign
 title: Foreign Ministry
@@ -1336,10 +1336,10 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 15 
 view-if: reichswehr_minister_party != dvp_name
-on-arrival: leverage -= 15; reichswehr_minister_party = dvp_name; reichswehr_minister = "Seeckt"
+on-arrival: leverage -= 15; reichswehr_minister_party = dvp_name; reichswehr_minister = "Seeckt"; reichswehr_minister = "Gessler" if lvp_formed
 go-to: ministries
 
-Hans von Seeckt of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Reichswehr Minister.
+[? if reichswehr_minister = "Seeckt": Hans von Seeckt ?][? if reichswehr_minister = "Gessler": Otto Gessler ?] of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has been appointed Reichswehr Minister.
 
 
 
@@ -1353,21 +1353,21 @@ This coalition arrangement is tolerable to all.
 @drop_labor
 title: Drop the Labor Ministry.
 view-if: labor_minister_party = dvp_name
-on-arrival: labor_minister_party = "Z"; labor_minister = "Stegerwald"; leverage += 15;
+on-arrival: labor_minister_party = "Z"; labor_minister = "Stegerwald"; leverage += 15; labor_minister_party = ddp_name if in_liberal_coalition; labor_minister = "Erkelenz" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_interior
 title: Drop the Interior Ministry.
 view-if: interior_minister_party = dvp_name
-on-arrival: interior_minister_party = "Z"; interior_minister = "Wirth"; leverage += 10;
+on-arrival: interior_minister_party = "Z"; interior_minister = "Wirth"; leverage += 10; interior_minister_party = ddp_name if in_liberal_coalition; interior_minister = "Koch-Weser" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_finance
 title: Drop the Finance Ministry.
 view-if: finance_minister_party = dvp_name
-on-arrival: finance_minister_party = "Z"; finance_minister = "Köhler"; leverage += 5
+on-arrival: finance_minister_party = "Z"; finance_minister = "Köhler"; leverage += 5; finance_minister_party = ddp_name if in_liberal_coalition; finance_minister = "Dietrich" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
@@ -1381,27 +1381,27 @@ go-to: ministries
 @drop_justice
 title: Drop the Justice Ministry.
 view-if: justice_minister_party = dvp_name
-on-arrival: justice_minister_party = ddp_name; justice_minister = "Koch-Weser"; leverage += 10;
+on-arrival: justice_minister_party = ddp_name; justice_minister = "Koch-Weser"; leverage += 10
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_foreign
 title: Drop the Foreign Ministry.
 view-if: foreign_minister_party = dvp_name
-on-arrival: foreign_minister_party = "Z"; foreign_minister = "Wirth"; leverage += 5
+on-arrival: foreign_minister_party = "Z"; foreign_minister = "Wirth"; leverage += 5; foreign_minister_party = ddp_name if in_liberal_coalition; foreign_minister = "Solf" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_agriculture
 title: Drop the Agriculture Ministry.
 view-if: agriculture_minister_party = dvp_name
-on-arrival: leverage += 10; agriculture_minister_party = "Z"; agriculture_minister = "Hermes"
+on-arrival: leverage += 10; agriculture_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = ddp_name if in_liberal_coalition; agriculture_minister = "Dietrich" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_reichswehr
 title: Drop the Reichswehr Ministry.
 view-if: reichswehr_minister_party = dvp_name
-on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15;
+on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15; reichswehr_minister_party = ddp_name if in_liberal_coalition; reichswehr_minister = "Gessler" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
