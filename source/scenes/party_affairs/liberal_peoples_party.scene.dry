@@ -24,7 +24,7 @@ WIP
 unavailable-subtitle: Our relations with [+ ddp_name +] are not good enough.
 view-if: dvp_ideology = "Left" or liberal_peoples_party_progress < 5
 choose-if: ddp_relation >= 50
-on-arrival: liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 8; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
+on-arrival: liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 3; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
 
 We are pushing forward proposals for a united liberal party against the nationalists within our party. We are also building ties with [+ ddp_name +] organizations.
 
