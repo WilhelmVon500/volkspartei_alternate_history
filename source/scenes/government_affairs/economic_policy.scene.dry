@@ -24,7 +24,7 @@ We have already formulated an economic plan. Now we have to implement it.
 #######################
 # Schacht economic plan
 
-@schacht_plan_1
+@schacht_plan
 title: Implement the Schacht plan.
 subtitle: -2 budget. This violates Treaty of Versailles
 unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
