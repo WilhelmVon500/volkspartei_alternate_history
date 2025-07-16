@@ -26,16 +26,18 @@ We have already formulated an economic plan. Now we have to implement it.
 
 @schacht_plan_1
 title: Implement the Schacht plan.
-subtitle: WIP
-view-if: schacht_plan_adopted == 1 and schacht_plan_progress == 0
-# go-to: WIP
+subtitle: -2 budget. This violates Treaty of Versailles
+unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
+view-if: schacht_plan_adopted == 1
+choose-if: budget >= 2 and unemployed >= 8
+on-arrival: budget -= 2; works_program += 1; unemployed -= 4 if unemployed >= 8; inflation += 1.5; workers_dvp += 2*(1-dissent); unemployed_dvp += 2*(1-dissent); new_middle_dvp += 2*(1-dissent); old_middle_dvp += 2*(1-dissent); rural_dvp += 1*(1-dissent); schacht_plan_progress += 1; inflation += 1 if unemployed < 10; economic_growth += 2; pro_republic += 3*(1-dissent); ddp_relation += 3; spd_relation -= 1; west_relation -= 1; east_relation -= 1;
+achievement: wirtschaftspolitik
 
+[? if schacht_plan_progress == 1 : We have started to implement the job-creation plan! Such aggressive economic expansion violates Treaty of Versailles, angering the west and the east. ?]
 
-@schacht_plan_2
-title: Continue the Schacht plan.
-subtitle: WIP
-view-if: schacht_plan_adopted == 1 and schacht_plan_progress >= 1
-# go-to: WIP
+[? if schacht_plan_progress > 1 : We have continued to fund the job-creation plan. Such aggressive economic expansion violates Treaty of Versailles, further angering the west and the east. ?]
+
+[? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
 
 #######################################
 # Lautenbach economic plan
@@ -53,7 +55,7 @@ achievement: wirtschaftspolitik
 
 [? if lautenbach_plan_progress > 1 : We have continued to fund the job-creation plan, using our funds to build public works throughout Germany. ?]
 
-[? if unemployed >= 10 : The bourgeois approve of this plan as the "least bad" alternative, seeing it as necessary to save Germany's economy. ?]
+[? if unemployed >= 10 : The Social Democrats approve of this plan as the "least bad" alternative, seeing it as necessary to save Germany's economy. ?]
 
 [? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
 
