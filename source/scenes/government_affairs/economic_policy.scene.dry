@@ -11,8 +11,7 @@ card-image: img/portraits/SchmidtRobert.jpg
 
 We have already formulated an economic plan. Now we have to implement it.
 
-- @schacht_plan_1
-- @schacht_plan_2
+- @schacht_plan
 - @lautenbach_plan
 - @lautenbach_plan_limited_budget
 - @root: Do not implement the economic plan.
