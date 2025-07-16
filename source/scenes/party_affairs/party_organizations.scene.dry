@@ -13,7 +13,7 @@ In addition to being a political party, the SPD is a social world onto itself, w
 
 - @newspapers: Fund more newspapers and journalists.
 - @welfare: Fund more mutual aid and welfare programs.
-- @culture: Fund sports leagues, educational, and cultural programs.
+- @liberal_association: Fund Liberal Association, interparty organization calling for liberal unity.
 - @youth: We have the reputation of being a party for old men. Support the youth organizations.
 - @nothing: Do not increase funding for any program.
 - @easy_discard
@@ -36,15 +36,14 @@ on-arrival: resources -= 1; workers_aid += 1; unemployed_dvp += 3*(1 - dissent);
 
 We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : In an age of economic crisis, this will be helpful for improving our standing among the unemployed. ?]
 
-@culture
+@liberal_association
 choose-if: resources > 0
+view-if: not lvp_formed
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; cultural_organizations += 1; nationalist_dissent -= 6; industrialist_dissent -= 6; labor_dissent -= 6; liberal_dissent -= 6; neorevisionist_dissent -= 6
+on-arrival: resources -= 1; liberal_association += 1; nationalist_dissent += 7; liberal_dissent -= 7; liberal_strength += 7; ddp_relation += 3
 
-It is not enough for the SPD to solely be a political party. The Worker Singer's League, Worker's Sports, and our schools and libraries are crucial to our members' lives. Funding these organizations makes our members more committed to the party, even when our policies might not be to their liking.
-
-[? if sa_strength > 500 : However, it feels frivolous to spend on sports and choirs when the fascists are murdering us in the streets. ?]
+We have supported the Liberal Association, strengthening the movement for a united liberal party.
 
 @youth
 choose-if: resources > 0
