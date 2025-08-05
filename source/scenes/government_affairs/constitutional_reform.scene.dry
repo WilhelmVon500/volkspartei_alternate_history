@@ -1,10 +1,10 @@
 title: Constitutional Reform
 new-page: true
 is-card: true
-view-if: spd_in_government = 1 and justice_minister_party = "SPD" and constitutional_reform_timer = 0 and judicial_reform >= 4 and neorevisionism and ((in_weimar_coalition) or (in_spd_majority) or (in_left_front) or (in_popular_front)) and constitutional_reform < 3
+view-if: dvp_in_government = 1 and justice_minister_party = dvp_name and constitutional_reform_timer = 0 and judicial_reform >= 4 and (liberal_strength + democratic_strength + progressive_strength > nationalist_strength + industrialist_strength) and ((in_weimar_coalition) or (in_dvp_majority) or (in_liberal_coalition) or (in_grand_coalition)) and constitutional_reform < 3
 frequency: 25
 on-arrival: month_actions += 1; constitutional_reform_timer += 12; pass_threshold = 0.51; pass_threshold = 0.6 if pro_republic < 65;
-card-image: img/portraits/RadbruchGustav.jpg
+card-image: img/portraits/HeinzeRudolf.jpg
 go-to: reforms_menu
 tags: govt_affairs, cabinet
 #subtitle: Major changes to government.
@@ -17,7 +17,7 @@ tags: govt_affairs, cabinet
 
 # the ideas for constitutional reform here are based on the bundesrepublik basic law... I'm not sure if it's totally realistic to what someone like Mierendorff would've wanted.
 
-Many neorevisionists consider the Weimar Constitution to be inadequate. They believe that the clauses of the constitution are in part responsible for the instability of the country, and must change in order to build a more stable democratic republic. Ideas from both socialists and liberals
+Some liberals consider the Weimar Constitution to be inadequate. They believe that the clauses of the constitution are in part responsible for the instability of the country, and must change in order to build a more stable democratic republic.
 
 A constitutional reform requires either a two-thirds supermajority in the Reichstag, or a constitutional referendum with support from a majority of the electorate. If we do not have a supermajority in the Reichstag, we must be assured of strong support from the other parties for the constitutional referendum.
 
@@ -34,15 +34,15 @@ A constitutional reform requires either a two-thirds supermajority in the Reichs
 @vote_threshold
 subtitle: Change the vote threshold to 5% for parties to be represented in the Reichstag.
 on-arrival: {!
-Q.reform_support = Q.spd_normalized;
-if (Q.z_relation > 30) {
+Q.reform_support = Q.dvp_normalized;
+if (Q.z_relation > 40) {
     Q.reform_support += Q.z_normalized - 0.03;
 }
-if (Q.kpd_relation > 50 && Q.kpd_normalized >= 0.1) {
+if (Q.spd_relation > 50) {
     Q.reform_support += Q.kpd_normalized;
 }
-if (Q.nsdap_normalized >= 0.2 ) {
-    Q.reform_support += Q.nsdap_normalized;
+if (Q.ddp_normalized >= 0.05 ) {
+    Q.reform_support += Q.ddp_normalized;
 }
 !}
 view-if: electoral_threshold = 0
@@ -74,17 +74,14 @@ We have passed a constitutional amendment to increase the electoral threshold to
 @constructive_vonc
 subtitle: Votes of no confidence can only be called if an alternative plan for government formation can be passed, greatly reducing their incidence.
 on-arrival: {!
-Q.reform_support = Q.spd_normalized + Q.ddp_normalized;
-if (Q.z_relation >= 30) {
-    Q.reform_support += Q.z_normalized - 0.03;
-}
-if (!Q.stresemann_dead) {
-    Q.reform_support += Q.dvp_normalized;
+Q.reform_support = Q.dvp_normalized + Q.ddp_normalized + Q.z_normalized - 0.03;
+if (Q.spd_relation >= 50) {
+    Q.reform_support += Q.spd_normalized;
 }
 !}
 view-if: constructive_vonc = 0
 
-[? if z_relation >= 30 : The Weimar Coalition parties, the [+ ddp_name +] and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if z_relation < 30 : The [+ ddp_name +] supports this reform, but the Center Party does not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
+[? if z_relation >= 30 : The Weimar Coalition parties, the [? if not lvp_formed: [+ ddp_name +], ?] SPD and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if z_relation < 30 : [? if not lvp_formed: The [+ ddp_name +] and the Center Party support this reform ?][? if lvp_formed: The Center Party supports this reform ?], but the Social Democrats do not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
 
 - @constructive_vonc_2: Call a constitutional referendum to pass the reform!
 - @reforms_menu: See other reform options.
@@ -100,10 +97,10 @@ We have successfully passed a constitutional amendment to ban votes of no confid
 @presidential_powers
 subtitle: The president can no longer dissolve the Reichstag at will, or call a *Reichsexekution* on state governments.
 on-arrival: {!
-Q.reform_support = Q.spd_normalized + Q.ddp_normalized + Q.kpd_normalized;
-if (Q.z_relation > 49 && (Q.president == "Hindenburg" || Q.president == "Eckener")) {
+Q.reform_support = Q.dvp_normalized + Q.spd_normalized + Q.ddp_normalized + Q.kpd_normalized;
+if (Q.president != "Hindenburg") {
     Q.reform_support += Q.z_normalized;
-} else if (Q.president == "Braun") {
+} else if (Q.president == "Hindenburg") {
     Q.reform_support += Q.z_normalized - 0.03;
 }
 !}
@@ -111,7 +108,7 @@ view-if: presidential_powers = 0
 
 The wide-ranging presidential powers promised by the constitution are a potential gateway to authoritarianism. Thus, we can support reforms that limit the powers of the president, ending his power to unilaterally terminate an elected government and to remove state governments.
 
-The KPD is in favor of this reform, having been victims of the *Reichsexekution* in the past (when KPD-supported state governments in Thuringia and Saxony were removed). The democrats of the [+ ddp_name +] also support this. [? if president == "Hindenburg": However, the opposition from conservatives is vehement, as they see a reduction in presidential powers as disrespectful to Hindenburg. ?] [? if z_relation <= 49 and president == "Hindenburg" : Thus, the Center Party has been influenced to oppose these reforms. ?] [? if z_relation > 49 and president == "Hindenburg" : Despite this, the Center Party supports the proposed reform. ?] [? if president == "Braun" : The Center Party supports this reform. ?]
+The KPD is in favor of this reform, having been victims of the *Reichsexekution* in the past (when KPD-supported state governments in Thuringia and Saxony were removed). [? if not lvp_formed: The democrats of the [+ ddp_name +] also support this. ?] The SPD and Center Party support this reform.
 
 - @presidential_powers_2: Call a constitutional referendum to pass the reform!
 - @reforms_menu: See other reform options.
