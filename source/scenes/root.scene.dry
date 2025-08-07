@@ -277,6 +277,13 @@ Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
 
+
+// sapd isn't formed yet, but it may be formed
+Q.sapd_r = 0;
+Q.old_sapd_r = 0;
+Q.kvp_r = 0;
+Q.old_kvp_r = 0;
+
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_spd = 60;
@@ -358,10 +365,6 @@ Q.old_dvp_r = 10;
 Q.old_dnvp_r = 20;
 Q.old_nsdap_r = 3;
 Q.old_other_r = 9;
-
-// sapd isn't formed yet, but it may be formed
-Q.sapd_r = 0;
-Q.old_sapd_r = 0;
 
 // for changing the DDP's name to the DStP
 Q.ddp_name = "DDP";
