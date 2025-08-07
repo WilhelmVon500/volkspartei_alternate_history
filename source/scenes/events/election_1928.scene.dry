@@ -310,7 +310,7 @@ go-to: coalition_menu
 
 Weimar Coalition (SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
 
-Grand Coalition (SPD + Z + BVP + [? if not lvp_formed: [+ ddp_name +] ?] + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
+Grand Coalition (SPD + Z + BVP + [? if not lvp_formed: [+ ddp_name +] + ?] [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
 
 Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?] Others): [+ bourgeois_coalition +]%
 
