@@ -386,7 +386,7 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @right_coalition
 title: A right-wing coalition may be formed.
-subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?] + Others ([+ right_coalition +]%)
+subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?] Others ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the "November criminals" in the Center Party.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
