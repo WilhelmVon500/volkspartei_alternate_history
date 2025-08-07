@@ -514,7 +514,7 @@ if (Q.lvp_formed == 1) {
     Q.catholics_ddp = 0;
 }
 
-if (Q.month == 12) {
+if (Q.month == 1) {
     Q.budget += 2
 }
 
