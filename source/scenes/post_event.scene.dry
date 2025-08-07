@@ -515,7 +515,7 @@ if (Q.lvp_formed == 1) {
 }
 
 if (Q.month == 1) {
-    Q.budget += 2
+    Q.budget += 1
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
