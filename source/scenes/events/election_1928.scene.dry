@@ -110,9 +110,9 @@ if (Q.lvp_formed == 1) {
     Q.weimar_coalition = Q.spd_r + Q.dvp_r + Q.z_r - 3;
 }
 Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
-Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
+Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r;
+Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r;
+Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
 Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r + Q.dnvp_r;
 // aka everyone except nazi, kpd, dnvp
@@ -312,11 +312,11 @@ Weimar Coalition (SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_form
 
 Grand Coalition (SPD + Z + BVP + [? if not lvp_formed: [+ ddp_name +] ?] + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
 
-Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others): [+ bourgeois_coalition +]%
+Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?] Others): [+ bourgeois_coalition +]%
 
-Center-right Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + DNVP + Others): [+ center_right_coalition +]%
+Center-right Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?] DNVP + Others): [+ center_right_coalition +]%
 
-Right-wing Coalition (Z + BVP + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others + DNVP): [+ right_coalition +]%
+Right-wing Coalition (Z + BVP + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others + [? if kvp_formed: KVP +  ?] DNVP): [+ right_coalition +]%
 
 [? if not lvp_formed: Liberal Coalition ([+ ddp_name +] + <span style="color: #C0A054;">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
 
@@ -386,19 +386,19 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @right_coalition
 title: A right-wing coalition may be formed.
-subtitle: Z + BVP + [+ dvp_name +] + DNVP + Others ([+ right_coalition +]%)
+subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?] + Others ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the "November criminals" in the Center Party.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
 
-There are enough votes for a right-wing coalition of the Center (+ BVP), [+ dvp_name +], DNVP, and minor conservative parties. [? if largest_party == "SPD": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a right-wing coalition of the Center (+ BVP), [+ dvp_name +], DNVP, and minor conservative parties.
 
 - @right_coalition_sure: Yes, we will participate in a right coalition.
 - @coalition_menu: Actually, we wish to form other coalition after all.
 
 
 @right_coalition_sure
-subtitle: This will be extremely unpopular within the left of our party.
+subtitle: This will be unpopular within the left of our party.
 on-arrival: pro_republic -= 5 if dnvp_republican = 0; liberal_dissent += 5; labor_dissent += 3; spd_relation -= 4;
 go-to: right_coalition_2
 
@@ -890,11 +890,11 @@ We have won the vote of no confidence, and are currently ruling under an SPD min
 
 @bourgeois_coalition
 title: We can form a Bourgeois Coalition.
-subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if not lvp_formed: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
+subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if kvp_formed: KVP +  ?][? if not lvp_formed: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
 view-if: bourgeois_coalition >= 50
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 
-We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?] and small conservative parties!
+We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?][? if kvp_formed:, Conservative People's (KVP) ?] and small conservative parties!
 
 Who should be the chancellor?
 
