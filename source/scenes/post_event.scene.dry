@@ -471,7 +471,7 @@ if (Q.month_actions >= 1) {
             Q.old_middle_nsdap += 2/12;
             Q.new_middle_nsdap += 2/12;
             if (Q.spd_in_government) {
-                Q.workers_spd -= 4/12;
+                Q.workers_spd -= 1/12;
             }
             if (Q.dvp_in_government) {
                 Q.new_middle_dvp -= 3/12;
