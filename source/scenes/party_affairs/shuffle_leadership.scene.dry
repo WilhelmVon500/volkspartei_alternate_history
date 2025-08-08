@@ -292,7 +292,7 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
+tags: industrialist_advisor, nationalist_advisor, liberal_advisor, labor_advisor, democratic_advisor, progressive_advisor, nonfactional_advisor
 frequency: 1
 
 
