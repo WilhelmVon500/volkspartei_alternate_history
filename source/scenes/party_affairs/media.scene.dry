@@ -22,7 +22,7 @@ The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span
 @campaign
 title: Campaign for our party.
 subtitle: We will coordinate our campaign with supportive newspapers.
-on-arrival: campaign_media += 1; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 3*(1-dissent);
+on-arrival: campaign_media += 1; new_middle_dvp += 2*(1 - dissent); old_middle_dvp += 2*(1-dissent);
 
 Our campaign media is mostly reaching the middle class who are already saturated with rightist propaganda, but it must be doing *something*, or at least that is what we hope.
 
