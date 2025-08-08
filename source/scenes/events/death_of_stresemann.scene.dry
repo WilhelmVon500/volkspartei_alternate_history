@@ -12,7 +12,7 @@ new-page: true
 Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
 
 - @stresemanndieddvp: New leader will be elected.
-- @stresemanndiedlvp: Sad
+- @stresemanndiedlvp: He will be missed.
 
 @stresemanndieddvp
 view-if: not lvp_formed
