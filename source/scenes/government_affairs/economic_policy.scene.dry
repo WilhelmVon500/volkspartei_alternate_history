@@ -13,7 +13,6 @@ We have already formulated an economic plan. Now we have to implement it.
 
 - @schacht_plan
 - @lautenbach_plan
-- @lautenbach_plan_limited_budget
 - @root: Do not implement the economic plan.
 - @easy_discard
 - @cancel_advisor_action
@@ -47,7 +46,7 @@ subtitle: -2 budget.
 unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
 view-if: lautenbach_plan_adopted == 1
 choose-if: budget >= 2 and unemployed >= 8
-on-arrival: budget -= 2; works_program += 1; unemployed -= 3 if unemployed >= 8; inflation += 1.5; workers_dvp += 2*(1-dissent); unemployed_dvp += 2*(1-dissent); new_middle_dvp += 3*(1-dissent); old_middle_dvp += 2*(1-dissent); rural_dvp += 2*(1-dissent); lautenbach_plan_progress += 1; inflation += 1 if unemployed < 10; economic_growth += 1.6; pro_republic += 3*(1-dissent); z_relation += 3; ddp_relation += 2; spd_relation += 1;
+on-arrival: budget -= 2; works_program += 1; unemployed -= 2 if unemployed >= 25; unemployed -= 1; inflation += 1; economic_growth += 1.6; workers_dvp += 2*(1-dissent); unemployed_dvp += 2*(1-dissent); new_middle_dvp += 3*(1-dissent); old_middle_dvp += 2*(1-dissent); rural_dvp += 2*(1-dissent); lautenbach_plan_progress += 1; pro_republic += 3*(1-dissent); z_relation += 3; ddp_relation += 2; spd_relation += 1;
 achievement: wirtschaftspolitik
 
 [? if lautenbach_plan_progress == 1 : We have started to implement the job-creation plan! Funds are sent to build public works projects across Germany, reducing unemployment. ?]
@@ -55,22 +54,5 @@ achievement: wirtschaftspolitik
 [? if lautenbach_plan_progress > 1 : We have continued to fund the job-creation plan, using our funds to build public works throughout Germany. ?]
 
 [? if unemployed >= 10 : The Social Democrats approve of this plan as the "least bad" alternative, seeing it as necessary to save Germany's economy. ?]
-
-[? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
-
-@lautenbach_plan_limited_budget
-title: Partially implement the Lautenbach's job-creation plan, with a lower cost.
-subtitle: -1 budget.
-unavailable-subtitle: -1 budget. [? if budget < 1 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
-view-if: lautenbach_plan_adopted == 1
-choose-if: budget >= 1 and unemployed >= 8
-on-arrival: budget -= 1; works_program += 1; unemployed -= 2 if unemployed >= 8; inflation += 1; workers_dvp += 1*(1-dissent); unemployed_dvp += 1*(1-dissent); new_middle_dvp += 2*(1-dissent); old_middle_dvp += 1*(1-dissent); rural_dvp += 1*(1-dissent); lautenbach_plan_progress += 1; inflation += 1 if unemployed < 10; economic_growth += 0.7; pro_republic += 3*(1-dissent); z_relation += 3; ddp_relation += 2; spd_relation += 1;
-achievement: wirtschaftspolitik
-
-[? if lautenbach_plan_progress == 1 : We have started to implement the job-creation plan! Funds are sent to build public works projects across Germany, reducing unemployment. ?]
-
-[? if lautenbach_plan_progress > 1 : We have continued to fund the job-creation plan, using our funds to build public works throughout Germany. ?]
-
-[? if unemployed >= 10 : The bourgeois approve of this plan as the "least bad" alternative, seeing it as necessary to save Germany's economy. ?]
 
 [? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
