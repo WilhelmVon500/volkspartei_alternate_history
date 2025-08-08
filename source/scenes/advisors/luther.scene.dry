@@ -12,6 +12,7 @@ Hans Luther is a prominent politician and banker, who has served as Chancellor i
 - @monetary_policy_luther: Monetary Policy
 - @build_support_liberal_peoples_party: Build support for a united liberal party
 - @form_liberal_peoples_party: Form the Liberal People's Party
+- @snap_election
 - @root: Return to main
 
 @monetary_policy_luther
@@ -35,3 +36,14 @@ view-if: lvp_formed = 0
 on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_strength += 15; liberal_dissent -= 10; lvp_formed = 1; nationalist_dissent += 100; industrialist_dissent += 10; dnvp_relation -= 10; coalition_dissent -= 1; z_relation += 5*(1-dissent); spd_relation += 5*(1-dissent); dvp_left += 5
 go-to: lvp_formed
 achievement: volkspartei
+
+
+@snap_election
+title: Snap Election
+subtitle: Call a snap election.
+unavailable-subtitle: [? if president != "Luther" and chancellor != "Luther": Luther must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and (president == "Luther" or chancellor == "Luther")
+on-arrival: advisor_action_timer = 6; time_to_election = 3
+call: set_next_election_time
+
+We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
