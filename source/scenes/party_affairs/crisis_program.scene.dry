@@ -21,14 +21,17 @@ subtitle: Call for [WIP, Schacht Plan].
 on-arrival: industrialist_strength += 5; liberal_strength += 5; schacht_plan_support += 1;
 go-to: schacht_adopted if schacht_plan_support >= 3; schacht_support if schacht_plan_support < 3
 
+
 @schacht_support
 
-WIP
+Despite Hjalmar Schacht not being a Keynesian, he understands that large scale public works and state funded projected are the way out of Germany's slump, and for Germany to retake its great power status on the international stage. He believes that, since <span style="color: #002654;">France</span> and <span style="color: #C8102E;">Britain</span> are preoccupied with their own economic woes, the time is right for a mass industrialization and rearmament program.
+
+We have not yet convinced the party to formally adopt the plan. More work needs to be done.
 
 @schacht_adopted
-on-arrival: schacht_plan_adopted = 1; z_relation += 5*(1-dissent); industrialist_dissent -= 15; liberal_dissent -= 15; industrialist_strength += 10; liberal_strength += 10; progressive_dissent += 10; economic_plan = 2
+on-arrival: schacht_plan_adopted = 1; ddp_relation += 5*(1-dissent); industrialist_dissent -= 15; liberal_dissent -= 15; industrialist_strength += 10; liberal_strength += 10; progressive_dissent += 10; economic_plan = 2
 
-WIP
+With our hard work, we have finally convinced the majority of the party to adopt Hjalmar Schacht's plan! [? if dvp_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?]
 
 
 @support_lautenbach
@@ -38,14 +41,16 @@ go-to: lautenbach_support if lautenbach_plan_support < 3; lautenbach_adopted if 
 
 @lautenbach_support
 
-WIP
+Wilhelm Lautenbach, a German economist, has proposed a job creation program focused on expanding credit availability, improving liquidity, and investing in infrastructure. 
+
+We have not yet convinced the party to formally adopt the plan. More work needs to be done.
 
 @lautenbach_adopted
 on-arrival: lautenbach_plan_adopted = 1; z_relation += 5*(1-dissent); liberal_dissent -= 10; democratic_dissent -= 10; liberal_strength += 15; democratic_strength += 15; nationalist_dissent += 10; economic_plan = 3
 
-WIP
+With our hard work, we have finally convinced the majority of the party to adopt the Lautenbach plan! [? if dvp_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?]
 
 
 @defer
 
-We hold off on making a decision on economic policy, awaiting more information. Woytinsky and his supporters argue that inaction is a form of action of its own. 
+We hold off on making a decision on economic policy, awaiting more information.
