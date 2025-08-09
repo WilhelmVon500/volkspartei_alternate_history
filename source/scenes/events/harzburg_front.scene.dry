@@ -10,10 +10,10 @@ max-visits: 1
 
 The far-right parties and paramilitaries - the NSDAP (and its paramilitary the SA), the Stahlhelm paramilitary group, and the DNVP - have united to form the Harzburg Front, as a force dedicated to the overthrow of the current government.
 
-- @strategy: We must develop a coherent strategy to combat the Right.
+- @denounce_harzburg: We must denounce the far-right parties.
+- @root: skip
 
-@strategy
-view-if: nazi_urgency < 3
-on-arrival: nazi_urgency += 1
+@denounce_harzburg
+on-arrival: nazi_urgency += 1; liberal_strength += 5; democratic_strength += 5; progressive_strength += 3; industrialist_dissent += 5; nationalist_dissent += 10; dvp_left += 1
 
 We do not yet have a coherent strategy for combatting the fascists. We must develop one as soon as possible.
