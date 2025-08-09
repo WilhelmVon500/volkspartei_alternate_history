@@ -64,6 +64,7 @@ The [+ ddp_name +] has been one of our closest allies through the course of the 
 
 @kvp
 subtitle: -1 resources
+view-if: kvp_formed = 1
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; kvp_relation += 5*(1 - dissent)
