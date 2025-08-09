@@ -26,7 +26,7 @@ face-image: img/portraits/LemmerErnst.jpg
 Surprisingly, Ernst Lemmer was elected party leader. He is a representative of the party’s unionist faction and former DDP member.
 
 @luther_lead_lvp
-on-arrival: dvp_leader = "Luther"; z_relation += 5; old_middle_dvp += 3; new_middle_dvp += 3; liberal_strength += 10; democratic_strength += 5
+on-arrival: dvp_leader = "Luther"; z_relation += 5; kvp_relation += 2; old_middle_dvp += 3; new_middle_dvp += 3; liberal_strength += 10; democratic_strength += 5
 face-image: img/portraits/LutherHans.jpg
 
 Hans Luther is re-elected.
