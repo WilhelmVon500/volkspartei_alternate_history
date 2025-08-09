@@ -21,3 +21,4 @@ choose-if: advisor_action_timer = 0 and lautenbach_plan_adopted = 0 and black_th
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if lautenbach_plan_adopted > 0 : We have already adopted Lautenbach's economic plan. ?] [? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?]
 on-arrival: advisor_action_timer = 6
 go-to: crisis_program.support_lautenbach
+face-image: img/portraits/LautenbachWilhelm.jpg
