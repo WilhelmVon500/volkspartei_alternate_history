@@ -22,6 +22,6 @@ The referendum easily fails, with only around 15% of voters supporting it. It se
 
 
 @no_plan
-on-arrival: nationalism += 5; workers_dvp -= 3; old_middle_dvp -= 3; new_middle_dvp -= 3; workers_spd -= 2; old_middle_spd -= 1; new_middle_spd -= 1; pacifism -= 1; workers_nsdap += 5; rural_nsdap += 5; rural_dnvp -= 5; catholics_spd -= 2; catholics_dvp -= 5; rural_dvp -= 5;
+on-arrival: nationalism += 5; workers_dvp -= 3; old_middle_dvp -= 3; new_middle_dvp -= 3; workers_spd -= 2; old_middle_spd -= 1; new_middle_spd -= 1; pacifism -= 1; workers_nsdap += 5; rural_nsdap += 5; rural_z -= 5; catholics_spd -= 2; catholics_dvp -= 5; rural_dvp -= 5;
 
 The referendum easily fails with or without our presence in the campaign, with only around 15% of voters supporting it. However, nationalist sentiment is inflammed, and the right-wing parties are using our silence around the Plan as a tacit admission of its faults. Our silence has only emboldened the Right, especially the NSDAP.
