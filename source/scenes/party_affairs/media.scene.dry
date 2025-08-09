@@ -15,6 +15,9 @@ The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span
 - @newspaper
 - @newspaper_2
 - @newspaper_3
+- @radio
+- @radio_2
+- @radio_3
 - @return: We should not do anything with media at the moment.
 - @easy_discard
 - @cancel_advisor_action
@@ -34,11 +37,11 @@ This is not particularly effective in drawing voters, but the ability of the fac
 
 @newspaper
 title: We must launch our own newspaper, run by the party.
-subtitle: -5 resources
-choose-if: resources >= 5
+subtitle: -3 resources
+choose-if: resources >= 3
 unavailable-subtitle: Not enough resources.
 view-if: newspaper = 0
-on-arrival: newspaper += 1; resources -= 5; new_middle_dvp += 3*(1 - dissent); old_middle_spd += 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: newspaper += 1; resources -= 3; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 3*(1 - dissent); pro_republic += 2*(1-dissent) if democratization > 1
 
 Launching our own newspaper is extremely expensive, but effective in garnering support, especially among the middle class.
 
@@ -48,7 +51,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: newspaper > 0 and newspaper <= 3
-on-arrival: newspaper += 1; resources -= 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 1*(1 - dissent) if dvp_ideology = "Left"; pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
+on-arrival: newspaper += 1; resources -= 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 1*(1 - dissent) if dvp_ideology = "Left"; pro_republic += 2*(1-dissent) if democratization > 1
 
 The paper continues to draw support for our party, especially among the middle class.
 
@@ -56,6 +59,35 @@ The paper continues to draw support for our party, especially among the middle c
 title: Keep building up our newspaper.
 subtitle: It is now financially self-sufficient, and does not require any more resources.
 view-if: newspaper > 3
-on-arrival: newspaper += 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 1*(1 - dissent) if dvp_ideology = "Left"; rural_dvp += 2*(1 - dissent); pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
+on-arrival: newspaper += 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 1*(1 - dissent) if dvp_ideology = "Left"; rural_dvp += 2*(1 - dissent); pro_republic += 2*(1-dissent) if democratization > 1
 
 The paper continues to draw support for our party, especially among the middle class.
+
+
+@radio
+title: Why not fund a radio station?
+subtitle: -2 resources
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+view-if: radio = 0; newspaper > 3
+on-arrival: radio += 1; resources -= 2; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 2*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+
+Our new radio station allows us to connect to people in a more intimate setting than before, spreading the message of our party along with music and other popular content.
+
+@radio_2
+title: We must keep on building up our radio network.
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+view-if: radio > 0 and radio <= 3
+on-arrival: radio += 1; resources -= 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 3*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+
+Our new radio network has a mix of popular and political programming, and is proving a success.
+
+@radio_3
+title: We must keep on building up our radio network.
+subtitle: It is now financially self-sufficient, and does not require any more resources.
+view-if: radio > 3
+on-arrival: radio += 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 4*(1 - dissent); rural_dvp += 3*(1 - dissent); unemployed_dvp += 2*(1-dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+
+Our radio network has become a successful tool for spreading our message.
