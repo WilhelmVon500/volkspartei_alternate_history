@@ -14,6 +14,6 @@ The far-right parties and paramilitaries - the NSDAP (and its paramilitary the S
 - @root: skip
 
 @denounce_harzburg
-on-arrival: nazi_urgency += 1; liberal_strength += 5; democratic_strength += 5; progressive_strength += 3; industrialist_dissent += 5; nationalist_dissent += 10; dvp_left += 1
+on-arrival: liberal_strength += 5; democratic_strength += 5; progressive_strength += 3; industrialist_dissent += 5; nationalist_dissent += 10; dvp_left += 1
 
 We do not yet have a coherent strategy for combatting the fascists. We must develop one as soon as possible.
