@@ -42,7 +42,7 @@ In a joint emergency conference with [+ ddp_name +], we have decided to unite ou
 @support_liberal_peoples_party_hard
 subtitle: This will increase dissent.
 unavailable-subtitle: [? if ddp_relation < 60: Our relations with [+ ddp_name +] are not good enough. ?] [? if dvp_ideology != "Left": The opposition is too strong. ?]
-view-if: liberal_peoples_party_progress < 4
+view-if: liberal_peoples_party_progress == 3
 choose-if: dvp_ideology = "Left" and ddp_relation >= 60
 on-arrival: liberal_strength += 8; lvp_formed = 1; nationalist_dissent += 100; industrialist_dissent += 20; dnvp_relation -= 10; coalition_dissent -= 1; dvp_left += 5
 go-to: lvp_formed
