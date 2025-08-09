@@ -22,6 +22,7 @@ The consensus candidate on the right is Ludwig Kaas, a Catholic priest who repre
 unavailable-subtitle: Kaas doesn't have enough support.
 on-arrival: z_party_leader = "Kaas"
 choose-if: pro_republic < 62
+face-image: img/portraits/KaasLudwig.jpg
 
 Ludwig Kaas has been selected as the chairman of the Center Party. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
 
@@ -29,6 +30,7 @@ Ludwig Kaas has been selected as the chairman of the Center Party. He seems to r
 unavailable-subtitle: Joos doesn't have enough support.
 on-arrival: z_party_leader = "Joos"; z_relation -= 2 if dvp_ideology = "Right"; workers_z += 3
 choose-if: pro_republic >= 62
+face-image: img/portraits/JoosJoseph.jpg
 
 Joseph Joos has been selected as the chairman of the Center Party. He has long been a friend of the SPD, and will be more inclined to collaborate with them compared to Kaas. He also increases the appeal of the Center Party to the working class.
 
@@ -37,6 +39,7 @@ unavailable-subtitle: Our relations are not good enough.
 subtitle: Brüning is likely to be friendlier to us than Kaas or Joos.
 choose-if: z_relation >= 70
 on-arrival: z_party_leader = "Brüning"; z_relation += 2
+face-image: img/portraits/BrüningHeinrich.jpg
 
 With our grassroots connections, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
 
@@ -46,5 +49,6 @@ view-if: z_relation < 70
 unavailable-subtitle: [? if z_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
 subtitle: -1 resource. Brüning is likely to be friendlier to us than Kaas or Joos.
 on-arrival: resources -= 1; z_party_leader = "Brüning"; z_relation += 2
+face-image: img/portraits/BrüningHeinrich.jpg
 
 With our grassroots connections as well as a professional campaign, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
