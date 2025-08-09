@@ -11,30 +11,40 @@ new-page: true
 
 Wilhelm Marx, former Center Party chancellor and presidential candidate, has chosen to resign from leadership of the Center Party. Now, the party holds a conference to replace him.
 
-The consensus candidate on the right is Ludwig Kaas, a Catholic priest who represents the party's traditionalists. On the other hand, there is Joseph Joos, a leader of the Catholic trade unions, who has been more supportive of cooperation with the SPD than most of the Center Party.
+The consensus candidate on the right is Ludwig Kaas, a Catholic priest who represents the party's traditionalists. On the other hand, there is Joseph Joos, a leader of the Catholic trade unions, who has been more supportive of cooperation with the SPD than most of the Center Party. We can try to influence the party to support Heinrich Brüning, financial policy spokesman for the Center faction in Reichstag.
 
-- @kaas: The Center Party elects Ludwig Kaas as the party chair.
-- @joos: Influence the Center Party to select Joseph Joos as the party chair.
-- @joos_campaign: We must hold a campaign in support of Joseph Joos as party chair.
+- @z_kaas: The Center Party elects Ludwig Kaas as the party chair.
+- @z_joos: The Center Party elects Joseph Joos as the party chair.
+- @z_bruning: Influence the Center Party to select Heinrich Brüning as the party chair.
+- @z_bruning_campaign: We must hold a campaign in support of Heinrich Brüning as party chair.
 
-@kaas
-on-arrival: z_party_leader = "Kaas"; z_relation -= 5
+@z_kaas
+unavailable-subtitle: Kaas doesn't have enough support.
+on-arrival: z_party_leader = "Kaas"
+choose-if: pro_republic < 62
 
 Ludwig Kaas has been selected as the chairman of the Center Party. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
 
-@joos
+@z_joos
+unavailable-subtitle: Joos doesn't have enough support.
+on-arrival: z_party_leader = "Joos"; z_relation -= 2 if dvp_ideology = "Right"; workers_z += 3
+choose-if: pro_republic >= 62
+
+Joseph Joos has been selected as the chairman of the Center Party. He has long been a friend of the SPD, and will be more inclined to collaborate with them compared to Kaas. He also increases the appeal of the Center Party to the working class.
+
+@z_bruning
 unavailable-subtitle: Our relations are not good enough.
-subtitle: Joos is likely to be friendlier to us than Kaas.
+subtitle: Brüning is likely to be friendlier to us than Kaas or Joos.
 choose-if: z_relation >= 70
-on-arrival: z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
+on-arrival: z_party_leader = "Brüning"; z_relation += 2
 
-With our grassroots connections, we have been able to influence the Center delegates to support Joseph Joos as the new Center chairman. He has long been a friend of the SPD, and will be more inclined to collaborate with us compared to Kaas. He also increases the appeal of the Center Party to the working class.
+With our grassroots connections, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
 
-@joos_campaign
+@z_bruning_campaign
 choose-if: z_relation >= 62 and resources >= 1 
 view-if: z_relation < 70
 unavailable-subtitle: [? if z_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
-subtitle: -1 resource. Joos is likely to be friendlier to us than Kaas.
-on-arrival: resources -= 1; z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
+subtitle: -1 resource. Brüning is likely to be friendlier to us than Kaas or Joos.
+on-arrival: resources -= 1; z_party_leader = "Brüning"; z_relation += 2
 
-With our grassroots connections as well as a professional campaign, we have been able to influence the Center delegates to support Joseph Joos as the new Center chairman. He has long been a friend of the SPD, and will be more inclined to collaborate with us compared to Kaas. He also increases the appeal of the Center Party to the working class.
+With our grassroots connections as well as a professional campaign, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
