@@ -20,6 +20,7 @@ WIP WIP WIP WIP WIP
 subtitle: Call for [WIP, Schacht Plan].
 on-arrival: industrialist_strength += 5; liberal_strength += 5; schacht_plan_support += 1;
 go-to: schacht_adopted if schacht_plan_support >= 3; schacht_support if schacht_plan_support < 3
+face-image: img/portraits/SchachtHjalmar.jpg
 
 
 @schacht_support
@@ -38,6 +39,7 @@ With our hard work, we have finally convinced the majority of the party to adopt
 subtitle: Call for [WIP, Lautenbach Plan].
 on-arrival: liberal_strength += 10; democratic_strength += 10; nationalist_dissent += 5; lautenbach_plan_support += 1
 go-to: lautenbach_support if lautenbach_plan_support < 3; lautenbach_adopted if lautenbach_plan_support >= 3
+face-image: img/portraits/LautenbachWilhelm.jpg
 
 @lautenbach_support
 
