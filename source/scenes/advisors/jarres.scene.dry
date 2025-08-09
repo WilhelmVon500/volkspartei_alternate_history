@@ -37,3 +37,12 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; nationalist_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 10; liberal_dissent -= 10; neorevisionist_dissent -= 5
 
 We have enforced party discipline to reduce dissent across all factions.
+
+
+@police_affairs
+title: Police affairs 
+subtitle: We can set our police policy. 
+choose-if: advisor_action_timer == 0 and dvp_in_government and interior_minister_party == dvp_name
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in government. ?][? if interior_minister_party != dvp_name: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] does not have the Interior ministry. ?]
+on-arrival: advisor_action_timer = 6; police_timer -= 6; last_advisor_action = 1
+go-to: police
