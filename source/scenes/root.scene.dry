@@ -277,6 +277,9 @@ Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
 
+Q.cnblp_exist = 1
+Q.wp_exist = 1
+
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
