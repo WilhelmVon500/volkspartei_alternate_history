@@ -1,6 +1,6 @@
 title: Anti-Hugenberg conservatives split from DNVP!
 subtitle: Hugenberg has angered his party.
-view-if: dnvp_leader = "Hugenberg" and year = 1930 and month = 6
+view-if: dnvp_leader = "Hugenberg" and year = 1930 and month = 1
 max-visits: 1
 tags: event
 face-image: img/KVP_logo.jpg
