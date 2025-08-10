@@ -93,6 +93,8 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 Q.cnblp_r = 0;
 Q.wp_r = 0;
+if (Q.cnblp_votes) Q.cnblp_r = Q.cnblp_votes
+if (Q.wp_votes) Q.wp_r = Q.wp_votes
 Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
 
 // get change arrows and signs
