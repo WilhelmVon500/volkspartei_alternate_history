@@ -95,6 +95,7 @@ Q.cnblp_r = 0;
 Q.wp_r = 0;
 if (Q.cnblp_votes) Q.cnblp_r = Q.cnblp_votes
 if (Q.wp_votes) Q.wp_r = Q.wp_votes
+Q.true_other_votes = Q.other_votes - Q.cnblp_votes - Q.wp_votes;
 Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
 
 // get change arrows and signs
@@ -319,7 +320,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +]% {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +]% {!</td></tr>!}
 
-[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_votes +]% {!</td><td>!} [+ votes_change_sapd +]% {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +]% {!</td></tr>!} ?]
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes +]% {!</td><td>!} [+ votes_change_sapd +]% {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +]% {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +]% {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +]% {!</td></tr>!}
 
@@ -329,17 +330,21 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} 0% {!</td><td>!} 3% {!</td><td>!} 0% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!}
-
-[? if wp_exist : {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} ?]
-
-[? if cnblp_exist : {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} ?]
-
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +]% {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +]% {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +]% {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +]% {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +]% {!</td></tr>!}
+
+[? if wp_exist or cnblp_exist: <tr><td colspan="5" style="text-align: center;"><hr id="read-marker"></td></tr> ?]
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!}
+
+[? if wp_exist: {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} ?]
+
+[? if cnblp_exist: {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} ?]
+
+[? if wp_exist or cnblp_exist: {!<tr><td><div class="box2" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ true_other_votes +]% {!</td><td>!} [+ true_other_r +]% {!</td><td>!} ?]
 {!</table>!}
 
 **Potential coalitions:**
