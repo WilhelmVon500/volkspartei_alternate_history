@@ -559,6 +559,12 @@ table {
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
+.seat.wp {
+    fill: #b8996f;
+}
+.seat.cnblp {
+    fill: #7FCEB1;
+}
 .seat.other {
     fill: #909090;
 }
