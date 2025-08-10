@@ -381,7 +381,7 @@ go-to: coalition_menu
 
 [? if wp_exist or cnblp_exist: <tr><td colspan="5" style="text-align: center;"><hr id="read-marker"></td></tr> ?]
 
-[? if wp_exist or cnblp_exist: {!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} **[+ votes_change_other +]%** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} [+ str_change_other +]% {!</td></tr>!} ?]
+[? if wp_exist or cnblp_exist: {!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} **[+ votes_change_other +]%** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} **[+ str_change_other +]%** {!</td></tr>!} ?]
 
 [? if wp_exist: {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} [+ str_change_wp +]% {!</td><td>!} ?]
 
