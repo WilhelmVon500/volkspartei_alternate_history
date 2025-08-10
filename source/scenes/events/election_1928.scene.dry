@@ -331,6 +331,10 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!}
 
+[? if wp_exist : {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} ?]
+
+[? if cnblp_exist : {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} ?]
+
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +]% {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +]% {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +]% {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +]% {!</td></tr>!}
