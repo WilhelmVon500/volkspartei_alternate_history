@@ -528,6 +528,11 @@ img {
   height: 1em;
   width: 1em;
 }
+.box2 {
+  display: inline-block;
+  height: 1em;
+  width: 0.5em;
+}
 
 table {
     border-spacing: 0.5em;
