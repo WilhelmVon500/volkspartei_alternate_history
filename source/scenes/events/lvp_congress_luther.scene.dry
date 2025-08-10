@@ -10,20 +10,21 @@ new-page: true
 WIP
 
 - @dietrich_lead_lvp: Hermann Dietrich
-- @lemmer_lead_lvp: Ernst Lemmer
+- @thiel_lead_lvp: Otto Thiel
 - @luther_lead_lvp: Hans Luther
 
 @dietrich_lead_lvp
+subtitle: Dietrich was the former leader of the [+ ddp_name +]'s business wing.
 on-arrival: dvp_leader = "Dietrich"; spd_relation += 3; z_relation += 3; new_middle_dvp += 4; workers_dvp += 1; democratic_strength += 10; liberal_strength += 5; progressive_strength += 3
 face-image: img/portraits/DietrichHermann.jpg
 
 Hermann Dietrich has won. He is a former member of DDP.
 
-@lemmer_lead_lvp
-on-arrival: dvp_leader = "Lemmer"; spd_relation += 5; workers_dvp += 4; new_middle_dvp += 1; labor_strength += 8; progressive_strength += 3; industrialist_dissent += 5
-face-image: img/portraits/LemmerErnst.jpg
+@thiel_lead_lvp
+on-arrival: dvp_leader = "Thiel"; spd_relation += 2; workers_dvp += 4; new_middle_dvp += 1; labor_strength += 8; progressive_strength += 3; industrialist_dissent += 5
+face-image: img/portraits/ThielOtto.jpg
 
-Surprisingly, Ernst Lemmer was elected party leader. He is a representative of the party’s unionist faction and former DDP member.
+Surprisingly, Otto Thiel was elected party leader. He is a representative of the party’s unionist faction.
 
 @luther_lead_lvp
 on-arrival: dvp_leader = "Luther"; z_relation += 5; kvp_relation += 2; old_middle_dvp += 3; new_middle_dvp += 3; liberal_strength += 10; democratic_strength += 5
