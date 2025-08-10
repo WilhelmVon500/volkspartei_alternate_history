@@ -377,9 +377,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +]% {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +]% {!</td></tr>!}
 
+[? if not (wp_exist or cnblp_exist): {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!} ?]
+
 [? if wp_exist or cnblp_exist: <tr><td colspan="5" style="text-align: center;"><hr id="read-marker"></td></tr> ?]
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!}
+[? if wp_exist or cnblp_exist: {!<tr><td><div class="box" style='background-color:#a0a0a0'; outline: 2px; outline-style: solid;> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} **[+ votes_change_other +]%** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} [+ str_change_other +]% {!</td></tr>!} ?]
 
 [? if wp_exist: {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} [+ str_change_wp +]% {!</td><td>!} ?]
 
