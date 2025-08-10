@@ -91,14 +91,36 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
     }
 }
 
-Q.cnblp_r = 0;
+
+
+
+
+Q.old_wp_r = Q.wp_r;
+Q.old_cnblp_r = Q.cnblp_r;
+Q.old_true_other_r = Q.true_other_r;
+
 Q.wp_r = 0;
-if (Q.cnblp_votes) Q.cnblp_r = Q.cnblp_votes
+Q.cnblp_r = 0;
 if (Q.wp_votes) Q.wp_r = Q.wp_votes
+if (Q.cnblp_votes) Q.cnblp_r = Q.cnblp_votes
+
 Q.true_other_votes = Q.other_votes - Q.cnblp_votes - Q.wp_votes;
 Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
 
-// get change arrows and signs
+Q.votes_change_wp = Q.wp_votes - Q.old_wp_votes
+Q.votes_change_cnblp = Q.cnblp_votes - Q.old_cnblp_votes
+Q.votes_change_true_other = Q.true_other_votes - Q.old_true_other_votes
+
+Q.str_change_wp = Q.wp_r - Q.old_wp_r
+Q.str_change_cnblp = Q.cnblp_r - Q.old_cnblp_r
+Q.str_change_true_other = Q.true_other_r - Q.old_true_other_r
+
+Q.old_wp_votes = Q.wp_votes;
+Q.old_cnblp_votes = Q.cnblp_votes;
+Q.old_true_other_votes = Q.true_other_votes;
+
+
+
 
 
 // The largest party can only be the NSDAP or the SPD.
@@ -340,11 +362,11 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +]% {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +]% {!</td></tr>!}
 
-[? if wp_exist: {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} ?]
+[? if wp_exist: {!<tr><td><div class="box2" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +]% {!</td><td>!} [+ wp_r +]% {!</td><td>!} [+ str_change_wp +]% {!</td><td>!} ?]
 
-[? if cnblp_exist: {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} ?]
+[? if cnblp_exist: {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +]% {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} [+ str_change_cnblp +]% {!</td><td>!} ?]
 
-[? if wp_exist or cnblp_exist: {!<tr><td><div class="box2" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ true_other_votes +]% {!</td><td>!} [+ true_other_r +]% {!</td><td>!} ?]
+[? if wp_exist or cnblp_exist: {!<tr><td><div class="box2" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ true_other_votes +]% {!</td><td>!} [+ votes_change_true_other +]% {!</td><td>!} [+ true_other_r +]% {!</td><td>!} [+ str_change_true_other +]% {!</td><td>!} ?]
 {!</table>!}
 
 **Potential coalitions:**
