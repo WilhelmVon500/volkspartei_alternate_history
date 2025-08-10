@@ -64,15 +64,11 @@ for (var party of Q.parties) {
     var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
     Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
 
-    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_last_election_votes'];
-    if (Q['old_' + party + '_last_election_votes'] === undefined) {
-        Q['change_' + party + '_votes'] = Q[party + '_votes'];
-    }
+    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
+    var sign = Q['change_' + party + '_votes'] > 0 ? '+'  : '';
+    Q['votes_change_' + party] = sign + Q['change_' + party + '_votes'];//.toFixed(1);
 
-    for (var party of Q.parties) {
-        Q[party + '_last_election_votes'] = parseFloat(Q[party + '_votes']).toFixed(1);
-        Q['old_' + party + '_last_election_votes'] = parseFloat(parseFloat(Q[party + '_last_election_votes']).toFixed(1));
-    }
+    Q['old_' + party + '_votes'] = Q[party + '_votes'];
 }
 // calculate new party sum if electoral reform
 if (Q.electoral_threshold && Q.electoral_threshold > 0) {
@@ -293,14 +289,14 @@ go-to: coalition_menu
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>Vote change</td><td>Seat share</td><td>Seat change</td></tr>!}
-[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ change_dvp_votes +]%** {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
-[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** **[+ change_dvp_votes +]%** {!</td><td>!} {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
+[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ votes_change_dvp +]%** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
+[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** **[+ votes_change_dvp +]%** {!</td><td>!} {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +]% {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +]% {!</td></tr>!}
 
-[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_votes +]% {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +]% {!</td></tr>!} ?]
+[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_votes +]% {!</td><td>!} [+ votes_change_sapd +]% {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +]% {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +]% {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +]% {!</td></tr>!}
 
 [? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +]% {!</td></tr>!} ?]
 
