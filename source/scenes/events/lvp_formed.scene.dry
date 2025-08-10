@@ -74,8 +74,8 @@ if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp
 }
 
 
-if (wp_split_seen == 1) {
-  Q.special_interest_strength += 2;
+if (Q.wp_split_seen == 1) {
+  Q.special_interest_strength += 5;
   Q.colosser_lvp = 1;
   Q.special_interest_lvp = 1
 }
