@@ -24,7 +24,7 @@ choose-if: liberal_strength > nationalist_strength + (industrialist_strength * 0
 on-arrival: dvp_leader = "Curtius"; spd_relation += 5; new_middle_dvp += 2; workers_dvp += 1; pro_republic += 3; liberal_strength += 5; nationalist_dissent += 5; dvp_left += 3
 unavailable-subtitle: Liberal faction is not strong enough.
 subtitle: Even as the Republic has seen a decline, liberal influence has not diminished, and their position has only seen growth within the party.
-face-image: img/CurtiusJulius.jpg
+face-image: img/portraits/CurtiusJulius.jpg
 
 Even as the Republic has seen a decline, liberal influence has not diminished, and their position has only seen growth within the party.
 
@@ -36,6 +36,6 @@ choose-if: nationalist_strength + (industrialist_strength * 0.5) >= liberal_stre
 on-arrival: dvp_leader = "Scholz"; spd_relation -= 7; old_middle_dvp += 1; new_middle_dvp -= 2; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 3; liberal_dissent += 5; dvp_right += 5
 unavailable-subtitle: Nationalists are not strong enough.
 subtitle: The decline of the Weimar Republic has also caused a decline in liberal sentiment, with many of the undecided flocking to the nationalists.
-face-image: img/ScholzErnst.jpg
+face-image: img/portraits/ScholzErnst.jpg
 
 Ernst Scholz has won. He represents a sharp rightward turn from Stresemann.
