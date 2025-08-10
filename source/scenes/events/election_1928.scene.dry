@@ -292,9 +292,9 @@ go-to: coalition_menu
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
-{!<tr><td>Party</td><td>Vote share</td><td>Seat share</td><td>Seat change</td></tr>!}
-[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
-[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
+{!<tr><td>Party</td><td>Vote share</td><td>Vote change</td><td>Seat share</td><td>Seat change</td></tr>!}
+[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ change_dvp_votes +]%** {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
+[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** **[+ change_dvp_votes +]%** {!</td><td>!} {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]%** {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +]% {!</td></tr>!}
 
