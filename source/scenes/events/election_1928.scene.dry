@@ -154,6 +154,7 @@ Q.economic_minister_party = Q.ddp_name;
 Q.finance_minister_party = Q.ddp_name;
 Q.agriculture_minister_party = 'Z';
 
+Q.z_minus_bvp_votes = Q.z_votes - 3;
 Q.z_minus_bvp_r = Q.z_r - 3;
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
