@@ -357,6 +357,9 @@ Q.dvp_r = 10;
 Q.dnvp_r = 20;
 Q.nsdap_r = 3;
 Q.other_r = 9;
+Q.wp_r = 2;
+Q.cnblp_r = 1;
+Q.true_other_r = 6;
 
 // diff from prev
 Q.old_spd_r = 26;
@@ -367,6 +370,9 @@ Q.old_dvp_r = 10;
 Q.old_dnvp_r = 20;
 Q.old_nsdap_r = 3;
 Q.old_other_r = 9;
+Q.old_wp_r = 2;
+Q.old_cnblp_r = 1;
+Q.old_true_other_r = 6;
 
 
 Q.old_spd_votes = 26;
@@ -377,6 +383,9 @@ Q.old_dvp_votes = 10;
 Q.old_dnvp_votes = 21;
 Q.old_nsdap_votes = 3;
 Q.old_other_votes = 8;
+Q.old_wp_votes = 2;
+Q.old_cnblp_votes = 1;
+Q.old_true_other_votes = 5;
 
 
 // for changing the DDP's name to the DStP
