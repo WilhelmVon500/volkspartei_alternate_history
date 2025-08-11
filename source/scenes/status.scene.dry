@@ -104,9 +104,15 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: Christian Conservatism (Westarp) ?]
 
-<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: Stalinism ([+ kpd_party_leader +])
+[? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: Christian Socialism (Simpfendörfer) ?]
+
+[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: Liberal Conservatism (Drewitz) ?]
+
+[? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: Agrarian Conservatism (Baum) ?]
 
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [? if dnvp_leader = "Westarp": National Conservatism ?][? if dnvp_leader = "Hugenberg": Authoritarian Conservatism ?] ([+ dnvp_leader +])
+
+<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: Stalinism ([+ kpd_party_leader +])
 
 <span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: Nazism ([+ nsdap_leader +])
 
