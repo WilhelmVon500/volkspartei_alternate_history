@@ -382,7 +382,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3.0% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td><td>!} 3.0% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td><td>!} 3% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td></tr>!}
 
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +] {!</td></tr>!} ?]
 
