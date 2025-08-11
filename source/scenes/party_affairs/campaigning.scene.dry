@@ -23,7 +23,7 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: workers_dvp += 4*(1-dissent); workers_other -= 2; workers_dvp -= 2 if unemployed >= 15; workers_dvp -= 2 if unemployed >= 25; resources -= 1
+on-arrival: workers_dvp += 4*(1-dissent); workers_other -= 1; workers_dvp -= 2 if unemployed >= 15; workers_dvp -= 2 if unemployed >= 25; resources -= 1
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?]
 
@@ -31,7 +31,7 @@ We have increased our campaigning among the workers. [? if unemployed >= 15: The
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_dvp += 5*(1-dissent); new_middle_other -= 3; resources -= 1
+on-arrival: new_middle_dvp += 5*(1-dissent); new_middle_other -= 1; resources -= 1
 
 We have increased our campaigning among the new middle class.
 
@@ -39,7 +39,7 @@ We have increased our campaigning among the new middle class.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: old_middle_dvp += 5*(1-dissent); old_middle_other -= 3; resources -= 1
+on-arrival: old_middle_dvp += 5*(1-dissent); old_middle_other -= 1; resources -= 1
 
 We have increased our campaigning among the old middle class.
 
@@ -47,7 +47,7 @@ We have increased our campaigning among the old middle class.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_dvp += 4*(1-dissent); rural_other -= 2; resources -= 1
+on-arrival: rural_dvp += 4*(1-dissent); rural_other -= 1; resources -= 1
 
 We have increased our campaigning among farmers.
 @unemployed
@@ -63,6 +63,6 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: lvp_formed == 1
-on-arrival: catholics_dvp += 4*(1-dissent); catholics_other -= 2; resources -= 1
+on-arrival: catholics_dvp += 3*(1-dissent); catholics_other -= 1; resources -= 1
 
 We have increased our campaigning among Catholics.
