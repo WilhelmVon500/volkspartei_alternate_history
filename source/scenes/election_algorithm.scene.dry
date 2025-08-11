@@ -36,7 +36,6 @@ for (var party of Q.parties) {
     total_support += party_support;
     if (party == "other") {
         if (Q.cnblp_exist) Q.cnblp_normalized = Q.rural_other_normalized*Q.rural;
-        if (Q.wp_exist) Q.wp_normalized = (Q.new_middle_other_normalized*Q.new_middle) + (Q.old_middle_other_normalized*Q.old_middle);
         if (Q.csvd_exist) Q.csvd_normalized = Q.workers_other_normalized*Q.workers;
     }
 }
@@ -47,7 +46,6 @@ for (var party of Q.parties) {
 for (var party of Q.parties) {
     if (party == "other") {
         if (Q.cnblp_exist) Q.cnblp_votes = (Q.cnblp_normalized/total_support);
-        if (Q.wp_exist) Q.wp_votes = (Q.wp_normalized/total_support);
         if (Q.csvd_exist) Q.csvd_votes = (Q.csvd_normalized/total_support);
     }
     Q[party+'_normalized'] = Q[party + '_support']/total_support;
@@ -56,7 +54,6 @@ for (var party of Q.parties) {
     // display
     if (party == "other") {
         Q.cnblp_votes = Math.round(Q.cnblp_votes*1000)/10;
-        Q.wp_votes = Math.round(Q.wp_votes*1000)/10;
         Q.csvd_votes = Math.round(Q.csvd_votes*1000)/10;
     }
 }
