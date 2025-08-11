@@ -77,38 +77,38 @@ Economic growth: [+ economic_growth_2 +]%
 = Inter-party Relations
 
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+{!<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>!}: [+ z_relation : relationships +]
 
-[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}[+ ddp_name +]{!</span>!}: [+ ddp_relation : relationships +] ?]
+[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">!}**[+ ddp_name +]**{!</span>!}: [+ ddp_relation : relationships +] ?]
 
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_relation : relationships +]
+{!<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>!}: [+ spd_relation : relationships +]
 
-[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party">KVP</span>!}: [+ kvp_relation : relationships +] ?]
+[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>!}: [+ kvp_relation : relationships +] ?]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>!}: [+ kpd_relation : relationships +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+{!<span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>!}: [+ dnvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>!}: [+ nsdap_relation : relationships +]
 
 = Party Leadership
 
 [? if not lvp_formed: {!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**[+ dvp_name +]**{!</span>!}: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +]) ?]
 [? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Lemmer": Left Liberalism ([+ dvp_leader +]) ?] ?]
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: Christian Democracy ([+ z_party_leader +])
+{!<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>!}: Christian Democracy ([+ z_party_leader +])
 
-[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}[+ ddp_name +]{!</span>!}: Left Liberalism (Koch-Weser) ?]
+[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">!}**[+ ddp_name +]**{!</span>!}: Left Liberalism (Koch-Weser) ?]
 
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: Social Democracy (Wels)
+{!<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>!}: Social Democracy (Wels)
 
-[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party">KVP</span>!}: Christian Conservatism (Westarp) ?]
+[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>!}: Christian Conservatism (Westarp) ?]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: Stalinism ([+ kpd_party_leader +])
+{!<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>!}: Stalinism ([+ kpd_party_leader +])
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [? if dnvp_leader = "Westarp": National Conservatism ?][? if dnvp_leader = "Hugenberg": Authoritarian Conservatism ?] ([+ dnvp_leader +])
+{!<span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>!}: [? if dnvp_leader = "Westarp": National Conservatism ?][? if dnvp_leader = "Hugenberg": Authoritarian Conservatism ?] ([+ dnvp_leader +])
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: Nazism ([+ nsdap_leader +])
+{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>!}: Nazism ([+ nsdap_leader +])
 
 = Internal Factions of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?]
 
