@@ -96,7 +96,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 for (var party of Q.other_parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
     Q[party + '_r'] = 0;
-    if (Q[party + '_r'] && Q[party + '_exist']) {
+    if (Q[party + '_votes'] && Q[party + '_exist']) {
         Q[party + '_r'] = Q[party + '_votes'];
     }
 
