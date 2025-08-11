@@ -58,7 +58,7 @@ for (var party of Q.parties) {
     if (Q.use_decimals) {
         Q[party + '_r_disp'] = Q[party+'_r'].toFixed(1);
     }  else {
-            Q[party + '_r_disp'] = Q[party+'_r'];
+        Q[party + '_r_disp'] = Q[party+'_r'];
     }
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
@@ -74,11 +74,7 @@ for (var party of Q.parties) {
 if (Q.electoral_threshold && Q.electoral_threshold > 0) {
     for (var party of Q.parties) {
         if (Q[party + '_r'] > 0) {
-            if (Q.use_decimals) {
-                Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
-            } else {
-                Q[party + '_r'] = Math.round(Q[party + '_r']*100/new_party_sum);
-            }
+            Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
         }
         if (Q.use_decimals) {
             Q[party + '_r_disp'] = Q[party+'_r'].toFixed(1);
