@@ -347,8 +347,10 @@ if (Q.month_actions >= 1) {
         Q.old_middle_ddp -= 6/12;
         Q.new_middle_nsdap += 10/12;
         Q.old_middle_nsdap += 10/12;
-        Q.new_middle_other += 4/12;
-        Q.old_middle_other += 4/12;
+        Q.new_middle_wp += 1/12;
+        Q.old_middle_wp += 2/12;
+        Q.new_middle_other += 3/12;
+        Q.old_middle_other += 2/12;
         Q.unemployed_nsdap += 8/12;
         Q.rural_other += 5/12;
 
@@ -398,7 +400,8 @@ if (Q.month_actions >= 1) {
             Q.rural_nsdap += 4/12;
         }
     } else if (Q.year == 1932) {
-        Q.old_middle_other -= 7/12;
+        Q.old_middle_wp -= 4/12;
+        Q.old_middle_other -= 3/12;
         Q.rural_other -= 7/12;
         Q.old_middle_nsdap += 7/12;
         Q.rural_nsdap += 7/12;
@@ -436,16 +439,13 @@ if (Q.month_actions >= 1) {
         if (Q.return_to_normalcy) {
             // return to normalcy -> voters return to the base
             if (Q.workers_spd_normalized < 60) {
-                Q.workers_spd += 4/12;
+                Q.workers_spd += 6/12;
             }
             if (Q.new_middle_ddp_normalized < 40) {
                 Q.new_middle_ddp += 6/12;
             }
-            if (Q.new_middle_dvp_normalized < 25) {
-                Q.new_middle_dvp += 3/12;
-            }
-            if (Q.old_middle_dvp_normalized < 40) {
-                Q.old_middle_dvp += 6/12;
+            if (Q.old_middle_wp_normalized < 20) {
+                Q.old_middle_wp += 4/12;
             }
             if (Q.rural_dnvp_normalized < 40 && Q.kvp_formed == 0) {
                 Q.rural_dnvp += 6/12;
