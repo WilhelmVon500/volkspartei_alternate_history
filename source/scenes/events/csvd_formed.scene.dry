@@ -1,0 +1,7 @@
+on-arrival: {!
+Q.csvd_exist = 1;
+Q.other_parties.push('csvd');
+             
+Q.workers_other += 2;
+Q.workers_dnvp -= 2;
+!}
