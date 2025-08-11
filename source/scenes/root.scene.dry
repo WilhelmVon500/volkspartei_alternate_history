@@ -287,9 +287,18 @@ Q.csvd_exist = 0
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;
 Q.sapd_votes = 0;
+Q.old_sapd_votes = 0;
+
 Q.kvp_r = 0;
 Q.old_kvp_r = 0;
 Q.kvp_votes = 0;
+Q.old_kvp_votes = 0;
+
+Q.csvd_r = 0;
+Q.old_csvd_r = 0;
+Q.csvd_votes = 0;
+Q.old_csvd_votes = 0;
+
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
