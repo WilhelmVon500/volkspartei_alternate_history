@@ -317,8 +317,8 @@ Q.old_middle_kpd = 0;
 Q.old_middle_z = 5;
 Q.old_middle_ddp= 10;
 Q.old_middle_dvp = 20;
-Q.old_middle_wp = 15;
-Q.old_middle_dnvp = 20;
+Q.old_middle_wp = 20;
+Q.old_middle_dnvp = 15;
 Q.old_middle_nsdap = 10;
 Q.old_middle_other = 5;
 
