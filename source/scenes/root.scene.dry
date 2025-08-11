@@ -280,6 +280,7 @@ Q.lvp_formed = 0;
 
 Q.cnblp_exist = 1
 Q.wp_exist = 1
+Q.csvd_exist = 0
 
 
 // sapd isn't formed yet, but it may be formed
