@@ -43,6 +43,7 @@ on-arrival: {!
 // banning parties
 var new_party_sum = 0;
 for (var party of Q.parties) {
+    Q[party + '_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
     Q['old_' + party + '_r'] = Q[party + '_r'];
     if (Q.constitutional_reform > 0) {
         if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
@@ -84,6 +85,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 
 for (var party of Q.other_parties) {
+    Q[party + '_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
     Q['old_' + party + '_r'] = Q[party + '_r'];
     Q[party + '_r'] = 0;
     if (Q[party + '_votes'] && Q[party + '_exist']) {
