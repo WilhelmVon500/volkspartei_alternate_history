@@ -55,7 +55,7 @@ for (var party of Q.parties) {
         Q[party + '_r'] = Q[party + '_votes'];
     }
     // if we use decimals, then we might want to truncate the numbers
-    Q[party + '_r'] = parseFloat(Q[party+'_r']).toFixed(1);
+    Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
 
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 
