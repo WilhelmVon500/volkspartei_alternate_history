@@ -57,21 +57,21 @@ for (var party of Q.parties) {
     // if we use decimals, then we might want to truncate the numbers
     Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
 
-    Q['change_' + party + '_r'] = Math.abs(Q[party + '_r'] - Q['old_' + party + '_r']);
+    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 
                    ? '<img src="img/arrowup.png"> ' 
                    : Q['change_' + party + '_r'] < 0 
                      ? '<img src="img/arrowdown.png"> ' 
                      : '<img src="img/steady.png"> ';
-    Q['str_change_' + party] = sign + parseFloat(Q['change_' + party + '_r']).toFixed(1);
+    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
 
-    Q['change_' + party + '_votes'] = Math.abs(Q[party + '_votes'] - Q['old_' + party + '_votes']);
+    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
     var sign2 = Q['change_' + party + '_votes'] > 0 
                     ? '<img src="img/arrowup.png"> ' 
                     : Q['change_' + party + '_votes'] < 0 
                       ? '<img src="img/arrowdown.png"> ' 
                       : '<img src="img/steady.png"> ';
-    Q['votes_change_' + party] = sign2 + parseFloat(Q['change_' + party + '_votes']).toFixed(1);
+    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
 
     Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
 }
@@ -83,13 +83,13 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
         }
         Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
         
-        Q['change_' + party + '_r'] = Math.abs(Q[party + '_r'] - Q['old_' + party + '_r']);
+        Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
         var sign = Q['change_' + party + '_r'] > 0 
                    ? '<img src="img/arrowup.png"> ' 
                    : Q['change_' + party + '_r'] < 0 
                      ? '<img src="img/arrowdown.png"> ' 
                      : '<img src="img/steady.png"> ';
-        Q['str_change_' + party] = sign + parseFloat(Q['change_' + party + '_r']).toFixed(1);
+        Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
     }
 }
 
@@ -103,21 +103,21 @@ for (var party of Q.other_parties) {
         Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
     }
 
-    Q['change_' + party + '_r'] = Math.abs(Q[party + '_r'] - Q['old_' + party + '_r']);
+    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 
                    ? '<img src="img/arrowup.png"> ' 
                    : Q['change_' + party + '_r'] < 0 
                      ? '<img src="img/arrowdown.png"> ' 
                      : '<img src="img/steady.png"> ';
-    Q['str_change_' + party] = sign + parseFloat(Q['change_' + party + '_r']).toFixed(1);
+    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
 
-    Q['change_' + party + '_votes'] = Math.abs(Q[party + '_votes'] - Q['old_' + party + '_votes']);
+    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
     var sign2 = Q['change_' + party + '_votes'] > 0 
                     ? '<img src="img/arrowup.png"> ' 
                     : Q['change_' + party + '_votes'] < 0 
                       ? '<img src="img/arrowdown.png"> ' 
                       : '<img src="img/steady.png"> ';
-    Q['votes_change_' + party] = sign2 + parseFloat(Q['change_' + party + '_votes']).toFixed(1);
+    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
 
     Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
 }
@@ -127,21 +127,21 @@ Q.old_true_other_r = Q.true_other_r;
 Q.true_other_votes = parseFloat((Q.other_votes - Q.cnblp_votes - Q.wp_votes - Q.csvd_votes).toFixed(1));
 Q.true_other_r = parseFloat((Q.other_r - Q.cnblp_r - Q.wp_r - Q.csvd_r).toFixed(1));
 
-Q.str_change_true_other = Math.abs(Q.true_other_r - Q.old_true_other_r)
+Q.str_change_true_other = Q.true_other_r - Q.old_true_other_r
 var sign = Q.str_change_true_other > 0 
                    ? '<img src="img/arrowup.png"> ' 
                    : Q['change_' + party + '_r'] < 0 
                      ? '<img src="img/arrowdown.png"> ' 
                      : '<img src="img/steady.png"> ';
-Q.str_change_true_other = sign + parseFloat(Q.str_change_true_other).toFixed(1);
+Q.str_change_true_other = sign + Math.abs(parseFloat(Q.str_change_true_other)).toFixed(1);
 
-Q.votes_change_true_other = Math.abs(Q.true_other_votes - Q.old_true_other_votes)
+Q.votes_change_true_other = Q.true_other_votes - Q.old_true_other_votes
 var sign2 = Q.votes_change_true_other > 0 
                     ? '<img src="img/arrowup.png"> ' 
                     : Q['change_' + party + '_votes'] < 0 
                       ? '<img src="img/arrowdown.png"> ' 
                       : '<img src="img/steady.png"> ';
-Q.votes_change_true_other = sign2 + parseFloat(Q.votes_change_true_other).toFixed(1);
+Q.votes_change_true_other = sign2 + Math.abs(parseFloat(Q.votes_change_true_other)).toFixed(1);
 
 Q.old_true_other_votes = parseFloat(Q.true_other_votes.toFixed(1));
 
