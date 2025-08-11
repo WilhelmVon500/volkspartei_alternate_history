@@ -93,49 +93,39 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 
 
+for (var party of Q.other_parties) {
+    Q['old_' + party + '_r'] = Q[party + '_r'];
+    Q[party + '_r'] = 0;
+    if (Q[party + '_r'] and Q[party + '_exist']) {
+        Q[party + '_r'] = Q[party + '_votes'];
+    }
+
+    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
+    var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
+    Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
+
+    Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
+    var sign = Q['change_' + party + '_votes'] > 0 ? '+'  : '';
+    Q['votes_change_' + party] = sign + Q['change_' + party + '_votes'];//.toFixed(1);
+
+    Q['old_' + party + '_votes'] = Q[party + '_votes'];
+}
 
 
-Q.old_wp_r = Q.wp_r;
-Q.old_cnblp_r = Q.cnblp_r;
-Q.old_true_other_r = Q.true_other_r;
 
-Q.wp_r = 0;
-Q.cnblp_r = 0;
-if (Q.wp_votes) Q.wp_r = Q.wp_votes
-if (Q.cnblp_votes) Q.cnblp_r = Q.cnblp_votes
+
 
 Q.true_other_votes = Q.other_votes - Q.cnblp_votes - Q.wp_votes;
 Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
-
-
-Q.votes_change_wp = Q.wp_votes - Q.old_wp_votes
-var sign = Q.votes_change_wp > 0 ? '+'  : '';
-Q.votes_change_wp = sign + Q.votes_change_wp;//.toFixed(1);
-
-Q.votes_change_cnblp = Q.cnblp_votes - Q.old_cnblp_votes
-var sign = Q.votes_change_cnblp > 0 ? '+'  : '';
-Q.votes_change_cnblp = sign + Q.votes_change_cnblp;//.toFixed(1);
 
 Q.votes_change_true_other = Q.true_other_votes - Q.old_true_other_votes
 var sign = Q.votes_change_true_other > 0 ? '+'  : '';
 Q.votes_change_true_other = sign + Q.votes_change_true_other;//.toFixed(1);
 
-
-Q.str_change_wp = Q.wp_r - Q.old_wp_r
-var sign = Q.str_change_wp > 0 ? '+'  : '';
-Q.str_change_wp = sign + Q.str_change_wp;//.toFixed(1);
-
-Q.str_change_cnblp = Q.cnblp_r - Q.old_cnblp_r
-var sign = Q.str_change_cnblp > 0 ? '+'  : '';
-Q.str_change_cnblp = sign + Q.str_change_cnblp;//.toFixed(1);
-
 Q.str_change_true_other = Q.true_other_r - Q.old_true_other_r
 var sign = Q.str_change_true_other > 0 ? '+'  : '';
 Q.str_change_true_other = sign + Q.str_change_true_other;//.toFixed(1);
 
-
-Q.old_wp_votes = Q.wp_votes;
-Q.old_cnblp_votes = Q.cnblp_votes;
 Q.old_true_other_votes = Q.true_other_votes;
 
 
