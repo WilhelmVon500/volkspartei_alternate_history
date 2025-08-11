@@ -55,7 +55,7 @@ for (var party of Q.parties) {
         Q[party + '_r'] = Q[party + '_votes'];
     }
     // if we use decimals, then we might want to truncate the numbers
-    Q[party + '_r'] = Q[party+'_r'].toFixed(1);
+    Q[party + '_r'] = parseFloat(Q[party+'_r'].toFixed(1));
 
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
     var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
@@ -73,7 +73,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
         if (Q[party + '_r'] > 0) {
             Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
         }
-        Q[party + '_r'] = Q[party+'_r'].toFixed(1);
+        Q[party + '_r'] = parseFloat(Q[party+'_r'].toFixed(1));
         
         Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
         var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
@@ -88,7 +88,7 @@ for (var party of Q.other_parties) {
     Q[party + '_r'] = 0;
     if (Q[party + '_votes'] && Q[party + '_exist']) {
         Q[party + '_r'] = Q[party + '_votes'];
-        Q[party + '_r'] = Q[party+'_r'].toFixed(1);
+        Q[party + '_r'] = parseFloat(Q[party+'_r'].toFixed(1));
     }
 
     Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
