@@ -548,6 +548,9 @@ table {
 .seat.ddp {
     fill: #DCCA4A;
 }
+.seat.dbp {
+    fill: #38C538;
+}
 .seat.z {
     fill: #000;
 }
