@@ -286,10 +286,8 @@ if (Q.month_actions >= 1) {
 
     ///////////////////////////// change party support based on pro_republic
     // if pro_republic is less than the support of the republican parties, reduce SPD support...
-    Q.republican_parties_support = Q.spd_votes + Q.ddp_votes + Q.z_votes - 3
-    if (lvp_formed) Q.republican_parties_support += Q.dvp_votes
 
-    if (Q.pro_republic < Q.republican_parties_support) {
+    if (Q.pro_republic < Q.spd_votes + Q.ddp_votes + Q.z_votes - 3) {
         if (Q.new_middle_spd > 0) {
             Q.new_middle_spd -= 5/12;
             Q.new_middle_nsdap += 3/12;
