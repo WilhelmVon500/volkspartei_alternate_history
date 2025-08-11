@@ -54,11 +54,11 @@ Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'democratic', 
 // should this be normalized to 100%?
 Q.nationalist_strength = 20;
 Q.nationalist_dissent = 15;
-Q.industrialist_strength = 25;
+Q.industrialist_strength = 30;
 Q.industrialist_dissent = 0;
 Q.labor_strength = 10;
 Q.labor_dissent = 20;
-Q.liberal_strength = 40;
+Q.liberal_strength = 35;
 Q.liberal_dissent = 5;
 Q.democratic_strength = 5;
 Q.democratic_dissent = 0;
