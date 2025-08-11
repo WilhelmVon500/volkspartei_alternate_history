@@ -255,6 +255,14 @@ if (Q.lvp_formed == 0) {
         "seats": Math.round(Q.ddp_r*5),
     });
 }
+if (Q.dbp_exist && Q.dbp_r) {
+    data.push({
+        "id": "dbp",
+        "legend": "DBP",
+        "name": "DBP",
+        "seats": Math.round(Q.dbp_r*5),
+    });
+}
 if (Q.lvp_formed == 1) {
     data.push({
         "id": "lvp",
@@ -295,7 +303,7 @@ if (Q.csvd_r) {
     });
 }
 
-if (Q.wp_r) {
+if (Q.wp_exist && Q.wp_r) {
     data.push({
         "id": "wp",
         "legend": "WP",
@@ -379,6 +387,8 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +] {!</td></tr>!}
 
 [? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!} ?]
+
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_r +]% {!</td><td>!} [+ str_change_dbp +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
 
