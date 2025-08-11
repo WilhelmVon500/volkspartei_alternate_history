@@ -12,7 +12,8 @@ Q.new_middle_other -= 2;
 
 Q.old_middle_kvp = 10;
 Q.old_middle_dnvp -= 6;
-Q.old_middle_other -= 4;
+Q.old_middle_wp -= 2;
+Q.old_middle_other -= 2;
 
 Q.rural_kvp = 8;
 Q.rural_dnvp -= 5;
