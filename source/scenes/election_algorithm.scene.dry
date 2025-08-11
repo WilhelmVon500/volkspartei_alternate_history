@@ -51,20 +51,13 @@ for (var party of Q.parties) {
         if (Q.csvd_exist) Q.csvd_votes = (Q.csvd_normalized/total_support);
     }
     Q[party+'_normalized'] = Q[party + '_support']/total_support;
-    Q[party+'_votes_dec'] = Math.round(Q[party+'_normalized']*1000)/10;
-    if (Q.use_decimals) {
-        Q[party+'_votes'] = Q[party+'_votes_dec'];
-        Q[party + '_votes_disp'] = Q[party+'_votes'];
-    } else {
-        Q[party+'_votes'] = Math.round(Q[party+'_normalized']*100);
-        Q[party + '_votes_disp'] = Q[party+'_votes_dec'].toFixed(1);
-    }
-    //Q[party+'_votes'] = Q[party+'_votes_dec'];
+    Q[party+'_votes'] = Math.round(Q[party+'_normalized']*1000)/10;
+    Q[party + '_votes_disp'] = Q[party+'_votes'];
     // display
     if (party == "other") {
-        Q.cnblp_votes = Math.round(Q.cnblp_votes*100);
-        Q.wp_votes = Math.round(Q.wp_votes*100);
-        Q.csvd_votes = Math.round(Q.csvd_votes*100);
+        Q.cnblp_votes = Math.round(Q.cnblp_votes*1000)/10;
+        Q.wp_votes = Math.round(Q.wp_votes*1000)/10;
+        Q.csvd_votes = Math.round(Q.csvd_votes*1000)/10;
     }
 }
 !}
