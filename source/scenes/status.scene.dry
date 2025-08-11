@@ -85,6 +85,8 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_relation : relationships +] ?]
 
+[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: [+ wp_relation : relationships +] ?]
+
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_relation : relationships +]
 
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_relation : relationships +]
