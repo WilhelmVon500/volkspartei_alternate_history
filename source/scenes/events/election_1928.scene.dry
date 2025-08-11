@@ -44,6 +44,7 @@ on-arrival: {!
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
+    Q[party + '_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
     if (Q.constitutional_reform > 0) {
         if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
             Q[party + '_r'] = 0;
@@ -85,6 +86,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 for (var party of Q.other_parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
+    Q[party + '_votes'] = parseFloat((Q[party+'_votes']).toFixed(1));
     Q[party + '_r'] = 0;
     if (Q[party + '_votes'] && Q[party + '_exist']) {
         Q[party + '_r'] = Q[party + '_votes'];
@@ -104,8 +106,8 @@ for (var party of Q.other_parties) {
 
 Q.old_true_other_r = Q.true_other_r;
 
-Q.true_other_votes = Q.other_votes - Q.cnblp_votes - Q.wp_votes - Q.csvd_votes;
-Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r - Q.csvd_r;
+Q.true_other_votes = parseFloat((Q.other_votes - Q.cnblp_votes - Q.wp_votes - Q.csvd_votes).toFixed(1));
+Q.true_other_r = parseFloat((Q.other_r - Q.cnblp_r - Q.wp_r - Q.csvd_r).toFixed(1));
 
 Q.votes_change_true_other = Q.true_other_votes - Q.old_true_other_votes
 var sign = Q.votes_change_true_other > 0 ? '+'  : '';
