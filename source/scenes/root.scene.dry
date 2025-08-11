@@ -117,6 +117,7 @@ Q.z_relation = 50;
 Q.ddp_relation = 60;
 Q.dvp_relation = 35;
 Q.wp_relation = 55;
+Q.dbp_relation = 50;
 Q.spd_relation = 40;
 Q.dnvp_relation = 40;
 Q.nsdap_relation = 10;
@@ -271,7 +272,7 @@ Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other', 'wp'];
+Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp'];
 Q.other_parties = ['cnblp'];
 
 // TODO: add 'sapd' later on
@@ -279,8 +280,9 @@ Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
 
-Q.cnblp_exist = 1
+Q.dbp_exist = 1
 Q.wp_exist = 1
+Q.cnblp_exist = 1
 Q.csvd_exist = 0
 
 
@@ -312,6 +314,7 @@ Q.workers_wp = 0;
 Q.workers_dnvp = 5;
 Q.workers_nsdap = 0;
 Q.workers_other = 10;
+Q.workers_dbp = 0;
 
 Q.old_middle_spd = 5;
 Q.old_middle_kpd = 0;
@@ -322,6 +325,7 @@ Q.old_middle_wp = 25;
 Q.old_middle_dnvp = 15;
 Q.old_middle_nsdap = 9;
 Q.old_middle_other = 1;
+Q.old_middle_dbp = 0;
 
 Q.new_middle_spd = 5;
 Q.new_middle_kpd = 1;
@@ -332,6 +336,7 @@ Q.new_middle_wp = 12;
 Q.new_middle_dnvp = 10;
 Q.new_middle_nsdap = 5;
 Q.new_middle_other = 3;
+Q.new_middle_dbp = 0;
 
 Q.rural_spd = 10;
 Q.rural_kpd = 0;
@@ -341,7 +346,8 @@ Q.rural_dvp = 10;
 Q.rural_wp = 0;
 Q.rural_dnvp = 45;
 Q.rural_nsdap = 5;
-Q.rural_other = 15;
+Q.rural_other = 9;
+Q.rural_dbp = 6;
 
 Q.unemployed_spd = 30;
 Q.unemployed_kpd = 55;
@@ -352,6 +358,7 @@ Q.unemployed_wp = 0;
 Q.unemployed_dnvp = 5;
 Q.unemployed_nsdap = 15;
 Q.unemployed_other = 4;
+Q.unemployed_dbp = 0;
 
 Q.catholics_spd = 15;
 Q.catholics_kpd = 2;
@@ -361,7 +368,8 @@ Q.catholics_dvp = 5;
 Q.catholics_wp = 0;
 Q.catholics_dnvp = 5;
 Q.catholics_nsdap = 0;
-Q.catholics_other = 4;
+Q.catholics_other = 1;
+Q.catholics_dbp = 3;
 
 
 // Current Reichstag composition
@@ -375,12 +383,13 @@ Q.kpd_r = 9.1;
 Q.z_r = 17.8;
 Q.ddp_r = 6.5;
 Q.dvp_r = 10.3;
+Q.wp_r = 2.4;
 Q.dnvp_r = 20.9;
 Q.nsdap_r = 3;
-Q.other_r = 5.9;
-Q.wp_r = 2.4;
+Q.other_r = 4.9;
+Q.dbp_r = 1;
 Q.cnblp_r = 1.7;
-Q.true_other_r = 1.8;
+Q.true_other_r = 3.2;
 
 // diff from prev
 Q.old_spd_r = 26.5;
@@ -388,12 +397,13 @@ Q.old_kpd_r = 9.1;
 Q.old_z_r = 17.8;
 Q.old_ddp_r = 6.5;
 Q.old_dvp_r = 10.3;
+Q.old_wp_r = 2.4;
 Q.old_dnvp_r = 20.9;
 Q.old_nsdap_r = 3;
-Q.old_other_r = 5.9;
-Q.old_wp_r = 2.4;
+Q.old_other_r = 4.9;
+Q.old_dbp_r = 1;
 Q.old_cnblp_r = 1.7;
-Q.old_true_other_r = 1.8;
+Q.old_true_other_r = 3.2;
 
 
 Q.old_spd_votes = 26;
@@ -401,12 +411,13 @@ Q.old_kpd_votes = 9;
 Q.old_z_votes = 17.3;
 Q.old_ddp_votes = 6.3;
 Q.old_dvp_votes = 10.1;
+Q.old_wp_votes = 2.3;
 Q.old_dnvp_votes = 20.5;
 Q.old_nsdap_votes = 3;
-Q.old_other_votes = 7.8;
-Q.old_wp_votes = 2.3;
+Q.old_other_votes = 6.8;
+Q.old_dbp_votes = 1;
 Q.old_cnblp_votes = 1.7;
-Q.old_true_other_votes = 3.8;
+Q.old_true_other_votes = 2.8;
 
 
 // for changing party names
