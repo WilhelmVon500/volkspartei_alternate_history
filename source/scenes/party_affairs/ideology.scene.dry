@@ -49,7 +49,7 @@ if (Q.ideology && Q.ideology != "labor") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "labor"; labor_strength += 10; labor_dissent -= 5; kpd_relation -= 3
+on-departure: ideology = "labor"; labor_strength += 10; labor_dissent -= 5;
 
 In pursuit of a Volksgemeinschaft, we must extend the party to the left, and to nationalist parts of the working class.
 
@@ -60,7 +60,7 @@ if (Q.ideology && Q.ideology != "liberal") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "liberal"; liberal_strength += 10; democratization += 1; liberal_dissent -= 5; z_relation += 5; ddp_relation += 5; spd_relation += 5; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"; nsdap_relation -= 10; dvp_left += 3
+on-departure: ideology = "liberal"; liberal_strength += 10; democratization += 1; liberal_dissent -= 5; z_relation += 5; ddp_relation += 5; kvp_relation += 5; spd_relation += 5; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"; nsdap_relation -= 10; dvp_left += 3
 
 We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
 
