@@ -49,6 +49,6 @@ for (var record of Q.party_support_records) {
 // CSVD
 Q.csvd_exist = 1;
 Q.other_parties.push('csvd');
-Q.workers_other += 4;
-Q.workers_dnvp -= 4;
+Q.workers_other += 2;
+Q.workers_dnvp -= 2;
 !}
