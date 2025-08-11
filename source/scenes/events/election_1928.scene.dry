@@ -117,22 +117,6 @@ for (var party of Q.other_parties) {
 
 
 
-// Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
-
-// Q.votes_change_true_other = Q.true_other_votes - Q.old_true_other_votes
-// var sign = Q.votes_change_true_other > 0 ? '+'  : '';
-// Q.votes_change_true_other = sign + Q.votes_change_true_other;//.toFixed(1);
-
-// Q.str_change_true_other = Q.true_other_r - Q.old_true_other_r
-// var sign = Q.str_change_true_other > 0 ? '+'  : '';
-// Q.str_change_true_other = sign + Q.str_change_true_other;//.toFixed(1);
-
-// Q.old_true_other_votes = Q.true_other_votes;
-
-
-
-
-
 // The largest party can only be the NSDAP or the SPD.
 Q.largest_party = 'SPD';
 if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r && Q.nsdap_r >= Q.dvp_r) {
