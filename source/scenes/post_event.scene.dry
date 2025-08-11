@@ -285,8 +285,11 @@ if (Q.month_actions >= 1) {
     }
 
     ///////////////////////////// change party support based on pro_republic
-    // if pro_republic is less than the support of the Weimar coalition, reduce SPD support...
-    if (Q.pro_republic < (Q.spd_votes + Q.ddp_votes + Q.z_votes - 3)) {
+    // if pro_republic is less than the support of the republican parties, reduce SPD support...
+    Q.republican_parties_support = Q.spd_votes + Q.ddp_votes + Q.z_votes - 3
+    if (lvp_formed) Q.republican_parties_support += Q.dvp_votes
+
+    if (Q.pro_republic < Q.republican_parties_support) {
         if (Q.new_middle_spd > 0) {
             Q.new_middle_spd -= 5/12;
             Q.new_middle_nsdap += 3/12;
@@ -434,8 +437,8 @@ if (Q.month_actions >= 1) {
     } else if (Q.year >= 1933) {
         if (Q.return_to_normalcy) {
             // return to normalcy -> voters return to the base
-            if (Q.workers_spd_normalized < 40) {
-                Q.workers_spd += 3/12;
+            if (Q.workers_spd_normalized < 60) {
+                Q.workers_spd += 4/12;
             }
             if (Q.new_middle_ddp_normalized < 40) {
                 Q.new_middle_ddp += 6/12;
