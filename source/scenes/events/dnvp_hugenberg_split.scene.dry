@@ -5,15 +5,8 @@ max-visits: 1
 tags: event
 face-image: img/KVP_logo.jpg
 new-page: true
-go-to: kvp_formed
+go-to: kvp_formed; csvd_formed
 
 = DNVP Moderates split!
 
 The anti-Hugenberg forces within the party, like Young Conservatives and Westarp Group, have left DNVP to form a new <i>Konservative Volkspartei</i>.
-
-- @christian_socials_split: The Christian Social faction forms a new party.
-
-@christian_socials_split
-go-to: csvd_formed
-
-Christian Social People's Service was formed by former members of DNVP's Christian Social faction.
