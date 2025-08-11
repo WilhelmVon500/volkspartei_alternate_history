@@ -43,4 +43,15 @@ for (var record of Q.election_records) {
 for (var record of Q.party_support_records) {
     record['kvp'] = 0;
 }
+
+
+
+
+
+// CSVD
+Q.csvd_exist = 1;
+Q.other_parties.push('csvd');
+             
+Q.workers_other += 2;
+Q.workers_dnvp -= 2;
 !}
