@@ -111,6 +111,8 @@ for (var party of Q.other_parties) {
     Q['old_' + party + '_votes'] = Q[party + '_votes'];
 }
 
+Q.old_true_other_r = Q.true_other_r;
+
 Q.true_other_votes = Q.other_votes - Q.cnblp_votes - Q.wp_votes;
 Q.true_other_r = Q.other_r - Q.cnblp_r - Q.wp_r;
 
