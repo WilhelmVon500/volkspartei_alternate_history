@@ -36,25 +36,25 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
+{!<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>!}: [+ spd_r +]%
+[? if sapd_formed and sapd_r > 0: <span class="tooltip-text" title="Socialist Workers' Party of Germany" style="color: #C40000;">**SAPD**</span>: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
+{!<span class="tooltip-text" title="Communist Party of Germany"><span style="color: #8B0000;">**KPD**</span></span>!}: [+ kpd_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}[+ ddp_name +]{!</span>!}: [+ ddp_r +]% ?]
+[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}<span style="color: #DCCA4A;">**[+ ddp_name +]**</span>{!</span>!}: [+ ddp_r +]% ?]
 # 1928: 9, 1930: 5
 [? if not lvp_formed: {!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
 [? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
 #
-[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party">KVP</span>!}: [+ kvp_r +]% ?]
+[? if kvp_formed: {!<span class="tooltip-text" title="Conservative People's Party"><span style="color: #455B95;">**KVP**</span></span>!}: [+ kvp_r +]% ?]
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="German National People's Party"><span style="color: #3F7BC1;">**DNVP**</span></span>!}: [+ dnvp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_r +]%
+{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)"><span style="color: #954B00;">**NSDAP**</span></span>!}: [+ nsdap_r +]%
 # 1928: 9, 1930: 10
-Others: [+ other_r +]%
+<span style="color: #909090;">**Others**</span>: [+ other_r +]%
 
 [? if dvp_in_government = 1 : Budget: [+ budget +] ?]
 
