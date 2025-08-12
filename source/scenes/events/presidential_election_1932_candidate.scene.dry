@@ -85,6 +85,8 @@ go-to: hitler if not hitler_deported; goring if not hitler_deported
 
 The Nazis will run Hitler. A victory for Hitler would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors.
 
+- @communist: We await the decision of the Communists.
+
 @goring
 
 Since Hitler has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Hitler, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. A victory for him would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors.
@@ -105,6 +107,8 @@ go-to: braun if spd_candidate = "Braun"; hindenburg_spd if spd_candidate = "Hind
 face-image: img/portraits/BraunOtto.jpg
 
 The SPD will run Otto Braun, [? if not prussia_leader = "Braun": former ?] Prussian Minister-President and candidate in the 1925 election. [? if ddp_exist and ddp_candidate = spd_candidate: [+ ddp_name +] is expected to support him ?][? if z_candidate = "Braun" and ddp_exist: ,as well as the Center Party. ?][? if z_candidate = "Braun" and not ddp_exist: The Center Party is expected to support him. ?]
+
+- @liberal: So, what is our decision? Should we run our own candidate, or support Hindenburg?
 
 @hindenburg_spd
 face-image: img/portraits/BraunOtto.jpg
