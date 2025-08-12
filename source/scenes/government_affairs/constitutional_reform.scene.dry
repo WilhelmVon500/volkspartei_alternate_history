@@ -84,7 +84,7 @@ if (Q.spd_relation >= 50) {
 !}
 view-if: constructive_vonc = 0
 
-[? if z_relation >= 30 : The Weimar Coalition parties, the [? if not lvp_formed: [+ ddp_name +], ?] SPD and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if z_relation < 30 : [? if not lvp_formed: The [+ ddp_name +] and the Center Party support this reform ?][? if lvp_formed: The Center Party supports this reform ?], but the Social Democrats do not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
+[? if z_relation >= 30 : The Weimar Coalition parties, the [? if ddp_exist: [+ ddp_name +], ?] SPD and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if z_relation < 30 : [? if ddp_exist: The [+ ddp_name +] and the Center Party support this reform ?][? if not ddp_exist: The Center Party supports this reform ?], but the Social Democrats do not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
 
 - @constructive_vonc_2: Call a constitutional referendum to pass the reform!
 - @reforms_menu: See other reform options.
@@ -111,7 +111,7 @@ view-if: presidential_powers = 0
 
 The wide-ranging presidential powers promised by the constitution are a potential gateway to authoritarianism. Thus, we can support reforms that limit the powers of the president, ending his power to unilaterally terminate an elected government and to remove state governments.
 
-The KPD is in favor of this reform, having been victims of the *Reichsexekution* in the past (when KPD-supported state governments in Thuringia and Saxony were removed). [? if not lvp_formed: The democrats of the [+ ddp_name +] also support this. ?] The SPD and Center Party support this reform.
+The KPD is in favor of this reform, having been victims of the *Reichsexekution* in the past (when KPD-supported state governments in Thuringia and Saxony were removed). [? if ddp_exist: The democrats of the [+ ddp_name +] also support this. ?] The SPD and Center Party support this reform.
 
 - @presidential_powers_2: Call a constitutional referendum to pass the reform!
 - @reforms_menu: See other reform options.
