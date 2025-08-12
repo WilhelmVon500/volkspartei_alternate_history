@@ -63,3 +63,30 @@ view-if: hindenburg_run
 face-image: img/portraits/Hindenburg.jpg
 
 President Hindenburg is, of course, running for re-election, and many in our party are prepared to support him as the [? if dvp_ideology = "Left": last bastion of democracy against Hitler and the Nazis?][? if dvp_ideology = "Right": symbol of German nationalism and patriotism?]. The Hindenburg Mythos serves as a powerful rallying point for all parties, as he maintains high personal popularity despite everything Germany has endured. However, the more support he receives from the German left and center, the more Hindenburg views it as a stain on his personal honor. The refusal of August von Mackensen and other high-ranking officers with whom he served during the war to embrace his candidacy proved particularly painful to the Reich president.
+
+- @harzburg: We await the decision of the Harzburg Front.
+
+@harzburg
+face-image: img/portraits/DuesterbergTheodor.jpg
+
+The Harzburg Front has nominated deputy leader of Stahlhelm, Theodor Duesterberg.
+
+- @nsdap_selection: Who will the NSDAP run?
+
+@nsdap_selection
+go-to: hitler if not hitler_deported; goring if not hitler_deported
+
+@hitler
+
+The Nazis will run Hitler. A victory for Hitler would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors.
+
+@goring
+
+Since Hitler has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Hitler, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany.
+
+- @communist: We await the decision of the Communists.
+
+@communist
+face-image: img/portraits/ThälmannErnst.jpg
+
+The Communists will run Ernst Thälmann, their leader and candidate in 1925.
