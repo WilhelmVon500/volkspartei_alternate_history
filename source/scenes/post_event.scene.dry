@@ -477,6 +477,12 @@ if (Q.month_actions >= 1) {
             if (Q.catholics_dbp_normalized < 2) {
                 Q.catholics_dbp += 4/12;
             }
+            if (Q.workers_csvd_normalized < 4) {
+                Q.workers_csvd += 4/12;
+            }
+            if (Q.new_middle_csvd_normalized < 3) {
+                Q.new_middle_csvd += 4/12;
+            }
         }
         if (Q.unemployed > 20) {
             Q.rural_nsdap += 2/12;
@@ -577,6 +583,15 @@ if (!Q.cnblp_exist) {
     Q.rural_cnblp = 0;
     Q.unemployed_cnblp = 0;
     Q.catholics_cnblp = 0;
+}
+
+if (!Q.csvd_exist) {
+    Q.workers_csvd = 0;
+    Q.new_middle_csvd = 0;
+    Q.old_middle_csvd = 0;
+    Q.rural_csvd = 0;
+    Q.unemployed_csvd = 0;
+    Q.catholics_csvd = 0;
 }
 
 if (Q.month == 1) {
