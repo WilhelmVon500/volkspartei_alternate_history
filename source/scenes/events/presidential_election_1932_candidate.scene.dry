@@ -135,52 +135,51 @@ Hopefully, the Hindenburg coalition is strong enough to rival Nazis[? if braun_c
 @view_candidates
 go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
-**Paul von Hindenburg** - supported by:
+<span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
 
-[? if spd_candidate = "Hindenburg": - SPD ?]
+[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">SPD</span> ?]
 
-[? if ddp_candidate = "Hindenburg" and ddp_exist: - [+ ddp_name +] ?]
+[? if ddp_candidate = "Hindenburg" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if dbp_candidate = "Hindenburg" and dbp_exist: - DBP ?]
+[? if dbp_candidate = "Hindenburg" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if z_candidate = "Hindenburg": - Z ?]
+[? if z_candidate = "Hindenburg": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if dvp_candidate = "Hindenburg": - [+ dvp_name +] ?]
+[? if dvp_candidate = "Hindenburg": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
 
-[? if csvd_candidate = "Hindenburg" and csvd_exist: - CSVD ?]
+[? if csvd_candidate = "Hindenburg" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
-[? if wp_candidate = "Hindenburg" and wp_exist: - WP ?]
+[? if wp_candidate = "Hindenburg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
 
-[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - CNBLP ?]
+[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
 
-[? if kvp_candidate = "Hindenburg" and kvp_formed: - KVP ?]
+[? if kvp_candidate = "Hindenburg" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
 
-[? if dnvp_candidate = "Hindenburg": - DNVP ?]
+[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">DNVP</span> ?]
 
+[? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
-[? if braun_campaign: **Otto Braun** - supported by: ?]
+[? if spd_candidate = "Braun": - <span style="color: #E3000F;">SPD</span> ?]
 
-[? if spd_candidate = "Braun": - SPD ?]
+[? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if ddp_candidate = "Braun" and ddp_exist: - [+ ddp_name +] ?]
+[? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if dbp_candidate = "Braun" and dbp_exist: - DBP ?]
+[? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if z_candidate = "Braun": - Z ?]
+[? if dvp_candidate = "Braun": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
 
-[? if dvp_candidate = "Braun": - [+ dvp_name +] ?]
+<span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
 
-**Ernst Thälmann** - supported by
+[? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">KPD</span> ?]
 
-[? if kpd_candidate = "Thälmann": - KPD ?]
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?]
 
-**Theodor Duesterberg** - supported by
+[? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">DNVP</span> ?]
 
-[? if dnvp_candidate = "Duesterberg": - DNVP ?]
+[? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
-**[+ nsdap_candidate +]** - supported by
-
-[? if nsdap_candidate = nsdap_candidate: - NSDAP ?]
+[? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">NSDAP</span> ?]
 
 
 @support_hindenburg
