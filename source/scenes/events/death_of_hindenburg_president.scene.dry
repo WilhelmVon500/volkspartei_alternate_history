@@ -171,8 +171,6 @@ We implore the Center Party to support [+ dvp_candidate +] as a unity candidate 
 # convincing Z to support a DVP candidate
 @convince_z_dvp
 title: Convince the Center Party to support [+ dvp_candidate +].
-choose-if: dvp_votes >= z_votes
-unavailable-subtitle: [? if dvp_votes < z_votes: The Center knows that they are more popular than us; they do not see a reason to support our candidate. ?]
 view-if: (dvp_candidate = "Luther" or is_cultural_candidate) and z_candidate != dvp_candidate
 on-arrival: {!
 Q.z_support_dvp = 0;
