@@ -471,7 +471,7 @@ if (Q.month_actions >= 1) {
             if (Q.rural_cnblp_normalized < 11) {
                 Q.rural_cnblp += 4/12;
             }
-            if (Q.rural_dbp_normalized < 9) {
+            if (Q.rural_dbp_normalized < 8) {
                 Q.rural_dbp += 4/12;
             }
             if (Q.catholics_dbp_normalized < 2) {
