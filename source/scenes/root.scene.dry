@@ -144,6 +144,7 @@ Q.hindenburg_relation = 25;
 Q.spd_prussia = 1;
 Q.dvp_prussia = 0;
 // Options: spd, z, dnvp, papen, nsdap
+Q.prussia_leader = "Braun"
 Q.prussian_government = "SPD";
 
 
