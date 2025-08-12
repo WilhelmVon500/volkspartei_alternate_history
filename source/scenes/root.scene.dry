@@ -348,9 +348,9 @@ Q.rural_ddp= 5;
 Q.rural_dvp = 10;
 Q.rural_wp = 0;
 Q.rural_cnblp = 10;
-Q.rural_dnvp = 42;
+Q.rural_dnvp = 43;
 Q.rural_nsdap = 4;
-Q.rural_dbp = 6;
+Q.rural_dbp = 5;
 Q.rural_other = 2;
 
 Q.unemployed_spd = 30;
