@@ -65,7 +65,7 @@ go-to: r1_menu
 We have endorsed Konrad Adenauer of the Center Party.
 
 @braun_r1
-on-arrival: dvp_candidate = "Braun"; spd_relation += 5; kvp_candidate = "Seldte" if kvp_relation < 40; is_unity_candidate = 1
+on-arrival: dvp_candidate = "Braun"; spd_relation += 5; kvp_candidate = dnvp_candidate; is_unity_candidate = 1
 unavailable-subtitle: [? if not dvp_ideology = "Left": Our party will never support this. ?]
 choose-if: dvp_ideology = "Left"
 go-to: r1_menu
@@ -91,46 +91,8 @@ subtitle: The next president should be a symbol of the new Germany...
 
 Since the presidency has been made a largely ceremonial figure by our reforms, we might set a precedent by nominating a nonpartisan pro-democracy figure from the cultural, scientific, or literary worlds. There are many potential candidates...
 
-- @einstein_r1: Albert Einstein, physicist.
-- @mann_r1: Heinrich Mann, left-wing writer.
-- @ossietzky_r1: Carl von Ossietzky, pacifist journalist.
 - @candidate_menu: Actually, we should nominate someone else.
 
-@einstein_r1
-subtitle: -2 resources
-view-if: science >= 2 and kwg_research >= 1 and (major_curriculum = "scientific" or minor_curriculum = "scientific")
-choose-if: resources >= 2
-on-arrival: spd_candidate = "Einstein"; ddp_candidate = "Einstein"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
-go-to: r1_menu
-
-Albert Einstein is a Nobel Prize-winning scientist, director of the Kaiser Wilhelm Institute for Physics, and international advocate for peace. He was a founding member of the German Democratic Party (whose successor would support him in the election), but has also expressed sympathy towards socialism.
-
-He did not wish to run for president, disliking the public nature of campaigning, but we have somehow convinced him that his candidacy will be crucial to the future of Germany and the world. As a Jewish German pacifist, his becoming president would be a repudiation of everything the Nazis stand for.
-
-The [+ ddp_name +] will endorse Einstein's candidacy.
-
-@mann_r1
-subtitle: -2 resources - He might be too far left for the bourgeois parties.
-view-if: kpd_relation >= 50
-choose-if: resources >= 2
-on-arrival: spd_candidate = "Mann"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
-go-to: r1_menu
-
-Heinrich Mann is a world-renowned novelist and poet who is also known to be a left-wing activist. His political sympathy lies with the far left, and he supported the revolutions in 1918 and 1919. He has long lived in the shadow of his better-known brother, Thomas Mann.
-
-Mann is willing to accept the nomination for president.
-
-
-@ossietzky_r1
-view-if: weltbuhne_dropped = 1
-subtitle: -2 resources - He might be too far left for the bourgeois parties.
-choose-if: resources >= 2
-on-arrival: spd_candidate = "Ossietzky"; resources -= 2; is_unity_candidate = 0; is_cultural_candidate = 1;
-go-to: r1_menu
-
-Carl von Ossietzky is a left-wing journalist who is the publisher of the Weltbühne, a news magazine. He is most known for exposing the secret German rearmament program in 1929, which brought him international renown. In the 1932 presidential election, he endorsed the Communist Thälmann.
-
-Ossietzky is extremely reluctant to become a politician, and has been an iconoclastic figure his entire life, criticizing the SPD as being part of the establishment. It is with a sense of irony that he accepts our nomination.
 
 
 @r1_menu
@@ -138,12 +100,11 @@ view-if: round = 0
 
 - @convince_z_unity
 - @convince_z_dvp
-- @convince_ddp_unity
-- @convince_ddp_dvp
+- @convince_ddp
 - @convince_spd_unity
 - @convince_spd_dvp
 - @convince_kvp_unity
-- @convince_kvp_dvp
+- @convince_kvp_spd
 - @round_1: Let the voting begin.
 
 
@@ -215,9 +176,9 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 With our resources, the Center are convinced to support [+ dvp_candidate +]. Konrad Adenauer will drop out of the race.
 
 
-@convince_ddp_unity
+@convince_ddp
 title: Convince the [+ ddp_name +] to support [+ dvp_candidate +].
-view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or dvp_candidate = "Braun") and ddp_candidate != dvp_candidate and not lvp_formed
+view-if: ddp_candidate != dvp_candidate and not lvp_formed
 on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 30; dbp_candidate = dvp_candidate if ddp_relation >= 30
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
@@ -226,21 +187,10 @@ max-visits: 1
 [? if ddp_candidate != dvp_candidate: Unfortunately, the [+ ddp_name +] is unwilling to support [+ dvp_candidate +]. The Liberal Coalition seems to be fracturing. ?]
 
 
-@convince_ddp_dvp
-title: Convince the [+ ddp_name +] to support [+ dvp_candidate +].
-view-if: (dvp_candidate = "Luther" or is_cultural_candidate) and ddp_candidate != dvp_candidate and not lvp_formed
-on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 40; dbp_candidate = dvp_candidate if ddp_relation >= 40
-go-to: r1_menu if round = 0; r2_campaigning if round > 0
-max-visits: 1
-
-[? if ddp_candidate = dvp_candidate: The [+ ddp_name +] is easily persuaded to support [+ dvp_candidate +]! ?]
-[? if ddp_candidate != dvp_candidate: Unfortunately, the [+ ddp_name +] is unwilling to support [+ dvp_candidate +]. ?]
-
-
-@convince_kvp_unity
+@convince_kvp_spd
 title: Convince the KVP to support [+ dvp_candidate +].
-view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer") and kvp_candidate != dvp_candidate and kvp_formed
-on-arrival: kvp_candidate = dvp_candidate if kvp_relation >= 30
+view-if: (dvp_candidate = "Braun") and kvp_candidate != dvp_candidate and kvp_formed
+on-arrival: kvp_candidate = dvp_candidate if kvp_relation >= 50
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
@@ -248,9 +198,9 @@ max-visits: 1
 [? if kvp_candidate != dvp_candidate: Unfortunately, the KVP is unwilling to support [+ dvp_candidate +]. ?]
 
 
-@convince_kvp_dvp
+@convince_kvp
 title: Convince the KVP to support [+ dvp_candidate +].
-view-if: (dvp_candidate = "Luther" or is_cultural_candidate) and kvp_candidate != dvp_candidate and kvp_formed
+view-if: (dvp_candidate = "Luther" or dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or is_cultural_candidate) and kvp_candidate != dvp_candidate and kvp_formed
 on-arrival: kvp_candidate = dvp_candidate if kvp_relation >= 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
@@ -490,11 +440,10 @@ view-if: round = 1
 
 - @convince_z_unity
 - @convince_z_dvp
-- @convince_ddp_unity
-- @convince_ddp_dvp
+- @convince_ddp
 - @convince_spd_unity
 - @convince_spd_dvp
-- @convince_kvp_unity
+- @convince_kvp_spd
 - @convince_kvp_dvp
 - @r2_vote: Let the voting begin.
 
