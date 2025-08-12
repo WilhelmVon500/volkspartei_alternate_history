@@ -28,7 +28,7 @@ Q.catholics_dnvp -= 1;
 if (Q.dvp_ideology = "Left") {
     Q.kvp_relation = 50
 } else {
-    Q.kvp_relation = 35
+    Q.kvp_relation = 40
 }
 
 
@@ -57,4 +57,10 @@ Q.workers_csvd += 2;
 Q.workers_dnvp -= 2;
 Q.new_middle_csvd += 2;
 Q.new_middle_dnvp -= 2;
+
+if (Q.dvp_ideology = "Left") {
+    Q.csvd_relation = 50
+} else {
+    Q.csvd_relation = 40
+}
 !}
