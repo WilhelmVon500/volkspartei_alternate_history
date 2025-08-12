@@ -13,6 +13,7 @@ if (!Q.hitler_deported) {
 
 Q.dnvp_candidate = "Duesterberg";
 
+Q.spd_candidate = "Hindenburg";
 Q.dvp_candidate = "Hindenburg";
 Q.z_candidate = "Hindenburg";
 Q.ddp_candidate = "Hindenburg";
@@ -23,6 +24,8 @@ Q.wp_candidate = "Hindenburg";
 Q.kvp_candidate = "Hindenburg";
 Q.others_candidate = "Hindenburg";
 
+             
+Q.kpd_candidate = "Thälmann";
 
 if (Q.nsdap_votes < 20) {
   Q.braun_campaign = 1;
@@ -35,8 +38,6 @@ if (Q.nsdap_votes < 20) {
 } else {
   Q.spd_candidate = "Hindenburg";
 }
-             
-Q.kpd_candidate = "Thälmann";
 !}
 priority: 1
 max-visits: 1
@@ -94,3 +95,183 @@ Since Hitler has been deported, the Nazis will run Hermann Göring in his stead.
 face-image: img/portraits/ThälmannErnst.jpg
 
 The Communists will run Ernst Thälmann, their leader and candidate in 1925.
+
+- @socialist: We await the decision of the SPD.
+
+@socialist
+go-to: braun if spd_candidate = "Braun"; hindenburg_spd if spd_candidate = "Hindenburg"
+
+@braun
+face-image: img/portraits/BraunOtto.jpg
+
+The SPD will run Otto Braun, [? if not prussia_leader = "Braun": former ?] Prussian Minister-President and candidate in the 1925 election. [? if ddp_exist and ddp_candidate = spd_candidate: [+ ddp_name +] is expected to support him ?][? if z_candidate = "Braun" and ddp_exist: ,as well as the Center Party. ?][? if z_candidate = "Braun" and not ddp_exist: The Center Party is expected to support him. ?]
+
+@hindenburg_spd
+face-image: img/portraits/BraunOtto.jpg
+
+Despite his known reactionary nature, Hindenburg has at least been keeping the Nazis at bay. The SPD will support him, as a lesser evil.
+
+- @liberal: So, what is our decision? Should we run our own candidate, or support Hindenburg?
+
+
+@liberal
+
+WIP has been floated around as a candidate for the presidency. WIP.
+
+So, what's our choice?
+
+- @support_hindenburg: Support Hindenburg.
+
+
+
+@hope
+
+Hopefully, the Hindenburg coalition is strong enough to rival Nazis[? if braun_campaign: and Braun?].
+
+@view_candidates
+go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
+
+**Paul von Hindenburg** - supported by:
+
+[? if spd_candidate = "Hindenburg": - SPD ?]
+
+[? if ddp_candidate = "Hindenburg" and ddp_exist: - [+ ddp_name +] ?]
+
+[? if dbp_candidate = "Hindenburg" and dbp_exist: - DBP ?]
+
+[? if z_candidate = "Hindenburg": - Z ?]
+
+[? if dvp_candidate = "Hindenburg": - [+ dvp_name +] ?]
+
+[? if csvd_candidate = "Hindenburg" and csvd_exist: - CSVD ?]
+
+[? if wp_candidate = "Hindenburg" and wp_exist: - WP ?]
+
+[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - CNBLP ?]
+
+[? if kvp_candidate = "Hindenburg" and kvp_formed: - KVP ?]
+
+[? if dnvp_candidate = "Hindenburg": - DNVP ?]
+
+
+[? if braun_campaign: **Otto Braun** - supported by: ?]
+
+[? if spd_candidate = "Braun": - SPD ?]
+
+[? if ddp_candidate = "Braun" and ddp_exist: - [+ ddp_name +] ?]
+
+[? if dbp_candidate = "Braun" and dbp_exist: - DBP ?]
+
+[? if z_candidate = "Braun": - Z ?]
+
+[? if dvp_candidate = "Braun": - [+ dvp_name +] ?]
+
+**Ernst Thälmann** - supported by
+
+[? if kpd_candidate = "Thälmann": - KPD ?]
+
+**Theodor Duesterberg** - supported by
+
+[? if dnvp_candidate = "Duesterberg": - DNVP ?]
+
+**[+ nsdap_candidate +]** - supported by
+
+- NSDAP
+
+
+@support_hindenburg
+subtitle: This is the default option.
+on-arrival: progressive_dissent += 10 if braun_campaign; dvp_candidate = "Hindenburg"
+
+We will support Hindenburg in this election.
+
+- @endorsements_hindenburg: Scout out potential endorsements.
+
+@endorsements_hindenburg
+view-if: braun_campaign
+
+We can try to convince parties supporting other candidates to switch their support to Hindenburg.
+
+- @convince_z_hindenburg: Convince the Center Party to back Hindenburg.
+- @convince_ddp_hindenburg: Convince the [+ ddp_name +] to back Hindenburg.
+- @convince_dbp_hindenburg: Convince the DBP to back Hindenburg.
+- @convince_spd_hindenburg: Convince the SPD to back Hindenburg.
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+@convince_z_hindenburg
+view-if: z_candidate != "Hindenburg"
+go-to: convince_z_success_hindenburg if z_relation >= 40; convince_z_fail_hindenburg if z_relation < 40
+
+We try to convince the Center Party to support Hindenburg.
+
+@convince_z_success_hindenburg
+on-arrival: z_relation += 3; z_candidate = "Hindenburg"
+go-to: endorsements_hindenburg
+
+Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Hindenburg in the election.
+
+@convince_z_fail_hindenburg
+on-arrival: z_relation -= 3
+go-to: endorsements_hindenburg
+
+Unfortunately, the Center Party has refused to support Hindenburg for the presidency.
+
+
+@convince_dbp_hindenburg
+view-if: dbp_exist and dbp_candidate != "Hindenburg"
+go-to: convince_dbp_success_hindenburg if dbp_relation >= 40; convince_dbp_fail_hindenburg if dbp_relation < 40
+
+We try to convince the DBP to support Hindenburg.
+
+@convince_dbp_success_hindenburg
+on-arrival: dbp_relation += 3; z_candidate = "Hindenburg"
+go-to: endorsements_hindenburg
+
+Thanks to our friendly relations, the DBP is now campaigning for Hindenburg in the election.
+
+@convince_dbp_fail_hindenburg
+on-arrival: dbp_relation -= 3
+go-to: endorsements_hindenburg
+
+Unfortunately, the DBP has refused to support Hindenburg for the presidency.
+
+
+@convince_ddp_hindenburg
+view-if: ddp_exist and ddp_candidate != "Hindenburg"
+go-to: convince_ddp_success_hindenburg if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_hindenburg if ddp_relation < 40
+
+The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
+
+@convince_ddp_success_hindenburg
+on-arrival: ddp_relation += 5; ddp_candidate = "Hindenburg"
+go-to: endorsements_hindenburg
+
+Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for Hindenburg in the election.
+
+@convince_ddp_fail_hindenburg
+on-arrival: ddp_relation -= 5
+go-to: endorsements_hindenburg
+
+Unfortunately, under the influence of their left wing, the [+ ddp_name +] has refused to support Hindenburg for the presidency. 
+
+
+@convince_spd_hindenburg
+choose-if: z_candidate != "Braun"
+unavailable-subtitle: The Social Democratic candidate has Center Party's support; they do not see a reason to withdraw their candidate.
+go-to: convince_spd_success_hindenburg if (dvp_ideology = "Left" and spd_relation >= 50); convince_spd_fail_hindenburg if not (dvp_ideology = "Left" and spd_relation >= 50)
+max-visits: 1
+
+We remind the SPD leaders that, despite his known reactionary< nature, Hindenburg has at least been keeping the Nazis at bay.
+
+@convince_ddp_success_hindenburg
+on-arrival: spd_relation += 3; spd_candidate = "Hindenburg"
+go-to: endorsements_hindenburg
+
+The SPD is convinced! They will be part of the Hindenburg coalition.
+
+@convince_spd_fail_hindenburg
+on-arrival: spd_relation -= 3
+go-to: endorsements_hindenburg
+
+Unfortunately, we fail to turn the SPD away from [+ spd_candidate+]. 
