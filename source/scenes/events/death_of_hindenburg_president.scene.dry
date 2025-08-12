@@ -1,8 +1,8 @@
 title: The Death of Hindenburg
 subtitle: The President has died...
 new-page: true
-view-if: year = 1934 and month >= 7 and president = "Hindenburg"
-on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke (acting)"; president = "Großmann (acting)" if judicial_reform >= 4; spd_candidate = "Braun"; kpd_candidate = "Thälmann"; kpd_candidate = "Münzenberg" if kpd_party_leader = "Conciliators"; z_candidate = "Adenauer"; ddp_candidate = "Braun" if not lvp_formed; nsdap_candidate = "Hitler"; nsdap_candidate = "Göring" if hitler_deported; dnvp_candidate = "Seldte"; dvp_candidate = "Luther"; other_candidate = "Seldte"; is_unity_candidate = 0; sapd_candidate = kpd_candidate; kvp_candidate = dnvp_candidate if kvp_formed; next_presidential_election_year = year + 7; next_presidential_election_month = month;
+view-if: year = 1934 and month >= 8 and president = "Hindenburg"
+on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke (acting)"; president = "Großmann (acting)" if judicial_reform >= 4; spd_candidate = "Braun"; kpd_candidate = "Thälmann"; kpd_candidate = "Münzenberg" if kpd_party_leader = "Conciliators"; z_candidate = "Adenauer"; ddp_candidate = "Braun" if not lvp_formed; nsdap_candidate = "Hitler"; nsdap_candidate = "Göring" if hitler_deported; dnvp_candidate = "Seldte"; dvp_candidate = "Luther"; other_candidate = "Seldte"; is_unity_candidate = 0; sapd_candidate = kpd_candidate; kvp_candidate = z_candidate if kvp_formed; wp_candidate = dnvp_candidate if wp_exist; cnblp_candidate = dnvp_candidate if cnblp_exist; csvd_candidate = z_candidate if csvd_exist; dbp_candidate = ddp_candidate if dbp_exist and not lvp_formed; dbp_candidate = dvp_candidate if dbp_exist and lvp_formed; next_presidential_election_year = year + 7; next_presidential_election_month = month;
 max-visits: 1
 face-image: img/Hindenburg_head.jpg
 tags: event
@@ -195,7 +195,7 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 Unfortunately, the Center Party is not convinced.
 
 @z_success
-on-arrival: z_candidate = dvp_candidate
+on-arrival: z_candidate = dvp_candidate; csvd_candidate = dvp_candidate;
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 The Center Party is convinced! They will be supporting [+ dvp_candidate +] for the election.
@@ -211,7 +211,7 @@ The Center are not satisfied with our arguments, but they are open to being conv
 @pay_z
 choose-if: resources >= 2
 subtitle: -2 resources
-on-arrival: resources -= 2; z_candidate = dvp_candidate
+on-arrival: resources -= 2; z_candidate = dvp_candidate; csvd_candidate = dvp_candidate;
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 With our resources, the Center are convinced to support [+ dvp_candidate +]. Konrad Adenauer will drop out of the race.
@@ -220,7 +220,7 @@ With our resources, the Center are convinced to support [+ dvp_candidate +]. Kon
 @convince_ddp_unity
 title: Convince the [+ ddp_name +] to support [+ dvp_candidate +].
 view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or dvp_candidate = "Braun") and ddp_candidate != dvp_candidate and not lvp_formed
-on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 30
+on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 30; dbp_candidate = dvp_candidate if ddp_relation >= 30
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
@@ -231,7 +231,7 @@ max-visits: 1
 @convince_ddp_dvp
 title: Convince the [+ ddp_name +] to support [+ dvp_candidate +].
 view-if: (dvp_candidate = "Luther" or is_cultural_candidate) and ddp_candidate != dvp_candidate and not lvp_formed
-on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 40
+on-arrival: ddp_candidate = dvp_candidate if ddp_relation >= 40; dbp_candidate = dvp_candidate if ddp_relation >= 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
@@ -241,7 +241,7 @@ max-visits: 1
 
 @convince_kvp_unity
 title: Convince the KVP to support [+ dvp_candidate +].
-view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or dvp_candidate = "Braun") and kvp_candidate != dvp_candidate and kvp_formed
+view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer") and kvp_candidate != dvp_candidate and kvp_formed
 on-arrival: kvp_candidate = dvp_candidate if kvp_relation >= 30
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
@@ -267,7 +267,7 @@ title: Convince the SPD to support [+ dvp_candidate +].
 unavailable-subtitle: The SPD is not willing to support our candidate.
 view-if: (dvp_candidate = "Luther" or is_cultural_candidate) and spd_candidate != dvp_candidate
 choose-if: spd_relation >= 50
-on-arrival: spd_candidate = dvp_candidate
+on-arrival: spd_candidate = dvp_candidate; ddp_candidate = dvp_candidate; dbp_candidate = dvp_candidate
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
@@ -278,7 +278,7 @@ title: Convince the SPD to support [+ dvp_candidate +].
 unavailable-subtitle: The SPD is not willing to support our candidate.
 view-if: (dvp_candidate = "Eckener" or dvp_candidate = "Adenauer" or dvp_candidate = "Braun") and dvp_candidate != spd_candidate
 choose-if: spd_relation >= 40
-on-arrival: spd_candidate = dvp_candidate
+on-arrival: spd_candidate = dvp_candidate; ddp_candidate = dvp_candidate; dbp_candidate = dvp_candidate
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
@@ -382,6 +382,8 @@ if (Q.Hitler_votes && Q.Seldte_votes) {
     if (Q.Hitler_votes > Q.Seldte_votes) {
         Q.dnvp_candidate = "Hitler";
         Q.other_candidate = "Hitler";
+        if (Q.wp_exist) Q.wp_candidate = Q.z_candidate;
+        if (Q.cnblp_exist) Q.cnblp_candidate = Q.z_candidate;
         Q.Hitler_bonus = (Q.Hitler_bonus || 0) - 0.25*Q.other_votes;
         if (Q.z_candidate == "Adenauer") {
             Q.Adenauer_bonus = (Q.Adenauer_bonus || 0) + 0.25*Q.other_votes;
@@ -405,6 +407,7 @@ if (Q.z_candidate == "Adenauer" && Q.spd_candidate == "Braun" && Q.z_candidate !
         Q.braun_drops_out = 1;
         if (Q.ddp_candidate != Q.dvp_candidate) {
             Q.ddp_candidate = "Adenauer";
+            Q.dbp_candidate = "Adenauer";
         }
         if (Q.spd_candidate != Q.dvp_candidate) {
             Q.spd_candidate = "Adenauer";
@@ -412,6 +415,8 @@ if (Q.z_candidate == "Adenauer" && Q.spd_candidate == "Braun" && Q.z_candidate !
         Q.Adenauer_bonus = (Q.Adenauer_bonus || 0) + 0.25*Q.other_votes;
     } else {
         Q.adenauer_drops_out = 1;
+        if (Q.wp_exist && Q.wp_candidate == Q.z_candidate) Q.wp_candidate = Q.dvp_candidate;
+        if (Q.cnblp_exist && Q.cnblp_candidate == Q.z_candidate) Q.cnblp_candidate = Q.dvp_candidate;
         Q.z_candidate = "Braun";
         Q.Braun_bonus = 0.25*Q.other_votes;
     }
@@ -450,7 +455,7 @@ What should we do?
 @r2_endorse_adenauer
 title: Switch our support to Konrad Adenauer of the Center Party.
 view-if: z_candidate = "Adenauer" and dvp_candidate != z_candidate
-on-departure: dvp_candidate = "Adenauer"; z_relation += 4; is_unity_candidate = 1
+on-departure: kvp_candidate = "Adenauer" if kvp_candidate = dvp_candidate; dbp_candidate = "Adenauer" if dbp_candidate = dvp_candidate; wp_candidate = "Adenauer" if wp_candidate = dvp_candidate; cnblp_candidate = "Adenauer" if cnblp_candidate = dvp_candidate; dvp_candidate = "Adenauer"; z_relation += 4; csvd_relation += 3; is_unity_candidate = 1
 go-to: r2_campaigning
 
 We have endorsed Konrad Adenauer of the Center Party.
@@ -461,7 +466,7 @@ We have endorsed Konrad Adenauer of the Center Party.
 @r2_endorse_braun
 title: Switch our support to Otto Braun.
 view-if: spd_candidate = "Braun" and dvp_candidate != spd_candidate
-on-departure: dvp_candidate = "Braun"; spd_relation += 4; kvp_candidate = "Seldte" if kvp_relation < 40; is_unity_candidate = 1
+on-departure: kvp_candidate = "Braun" if kvp_candidate = dvp_candidate; dbp_candidate = "Braun" if dbp_candidate = dvp_candidate; wp_candidate = dnvp_candidate if wp_candidate = dvp_candidate; cnblp_candidate = dnvp_candidate if cnblp_candidate = dvp_candidate; dvp_candidate = "Braun"; spd_relation += 4; is_unity_candidate = 1
 go-to: r2_campaigning
 
 We have endorsed Otto Braun of the SPD.
@@ -474,7 +479,7 @@ subtitle: -2 resources
 unavailable-subtitle: [? if resources < 2 : -2 resources - Not enough resources. ?]
 choose-if: resources >= 2 and z_relation >= 35 and spd_relation >= 40
 view-if: z_candidate = "Adenauer" and spd_candidate = "Braun" and dvp_candidate != "Eckener"
-on-arrival: dvp_candidate = "Eckener"; z_candidate = "Eckener"; spd_candidate = "Eckener"; ddp_candidate = "Eckener"; resources -= 2; is_unity_candidate = 1
+on-arrival: kvp_candidate = "Eckener" if kvp_candidate = dvp_candidate; wp_candidate = "Eckener" if wp_candidate = dvp_candidate; cnblp_candidate = "Eckener" if cnblp_candidate = dvp_candidate; resources -= 2; dvp_candidate = "Eckener"; z_candidate = "Eckener"; spd_candidate = "Eckener"; ddp_candidate = "Eckener"; dbp_candidate = "Eckener"; csvd_candidate = "Eckener"; is_unity_candidate = 1
 go-to: r2_campaigning
 
 We have successfully united all of the parties of the Republican Coalition behind Hugo Eckener!
