@@ -124,8 +124,8 @@ for (var party of Q.other_parties) {
 
 Q.old_true_other_r = Q.true_other_r;
 
-Q.true_other_votes = parseFloat((Q.other_votes - Q.cnblp_votes - Q.csvd_votes).toFixed(1));
-Q.true_other_r = parseFloat((Q.other_r - Q.cnblp_r - Q.csvd_r).toFixed(1));
+Q.true_other_votes = parseFloat((Q.other_votes - Q.csvd_votes).toFixed(1));
+Q.true_other_r = parseFloat((Q.other_r - Q.csvd_r).toFixed(1));
 
 Q.str_change_true_other = Q.true_other_r - Q.old_true_other_r
 var sign = Q.str_change_true_other > 0 
@@ -167,10 +167,10 @@ if (Q.dvp_r >= Q.spd_r && Q.dvp_r >= Q.nsdap_r && Q.dvp_r >= Q.kpd_r) {
 if (Q.lvp_formed == 0) parseFloat((Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3).toFixed(1));
 if (Q.lvp_formed == 1) parseFloat((Q.weimar_coalition = Q.spd_r + Q.dvp_r + Q.z_r - 3).toFixed(1));
 Q.grand_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r).toFixed(1));
-Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r).toFixed(1));
-if (Q.kvp_formed) parseFloat((Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r).toFixed(1));
-if (!Q.kvp_formed) parseFloat((Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r).toFixed(1));
-Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r).toFixed(1));
+Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r).toFixed(1));
+if (Q.kvp_formed) parseFloat((Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r).toFixed(1));
+if (!Q.kvp_formed) parseFloat((Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r).toFixed(1));
+Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r).toFixed(1));
 Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
 Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
 // aka everyone except nazi, kpd, dnvp
@@ -312,7 +312,7 @@ if (Q.wp_exist && Q.wp_r) {
     });
 }
 
-if (Q.cnblp_r) {
+if (Q.cnblp_exist && Q.cnblp_r) {
     data.push({
         "id": "cnblp",
         "legend": "CNBLP",
@@ -396,23 +396,21 @@ go-to: coalition_menu
 
 [? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +] {!</td><td>!} [+ wp_r +]% {!</td><td>!} [+ str_change_wp +] {!</td><td>!} ?]
 
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} [+ str_change_cnblp +] {!</td><td>!} ?]
+
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +] {!</td></tr>!}
 
-[? if not (cnblp_exist or csvd_exist): {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +] {!</td></tr>!} ?]
+[? if not (csvd_exist): {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +] {!</td></tr>!} ?]
 
-[? if cnblp_exist or csvd_exist: <tr><td colspan="5" style="text-align: center;"><hr id="read-marker"></td></tr> ?]
-
-[? if cnblp_exist or csvd_exist: {!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} **[+ votes_change_other +]** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} **[+ str_change_other +]** {!</td></tr>!} ?]
-
-[? if cnblp_exist: {!<tr><td><div class="box2" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} [+ str_change_cnblp +] {!</td><td>!} ?]
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} **[+ votes_change_other +]** {!</td><td>!} **[+ other_r +]%** {!</td><td>!} **[+ str_change_other +]** {!</td></tr>!} ?]
 
 [? if csvd_exist: {!<tr><td><div class="box2" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} [+ csvd_r +]% {!</td><td>!} [+ str_change_csvd +] {!</td><td>!} ?]
 
-[? if cnblp_exist or csvd_exist: {!<tr><td><div class="box2" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ true_other_votes +]% {!</td><td>!} [+ votes_change_true_other +] {!</td><td>!} [+ true_other_r +]% {!</td><td>!} [+ str_change_true_other +] {!</td><td>!} ?]
+[? if csvd_exist: {!<tr><td><div class="box2" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ true_other_votes +]% {!</td><td>!} [+ votes_change_true_other +] {!</td><td>!} [+ true_other_r +]% {!</td><td>!} [+ str_change_true_other +] {!</td><td>!} ?]
 {!</table>!}
 
 **Potential coalitions:**
@@ -421,11 +419,11 @@ Weimar Coalition (SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_form
 
 Grand Coalition (SPD + Z + BVP + [? if not lvp_formed: [+ ddp_name +] + ?] [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
 
-Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?][? if wp_exist: WP +  ?][? if dbp_exist: DBP +  ?] Others): [+ bourgeois_coalition +]%
+Bourgeois Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?][? if wp_exist: WP +  ?][? if dbp_exist: DBP +  ?][? if cnblp_exist: CNBLP +  ?] Others): [+ bourgeois_coalition +]%
 
-Center-right Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?][? if not kvp_formed: DNVP +  ?][? if wp_exist: WP +  ?][? if dbp_exist: DBP +  ?] Others): [+ center_right_coalition +]%
+Center-right Coalition (Z + BVP [? if not lvp_formed: + [+ ddp_name +] ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: KVP +  ?][? if not kvp_formed: DNVP +  ?][? if wp_exist: WP +  ?][? if dbp_exist: DBP +  ?][? if cnblp_exist: CNBLP +  ?] Others): [+ center_right_coalition +]%
 
-Right-wing Coalition (Z + BVP + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others + [? if wp_exist: WP +  ?][? if kvp_formed: KVP +  ?] DNVP): [+ right_coalition +]%
+Right-wing Coalition (Z + BVP + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Others + [? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?][? if kvp_formed: KVP +  ?] DNVP): [+ right_coalition +]%
 
 [? if not lvp_formed: Liberal Coalition ([+ ddp_name +] + <span style="color: #C0A054;">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
 
@@ -495,12 +493,12 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @right_coalition
 title: A right-wing coalition may be formed.
-subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?][? if wp_exist: WP +  ?] Others ([+ right_coalition +]%)
+subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?][? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?] Others ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the "November criminals" in the Center Party.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
 
-There are enough votes for a right-wing coalition of the Center, BVP, [+ dvp_name +], DNVP, [? if kvp_formed: KVP, ?] [? if wp_exist: WP, ?] and minor conservative parties.
+There are enough votes for a right-wing coalition of the Center, BVP, [+ dvp_name +], DNVP, [? if kvp_formed: KVP, ?] [? if wp_exist: WP, ?][? if cnblp_exist: CNBLP, ?] and minor conservative parties.
 
 - @right_coalition_sure: Yes, we will participate in a right coalition.
 - @coalition_menu: Actually, we wish to form other coalition after all.
@@ -999,11 +997,11 @@ We have won the vote of no confidence, and are currently ruling under an SPD min
 
 @bourgeois_coalition
 title: We can form a Bourgeois Coalition.
-subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if dbp_exist: DBP +  ?][? if wp_exist: WP +  ?][? if kvp_formed: KVP +  ?][? if not lvp_formed: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
+subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if dbp_exist: DBP +  ?][? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?][? if kvp_formed: KVP +  ?][? if not lvp_formed: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
 view-if: bourgeois_coalition >= 50
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 
-We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?][? if kvp_formed:, Conservative People's (KVP) ?][? if wp_exist:, Economic (WP) ?] and small conservative parties!
+We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?][? if kvp_formed:, Conservative People's (KVP) ?][? if wp_exist:, Economic (WP) ?][? if cnblp_exist: CNBLP, ?][? if dbp_exist: DBP, ?] and small conservative parties!
 
 Who should be the chancellor?
 
