@@ -1,14 +1,14 @@
-title: DNVP Leadership Vote
-subtitle: The DNVP chooses a new leader...
+title: <span style="color: #3F7BC1;">**DNVP**</span> Leadership Vote
+subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> chooses a new leader...
 view-if: dnvp_leader = "Westarp" and year = 1928 and month = 10
 max-visits: 1
 tags: event
 face-image: img/dnvp_congress.jpg
 new-page: true
 
-= DNVP Congress
+= <span style="color: #3F7BC1;">**DNVP**</span> Congress
 
-A leadership vote is being held at the DNVP's congress following the resignation of its former leader Kuno von Westarp.
+A leadership vote is being held at the <span style="color: #3F7BC1;">**DNVP**</span>'s congress following the resignation of its former leader Kuno von Westarp.
 
 The right wing of the party rallied behind Alfred Hugenberg, an industrialist and head of a media empire. The moderate wing supports Westarp's re-election.
 
@@ -19,10 +19,10 @@ The right wing of the party rallied behind Alfred Hugenberg, an industrialist an
 on-arrival: dnvp_leader = "Westarp"; dvp_left += 1
 face-image: img/portraits/WestarpKuno.jpg
 
-Westarp remains as the DNVP leader, at least for now...
+Westarp remains as the <span style="color: #3F7BC1;">**DNVP**</span> leader, at least for now...
 
 @hugenberg_lead
 on-arrival: dnvp_leader = "Hugenberg"; workers_dnvp -= 2; pro_republic -= 2; dvp_right += 1
 face-image: img/portraits/HugenbergAlfred.jpg
 
-Hugenberg is elected DNVP chairman.
+Hugenberg is elected <span style="color: #3F7BC1;">**DNVP**</span> chairman.
