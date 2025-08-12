@@ -54,7 +54,7 @@ Q.csvd_exist = 1;
 Q.parties.push('csvd');
              
 Q.workers_csvd += 2;
-Q.new_middle_csvd += 2;
 Q.workers_dnvp -= 2;
+Q.new_middle_csvd += 2;
 Q.new_middle_dnvp -= 2;
 !}
