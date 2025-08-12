@@ -40,12 +40,12 @@ Q.dnvp_r = Q.dnvp_r - Q.kvp_r;
 Q.old_kvp_r = 0;
 for (var record of Q.election_records) {
     record['kvp'] = 0;
+    record['csvd'] = 0;
 }
 for (var record of Q.party_support_records) {
     record['kvp'] = 0;
+    record['csvd'] = 0;
 }
-
-
 
 
 
@@ -53,10 +53,15 @@ for (var record of Q.party_support_records) {
 Q.csvd_exist = 1;
 Q.parties.push('csvd');
              
-Q.workers_csvd += 2;
+Q.workers_csvd = 2;
 Q.workers_dnvp -= 2;
-Q.new_middle_csvd += 2;
+Q.new_middle_csvd = 2;
 Q.new_middle_dnvp -= 2;
+
+Q.old_middle_csvd = 0;
+Q.rural_csvd = 0;
+Q.unemployed_csvd = 0;
+Q.catholics_csvd = 0;
 
 if (Q.dvp_ideology = "Left") {
     Q.csvd_relation = 50
