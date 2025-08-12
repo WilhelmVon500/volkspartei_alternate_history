@@ -176,7 +176,7 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 **[+ nsdap_candidate +]** - supported by
 
-- NSDAP
+[? if nsdap_candidate = nsdap_candidate: - NSDAP ?]
 
 
 @support_hindenburg
