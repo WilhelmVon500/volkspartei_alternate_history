@@ -1,0 +1,65 @@
+title: Presidential Election Candidates
+subtitle: Should we field our own candidate?
+new-page: true
+tags: event
+view-if: year = 1932 and month >= 2
+priority: 1
+max-visits: 1
+go-to: candidate_selection
+on-arrival: {!
+Q.presidential_election_campaigning_seen = 1;
+if (!Q.hitler_deported) {
+    Q.nsdap_candidate = "Hitler";
+} else {
+    Q.nsdap_candidate = "Göring";
+}
+
+Q.dnvp_candidate = "Duesterberg";
+
+Q.dvp_candidate = "Hindenburg";
+Q.z_candidate = "Hindenburg";
+Q.ddp_candidate = "Hindenburg";
+Q.dbp_candidate = "Hindenburg";
+Q.csvd_candidate = "Hindenburg";
+Q.cnblp_candidate = "Hindenburg";
+Q.wp_candidate = "Hindenburg";
+Q.kvp_candidate = "Hindenburg";
+Q.others_candidate = "Hindenburg";
+
+
+if (Q.nsdap_votes < 20) {
+  Q.braun_campaign = 1;
+  Q.spd_candidate = "Braun";
+  Q.ddp_candidate = "Braun";
+  Q.dbp_candidate = "Braun";
+  if (Q.z_leader == "Joos") {
+    Q.z_candidate = "Braun";
+  }
+} else {
+  Q.spd_candidate = "Hindenburg";
+}
+             
+Q.kpd_candidate = "Thälmann";
+!}
+
+= Presidential Election Candidates
+
+With the 1932 German Presidential election coming up next month, we need to decide whether to run a candidate of our own or support Hindenburg. Many are calling for us to support the incumbent Hindenburg. WIP.
+
+On the other hand, some in our party want to run our own candidate. WIP.
+
+Anyhow, let's see who will be the candidates on the campaign trail.
+
+@candidate_selection
+
+- @view_candidates_1: View the running candidates.
+
+@view_candidates_1
+
+- @hindenburg: Hindenburg is, of course, running once more.
+
+@hindenburg
+view-if: hindenburg_run
+face-image: img/portraits/Hindenburg.jpg
+
+President Hindenburg is, of course, running for re-election, and many in our party are prepared to support him as the [? if dvp_ideology = "Left": last bastion of democracy against Hitler and the Nazis?][? if dvp_ideology = "Right": symbol of German nationalism and patriotism?]. The Hindenburg Mythos serves as a powerful rallying point for all parties, as he maintains high personal popularity despite everything Germany has endured. However, the more support he receives from the German left and center, the more Hindenburg views it as a stain on his personal honor. The refusal of August von Mackensen and other high-ranking officers with whom he served during the war to embrace his candidacy proved particularly painful to the Reich president.
