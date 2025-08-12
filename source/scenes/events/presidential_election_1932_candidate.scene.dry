@@ -137,7 +137,7 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 <span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
 
-[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">SPD</span> ?]
+[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">**SPD**</span> ?]
 
 [? if ddp_candidate = "Hindenburg" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
@@ -155,11 +155,11 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 [? if kvp_candidate = "Hindenburg" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
 
-[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">DNVP</span> ?]
+[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
-[? if spd_candidate = "Braun": - <span style="color: #E3000F;">SPD</span> ?]
+[? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
 
 [? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
@@ -171,15 +171,15 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 <span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
 
-[? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">KPD</span> ?]
+[? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
 
 [? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?]
 
-[? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">DNVP</span> ?]
+[? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
-[? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">NSDAP</span> ?]
+[? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
 
 
 @support_hindenburg
