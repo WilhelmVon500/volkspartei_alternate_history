@@ -240,7 +240,7 @@ if (Q.lvp_formed == 0) {
     });
 }
 
-if (Q.csvd_exist) {
+if (Q.csvd_exist && Q.csvd_r) {
     data.push({
         "id": "csvd",
         "legend": "CSVD",
