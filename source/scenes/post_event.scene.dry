@@ -352,7 +352,7 @@ if (Q.month_actions >= 1) {
         Q.new_middle_other += 3/12;
         Q.old_middle_other += 2/12;
         Q.unemployed_nsdap += 8/12;
-        Q.rural_other += 3/12;
+        Q.rural_cnblp += 3/12;
         Q.rural_dbp += 2/12;
 
         Q.workers_z += 1/12;
@@ -378,7 +378,7 @@ if (Q.month_actions >= 1) {
         Q.sh_strength += 50/12;
         Q.sa_militancy += 0.1/12;
         Q.old_middle_nsdap += 10/12;
-        Q.rural_other -= 2/12;
+        Q.rural_cnblp -= 2/12;
         Q.rural_dbp -= 3/12;
         Q.rural_nsdap += 9/12;
         // TODO: economic policies should reduce NSDAP rurals
@@ -386,7 +386,7 @@ if (Q.month_actions >= 1) {
             Q.workers -= 4/12;
             Q.unemployed_nsdap += 7/12;
             Q.unemployed_kpd += 2/12;
-            Q.rural_other -= 12/12;
+            Q.rural_cnblp -= 12/12;
             Q.rural_nsdap += 12/12;
             Q.new_middle_nsdap += 12/12;
             Q.old_middle_nsdap += 12/12;
@@ -404,7 +404,7 @@ if (Q.month_actions >= 1) {
     } else if (Q.year == 1932) {
         Q.old_middle_wp -= 4/12;
         Q.old_middle_other -= 3/12;
-        Q.rural_other -= 4/12;
+        Q.rural_cnblp -= 4/12;
         Q.rural_dbp -= 3/12;
         Q.old_middle_nsdap += 7/12;
         Q.rural_nsdap += 7/12;
@@ -450,18 +450,17 @@ if (Q.month_actions >= 1) {
             if (Q.old_middle_wp_normalized < 25) {
                 Q.old_middle_wp += 4/12;
             }
-            if (Q.rural_dnvp_normalized < 40 && Q.kvp_formed == 0) {
+            if (Q.rural_dnvp_normalized < 40 && !Q.kvp_formed) {
                 Q.rural_dnvp += 6/12;
-            } else if (Q.rural_dnvp_normalized < 25 && Q.kvp_formed == 1) {
+            } else if (Q.rural_dnvp_normalized < 25 && Q.kvp_formed) {
                 Q.rural_dnvp += 4/12;
-                Q.rural_kvp += 2/12;
             }
-            if (Q.old_middle_dnvp_normalized < 20 && Q.kvp_formed == 0) {
+            if (Q.old_middle_dnvp_normalized < 20 && !Q.kvp_formed) {
                 Q.old_middle_dnvp += 6/12;
-            } else if (Q.old_middle_dnvp_normalized < 10 && Q.kvp_formed == 1) {
+            } else if (Q.old_middle_dnvp_normalized < 10 && Q.kvp_formed) {
                 Q.old_middle_dnvp += 4/12;
             }
-            if (Q.old_middle_kvp_normalized < 15 && Q.kvp_formed == 1) {
+            if (Q.old_middle_kvp_normalized < 15 && Q.kvp_formed) {
                 Q.old_middle_kvp += 2/12;
             }
 
@@ -469,6 +468,9 @@ if (Q.month_actions >= 1) {
                 Q.catholics_z += 6/12;
             }
 
+            if (Q.rural_cnblp_normalized < 11) {
+                Q.rural_cnblp += 4/12;
+            }
             if (Q.rural_dbp_normalized < 9) {
                 Q.rural_dbp += 4/12;
             }
@@ -541,6 +543,15 @@ if (Q.lvp_formed) {
     Q.catholics_ddp = 0;
 }
 
+if (!Q.kvp_formed) {
+    Q.workers_kvp = 0;
+    Q.new_middle_kvp = 0;
+    Q.old_middle_kvp = 0;
+    Q.rural_kvp = 0;
+    Q.unemployed_kvp = 0;
+    Q.catholics_kvp = 0;
+}
+
 if (!Q.wp_exist) {
     Q.workers_wp = 0;
     Q.new_middle_wp = 0;
@@ -557,6 +568,15 @@ if (!Q.dbp_exist) {
     Q.rural_dbp = 0;
     Q.unemployed_dbp = 0;
     Q.catholics_dbp = 0;
+}
+
+if (!Q.cnblp_exist) {
+    Q.workers_cnblp = 0;
+    Q.new_middle_cnblp = 0;
+    Q.old_middle_cnblp = 0;
+    Q.rural_cnblp = 0;
+    Q.unemployed_cnblp = 0;
+    Q.catholics_cnblp = 0;
 }
 
 if (Q.month == 1) {
