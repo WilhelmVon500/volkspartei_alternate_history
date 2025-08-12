@@ -103,7 +103,7 @@ view-if: round = 0
 - @convince_ddp
 - @convince_spd_unity
 - @convince_spd_dvp
-- @convince_kvp_unity
+- @convince_kvp
 - @convince_kvp_spd
 - @round_1: Let the voting begin.
 
@@ -444,7 +444,7 @@ view-if: round = 1
 - @convince_spd_unity
 - @convince_spd_dvp
 - @convince_kvp_spd
-- @convince_kvp_dvp
+- @convince_kvp
 - @r2_vote: Let the voting begin.
 
 
