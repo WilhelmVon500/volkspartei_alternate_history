@@ -532,13 +532,31 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
-if (Q.lvp_formed == 1) {
+if (Q.lvp_formed) {
     Q.workers_ddp = 0;
     Q.new_middle_ddp = 0;
     Q.old_middle_ddp = 0;
     Q.rural_ddp = 0;
     Q.unemployed_ddp = 0;
     Q.catholics_ddp = 0;
+}
+
+if (!Q.wp_exist) {
+    Q.workers_wp = 0;
+    Q.new_middle_wp = 0;
+    Q.old_middle_wp = 0;
+    Q.rural_wp = 0;
+    Q.unemployed_wp = 0;
+    Q.catholics_wp = 0;
+}
+
+if (!Q.dbp_exist) {
+    Q.workers_dbp = 0;
+    Q.new_middle_dbp = 0;
+    Q.old_middle_dbp = 0;
+    Q.rural_dbp = 0;
+    Q.unemployed_dbp = 0;
+    Q.catholics_dbp = 0;
 }
 
 if (Q.month == 1) {
