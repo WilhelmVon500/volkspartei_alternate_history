@@ -281,6 +281,7 @@ Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
 
+Q.ddp_exist = 1
 Q.dbp_exist = 1
 Q.wp_exist = 1
 Q.cnblp_exist = 1
