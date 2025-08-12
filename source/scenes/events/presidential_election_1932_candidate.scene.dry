@@ -3,9 +3,6 @@ subtitle: Should we field our own candidate?
 new-page: true
 tags: event
 view-if: year = 1932 and month >= 2
-priority: 1
-max-visits: 1
-go-to: candidate_selection
 on-arrival: {!
 Q.presidential_election_campaigning_seen = 1;
 if (!Q.hitler_deported) {
@@ -41,6 +38,8 @@ if (Q.nsdap_votes < 20) {
              
 Q.kpd_candidate = "Thälmann";
 !}
+priority: 1
+max-visits: 1
 
 = Presidential Election Candidates
 
@@ -49,8 +48,6 @@ With the 1932 German Presidential election coming up next month, we need to deci
 On the other hand, some in our party want to run our own candidate. WIP.
 
 Anyhow, let's see who will be the candidates on the campaign trail.
-
-@candidate_selection
 
 - @view_candidates_1: View the running candidates.
 
