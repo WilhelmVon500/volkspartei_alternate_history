@@ -79,7 +79,7 @@ The Harzburg Front has nominated the deputy leader of Stahlhelm, Theodor Duester
 - @nsdap_selection: Who will the NSDAP run?
 
 @nsdap_selection
-go-to: hitler if not hitler_deported; goring if not hitler_deported
+go-to: hitler if not hitler_deported; goring if hitler_deported
 
 @hitler
 
