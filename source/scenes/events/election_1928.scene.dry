@@ -332,7 +332,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +] {!</td></tr>!}
 
-[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!} ?]
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!} ?]
 
 [? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_r +]% {!</td><td>!} [+ str_change_dbp +] {!</td></tr>!} ?]
 
@@ -357,17 +357,17 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
+Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if not lvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ grand_coalition +]%
 
-Bourgeois Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if not lvp_formed: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition +]%
+Bourgeois Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition +]%
 
-Center-right Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if not lvp_formed: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if not kvp_formed: <span style="color: #3F7BC1;">**DNVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ center_right_coalition +]%
+Center-right Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if not kvp_formed: <span style="color: #3F7BC1;">**DNVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ center_right_coalition +]%
 
 Right-wing Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #3F7BC1;">**DNVP**</span> + <span style="color: #909090;">**Others**</span>): [+ right_coalition +]%
 
-[? if not lvp_formed: Liberal Coalition (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + <span style="color: #C0A054;">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
+[? if ddp_exist: Liberal Coalition (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + <span style="color: #C0A054;">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -939,11 +939,11 @@ We have won the vote of no confidence, and are currently ruling under an SPD min
 
 @bourgeois_coalition
 title: We can form a Bourgeois Coalition.
-subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if dbp_exist: DBP +  ?][? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?][? if csvd_exist: CSVD +  ?][? if kvp_formed: KVP +  ?][? if not lvp_formed: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
+subtitle: [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] + Z + [? if dbp_exist: DBP +  ?][? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?][? if csvd_exist: CSVD +  ?][? if kvp_formed: KVP +  ?][? if ddp_exist: [+ ddp_name +] +  ?]Other ([+ bourgeois_coalition +]%)
 view-if: bourgeois_coalition >= 50
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 
-We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?][? if kvp_formed:, Conservative People's (KVP) ?][? if wp_exist:, Economic (WP) ?][? if cnblp_exist: CNBLP, ?][? if dbp_exist: DBP, ?][? if csvd_exist: CSVD, ?] and small conservative parties!
+We have enough votes to form a "Bourgeois Coalition" government consisting of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?], Center (Z)[? if ddp_exist:, Democratic ([+ ddp_name +]) ?][? if kvp_formed:, Conservative People's (KVP) ?][? if wp_exist:, Economic (WP) ?][? if cnblp_exist: CNBLP, ?][? if dbp_exist: DBP, ?][? if csvd_exist: CSVD, ?] and small conservative parties!
 
 Who should be the chancellor?
 
@@ -997,7 +997,7 @@ Hermann Dietrich has been appointed chancellor.
 @grand_coalition
 title: We can form a Grand Coalition.
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
-subtitle: SPD + Z + BVP + [? if not lvp_formed: [+ ddp_name +] + ?] [+ dvp_name +] ([+ grand_coalition +]%)
+subtitle: SPD + Z + BVP + [? if ddp_exist: [+ ddp_name +] + ?] [+ dvp_name +] ([+ grand_coalition +]%)
 on-arrival: in_grand_coalition = 1; dvp_in_government = 1; spd_in_government = 1
 go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD") or (largest_party == "SPD" and spd_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and spd_r < 30) or (n_elections <= 1 and largest_party != "SPD"))
 
@@ -1007,7 +1007,7 @@ go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD")
 @grand_coalition_z_lead
 go-to: grand_coalition_z_lead_2 if spd_relation >= 30; grand_coalition_fail if spd_relation < 30
 
-There are enough votes to form a majority coalition consisting of the SPD, Center (Z), Bavarian People's (BVP)[? if not lvp_formed:, Democratic ([+ ddp_name +]) ?], and [? if not lvp_formed: <span style="color: #C0A054;">People's</span> ?][? if lvp_formed: <span style="color: #FFA500;">Liberal People's</span> ?] ([? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]) parties. Given our rather weak electoral performance, [? if spd_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
+There are enough votes to form a majority coalition consisting of the SPD, Center (Z), Bavarian People's (BVP)[? if ddp_exist:, Democratic ([+ ddp_name +]) ?], and [? if not lvp_formed: <span style="color: #C0A054;">People's</span> ?][? if lvp_formed: <span style="color: #FFA500;">Liberal People's</span> ?] ([? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]) parties. Given our rather weak electoral performance, [? if spd_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : and the vote of no confidence against us, ?] President has asked the Center Party to take the lead role in forming a government.
 
 # TODO: if the SPD participated in bringing down the previous government via a vote-of-no-confidence, or if we were essentially removed from government by our coalition partners, we should be more reluctant to participate in a new government.
 
@@ -1166,7 +1166,7 @@ As expected, the SPD is too set in their socialist ways.
 @grand_coalition_spd_lead
 on-arrival: leverage -= 5 if spd_relation < 20
 
-As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center (Z), Bavarian People's (BVP)[? if not lvp_formed: , Democratic ([+ ddp_name +]) ?], and [? if not lvp_formed: <span style="color: #C0A054;">People's</span> ?][? if lvp_formed: <span style="color: #FFA500;">Liberal People's</span> ?] ([? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]) parties.
+As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center (Z), Bavarian People's (BVP)[? if ddp_exist: , Democratic ([+ ddp_name +]) ?], and [? if not lvp_formed: <span style="color: #C0A054;">People's</span> ?][? if lvp_formed: <span style="color: #FFA500;">Liberal People's</span> ?] ([? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]) parties.
 
 [? if spd_relation < 20 : As our relation with the SPD is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 
