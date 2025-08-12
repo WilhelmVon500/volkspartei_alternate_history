@@ -220,7 +220,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]: [+ dvp_votes +]%
 
-[? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_r +]% ?]
+[? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_votes +]% ?]
 
 [? if wp_exist: <span style="color: #B8996F;">**WP**</span>: [+ wp_votes +]% ?]
 
