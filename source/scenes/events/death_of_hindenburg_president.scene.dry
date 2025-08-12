@@ -417,6 +417,7 @@ if (Q.z_candidate == "Adenauer" && Q.spd_candidate == "Braun" && Q.z_candidate !
         Q.adenauer_drops_out = 1;
         if (Q.wp_exist && Q.wp_candidate == Q.z_candidate) Q.wp_candidate = Q.dvp_candidate;
         if (Q.cnblp_exist && Q.cnblp_candidate == Q.z_candidate) Q.cnblp_candidate = Q.dvp_candidate;
+        if (Q.csvd_exist && Q.csvd_candidate == Q.z_candidate) Q.csvd_candidate = Q.dvp_candidate;
         Q.z_candidate = "Braun";
         Q.Braun_bonus = 0.25*Q.other_votes;
     }
