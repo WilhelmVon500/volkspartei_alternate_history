@@ -84,7 +84,7 @@ if (Q.spd_relation >= 50) {
 !}
 view-if: constructive_vonc = 0
 
-[? if z_relation >= 30 : The Weimar Coalition parties, the [? if ddp_exist: [+ ddp_name +], ?] SPD and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if z_relation < 30 : [? if ddp_exist: The [+ ddp_name +] and the Center Party support this reform ?][? if not ddp_exist: The Center Party supports this reform ?], but the Social Democrats do not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
+[? if spd_relation >= 30 : The Weimar Coalition parties, the [? if ddp_exist: [+ ddp_name +], ?] SPD and Center Party, support this reform, which will greatly improve the stability of the government. ?] [? if spd_relation < 30 : [? if ddp_exist: The [+ ddp_name +] and the Center Party support this reform ?][? if not ddp_exist: The Center Party supports this reform ?], but the Social Democrats do not trust us enough to support the constitutional referendum. ?] The more conservative and radical right-wing parties and the KPD are in opposition, as they seem to relish in the republican system's instability.
 
 - @constructive_vonc_2: Call a constitutional referendum to pass the reform!
 - @reforms_menu: See other reform options.
