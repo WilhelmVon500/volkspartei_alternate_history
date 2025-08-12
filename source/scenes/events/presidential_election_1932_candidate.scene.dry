@@ -264,7 +264,7 @@ max-visits: 1
 
 We remind the SPD leaders that, despite his known reactionary< nature, Hindenburg has at least been keeping the Nazis at bay.
 
-@convince_ddp_success_hindenburg
+@convince_spd_success_hindenburg
 on-arrival: spd_relation += 3; spd_candidate = "Hindenburg"
 go-to: endorsements_hindenburg
 
