@@ -104,7 +104,7 @@ go-to: braun if spd_candidate = "Braun"; hindenburg_spd if spd_candidate = "Hind
 @braun
 face-image: img/portraits/BraunOtto.jpg
 
-The SPD will run Otto Braun, [? if not prussia_leader = "Braun": former ?] Prussian Minister-President and candidate in the 1925 election. [? if ddp_exist and ddp_candidate = spd_candidate: [+ ddp_name +] is expected to support him ?][? if z_candidate = "Braun" and ddp_exist: ,as well as the Center Party. ?][? if z_candidate = "Braun" and not ddp_exist: The Center Party is expected to support him. ?]
+The SPD will run Otto Braun, [? if not prussia_leader = "Braun": former ?] Prussian Minister-President and candidate in the 1925 election. [? if ddp_exist and ddp_candidate = spd_candidate: [+ ddp_name +] is expected to support him?][? if z_candidate = "Braun" and ddp_exist: ,as well as the Center Party?][? if z_candidate = "Braun" and not ddp_exist: The Center Party is expected to support him?].
 
 - @liberal: So, what is our decision? Should we run our own candidate, or support Hindenburg?
 
