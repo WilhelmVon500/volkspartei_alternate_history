@@ -22,7 +22,7 @@ Q.csvd_candidate = "Hindenburg";
 Q.cnblp_candidate = "Hindenburg";
 Q.wp_candidate = "Hindenburg";
 Q.kvp_candidate = "Hindenburg";
-Q.others_candidate = "Hindenburg";
+Q.other_candidate = "Hindenburg";
 
              
 Q.kpd_candidate = "Thälmann";
@@ -156,7 +156,7 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 [? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
-[? if others_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+[? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
 
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
