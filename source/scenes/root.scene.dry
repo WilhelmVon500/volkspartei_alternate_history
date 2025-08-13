@@ -128,6 +128,7 @@ Q.kpd_relation = 0;
 
 Q.dvp_leader = "Stresemann";
 Q.dnvp_leader = "Westarp";
+Q.dnvp_ideology = "Moderate";
 Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
 Q.kpd_party_leader = "Thälmann";
@@ -286,6 +287,9 @@ Q.dbp_exist = 1
 Q.wp_exist = 1
 Q.cnblp_exist = 1
 Q.csvd_exist = 0
+
+
+Q.wp_ideology = "Moderate"
 
 
 // sapd isn't formed yet, but it may be formed
