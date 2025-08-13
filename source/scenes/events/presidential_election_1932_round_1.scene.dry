@@ -528,7 +528,7 @@ Unfortunately, we fail to turn them away from [+spd_candidate+].
 
 @round2_hindenburg
 view-if: dvp_candidate != "Hindenburg" and not new_candidate_r2
-on-arrival: dvp_candidate = "Hindenburg"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener" and braun_campaign; ddp_candidate = "Hindenburg" if ddp_candidate = "Eckener" and not braun_campaign; dbp_candidate = "Braun" if dbp_candidate = "Eckener" and braun_campaign; dbp_candidate = "Hindenburg" if dbp_candidate = "Eckener" and not braun_campaign; z_candidate = "Braun" if z_candidate = "Eckener" and braun_campaign and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and (not braun_campaign or z_leader != "Joos"); csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener";
+on-arrival: dvp_candidate = "Hindenburg"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener" and braun_campaign; ddp_candidate = "Hindenburg" if ddp_candidate = "Eckener" and not braun_campaign; dbp_candidate = "Braun" if dbp_candidate = "Eckener" and braun_campaign; dbp_candidate = "Hindenburg" if dbp_candidate = "Eckener" and not braun_campaign; z_candidate = "Braun" if z_candidate = "Eckener" and braun_campaign and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and (not braun_campaign or z_leader != "Joos"); csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener"; progressive_dissent += 10 if braun_campaign
 go-to: round2_menu
 
 We have switched our support to Hindenburg.
@@ -536,7 +536,7 @@ We have switched our support to Hindenburg.
 
 @round2_braun
 view-if: dvp_candidate != "Braun" and braun_campaign and not new_candidate_r2
-on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener"; dbp_candidate = "Braun" if dbp_candidate = "Eckener"; z_candidate = "Braun" if z_candidate = "Eckener" and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and z_leader != "Joos"; csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener";
+on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener"; dbp_candidate = "Braun" if dbp_candidate = "Eckener"; z_candidate = "Braun" if z_candidate = "Eckener" and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and z_leader != "Joos"; csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener"; industrialist_dissent += 15; nationalist_dissent += 30
 go-to: round2_menu
 
 We have switched our support to Braun.
