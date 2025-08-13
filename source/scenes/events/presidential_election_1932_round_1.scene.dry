@@ -99,7 +99,7 @@ Hindenburg - [+ hindenburg_votes_disp +]%
 
 [+ nsdap_candidate +] - [+ hitler_votes_disp +]%
 
-[? if dnvp_candidate = "Duesterberg": Duesterberg - [+ braun_votes_disp +]% ?]
+[? if dnvp_candidate = "Duesterberg": Duesterberg - [+ duesterberg_votes_disp +]% ?]
 
 Thälmann - [+ thalmann_votes_disp +]%
 
