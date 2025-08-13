@@ -306,18 +306,20 @@ Unfortunately, we fail to turn them away from Braun.
 
 
 @round2_hindenburg
-view-if: dvp_candidate != "Hindenburg"
-on-arrival: dvp_candidate = "Hindenburg"
+view-if: dvp_candidate != "Hindenburg"; if not new_candidate_r2
+on-arrival: dvp_candidate = "Hindenburg"; new_candidate_r2 = 1
+go-to: round2_menu
 
 We have switched our support to Hindenburg.
 
+
 @round2_braun
-view-if: dvp_candidate != "Braun" and braun_campaign
-on-arrival: dvp_candidate = "Braun"
+view-if: dvp_candidate != "Braun" and braun_campaign; if not new_candidate_r2
+on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1
+go-to: round2_menu
 
 We have switched our support to Braun.
 
-- @round2_vote: Second round voting begins next month.
 
 @round2_vote
 
