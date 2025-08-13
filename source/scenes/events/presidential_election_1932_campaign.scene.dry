@@ -1,1 +1,93 @@
+title: Presidential Election campaigning
+subtitle: It's campaign season.
+new-page: true
+on-arrival: {!
+Q.hindenburg_funds = 0;
+Q.hindenburg_support = 0;
+if (Q.nsdap_candidate == "Hitler") {
+    Q.workers_nsdap += 3;
+    Q.new_middle_nsdap += 4;
+    Q.old_middle_nsdap += 4;
+    Q.catholics_nsdap += 2;
+    Q.rural_nsdap += 4;
+    Q.unemployed_nsdap += 4;
+    Q.new_middle_dnvp -= 2;
+    Q.old_middle_dnvp -= 2; 
+    Q.unemployed_kpd -= 2;
+} else if (Q.nsdap_candidate == "Göring") {
+    Q.old_middle_nsdap += 4;
+    Q.old_middle_dnvp -= 4;
+    Q.rural_nsdap += 2;
+    Q.rural_dnvp -= 2;
+    Q.workers_kpd += 3;
+    Q.workers_nsdap -= 3;
+}
+!}
+tags: event
+view-if: year = 1932 and month >= 2 and presidential_election_campaigning_seen = 1
+face-img: img/dvp_campaign.jpg
+go-to: candidate_selection
 
+
+= Presidential Election campaigning
+
+[? if nsdap_candidate = "Hitler" or nsdap_candidate = "Göring": The NSDAP, standing alone in the electoral fight to elect [+ nsdap_candidate +], has little chance of winning—at least according to our advisors. However, this does not mean the election is inconsequential. The extensive <span style="color: #7A3C00;">Nazi</span> propaganda campaign, orchestrated by the infamous Joseph Goebbels, could significantly shift public opinion. [? if nsdap_candidate == "Hitler": Furthermore, Adolf Hitler possesses a remarkable charismatic ability, and his strategy of flying across Germany to deliver speeches to hundreds of thousands of otherwise indifferent voters each day rivals even that of Hindenburg. ?] ?]
+
+WIP
+
+@candidate_selection
+
+- @view_candidates: View the running candidates.
+
+@view_candidates
+
+<span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
+
+[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if ddp_candidate = "Hindenburg" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Hindenburg" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Hindenburg": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if dvp_candidate = "Hindenburg": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+
+[? if csvd_candidate = "Hindenburg" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
+[? if wp_candidate = "Hindenburg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+
+[? if kvp_candidate = "Hindenburg" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+
+[? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
+
+[? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if dvp_candidate = "Braun": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+
+<span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
+
+[? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
+
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?]
+
+[? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
+
+[? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
+
+- @campaigning_hindenburg: Time to hit the campaign trail!
+- @campaigning_braun: Time to hit the campaign trail!
