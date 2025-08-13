@@ -134,15 +134,15 @@ go-to: hindenburg_wins if hindenburg_majority == 1; thalmann_wins if thalmann_ma
 
 Results:
 
-Hindenburg - [+ hindenburg_votes_disp +]%
+<span style="color: #808080;">**Hindenburg**</span> - [+ hindenburg_votes_disp +]%
 
-[+ nsdap_candidate +] - [+ hitler_votes_disp +]%
+<span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
 
-[? if dnvp_candidate = "Duesterberg": Duesterberg - [+ harzburg_votes_disp +]% ?]
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Duesterberg**</span> - [+ harzburg_votes_disp +]% ?]
 
-Thälmann - [+ thalmann_votes_disp +]%
+<span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
-[? if braun_campaign: Braun - [+ braun_votes_disp +]% ?]
+[? if braun_campaign: <span style="color: #E3000F;">**Braun**</span> - [+ braun_votes_disp +]% ?]
 
 @no_majority_round1
 on-arrival: braun_r1 = 1 if braun_campaign; duesterberg_r1 = 1 if dnvp_candidate = "Duesterberg"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Duesterberg"; nsdap_candidate = "Hindenburg" if (braun_plurality or thalmann_plurality); braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = "Hindenburg" if (braun_campaign = 0 and spd_candidate = "Braun"); ddp_candidate = "Hindenburg" if (braun_campaign = 0 and ddp_candidate = "Braun" and ddp_exist); dbp_candidate = "Hindenburg" if (braun_campaign = 0 and dbp_candidate = "Braun" and dbp_exist); z_candidate = "Hindenburg" if (braun_campaign = 0 and z_candidate = "Braun");
