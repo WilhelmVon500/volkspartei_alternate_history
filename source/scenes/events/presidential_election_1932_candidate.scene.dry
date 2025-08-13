@@ -460,7 +460,7 @@ Unfortunately, the WP has refused to support Eckener for the presidency.
 
 @convince_kvp_eckener
 view-if: kvp_formed and kvp_candidate != "Eckener"
-go-to: convince_kvp_success_eckener if kvp_relation >= 40; convince_kvp_fail_eckener if kvp_relation < 40
+go-to: convince_kvp_success_eckener if kvp_relation >= 50; convince_kvp_fail_eckener if kvp_relation < 50
 max-visits: 1
 
 We try to convince the KVP to support Eckener.
@@ -480,7 +480,7 @@ Unfortunately, the KVP has refused to support Eckener for the presidency.
 
 @convince_dnvp_eckener
 view-if: dnvp_candidate != "Eckener" and dnvp_ideology = "Moderate"
-go-to: convince_dnvp_success_eckener if dnvp_relation >= 40; convince_dnvp_fail_eckener if dnvp_relation < 40
+go-to: convince_dnvp_success_eckener if dnvp_relation >= 50; convince_dnvp_fail_eckener if dnvp_relation < 50
 max-visits: 1
 
 We try to convince the DNVP to support Eckener.
