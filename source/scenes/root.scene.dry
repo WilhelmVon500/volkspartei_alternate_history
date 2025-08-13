@@ -359,7 +359,7 @@ Q.rural_nsdap = 4;
 Q.rural_dbp = 4;
 Q.rural_other = 0;
 
-Q.unemployed_spd = 30;
+Q.unemployed_spd = 32;
 Q.unemployed_kpd = 55;
 Q.unemployed_z = 1;
 Q.unemployed_ddp = 0;
@@ -369,7 +369,7 @@ Q.unemployed_cnblp = 0;
 Q.unemployed_dnvp = 5;
 Q.unemployed_nsdap = 15;
 Q.unemployed_dbp = 0;
-Q.unemployed_other = 4;
+Q.unemployed_other = 2;
 
 Q.catholics_spd = 15;
 Q.catholics_kpd = 2;
