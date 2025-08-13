@@ -16,13 +16,13 @@ The right wing of the party rallied behind Alfred Hugenberg, an industrialist an
 - @hugenberg_lead: Alfred Hugenberg
 
 @westarp_lead
-on-arrival: dnvp_leader = "Westarp"; dnvp_ideology = "Moderate"; dvp_left += 1;
+on-arrival: dnvp_leader = "Westarp"; dnvp_ideology = "Moderate"; dvp_left += 1; dnvp_relation += 5 if dvp_ideology = "Left";
 face-image: img/portraits/WestarpKuno.jpg
 
 Westarp remains as the <span style="color: #3F7BC1;">**DNVP**</span> leader, at least for now...
 
 @hugenberg_lead
-on-arrival: dnvp_leader = "Hugenberg"; dnvp_ideology = "Radical"; workers_dnvp -= 2; pro_republic -= 2; dvp_right += 1;
+on-arrival: dnvp_leader = "Hugenberg"; dnvp_ideology = "Radical"; workers_dnvp -= 2; pro_republic -= 2; dvp_right += 1; dnvp_relation -= 5 if dvp_ideology = "Left";
 face-image: img/portraits/HugenbergAlfred.jpg
 
 Hugenberg is elected <span style="color: #3F7BC1;">**DNVP**</span> chairman.
