@@ -206,6 +206,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 @convince_z_hindenburg
 view-if: z_candidate != "Hindenburg"
 go-to: convince_z_success_hindenburg if z_relation >= 40; convince_z_fail_hindenburg if z_relation < 40
+max-visits: 1
 
 We try to convince the Center Party to support Hindenburg.
 
@@ -225,6 +226,7 @@ Unfortunately, the Center Party has refused to support Hindenburg for the presid
 @convince_dbp_hindenburg
 view-if: dbp_exist and dbp_candidate != "Hindenburg"
 go-to: convince_dbp_success_hindenburg if dbp_relation >= 40; convince_dbp_fail_hindenburg if dbp_relation < 40
+max-visits: 1
 
 We try to convince the DBP to support Hindenburg.
 
@@ -244,6 +246,7 @@ Unfortunately, the DBP has refused to support Hindenburg for the presidency.
 @convince_ddp_hindenburg
 view-if: ddp_exist and ddp_candidate != "Hindenburg"
 go-to: convince_ddp_success_hindenburg if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_hindenburg if ddp_relation < 40
+max-visits: 1
 
 The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
 
@@ -306,6 +309,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 @convince_z_braun
 view-if: z_candidate != "Braun"
 go-to: convince_z_success_braun if ((z_relation >= 40 and not z_leader = "Kaas") or (z_relation >= 60 and z_leader = "Kaas")); convince_z_fail_braun if not ((z_relation >= 40 and not z_leader = "Kaas") or (z_relation >= 60 and z_leader = "Kaas"))
+max-visits: 1
 
 We try to convince the Center Party to support Braun.
 
@@ -325,6 +329,7 @@ Unfortunately, the Center Party has refused to support Braun for the presidency.
 @convince_dbp_braun
 view-if: dbp_exist and dbp_candidate != "Braun"
 go-to: convince_dbp_success_braun if dbp_relation >= 40; convince_dbp_fail_braun if dbp_relation < 40
+max-visits: 1
 
 We try to convince the DBP to support Braun.
 
@@ -344,6 +349,7 @@ Unfortunately, the DBP has refused to support Braun for the presidency.
 @convince_ddp_braun
 view-if: ddp_exist and ddp_candidate != "Braun"
 go-to: convince_ddp_success_braun if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_braun if ddp_relation < 40
+max-visits: 1
 
 The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
 
