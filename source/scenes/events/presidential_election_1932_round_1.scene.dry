@@ -25,6 +25,8 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+Q.election_round = 1
+
 Q.hindenburg_votes = 0;
 Q.braun_votes = 0;
 Q.harzburg_votes = 0;
