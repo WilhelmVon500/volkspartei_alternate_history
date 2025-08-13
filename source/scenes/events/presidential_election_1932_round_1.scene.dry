@@ -176,18 +176,19 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 @round2_convince_z_braun
 view-if: z_candidate != dvp_candidate and dvp_candidate = "Braun"
-go-to: r2_z_failed_braun if z_relation < 45; r2_z_success_braun if z_relation >= 45
+go-to: r2_z_failed_braun if z_relation < 35; r2_z_success_braun if z_relation >= 35
 max-visits: 1
 
 @r2_z_success_braun
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes; z_candidate = "Braun"; braun_votes += z_votes; z_relation += 3
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes; z_candidate = "Braun"; braun_votes += z_votes
 
 [? if nsdap_candidate = "Hindenburg" : The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Braun coalition.
 
 [? if not nsdap_candidate = "Hindenburg" and braun_votes + z_votes > hitler_votes: With the Center Party supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
 @r2_z_failed_braun
+on-arrival: z_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Hindenburg.
@@ -199,12 +200,13 @@ go-to: r2_z_failed_hindenburg if z_relation < 45; r2_z_success_hindenburg if z_r
 max-visits: 1
 
 @r2_z_success_hindenburg
+on-arrival: z_candidate = "Hindenburg"; z_relation += 3
 go-to: round2_menu
-on-arrival: z_candidate = "Hindenburg"
 
 The Center are convinced! They will be part of the Hindenburg coalition.
 
 @r2_z_failed_hindenburg
+on-arrival: z_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Braun.
@@ -217,8 +219,8 @@ go-to: r2_ddp_failed_braun if ddp_relation < 35; r2_ddp_success_braun if ddp_rel
 max-visits: 1
 
 @r2_ddp_success_braun
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes; ddp_candidate = "Braun"; braun_votes += ddp_votes; ddp_relation += 5
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes; ddp_candidate = "Braun"; braun_votes += ddp_votes
 
 The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
 
@@ -226,6 +228,7 @@ The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
 
 
 @r2_ddp_failed_braun
+on-arrival: ddp_relation -= 5
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Hindenburg.
@@ -237,12 +240,13 @@ go-to: r2_ddp_failed_hindenburg if ddp_relation < 45; r2_ddp_success_hindenburg 
 max-visits: 1
 
 @r2_ddp_success_hindenburg
+on-arrival: ddp_candidate = "Hindenburg"; ddp_relation += 5
 go-to: round2_menu
-on-arrival: ddp_candidate = "Hindenburg"
 
 The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
 
 @r2_ddp_failed_hindenburg
+on-arrival: ddp_relation -= 5
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Braun.
@@ -255,8 +259,8 @@ go-to: r2_dbp_failed_braun if dbp_relation < 35; r2_dbp_success_braun if dbp_rel
 max-visits: 1
 
 @r2_dbp_success_braun
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes; dbp_candidate = "Braun"; braun_votes += dbp_votes; dbp_relation += 3
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes; dbp_candidate = "Braun"; braun_votes += dbp_votes
 
 The DBP are convinced! They will be part of the Hindenburg coalition.
 
@@ -264,6 +268,7 @@ The DBP are convinced! They will be part of the Hindenburg coalition.
 
 
 @r2_dbp_failed_braun
+on-arrival: dbp_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Hindenburg.
@@ -275,12 +280,13 @@ go-to: r2_dbp_failed_hindenburg if dbp_relation < 45; r2_dbp_success_hindenburg 
 max-visits: 1
 
 @r2_dbp_success_hindenburg
+on-arrival: dbp_candidate = "Hindenburg"; dbp_relation += 3
 go-to: round2_menu
-on-arrival: dbp_candidate = "Hindenburg"
 
 The DBP are convinced! They will be part of the Hindenburg coalition.
 
 @r2_dbp_failed_hindenburg
+on-arrival: dbp_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Braun.
@@ -292,12 +298,13 @@ go-to: r2_spd_failed_hindenburg if spd_relation < 45; r2_spd_success_hindenburg 
 max-visits: 1
 
 @r2_spd_success_hindenburg
+on-arrival: spd_candidate = "Hindenburg"; braun_campaign = 0; z_candidate = "Hindenburg" if z_candidate = "Braun"; dbp_candidate = "Hindenburg" if dbp_candidate = "Braun"; ddp_candidate = "Hindenburg" if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
 go-to: round2_menu
-on-arrival: spd_candidate = "Hindenburg"; braun_campaign = 0; z_candidate = "Hindenburg" if z_candidate = "Braun"; dbp_candidate = "Hindenburg" if dbp_candidate = "Braun"; ddp_candidate = "Hindenburg" if ddp_candidate = "Braun"; braun_votes = 0
 
 The SPD are convinced! They will be part of the Hindenburg coalition.
 
 @r2_spd_failed_hindenburg
+on-arrival: spd_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Braun.
