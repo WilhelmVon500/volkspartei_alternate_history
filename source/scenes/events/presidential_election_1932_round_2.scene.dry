@@ -105,7 +105,6 @@ Q.hindenburg_plurality = (Q.hindenburg_votes >= Q.hitler_votes && Q.hindenburg_v
 Q.braun_plurality = (Q.braun_votes >= Q.hindenburg_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes);
 Q.thalmann_plurality = (Q.thalmann_votes >= Q.hindenburg_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes);
 Q.hitler_plurality = (Q.hitler_votes >= Q.hindenburg_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes);
-// If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
 Q.election_round += 1;
 
 // making the vote numbers nicer for the display
