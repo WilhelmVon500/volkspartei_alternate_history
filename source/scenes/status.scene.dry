@@ -224,7 +224,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 [? if wp_exist: <span style="color: #B8996F;">**WP**</span>: [+ wp_votes +]% ?]
 
-[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_votes +]%, ?]
+[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_votes +]% ?]
 
 [? if kvp_formed: <span style="color: #455B95;">**KVP**</span>: [+ kvp_votes +]% ?]
 
