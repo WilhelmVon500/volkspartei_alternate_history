@@ -81,7 +81,7 @@ if (Q.dnvp_candidate == "Hindenburg") {
     console.log(Q.hindenburg_votes)
 }
 if (Q.others_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.others_normalized;
+    Q.hindenburg_votes += Q.other_normalized;
     console.log(Q.hindenburg_votes)
 }
 
