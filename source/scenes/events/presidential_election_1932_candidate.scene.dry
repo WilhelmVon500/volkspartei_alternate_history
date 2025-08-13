@@ -123,6 +123,7 @@ WIP has been floated around as a candidate for the presidency. WIP.
 So, what's our choice?
 
 - @support_hindenburg: Support Hindenburg.
+- @run_eckener: Run Hugo Eckener as a unity candidate.
 - @support_braun: Support Braun.
 
 
@@ -132,7 +133,7 @@ So, what's our choice?
 Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 
 @view_candidates
-go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_braun if dvp_candidate = "Braun"
+go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_braun if dvp_candidate = "Braun"; endorsements_eckener if dvp_candidate = "Eckener"
 
 <span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
 
@@ -157,6 +158,28 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_bra
 [? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+
+[? if eckener_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?]
+
+[? if spd_candidate = "Eckener": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if ddp_candidate = "Eckener" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Eckener" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Eckener": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if dvp_candidate = "Eckener": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+
+[? if csvd_candidate = "Eckener" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
+[? if wp_candidate = "Eckener" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if cnblp_candidate = "Eckener" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+
+[? if kvp_candidate = "Eckener" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = "Eckener": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
@@ -282,6 +305,197 @@ on-arrival: spd_relation -= 3
 go-to: endorsements_hindenburg
 
 Unfortunately, we fail to turn the SPD away from [+ spd_candidate+]. 
+
+
+
+
+@run_eckener
+choose-if: dvp_ideology = "Left"
+unavailable-subtitle: Why would we run a republican candidate?
+subtitle: This is the default option.
+on-departure: nationalist_dissent += 10; ddp_candidate = "Eckener" if ddp_candidate = "Hindenburg"; spd_candidate = "Eckener" if spd_candidate = "Hindenburg"
+
+We will run Hugo Eckener.
+
+The [? if ddp_candidate = "Hindenburg": [+ ddp_name +] ?][? if spd_candidate = "Hindenburg" and ddp_candidate = "Hindenburg": and ?][? if spd_candidate = "Hindenburg": SPD ?] will support our candidate, instead of Hindenburg.
+
+- @endorsements_eckener: Scout out potential endorsements.
+
+@endorsements_eckener
+view-if: (spd_candidate != "Eckener") or (ddp_candidate != "Eckener" and ddp_exist) or (dbp_candidate != "Eckener" and dbp_exist) or (z_candidate != "Eckener") or (csvd_candidate != "Eckener" and csvd_exist) or (wp_candidate != "Eckener" and wp_exist) or (kvp_candidate != "Eckener" and kvp_formed)
+
+We can try to convince parties supporting other candidates to switch their support to Eckener.
+
+- @convince_z_eckener: Convince the Center Party to back Eckener.
+- @convince_ddp_eckener: Convince the [+ ddp_name +] to back Eckener.
+- @convince_dbp_eckener: Convince the DBP to back Eckener.
+- @convince_spd_eckener: Convince the SPD to back Eckener.
+- @convince_csvd_eckener: Convince the CSVD to back Eckener.
+- @convince_wp_eckener: Convince the WP to back Eckener.
+- @convince_kvp_eckener: Convince the KVP to back Eckener.
+- @convince_dnvp_eckener: Convince the DNVP to back Eckener.
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+@convince_z_eckener
+view-if: z_candidate != "Eckener"
+go-to: convince_z_success_eckener if z_relation >= 40; convince_z_fail_eckener if z_relation < 40
+max-visits: 1
+
+We try to convince the Center Party to support Eckener.
+
+@convince_z_success_eckener
+on-arrival: z_relation += 3; z_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Eckener in the election.
+
+@convince_z_fail_eckener
+on-arrival: z_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the Center Party has refused to support Eckener for the presidency.
+
+
+@convince_dbp_eckener
+view-if: dbp_exist and dbp_candidate != "Eckener"
+go-to: convince_dbp_success_eckener if dbp_relation >= 40; convince_dbp_fail_eckener if dbp_relation < 40
+max-visits: 1
+
+We try to convince the DBP to support Eckener.
+
+@convince_dbp_success_eckener
+on-arrival: dbp_relation += 3; dbp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the DBP is now campaigning for Eckener in the election.
+
+@convince_dbp_fail_eckener
+on-arrival: dbp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the DBP has refused to support Eckener for the presidency.
+
+
+@convince_ddp_eckener
+view-if: ddp_exist and ddp_candidate != "Eckener"
+go-to: convince_ddp_success_eckener if ddp_relation >= 30 and ddp_name = "DDP"; convince_ddp_fail_eckener if ddp_relation < 30
+max-visits: 1
+
+The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
+
+@convince_ddp_success_eckener
+on-arrival: ddp_relation += 5; ddp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for Eckener in the election.
+
+@convince_ddp_fail_eckener
+on-arrival: ddp_relation -= 5
+go-to: endorsements_eckener
+
+Unfortunately, the [+ ddp_name +] has refused to support Eckener for the presidency. 
+
+
+@convince_spd_eckener
+choose-if: z_candidate != "Braun"
+unavailable-subtitle: The Social Democratic candidate has Center Party's support; they do not see a reason to withdraw their candidate.
+go-to: convince_spd_success_eckener if spd_relation >= 45; convince_spd_fail_eckener if not spd_relation >= 45
+max-visits: 1
+
+We offer the SPD to run one republican candidate.
+
+@convince_spd_success_eckener
+on-arrival: spd_relation += 3; spd_candidate = "Eckener"; braun_campaign = 0 if braun_campaign; ddp_candidate = "Eckener" if ddp_candidate = "Braun"; z_candidate = "Eckener" if z_candidate = "Braun"; dbp_candidate = "Eckener" if dbp_candidate = "Braun"
+go-to: endorsements_eckener
+
+The SPD is convinced! They will be part of the Eckener coalition.
+
+@convince_spd_fail_eckener
+on-arrival: spd_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, we fail to turn the SPD away from [+ spd_candidate+].
+
+
+@convince_csvd_eckener
+view-if: csvd_exist and csvd_candidate != "Eckener"
+go-to: convince_csvd_success_eckener if csvd_relation >= 40; convince_csvd_fail_eckener if csvd_relation < 40
+max-visits: 1
+
+We try to convince the CSVD to support Eckener.
+
+@convince_csvd_success_eckener
+on-arrival: csvd_relation += 3; csvd_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the CSVD is now campaigning for Eckener in the election.
+
+@convince_csvd_fail_eckener
+on-arrival: csvd_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the CSVD has refused to support Eckener for the presidency.
+
+
+@convince_wp_eckener
+view-if: wp_exist and wp_candidate != "Eckener"
+go-to: convince_wp_success_eckener if (wp_relation >= 40 and wp_ideology = "Moderate"); convince_wp_fail_eckener if not (wp_relation >= 40 and wp_ideology = "Moderate")
+max-visits: 1
+
+We try to convince the WP to support Eckener.
+
+@convince_wp_success_eckener
+on-arrival: wp_relation += 3; wp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the WP is now campaigning for Eckener in the election.
+
+@convince_wp_fail_eckener
+on-arrival: wp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the WP has refused to support Eckener for the presidency.
+
+
+@convince_kvp_eckener
+view-if: kvp_formed and kvp_candidate != "Eckener"
+go-to: convince_kvp_success_eckener if kvp_relation >= 40; convince_kvp_fail_eckener if kvp_relation < 40
+max-visits: 1
+
+We try to convince the KVP to support Eckener.
+
+@convince_kvp_success_eckener
+on-arrival: kvp_relation += 3; kvp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the KVP is now campaigning for Eckener in the election.
+
+@convince_kvp_fail_eckener
+on-arrival: kvp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the KVP has refused to support Eckener for the presidency.
+
+
+@convince_dnvp_eckener
+view-if: dnvp_candidate != "Eckener" and dnvp_ideology = "Moderate"
+go-to: convince_dnvp_success_eckener if dnvp_relation >= 40; convince_dnvp_fail_eckener if dnvp_relation < 40
+max-visits: 1
+
+We try to convince the DNVP to support Eckener.
+
+@convince_dnvp_success_eckener
+on-arrival: dnvp_relation += 3; dnvp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the DNVP is now campaigning for Eckener in the election.
+
+@convince_dnvp_fail_eckener
+on-arrival: dnvp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the DNVP has refused to support Eckener for the presidency.
 
 
 
