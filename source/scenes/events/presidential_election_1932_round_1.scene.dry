@@ -52,19 +52,19 @@ if (Q.braun_campaign) {
     }
 }
 
-#if (Q.hindenburg_to_braun_bonus) {
-#    Q.hindenburg_votes -= Q.hindenburg_to_braun_bonus;
-#    Q.braun_votes += Q.hindenburg_to_braun_bonus;
-#}
-#if (Q.thalmann_to_braun_bonus) {
-#    Q.thalmann_votes -= Q.thalmann_to_braun_bonus;
-#    Q.braun_votes += Q.thalmann_to_braun_bonus;
-#}
+// if (Q.hindenburg_to_braun_bonus) {
+//     Q.hindenburg_votes -= Q.hindenburg_to_braun_bonus;
+//     Q.braun_votes += Q.hindenburg_to_braun_bonus;
+// }
+// if (Q.thalmann_to_braun_bonus) {
+//     Q.thalmann_votes -= Q.thalmann_to_braun_bonus;
+//     Q.braun_votes += Q.thalmann_to_braun_bonus;
+// }
 
 // check for majority
 Q.hindenburg_votes = Math.round(Q.hindenburg_votes*1000)/10;
 Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
-Q.duesterberg_votes = Math.round(Q.hitler_votes*1000)/10;
+Q.duesterberg_votes = Math.round(Q.duesterberg_votes*1000)/10;
 Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
 Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
 
@@ -87,7 +87,7 @@ Q.election_round += 1;
 // making the vote numbers nicer for the display
 Q.hindenburg_votes_disp = Q.hindenburg_votes.toFixed(1);
 Q.braun_votes_disp = Q.braun_votes.toFixed(1);
-Q.duesterberg_votes_disp = Q.hindenburg_votes.toFixed(1);
+Q.duesterberg_votes_disp = Q.duesterberg_votes.toFixed(1);
 Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
 Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 !}
