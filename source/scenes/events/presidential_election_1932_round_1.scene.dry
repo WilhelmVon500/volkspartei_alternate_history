@@ -180,7 +180,7 @@ max-visits: 1
 
 @r2_z_success_braun
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes; z_candidate = "Braun"; braun_votes += z_normalized
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes; z_candidate = "Braun"; braun_votes += z_votes
 
 [? if nsdap_candidate = "Hindenburg" : The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Braun coalition.
 
@@ -217,7 +217,7 @@ max-visits: 1
 
 @r2_ddp_success_braun
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes; ddp_candidate = "Braun"; braun_votes += ddp_normalized
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes; ddp_candidate = "Braun"; braun_votes += ddp_votes
 
 The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
 
@@ -255,7 +255,7 @@ max-visits: 1
 
 @r2_dbp_success_braun
 go-to: round2_menu
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes; dbp_candidate = "Braun"; braun_votes += dbp_normalized
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes; dbp_candidate = "Braun"; braun_votes += dbp_votes
 
 The DBP are convinced! They will be part of the Hindenburg coalition.
 
