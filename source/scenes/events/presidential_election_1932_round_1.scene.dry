@@ -42,47 +42,36 @@ if (Q.dnvp_candidate == "Duesterberg") {
 
 if (Q.spd_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.spd_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.ddp_candidate == "Hindenburg" && Q.ddp_exist) {
     Q.hindenburg_votes += Q.ddp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.dbp_candidate == "Hindenburg" && Q.dbp_exist) {
     Q.hindenburg_votes += Q.dbp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.z_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.z_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.dvp_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.dvp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.csvd_candidate == "Hindenburg" && Q.csvd_exist) {
     Q.hindenburg_votes += Q.csvd_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.wp_candidate == "Hindenburg" && Q.wp_exist) {
     Q.hindenburg_votes += Q.wp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.cnblp_candidate == "Hindenburg" && Q.cnblp_exist) {
     Q.hindenburg_votes += Q.cnblp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.kvp_candidate == "Hindenburg" && Q.kvp_formed) {
     Q.hindenburg_votes += Q.kvp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.dnvp_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.dnvp_normalized;
-    console.log(Q.hindenburg_votes)
 }
 if (Q.other_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.other_normalized;
-    console.log(Q.hindenburg_votes)
 }
 
 
