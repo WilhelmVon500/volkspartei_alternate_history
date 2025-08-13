@@ -118,13 +118,13 @@ go-to: calculation
 @calculation
 go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1
 
-Hindenburg - [+ hindenburg_votes_disp +]%
+<span style="color: #808080;">**Hindenburg**</span>  - [+ hindenburg_votes_disp +]%
 
-[? if nsdap_candidate != "Hindenburg": [+ nsdap_candidate +] - [+ hitler_votes_disp +]% ?]
+[? if nsdap_candidate != "Hindenburg": <span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]% ?]
 
-Thälmann - [+ thalmann_votes_disp +]%
+<span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
-[? if braun_campaign: Braun - [+ braun_votes_disp +]% ?]
+[? if braun_campaign: <span style="color: #E3000F;">**Braun**</span> - [+ braun_votes_disp +]% ?]
 
 
 @hindenburg_wins
