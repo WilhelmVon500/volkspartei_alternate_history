@@ -31,12 +31,10 @@ if (Q.nsdap_votes < 20) {
   Q.braun_campaign = 1;
   Q.spd_candidate = "Braun";
   Q.ddp_candidate = "Braun";
-  Q.dbp_candidate = "Braun";
   if (Q.z_leader == "Joos") {
     Q.z_candidate = "Braun";
+    Q.dbp_candidate = "Braun";
   }
-} else {
-  Q.spd_candidate = "Hindenburg";
 }
 !}
 priority: 1
@@ -265,7 +263,7 @@ unavailable-subtitle: The Social Democratic candidate has Center Party's support
 go-to: convince_spd_success_hindenburg if (dvp_ideology = "Left" and spd_relation >= 50); convince_spd_fail_hindenburg if not (dvp_ideology = "Left" and spd_relation >= 50)
 max-visits: 1
 
-We remind the SPD leaders that, despite his known reactionary< nature, Hindenburg has at least been keeping the Nazis at bay.
+We remind the SPD leaders that, despite his known reactionary nature, Hindenburg has at least been keeping the Nazis at bay.
 
 @convince_spd_success_hindenburg
 on-arrival: spd_relation += 3; spd_candidate = "Hindenburg"
