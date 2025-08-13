@@ -3,7 +3,7 @@ subtitle: Split in the <span style="color: #B8996F;">**Economic Party**</span>.
 view-if: year == 1931
 new-page: true
 max-visits: 1
-on-arrival: old_middle_wp -= 3; new_middle_wp -= 2; wp_split_seen = 1
+on-arrival: old_middle_wp -= 3; new_middle_wp -= 2; wp_split_seen = 1; wp_ideology = "Radical"
 face-image: img/portraits/ColosserOtto.jpg
 tags: event
 
