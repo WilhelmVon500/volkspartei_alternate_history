@@ -65,6 +65,28 @@ WIP
 
 [? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
 
+[? if eckener_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?]
+
+[? if spd_candidate = "Eckener": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if ddp_candidate = "Eckener" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Eckener" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Eckener": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if dvp_candidate = "Eckener": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+
+[? if csvd_candidate = "Eckener" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
+[? if wp_candidate = "Eckener" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if cnblp_candidate = "Eckener" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+
+[? if kvp_candidate = "Eckener" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = "Eckener": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
 [? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
