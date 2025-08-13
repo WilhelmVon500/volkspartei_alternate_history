@@ -313,7 +313,7 @@ Unfortunately, we fail to turn the SPD away from [+ spd_candidate+].
 choose-if: dvp_ideology = "Left"
 unavailable-subtitle: Why would we run a republican candidate?
 subtitle: This is the default option.
-on-departure: nationalist_dissent += 10; eckener_campaign = 1; ddp_candidate = "Eckener" if ddp_candidate = "Hindenburg"; spd_candidate = "Eckener" if spd_candidate = "Hindenburg"
+on-departure: nationalist_dissent += 10; eckener_campaign = 1; dvp_candidate = "Eckener"; ddp_candidate = "Eckener" if ddp_candidate = "Hindenburg"; spd_candidate = "Eckener" if spd_candidate = "Hindenburg"
 
 We will run Hugo Eckener.
 
