@@ -29,7 +29,7 @@ Q.hitler_votes = 0;
 Q.thalmann_votes = 0;
 
 // initial phase:
-if (Q.nsdap_candidate != "Hindenburg") {
+if (Q.nsdap_candidate_runs) {
     Q.hitler_votes += Q.nsdap_normalized;
 }
 
@@ -120,7 +120,7 @@ go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_p
 
 Hindenburg - [+ hindenburg_votes_disp +]%
 
-[? if nsdap_candidate != "Hindenburg": [+ nsdap_candidate +] - [+ hitler_votes_disp +]% ?]
+[? if nsdap_candidate_runs: [+ nsdap_candidate +] - [+ hitler_votes_disp +]% ?]
 
 Thälmann - [+ thalmann_votes_disp +]%
 
