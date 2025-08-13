@@ -462,6 +462,9 @@ if (Q.month_actions >= 1) {
             } else if (Q.old_middle_dnvp_normalized < 10 && Q.kvp_formed) {
                 Q.old_middle_dnvp += 4/12;
             }
+            if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
+                Q.old_middle_kvp += 4/12;
+            }
             if (Q.old_middle_kvp_normalized < 15 && Q.kvp_formed) {
                 Q.old_middle_kvp += 2/12;
             }
@@ -470,7 +473,7 @@ if (Q.month_actions >= 1) {
                 Q.catholics_z += 6/12;
             }
 
-            if (Q.rural_cnblp_normalized < 11) {
+            if (Q.rural_cnblp_normalized < 12) {
                 Q.rural_cnblp += 4/12;
             }
             if (Q.rural_dbp_normalized < 8) {
