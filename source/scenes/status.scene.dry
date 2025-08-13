@@ -122,7 +122,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: Christian Socialism (Simpfendörfer) ?]
 
-[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: Liberal Conservatism (Drewitz) ?]
+[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: [? if wp_ideology = "Moderate": Liberal Conservatism ?][? if wp_ideology = "Radical": Corporatism ?] (Drewitz) ?]
 
 [? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: Agrarian Conservatism (Baum) ?]
 
