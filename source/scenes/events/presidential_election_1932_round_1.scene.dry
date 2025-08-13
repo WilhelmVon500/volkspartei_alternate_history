@@ -1,10 +1,10 @@
 title: Presidential Election
 subtitle: Hindenburg runs for re-election...
-view-if: year = 1932 and month >= 3 and presidential_election_seen = 0
+view-if: year = 1932 and month >= 3 and presidential_election_1932_seen = 0
 frequency: 1000
 max-visits: 1
 new-page: true
-on-arrival: braun_campaign = 0; hitler_support_hindenburg = 0; presidential_election_seen = 1; next_presidential_election_year = year + 7; next_presidential_election_month = month;
+on-arrival: presidential_election_1932_seen = 1; next_presidential_election_year = year + 7; next_presidential_election_month = month;
 tags: event
 go-to: election_algorithm
 set-jump: pres_election
@@ -34,7 +34,46 @@ Q.thalmann_votes = 0;
 // initial phase:
 Q.hitler_votes += Q.nsdap_normalized;
 Q.thalmann_votes += Q.kpd_normalized;
-Q.hindenburg_votes += Q.dnvp_normalized;
+
+if (Q.dnvp_candidate == "Duesterberg") {
+    Q.duesterberg_votes += Q.dnvp_normalized;
+}
+
+
+if (Q.spd_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.spd_normalized;
+}
+if (Q.ddp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.ddp_normalized;
+}
+if (Q.dbp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.dbp_normalized;
+}
+if (Q.z_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.z_normalized;
+}
+if (Q.dvp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.dvp_normalized;
+}
+if (Q.csvd_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.csvd_normalized;
+}
+if (Q.wp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.wp_normalized;
+}
+if (Q.cnblp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.cnblp_normalized;
+}
+if (Q.kvp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.kvp_normalized;
+}
+if (Q.dnvp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.dnvp_normalized;
+}
+if (Q.others_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.others_normalized;
+}
+
 
 if (Q.braun_campaign) {
     Q.braun_votes += Q.spd_normalized;
