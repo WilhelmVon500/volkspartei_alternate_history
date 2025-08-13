@@ -12,7 +12,7 @@ tags: event
 WIP
 
 - @colosser_wp_lvp: Colosser and his faction joins <span style="color: #FFA500;">**[+ dvp_name +]**</span>.
-- @colosser_wp_ddp: Colosser and his faction joins [+ ddp_name +].
+- @colosser_wp_ddp: Colosser and his faction joins <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
 
 @colosser_wp_lvp
 view-if: lvp_formed
