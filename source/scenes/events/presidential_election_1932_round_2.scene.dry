@@ -24,6 +24,7 @@ set-jump: post_election
 @post_election
 on-arrival: {!
 Q.hindenburg_votes = 0;
+Q.eckener_votes = 0;
 Q.braun_votes = 0;
 Q.hitler_votes = 0;
 Q.thalmann_votes = 0;
@@ -70,6 +71,40 @@ if (Q.other_candidate == "Hindenburg") {
 }
 
 
+if (Q.eckener_campaign) {
+    if (Q.spd_candidate == "Eckener") {
+        Q.eckener_votes += Q.spd_normalized;
+    }
+    if (Q.ddp_candidate == "Eckener" && Q.ddp_exist) {
+        Q.eckener_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == "Eckener" && Q.dbp_exist) {
+        Q.eckener_votes += Q.dbp_normalized;
+    }
+    if (Q.z_candidate == "Eckener") {
+        Q.eckener_votes += Q.z_normalized;
+    }
+    if (Q.dvp_candidate == "Eckener") {
+        Q.eckener_votes += Q.dvp_normalized;
+    }
+    if (Q.csvd_candidate == "Eckener" && Q.csvd_exist) {
+        Q.eckener_votes += Q.csvd_normalized;
+    }
+    if (Q.wp_candidate == "Eckener" && Q.wp_exist) {
+        Q.eckener_votes += Q.wp_normalized;
+    }
+    if (Q.cnblp_candidate == "Eckener" && Q.cnblp_exist) {
+        Q.eckener_votes += Q.cnblp_normalized;
+    }
+    if (Q.kvp_candidate == "Eckener" && Q.kvp_formed) {
+        Q.eckener_votes += Q.kvp_normalized;
+    }
+    if (Q.dnvp_candidate == "Eckener") {
+        Q.eckener_votes += Q.dnvp_normalized;
+    }
+}
+
+
 if (Q.braun_campaign) {
     Q.braun_votes += Q.spd_normalized;
     if (Q.z_candidate == "Braun") {
@@ -96,19 +131,22 @@ if (Q.braun_campaign) {
 // }
 
 Q.hindenburg_votes = Math.round(Q.hindenburg_votes*1000)/10;
+Q.eckener_votes = Math.round(Q.braun_votes*1000)/10;
 Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
 Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
 Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
 
 // check for plurality
-Q.hindenburg_plurality = (Q.hindenburg_votes >= Q.hitler_votes && Q.hindenburg_votes >= Q.braun_votes && Q.hindenburg_votes >= Q.thalmann_votes);
-Q.braun_plurality = (Q.braun_votes >= Q.hindenburg_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes);
-Q.thalmann_plurality = (Q.thalmann_votes >= Q.hindenburg_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes);
-Q.hitler_plurality = (Q.hitler_votes >= Q.hindenburg_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes);
+Q.hindenburg_plurality = (Q.hindenburg_votes >= Q.hitler_votes && Q.hindenburg_votes >= Q.braun_votes && Q.hindenburg_votes >= Q.thalmann_votes && Q.hindenburg_votes >= Q.eckener_votes);
+Q.eckener_plurality = (Q.eckener_votes >= Q.hindenburg_votes && Q.eckener_votes >= Q.hitler_votes && Q.eckener_votes >= Q.braun_votes && Q.eckener_votes >= Q.thalmann_votes);
+Q.braun_plurality = (Q.braun_votes >= Q.hindenburg_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes && Q.braun_votes >= Q.eckener_votes);
+Q.thalmann_plurality = (Q.thalmann_votes >= Q.hindenburg_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes&& Q.thalmann_votes >= Q.eckener_votes);
+Q.hitler_plurality = (Q.hitler_votes >= Q.hindenburg_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes && Q.hitler_votes >= Q.eckener_votes);
 Q.election_round += 1;
 
 // making the vote numbers nicer for the display
 Q.hindenburg_votes_disp = Q.hindenburg_votes.toFixed(1);
+Q.eckener_votes_disp = Q.hindenburg_votes.toFixed(1);
 Q.braun_votes_disp = Q.braun_votes.toFixed(1);
 Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
 Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
@@ -119,6 +157,8 @@ go-to: calculation
 go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1
 
 <span style="color: #808080;">**Hindenburg**</span>  - [+ hindenburg_votes_disp +]%
+
+[? if eckener_campaign: <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - [+ eckener_votes_disp +]% ?]
 
 [? if nsdap_candidate != "Hindenburg": <span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]% ?]
 
@@ -131,6 +171,11 @@ go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_p
 on-arrival: president = "Hindenburg"
 
 As expected, the incumbent Hindenburg wins the presidency.
+
+@eckener_wins
+on-arrival: president = "Eckener"; new_middle_dvp += 5; old_middle_dvp += 5
+
+Nationally renown Zeppelin pilot and independent Hugo Eckener has won the presidency! This is a moment of celebration for our party, as his victory helps keep the Nazis at bay.
 
 @thalmann_wins
 on-arrival: president = "Thälmann";
