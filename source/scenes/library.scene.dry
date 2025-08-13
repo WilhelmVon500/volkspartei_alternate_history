@@ -71,25 +71,34 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
 Reichstag composition:
 
-# 1928: 30, 1930: 25, 1932: 22
-SPD: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
-# 1928: 15, 1930: 15, 1932: 
-Z + BVP: [+ z_r +]%
-# 1928: 10, 1930: 13
-KPD: [+ kpd_r +]%
-# 1928: 5, 1930: 4 (as DstP)
-[? if not lvp_formed: {!<span class="tooltip-text" title="German Democratic Party">!}[+ ddp_name +]{!</span>!}: [+ ddp_r +]% ?]
-# 1928: 9, 1930: 5
-[? if not lvp_formed: {!<span class="tooltip-text" title="German People's Party" style="color: #C0A054;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
-[? if lvp_formed: {!<span class="tooltip-text" title="Liberal People's Party" style="color: #FFA500;">!}**[+ dvp_name +]**{!</span>!}: [+ dvp_r +]% ?]
-[? if kvp_formed and kvp_r > 0: KVP: [+ kvp_r +]% ?]
-# 1928: 14, 1930: 7
-DNVP: [+ dnvp_r +]%
-# 1928: 3, 1930: 18
-NSDAP: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
-Others: [+ other_r +]%
+<span style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
+
+[? if sapd_formed: <span style="color: #C40000;">**SAPD**</span>: [+ sapd_r +]% ?]
+
+<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span>: [+ z_r +]%
+
+<span style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
+
+[? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_r +]% ?]
+
+[? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]: [+ dvp_r +]%
+
+[? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_r +]% ?]
+
+[? if wp_exist: <span style="color: #B8996F;">**WP**</span>: [+ wp_r +]% ?]
+
+[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_r +]% ?]
+
+[? if kvp_formed: <span style="color: #455B95;">**KVP**</span>: [+ kvp_r +]% ?]
+
+<span style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_r +]%
+
+<span style="color: #954B00;">**NSDAP**</span>: [+ nsdap_r +]%
+
+[? if dbp_exist: <span style="color: #38C538;">**DBP**</span>: [+ dbp_r +]% ?]
+
+<span style="color: #909090;">**Others**</span>: [+ other_r +]%
+
 
 SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
@@ -376,6 +385,14 @@ if (Q.lvp_formed == 0) {
         "seats": Math.round(Q.ddp_r*5),
     });
 }
+if (Q.dbp_exist && Q.dbp_r) {
+    data.push({
+        "id": "dbp",
+        "legend": "DBP",
+        "name": "DBP",
+        "seats": Math.round(Q.dbp_r*5),
+    });
+}
 if (Q.lvp_formed == 1) {
     data.push({
         "id": "lvp",
@@ -406,12 +423,40 @@ if (Q.lvp_formed == 0) {
         "seats": Math.round(Q.dvp_r*5),
     });
 }
+
+if (Q.csvd_exist && Q.csvd_r) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_r*5),
+    });
+}
+
+if (Q.wp_exist && Q.wp_r) {
+    data.push({
+        "id": "wp",
+        "legend": "WP",
+        "name": "WP",
+        "seats": Math.round(Q.wp_r*5),
+    });
+}
+
+if (Q.cnblp_exist && Q.cnblp_r) {
+    data.push({
+        "id": "cnblp",
+        "legend": "CNBLP",
+        "name": "CNBLP",
+        "seats": Math.round(Q.cnblp_r*5),
+    });
+}
+
 data = data.concat([
     {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Math.round(Q.other_r*5),
+        "seats": Math.round(Q.true_other_r*5),
     }
 ]);
 if (Q.kvp_formed && Q.kvp_r) {
