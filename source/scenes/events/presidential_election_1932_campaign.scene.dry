@@ -26,6 +26,7 @@ if (Q.nsdap_candidate == "Hitler") {
 tags: event
 view-if: year = 1932 and month >= 2 and presidential_election_campaigning_seen = 1
 face-image: img/dvp_campaign.jpg
+max-visits: 1
 go-to: candidate_selection
 
 
