@@ -1,5 +1,6 @@
 on-arrival: {!
 Q.lvp_formed = 1;
+Q.ddp_exist = 0;
 
 Q.dvp_name = "LVP";
 Q.dvp_color = "#FFA500";
