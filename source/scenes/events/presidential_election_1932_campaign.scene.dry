@@ -89,5 +89,6 @@ WIP
 
 [? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
 
-- @campaigning_hindenburg: Time to hit the campaign trail!
-- @campaigning_braun: Time to hit the campaign trail!
+// - @campaigning_hindenburg: Time to hit the campaign trail!
+// - @campaigning_eckener: Time to hit the campaign trail!
+// - @campaigning_braun: Time to hit the campaign trail!
