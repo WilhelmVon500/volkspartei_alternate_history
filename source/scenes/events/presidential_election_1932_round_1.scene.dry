@@ -315,13 +315,8 @@ We have switched our support to Braun.
 - @round2_vote: Second round voting begins next month.
 
 @round2_vote
-go-to: election_algorithm
-set-jump: post_election
 
 Hopefully Germany makes the right choice.
-
-@round2_results
-go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; braun_wins if braun_plurality == 1; hitler_wins if hitler_plurality == 1
 
 
 @hindenburg_wins
