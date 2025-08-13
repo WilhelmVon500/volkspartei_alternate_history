@@ -74,6 +74,9 @@ if (Q.dnvp_candidate == "Hindenburg") {
 if (Q.other_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.other_normalized;
 }
+if (Q.nsdap_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.nsdap_normalized;
+}
 
 if (Q.eckener_campaign) {
     if (Q.spd_candidate == "Eckener") {
