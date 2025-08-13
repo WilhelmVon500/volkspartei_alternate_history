@@ -161,6 +161,11 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 - @round2_convince_z_braun: Convince the Center to switch their support to us.
 - @round2_convince_z_hindenburg: Convince the Center to switch their support to us.
+- @round2_convince_ddp_braun: Convince the [+ ddp_name +] to switch their support to us.
+- @round2_convince_ddp_hindenburg: Convince the [+ ddp_name +] to switch their support to us.
+- @round2_convince_dbp_braun: Convince the DBP to switch their support to us.
+- @round2_convince_dbp_hindenburg: Convince the DBP to switch their support to us.
+- @round2_convince_spd_hindenburg: Convince the SPD to switch their support to us.
 - @round2_hindenburg: Switch our support to Hindenburg.
 - @round2_braun: Switch our support to Braun.
 - @round2_vote: Let the second round voting begin.
