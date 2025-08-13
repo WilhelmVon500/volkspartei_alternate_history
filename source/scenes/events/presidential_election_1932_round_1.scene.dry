@@ -194,7 +194,7 @@ Unfortunately, we fail to turn them away from Hindenburg.
 
 @round2_convince_z_hindenburg
 view-if: z_candidate != dvp_candidate and dvp_candidate = "Hindenburg"
-go-to: r2_z_failed_hindenburg if z_relation < 45; r2_z_success_hindenburg if z_relation >= 45;
+go-to: r2_z_failed_hindenburg if z_relation < 45; r2_z_success_hindenburg if z_relation >= 45
 max-visits: 1
 
 @r2_z_success_hindenburg
@@ -212,7 +212,7 @@ Unfortunately, we fail to turn them away from Braun.
 
 @round2_convince_ddp_braun
 view-if: ddp_candidate != dvp_candidate and dvp_candidate = "Braun" and ddp_exist
-go-to: r2_ddp_failed_braun if ddp_relation < 35; r2_ddp_success_braun if ddp_relation >= 35;
+go-to: r2_ddp_failed_braun if ddp_relation < 35; r2_ddp_success_braun if ddp_relation >= 35
 max-visits: 1
 
 @r2_ddp_success_braun
@@ -232,7 +232,7 @@ Unfortunately, we fail to turn them away from Hindenburg.
 
 @round2_convince_ddp_hindenburg
 view-if: ddp_candidate != dvp_candidate and dvp_candidate = "Hindenburg" and ddp_exist
-go-to: r2_ddp_failed_hindenburg if ddp_relation < 45; r2_ddp_success_hindenburg if ddp_relation >= 45;
+go-to: r2_ddp_failed_hindenburg if ddp_relation < 45; r2_ddp_success_hindenburg if ddp_relation >= 45
 max-visits: 1
 
 @r2_ddp_success_hindenburg
@@ -250,7 +250,7 @@ Unfortunately, we fail to turn them away from Braun.
 
 @round2_convince_dbp_braun
 view-if: dbp_candidate != dvp_candidate and dvp_candidate = "Braun" and dbp_exist
-go-to: r2_dbp_failed_braun if dbp_relation < 35; r2_dbp_success_braun if dbp_relation >= 35;
+go-to: r2_dbp_failed_braun if dbp_relation < 35; r2_dbp_success_braun if dbp_relation >= 35
 max-visits: 1
 
 @r2_dbp_success_braun
@@ -270,7 +270,7 @@ Unfortunately, we fail to turn them away from Hindenburg.
 
 @round2_convince_dbp_hindenburg
 view-if: dbp_candidate != dvp_candidate and dvp_candidate = "Hindenburg" and dbp_exist
-go-to: r2_dbp_failed_hindenburg if dbp_relation < 45; r2_dbp_success_hindenburg if dbp_relation >= 45;
+go-to: r2_dbp_failed_hindenburg if dbp_relation < 45; r2_dbp_success_hindenburg if dbp_relation >= 45
 max-visits: 1
 
 @r2_dbp_success_hindenburg
@@ -287,7 +287,7 @@ Unfortunately, we fail to turn them away from Braun.
 
 @round2_convince_spd_hindenburg
 view-if: spd_candidate != dvp_candidate and dvp_candidate = "Hindenburg"
-go-to: r2_spd_failed_hindenburg if spd_relation < 45; r2_spd_success_hindenburg if spd_relation >= 45;
+go-to: r2_spd_failed_hindenburg if spd_relation < 45; r2_spd_success_hindenburg if spd_relation >= 45
 max-visits: 1
 
 @r2_spd_success_hindenburg
