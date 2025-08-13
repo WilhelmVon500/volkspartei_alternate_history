@@ -116,7 +116,7 @@ Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 go-to: calculation
 
 @calculation
-go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1;
+go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1
 
 Hindenburg - [+ hindenburg_votes_disp +]%
 
