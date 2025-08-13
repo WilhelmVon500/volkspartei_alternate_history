@@ -15,13 +15,13 @@ WIP
 - @colosser_wp_ddp: Colosser and his faction joins [+ ddp_name +].
 
 @colosser_wp_lvp
-view-if: lvp_formed == 1
+view-if: lvp_formed
 on-arrival: new_middle_dvp += 2; old_middle_dvp += 3; special_interest_strength += 2; colosser_lvp = 1; special_interest_dvp = 1;
 
 Otto Colosser brings his faction into <span style="color: #FFA500;">**[+ dvp_name +]**</span>.
 
 @colosser_wp_ddp
-view-if: lvp_formed == 0
+view-if: not lvp_formed
 on-arrival: new_middle_ddp += 2; old_middle_dvp += 3; 
 
 Otto Colosser brings his faction into <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
