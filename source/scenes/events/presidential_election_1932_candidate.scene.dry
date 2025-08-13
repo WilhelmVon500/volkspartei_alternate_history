@@ -155,6 +155,8 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
 
 [? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
+[? if others_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
 [? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
