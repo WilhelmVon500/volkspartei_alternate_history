@@ -43,10 +43,10 @@ if (Q.dnvp_candidate == "Duesterberg") {
 if (Q.spd_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.spd_normalized;
 }
-if (Q.ddp_candidate == "Hindenburg") {
+if (Q.ddp_candidate == "Hindenburg" and Q.ddp_exist) {
     Q.hindenburg_votes += Q.ddp_normalized;
 }
-if (Q.dbp_candidate == "Hindenburg") {
+if (Q.dbp_candidate == "Hindenburg" and Q.dbp_exist) {
     Q.hindenburg_votes += Q.dbp_normalized;
 }
 if (Q.z_candidate == "Hindenburg") {
@@ -55,16 +55,16 @@ if (Q.z_candidate == "Hindenburg") {
 if (Q.dvp_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.dvp_normalized;
 }
-if (Q.csvd_candidate == "Hindenburg") {
+if (Q.csvd_candidate == "Hindenburg" and Q.csvd_exist) {
     Q.hindenburg_votes += Q.csvd_normalized;
 }
-if (Q.wp_candidate == "Hindenburg") {
+if (Q.wp_candidate == "Hindenburg" and Q.wp_exist) {
     Q.hindenburg_votes += Q.wp_normalized;
 }
-if (Q.cnblp_candidate == "Hindenburg") {
+if (Q.cnblp_candidate == "Hindenburg" and Q.cnblp_exist) {
     Q.hindenburg_votes += Q.cnblp_normalized;
 }
-if (Q.kvp_candidate == "Hindenburg") {
+if (Q.kvp_candidate == "Hindenburg" and Q.kvp_formed) {
     Q.hindenburg_votes += Q.kvp_normalized;
 }
 if (Q.dnvp_candidate == "Hindenburg") {
@@ -80,10 +80,10 @@ if (Q.braun_campaign) {
     if (Q.z_candidate == "Braun") {
         Q.braun_votes += Q.z_normalized;
     }
-    if (Q.ddp_candidate == "Braun") {
+    if (Q.ddp_candidate == "Braun" and Q.ddp_exist) {
         Q.braun_votes += Q.ddp_normalized;
     }
-    if (Q.dbp_candidate == "Braun") {
+    if (Q.dbp_candidate == "Braun" and Q.dbp_exist) {
         Q.braun_votes += Q.dbp_normalized;
     }
     if (Q.dvp_candidate == "Braun") {
