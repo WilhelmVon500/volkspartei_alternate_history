@@ -1,0 +1,155 @@
+title: Presidential Election
+subtitle: The second round results have come in...
+view-if: year = 1932 and month == 4
+frequency: 1000
+max-visits: 1
+new-page: true
+tags: event
+priority: 3
+go-to: election_algorithm
+set-jump: pres_election
+face-image: img/hindenburg_election.jpg
+
+@pres_election
+
+The first round has ended, with no candidate receiving an absolute majority of votes. [+ nsdap_candidate_1932 +]'s results were disappointing to him and his party, [? if not nsdap_candidate = "Hindenburg": but he has chosen to remain as a candidate?][? if nsdap_candidate = "Hindenburg": resulting in him dropping out and supporting Hindenburg instead?]. Thälmann has also remained in the running, refusing to back what they view as the lesser evil.
+
+- @final_election: The second round results...
+
+@final_election
+go-to: election_algorithm
+set-jump: post_election
+
+
+@post_election
+on-arrival: {!
+Q.hindenburg_votes = 0;
+Q.braun_votes = 0;
+Q.hitler_votes = 0;
+Q.thalmann_votes = 0;
+
+// initial phase:
+if (Q.nsdap_candidate != "Hindenburg") {
+    Q.hitler_votes += Q.nsdap_normalized;
+}
+
+Q.thalmann_votes += Q.kpd_normalized;}
+
+if (Q.spd_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.spd_normalized;
+}
+if (Q.ddp_candidate == "Hindenburg" && Q.ddp_exist) {
+    Q.hindenburg_votes += Q.ddp_normalized;
+}
+if (Q.dbp_candidate == "Hindenburg" && Q.dbp_exist) {
+    Q.hindenburg_votes += Q.dbp_normalized;
+}
+if (Q.z_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.z_normalized;
+}
+if (Q.dvp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.dvp_normalized;
+}
+if (Q.csvd_candidate == "Hindenburg" && Q.csvd_exist) {
+    Q.hindenburg_votes += Q.csvd_normalized;
+}
+if (Q.wp_candidate == "Hindenburg" && Q.wp_exist) {
+    Q.hindenburg_votes += Q.wp_normalized;
+}
+if (Q.cnblp_candidate == "Hindenburg" && Q.cnblp_exist) {
+    Q.hindenburg_votes += Q.cnblp_normalized;
+}
+if (Q.kvp_candidate == "Hindenburg" && Q.kvp_formed) {
+    Q.hindenburg_votes += Q.kvp_normalized;
+}
+if (Q.dnvp_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.dnvp_normalized;
+}
+if (Q.other_candidate == "Hindenburg") {
+    Q.hindenburg_votes += Q.other_normalized;
+}
+
+
+if (Q.braun_campaign) {
+    Q.braun_votes += Q.spd_normalized;
+    if (Q.z_candidate == "Braun") {
+        Q.braun_votes += Q.z_normalized;
+    }
+    if (Q.ddp_candidate == "Braun" && Q.ddp_exist) {
+        Q.braun_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == "Braun" && Q.dbp_exist) {
+        Q.braun_votes += Q.dbp_normalized;
+    }
+    if (Q.dvp_candidate == "Braun") {
+        Q.braun_votes += Q.dvp_normalized;
+    }
+}
+
+// if (Q.hindenburg_to_braun_bonus) {
+//     Q.hindenburg_votes -= Q.hindenburg_to_braun_bonus;
+//     Q.braun_votes += Q.hindenburg_to_braun_bonus;
+// }
+// if (Q.thalmann_to_braun_bonus) {
+//     Q.thalmann_votes -= Q.thalmann_to_braun_bonus;
+//     Q.braun_votes += Q.thalmann_to_braun_bonus;
+// }
+
+Q.hindenburg_votes = Math.round(Q.hindenburg_votes*1000)/10;
+Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
+Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
+Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
+
+// check for plurality
+Q.hindenburg_plurality = (Q.hindenburg_votes >= Q.hitler_votes && Q.hindenburg_votes >= Q.braun_votes && Q.hindenburg_votes >= Q.thalmann_votes);
+Q.braun_plurality = (Q.braun_votes >= Q.hindenburg_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes);
+Q.thalmann_plurality = (Q.thalmann_votes >= Q.hindenburg_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes);
+Q.hitler_plurality = (Q.hitler_votes >= Q.hindenburg_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes);
+// If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
+Q.election_round += 1;
+
+// making the vote numbers nicer for the display
+Q.hindenburg_votes_disp = Q.hindenburg_votes.toFixed(1);
+Q.braun_votes_disp = Q.braun_votes.toFixed(1);
+Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
+Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
+!}
+go-to: calculation
+
+@calculation
+go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1;
+
+Hindenburg - [+ hindenburg_votes_disp +]%
+
+[? if nsdap_candidate != "Hindenburg": [+ nsdap_candidate +] - [+ hitler_votes_disp +]% ?]
+
+Thälmann - [+ thalmann_votes_disp +]%
+
+[? if braun_campaign: Braun - [+ braun_votes_disp +]% ?]
+
+
+@hindenburg_wins
+on-arrival: president = "Hindenburg"
+
+As expected, the incumbent Hindenburg wins the presidency.
+
+@thalmann_wins
+on-arrival: president = "Thälmann";
+
+Ernst Thälmann of the KPD has won the presidency.
+
+- @civil_war: This is civil war.
+
+@hitler_wins
+on-arrival: president = nsdap_candidate; chancellor = "Hitler"; chancellor_party = "NSDAP"
+
+[? if nsdap_candidate == "Hitler" : Adolf Hitler of the NSDAP has won the presidency. He wastes no time in consolidating power. ?]
+[? if nsdap_candidate != "Hitler" : The NSDAP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+
+- @hitler_takes_power: What do we do now?
+
+
+@braun_wins
+on-arrival: president = "Braun"; workers_spd += 5; old_middle_spd += 3; new_middle_spd += 3; rural_spd += 3; unemployed_spd += 3; pro_republic += 3
+
+Otto Braun of the SPD has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
