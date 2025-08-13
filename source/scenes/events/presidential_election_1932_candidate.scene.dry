@@ -228,7 +228,7 @@ go-to: convince_dbp_success_hindenburg if dbp_relation >= 40; convince_dbp_fail_
 We try to convince the DBP to support Hindenburg.
 
 @convince_dbp_success_hindenburg
-on-arrival: dbp_relation += 3; z_candidate = "Hindenburg"
+on-arrival: dbp_relation += 3; dbp_candidate = "Hindenburg"
 go-to: endorsements_hindenburg
 
 Thanks to our friendly relations, the DBP is now campaigning for Hindenburg in the election.
