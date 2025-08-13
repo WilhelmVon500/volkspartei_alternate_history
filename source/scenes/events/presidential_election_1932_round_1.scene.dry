@@ -175,7 +175,7 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 @round2_convince_z_braun
 view-if: z_candidate != dvp_candidate and dvp_candidate = "Braun"
-go-to: r2_z_failed_braun if z_relation < 45; r2_z_success_braun if z_relation >= 45;
+go-to: r2_z_failed_braun if z_relation < 45; r2_z_success_braun if z_relation >= 45
 max-visits: 1
 
 @r2_z_success_braun
