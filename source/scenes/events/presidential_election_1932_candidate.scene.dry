@@ -132,7 +132,7 @@ So, what's our choice?
 Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 
 @view_candidates
-go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
+go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_braun if dvp_candidate = "Braun"
 
 <span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
 
