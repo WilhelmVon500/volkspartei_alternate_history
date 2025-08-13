@@ -123,12 +123,13 @@ WIP has been floated around as a candidate for the presidency. WIP.
 So, what's our choice?
 
 - @support_hindenburg: Support Hindenburg.
+- @support_braun: Support Braun.
 
 
 
 @hope
 
-Hopefully, the Hindenburg coalition is strong enough to rival Nazis[? if braun_campaign: and Braun?].
+Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 
 @view_candidates
 go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"
@@ -278,3 +279,82 @@ on-arrival: spd_relation -= 3
 go-to: endorsements_hindenburg
 
 Unfortunately, we fail to turn the SPD away from [+ spd_candidate+]. 
+
+
+
+
+
+@support_braun
+subtitle: This is the default option.
+view-if: braun_campaign
+on-arrival: industrialist_dissent += 15; nationalist_dissent += 30; dvp_candidate = "Braun"
+
+We will support Braun in this election.
+
+- @endorsements_braun: Scout out potential endorsements.
+
+@endorsements_braun
+
+We can try to convince parties supporting other candidates to switch their support to Braun.
+
+- @convince_z_braun: Convince the Center Party to back Braun.
+- @convince_ddp_braun: Convince the [+ ddp_name +] to back Braun.
+- @convince_dbp_braun: Convince the DBP to back Braun.
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+@convince_z_braun
+view-if: z_candidate != "Braun"
+go-to: convince_z_success_braun if ((z_relation >= 40 and not z_leader = "Kaas") or (z_relation >= 60 and z_leader = "Kaas")); convince_z_fail_braun if not ((z_relation >= 40 and not z_leader = "Kaas") or (z_relation >= 60 and z_leader = "Kaas"))
+
+We try to convince the Center Party to support Braun.
+
+@convince_z_success_braun
+on-arrival: z_relation += 3; z_candidate = "Braun"
+go-to: endorsements_braun
+
+Thanks to our friendly relations, the Center Party is now campaigning for Braun in the election.
+
+@convince_z_fail_braun
+on-arrival: z_relation -= 3
+go-to: endorsements_braun
+
+Unfortunately, the Center Party has refused to support Braun for the presidency.
+
+
+@convince_dbp_braun
+view-if: dbp_exist and dbp_candidate != "Braun"
+go-to: convince_dbp_success_braun if dbp_relation >= 40; convince_dbp_fail_braun if dbp_relation < 40
+
+We try to convince the DBP to support Braun.
+
+@convince_dbp_success_braun
+on-arrival: dbp_relation += 3; dbp_candidate = "Braun"
+go-to: endorsements_braun
+
+Thanks to our friendly relations, the DBP is now campaigning for Braun in the election.
+
+@convince_dbp_fail_braun
+on-arrival: dbp_relation -= 3
+go-to: endorsements_braun
+
+Unfortunately, the DBP has refused to support Braun for the presidency.
+
+
+@convince_ddp_braun
+view-if: ddp_exist and ddp_candidate != "Braun"
+go-to: convince_ddp_success_braun if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_braun if ddp_relation < 40
+
+The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
+
+@convince_ddp_success_braun
+on-arrival: ddp_relation += 5; ddp_candidate = "Braun"
+go-to: endorsements_braun
+
+Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for Braun in the election.
+
+@convince_ddp_fail_braun
+on-arrival: ddp_relation -= 5
+go-to: endorsements_braun
+
+Unfortunately, the [+ ddp_name +] has refused to support Braun for the presidency. 
