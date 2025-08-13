@@ -307,7 +307,7 @@ Unfortunately, we fail to turn them away from Braun.
 
 
 @round2_hindenburg
-view-if: dvp_candidate != "Hindenburg" and new_candidate_r2
+view-if: dvp_candidate != "Hindenburg" and not new_candidate_r2
 on-arrival: dvp_candidate = "Hindenburg"; new_candidate_r2 = 1
 go-to: round2_menu
 
@@ -315,7 +315,7 @@ We have switched our support to Hindenburg.
 
 
 @round2_braun
-view-if: dvp_candidate != "Braun" and braun_campaign and new_candidate_r2
+view-if: dvp_candidate != "Braun" and braun_campaign and not new_candidate_r2
 on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1
 go-to: round2_menu
 
