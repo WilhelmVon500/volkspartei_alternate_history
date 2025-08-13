@@ -33,7 +33,7 @@ if (Q.nsdap_candidate != "Hindenburg") {
     Q.hitler_votes += Q.nsdap_normalized;
 }
 
-Q.thalmann_votes += Q.kpd_normalized;}
+Q.thalmann_votes += Q.kpd_normalized;
 
 if (Q.spd_candidate == "Hindenburg") {
     Q.hindenburg_votes += Q.spd_normalized;
