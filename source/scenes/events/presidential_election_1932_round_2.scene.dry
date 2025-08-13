@@ -23,6 +23,8 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+Q.election_round = 2
+
 Q.hindenburg_votes = 0;
 Q.braun_votes = 0;
 Q.hitler_votes = 0;
