@@ -31,4 +31,4 @@ choose-if: not lvp_formed and not dvp_ideology = "Left"
 unavailable-subtitle: We are a liberal party!
 on-arrival: nationalist_strength += 7; liberal_dissent += 15; dvp_right += 3
 
-We attend the meeting.
+We attend the meeting. WIP!
