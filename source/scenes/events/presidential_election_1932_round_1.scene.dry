@@ -322,7 +322,7 @@ Hopefully Germany makes the right choice.
 @hindenburg_wins
 on-arrival: president = "Hindenburg"
 
-As expected, the incumbent Hindenburg wins the presidency. Let's hope he continues to keep the Nazis out of power.
+As expected, the incumbent Hindenburg wins the presidency.
 
 @thalmann_wins
 on-arrival: president = "Thälmann";
