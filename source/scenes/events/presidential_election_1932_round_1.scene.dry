@@ -1,5 +1,5 @@
 title: Presidential Election
-subtitle: Hindenburg runs for re-election...
+subtitle: [? if hindenburg_run: Hindenburg runs for re-election... ?][? if not hindenburg_run: The first round results have come in... ?]
 view-if: year = 1932 and month >= 3 and presidential_election_1932_seen = 0
 frequency: 1000
 max-visits: 1
@@ -25,7 +25,7 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
-Q.hindenburg_votes = 0;
+Q.reactionary_votes = 0;
 Q.eckener_votes = 0;
 Q.braun_votes = 0;
 Q.harzburg_votes = 0;
@@ -41,41 +41,41 @@ if (Q.dnvp_candidate == "Duesterberg") {
 }
 
 
-if (Q.spd_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.spd_normalized;
+if (Q.spd_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.spd_normalized;
 }
-if (Q.ddp_candidate == "Hindenburg" && Q.ddp_exist) {
-    Q.hindenburg_votes += Q.ddp_normalized;
+if (Q.ddp_candidate == reactionary_candidate && Q.ddp_exist) {
+    Q.reactionary_votes += Q.ddp_normalized;
 }
-if (Q.dbp_candidate == "Hindenburg" && Q.dbp_exist) {
-    Q.hindenburg_votes += Q.dbp_normalized;
+if (Q.dbp_candidate == reactionary_candidate && Q.dbp_exist) {
+    Q.reactionary_votes += Q.dbp_normalized;
 }
-if (Q.z_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.z_normalized;
+if (Q.z_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.z_normalized;
 }
-if (Q.dvp_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.dvp_normalized;
+if (Q.dvp_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.dvp_normalized;
 }
-if (Q.csvd_candidate == "Hindenburg" && Q.csvd_exist) {
-    Q.hindenburg_votes += Q.csvd_normalized;
+if (Q.csvd_candidate == reactionary_candidate && Q.csvd_exist) {
+    Q.reactionary_votes += Q.csvd_normalized;
 }
-if (Q.wp_candidate == "Hindenburg" && Q.wp_exist) {
-    Q.hindenburg_votes += Q.wp_normalized;
+if (Q.wp_candidate == reactionary_candidate && Q.wp_exist) {
+    Q.reactionary_votes += Q.wp_normalized;
 }
-if (Q.cnblp_candidate == "Hindenburg" && Q.cnblp_exist) {
-    Q.hindenburg_votes += Q.cnblp_normalized;
+if (Q.cnblp_candidate == reactionary_candidate && Q.cnblp_exist) {
+    Q.reactionary_votes += Q.cnblp_normalized;
 }
-if (Q.kvp_candidate == "Hindenburg" && Q.kvp_formed) {
-    Q.hindenburg_votes += Q.kvp_normalized;
+if (Q.kvp_candidate == reactionary_candidate && Q.kvp_formed) {
+    Q.reactionary_votes += Q.kvp_normalized;
 }
-if (Q.dnvp_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.dnvp_normalized;
+if (Q.dnvp_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.dnvp_normalized;
 }
-if (Q.other_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.other_normalized;
+if (Q.other_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.other_normalized;
 }
-if (Q.nsdap_candidate == "Hindenburg") {
-    Q.hindenburg_votes += Q.nsdap_normalized;
+if (Q.nsdap_candidate == reactionary_candidate) {
+    Q.reactionary_votes += Q.nsdap_normalized;
 }
 
 if (Q.eckener_campaign) {
@@ -138,45 +138,45 @@ if (Q.braun_campaign) {
 // }
 
 // check for majority
-Q.hindenburg_votes = Math.round(Q.hindenburg_votes*1000)/10;
+Q.reactionary_votes = Math.round(Q.reactionary_votes*1000)/10;
 Q.eckener_votes = Math.round(Q.eckener_votes*1000)/10;
 Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
 Q.harzburg_votes = Math.round(Q.harzburg_votes*1000)/10;
 Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
 Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
 
-Q.hindenburg_majority = (Q.hindenburg_votes >= 50);
+Q.reactionary_majority = (Q.reactionary_votes >= 50);
 Q.eckener_majority = (Q.eckener_votes >= 50);
 Q.braun_majority = (Q.braun_votes >= 50);
 Q.thalmann_majority = (Q.thalmann_votes >= 50);
 Q.harzburg_majority = (Q.harzburg_votes >= 50);
 Q.hitler_majority = (Q.hitler_votes >= 50);
-Q.any_majority = Q.hindenburg_majority | Q.eckener_majority | Q.braun_majority | Q.harzburg_majority | Q.thalmann_majority | Q.hitler_majority;
+Q.any_majority = Q.reactionary_majority | Q.eckener_majority | Q.braun_majority | Q.harzburg_majority | Q.thalmann_majority | Q.hitler_majority;
 
 // check for plurality
-Q.hindenburg_plurality = (Q.hindenburg_votes >= Q.hitler_votes && Q.hindenburg_votes >= Q.braun_votes && Q.hindenburg_votes >= Q.thalmann_votes && Q.hindenburg_votes >= Q.harzburg_votes && Q.hindenburg_votes >= Q.eckener_votes);
-Q.eckener_plurality = (Q.eckener_votes >= Q.hindenburg_votes && Q.eckener_votes >= Q.hitler_votes && Q.eckener_votes >= Q.braun_votes && Q.eckener_votes >= Q.thalmann_votes && Q.eckener_votes >= Q.harzburg_votes);
-Q.braun_plurality = (Q.braun_votes >= Q.hindenburg_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes && Q.braun_votes >= Q.harzburg_votes && Q.braun_votes >= Q.eckener_votes);
-Q.harzburg_plurality = (Q.harzburg_votes >= Q.hindenburg_votes && Q.harzburg_votes >= Q.braun_votes && Q.harzburg_votes >= Q.hitler_votes && Q.harzburg_votes >= Q.thalmann_votes && Q.harzburg_votes >= Q.eckener_votes);
-Q.thalmann_plurality = (Q.thalmann_votes >= Q.hindenburg_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes && Q.thalmann_votes >= Q.harzburg_votes && Q.thalmann_votes >= Q.eckener_votes);
-Q.hitler_plurality = (Q.hitler_votes >= Q.hindenburg_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes && Q.hitler_votes >= Q.harzburg_votes && Q.hitler_votes >= Q.eckener_votes);
+Q.reactionary_plurality = (Q.reactionary_votes >= Q.hitler_votes && Q.reactionary_votes >= Q.braun_votes && Q.reactionary_votes >= Q.thalmann_votes && Q.reactionary_votes >= Q.harzburg_votes && Q.reactionary_votes >= Q.eckener_votes);
+Q.eckener_plurality = (Q.eckener_votes >= Q.reactionary_votes && Q.eckener_votes >= Q.hitler_votes && Q.eckener_votes >= Q.braun_votes && Q.eckener_votes >= Q.thalmann_votes && Q.eckener_votes >= Q.harzburg_votes);
+Q.braun_plurality = (Q.braun_votes >= Q.reactionary_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes && Q.braun_votes >= Q.harzburg_votes && Q.braun_votes >= Q.eckener_votes);
+Q.harzburg_plurality = (Q.harzburg_votes >= Q.reactionary_votes && Q.harzburg_votes >= Q.braun_votes && Q.harzburg_votes >= Q.hitler_votes && Q.harzburg_votes >= Q.thalmann_votes && Q.harzburg_votes >= Q.eckener_votes);
+Q.thalmann_plurality = (Q.thalmann_votes >= Q.reactionary_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.hitler_votes && Q.thalmann_votes >= Q.harzburg_votes && Q.thalmann_votes >= Q.eckener_votes);
+Q.hitler_plurality = (Q.hitler_votes >= Q.reactionary_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.thalmann_votes && Q.hitler_votes >= Q.harzburg_votes && Q.hitler_votes >= Q.eckener_votes);
 // If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
 Q.election_round += 1;
 Q.new_candidate_r2 = 0;
 
 // making the vote numbers nicer for the display
-Q.hindenburg_votes_disp = Q.hindenburg_votes.toFixed(1);
+Q.reactionary_votes_disp = Q.reactionary_votes.toFixed(1);
 Q.eckener_votes_disp = Q.eckener_votes.toFixed(1);
 Q.braun_votes_disp = Q.braun_votes.toFixed(1);
 Q.harzburg_votes_disp = Q.harzburg_votes.toFixed(1);
 Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
 Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 !}
-go-to: hindenburg_wins if hindenburg_majority == 1; eckener_wins if eckener_majority == 1; thalmann_wins if thalmann_majority == 1; hitler_wins if hitler_majority == 1; braun_wins if braun_majority == 1; no_majority_round1 if any_majority == 0 and election_round == 1
+go-to: hindenburg_wins if reactionary_majority == 1 and reactionary_candidate = "Hindenburg"; lettow_vorbeck_wins if reactionary_majority == 1 and reactionary_candidate = "Lettow-Vorbeck"; eckener_wins if eckener_majority == 1; thalmann_wins if thalmann_majority == 1; hitler_wins if hitler_majority == 1; braun_wins if braun_majority == 1; no_majority_round1 if any_majority == 0 and election_round == 1
 
 Results:
 
-<span style="color: #808080;">**Hindenburg**</span> - [+ hindenburg_votes_disp +]%
+[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed == "Radical": <span style="color: #0087DC;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3E88B3;">**Paul von Lettow-Vorbeck**</span>?] ?] - [+ reactionary_votes_disp +]%
 
 [? if eckener_campaign: <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - [+ eckener_votes_disp +]% ?]
 
@@ -189,14 +189,14 @@ Results:
 <span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
 @no_majority_round1
-on-arrival: braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if dnvp_candidate = "Duesterberg"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Duesterberg"; nsdap_candidate = "Hindenburg" if (braun_plurality or eckener_plurality or thalmann_plurality); braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = "Hindenburg" if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = "Hindenburg" if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = "Hindenburg" if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); z_candidate = "Hindenburg" if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
+on-arrival: braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if dnvp_candidate = "Duesterberg"; dnvp_candidate = nsdap_candidate if dnvp_candidate = "Duesterberg"; nsdap_candidate = "Hindenburg" if (braun_plurality or eckener_plurality or thalmann_plurality and reactionary_candidate = "Hindenburg"); braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = reactionary_candidate if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = reactionary_candidate if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); z_candidate = reactionary_candidate if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
 go-to: round2_menu
 
 There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
 
 [? if duesterberg_r1: Following last month’s events, Duesterberg has withdrawn from the race. ?]
 
-[? if braun_plurality or eckener_plurality or thalmann_plurality: In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to Hindenburg. ?]
+[? if braun_plurality or eckener_plurality or thalmann_plurality: In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to [+ reactionary_candidate+]. ?]
 
 [? if (hitler_plurality or harzburg_plurality) and braun_r1: In order to consolidate the vote for the Republicans, and to prevent a rightist from becoming president, Braun is no longer running in the second round, and has switched his endorsement to [+ spd_candidate+]. ?]
 
@@ -206,19 +206,20 @@ There is no majority in this round. In the second round, any candidate who wins 
 - @round2_convince_z_braun: Convince the Center to switch their support to us.
 - @round2_convince_ddp_braun: Convince the [+ ddp_name +] to switch their support to us.
 - @round2_convince_dbp_braun: Convince the DBP to switch their support to us.
-- @round2_convince_z_hindenburg: Convince the Center to switch their support to us.
-- @round2_convince_ddp_hindenburg: Convince the [+ ddp_name +] to switch their support to us.
-- @round2_convince_dbp_hindenburg: Convince the DBP to switch their support to us.
-- @round2_convince_spd_hindenburg: Convince the SPD to switch their support to us.
+- @round2_convince_z_reactionary: Convince the Center to switch their support to us.
+- @round2_convince_ddp_reactionary: Convince the [+ ddp_name +] to switch their support to us.
+- @round2_convince_dbp_reactionary: Convince the DBP to switch their support to us.
+- @round2_convince_spd_reactionary: Convince the SPD to switch their support to us.
 - @round2_convince_z_eckener: Convince the Center to switch their support to us.
 - @round2_convince_ddp_eckener: Convince the [+ ddp_name +] to switch their support to us.
 - @round2_convince_dbp_eckener: Convince the DBP to switch their support to us.
 - @round2_convince_spd_eckener: Convince the SPD to switch their support to us.
 - @round2_convince_csvd_eckener: Convince the CSVD to switch their support to us.
 - @round2_convince_wp_eckener: Convince the WP to switch their support to us.
+- @round2_convince_cnblp_eckener: Convince the CNBLP to switch their support to us.
 - @round2_convince_kvp_eckener: Convince the KVP to switch their support to us.
 - @round2_convince_dnvp_eckener: Convince the DNVP to switch their support to us.
-- @round2_hindenburg: Switch our support to Hindenburg.
+- @round2_reactionary: Switch our support to [+reactionary_candidate+].
 - @round2_braun: Switch our support to Braun.
 - @round2_vote: Let the second round voting begin.
 
@@ -231,12 +232,12 @@ go-to: r2_z_failed_braun if z_relation < 35; r2_z_success_braun if z_relation >=
 max-visits: 1
 
 @r2_z_success_braun
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes; z_candidate = "Braun"; braun_votes += z_votes; z_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Braun"; braun_votes += z_votes; z_relation += 3
 go-to: round2_menu
 
 [? if nsdap_candidate = "Hindenburg" and z_candidate = "Hindenburg": The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Braun coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and braun_votes + z_votes > hitler_votes: With the Center Party supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and braun_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the Center Party supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
 @r2_z_failed_braun
 on-arrival: z_relation -= 3
@@ -252,12 +253,12 @@ go-to: r2_ddp_failed_braun if ddp_relation < 35; r2_ddp_success_braun if ddp_rel
 max-visits: 1
 
 @r2_ddp_success_braun
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes; ddp_candidate = "Braun"; braun_votes += ddp_votes; ddp_relation += 5
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; ddp_candidate = "Braun"; braun_votes += ddp_votes; ddp_relation += 5
 go-to: round2_menu
 
 The [+ ddp_name +] are convinced! They will be part of the Braun coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and braun_votes + ddp_votes > hitler_votes: With the [+ ddp_name +] supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and braun_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the [+ ddp_name +] supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
 @r2_ddp_failed_braun
 on-arrival: ddp_relation -= 5
@@ -273,12 +274,12 @@ go-to: r2_dbp_failed_braun if dbp_relation < 35; r2_dbp_success_braun if dbp_rel
 max-visits: 1
 
 @r2_dbp_success_braun
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes; dbp_candidate = "Braun"; braun_votes += dbp_votes; dbp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; dbp_candidate = "Braun"; braun_votes += dbp_votes; dbp_relation += 3
 go-to: round2_menu
 
 The DBP are convinced! They will be part of the Braun coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and braun_votes + dbp_votes > hitler_votes: With the DBP supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and braun_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the DBP supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
 @r2_dbp_failed_braun
 on-arrival: dbp_relation -= 3
@@ -313,12 +314,12 @@ go-to: r2_z_failed_eckener if z_relation < 35; r2_z_success_eckener if z_relatio
 max-visits: 1
 
 @r2_z_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + z_votes > hitler_votes; z_candidate = "Eckener"; eckener_votes += z_votes; z_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Eckener"; eckener_votes += z_votes; z_relation += 3
 go-to: round2_menu
 
 [? if nsdap_candidate = "Hindenburg" and z_candidate = "Hindenburg": The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + z_votes > hitler_votes: With the Center Party supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the Center Party supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_z_failed_eckener
 on-arrival: z_relation -= 3
@@ -334,12 +335,12 @@ go-to: r2_ddp_failed_eckener if ddp_relation < 35; r2_ddp_success_eckener if ddp
 max-visits: 1
 
 @r2_ddp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + ddp_votes > hitler_votes; ddp_candidate = "Eckener"; eckener_votes += ddp_votes; ddp_relation += 5
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; ddp_candidate = "Eckener"; eckener_votes += ddp_votes; ddp_relation += 5
 go-to: round2_menu
 
-The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
+The [+ ddp_name +] are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + ddp_votes > hitler_votes: With the [+ ddp_name +] supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the [+ ddp_name +] supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_ddp_failed_eckener
 on-arrival: ddp_relation -= 5
@@ -355,12 +356,12 @@ go-to: r2_dbp_failed_eckener if dbp_relation < 35; r2_dbp_success_eckener if dbp
 max-visits: 1
 
 @r2_dbp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dbp_votes > hitler_votes; dbp_candidate = "Eckener"; eckener_votes += dbp_votes; dbp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; dbp_candidate = "Eckener"; eckener_votes += dbp_votes; dbp_relation += 3
 go-to: round2_menu
 
 The DBP are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + dbp_votes > hitler_votes: With the DBP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the DBP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_dbp_failed_eckener
 on-arrival: dbp_relation -= 3
@@ -375,12 +376,12 @@ go-to: r2_csvd_failed_eckener if csvd_relation < 35; r2_csvd_success_eckener if 
 max-visits: 1
 
 @r2_csvd_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + csvd_votes > hitler_votes; csvd_candidate = "Eckener"; eckener_votes += csvd_votes; csvd_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + csvd_votes > hitler_votes and reactionary_candidate = "Hindenburg"; csvd_candidate = "Eckener"; eckener_votes += csvd_votes; csvd_relation += 3
 go-to: round2_menu
 
 The CSVD are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + csvd_votes > hitler_votes: With the CSVD supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + csvd_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the CSVD supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_csvd_failed_eckener
 on-arrival: csvd_relation -= 3
@@ -395,12 +396,12 @@ go-to: r2_wp_failed_eckener if (wp_relation >= 40 and wp_ideology = "Moderate");
 max-visits: 1
 
 @r2_wp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + wp_votes > hitler_votes; wp_candidate = "Eckener"; eckener_votes += wp_votes; wp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + wp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; wp_candidate = "Eckener"; eckener_votes += wp_votes; wp_relation += 3
 go-to: round2_menu
 
 The WP are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + wp_votes > hitler_votes: With the WP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + wp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the WP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_wp_failed_eckener
 on-arrival: wp_relation -= 3
@@ -409,18 +410,38 @@ go-to: round2_menu
 Unfortunately, we fail to turn them away from [+wp_candidate+].
 
 
+@round2_convince_cnblp_eckener
+view-if: cnblp_candidate != dvp_candidate and dvp_candidate = "Eckener" and cnblp_formed
+go-to: r2_cnblp_failed_eckener if cnblp_relation < 45; r2_cnblp_success_eckener if cnblp_relation >= 45
+max-visits: 1
+
+@r2_cnblp_success_eckener
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + cnblp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; cnblp_candidate = "Eckener"; eckener_votes += cnblp_votes; cnblp_relation += 3
+go-to: round2_menu
+
+The KVP are convinced! They will be part of the Eckener coalition.
+
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + cnblp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the KVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+
+@r2_cnblp_failed_eckener
+on-arrival: cnblp_relation -= 3
+go-to: round2_menu
+
+Unfortunately, we fail to turn them away from [+cnblp_candidate+].
+
+
 @round2_convince_kvp_eckener
 view-if: kvp_candidate != dvp_candidate and dvp_candidate = "Eckener" and kvp_formed
 go-to: r2_kvp_failed_eckener if kvp_relation < 45; r2_kvp_success_eckener if kvp_relation >= 45
 max-visits: 1
 
 @r2_kvp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + kvp_votes > hitler_votes; kvp_candidate = "Eckener"; eckener_votes += kvp_votes; kvp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + kvp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; kvp_candidate = "Eckener"; eckener_votes += kvp_votes; kvp_relation += 3
 go-to: round2_menu
 
 The KVP are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + kvp_votes > hitler_votes: With the KVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + kvp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the KVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_kvp_failed_eckener
 on-arrival: kvp_relation -= 3
@@ -435,12 +456,12 @@ go-to: r2_dnvp_failed_eckener if dnvp_relation < 45; r2_dnvp_success_eckener if 
 max-visits: 1
 
 @r2_dnvp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dnvp_votes > hitler_votes; dnvp_candidate = "Eckener"; eckener_votes += dnvp_votes; dnvp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dnvp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; dnvp_candidate = "Eckener"; eckener_votes += dnvp_votes; dnvp_relation += 3
 go-to: round2_menu
 
 The DNVP are convinced! They will be part of the Eckener coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + dnvp_votes > hitler_votes: With the DNVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + dnvp_votes > hitler_votes and reactionary_candidate = "Hindenburg": With the DNVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_dnvp_failed_eckener
 on-arrival: dnvp_relation -= 3
@@ -452,15 +473,15 @@ Unfortunately, we fail to turn them away from [+dnvp_candidate+].
 
 
 @round2_convince_z_hindenburg
-view-if: z_candidate != dvp_candidate and dvp_candidate = "Hindenburg"
+view-if: z_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
 go-to: r2_z_failed_hindenburg if z_relation < 45; r2_z_success_hindenburg if z_relation >= 45
 max-visits: 1
 
 @r2_z_success_hindenburg
-on-arrival: z_candidate = "Hindenburg"; z_relation += 3
+on-arrival: z_candidate = reactionary_candidate; z_relation += 3
 go-to: round2_menu
 
-The Center are convinced! They will be part of the Hindenburg coalition.
+The Center are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
 @r2_z_failed_hindenburg
 on-arrival: z_relation -= 3
@@ -470,15 +491,15 @@ Unfortunately, we fail to turn them away from [+z_candidate+].
 
 
 @round2_convince_ddp_hindenburg
-view-if: ddp_candidate != dvp_candidate and dvp_candidate = "Hindenburg" and ddp_exist
+view-if: ddp_candidate != dvp_candidate and dvp_candidate = reactionary_candidate and ddp_exist
 go-to: r2_ddp_failed_hindenburg if ddp_relation < 45; r2_ddp_success_hindenburg if ddp_relation >= 45
 max-visits: 1
 
 @r2_ddp_success_hindenburg
-on-arrival: ddp_candidate = "Hindenburg"; ddp_relation += 5
+on-arrival: ddp_candidate = reactionary_candidate; ddp_relation += 5
 go-to: round2_menu
 
-The [+ ddp_name +] are convinced! They will be part of the Hindenburg coalition.
+The [+ ddp_name +] are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
 @r2_ddp_failed_hindenburg
 on-arrival: ddp_relation -= 5
@@ -488,15 +509,15 @@ Unfortunately, we fail to turn them away from [+ddp_candidate+].
 
 
 @round2_convince_dbp_hindenburg
-view-if: dbp_candidate != dvp_candidate and dvp_candidate = "Hindenburg" and dbp_exist
+view-if: dbp_candidate != dvp_candidate and dvp_candidate = reactionary_candidate and dbp_exist
 go-to: r2_dbp_failed_hindenburg if dbp_relation < 45; r2_dbp_success_hindenburg if dbp_relation >= 45
 max-visits: 1
 
 @r2_dbp_success_hindenburg
-on-arrival: dbp_candidate = "Hindenburg"; dbp_relation += 3
+on-arrival: dbp_candidate = reactionary_candidate; dbp_relation += 3
 go-to: round2_menu
 
-The DBP are convinced! They will be part of the Hindenburg coalition.
+The DBP are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
 @r2_dbp_failed_hindenburg
 on-arrival: dbp_relation -= 3
@@ -506,15 +527,15 @@ Unfortunately, we fail to turn them away from [+dbp_candidate+].
 
 
 @round2_convince_spd_hindenburg
-view-if: spd_candidate != dvp_candidate and dvp_candidate = "Hindenburg"
+view-if: spd_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
 go-to: r2_spd_failed_hindenburg if spd_relation < 45; r2_spd_success_hindenburg if spd_relation >= 45
 max-visits: 1
 
 @r2_spd_success_hindenburg
-on-arrival: spd_candidate = "Hindenburg"; braun_campaign = 0; z_candidate = "Hindenburg" if z_candidate = "Braun"; dbp_candidate = "Hindenburg" if dbp_candidate = "Braun"; ddp_candidate = "Hindenburg" if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
+on-arrival: spd_candidate = reactionary_candidate; braun_campaign = 0; z_candidate = reactionary_candidate if z_candidate = "Braun"; dbp_candidate = reactionary_candidate if dbp_candidate = "Braun"; ddp_candidate = reactionary_candidate if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
 go-to: round2_menu
 
-The SPD are convinced! They will be part of the Hindenburg coalition.
+The SPD are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
 @r2_spd_failed_hindenburg
 on-arrival: spd_relation -= 3
@@ -527,11 +548,11 @@ Unfortunately, we fail to turn them away from [+spd_candidate+].
 
 
 @round2_hindenburg
-view-if: dvp_candidate != "Hindenburg" and not new_candidate_r2
-on-arrival: dvp_candidate = "Hindenburg"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener" and braun_campaign; ddp_candidate = "Hindenburg" if ddp_candidate = "Eckener" and not braun_campaign; dbp_candidate = "Braun" if dbp_candidate = "Eckener" and braun_campaign; dbp_candidate = "Hindenburg" if dbp_candidate = "Eckener" and not braun_campaign; z_candidate = "Braun" if z_candidate = "Eckener" and braun_campaign and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and (not braun_campaign or z_leader != "Joos"); csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener"; progressive_dissent += 10 if braun_campaign
+view-if: dvp_candidate != reactionary_candidate and not new_candidate_r2
+on-arrival: dvp_candidate = reactionary_candidate; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener" and braun_campaign; ddp_candidate = reactionary_candidate if ddp_candidate = "Eckener" and not braun_campaign; dbp_candidate = "Braun" if dbp_candidate = "Eckener" and braun_campaign; dbp_candidate = reactionary_candidate if dbp_candidate = "Eckener" and not braun_campaign; z_candidate = "Braun" if z_candidate = "Eckener" and braun_campaign and z_leader = "Joos"; z_candidate = reactionary_candidate if z_candidate = "Eckener" and (not braun_campaign or z_leader != "Joos"); csvd_candidate = reactionary_candidate if csvd_candidate = "Eckener"; wp_candidate = reactionary_candidate if wp_candidate = "Eckener"; kvp_candidate = reactionary_candidate if kvp_candidate = "Eckener"; dnvp_candidate = reactionary_candidate if dnvp_candidate = "Eckener"; progressive_dissent += 10 if braun_campaign
 go-to: round2_menu
 
-We have switched our support to Hindenburg.
+We have switched our support to [+reactionary_candidate+].
 
 
 @round2_braun
@@ -551,6 +572,11 @@ Hopefully Germany makes the right choice.
 on-arrival: president = "Hindenburg"
 
 As expected, the incumbent Hindenburg wins the presidency.
+
+@lettow_vorbeck_wins
+on-arrival: president = "Lettow-Vorbeck"
+
+Paul von Lettow-Vorbeck, a nationalist not far different from Hindenburg, has been elected president.
 
 @eckener_wins
 on-arrival: president = "Eckener"; new_middle_dvp += 5; old_middle_dvp += 5
