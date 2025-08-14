@@ -3,18 +3,53 @@ subtitle: The <span style="color: #DCCA4A;">**German Democratic Party**</span> i
 view-if: year == 1930 and month >= 6 and not lvp_formed
 new-page: true
 max-visits: 1
-on-arrival: ddp_name = "DStP"; ddp_dstp_seen = 1; new_middle_ddp -= 5; old_middle_ddp -= 3; rural_ddp -= 3
+on-arrival: {!
+Q.dstp_formation_points = 0;
+if (Q.ddp_votes < 3.7) {
+    Q.dstp_formation_points += 1;
+}
+if (Q.next_election_time - Q.time < 6) {
+    Q.dstp_formation_points += 1;
+}
+if (Q.dvp_ideology == "Right") {
+    Q.dstp_formation_points += 1;
+}
+if ((100 - Q.pro_republic) + Q.nationalism >= 90) {
+    Q.dstp_formation_points += 1;
+}
+if (Q.major_curriculum == "humanist") {
+    Q.dstp_formation_points += 3;
+} else if (Q.minor_curriculum == "humanist") {
+    Q.dstp_formation_points += 1;
+}
+if (Q.ddp_relation < 50) {
+    Q.dstp_formation_points += 1;
+}
+!}
+
 tags: event
 
 = <span style="color: #DCCA4A;">**DDP**</span> Reformation
 
-Leaders of the <span style="color: #DCCA4A;">**German Democratic Party**</span>, seeing the party's vote share fall over time, has decided that now is the time to completely reform the party. The party leader, Erich Koch-Weser, has engineered a merger with the political arm of the <span style="color: #D3D3A9;">**Young German Order**</span>, a nationalist paramilitary group. Now, the party will be called the <span style="color: #DCCA4A;">**German State Party**</span>, or <span style="color: #DCCA4A;">**DStP**</span>.
+The <span style="color: #DCCA4A;">**DDP**</span> is a fascinating party, plagued by infighting since the republic's foundation and struggling to define its platform in a failed attempt to appeal to voters from all demographics.[? if stolper_program_adopted: Recently, however, the party seems to have turned a new page, rallying around a renewed focus on middle-class interests. ?][? if not stolper_program_adopted: A recent attempt to shift focus toward the middle class has been quietly buried due to internal dissent, perhaps factionalism and personal rivalries may be a permanent feature of this party. ?]
 
-This has led to outcry from the left wing of the party, progressives who would rather not work with antisemites and conservative nationalists.
+Pessimism is a widespread feeling within the party, leading to mounting pressure on leader Koch-Weser to do "something". After weeks of secret negotiations, the <span style="color: #DCCA4A;">**DDP**</span> is announcing the result of a proposed merger of the <span style="color: #DCCA4A;">**DDP**</span> and <span style="color: #D3D3A9;">**VNR**</span>.
 
-- @advantage: The <span style="color: #E3000F;">**SPD**</span> recruits disaffected progressives to the their party.
+- @dstp_formed: The <span style="color: #DCCA4A;">**DStP**</span> is formed.
+- @status_quo: The negotiations fail.
 
-@advantage
-on-arrival: new_middle_spd += 5
+@dstp_formed
+view-if: dstp_formation_points >= 3
+on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
 
-With turmoil in the <span style="color: #DCCA4A;">**DDP**</span>, <span style="color: #E3000F;">**SPD**</span> has an opportunity to recruit middle-class progressives and portions of the liberal intelligensia into their party.
+This has come as a complete shock to those inside and outside the party, for the <span style="color: #DCCA4A;">**DDP**</span> to merge with the political wing of a mildly anti-Semitic paramilitary group "Young German Order".
+
+In this agreement, the <span style="color: #DCCA4A;">**DDP**</span> has promised a "extension of the party to the right". Despite this, the formation of the <span style="color: #DCCA4A;">**DStP**</span> wasn't a simple left-right divide within the party, the Social Republican Circle and labor leader Ernst Lemmer helps prevent a major split among the left.
+
+@status_quo
+view-if: dstp_formation_points < 3
+on-arrival: dstp_formed = 0; pro_republic += 3
+
+As expected, a merger between a moderately anti-Semitic organization and a party seen as the party for the Jews has failed, with the Young German Order leader Artur Mahraun leaving negotiations citing irreconcilable differences.
+
+However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party
