@@ -47,7 +47,7 @@ Q.dissent_percent = 5;
 
 
 Q.dvp_left = 5
-Q.dvp_right = 0
+Q.dvp_right = 2
 
 // factions
 Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
@@ -282,13 +282,14 @@ Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
 
-Q.ddp_exist = 1
-Q.dstp_formed = 0
-
 Q.dbp_exist = 1
 Q.wp_exist = 1
 Q.cnblp_exist = 1
 Q.csvd_exist = 0
+
+Q.ddp_exist = 1
+Q.dstp_formed = 0
+Q.stolper_program_adopted
 
 
 Q.wp_ideology = "Moderate"
