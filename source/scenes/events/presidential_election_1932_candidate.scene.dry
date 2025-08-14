@@ -422,6 +422,7 @@ Unfortunately, the [+ ddp_name +] has refused to support Eckener for the preside
 
 
 @convince_spd_eckener
+view-if: spd_candidate != dvp_candidate and dvp_candidate = "Eckener"
 choose-if: braun_votes < (hitler_votes + harzburg_votes)
 unavailable-subtitle: The Social Democrats are stronger than the far-right.
 go-to: convince_spd_success_eckener if spd_relation >= 45; convince_spd_fail_eckener if not spd_relation >= 45
