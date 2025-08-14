@@ -47,7 +47,7 @@ Q.dissent_percent = 5;
 
 
 Q.dvp_left = 5
-Q.dvp_right = 2
+Q.dvp_right = 1
 
 // factions
 Q.factions = ['nationalist', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
