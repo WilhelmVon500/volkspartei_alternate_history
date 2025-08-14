@@ -41,40 +41,40 @@ if (Q.dnvp_candidate == "Duesterberg") {
 }
 
 
-if (Q.spd_candidate == reactionary_candidate) {
+if (Q.spd_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.spd_normalized;
 }
-if (Q.ddp_candidate == reactionary_candidate && Q.ddp_exist) {
+if (Q.ddp_candidate == Q.reactionary_candidate && Q.ddp_exist) {
     Q.reactionary_votes += Q.ddp_normalized;
 }
-if (Q.dbp_candidate == reactionary_candidate && Q.dbp_exist) {
+if (Q.dbp_candidate == Q.reactionary_candidate && Q.dbp_exist) {
     Q.reactionary_votes += Q.dbp_normalized;
 }
-if (Q.z_candidate == reactionary_candidate) {
+if (Q.z_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.z_normalized;
 }
-if (Q.dvp_candidate == reactionary_candidate) {
+if (Q.dvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dvp_normalized;
 }
-if (Q.csvd_candidate == reactionary_candidate && Q.csvd_exist) {
+if (Q.csvd_candidate == Q.reactionary_candidate && Q.csvd_exist) {
     Q.reactionary_votes += Q.csvd_normalized;
 }
-if (Q.wp_candidate == reactionary_candidate && Q.wp_exist) {
+if (Q.wp_candidate == Q.reactionary_candidate && Q.wp_exist) {
     Q.reactionary_votes += Q.wp_normalized;
 }
-if (Q.cnblp_candidate == reactionary_candidate && Q.cnblp_exist) {
+if (Q.cnblp_candidate == Q.reactionary_candidate && Q.cnblp_exist) {
     Q.reactionary_votes += Q.cnblp_normalized;
 }
-if (Q.kvp_candidate == reactionary_candidate && Q.kvp_formed) {
+if (Q.kvp_candidate == Q.reactionary_candidate && Q.kvp_formed) {
     Q.reactionary_votes += Q.kvp_normalized;
 }
-if (Q.dnvp_candidate == reactionary_candidate) {
+if (Q.dnvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dnvp_normalized;
 }
-if (Q.other_candidate == reactionary_candidate) {
+if (Q.other_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.other_normalized;
 }
-if (Q.nsdap_candidate == reactionary_candidate) {
+if (Q.nsdap_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.nsdap_normalized;
 }
 
