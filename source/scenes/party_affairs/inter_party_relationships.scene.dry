@@ -11,7 +11,7 @@ card-image: img/weimar_coalition_2.jpg
 
 The <span style="color: #C0A054;">**DVP**</span> cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the Bourgeois Coalitions of the <span style="color: #C0A054;">**DVP**</span>, Center, BVP, and Democratic parties. We can reach out and build additional connections with these parties, or perhaps we can stand alone.
 
-- @liberals: Strengthen our bonds with the left-liberal German Democratic Party
+- @ddp: Strengthen our bonds with the left-liberal German Democratic Party
 - @center: Strengthen our bonds with the Catholic Center Party.
 - @spd: Strengthen our bonds with the Social Democratic Party.
 - @kvp: Strengthen our bonds with the Conservative People's Party.
@@ -52,12 +52,12 @@ on-arrival: resources -= 1; z_relation += 7*(1 - dissent)
 The Zentrum has been one of our closest allies through the course of the Republic.
 
 
-@liberals
+@ddp
 subtitle: -1 resources
 choose-if: resources >= 1
 view-if: not lvp_formed
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; ddp_relation += 5*(1 - dissent)
+on-arrival: resources -= 1; ddp_relation += 5*(1 - dissent); ddp_right += 1
 
 The [+ ddp_name +] has been one of our closest allies through the course of the Republic.
 
