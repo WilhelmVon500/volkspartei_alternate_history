@@ -1,6 +1,6 @@
 title: Presidential Election
 subtitle: The second round results have come in...
-view-if: year = 1932 and month == 4
+view-if: year = 1932 and month == 4 and presidential_election_r2_trigger
 frequency: 1000
 max-visits: 1
 new-page: true
