@@ -1,0 +1,152 @@
+title: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Party Congress
+subtitle: The <span style="color: #DCCA4A;">[+ ddp_name +]</span> decides their fate...
+view-if: year == 1930 and month >= 11 and ddp_exist and not dstp_formed
+on-arrival: {!
+Q.lemmer_points = 0;
+Q.heuss_points = 0;
+Q.dietrich_points = 0;
+
+if (Q.ddp_relation >= 45) {
+    Q.ddp_right += 2;
+    Q.ddp_cohesion -= 1;
+}
+if (Q.ddp_relation < 45) {
+    Q.ddp_left += 2;
+    Q.ddp_cohesion += 1;
+}
+
+if (Q.unemployed >= 18) {
+    Q.lemmer_points -= 1;
+}
+if (Q.liberals_resign) {
+    Q.lemmer_points += 3;
+} else if (Q.liberal_dissent >= 30) {
+    Q.lemmer_points += 1;
+}
+if (Q.major_curriculum == "humanist") {
+    Q.lemmer_points += 1;
+} else if (Q.major_curriculum == "democratic") {
+    Q.heuss_points += 1;
+}
+if (Q.pro_republic >= 75) {
+    Q.heuss_points += 2;
+    Q.lemmer_points += 1;
+    Q.ddp_left += 3;
+} else if (Q.pro_republic >= 60) {
+    Q.heuss_points += 1;
+    Q.ddp_left += 1;
+} else if (Q.pro_republic < 45) {
+    Q.ddp_right += 1;
+    Q.dietrich_points += 1;
+    Q.heuss_points -= 1;
+}
+if (Q.nationalism >= 55) {
+    Q.lemmer_points += 1;
+}
+if (Q.chancellor == "Brüning" && !Q.spd_in_government) {
+    Q.dietrich_points += 1;
+    Q.ddp_right += 2;
+}
+if (Q.stolper_program_adopted) {
+    Q.heuss_points += 1;
+    Q.dietrich_points += 2;
+    Q.lemmer_points -= 2;
+}
+if (Q.ddp_cohesion >= 10) {
+    Q.heuss_points += 1;
+} else if (Q.ddp_cohesion <= 5) {
+    Q.dietrich_points += 1;
+    Q.lemmer_points += 1;
+}
+if (Q.ddp_right > (Q.ddp_left + 4)) {
+    Q.ddp_ideology = "Right"
+} else if (Q.ddp_left > (Q.ddp_right + 4)) {
+    Q.ddp_ideology = "Left"
+} else {
+    Q.ddp_ideology = "Moderate"
+}
+
+if (Q.ddp_ideology == "Right") {
+    Q.dietrich_points += 3;
+} else if (Q.ddp_ideology == "Moderate") {
+    Q.heuss_points += 1;
+} else if (Q.ddp_ideology == "Left") {
+    Q.lemmer_points += 3;
+}
+
+if (Q.heuss_points > Q.dietrich_points && Q.heuss_points > Q.lemmer_points) {
+    Q.heuss_lead_ddp = 1;
+} else {
+    Q.heuss_lead_ddp = 0;
+}
+
+if (Q.dietrich_points > Q.heuss_points && Q.dietrich_points > Q.lemmer_points) {
+    Q.dietrich_lead = 1;
+} else {
+    Q.dietrich_lead = 0;
+}
+
+if (Q.lemmer_points > Q.heuss_points && Q.lemmer_points > Q.dietrich_points) {
+    Q.lemmer_lead = 1;
+} else {
+    Q.lemmer_lead = 0;
+}
+
+if (!Q.dietrich_lead && !Q.heuss_lead_ddp && !Q.lemmer_lead) {
+    Q.ddp_deadlock = 1;
+} else {
+    Q.ddp_deadlock = 0;
+}
+
+!}
+max-visits: 1
+tags: event
+face-image: img/ddp.jpg
+new-page: true
+
+= <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Party Congress
+
+Koch-Weser, the long-time leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, has finally resigned. The internal opposition, especially following the Young German Order debacle, has reached a level that forced his retirement, though the demoralizing impact of being chairman of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> out of all parties have also contributed significantly.
+
+This year’s <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> party congress is officially convened to elect a new leader and to determine the party's policies amid the worsening economic depression that threatens the survival of the bourgeois middle. The candidates to succeed Koch-Weser so far include Hermann Dietrich, representing the business wing; Theodor Heuss, a committed supporter of liberal democracy; and Ernst Lemmer, the leader of the liberal trade unions and the party's left wing.
+
+- @lemmer: The party votes...
+- @heuss: The party votes...
+- @dietrich: The party votes...
+- @deadlock: The party votes...
+
+@lemmer
+view-if: lemmer_lead
+on-arrival: ddp_leader = "Lemmer"; ddp_relation -= 5; ddp_relation -= 10 if dvp_ideology = "Right"; workers_ddp += 6; catholics_ddp += 2; workers_spd -= 4; workers_z -= 2; pro_republic += ddp_votes; ddp_left += 5; ddp_cohesion -= 3; new_middle_ddp -= 4 if stolper_program_adopted; old_middle_ddp -= 4 if stolper_program_adopted; new_middle_ddp -= 2; old_middle_ddp -= 2; rural_ddp -= 1;
+face-image: img/portraits/LemmerErnst.jpg
+
+Surprisingly, Ernst Lemmer has managed to rally a majority of the party to elect him as the chairman of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>. He is primarily supported by the 'Social Republican Wing,' the Young Democrats, pacifists, radical democrats, and the labor wing of the party. However, his election would not have been possible without the backing of those who worked alongside him in the failed attempt to unite with the <span style="color: #D3D3A9;">**VNR**</span> months earlier. Now, a trade unionist leads a liberal middle-class party—what a time we live in.
+
+Lemmer's victory significantly empowers the Social Republicans and left-wing elements within the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, even drawing his former colleague Anton Erkelenz back into politics. We can expect his <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> to adopt a 'social capitalist' platform,[? if stolper_program_adopted: to replace the Stolper program,?] aiming to include workers in the *Volksgemeinschaft*.
+
+@heuss
+view-if: heuss_lead_ddp
+on-arrival: ddp_leader = "Heuss"; ddp_relation -= 10 if dvp_ideology = "Right"; ddp_cohesion += 3; pro_republic += (ddp_votes*2); ddp_left += 2 if ddp_ideology == "Right"; ddp_right += 2 if ddp_ideology == "Left"; liberal_cooperation += 1; new_middle_ddp += ((pro_republic + (ddp_cohesion * 10)) / 40); old_middle_ddp += ((pro_republic + (ddp_cohesion * 10)) / 40); new_middle_nsdap -= ((pro_republic + (ddp_cohesion * 10)) / 40); old_middle_nsdap -= ((pro_republic + (ddp_cohesion * 10)) / 40); rural_ddp += 1; workers_ddp += 0.5;
+face-image: img/portraits/HeussTheodor.jpg
+
+Theodor Heuss a journalist turned politician and a rising star has been elected as the chairman of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>. Although affiliated with the business wing of the party, his determined and genuine support for liberal democracy has earned him support from the party's left wing. 
+
+Heuss's victory strengthens the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s cooperation with all republican parties, as he has urged his party members that it is crucial to save German democracy. Despite his leanings toward the right, he has refrained from ousting the far-left elements of the party or shifting its platform drastically.
+
+@dietrich
+view-if: dietrich_lead
+on-arrival: ddp_leader = "Dietrich"; ddp_right += 1; new_middle_ddp -= 2; old_middle_ddp -= 1; rural_ddp += 2;
+face-image: img/portraits/DietrichHermann.jpg
+
+Hermann Dietrich has, as expected, won the election to become chairman of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, receiving support from the newly dominant business wing of the party, as well as from the old-line <span style="color: #DCCA4A;">democrats</span> who joined him in opposing the merger with the <span style="color: #D3D3A9;">**VNR**</span>.
+
+However, his leadership has been quite uninspiring, to say the least—a sentiment shared by many within the party, though no one seems willing to challenge him.
+
+@deadlock
+view-if: ddp_deadlock
+
+The vote has been deadlocked, with no candidate ahead by enough to constitute a majority. The party has to choose a compromise candidate.
+- @heuss_compromise: Theodor Heuss.
+
+@heuss_compromise
+go-to: heuss
