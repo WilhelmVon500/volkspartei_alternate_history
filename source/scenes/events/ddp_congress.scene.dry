@@ -101,7 +101,6 @@ if (!Q.dietrich_lead && !Q.heuss_lead_ddp && !Q.lemmer_lead) {
 !}
 max-visits: 1
 tags: event
-face-image: img/ddp.jpg
 new-page: true
 
 = <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Party Congress
