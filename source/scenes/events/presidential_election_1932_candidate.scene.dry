@@ -75,7 +75,6 @@ President Hindenburg is, of course, running for re-election, and many in our par
 - @harzburg: We await the decision of the Harzburg Front.
 
 @reactionary_candidates
-face-image: img/portraits/Hindenburg.jpg
 view-if: not hindenburg_run
 
 With local elections fast approaching, many parties have opted not to field their own candidates, instead consolidating their support behind one candidate.
