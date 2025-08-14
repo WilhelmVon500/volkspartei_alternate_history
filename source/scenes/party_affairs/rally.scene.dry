@@ -29,7 +29,7 @@ on-arrival: new_middle_dvp += 2*(1-dissent); old_middle_dvp += 2*(1-dissent); wo
 The nationalists and industrialists have grown suspicious of our motives, while the democratic parties and especially the SPD has become curious with the possibility of further cooperation. Voters from outside our traditional blocs have even taken an interest with our rally.
 
 @democracy
-on-arrival: new_middle_dvp += 3*(1-dissent); democratization += 1; pro_republic += 2*(1 - dissent); new_middle_dvp += 3*(1-dissent) if democratization >= 3; old_middle_dvp += 3*(1-dissent) if democratization >= 3; workers_dvp += 2*(1-dissent) if democratization >= 3 and dvp_ideology = "Left"; pro_republic += 4*(1 - dissent) if democratization >= 3; dvp_right += 1; liberal_strength += 5; liberal_dissent -= 5; nationalist_dissent += 5
+on-arrival: new_middle_dvp += 3*(1-dissent); democratization += 1; pro_republic += 1*(1 - dissent); new_middle_dvp += 3*(1-dissent) if democratization >= 3; old_middle_dvp += 3*(1-dissent) if democratization >= 3; workers_dvp += 2*(1-dissent) if democratization >= 3 and dvp_ideology = "Left"; pro_republic += 4*(1 - dissent) if democratization >= 3; dvp_right += 1; liberal_strength += 5; liberal_dissent -= 5; nationalist_dissent += 5
 choose-if: dvp_ideology = "Left"
 unavailable-subtitle: Nationalist wing will not allow this.
 
