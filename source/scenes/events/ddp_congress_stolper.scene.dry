@@ -14,14 +14,14 @@ WIP.
 
 
 @stolper_program_adopted
-view-if: ddp_ideology != "Left"
+view-if: ddp_cohesion >= 12.5
 on-arrival: stolper_program_adopted = 1; ddp_cohesion += 2; new_middle_ddp += 4; old_middle_ddp += 4; new_middle_other -= 4; old_middle_other -= 2; old_middle_wp -= 2; catholics_ddp += 1; workers_ddp += 1; ddp_right += 2; ddp_relation += 5
 
 The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> held its party congress, with little of note occurring beyond respected economist Gustav Stolper presenting his 'Stolper Program', which redefined the party's social and economic focus toward supporting the struggling middle classes over the industrial working class. Despite opposition from the party's left wing and labor groups, it has become their official economic program, sparking renewed enthusiasm among its grassroots and the German middle.
 
   
 @stolper_program_not_adopted
-view-if: ddp_ideology = "Left"
+view-if: ddp_cohesion < 12.5
 on-arrival: stolper_program_adopted = 0; ddp_cohesion -= 2; new_middle_ddp -= 2; old_middle_ddp -= 2
 
 The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> held its party congress, with little of note occurring beyond respected economist Gustav Stolper presenting his 'Stolper Program', which redefined the party's social and economic focus toward supporting the struggling middle classes over the industrial working class. However, opposition from the party's left led to the quiet shelving of the plan, despite significant enthusiasm from the grassroots
