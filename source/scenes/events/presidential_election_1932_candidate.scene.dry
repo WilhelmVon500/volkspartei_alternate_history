@@ -356,6 +356,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 - @convince_spd_eckener: Convince the SPD to back Eckener.
 - @convince_csvd_eckener: Convince the CSVD to back Eckener.
 - @convince_wp_eckener: Convince the WP to back Eckener.
+- @convince_cnblp_eckener: Convince the CNBLP to back Eckener.
 - @convince_kvp_eckener: Convince the KVP to back Eckener.
 - @convince_dnvp_eckener: Convince the DNVP to back Eckener.
 - @view_candidates: View party endorsements.
@@ -480,6 +481,26 @@ on-arrival: wp_relation -= 3
 go-to: endorsements_eckener
 
 Unfortunately, the WP has refused to support Eckener for the presidency.
+
+
+@convince_cnblp_eckener
+view-if: cnblp_formed and cnblp_candidate != "Eckener"
+go-to: convince_cnblp_success_eckener if cnblp_relation >= 50; convince_cnblp_fail_eckener if cnblp_relation < 50
+max-visits: 1
+
+We try to convince the CNBLP to support Eckener.
+
+@convince_cnblp_success_eckener
+on-arrival: cnblp_relation += 3; cnblp_candidate = "Eckener"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the CNBLP is now campaigning for Eckener in the election.
+
+@convince_cnblp_fail_eckener
+on-arrival: cnblp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the CNBLP has refused to support Eckener for the presidency.
 
 
 @convince_kvp_eckener
