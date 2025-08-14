@@ -13,16 +13,22 @@ if (!Q.hitler_deported) {
 
 Q.dnvp_candidate = "Duesterberg";
 
-Q.spd_candidate = "Hindenburg";
-Q.dvp_candidate = "Hindenburg";
-Q.z_candidate = "Hindenburg";
-Q.ddp_candidate = "Hindenburg";
-Q.dbp_candidate = "Hindenburg";
-Q.csvd_candidate = "Hindenburg";
-Q.cnblp_candidate = "Hindenburg";
-Q.wp_candidate = "Hindenburg";
-Q.kvp_candidate = "Hindenburg";
-Q.other_candidate = "Hindenburg";
+if (hindenburg_run) {
+    reactionary_candidate = "Hindenburg"
+} else if (not hindenburg_run) {
+    reactionary_candidate = "Lettow-Vorbeck"
+}
+
+Q.spd_candidate = reactionary_candidate;
+Q.dvp_candidate = reactionary_candidate;
+Q.z_candidate = reactionary_candidate;
+Q.ddp_candidate = reactionary_candidate;
+Q.dbp_candidate = reactionary_candidate;
+Q.csvd_candidate = reactionary_candidate;
+Q.cnblp_candidate = reactionary_candidate;
+Q.wp_candidate = reactionary_candidate;
+Q.kvp_candidate = reactionary_candidate;
+Q.other_candidate = reactionary_candidate;
 
              
 Q.kpd_candidate = "Thälmann";
@@ -43,7 +49,7 @@ go-to: candidate_selection
 
 = Presidential Election Candidates
 
-With the 1932 German Presidential election coming up next month, we need to decide whether to run a candidate of our own or support Hindenburg. Many are calling for us to support the incumbent Hindenburg. WIP.
+With the 1932 German Presidential election coming up next month, we need to decide whether to run a candidate of our own or support [+ reactionary_candidate +]. [? if hindenburg_run: Many are calling for us to support the incumbent Hindenburg. ?] WIP.
 
 On the other hand, some in our party want to run our own candidate. WIP.
 
@@ -58,11 +64,29 @@ Anyhow, let's see who will be the candidates on the campaign trail.
 
 
 - @hindenburg: Hindenburg is, of course, running once more.
+- @reactionary_candidates: Who will be the successor to Hindenburg?
 
 @hindenburg
 face-image: img/portraits/Hindenburg.jpg
+view-if: hindenburg_run
 
 President Hindenburg is, of course, running for re-election, and many in our party are prepared to support him as the [? if dvp_ideology = "Left": last bastion of democracy against Hitler and the Nazis?][? if dvp_ideology = "Right": symbol of German nationalism and patriotism?]. The Hindenburg Mythos serves as a powerful rallying point for all parties, as he maintains high personal popularity despite everything Germany has endured. However, the more support he receives from the German left and center, the more Hindenburg views it as a stain on his personal honor. The refusal of August von Mackensen and other high-ranking officers with whom he served during the war to embrace his candidacy proved particularly painful to the Reich president.
+
+- @harzburg: We await the decision of the Harzburg Front.
+
+@reactionary_candidates
+face-image: img/portraits/Hindenburg.jpg
+view-if: hindenburg_run
+
+With local elections fast approaching, many parties have opted not to field their own candidates, instead consolidating their support behind a select few.
+
+- @lettow_vorbeck: We await the decision of the Harzburg Front.
+
+@lettow_vorbeck
+face-image: img/portraits/LettowVorbeckPaul.jpg
+view-if: reactionary_candidate = "Lettow-Vorbeck"
+
+With local elections fast approaching, many parties have opted not to field their own candidates, instead consolidating their support behind a select few.
 
 - @harzburg: We await the decision of the Harzburg Front.
 
@@ -122,7 +146,7 @@ WIP has been floated around as a candidate for the presidency. WIP.
 
 So, what's our choice?
 
-- @support_hindenburg: Support Hindenburg.
+- @support_reactionary: Support [+ reactionary_candidate +].
 - @run_eckener: Run Hugo Eckener as a unity candidate.
 - @support_braun: Support Braun.
 
@@ -133,31 +157,31 @@ So, what's our choice?
 Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 
 @view_candidates
-go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_braun if dvp_candidate = "Braun"; endorsements_eckener if dvp_candidate = "Eckener"
+go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endorsements_braun if dvp_candidate = "Braun"; endorsements_eckener if dvp_candidate = "Eckener"
 
-<span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
+[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> - supported by: ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed == "Radical": <span style="color: #0087DC;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3E88B3;">**Paul von Lettow-Vorbeck**</span>?] - supported by: ?]
 
-[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">**SPD**</span> ?]
+[? if spd_candidate = reactionary_candidate: - <span style="color: #E3000F;">**SPD**</span> ?]
 
-[? if ddp_candidate = "Hindenburg" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+[? if ddp_candidate = reactionary_candidate and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if dbp_candidate = "Hindenburg" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+[? if dbp_candidate = reactionary_candidate and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if z_candidate = "Hindenburg": - <span style="color: #000000;">**Z**</span> ?]
+[? if z_candidate = reactionary_candidate: - <span style="color: #000000;">**Z**</span> ?]
 
-[? if dvp_candidate = "Hindenburg": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if dvp_candidate = reactionary_candidate: - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
 
-[? if csvd_candidate = "Hindenburg" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+[? if csvd_candidate = reactionary_candidate and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
-[? if wp_candidate = "Hindenburg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+[? if wp_candidate = reactionary_candidate and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
 
-[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+[? if cnblp_candidate = reactionary_candidate and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
 
-[? if kvp_candidate = "Hindenburg" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+[? if kvp_candidate = reactionary_candidate and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
 
-[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+[? if dnvp_candidate = reactionary_candidate: - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
-[? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+[? if other_candidate = reactionary_candidate: - <span style="color: #909090;">**Others**</span> ?]
 
 [? if eckener_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?]
 
@@ -206,103 +230,103 @@ go-to: endorsements_hindenburg if dvp_candidate = "Hindenburg"; endorsements_bra
 [? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
 
 
-@support_hindenburg
+@support_reactionary
 subtitle: This is the default option.
-on-arrival: progressive_dissent += 10 if braun_campaign; dvp_candidate = "Hindenburg"
+on-arrival: progressive_dissent += 10 if braun_campaign; dvp_candidate = reactionary_candidate
 
-We will support Hindenburg in this election.
+We will support [+reactionary_candidate+] in this election.
 
-- @endorsements_hindenburg: Scout out potential endorsements.
+- @endorsements_reactionary: Scout out potential endorsements.
 
-@endorsements_hindenburg
+@endorsements_reactionary
 view-if: braun_campaign
 
-We can try to convince parties supporting other candidates to switch their support to Hindenburg.
+We can try to convince parties supporting other candidates to switch their support to [+reactionary_candidate+].
 
-- @convince_z_hindenburg: Convince the Center Party to back Hindenburg.
-- @convince_ddp_hindenburg: Convince the [+ ddp_name +] to back Hindenburg.
-- @convince_dbp_hindenburg: Convince the DBP to back Hindenburg.
-- @convince_spd_hindenburg: Convince the SPD to back Hindenburg.
+- @convince_z_reactionary: Convince the Center Party to back [+reactionary_candidate+].
+- @convince_ddp_reactionary: Convince the [+ ddp_name +] to back [+reactionary_candidate+].
+- @convince_dbp_reactionary: Convince the DBP to back [+reactionary_candidate+].
+- @convince_spd_reactionary: Convince the SPD to back [+reactionary_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
-@convince_z_hindenburg
-view-if: z_candidate != "Hindenburg"
-go-to: convince_z_success_hindenburg if z_relation >= 40; convince_z_fail_hindenburg if z_relation < 40
+@convince_z_reactionary
+view-if: z_candidate != reactionary_candidate
+go-to: convince_z_success_reactionary if z_relation >= 40; convince_z_fail_reactionary if z_relation < 40
 max-visits: 1
 
-We try to convince the Center Party to support Hindenburg.
+We try to convince the Center Party to support [+reactionary_candidate+].
 
-@convince_z_success_hindenburg
-on-arrival: z_relation += 3; z_candidate = "Hindenburg"
-go-to: endorsements_hindenburg
+@convince_z_success_reactionary
+on-arrival: z_relation += 3; z_candidate = "[+reactionary_candidate+]"
+go-to: endorsements_reactionary
 
-Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Hindenburg in the election.
+Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for [+reactionary_candidate+] in the election.
 
-@convince_z_fail_hindenburg
+@convince_z_fail_reactionary
 on-arrival: z_relation -= 3
-go-to: endorsements_hindenburg
+go-to: endorsements_reactionary
 
-Unfortunately, the Center Party has refused to support Hindenburg for the presidency.
+Unfortunately, the Center Party has refused to support [+reactionary_candidate+] for the presidency.
 
 
-@convince_dbp_hindenburg
-view-if: dbp_exist and dbp_candidate != "Hindenburg"
-go-to: convince_dbp_success_hindenburg if dbp_relation >= 40; convince_dbp_fail_hindenburg if dbp_relation < 40
+@convince_dbp_reactionary
+view-if: dbp_exist and dbp_candidate != reactionary_candidate
+go-to: convince_dbp_success_reactionary if dbp_relation >= 40; convince_dbp_fail_reactionary if dbp_relation < 40
 max-visits: 1
 
-We try to convince the DBP to support Hindenburg.
+We try to convince the DBP to support [+reactionary_candidate+].
 
-@convince_dbp_success_hindenburg
-on-arrival: dbp_relation += 3; dbp_candidate = "Hindenburg"
-go-to: endorsements_hindenburg
+@convince_dbp_success_reactionary
+on-arrival: dbp_relation += 3; dbp_candidate = reactionary_candidate
+go-to: endorsements_reactionary
 
-Thanks to our friendly relations, the DBP is now campaigning for Hindenburg in the election.
+Thanks to our friendly relations, the DBP is now campaigning for [+reactionary_candidate+] in the election.
 
-@convince_dbp_fail_hindenburg
+@convince_dbp_fail_reactionary
 on-arrival: dbp_relation -= 3
-go-to: endorsements_hindenburg
+go-to: endorsements_reactionary
 
-Unfortunately, the DBP has refused to support Hindenburg for the presidency.
+Unfortunately, the DBP has refused to support [+reactionary_candidate+] for the presidency.
 
 
-@convince_ddp_hindenburg
-view-if: ddp_exist and ddp_candidate != "Hindenburg"
-go-to: convince_ddp_success_hindenburg if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_hindenburg if ddp_relation < 40
+@convince_ddp_reactionary
+view-if: ddp_exist and ddp_candidate != reactionary_candidate
+go-to: convince_ddp_success_reactionary if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_reactionary if ddp_relation < 40
 max-visits: 1
 
 The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
 
-@convince_ddp_success_hindenburg
-on-arrival: ddp_relation += 5; ddp_candidate = "Hindenburg"
-go-to: endorsements_hindenburg
+@convince_ddp_success_reactionary
+on-arrival: ddp_relation += 5; ddp_candidate = reactionary_candidate
+go-to: endorsements_reactionary
 
-Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for Hindenburg in the election.
+Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for [+reactionary_candidate+] in the election.
 
-@convince_ddp_fail_hindenburg
+@convince_ddp_fail_reactionary
 on-arrival: ddp_relation -= 5
-go-to: endorsements_hindenburg
+go-to: endorsements_reactionary
 
-Unfortunately, under the influence of their left wing, the [+ ddp_name +] has refused to support Hindenburg for the presidency. 
+Unfortunately, under the influence of their left wing, the [+ ddp_name +] has refused to support [+reactionary_candidate+] for the presidency. 
 
 
-@convince_spd_hindenburg
+@convince_spd_reactionary
 choose-if: z_candidate != "Braun"
 unavailable-subtitle: The Social Democratic candidate has Center Party's support; they do not see a reason to withdraw their candidate.
-go-to: convince_spd_success_hindenburg if (dvp_ideology = "Left" and spd_relation >= 50); convince_spd_fail_hindenburg if not (dvp_ideology = "Left" and spd_relation >= 50)
+go-to: convince_spd_success_reactionary if (dvp_ideology = "Left" and spd_relation >= 50); convince_spd_fail_reactionary if not (dvp_ideology = "Left" and spd_relation >= 50)
 max-visits: 1
 
-We remind the SPD leaders that, despite his known reactionary nature, Hindenburg has at least been keeping the Nazis at bay.
+We remind the SPD leaders that, despite his known reactionary nature, [+reactionary_candidate+] has at least been keeping the Nazis at bay.
 
-@convince_spd_success_hindenburg
-on-arrival: spd_relation += 3; spd_candidate = "Hindenburg"; braun_campaign = 0 if braun_campaign
-go-to: endorsements_hindenburg
+@convince_spd_success_reactionary
+on-arrival: spd_relation += 3; spd_candidate = reactionary_candidate; braun_campaign = 0 if braun_campaign
+go-to: endorsements_reactionary
 
-The SPD is convinced! They will be part of the Hindenburg coalition.
+The SPD is convinced! They will be part of the [+reactionary_candidate+] coalition.
 
-@convince_spd_fail_hindenburg
+@convince_spd_fail_reactionary
 on-arrival: spd_relation -= 3
-go-to: endorsements_hindenburg
+go-to: endorsements_reactionary
 
 Unfortunately, we fail to turn the SPD away from [+ spd_candidate+]. 
 
@@ -313,11 +337,11 @@ Unfortunately, we fail to turn the SPD away from [+ spd_candidate+].
 choose-if: dvp_ideology = "Left"
 unavailable-subtitle: Why would we run a republican candidate?
 subtitle: This is the default option.
-on-departure: nationalist_dissent += 10; eckener_campaign = 1; dvp_candidate = "Eckener"; ddp_candidate = "Eckener" if ddp_candidate = "Hindenburg"; spd_candidate = "Eckener" if spd_candidate = "Hindenburg"
+on-departure: nationalist_dissent += 10; eckener_campaign = 1; dvp_candidate = "Eckener"; ddp_candidate = "Eckener" if ddp_candidate = reactionary_candidate; spd_candidate = "Eckener" if spd_candidate = reactionary_candidate
 
 We will run Hugo Eckener.
 
-The [? if ddp_candidate = "Hindenburg": [+ ddp_name +] ?][? if spd_candidate = "Hindenburg" and ddp_candidate = "Hindenburg": and ?][? if spd_candidate = "Hindenburg": SPD ?] will support our candidate, instead of Hindenburg.
+The [? if ddp_candidate = reactionary_candidate: [+ ddp_name +] ?][? if spd_candidate = reactionary_candidate and ddp_candidate = reactionary_candidate: and ?][? if spd_candidate = reactionary_candidate: SPD ?] will support our candidate, instead of [+reactionary_candidate+].
 
 - @endorsements_eckener: Scout out potential endorsements.
 
