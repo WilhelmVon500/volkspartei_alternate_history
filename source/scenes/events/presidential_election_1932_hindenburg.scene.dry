@@ -1,0 +1,63 @@
+title: Hindenburg's Announcement
+subtitle: The President is to announce whether or not he will run again.
+new-page: true
+on-arrival: {!
+Q.hindenburg_run_points = 0;
+if (Q.nsdap_votes > Q.dnvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.csvd_votes + Q.wp_votes + Q.cnblp_votes && Q.dnvp_ideology == "Moderate") {
+    Q.hindenburg_run_points += 5;
+} else if (Q.nsdap_votes + Q.dnvp_votes > Q.kvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.csvd_votes + Q.wp_votes + Q.cnblp_votes && Q.dnvp_ideology == "Radical") {
+    Q.hindenburg_run_points += 5;
+}
+if (Q.dnvp_ideology == "Radical") {
+    Q.hindenburg_run_points += 1;
+} else if (Q.dnvp_ideology == "Moderate") {
+    Q.hindenburg_run_points += 3;
+}
+if (Q.in_center_right_coalition || Q.in_right_coalition) Q.hindenburg_run_points -= 1;
+if (Q.spd_votes >= 23) Q.hindenburg_run_points += 1;
+if (Q.spd_votes >= 26) Q.hindenburg_run_points += 1;
+if (Q.spd_votes >= 29) Q.hindenburg_run_points += 1;
+if (Q.pro_republic >= 70) Q.hindenburg_run_points -= 1;
+if (Q.unemployed < 15) Q.hindenburg_run_points -= 1;
+if (Q.unemployed >= 30) Q.hindenburg_run_points += 1;
+if (Q.hindenburg_run_points >= 7) Q.hindenburg_run = 1;
+
+Q.hindenburg_signatures = Math.round(Q.hindenburg_run_points * 0.445 * 100) / 100;
+!}
+tags: event
+view-if: year = 1932 and month >= 2
+priority: 2
+max-visits: 1
+
+
+= Hindenburg's Announcement
+
+President Hindenburg has expressed his reluctance to run for re-election. At 84 years old, he prefers to spend his remaining years in retirement free from the burdens of his high office. While he has been open to serving longer if his term were extended by the Reichstag, the failure of those efforts, combined with his unwillingness to endure a grueling presidential campaign, has caused concern, particularly for Kurt von Schleicher.
+
+Heinrich Sahm, the Mayor of Berlin, has formed a re-election committee to persuade Hindenburg to run again. This effort has included the collection of over [+ hindenburg_signatures +] million signatures and appeals from a wide array of figures and political parties across German society, including controversial former Defense Ministers Otto Gessler and Gustav Noske.
+
+Impressed by the public support, Hindenburg is reconsidering his decision but insists that his candidacy must be backed by the German Right and veteran organizations rather than the German Left and Center. [? if not hitler_deported: Hitler?][? if hitler_deported: Goebbels?], Hugenberg, their parties, and the Stahlhelm—aligned with the national opposition—have demanded concessions in exchange for their support, despite the Stahlhelm's general friendliness toward Hindenburg and its belief that he is one of their own. However, Hindenburg sees these demands as an affront to his personal honor and refuses to tie his candidacy to the dismissal of the current government or the appointment of Hugenberg and Hitler.
+
+- @hindenburg_drop_out
+- @hindenburg_running
+
+@hindenburg_drop_out
+title: We await his decision.
+view-if: not hindenburg_run
+
+President Hindenburg has decided not to run for re-election, citing his health problems and old age as the primary reasons. He feels that the current national situation doesn't warrant a reelection campaign.
+
+This development could be either beneficial or detrimental to us. If we wanted to rally behind Hindenburg to oppose Hitler and the Nazis, the absence of a unifying, widely supported national figure—one capable of garnering support from both the moderate left and right—leaves us at a disadvantage. On the other hand, if we decide to run a candidate of our own, the lack of someone with Hindenburg's charisma could make it easier for us to secure a victory.
+
+The absence of a candidate for the German middle and moderate right to rally behind creates a vacuum, which will likely be filled as other parties announce their candidates in the near future.
+
+- @presidential_election_1932_candidate: Who will the candidates be now that Hindenburg is retiring?
+
+@hindenburg_running
+title: We await his decision.
+view-if: hindenburg_run
+on-arrival: new_middle_kvp += 4; old_middle_kvp += 4; rural_kvp += 2
+
+The Sahm committee for Hindenburg's re-election has been dissolved and replaced by a much larger, national "United Hindenburg Committees" organization, which will work in coordination with the various local Hindenburg committees across the country. With the appointment of Westarp and Gereke to top positions, and the exclusion of socialist and Center politicians, they are attempting to position Hindenburg as the candidate of the moderate right.
+
+- @presidential_election_1932_candidate: Who will the candidates be now that Hindenburg has decided to run for re-election?
