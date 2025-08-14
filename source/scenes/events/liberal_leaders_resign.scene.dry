@@ -3,7 +3,7 @@ new-page: true
 subtitle: Liberal disagreements with our policies have grown too severe.
 tags: event
 view-if: liberal_dissent >= 60
-on-arrival: liberal_strength *= 0.3; new_middle_dvp -= 10; new_middle_ddp += 8; new_middle_others += 2; n_advisors -= 1 if braun_advisor == 1; n_advisors -= 1 if severing_advisor == 1; braun_advisor = 0; severing_advisor = 0; liberals_resign = 1
+on-arrival: liberal_strength *= 0.3; new_middle_dvp -= 10; new_middle_ddp += 8; new_middle_others += 2; n_advisors -= 1 if stresemann_advisor == 1; n_advisors -= 1 if curtius_advisor == 1; n_advisors -= 1 if rheinbaben_advisor == 1; n_advisors -= 1 if luther_advisor == 1; stresemann_advisor = 0; curtius_advisor = 0; rheinbaben_advisor = 0; luther_advisor = 0; liberals_resign = 1
 max-visits: 1
 
 = Liberal leaders resign
