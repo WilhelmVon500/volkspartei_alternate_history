@@ -19,9 +19,9 @@ if (Q.unemployed >= 18) {
     Q.lemmer_points -= 1;
 }
 if (Q.liberals_resign) {
-    Q.lemmer_points += 3;
+    Q.dietrich_points += 3;
 } else if (Q.liberal_dissent >= 30) {
-    Q.lemmer_points += 1;
+    Q.dietrich_points += 1;
 }
 if (Q.major_curriculum == "humanist") {
     Q.lemmer_points += 1;
