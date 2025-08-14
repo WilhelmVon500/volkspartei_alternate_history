@@ -3,9 +3,9 @@ subtitle: The President is to announce whether or not he will run again.
 new-page: true
 on-arrival: {!
 Q.hindenburg_run_points = 0;
-if (Q.nsdap_votes > Q.dnvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.csvd_votes + Q.wp_votes + Q.cnblp_votes && Q.dnvp_ideology == "Moderate") {
+if (Q.nsdap_votes > 30 && Q.dnvp_ideology == "Moderate") {
     Q.hindenburg_run_points += 5;
-} else if (Q.nsdap_votes + Q.dnvp_votes > Q.kvp_votes + Q.other_votes + Q.dvp_votes + Q.z_votes + Q.ddp_votes + Q.csvd_votes + Q.wp_votes + Q.cnblp_votes && Q.dnvp_ideology == "Radical") {
+} else if (Q.nsdap_votes + Q.dnvp_votes > 30 && Q.dnvp_ideology == "Radical") {
     Q.hindenburg_run_points += 5;
 }
 if (Q.dnvp_ideology == "Radical") {
