@@ -122,7 +122,7 @@ The Communists will run Ernst Thälmann, their leader and candidate in 1925.
 - @socialist: We await the decision of the SPD.
 
 @socialist
-go-to: braun if spd_candidate = "Braun"; hindenburg_spd if spd_candidate = "Hindenburg"
+go-to: braun if spd_candidate = "Braun"; reactionary_spd if spd_candidate = reactionary_candidate
 
 @braun
 face-image: img/portraits/BraunOtto.jpg
@@ -131,10 +131,10 @@ The SPD will run Otto Braun, [? if not prussia_leader = "Braun": former ?] Pruss
 
 - @liberal: So, what is our decision? Should we run our own candidate, or support Hindenburg?
 
-@hindenburg_spd
+@reactionary_spd
 face-image: img/portraits/Hindenburg.jpg
 
-Despite his known reactionary nature, Hindenburg has at least been keeping the Nazis at bay. The SPD will support him, as a lesser evil.
+[? if reactionary_candidate = "Hindenburg": Despite his known reactionary nature, Hindenburg has at least been keeping the Nazis at bay. The SPD will support him, as a lesser evil. ?]
 
 - @liberal: So, what is our decision? Should we run our own candidate, or support Hindenburg?
 
