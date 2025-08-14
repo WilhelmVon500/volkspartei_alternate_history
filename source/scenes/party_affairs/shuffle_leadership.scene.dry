@@ -337,12 +337,12 @@ view-if: n_advisors < 3
 - #labor_advisor
 
 @democratic
-view-if: democrats_lvp > 0 and n_advisors < 3
+view-if: democrats_dvp > 0 and n_advisors < 3
 
 - #democratic_advisor
 
 @progressive
-view-if: progressives_lvp > 0 and n_advisors < 3
+view-if: progressives_dvp > 0 and n_advisors < 3
 
 - #progressive_advisor
 
@@ -633,7 +633,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Neg
 is-card: true
 card-image: img/portraits/KublerKonrad.jpg
 tags: special_interest_advisor
-view-if: kubler_advisor = 0 and n_advisors < 3 and dbp_lvp = 1
+view-if: kubler_advisor = 0 and n_advisors < 3 and dbp_dvp = 1
 on-arrival: kubler_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
@@ -646,7 +646,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Neg
 is-card: true
 card-image: img/portraits/ColosserOtto.jpg
 tags: special_interest_advisor
-view-if: colosser_advisor = 0 and n_advisors < 3 and colosser_lvp = 1
+view-if: colosser_advisor = 0 and n_advisors < 3 and colosser_dvp = 1
 on-arrival: colosser_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
