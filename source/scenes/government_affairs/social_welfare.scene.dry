@@ -31,14 +31,14 @@ We have reduced levels of social welfare spending. This means more poverty and s
 view-if: unemployed <= 15
 choose-if: budget > 0
 subtitle: -1 Budget
-on-arrival: budget -= 1; workers_dvp += 6*(1-dissent); unemployed_dvp += 6*(1-dissent); welfare += 1; industrialist_dissent += 5; labor_dissent -= 5; labor_strength += 5; coalition_dissent -= 1 if in_grand_coalition or in_weimar_coalition; spd_relation += 3; welfare_goal_completed += 1; inflation += 0.3; unemployed -= 0.4; economic_growth += 0.2;
+on-arrival: budget -= 1; workers_dvp += 4*(1-dissent); unemployed_dvp += 3*(1-dissent); workers_spd += 3*(1-dissent) if spd_toleration or spd_in_government; unemployed_spd += 2*(1-dissent) if spd_toleration or spd_in_government; welfare += 1; industrialist_dissent += 5; labor_dissent -= 5; labor_strength += 5; coalition_dissent -= 1 if in_grand_coalition or in_weimar_coalition; spd_relation += 3; welfare_goal_completed += 1; inflation += 0.3; unemployed -= 0.4; economic_growth += 0.2;
 
 We have increased welfare spending. The workers and our labor wing are pleased.
 
 @increase_spending_post_depression
 view-if: unemployed > 15
 choose-if: budget > 0
-on-arrival: budget -= 1; workers_dvp += 3*(1-dissent); unemployed_dvp += 3*(1-dissent); welfare_goal_completed += 1; inflation += 0.3; industrialist_dissent += 5; labor_dissent -= 5; coalition_dissent -= 1 if in_grand_coalition or in_weimar_coalition; spd_relation += 3;
+on-arrival: budget -= 1; workers_dvp += 3*(1-dissent); unemployed_dvp += 3*(1-dissent); workers_spd += 2*(1-dissent) if spd_toleration or spd_in_government; unemployed_spd += 1*(1-dissent) if spd_toleration or spd_in_government; welfare_goal_completed += 1; inflation += 0.3; industrialist_dissent += 5; labor_dissent -= 5; coalition_dissent -= 1 if in_grand_coalition or in_weimar_coalition; spd_relation += 3;
 subtitle: The increased levels of unemployment necessitate more spending on aid to maintain the same benefits. -1 Budget
 
 Increasing welfare spending is necessary in light of the rise in unemployment, so we are essentially treading water.
