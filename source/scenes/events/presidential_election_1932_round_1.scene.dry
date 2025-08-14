@@ -292,7 +292,7 @@ Unfortunately, we fail to turn them away from [+dbp_candidate+].
 @round2_convince_spd_eckener
 view-if: spd_candidate != dvp_candidate and dvp_candidate = "Eckener"
 choose-if: braun_votes < (hitler_votes + harzburg_votes)
-unavailable-subtitle: The Social Democrats are stronger than far-right.
+unavailable-subtitle: The Social Democrats are stronger than the far-right.
 go-to: r2_spd_failed_eckener if spd_relation < 40; r2_spd_success_eckener if spd_relation >= 40
 max-visits: 1
 
@@ -531,7 +531,7 @@ Unfortunately, we fail to turn them away from [+dbp_candidate+].
 @round2_convince_spd_reactionary
 view-if: spd_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
 choose-if: braun_votes < (hitler_votes + harzburg_votes)
-unavailable-subtitle: The Social Democrats are stronger than far-right.
+unavailable-subtitle: The Social Democrats are stronger than the far-right.
 go-to: r2_spd_failed_reactionary if spd_relation < 45; r2_spd_success_reactionary if spd_relation >= 45
 max-visits: 1
 
