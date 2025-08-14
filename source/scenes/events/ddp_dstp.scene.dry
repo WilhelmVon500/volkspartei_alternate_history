@@ -1,4 +1,4 @@
-title: <span style="color: #DCCA4A;">DDP</span> Reformation
+title: <span style="color: #DCCA4A;">**DDP**</span> Reformation
 subtitle: The <span style="color: #DCCA4A;">**German Democratic Party**</span> is becoming the <span style="color: #DCCA4A;">**German State Party**</span>.
 view-if: year == 1930 and month >= 6 and ddp_exist
 on-arrival: {!
