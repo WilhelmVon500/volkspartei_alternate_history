@@ -406,9 +406,8 @@ Q.wp_r = 2.4;
 Q.dnvp_r = 20.9;
 Q.nsdap_r = 3;
 Q.dbp_r = 1;
-Q.other_r = 4.9;
 Q.cnblp_r = 1.7;
-Q.true_other_r = 3.2;
+Q.other_r = 3.2;
 
 // diff from prev
 Q.old_spd_r = 26.5;
@@ -420,9 +419,8 @@ Q.old_wp_r = 2.4;
 Q.old_dnvp_r = 20.9;
 Q.old_nsdap_r = 3;
 Q.old_dbp_r = 1;
-Q.old_other_r = 4.9;
 Q.old_cnblp_r = 1.7;
-Q.old_true_other_r = 3.2;
+Q.old_other_r = 3.2;
 
 
 Q.old_spd_votes = 26;
@@ -434,9 +432,8 @@ Q.old_wp_votes = 2.3;
 Q.old_dnvp_votes = 20.5;
 Q.old_nsdap_votes = 3;
 Q.old_dbp_votes = 1;
-Q.old_other_votes = 4.3;
 Q.old_cnblp_votes = 1.7;
-Q.old_true_other_votes = 2.8;
+Q.old_other_votes = 2.8;
 
 
 // for changing party names
