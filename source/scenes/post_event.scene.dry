@@ -456,7 +456,7 @@ if (Q.month_actions >= 1) {
     } else if (Q.year >= 1933) {
         if (Q.return_to_normalcy) {
             // return to normalcy -> voters return to the base
-            if (Q.workers_spd_normalized < 60) {
+            if (Q.workers_spd_normalized < 65) {
                 Q.workers_spd += 6/12;
             }
             if (Q.new_middle_ddp_normalized < 40) {
@@ -482,7 +482,7 @@ if (Q.month_actions >= 1) {
                 Q.old_middle_kvp += 2/12;
             }
 
-            if (Q.catholics_z_normalized < 40) {
+            if (Q.catholics_z_normalized < 50) {
                 Q.catholics_z += 6/12;
             }
 
