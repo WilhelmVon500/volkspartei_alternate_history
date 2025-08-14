@@ -289,7 +289,6 @@ Q.csvd_exist = 0
 
 Q.ddp_exist = 1
 Q.dstp_formed = 0
-Q.stolper_program_adopted = 0
 
 
 Q.wp_ideology = "Moderate"
