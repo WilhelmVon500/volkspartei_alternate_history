@@ -289,6 +289,10 @@ Q.csvd_exist = 0
 
 Q.ddp_exist = 1
 Q.dstp_formed = 0
+Q.ddp_left = 1
+Q.ddp_right = 1
+Q.ddp_leader = "Koch-Weser"
+Q.ddp_ideology = "Moderate"
 
 
 Q.wp_ideology = "Moderate"
