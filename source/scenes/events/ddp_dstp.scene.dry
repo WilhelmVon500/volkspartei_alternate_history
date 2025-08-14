@@ -1,6 +1,6 @@
 title: <span style="color: #DCCA4A;">DDP</span> Reformation
 subtitle: The <span style="color: #DCCA4A;">**German Democratic Party**</span> is becoming the <span style="color: #DCCA4A;">**German State Party**</span>.
-view-if: year == 1930 and month >= 6 and not lvp_formed
+view-if: year == 1930 and month >= 6 and ddp_exist
 new-page: true
 max-visits: 1
 on-arrival: {!
@@ -40,7 +40,7 @@ Pessimism is a widespread feeling within the party, leading to mounting pressure
 
 @dstp_formed
 view-if: dstp_formation_points >= 3
-on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
+on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
 
 This has come as a complete shock to those inside and outside the party, for the <span style="color: #DCCA4A;">**DDP**</span> to merge with the political wing of a mildly anti-Semitic paramilitary group "Young German Order".
 
@@ -52,4 +52,4 @@ on-arrival: dstp_formed = 0; pro_republic += 3
 
 As expected, a merger between a moderately anti-Semitic organization and a party seen as the party for the Jews has failed, with the Young German Order leader Artur Mahraun leaving negotiations citing irreconcilable differences.
 
-However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party
+However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party.
