@@ -14,21 +14,21 @@ if (!Q.hitler_deported) {
 Q.dnvp_candidate = "Duesterberg";
 
 if (hindenburg_run) {
-    reactionary_candidate = "Hindenburg"
+    Q.reactionary_candidate = "Hindenburg"
 } else if (not hindenburg_run) {
-    reactionary_candidate = "Lettow-Vorbeck"
+    Q.reactionary_candidate = "Lettow-Vorbeck"
 }
 
-Q.spd_candidate = reactionary_candidate;
-Q.dvp_candidate = reactionary_candidate;
-Q.z_candidate = reactionary_candidate;
-Q.ddp_candidate = reactionary_candidate;
-Q.dbp_candidate = reactionary_candidate;
-Q.csvd_candidate = reactionary_candidate;
-Q.cnblp_candidate = reactionary_candidate;
-Q.wp_candidate = reactionary_candidate;
-Q.kvp_candidate = reactionary_candidate;
-Q.other_candidate = reactionary_candidate;
+Q.spd_candidate = Q.reactionary_candidate;
+Q.dvp_candidate = Q.reactionary_candidate;
+Q.z_candidate = Q.reactionary_candidate;
+Q.ddp_candidate = Q.reactionary_candidate;
+Q.dbp_candidate = Q.reactionary_candidate;
+Q.csvd_candidate = Q.reactionary_candidate;
+Q.cnblp_candidate = Q.reactionary_candidate;
+Q.wp_candidate = Q.reactionary_candidate;
+Q.kvp_candidate = Q.reactionary_candidate;
+Q.other_candidate = Q.reactionary_candidate;
 
              
 Q.kpd_candidate = "Thälmann";
