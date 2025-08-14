@@ -157,7 +157,7 @@ Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 go-to: calculation
 
 @calculation
-go-to: hindenburg_wins if reactionary_majority == 1 and reactionary_candidate = "Hindenburg"; lettow_vorbeck_wins if reactionary_majority == 1 and reactionary_candidate = "Lettow-Vorbeck"; eckener_wins if eckener_majority == 1; thalmann_wins if thalmann_majority == 1; hitler_wins if hitler_majority == 1; braun_wins if braun_majority == 1; no_majority_round1 if any_majority == 0 and election_round == 1
+go-to: hindenburg_wins if reactionary_plurality == 1 and reactionary_candidate = "Hindenburg"; lettow_vorbeck_wins if reactionary_plurality == 1 and reactionary_candidate = "Lettow-Vorbeck"; eckener_wins if eckener_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1;
 
 [? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed == "Radical": <span style="color: #0087DC;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3E88B3;">**Paul von Lettow-Vorbeck**</span>?] ?] - [+ reactionary_votes_disp +]%
 
