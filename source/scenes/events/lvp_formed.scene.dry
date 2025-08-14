@@ -10,8 +10,8 @@ Q.dvp_leader = "Luther";
 Q.lvp_next_congress_year = Q.year + 1;
 Q.lvp_next_congress_month = Q.month;
 
-Q.democrats_lvp = 1;
-Q.progressives_lvp = 1;
+Q.democrats_dvp = 1;
+Q.progressives_dvp = 1;
 
 Q.liberal_strength += 10;
 Q.democratic_strength += 25;
@@ -77,7 +77,7 @@ if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp
 
 if (Q.wp_split_seen == 1) {
   Q.special_interest_strength += 5;
-  Q.colosser_lvp = 1;
+  Q.colosser_dvp = 1;
   Q.special_interest_dvp = 1
 }
 
