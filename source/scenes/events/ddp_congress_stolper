@@ -1,6 +1,6 @@
 title: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Party Congress
 subtitle: The <span style="color: #DCCA4A;">[+ ddp_name +]</span> decides their fate...
-view-if: year == 1929 and month >= 9 and ddp_exist and
+view-if: year == 1929 and month >= 9 and ddp_exist
 max-visits: 1
 tags: event
 new-page: true
