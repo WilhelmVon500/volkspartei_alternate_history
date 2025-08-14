@@ -1,8 +1,6 @@
 title: <span style="color: #DCCA4A;">DDP</span> Reformation
 subtitle: The <span style="color: #DCCA4A;">**German Democratic Party**</span> is becoming the <span style="color: #DCCA4A;">**German State Party**</span>.
 view-if: year == 1930 and month >= 6 and ddp_exist
-new-page: true
-max-visits: 1
 on-arrival: {!
 Q.dstp_formation_points = 0;
 if (Q.ddp_votes < 3.7) {
@@ -26,8 +24,9 @@ if (Q.ddp_relation < 50) {
     Q.dstp_formation_points += 1;
 }
 !}
-
 tags: event
+new-page: true
+max-visits: 1
 
 = <span style="color: #DCCA4A;">**DDP**</span> Reformation
 
