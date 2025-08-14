@@ -38,6 +38,11 @@ if (Q.dvp_left + Q.dvp_right >= 30) {
     Q.dvp_right *= 0.9;
 }
 
+if (Q.ddp_left + Q.ddp_right >= 20) {
+    Q.ddp_left *= 0.9;
+    Q.ddp_right *= 0.9;
+}
+
 if (Q.stresemann_dead != 1) {
     Q.dvp_left += 0.1
 }
@@ -46,6 +51,14 @@ if (Q.dvp_left > Q.dvp_right) {
     Q.dvp_ideology = "Left"
 } else {
     Q.dvp_ideology = "Right"
+}
+
+if (Q.ddp_right > (Q.ddp_left + 4)) {
+    Q.ddp_ideology = "Right"
+} else if (Q.ddp_left > (Q.ddp_right + 4)) {
+    Q.ddp_ideology = "Left"
+} else {
+    Q.ddp_ideology = "Moderate"
 }
 
 // re-calculate party support
