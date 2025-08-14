@@ -9,8 +9,8 @@ new-page: true
 
 WIP.
 
-- @stolper_program_adopted: Stolper Program Adopted
-- @no_stolper_program: Stolper
+- @stolper_program_adopted: Stolper Program is adopted!
+- @stolper_program_not_adopted: Stolper Program is not adopted!
 
 
 @stolper_program_adopted
@@ -20,7 +20,7 @@ on-arrival: stolper_program_adopted = 1; ddp_cohesion += 2; new_middle_ddp += 4;
 The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> held its party congress, with little of note occurring beyond respected economist Gustav Stolper presenting his 'Stolper Program', which redefined the party's social and economic focus toward supporting the struggling middle classes over the industrial working class. Despite opposition from the party's left wing and labor groups, it has become their official economic program, sparking renewed enthusiasm among its grassroots and the German middle.
 
   
-@no_stolper_program
+@stolper_program_not_adopted
 view-if: ddp_ideology = "Left"
 on-arrival: stolper_program_adopted = 0; ddp_cohesion -= 2; new_middle_ddp -= 2; old_middle_ddp -= 2
 
