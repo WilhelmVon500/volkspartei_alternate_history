@@ -110,8 +110,8 @@ if (Q.dvp_r >= Q.spd_r && Q.dvp_r >= Q.nsdap_r && Q.dvp_r >= Q.kpd_r) {
 }
 
 // coalitions
-if (Q.lvp_formed == 0) parseFloat((Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3).toFixed(1));
-if (Q.lvp_formed == 1) parseFloat((Q.weimar_coalition = Q.spd_r + Q.dvp_r + Q.z_r - 3).toFixed(1));
+if (Q.lvp_formed == 0) Q.weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r - 3).toFixed(1));
+if (Q.lvp_formed == 1) Q.weimar_coalition = parseFloat((Q.spd_r + Q.dvp_r + Q.z_r - 3).toFixed(1));
 Q.grand_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r).toFixed(1));
 Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
