@@ -7,7 +7,7 @@ new-page: true
 
 = <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Party Congress
 
-WIP.
+The years have not been kind to the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, with their position as one of the main forces of the republic beginning to falter and their ranks fracturing. Without a distinct platform to support themselves, many of their former working class voters have bled towards the Social Democrats, with the more business-minded fleeing to the Center and us. Change is needed for the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> to endure, and Gustav Stolper has proposed a simple plan; courting the middle class and pivoting rightward towards our party. Solidifying the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> around the middle classes would help to stem the rightward bleeding, and potentially reignite negotiations to form a united liberal party. All things must come with a cost, and by adopting the Stolper Plan, the progressives would be sidelined in favour of the business wing. Lemmer himself has voiced his criticism for its failure to address the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>’s working class interests. Still, this would be a great boon towards our future prospects in the polls and of liberal unity should the plan go through.
 
 - @stolper_program_adopted: Stolper Program is adopted!
 - @stolper_program_not_adopted: Stolper Program is not adopted!
