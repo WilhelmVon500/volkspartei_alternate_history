@@ -15,7 +15,7 @@ Q.dnvp_candidate = "Duesterberg";
 
 if (Q.hindenburg_run) {
     Q.reactionary_candidate = "Hindenburg"
-} else if (not Q.hindenburg_run) {
+} else if (!Q.hindenburg_run) {
     Q.reactionary_candidate = "Lettow-Vorbeck"
 }
 
