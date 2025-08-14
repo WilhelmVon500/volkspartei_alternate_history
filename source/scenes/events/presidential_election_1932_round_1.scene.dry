@@ -472,72 +472,72 @@ Unfortunately, we fail to turn them away from [+dnvp_candidate+].
 
 
 
-@round2_convince_z_hindenburg
+@round2_convince_z_reactionary
 view-if: z_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
-go-to: r2_z_failed_hindenburg if z_relation < 45; r2_z_success_hindenburg if z_relation >= 45
+go-to: r2_z_failed_reactionary if z_relation < 45; r2_z_success_reactionary if z_relation >= 45
 max-visits: 1
 
-@r2_z_success_hindenburg
+@r2_z_success_reactionary
 on-arrival: z_candidate = reactionary_candidate; z_relation += 3
 go-to: round2_menu
 
 The Center are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
-@r2_z_failed_hindenburg
+@r2_z_failed_reactionary
 on-arrival: z_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from [+z_candidate+].
 
 
-@round2_convince_ddp_hindenburg
+@round2_convince_ddp_reactionary
 view-if: ddp_candidate != dvp_candidate and dvp_candidate = reactionary_candidate and ddp_exist
-go-to: r2_ddp_failed_hindenburg if ddp_relation < 45; r2_ddp_success_hindenburg if ddp_relation >= 45
+go-to: r2_ddp_failed_reactionary if ddp_relation < 45; r2_ddp_success_reactionary if ddp_relation >= 45
 max-visits: 1
 
-@r2_ddp_success_hindenburg
+@r2_ddp_success_reactionary
 on-arrival: ddp_candidate = reactionary_candidate; ddp_relation += 5
 go-to: round2_menu
 
 The [+ ddp_name +] are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
-@r2_ddp_failed_hindenburg
+@r2_ddp_failed_reactionary
 on-arrival: ddp_relation -= 5
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from [+ddp_candidate+].
 
 
-@round2_convince_dbp_hindenburg
+@round2_convince_dbp_reactionary
 view-if: dbp_candidate != dvp_candidate and dvp_candidate = reactionary_candidate and dbp_exist
-go-to: r2_dbp_failed_hindenburg if dbp_relation < 45; r2_dbp_success_hindenburg if dbp_relation >= 45
+go-to: r2_dbp_failed_reactionary if dbp_relation < 45; r2_dbp_success_reactionary if dbp_relation >= 45
 max-visits: 1
 
-@r2_dbp_success_hindenburg
+@r2_dbp_success_reactionary
 on-arrival: dbp_candidate = reactionary_candidate; dbp_relation += 3
 go-to: round2_menu
 
 The DBP are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
-@r2_dbp_failed_hindenburg
+@r2_dbp_failed_reactionary
 on-arrival: dbp_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from [+dbp_candidate+].
 
 
-@round2_convince_spd_hindenburg
+@round2_convince_spd_reactionary
 view-if: spd_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
-go-to: r2_spd_failed_hindenburg if spd_relation < 45; r2_spd_success_hindenburg if spd_relation >= 45
+go-to: r2_spd_failed_reactionary if spd_relation < 45; r2_spd_success_reactionary if spd_relation >= 45
 max-visits: 1
 
-@r2_spd_success_hindenburg
+@r2_spd_success_reactionary
 on-arrival: spd_candidate = reactionary_candidate; braun_campaign = 0; z_candidate = reactionary_candidate if z_candidate = "Braun"; dbp_candidate = reactionary_candidate if dbp_candidate = "Braun"; ddp_candidate = reactionary_candidate if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
 go-to: round2_menu
 
 The SPD are convinced! They will be part of the [+reactionary_candidate+] coalition.
 
-@r2_spd_failed_hindenburg
+@r2_spd_failed_reactionary
 on-arrival: spd_relation -= 3
 go-to: round2_menu
 
@@ -547,7 +547,7 @@ Unfortunately, we fail to turn them away from [+spd_candidate+].
 
 
 
-@round2_hindenburg
+@round2_reactionary
 view-if: dvp_candidate != reactionary_candidate and not new_candidate_r2
 on-arrival: dvp_candidate = reactionary_candidate; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener" and braun_campaign; ddp_candidate = reactionary_candidate if ddp_candidate = "Eckener" and not braun_campaign; dbp_candidate = "Braun" if dbp_candidate = "Eckener" and braun_campaign; dbp_candidate = reactionary_candidate if dbp_candidate = "Eckener" and not braun_campaign; z_candidate = "Braun" if z_candidate = "Eckener" and braun_campaign and z_leader = "Joos"; z_candidate = reactionary_candidate if z_candidate = "Eckener" and (not braun_campaign or z_leader != "Joos"); csvd_candidate = reactionary_candidate if csvd_candidate = "Eckener"; wp_candidate = reactionary_candidate if wp_candidate = "Eckener"; kvp_candidate = reactionary_candidate if kvp_candidate = "Eckener"; dnvp_candidate = reactionary_candidate if dnvp_candidate = "Eckener"; progressive_dissent += 10 if braun_campaign
 go-to: round2_menu
