@@ -13,9 +13,9 @@ if (!Q.hitler_deported) {
 
 Q.dnvp_candidate = "Duesterberg";
 
-if (hindenburg_run) {
+if (Q.hindenburg_run) {
     Q.reactionary_candidate = "Hindenburg"
-} else if (not hindenburg_run) {
+} else if (not Q.hindenburg_run) {
     Q.reactionary_candidate = "Lettow-Vorbeck"
 }
 
