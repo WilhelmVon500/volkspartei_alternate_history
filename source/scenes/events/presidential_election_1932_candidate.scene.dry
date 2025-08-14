@@ -158,7 +158,7 @@ Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 @view_candidates
 go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endorsements_braun if dvp_candidate = "Braun"; endorsements_eckener if dvp_candidate = "Eckener"
 
-[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed: <span style="color: #0087DC;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3E88B3;">**Paul von Lettow-Vorbeck**</span>?] ?] - supported by:
+[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed: <span style="color: #455B95;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3E88B3;">**Paul von Lettow-Vorbeck**</span>?] ?] - supported by:
 
 [? if spd_candidate = reactionary_candidate: - <span style="color: #E3000F;">**SPD**</span> ?]
 
