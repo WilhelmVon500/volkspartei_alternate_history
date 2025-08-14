@@ -291,6 +291,8 @@ Unfortunately, we fail to turn them away from [+dbp_candidate+].
 
 @round2_convince_spd_eckener
 view-if: spd_candidate != dvp_candidate and dvp_candidate = "Eckener"
+choose-if: braun_votes < (hitler_votes + harzburg_votes)
+unavailable-subtitle: The Social Democrats are stronger than far-right.
 go-to: r2_spd_failed_eckener if spd_relation < 40; r2_spd_success_eckener if spd_relation >= 40
 max-visits: 1
 
@@ -314,7 +316,7 @@ go-to: r2_z_failed_eckener if z_relation < 35; r2_z_success_eckener if z_relatio
 max-visits: 1
 
 @r2_z_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Eckener"; eckener_votes += z_votes; z_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + z_votes > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Eckener"; eckener_votes += z_votes; z_relation += 3; braun_votes -= z_normalized if z_candidate = "Braun"
 go-to: round2_menu
 
 [? if nsdap_candidate = "Hindenburg" and z_candidate = "Hindenburg": The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Eckener coalition.
@@ -335,7 +337,7 @@ go-to: r2_ddp_failed_eckener if ddp_relation < 35; r2_ddp_success_eckener if ddp
 max-visits: 1
 
 @r2_ddp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; ddp_candidate = "Eckener"; eckener_votes += ddp_votes; ddp_relation += 5
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + ddp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; ddp_candidate = "Eckener"; eckener_votes += ddp_votes; ddp_relation += 5; braun_votes -= ddp_normalized if ddp_candidate = "Braun"
 go-to: round2_menu
 
 The [+ ddp_name +] are convinced! They will be part of the Eckener coalition.
@@ -356,7 +358,7 @@ go-to: r2_dbp_failed_eckener if dbp_relation < 35; r2_dbp_success_eckener if dbp
 max-visits: 1
 
 @r2_dbp_success_eckener
-on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; dbp_candidate = "Eckener"; eckener_votes += dbp_votes; dbp_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + dbp_votes > hitler_votes and reactionary_candidate = "Hindenburg"; dbp_candidate = "Eckener"; eckener_votes += dbp_votes; dbp_relation += 3; braun_votes -= dbp_normalized if dbp_candidate = "Braun"
 go-to: round2_menu
 
 The DBP are convinced! They will be part of the Eckener coalition.
@@ -478,7 +480,7 @@ go-to: r2_z_failed_reactionary if z_relation < 45; r2_z_success_reactionary if z
 max-visits: 1
 
 @r2_z_success_reactionary
-on-arrival: z_candidate = reactionary_candidate; z_relation += 3
+on-arrival: z_candidate = reactionary_candidate; z_relation += 3; braun_votes -= z_normalized if z_candidate = "Braun"
 go-to: round2_menu
 
 The Center are convinced! They will be part of the [+reactionary_candidate+] coalition.
@@ -496,7 +498,7 @@ go-to: r2_ddp_failed_reactionary if ddp_relation < 45; r2_ddp_success_reactionar
 max-visits: 1
 
 @r2_ddp_success_reactionary
-on-arrival: ddp_candidate = reactionary_candidate; ddp_relation += 5
+on-arrival: ddp_candidate = reactionary_candidate; ddp_relation += 5; braun_votes -= ddp_normalized if ddp_candidate = "Braun"
 go-to: round2_menu
 
 The [+ ddp_name +] are convinced! They will be part of the [+reactionary_candidate+] coalition.
@@ -514,7 +516,7 @@ go-to: r2_dbp_failed_reactionary if dbp_relation < 45; r2_dbp_success_reactionar
 max-visits: 1
 
 @r2_dbp_success_reactionary
-on-arrival: dbp_candidate = reactionary_candidate; dbp_relation += 3
+on-arrival: dbp_candidate = reactionary_candidate; dbp_relation += 3; braun_votes -= dbp_normalized if dbp_candidate = "Braun"
 go-to: round2_menu
 
 The DBP are convinced! They will be part of the [+reactionary_candidate+] coalition.
@@ -528,6 +530,8 @@ Unfortunately, we fail to turn them away from [+dbp_candidate+].
 
 @round2_convince_spd_reactionary
 view-if: spd_candidate != dvp_candidate and dvp_candidate = reactionary_candidate
+choose-if: braun_votes < (hitler_votes + harzburg_votes)
+unavailable-subtitle: The Social Democrats are stronger than far-right.
 go-to: r2_spd_failed_reactionary if spd_relation < 45; r2_spd_success_reactionary if spd_relation >= 45
 max-visits: 1
 
