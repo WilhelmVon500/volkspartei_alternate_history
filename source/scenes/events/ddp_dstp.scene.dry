@@ -3,6 +3,9 @@ subtitle: The <span style="color: #DCCA4A;">**German Democratic Party**</span> i
 view-if: year == 1930 and month >= 6 and ddp_exist
 on-arrival: {!
 Q.dstp_formation_points = 0;
+if (Q.other_votes < 3.7) {
+    Q.dstp_formation_points += 1;
+}
 if (Q.ddp_votes < 3.7) {
     Q.dstp_formation_points += 1;
 }
