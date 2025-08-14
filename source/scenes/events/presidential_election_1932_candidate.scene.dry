@@ -257,7 +257,7 @@ max-visits: 1
 We try to convince the Center Party to support [+reactionary_candidate+].
 
 @convince_z_success_reactionary
-on-arrival: z_relation += 3; z_candidate = "[+reactionary_candidate+]"
+on-arrival: z_relation += 3; z_candidate = reactionary_candidate; braun_votes -= z_normalized if z_candidate = "Braun"
 go-to: endorsements_reactionary
 
 Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for [+reactionary_candidate+] in the election.
@@ -277,7 +277,7 @@ max-visits: 1
 We try to convince the DBP to support [+reactionary_candidate+].
 
 @convince_dbp_success_reactionary
-on-arrival: dbp_relation += 3; dbp_candidate = reactionary_candidate
+on-arrival: dbp_relation += 3; dbp_candidate = reactionary_candidate; braun_votes -= dbp_normalized if dbp_candidate = "Braun"
 go-to: endorsements_reactionary
 
 Thanks to our friendly relations, the DBP is now campaigning for [+reactionary_candidate+] in the election.
@@ -297,7 +297,7 @@ max-visits: 1
 The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
 
 @convince_ddp_success_reactionary
-on-arrival: ddp_relation += 5; ddp_candidate = reactionary_candidate
+on-arrival: ddp_relation += 5; ddp_candidate = reactionary_candidate; braun_votes -= ddp_normalized if ddp_candidate = "Braun"
 go-to: endorsements_reactionary
 
 Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for [+reactionary_candidate+] in the election.
@@ -310,8 +310,8 @@ Unfortunately, under the influence of their left wing, the [+ ddp_name +] has re
 
 
 @convince_spd_reactionary
-choose-if: z_candidate != "Braun"
-unavailable-subtitle: The Social Democratic candidate has Center Party's support; they do not see a reason to withdraw their candidate.
+choose-if: braun_votes < (hitler_votes + harzburg_votes)
+unavailable-subtitle: The Social Democrats are stronger than the far-right.
 go-to: convince_spd_success_reactionary if (dvp_ideology = "Left" and spd_relation >= 50); convince_spd_fail_reactionary if not (dvp_ideology = "Left" and spd_relation >= 50)
 max-visits: 1
 
@@ -369,7 +369,7 @@ max-visits: 1
 We try to convince the Center Party to support Eckener.
 
 @convince_z_success_eckener
-on-arrival: z_relation += 3; z_candidate = "Eckener"
+on-arrival: z_relation += 3; z_candidate = "Eckener"; braun_votes -= z_normalized if z_candidate = "Braun"
 go-to: endorsements_eckener
 
 Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Eckener in the election.
@@ -389,7 +389,7 @@ max-visits: 1
 We try to convince the DBP to support Eckener.
 
 @convince_dbp_success_eckener
-on-arrival: dbp_relation += 3; dbp_candidate = "Eckener"
+on-arrival: dbp_relation += 3; dbp_candidate = "Eckener"; braun_votes -= dbp_normalized if dbp_candidate = "Braun"
 go-to: endorsements_eckener
 
 Thanks to our friendly relations, the DBP is now campaigning for Eckener in the election.
@@ -409,7 +409,7 @@ max-visits: 1
 The liberal vote has been falling over time, especially during the current economic depression, so they will probably be of minimal help to us. Still, every little bit counts.
 
 @convince_ddp_success_eckener
-on-arrival: ddp_relation += 5; ddp_candidate = "Eckener"
+on-arrival: ddp_relation += 5; ddp_candidate = "Eckener"; braun_votes -= ddp_normalized if ddp_candidate = "Braun"
 go-to: endorsements_eckener
 
 Thanks to our friendly relations and connections with their business wing, the [+ ddp_name +] is now campaigning for Eckener in the election.
@@ -422,8 +422,8 @@ Unfortunately, the [+ ddp_name +] has refused to support Eckener for the preside
 
 
 @convince_spd_eckener
-choose-if: z_candidate != "Braun"
-unavailable-subtitle: The Social Democratic candidate has Center Party's support; they do not see a reason to withdraw their candidate.
+choose-if: braun_votes < (hitler_votes + harzburg_votes)
+unavailable-subtitle: The Social Democrats are stronger than the far-right.
 go-to: convince_spd_success_eckener if spd_relation >= 45; convince_spd_fail_eckener if not spd_relation >= 45
 max-visits: 1
 
