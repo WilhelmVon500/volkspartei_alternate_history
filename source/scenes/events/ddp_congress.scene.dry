@@ -6,11 +6,11 @@ Q.lemmer_points = 0;
 Q.heuss_points = 0;
 Q.dietrich_points = 0;
 
-if (Q.ddp_relation >= 45) {
+if (Q.ddp_relation >= 55) {
     Q.ddp_right += 2;
     Q.ddp_cohesion -= 1;
 }
-if (Q.ddp_relation < 45) {
+if (Q.ddp_relation < 55) {
     Q.ddp_left += 2;
     Q.ddp_cohesion += 1;
 }
