@@ -83,6 +83,15 @@ go-to: rm_main
 
 Stresemann has been removed as an advisor. The Liberal faction disapproves.
 
+@remove_rheinbaben
+title: Remove Rheinbaben
+view-if: rheinbaben_advisor = 1
+tags: remove_advisor
+on-arrival: rheinbaben_advisor = 0; liberal_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Rheinbaben has been removed as an advisor. The Liberal faction disapproves.
+
 @remove_curtius
 title: Remove Curtius
 view-if: curtius_advisor = 1
@@ -416,6 +425,19 @@ on-arrival: stresemann_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Gustav Stresemann is now an advisor.
+
+
+@add_rheinbaben
+title: Rochus von Rheinbaben
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Media ?]
+is-card: true
+card-image: img/portraits/RheinbabenRochus.jpg
+tags: liberal_advisor
+view-if: rheinbaben_advisor = 0 and n_advisors < 3
+on-arrival: rheinbaben_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Rochus von Rheinbaben is now an advisor.
 
 
 @add_curtius
