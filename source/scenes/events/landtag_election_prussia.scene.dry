@@ -375,11 +375,11 @@ data = data.concat([
 ]);
 
 if (window && d3) {
-    var width = 500; 
+    var width = 500;
     var height = 500;
     var screenWidth = document.getElementById('content').offsetWidth;
     if (screenWidth < width - 50) {
-        width = screenWidth - 50; 
+        width = screenWidth - 50;
         height = width;
         document.getElementById("reichstag").style.height = screenWidth/2 + "px";
     } 
