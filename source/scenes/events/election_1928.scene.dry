@@ -110,17 +110,17 @@ if (Q.dvp_r >= Q.spd_r && Q.dvp_r >= Q.nsdap_r && Q.dvp_r >= Q.kpd_r) {
 }
 
 // coalitions
-if (Q.lvp_formed == 0) Q.weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r - 3).toFixed(1));
-if (Q.lvp_formed == 1) Q.weimar_coalition = parseFloat((Q.spd_r + Q.dvp_r + Q.z_r - 3).toFixed(1));
-Q.grand_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r).toFixed(1));
-Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-if (!Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
+if (Q.lvp_formed == 0) Q.weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_minus_bvp_r).toFixed(1));
+if (Q.lvp_formed == 1) Q.weimar_coalition = parseFloat((Q.spd_r + Q.dvp_r + Q.z_minus_bvp_r).toFixed(1));
+Q.grand_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.bvp_r + Q.dvp_r).toFixed(1));
+Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.bvp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
+if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.bvp_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
+if (!Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.bvp_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
+Q.right_coalition = parseFloat((Q.z_r + Q.bvp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
 Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
 // aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r).toFixed(1));
+Q.neo_weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.bvp_r + Q.dvp_r + Q.other_r + Q.kvp_r).toFixed(1));
 // Hitler + Right-wing parties
 Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnvp_r + Q.nsdap_r).toFixed(1));
 Q.liberal_coalition = parseFloat((Q.dvp_r + Q.ddp_r).toFixed(1));
@@ -158,8 +158,64 @@ Q.economic_minister_party = Q.ddp_name;
 Q.finance_minister_party = Q.ddp_name;
 Q.agriculture_minister_party = 'Z';
 
-Q.z_minus_bvp_votes = parseFloat((Q.z_votes - 3).toFixed(1));
-Q.z_minus_bvp_r = parseFloat((Q.z_r - 3).toFixed(1));
+
+
+Q.bvp_votes = Q.z_votes*0.2;
+if (Q.bvp_votes > 3.6) {
+    Q.bvp_votes = 3.6;
+}
+Q.bvp_r = Q.bvp_votes*1.05;
+if (Q.bvp_r > 3.7) {
+    Q.bvp_r = 3.7;
+}
+
+Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
+Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
+
+
+Q.str_votes_change_bvp = Q.bvp_votes - Q.old_bvp_votes;
+var sign2 = Q.str_votes_change_bvp > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_votes_change_bvp < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_votes_change_bvp = sign2 + Math.abs(Q.str_votes_change_bvp).toFixed(1);
+
+Q.str_change_bvp = Q.bvp_r - Q.old_bvp_r;
+var sign2 = Q.str_change_bvp > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_change_bvp < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
+
+if (Q.bvp_r) {
+    Q.old_z_votes -= Q.old_bvp_votes;
+    Q.old_z_r -= Q.old_bvp_r;
+}
+Q.old_bvp_votes = Q.bvp_votes;
+Q.old_bvp_r = Q.bvp_r;
+
+console.log("z_minus_bvp_votes:", Q.z_minus_bvp_votes);
+console.log("old_z_votes:", Q.old_z_votes);
+
+Q.str_votes_change_z = Q.z_minus_bvp_votes - Q.old_z_votes;
+var sign2 = Q.str_votes_change_z > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_votes_change_z < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_votes_change_z = sign2 + Math.abs(Q.str_votes_change_z).toFixed(1);
+
+Q.str_change_z = Q.z_r - Q.old_z_r;
+var sign2 = Q.str_change_z > 0
+? '<img src="img/arrowup.png"> '
+: Q.str_change_z < 0 
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
+
+
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
@@ -222,7 +278,7 @@ data = data.concat([
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": Math.round((Q.z_r - 3)*5),
+        "seats": Math.round(Q.z_minus_bvp_r*5),
     },
     {
         "id": "bvp",
@@ -338,7 +394,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td><td>!} 3% {!</td><td>!} <img src="img/steady.png"> 0.0 {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} <img src="img/steady.png"> [+ votes_change_bvp +] {!</td><td>!} [+ bvp_r +]% {!</td><td>!} <img src="img/steady.png"> [+ str_change_bvp +] {!</td></tr>!}
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} [+ csvd_r +]% {!</td><td>!} [+ str_change_csvd +] {!</td><td>!} ?]
 
