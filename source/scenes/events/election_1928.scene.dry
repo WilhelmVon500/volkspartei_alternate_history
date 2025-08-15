@@ -165,9 +165,6 @@ if (Q.bvp_r) {
     Q.old_z_r -= Q.old_bvp_r;
 }
 
-Q.old_bvp_votes = Q.bvp_votes;
-Q.old_bvp_r = Q.bvp_r;
-
 Q.bvp_votes = parseFloat((Q.z_votes*0.2).toFixed(1));
 if (Q.bvp_votes > 3.6) {
     Q.bvp_votes = 3.6;
@@ -197,7 +194,7 @@ var sign2 = Q.str_change_bvp > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
 
-Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_votes).toFixed(1));
+Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_minus_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_z > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_z < 0 
@@ -205,13 +202,18 @@ var sign2 = Q.str_votes_change_z > 0
   : '<img src="img/steady.png"> ';
 Q.str_votes_change_z = sign2 + Math.abs(Q.str_votes_change_z).toFixed(1);
 
-Q.str_change_z = parseFloat((Q.z_r - Q.old_z_r).toFixed(1));
+Q.str_change_z = parseFloat((Q.z_minus_bvp_r - Q.old_z_minus_bvp_r).toFixed(1));
 var sign2 = Q.str_change_z > 0
 ? '<img src="img/arrowup.png"> '
 : Q.str_change_z < 0 
   ? '<img src="img/arrowdown.png"> '
   : '<img src="img/steady.png"> ';
 Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
+
+Q.old_bvp_votes = Q.bvp_votes;
+Q.old_bvp_r = Q.bvp_r;
+Q.old_z_minus_bvp_votes = Q.z_minus_bvp_votes;
+Q.old_z_minus_bvp_r = Q.z_minus_bvp_r;
 
 
 
