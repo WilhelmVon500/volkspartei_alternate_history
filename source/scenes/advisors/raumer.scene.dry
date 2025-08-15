@@ -11,6 +11,7 @@ WIP.
 
 - @clear_agenda
 - @party_discipline
+- @end_game
 - @root: Return to main
 
 @clear_agenda
@@ -37,3 +38,11 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; nationalist_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 10; liberal_dissent -= 10; neorevisionist_dissent -= 5
 
 We have enforced party discipline to reduce dissent across all factions.
+
+
+@end_game
+title: End the game.
+choose-if: year >= 1935
+subtitle: We can end the game now.
+unavailable-subtitle: Raumer wants to keep playing.
+go-to: 1934_end
