@@ -173,7 +173,7 @@ Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
 Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
 
 
-Q.str_votes_change_bvp = parseFloat((.bvp_votes - Q.old_bvp_votes).toFixed(1));
+Q.str_votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_bvp < 0 
