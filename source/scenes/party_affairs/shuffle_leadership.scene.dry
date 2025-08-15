@@ -53,6 +53,16 @@ go-to: rm_main
 Jarres has been removed as an advisor. The Industrialist faction disapproves.
 
 
+@remove_raumer
+title: Remove Raumer
+view-if: raumer_advisor = 1
+tags: remove_advisor
+on-arrival: raumer_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Raumer has been removed as an advisor. The Industrialist faction disapproves.
+
+
 # reformists
 
 
@@ -383,6 +393,19 @@ on-arrival: jarres_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Karl Jarres is now an advisor.
+
+
+@add_raumer
+title: Hans Raumer
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
+is-card: true
+card-image: img/portraits/RaumerHans.jpg
+tags: industrialist_advisor
+view-if: raumer_advisor = 0 and n_advisors < 3
+on-arrival: raumer_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Hans Raumer is now an advisor.
 
 
 # liberal
