@@ -248,8 +248,6 @@ Q.dvp_prussia = 0;
 Q.spd_toleration_prussia = 0;
 Q.dvp_toleration_prussia = 0
 !}
-
-
 on-display: {!
 data = [
     {
