@@ -4,7 +4,6 @@ new-page: true
 tags: event
 priority: 2
 on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48;
-}!
 set-jump: new_elections
 
 = Prussian Elections, [+ month : month +] [+ year +]
