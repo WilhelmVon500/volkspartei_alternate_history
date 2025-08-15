@@ -411,7 +411,7 @@ if (window && d3) {
 
 [? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes_prussia +]% {!</td><td>!} [+ votes_change_dbp_prussia +] {!</td><td>!} [+ dbp_pl +]% {!</td><td>!} [+ change_dbp_pl +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes_prussia +]% {!</td><td>!} [+ votes_change_z_prussia +] {!</td><td>!} [+ z_pl +]% {!</td><td>!} [+ change_z_pl +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_prussia +]% {!</td><td>!} [+ votes_change_z_prussia +] {!</td><td>!} [+ z_pl +]% {!</td><td>!} [+ change_z_pl +] {!</td></tr>!}
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_prussia +]% {!</td><td>!} [+ votes_change_csvd_prussia +] {!</td><td>!} [+ csvd_pl +]% {!</td><td>!} [+ change_csvd_pl +] {!</td><td>!} ?]
 
