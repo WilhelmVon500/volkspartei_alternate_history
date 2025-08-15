@@ -140,7 +140,7 @@ for (var party of Q.parties) {
         }
     }
     // Apply adjustment factor
-    Q[party + '_support'] = party_support * (adjustment_factors[party] || 1.0);
+    Q[party + '_support'] = party_support
     total_support += Q[party + '_support'];
 }
 
