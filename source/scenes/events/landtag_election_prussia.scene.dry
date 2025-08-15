@@ -290,7 +290,7 @@ data = data.concat([
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": Math.round((Q.z_pl*4.5),
+        "seats": Math.round(Q.z_pl*4.5),
     },
 ]);
 if (Q.lvp_formed == 0) {
