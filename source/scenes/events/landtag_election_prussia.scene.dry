@@ -256,7 +256,7 @@ data = [
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
-        "seats": Math.round(Q.kpd_pl * 5),
+        "seats": Math.round(Q.kpd_pl * 4.5),
     }
 ];
 if (Q.sapd_formed && Q.sapd_pl) {
@@ -264,7 +264,7 @@ if (Q.sapd_formed && Q.sapd_pl) {
             "id": "sapd",
             "legend": "SAPD",
             "name": "SAPD",
-            "seats": Math.round(Q.sapd_pl * 5),
+            "seats": Math.round(Q.sapd_pl * 4.5),
             });
 }
 data = data.concat([
@@ -272,7 +272,7 @@ data = data.concat([
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
-        "seats": Math.round(Q.spd_pl * 5),
+        "seats": Math.round(Q.spd_pl * 4.5),
     }
 ]);
 if (Q.lvp_formed == 0) {
@@ -280,7 +280,7 @@ if (Q.lvp_formed == 0) {
         "id": "ddp",
         "legend": Q.ddp_name,
         "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_pl * 5),
+        "seats": Math.round(Q.ddp_pl * 4.5),
     });
 }
 if (Q.dbp_exist && Q.dbp_pl) {
@@ -288,7 +288,7 @@ if (Q.dbp_exist && Q.dbp_pl) {
         "id": "dbp",
         "legend": "DBP",
         "name": "DBP",
-        "seats": Math.round(Q.dbp_pl * 5),
+        "seats": Math.round(Q.dbp_pl * 4.5),
     });
 }
 if (Q.lvp_formed == 1) {
@@ -296,7 +296,7 @@ if (Q.lvp_formed == 1) {
         "id": "lvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_pl * 5),
+        "seats": Math.round(Q.dvp_pl * 4.5),
     });
 }
 data = data.concat([
@@ -304,7 +304,7 @@ data = data.concat([
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": Math.round(Q.z_pl * 5),
+        "seats": Math.round(Q.z_pl * 4.5),
     },
 ]);
 if (Q.lvp_formed == 0) {
@@ -312,7 +312,7 @@ if (Q.lvp_formed == 0) {
         "id": "dvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_pl * 5),
+        "seats": Math.round(Q.dvp_pl * 4.5),
     });
 }
 
@@ -321,7 +321,7 @@ if (Q.csvd_exist && Q.csvd_pl) {
         "id": "csvd",
         "legend": "CSVD",
         "name": "CSVD",
-        "seats": Math.round(Q.csvd_pl * 5),
+        "seats": Math.round(Q.csvd_pl * 4.5),
     });
 }
 
@@ -330,7 +330,7 @@ if (Q.wp_exist && Q.wp_pl) {
         "id": "wp",
         "legend": "WP",
         "name": "WP",
-        "seats": Math.round(Q.wp_pl * 5),
+        "seats": Math.round(Q.wp_pl * 4.5),
     });
 }
 
@@ -339,7 +339,7 @@ if (Q.cnblp_exist && Q.cnblp_pl) {
         "id": "cnblp",
         "legend": "CNBLP",
         "name": "CNBLP",
-        "seats": Math.round(Q.cnblp_pl * 5),
+        "seats": Math.round(Q.cnblp_pl * 4.5),
     });
 }
 
@@ -348,7 +348,7 @@ data = data.concat([
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Math.round(Q.other_pl * 5),
+        "seats": Math.round(Q.other_pl * 4.5),
     }
 ]);
 if (Q.kvp_formed && Q.kvp_pl) {
@@ -356,7 +356,7 @@ if (Q.kvp_formed && Q.kvp_pl) {
         "id": "kvp",
         "legend": "KVP",
         "name": "KVP",
-        "seats": Math.round(Q.kvp_pl * 5),
+        "seats": Math.round(Q.kvp_pl * 4.5),
     });
 }
 data = data.concat([
@@ -364,13 +364,13 @@ data = data.concat([
         "id": "dnvp",
         "legend": "DNVP",
         "name": "DNVP",
-        "seats": Math.round(Q.dnvp_pl * 5),
+        "seats": Math.round(Q.dnvp_pl * 4.5),
     },
     {
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_pl * 5),
+        "seats": Math.round(Q.nsdap_pl * 4.5),
     },
 ]);
 
