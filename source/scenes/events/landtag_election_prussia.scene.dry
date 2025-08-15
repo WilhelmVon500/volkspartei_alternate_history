@@ -161,7 +161,7 @@ for (var party of Q.parties) {
                    : Q['change_' + party + '_pl'] < 0 
                      ? '<img src="img/arrowdown.png"> ' 
                      : '<img src="img/steady.png"> ';
-    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
+    Q['change_' + party + '_pl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
 
     Q['change_' + party + '_votes_prussia'] = Q[party + '_votes_prussia'] - Q['old_' + party + '_votes_prussia'];
     var sign2 = Q['change_' + party + '_votes_prussia'] > 0 
@@ -169,7 +169,7 @@ for (var party of Q.parties) {
                     : Q['change_' + party + '_votes_prussia'] < 0 
                       ? '<img src="img/arrowdown.png"> ' 
                       : '<img src="img/steady.png"> ';
-    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_prussia'])).toFixed(1);
+    Q['votes_change_' + party + '_prussia'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_prussia'])).toFixed(1);
 
     Q['old_' + party + '_votes_prussia'] = parseFloat((Q[party + '_votes_prussia']).toFixed(1));
 }
@@ -187,7 +187,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
                    : Q['change_' + party + '_pl'] < 0
                      ? '<img src="img/arrowdown.png"> '
                      : '<img src="img/steady.png"> ';
-        Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
+        Q['change_' + party + '_pl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
     }
 }
 
@@ -245,7 +245,7 @@ data = [
         "seats": Math.round(Q.kpd_pl*4.5),
     }
 ];
-if (Q.sapd_formed && Q.sapd_r) {
+if (Q.sapd_formed && Q.sapd_pl) {
     data.push({
             "id": "sapd",
             "legend": "SAPD",
@@ -269,7 +269,7 @@ if (Q.lvp_formed == 0) {
         "seats": Math.round(Q.ddp_pl*4.5),
     });
 }
-if (Q.dbp_exist && Q.dbp_r) {
+if (Q.dbp_exist && Q.dbp_pl) {
     data.push({
         "id": "dbp",
         "legend": "DBP",
@@ -302,7 +302,7 @@ if (Q.lvp_formed == 0) {
     });
 }
 
-if (Q.csvd_exist && Q.csvd_r) {
+if (Q.csvd_exist && Q.csvd_pl) {
     data.push({
         "id": "csvd",
         "legend": "CSVD",
@@ -311,7 +311,7 @@ if (Q.csvd_exist && Q.csvd_r) {
     });
 }
 
-if (Q.wp_exist && Q.wp_r) {
+if (Q.wp_exist && Q.wp_pl) {
     data.push({
         "id": "wp",
         "legend": "WP",
@@ -320,7 +320,7 @@ if (Q.wp_exist && Q.wp_r) {
     });
 }
 
-if (Q.cnblp_exist && Q.cnblp_r) {
+if (Q.cnblp_exist && Q.cnblp_pl) {
     data.push({
         "id": "cnblp",
         "legend": "CNBLP",
@@ -337,7 +337,7 @@ data = data.concat([
         "seats": Math.round(Q.other_pl*4.5),
     }
 ]);
-if (Q.kvp_formed && Q.kvp_r) {
+if (Q.kvp_formed && Q.kvp_pl) {
     data.push({
         "id": "kvp",
         "legend": "KVP",
@@ -359,3 +359,57 @@ data = data.concat([
         "seats": Math.round(Q.nsdap_pl*4.5),
     },
 ]);
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
+[? if not lvp_formed: {!<tr><td><div class="box" style='background-color:#D5AC27; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_prussia +]%** {!</td><td>!} **[+ votes_change_dvp_prussia +]** {!</td><td>!} **[+ dvp_pl +]%** {!</td><td>!} **[+ change_dvp_pl +]** {!</td></tr>!} ?]
+[? if lvp_formed: {!<tr><td><div class="box" style='background-color:#FFA500; outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_prussia +]%** {!</td><td>!} **[+ votes_change_dvp_prussia +]** {!</td><td>!} **[+ dvp_pl +]%** {!</td><td>!} **[+ change_dvp_pl +]** {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_prussia +]% {!</td><td>!} [+ votes_change_kpd_prussia +] {!</td><td>!} [+ kpd_pl +]% {!</td><td>!} [+ change_kpd_pl +] {!</td></tr>!}
+
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_prussia +]% {!</td><td>!} [+ votes_change_sapd_prussia +] {!</td><td>!} [+ sapd_pl +]% {!</td><td>!} [+ change_sapd_pl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_prussia +]% {!</td><td>!} [+ votes_change_spd_prussia +] {!</td><td>!} [+ spd_pl +]% {!</td><td>!} [+ change_spd_pl +] {!</td></tr>!}
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_prussia +]% {!</td><td>!} [+ votes_change_ddp_prussia +] {!</td><td>!} [+ ddp_pl +]% {!</td><td>!} [+ change_ddp_pl +] {!</td></tr>!} ?]
+
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes_prussia +]% {!</td><td>!} [+ votes_change_dbp_prussia +] {!</td><td>!} [+ dbp_pl +]% {!</td><td>!} [+ change_dbp_pl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes_prussia +]% {!</td><td>!} [+ votes_change_z_prussia +] {!</td><td>!} [+ z_pl +]% {!</td><td>!} [+ change_z_pl +] {!</td></tr>!}
+
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_prussia +]% {!</td><td>!} [+ votes_change_csvd_prussia +] {!</td><td>!} [+ csvd_pl +]% {!</td><td>!} [+ change_csvd_pl +] {!</td><td>!} ?]
+
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes_prussia +]% {!</td><td>!} [+ votes_change_wp_prussia +] {!</td><td>!} [+ wp_pl +]% {!</td><td>!} [+ change_wp_pl +] {!</td><td>!} ?]
+
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes_prussia +]% {!</td><td>!} [+ votes_change_cnblp_prussia +] {!</td><td>!} [+ cnblp_pl +]% {!</td><td>!} [+ change_cnblp_pl +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_prussia +]% {!</td><td>!} [+ votes_change_kvp_prussia +] {!</td><td>!} [+ kvp_pl +]% {!</td><td>!} [+ change_kvp_pl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_prussia +]% {!</td><td>!} [+ votes_change_dnvp_prussia +] {!</td><td>!} [+ dnvp_pl +]% {!</td><td>!} [+ change_dnvp_pl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_prussia +]% {!</td><td>!} [+ votes_change_nsdap_prussia +] {!</td><td>!} [+ nsdap_pl +]% {!</td><td>!} [+ change_nsdap_pl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_prussia +]% {!</td><td>!} [+ votes_change_other_prussia +] {!</td><td>!} [+ other_pl +]% {!</td><td>!} [+ change_other_pl +] {!</td></tr>!}
+{!</table>!}
