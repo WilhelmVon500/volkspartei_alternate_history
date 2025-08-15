@@ -23,6 +23,8 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+Q.bvp_votes = Q.bvp_votes / 100;
+
 Q.reactionary_votes = 0;
 Q.eckener_votes = 0;
 Q.braun_votes = 0;
@@ -46,7 +48,10 @@ if (Q.dbp_candidate == Q.reactionary_candidate && Q.dbp_exist) {
     Q.reactionary_votes += Q.dbp_normalized;
 }
 if (Q.z_candidate == Q.reactionary_candidate) {
-    Q.reactionary_votes += Q.z_normalized;
+    Q.reactionary_votes += (Q.z_normalized - Q.bvp_votes);
+}
+if (Q.bvp_candidate == Q.reactionary_candidate) {
+    Q.reactionary_votes += Q.bvp_votes;
 }
 if (Q.dvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dvp_normalized;
@@ -85,7 +90,10 @@ if (Q.eckener_campaign) {
         Q.eckener_votes += Q.dbp_normalized;
     }
     if (Q.z_candidate == "Eckener") {
-        Q.eckener_votes += Q.z_normalized;
+        Q.eckener_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.bvp_candidate == "Eckener") {
+        Q.eckener_votes += Q.bvp_votes;
     }
     if (Q.dvp_candidate == "Eckener") {
         Q.eckener_votes += Q.dvp_normalized;
@@ -111,7 +119,7 @@ if (Q.eckener_campaign) {
 if (Q.braun_campaign) {
     Q.braun_votes += Q.spd_normalized;
     if (Q.z_candidate == "Braun") {
-        Q.braun_votes += Q.z_normalized;
+        Q.braun_votes += (Q.z_normalized - Q.bvp_votes);
     }
     if (Q.ddp_candidate == "Braun" && Q.ddp_exist) {
         Q.braun_votes += Q.ddp_normalized;
