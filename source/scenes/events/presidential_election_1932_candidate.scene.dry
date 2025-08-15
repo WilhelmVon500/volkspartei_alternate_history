@@ -22,6 +22,7 @@ if (Q.hindenburg_run) {
 Q.spd_candidate = Q.reactionary_candidate;
 Q.dvp_candidate = Q.reactionary_candidate;
 Q.z_candidate = Q.reactionary_candidate;
+Q.bvp_candidate = Q.reactionary_candidate;
 Q.ddp_candidate = Q.reactionary_candidate;
 Q.dbp_candidate = Q.reactionary_candidate;
 Q.csvd_candidate = Q.reactionary_candidate;
@@ -168,6 +169,8 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if z_candidate = reactionary_candidate: - <span style="color: #000000;">**Z**</span> ?]
 
+[? if bvp_candidate = reactionary_candidate: - <span style="color: #69A2BE;">**BVP**</span> ?]
+
 [? if dvp_candidate = reactionary_candidate: - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
 
 [? if csvd_candidate = reactionary_candidate and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
@@ -191,6 +194,8 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 [? if dbp_candidate = "Eckener" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
 [? if z_candidate = "Eckener": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if bvp_candidate = "Eckener": - <span style="color: #69A2BE;">**BVP**</span> ?]
 
 [? if dvp_candidate = "Eckener": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
 
@@ -257,7 +262,7 @@ max-visits: 1
 We try to convince the Center Party to support [+reactionary_candidate+].
 
 @convince_z_success_reactionary
-on-arrival: z_relation += 3; z_candidate = reactionary_candidate; braun_votes -= z_normalized if z_candidate = "Braun"
+on-arrival: z_relation += 3; z_candidate = reactionary_candidate; braun_votes -= (z_normalized - bvp_votes) if z_candidate = "Braun"
 go-to: endorsements_reactionary
 
 Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for [+reactionary_candidate+] in the election.
@@ -353,6 +358,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 - @convince_ddp_eckener: Convince the [+ ddp_name +] to back Eckener.
 - @convince_dbp_eckener: Convince the DBP to back Eckener.
 - @convince_spd_eckener: Convince the SPD to back Eckener.
+- @convince_z_eckener: Convince the Center Party to back Eckener.
 - @convince_csvd_eckener: Convince the CSVD to back Eckener.
 - @convince_wp_eckener: Convince the WP to back Eckener.
 - @convince_cnblp_eckener: Convince the CNBLP to back Eckener.
@@ -369,10 +375,10 @@ max-visits: 1
 We try to convince the Center Party to support Eckener.
 
 @convince_z_success_eckener
-on-arrival: z_relation += 3; z_candidate = "Eckener"; braun_votes -= z_normalized if z_candidate = "Braun"
+on-arrival: z_relation += 3; z_candidate = "Eckener"; braun_votes -= (z_normalized - bvp_votes) if z_candidate = "Braun"; bvp_candidate = "Eckener" if z_relation >= 50
 go-to: endorsements_eckener
 
-Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Eckener in the election.
+Thanks to our friendly relations and connections with their right wing, the Center Party is now campaigning for Eckener in the election. [? if bvp_candidate = "Eckener": BVP will also support our candidate. ?]
 
 @convince_z_fail_eckener
 on-arrival: z_relation -= 3
