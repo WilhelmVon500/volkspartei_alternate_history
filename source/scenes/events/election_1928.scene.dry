@@ -106,7 +106,7 @@ if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r && Q.kpd_r >= Q.dvp_r) {
 }
 
 if (Q.dvp_r >= Q.spd_r && Q.dvp_r >= Q.nsdap_r && Q.dvp_r >= Q.kpd_r) {
-    Q.largest_party = 'KPD';
+    Q.largest_party = Q.dvp_name;
 }
 
 // coalitions
