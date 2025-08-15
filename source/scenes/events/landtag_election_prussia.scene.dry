@@ -1,1 +1,361 @@
+title: Prussian Landtag Election
+view-if: year = next_election_year_prussia and month >= next_election_month_prussia
+new-page: true
+tags: event
+priority: 2
+on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48;
+}!
+set-jump: new_elections
 
+= Prussian Elections, [+ month : month +] [+ year +]
+
+The Prussian elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!  
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_prussia'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+if (Q.year == 1928) {
+    var adjustment_factors = {
+        spd: 0.98,
+        sapd: 0.6,
+        kpd: 1.1,
+        ddp: 0.95,
+        dbp: 0.67,
+        z: 1.02,
+        dvp: 1.0,
+        csvd: 1.2,
+        wp: 1.2,
+        cnblp: 1.2,
+        kvp: 1.2,
+        dnvp: 1.2,
+        nsdap: 0.66,
+        other: 0.88,
+    };
+} else if (Q.year == 1929) {
+    var adjustment_factors = {
+        spd: 0.97,
+        sapd: 0.8,
+        kpd: 1.08,
+        ddp: 0.95,
+        dbp: 0.66,
+        z: 1.02,
+        dvp: 1.025,
+        csvd: 1.3,
+        wp: 1.3,
+        cnblp: 1.3,
+        kvp: 1.3,
+        dnvp: 1.3,
+        nsdap: 1.0,
+        other: 0.85,
+    };
+} else if (Q.year == 1930 && Q.kvp_formed == 1) {
+    var adjustment_factors = {
+        spd: 0.95,
+        sapd: 1.0,
+        kpd: 1.05,
+        ddp: 0.95,
+        dbp: 0.65,
+        z: 1.02,
+        dvp: 1.05,
+        csvd: 1.3,
+        wp: 1.3,
+        cnblp: 1.3,
+        kvp: 1.3,
+        dnvp: 0.8,
+        nsdap: 1.0,
+        other: 0.8,
+    };
+} else if (Q.year == 1930 && Q.kvp_formed == 0) {
+    var adjustment_factors = {
+        spd: 0.95,
+        sapd: 1.0,
+        kpd: 1.05,
+        ddp: 0.95,
+        dbp: 0.65,
+        z: 1.02,
+        dvp: 1.0,
+        csvd: 1.3,
+        wp: 1.3,
+        cnblp: 1.3,
+        kvp: 1.3,
+        dnvp: 1.3,
+        nsdap: 1.0,
+        other: 0.75,
+    };
+} else if (Q.year == 1931) {
+    var adjustment_factors = {
+        spd: 0.95,
+        sapd: 1.3,
+        kpd: 1.0,
+        ddp: 0.95,
+        dbp: 0.7,
+        z: 1.02,
+        dvp: 1.1,
+        csvd: 1.0,
+        wp: 1.0,
+        cnblp: 1.0,
+        kvp: 1.0,
+        dnvp: 1.25,
+        nsdap: 1.0,
+        other: 0.7,
+    };
+} else if (Q.year >= 1932) {
+    var adjustment_factors = {
+        spd: 0.95,
+        sapd: 1.5,
+        kpd: 1.0,
+        ddp: 0.95,
+        dbp: 0.7,
+        z: 1.02,
+        dvp: 1.0,
+        csvd: 0.8,
+        wp: 0.8,
+        cnblp: 0.8,
+        kvp: 0.8,
+        dnvp: 1.2,
+        nsdap: 1.0,
+        other: 0.65,
+    };
+}
+
+if (Q.ddp_votes < 3) Q.adjustmentFactors_ddp_prussia = 0.8;
+if (Q.ddp_votes < 2) Q.adjustmentFactors_ddp_prussia = 0.5;
+if (Q.ddp_votes < 1.5) Q.adjustmentFactors_ddp_prussia = 0.3;
+if (Q.ddp_votes < 1) Q.adjustmentFactors_ddp_prussia = 0.1;
+if (Q.ddp_votes >= 3) Q.adjustmentFactors_ddp_prussia = 1.0;
+
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_pl'] = Q[party + '_pl'];
+    Q[party + '_votes_prussia'] = Q[party + '_votes_prussia'] * (adjustment_factors[party] || 1.0)
+    if (Q.constitutional_reform > 0) {
+        if (Q[party + '_votes_prussia'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_pl'] = 0;
+        } else {
+            Q[party + '_pl'] = Q[party + '_votes_prussia'];
+        }
+        new_party_sum += Q[party + '_pl'];
+    } else {
+        Q[party + '_pl'] = Q[party + '_votes_prussia'];
+    }
+    // if we use decimals, then we might want to truncate the numbers
+    Q[party + '_pl'] = parseFloat((Q[party+'_pl']).toFixed(1));
+
+    Q['change_' + party + '_pl'] = Q[party + '_pl'] - Q['old_' + party + '_pl'];
+    var sign = Q['change_' + party + '_pl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_pl'] < 0 
+                     ? '<img src="img/arrowdown.png"> ' 
+                     : '<img src="img/steady.png"> ';
+    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
+
+    Q['change_' + party + '_votes_prussia'] = Q[party + '_votes_prussia'] - Q['old_' + party + '_votes_prussia'];
+    var sign2 = Q['change_' + party + '_votes_prussia'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_prussia'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_prussia'])).toFixed(1);
+
+    Q['old_' + party + '_votes_prussia'] = parseFloat((Q[party + '_votes_prussia']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (Q.electoral_threshold && Q.electoral_threshold > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_pl'] > 0) {
+            Q[party + '_pl'] = Math.round(Q[party + '_pl']*1000/new_party_sum)/10;
+        }
+        Q[party + '_pl'] = parseFloat((Q[party+'_pl']).toFixed(1));
+        
+        Q['change_' + party + '_pl'] = Q[party + '_pl'] - Q['old_' + party + '_pl'];
+        var sign = Q['change_' + party + '_pl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_pl'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
+    }
+}
+
+Q.largest_party = 'SPD';
+if (Q.nsdap_pl >= Q.spd_pl && Q.nsdap_pl >= Q.kpd_pl && Q.nsdap_pl >= Q.dvp_pl) {
+    Q.largest_party = 'NSDAP';
+}
+
+if (Q.kpd_pl >= Q.spd_pl && Q.kpd_pl >= Q.nsdap_pl && Q.kpd_pl >= Q.dvp_pl) {
+    Q.largest_party = 'KPD';
+}
+
+if (Q.dvp_pl >= Q.spd_pl && Q.dvp_pl >= Q.nsdap_pl && Q.dvp_pl >= Q.kpd_pl) {
+    Q.largest_party = Q.dvp_name;
+}
+
+
+if (Q.lvp_formed == 0) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl).toFixed(1));
+if (Q.lvp_formed == 1) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_pl).toFixed(1));
+Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
+Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+if (Q.kvp_formed) Q.center_right_coalition_prussia = parseFloat((Q.z_pl + Q.ddp_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+if (!Q.kvp_formed) Q.center_right_coalition_prussia = parseFloat((Q.z_pl + Q.ddp_pl + Q.dvp_pl + Q.other_pl + Q.dnvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+Q.right_coalition_prussia = parseFloat((Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.dnvp_pl + Q.wp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+Q.far_right_coalition_prussia = parseFloat((Q.dnvp_pl + Q.nsdap_pl).toFixed(1));
+Q.anti_democratic_coalition_prussia = parseFloat((Q.kpd_pl + Q.nsdap_pl + Q.dnvp_pl).toFixed(1));
+
+
+in_right_coalition_prussia = 0;
+in_liberal_catholic_coalition_prussia = 0;
+in_social_liberal_coalition_prussia = 0;
+in_weimar_coalition_prussia = 0;
+in_grand_coalition_prussia = 0;
+in_minority_grand_coalition_prussia = 0;
+in_spd_majority_prussia = 0;
+in_dvp_majority_prussia = 0;
+in_center_right_coalition_prussia = 0;
+in_far_right_coalition_prussia = 0;
+in_minority_weimar_coalition_prussia = 0;
+in_minority_liberal_catholic_coalition_prussia = 0;
+in_minority_social_liberal_coalition_prussia = 0;
+spd_prussia = 0;
+dvp_prussia = 0;
+spd_toleration_prussia = 0;
+dvp_toleration_prussia = 0
+
+
+on-display: {!
+data = [
+    {
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_pl*4.5),
+    }
+];
+if (Q.sapd_formed && Q.sapd_r) {
+    data.push({
+            "id": "sapd",
+            "legend": "SAPD",
+            "name": "SAPD",
+            "seats": Math.round(Q.sapd_pl*4.5),
+            });
+}
+data = data.concat([
+    {
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_pl*4.5),
+    }
+]);
+if (Q.lvp_formed == 0) {
+    data.push({
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_pl*4.5),
+    });
+}
+if (Q.dbp_exist && Q.dbp_r) {
+    data.push({
+        "id": "dbp",
+        "legend": "DBP",
+        "name": "DBP",
+        "seats": Math.round(Q.dbp_pl*4.5),
+    });
+}
+if (Q.lvp_formed == 1) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_pl*4.5),
+    });
+}
+data = data.concat([
+    {
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round((Q.z_pl*4.5),
+    },
+]);
+if (Q.lvp_formed == 0) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_pl*4.5),
+    });
+}
+
+if (Q.csvd_exist && Q.csvd_r) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_pl*4.5),
+    });
+}
+
+if (Q.wp_exist && Q.wp_r) {
+    data.push({
+        "id": "wp",
+        "legend": "WP",
+        "name": "WP",
+        "seats": Math.round(Q.wp_pl*4.5),
+    });
+}
+
+if (Q.cnblp_exist && Q.cnblp_r) {
+    data.push({
+        "id": "cnblp",
+        "legend": "CNBLP",
+        "name": "CNBLP",
+        "seats": Math.round(Q.cnblp_pl*4.5),
+    });
+}
+
+data = data.concat([
+    {
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_pl*4.5),
+    }
+]);
+if (Q.kvp_formed && Q.kvp_r) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_pl*4.5),
+    });
+}
+data = data.concat([
+    {
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_pl*4.5),
+    },
+    {
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_pl*4.5),
+    },
+]);
