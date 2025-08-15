@@ -155,7 +155,7 @@ for (var party of Q.parties) {
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_pl'] = Q[party + '_pl'];
-    Q[party + '_votes_prussia'] = Q[party + '_votes_prussia'] * Q['adjustmentFactors_' + party + '_prussia']
+    Q[party + '_votes_prussia'] = parseFloat((Q[party + '_votes_prussia']*Q['adjustmentFactors_' + party + '_prussia']).toFixed(1))
     if (Q.constitutional_reform > 0) {
         if (Q[party + '_votes_prussia'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
             Q[party + '_pl'] = 0;
