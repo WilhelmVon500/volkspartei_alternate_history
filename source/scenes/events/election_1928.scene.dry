@@ -173,7 +173,7 @@ Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
 Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
 
 
-Q.str_votes_change_bvp = Q.bvp_votes - Q.old_bvp_votes;
+Q.str_votes_change_bvp = parseFloat((.bvp_votes - Q.old_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_bvp < 0 
@@ -181,7 +181,7 @@ var sign2 = Q.str_votes_change_bvp > 0
   : '<img src="img/steady.png"> ';
 Q.str_votes_change_bvp = sign2 + Math.abs(Q.str_votes_change_bvp).toFixed(1);
 
-Q.str_change_bvp = Q.bvp_r - Q.old_bvp_r;
+Q.str_change_bvp = parseFloat((Q.bvp_r - Q.old_bvp_r).toFixed(1));
 var sign2 = Q.str_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_change_bvp < 0 
@@ -189,17 +189,13 @@ var sign2 = Q.str_change_bvp > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
 
-if (Q.bvp_r) {
-    Q.old_z_votes -= Q.old_bvp_votes;
-    Q.old_z_r -= Q.old_bvp_r;
-}
 Q.old_bvp_votes = Q.bvp_votes;
 Q.old_bvp_r = Q.bvp_r;
 
 console.log("z_minus_bvp_votes:", Q.z_minus_bvp_votes);
 console.log("old_z_votes:", Q.old_z_votes);
 
-Q.str_votes_change_z = Q.z_minus_bvp_votes - Q.old_z_votes;
+Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_votes).toFixed(1));
 var sign2 = Q.str_votes_change_z > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_z < 0 
@@ -207,13 +203,18 @@ var sign2 = Q.str_votes_change_z > 0
   : '<img src="img/steady.png"> ';
 Q.str_votes_change_z = sign2 + Math.abs(Q.str_votes_change_z).toFixed(1);
 
-Q.str_change_z = Q.z_r - Q.old_z_r;
+Q.str_change_z = parseFloat((Q.z_r - Q.old_z_r).toFixed(1));
 var sign2 = Q.str_change_z > 0
 ? '<img src="img/arrowup.png"> '
 : Q.str_change_z < 0 
   ? '<img src="img/arrowdown.png"> '
   : '<img src="img/steady.png"> ';
 Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
+
+if (Q.bvp_r) {
+    Q.old_z_votes -= Q.old_bvp_votes;
+    Q.old_z_r -= Q.old_bvp_r;
+}
 
 
 
@@ -394,7 +395,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} <img src="img/steady.png"> [+ votes_change_bvp +] {!</td><td>!} [+ bvp_r +]% {!</td><td>!} <img src="img/steady.png"> [+ str_change_bvp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} [+ votes_change_bvp +] {!</td><td>!} [+ bvp_r +]% {!</td><td>!} [+ str_change_bvp +] {!</td></tr>!}
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} [+ csvd_r +]% {!</td><td>!} [+ str_change_csvd +] {!</td><td>!} ?]
 
