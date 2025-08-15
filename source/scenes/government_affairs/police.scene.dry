@@ -4,7 +4,7 @@ is-card: true
 tags: govt_affairs, cabinet
 on-arrival: police_timer += 6; month_actions += 1
 view-if: dvp_in_government = 1 and interior_minister_party = dvp_name and police_timer <= 0
-card-image: img/portraits/SeveringCarl.jpg
+card-image: img/portraits/JarresKarl.jpg
 
 = Internal Security
 
@@ -15,6 +15,7 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @loyalty: Improve the loyalty of the Interior Ministry forces.
 - @investigate_corruption: Investigate corruption by big businesses.
 - @investigate_far_right: Investigate illegal activity among the far right.
+- @investigate_far_left: Investigate illegal activity among the far left.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
 - @root: Take no action for now.
@@ -57,5 +58,22 @@ on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_nsdap -= 3; n
 
 
 @investigate_far_right_failure
+
+Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
+
+
+
+
+
+@investigate_far_left
+go-to: investigate_far_left_success if interior_police_loyalty >= 0.35; investigate_far_left_failure if interior_police_loyalty < 0.35
+
+@investigate_far_left_success
+on-arrival: investigate_far_left += 1; rfb_strength -= 10; workers_kpd -= 3; unemployed_kpd -= 3; workers_kpd -= 3 if investigate_far_left > 3; unemployed_kpd -= 3 if investigate_far_left > 3;
+
+Of course the Communists are doing crimes; everyone knows that. Now, we finally have proof.
+
+
+@investigate_far_left_failure
 
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
