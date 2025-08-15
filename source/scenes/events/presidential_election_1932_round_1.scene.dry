@@ -240,12 +240,12 @@ go-to: r2_z_failed_braun if z_relation < 35; r2_z_success_braun if z_relation >=
 max-visits: 1
 
 @r2_z_success_braun
-on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + (z_normalized - Q.bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Braun"; braun_votes += (z_normalized - Q.bvp_votes); z_relation += 3
+on-arrival: nsdap_candidate = "Hindenburg" if braun_votes + (z_normalized - bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg"; z_candidate = "Braun"; braun_votes += (z_normalized - bvp_votes); z_relation += 3
 go-to: round2_menu
 
 [? if nsdap_candidate = "Hindenburg" and z_candidate = "Hindenburg": The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Braun coalition.
 
-[? if not nsdap_candidate = "Hindenburg" and braun_votes + (z_normalized - Q.bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg": With the Center Party supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and braun_votes + (z_normalized - bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg": With the Center Party supporting Braun, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
 @r2_z_failed_braun
 on-arrival: z_relation -= 3
@@ -324,12 +324,12 @@ go-to: r2_z_failed_eckener if z_relation < 35; r2_z_success_eckener if z_relatio
 max-visits: 1
 
 @r2_z_success_eckener
-on-arrival: z_relation += 3; braun_votes -= (z_normalized - Q.bvp_votes) if z_candidate = "Braun"; bvp_candidate = "Eckener" if z_relation >= 50; nsdap_candidate = "Hindenburg" if (eckener_votes + (z_normalized - Q.bvp_votes)) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate != "Eckener"; nsdap_candidate = "Hindenburg" if (eckener_votes + z_normalized) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate = "Eckener"; z_candidate = "Eckener"; eckener_votes += (z_normalized - Q.bvp_votes)
+on-arrival: z_relation += 3; braun_votes -= (z_normalized - bvp_votes) if z_candidate = "Braun"; bvp_candidate = "Eckener" if z_relation >= 50; nsdap_candidate = "Hindenburg" if (eckener_votes + (z_normalized - bvp_votes)) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate != "Eckener"; nsdap_candidate = "Hindenburg" if (eckener_votes + z_normalized) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate = "Eckener"; z_candidate = "Eckener"; eckener_votes += (z_normalized - bvp_votes)
 go-to: round2_menu
 
 [? if nsdap_candidate = "Hindenburg" and z_candidate = "Hindenburg": The Center's opinion is affected by the Nazis' support of Hindenburg, and is willing to turn away from him. ?] The Center are convinced! They will be part of the Eckener coalition. [? if bvp_candidate = "Eckener": BVP will also support our candidate. ?]
 
-[? if not nsdap_candidate = "Hindenburg" and eckener_votes + (z_normalized - Q.bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate != "Eckener": With the Center Party supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + (z_normalized - bvp_votes) > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate != "Eckener": With the Center Party supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 [? if not nsdap_candidate = "Hindenburg" and eckener_votes + z_normalized > hitler_votes and reactionary_candidate = "Hindenburg" and bvp_candidate = "Eckener": With the Center Party and BVP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
 
 @r2_z_failed_eckener
@@ -489,7 +489,7 @@ go-to: r2_z_failed_reactionary if z_relation < 45; r2_z_success_reactionary if z
 max-visits: 1
 
 @r2_z_success_reactionary
-on-arrival: z_candidate = reactionary_candidate; z_relation += 3; braun_votes -= (z_normalized - Q.bvp_votes) if z_candidate = "Braun"
+on-arrival: z_candidate = reactionary_candidate; z_relation += 3; braun_votes -= (z_normalized - bvp_votes) if z_candidate = "Braun"
 go-to: round2_menu
 
 The Center are convinced! They will be part of the [+reactionary_candidate+] coalition.
