@@ -14,7 +14,7 @@ In addition to being a political party, the SPD is a social world onto itself, w
 - @newspapers: Fund more newspapers and journalists.
 - @welfare: Fund more mutual aid and welfare programs.
 - @liberal_association: Fund the Liberal Association, interparty organization calling for liberal unity.
-- @youth: We have the reputation of being a party for old men. Support the youth organizations.
+- @youth: Support the youth organizations.
 - @nothing: Do not increase funding for any program.
 - @easy_discard
 
@@ -49,9 +49,9 @@ We have supported the Liberal Association, strengthening the movement for a unit
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; young_liberals += 1; liberal_strength += 5; neorevisionist_strength += 5;
+on-arrival: resources -= 1; young_liberals += 1; liberal_strength += 5; democratic_strength += 5
 
-Our new youth members flock to the left or neorevisionist wings of the party, and also bring new radicalism to the Reichsbanner.
+WIP.
 
 @nothing
 
