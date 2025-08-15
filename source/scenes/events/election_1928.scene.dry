@@ -160,11 +160,11 @@ Q.agriculture_minister_party = 'Z';
 
 
 
-Q.bvp_votes = Q.z_votes*0.2;
+Q.bvp_votes = parseFloat((Q.z_votes*0.2).toFixed(1));
 if (Q.bvp_votes > 3.6) {
     Q.bvp_votes = 3.6;
 }
-Q.bvp_r = Q.bvp_votes*1.05;
+Q.bvp_r = parseFloat((Q.bvp_votes*1.05).toFixed(1));
 if (Q.bvp_r > 3.7) {
     Q.bvp_r = 3.7;
 }
@@ -177,7 +177,7 @@ Q.str_votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_bvp < 0 
-  ? '<img src="img/arrowdown.png"> ' 
+  ? '<img src="img/arrowdown.png"> '
   : '<img src="img/steady.png"> ';
 Q.str_votes_change_bvp = sign2 + Math.abs(Q.str_votes_change_bvp).toFixed(1);
 
