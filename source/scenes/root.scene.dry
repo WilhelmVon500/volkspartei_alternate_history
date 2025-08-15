@@ -454,6 +454,7 @@ Q.old_other_r = 3.2;
 Q.old_spd_votes = 26;
 Q.old_kpd_votes = 9;
 Q.old_z_votes = 17.3;
+Q.old_z_minus_bvp_votes = 13.6;
 Q.old_bvp_votes = 3.7;
 Q.old_ddp_votes = 6.3;
 Q.old_dvp_votes = 10.1;
