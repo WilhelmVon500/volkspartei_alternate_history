@@ -160,11 +160,6 @@ Q.agriculture_minister_party = 'Z';
 
 
 
-if (Q.bvp_r) {
-    Q.old_z_votes -= Q.old_bvp_votes;
-    Q.old_z_r -= Q.old_bvp_r;
-}
-
 Q.bvp_votes = parseFloat((Q.z_votes*0.2).toFixed(1));
 if (Q.bvp_votes > 3.6) {
     Q.bvp_votes = 3.6;
@@ -178,13 +173,13 @@ Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
 Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
 
 
-Q.str_votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
+Q.votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_votes_change_bvp < 0 
   ? '<img src="img/arrowdown.png"> '
   : '<img src="img/steady.png"> ';
-Q.str_votes_change_bvp = sign2 + Math.abs(Q.str_votes_change_bvp).toFixed(1);
+Q.votes_change_bvp = sign2 + Math.abs(Q.votes_change_bvp).toFixed(1);
 
 Q.str_change_bvp = parseFloat((Q.bvp_r - Q.old_bvp_r).toFixed(1));
 var sign2 = Q.str_change_bvp > 0 
