@@ -147,6 +147,7 @@ Q.dvp_prussia = 0;
 // Options: spd, z, dnvp, papen, nsdap
 Q.prussia_leader = "Braun"
 Q.prussian_government = "SPD";
+Q.in_weimar_coalition_prussia = 1
 
 
 
