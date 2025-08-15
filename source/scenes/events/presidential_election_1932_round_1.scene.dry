@@ -25,6 +25,8 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+Q.bvp_votes = Q.bvp_votes / 100;
+
 Q.reactionary_votes = 0;
 Q.eckener_votes = 0;
 Q.braun_votes = 0;
