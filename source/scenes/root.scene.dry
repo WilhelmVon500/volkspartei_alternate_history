@@ -378,13 +378,13 @@ Q.old_middle_nsdap = 9;
 Q.old_middle_dbp = 0;
 Q.old_middle_other = 1;
 
-Q.rural_spd = 10;
+Q.rural_spd = 9;
 Q.rural_kpd = 0;
 Q.rural_z = 5;
-Q.rural_ddp= 5;
+Q.rural_ddp= 4;
 Q.rural_dvp = 10;
 Q.rural_wp = 0;
-Q.rural_cnblp = 13;
+Q.rural_cnblp = 15;
 Q.rural_dnvp = 43;
 Q.rural_nsdap = 4;
 Q.rural_dbp = 4;
