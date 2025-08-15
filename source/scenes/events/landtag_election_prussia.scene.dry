@@ -126,6 +126,32 @@ if (Q.ddp_votes < 1.5) Q.adjustmentFactors_ddp_prussia = 0.3;
 if (Q.ddp_votes < 1) Q.adjustmentFactors_ddp_prussia = 0.1;
 if (Q.ddp_votes >= 3) Q.adjustmentFactors_ddp_prussia = 1.0;
 
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_prussia'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * (adjustment_factors[party] || 1.0);
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_prussia'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_prussia'] = Math.round(Q[party + '_normalized_prussia'] * 1000) / 10;
+}
+
+
+
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_pl'] = Q[party + '_pl'];
