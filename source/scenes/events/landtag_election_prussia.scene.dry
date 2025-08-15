@@ -13,7 +13,7 @@ The Prussian elections are to be held now.
 - @new_elections: May we do our best...
 
 @new_elections
-on-arrival: {!  
+on-arrival: {!
 for (var c of Q.classes) {
     var class_votes = 0;
     for (var party of Q.parties) {
@@ -216,23 +216,24 @@ Q.far_right_coalition_prussia = parseFloat((Q.dnvp_pl + Q.nsdap_pl).toFixed(1));
 Q.anti_democratic_coalition_prussia = parseFloat((Q.kpd_pl + Q.nsdap_pl + Q.dnvp_pl).toFixed(1));
 
 
-in_right_coalition_prussia = 0;
-in_liberal_catholic_coalition_prussia = 0;
-in_social_liberal_coalition_prussia = 0;
-in_weimar_coalition_prussia = 0;
-in_grand_coalition_prussia = 0;
-in_minority_grand_coalition_prussia = 0;
-in_spd_majority_prussia = 0;
-in_dvp_majority_prussia = 0;
-in_center_right_coalition_prussia = 0;
-in_far_right_coalition_prussia = 0;
-in_minority_weimar_coalition_prussia = 0;
-in_minority_liberal_catholic_coalition_prussia = 0;
-in_minority_social_liberal_coalition_prussia = 0;
-spd_prussia = 0;
-dvp_prussia = 0;
-spd_toleration_prussia = 0;
-dvp_toleration_prussia = 0
+Q.in_right_coalition_prussia = 0;
+Q.in_liberal_catholic_coalition_prussia = 0;
+Q.in_social_liberal_coalition_prussia = 0;
+Q.in_weimar_coalition_prussia = 0;
+Q.in_grand_coalition_prussia = 0;
+Q.in_minority_grand_coalition_prussia = 0;
+Q.in_spd_majority_prussia = 0;
+Q.in_dvp_majority_prussia = 0;
+Q.in_center_right_coalition_prussia = 0;
+Q.in_far_right_coalition_prussia = 0;
+Q.in_minority_weimar_coalition_prussia = 0;
+Q.in_minority_liberal_catholic_coalition_prussia = 0;
+Q.in_minority_social_liberal_coalition_prussia = 0;
+Q.spd_prussia = 0;
+Q.dvp_prussia = 0;
+Q.spd_toleration_prussia = 0;
+Q.dvp_toleration_prussia = 0
+!}
 
 
 on-display: {!
