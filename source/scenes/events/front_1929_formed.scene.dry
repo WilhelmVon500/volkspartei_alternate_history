@@ -1,6 +1,6 @@
 title: Front 1929 Movement formed
-subtitle: 
 view-if: year = 1929 and month = 3
+on-arrival: front_1929_formed = 1
 max-visits: 1
 tags: event
 new-page: true
