@@ -1,1 +1,55 @@
+title: <span style="color: #C0A054;">**DVP**</span> Congress
+subtitle: The <span style="color: #C0A054;">**DVP**</span> decides their future...
+view-if: year = 1928 and month = 12
+on-arrival: {!
+Q.dvp_reform_points = 0
+if (Q.spd_relation >= 50) {
+    Q.dvp_reform_points += 1;
+} else if (Q.spd_relation < 35) {
+    Q.dvp_reform_points -= 1;
+}
 
+if (Q.in_grand_coalition and Q.in_grand_coalition_prussia) {
+    Q.dvp_reform_points += 3;
+}
+if (!Q.in_grand_coalition) {
+    Q.dvp_reform_points -= 1;
+}
+
+if ((Q.liberal_strength + Q.labor_strength) > (Q.nationalist_strength + Q.industrialist_strength)) {
+    Q.dvp_reform_points += 1;
+} else {
+    Q.dvp_reform_points -= 1;
+}
+!}
+max-visits: 1
+tags: event
+new-page: true
+
+= <span style="color: #C0A054;">**DVP**</span> Congress
+
+A party congress has been called within the <span style="color: #C0A054;">**DVP**</span> over proposed internal reform that would turn the party into a genuine <span style="color: #C0A054;">**People's Party**</span>, not one of industrial interests. 
+
+German industry isn't going to abandon their voice within the <span style="color: #C0A054;">**DVP**</span> so easily, and this is likely to be the last chance Stresemann will have to maintain control of the party, with his declining health.[? if not in_grand_coalition: The left of our party has also been diminished by the current absence of a coalition including both parties. ?]
+
+- @resultsdvp: The party votes...
+
+@resultsdvp
+go-to: left if dvp_reform_points >= 3; right if dvp_reform_points < 3
+
+@left
+on-arrival: dvp_left += 7; spd_relation += 5; workers_dvp += 2; workers_other -= 2; new_middle_dvp += 4; new_middle_other -= 2; new_middle_wp -= 2; old_middle_dvp += 4; old_middle_other -= 4; rural_dvp += 2; rural_other -= 2; catholics_other -= 2; catholics_z -= 2; catholics_dvp += 4; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5
+face-image: img/portraits/StresemannGustav.jpg
+
+Stresemann rallies what's left of our party that aren't bought out by industry into adopting the proposed reform, not without any fierce opposition from the other half of the party. The industrialists have diverted their efforts on maintaining influence within the <span style="color: #3F7BC1;">**DNVP**</span> now, to make up for their loss.
+
+We have noticed an improvement in relations with the <span style="color: #E3000F;">**SPD**</span>[? if in_grand_coalition:, and a decrease in coalition tensions?]. The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> has also voiced approval to the actions of the congress and have opened up talks for further cooperation.
+
+
+@right
+on-arrival: dvp_right += 5; spd_relation -= 5; coalition_dissent += 1 if in_grand_coalition; old_middle_dnvp += 2; new_middle_dnvp += 2; dvp_reform = 0; pro_republic -= 3; ddp_right += 1; ddp_cohesion -= 1
+face-image: img/portraits/ScholzErnst.jpg
+
+Stresemann has faced a resounding defeat at the hands of the right-wing industrial interests inside our party. They have capitalized on this defeat by restricting the powers of the party chairmanship under Stresemann towards the more conservative Reichstag delegation led by Ernst Scholz, the lead figure on the right-wing. 
+
+We have noticed an deterioration in relations with the <span style="color: #E3000F;">**SPD**</span>[? if in_grand_coalition:, and increased tension in the coalition?]. It is also a major setback for the efforts of our left wing to create a united bourgeois party.
