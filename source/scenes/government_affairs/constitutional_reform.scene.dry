@@ -33,6 +33,9 @@ A constitutional reform requires either a two-thirds supermajority in the Reichs
 
 @vote_threshold
 subtitle: Change the vote threshold to 5% for parties to be represented in the Reichstag.
+unavailable-subtitle: Why would we do a reform that is dangerous for our party?
+choose-if: dvp_votes > 7
+view-if: electoral_threshold = 0
 on-arrival: {!
 Q.reform_support = Q.dvp_normalized;
 if (Q.z_relation > 40) {
@@ -48,7 +51,6 @@ if (Q.nsdap_normalized >= 0.2 ) {
     Q.reform_support += Q.nsdap_normalized;
 }
 !}
-view-if: electoral_threshold = 0
 
 # The left is opposed to this.
 
