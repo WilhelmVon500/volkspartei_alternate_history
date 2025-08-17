@@ -1,0 +1,26 @@
+title: Front 1929 Movement formed
+subtitle: 
+view-if: year = 1929 and month = 3
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/portraits/RheinbabenRochus.jpg
+
+= Front 1929 Movement formed
+
+WIP.
+  
+- @support_front_1929: We will support this movement!
+- @do_nothing_front_1929: We will do nothing.
+
+@support_front_1929
+unavailable-subtitle: Industrialist wing is not interested in this.
+choose-if: (liberal_strength + labor_strength)>(industrialist_strength + nationalist_strength)
+on-arrival: dvp_left += 1; ddp_relation += 5; 
+
+WIP
+
+@do_nothing_front_1929
+on-arrival: ddp_cohesion -= 1
+
+WIP
