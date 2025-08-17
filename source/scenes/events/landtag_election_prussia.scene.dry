@@ -165,17 +165,9 @@ for (var party of Q.parties) {
         new_party_sum += Q[party + '_pl'];
     } else {
         Q[party + '_pl'] = Q[party + '_votes_prussia'];
+        if (party == 'other') Q[party + '_pl'] = Q[party + '_votes_prussia'] * 0.3;
+        new_party_sum += Q[party + '_pl'];
     }
-    // if we use decimals, then we might want to truncate the numbers
-    Q[party + '_pl'] = parseFloat((Q[party+'_pl']).toFixed(1));
-
-    Q['change_' + party + '_pl'] = Q[party + '_pl'] - Q['old_' + party + '_pl'];
-    var sign = Q['change_' + party + '_pl'] > 0 
-                   ? '<img src="img/arrowup.png"> ' 
-                   : Q['change_' + party + '_pl'] < 0 
-                     ? '<img src="img/arrowdown.png"> ' 
-                     : '<img src="img/steady.png"> ';
-    Q['change_' + party + '_pl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_pl'])).toFixed(1);
 
     Q['change_' + party + '_votes_prussia'] = Q[party + '_votes_prussia'] - Q['old_' + party + '_votes_prussia'];
     var sign2 = Q['change_' + party + '_votes_prussia'] > 0 
@@ -188,7 +180,7 @@ for (var party of Q.parties) {
     Q['old_' + party + '_votes_prussia'] = parseFloat((Q[party + '_votes_prussia']).toFixed(1));
 }
 // calculate new party sum if electoral reform
-if (Q.electoral_threshold && Q.electoral_threshold > 0) {
+if (new_party_sum > 0) {
     for (var party of Q.parties) {
         if (Q[party + '_pl'] > 0) {
             Q[party + '_pl'] = Math.round(Q[party + '_pl']*1000/new_party_sum)/10;
