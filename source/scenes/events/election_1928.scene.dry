@@ -53,6 +53,7 @@ for (var party of Q.parties) {
         new_party_sum += Q[party + '_r'];
     } else {
         Q[party + '_r'] = Q[party + '_votes'];
+        if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.25;
     }
     // if we use decimals, then we might want to truncate the numbers
     Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
@@ -75,8 +76,8 @@ for (var party of Q.parties) {
 
     Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
 }
-// calculate new party sum if electoral reform
-if (Q.electoral_threshold && Q.electoral_threshold > 0) {
+// calculate new party sum
+if (Q.new_party_sum > 0) {
     for (var party of Q.parties) {
         if (Q[party + '_r'] > 0) {
             Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
