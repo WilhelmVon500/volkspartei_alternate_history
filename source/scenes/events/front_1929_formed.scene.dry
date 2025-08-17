@@ -12,6 +12,7 @@ WIP.
   
 - @support_front_1929: We will support this movement!
 - @do_nothing_front_1929: We will do nothing.
+- @expel_front_1929: Expel Rheinbaben and his followers!
 
 @support_front_1929
 unavailable-subtitle: Industrialist wing is not interested in this.
@@ -21,5 +22,12 @@ on-arrival: dvp_left += 1; liberal_strength += 5; industrialist_dissent += 15; n
 WIP
 
 @do_nothing_front_1929
+
+WIP
+
+@expel_front_1929
+unavailable-subtitle: Why would we do this?
+choose-if: (industrialist_strength + nationalist_strength)>(liberal_strength + labor_strength)
+on-arrival: dvp_right += 1; industrialist_strength += 5; liberal_dissent += 15; labor_dissent += 5; ddp_relation -= 5;
 
 WIP
