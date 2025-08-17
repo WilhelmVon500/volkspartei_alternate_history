@@ -54,6 +54,7 @@ for (var party of Q.parties) {
     } else {
         Q[party + '_r'] = Q[party + '_votes'];
         if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.25;
+        new_party_sum += Q[party + '_r'];
     }
     // if we use decimals, then we might want to truncate the numbers
     Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
@@ -77,19 +78,21 @@ for (var party of Q.parties) {
     Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
 }
 // calculate new party sum
-for (var party of Q.parties) {
-    if (Q[party + '_r'] > 0) {
-        Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_r'] > 0) {
+            Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
+        }
+        Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
+        
+        Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
+        var sign = Q['change_' + party + '_r'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_r'] < 0 
+                     ? '<img src="img/arrowdown.png"> ' 
+                     : '<img src="img/steady.png"> ';
+        Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
     }
-    Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
-    
-    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
-    var sign = Q['change_' + party + '_r'] > 0 
-               ? '<img src="img/arrowup.png"> ' 
-               : Q['change_' + party + '_r'] < 0 
-                 ? '<img src="img/arrowdown.png"> ' 
-                 : '<img src="img/steady.png"> ';
-    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
 }
 
 
