@@ -9,7 +9,7 @@ if (Q.spd_relation >= 50) {
     Q.dvp_reform_points -= 1;
 }
 
-if (Q.in_grand_coalition and Q.in_grand_coalition_prussia) {
+if (Q.in_grand_coalition && Q.in_grand_coalition_prussia) {
     Q.dvp_reform_points += 3;
 }
 if (!Q.in_grand_coalition) {
