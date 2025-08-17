@@ -28,6 +28,6 @@ WIP
 @expel_front_1929
 unavailable-subtitle: Why would we do this?
 choose-if: (industrialist_strength + nationalist_strength)>(liberal_strength + labor_strength)
-on-arrival: dvp_right += 1; industrialist_strength += 5; liberal_dissent += 15; labor_dissent += 5; ddp_relation -= 5;
+on-arrival: dvp_right += 1; industrialist_strength += 5; liberal_dissent += 10; labor_dissent += 5; ddp_relation -= 5;
 
 WIP
