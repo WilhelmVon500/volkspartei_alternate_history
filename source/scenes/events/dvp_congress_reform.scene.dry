@@ -9,16 +9,19 @@ if (Q.spd_relation >= 50) {
     Q.dvp_reform_points -= 1;
 }
 
+if ((Q.liberal_strength + Q.labor_strength) > (Q.nationalist_strength + Q.industrialist_strength)) {
+    Q.dvp_reform_points += 1;
+} else {
+    Q.dvp_reform_points -= 1;
+}
+if (Q.dvp_ideology == "Right") {
+    Q.dvp_reform_points -= 1;
+}
+
 if (Q.in_grand_coalition && Q.in_grand_coalition_prussia) {
     Q.dvp_reform_points += 3;
 }
 if (!Q.in_grand_coalition) {
-    Q.dvp_reform_points -= 1;
-}
-
-if ((Q.liberal_strength + Q.labor_strength) > (Q.nationalist_strength + Q.industrialist_strength)) {
-    Q.dvp_reform_points += 1;
-} else {
     Q.dvp_reform_points -= 1;
 }
 !}
