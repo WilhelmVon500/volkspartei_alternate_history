@@ -16,11 +16,10 @@ WIP.
 @support_front_1929
 unavailable-subtitle: Industrialist wing is not interested in this.
 choose-if: (liberal_strength + labor_strength)>(industrialist_strength + nationalist_strength)
-on-arrival: dvp_left += 1; ddp_relation += 5; 
+on-arrival: dvp_left += 1; liberal_strength += 5; industrialist_dissent += 15; nationalist_dissent += 10; ddp_right += 1; ddp_relation += 5;
 
 WIP
 
 @do_nothing_front_1929
-on-arrival: ddp_cohesion -= 1
 
 WIP
