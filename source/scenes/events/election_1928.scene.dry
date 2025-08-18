@@ -275,9 +275,17 @@ data = data.concat([
         "seats": Math.round(3*5),
     }
 ]);
-if (!Q.lvp_formed) {
+if (!Q.lvp_formed && !Q.nfvp_formed) {
     data.push({
         "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_r*5),
+    });
+}
+if (Q.nfvp_formed) {
+    data.push({
+        "id": "nfvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
         "seats": Math.round(Q.dvp_r*5),
