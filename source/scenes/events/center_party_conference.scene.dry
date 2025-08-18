@@ -37,16 +37,16 @@ Joseph Joos has been selected as the chairman of the Center Party. He has long b
 @z_bruning
 unavailable-subtitle: Our relations are not good enough.
 subtitle: Brüning is likely to be friendlier to us than Kaas or Joos.
-choose-if: z_relation >= 70
+choose-if: z_relation >= 65
 on-arrival: z_party_leader = "Brüning"; z_relation += 2
 face-image: img/portraits/BrüningHeinrich.jpg
 
 With our grassroots connections, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
 
 @z_bruning_campaign
-choose-if: z_relation >= 62 and resources >= 1 
-view-if: z_relation < 70
-unavailable-subtitle: [? if z_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
+choose-if: z_relation >= 55 and resources >= 1 
+view-if: z_relation < 65
+unavailable-subtitle: [? if z_relation < 55 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
 subtitle: -1 resource. Brüning is likely to be friendlier to us than Kaas or Joos.
 on-arrival: resources -= 1; z_party_leader = "Brüning"; z_relation += 2
 face-image: img/portraits/BrüningHeinrich.jpg
