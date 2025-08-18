@@ -531,7 +531,7 @@ Hans von Seeckt is now an advisor.
 
 @add_hugo
 title: Otto Hugo
-subtitle: Otto Hugo is a prominent member of the right wing in the <span style="color: #C0A054;">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
+subtitle: Otto Hugo is a prominent member of the right wing in the <span style="color: var(--dvp-color);">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
 is-card: true
 card-image: img/portraits/HugoOtto.jpg
 view-if: hugo_advisor = 0 and n_advisors < 3 and left_split = 0
@@ -693,7 +693,7 @@ Fritz Baade is now an advisor.
 
 @add_heinze
 title: Rudolf Heinze
-subtitle: Rudolf Heinze is a renowned legal scholar and long-time [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
+subtitle: Rudolf Heinze is a renowned legal scholar and long-time <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
 is-card: true
 card-image: img/portraits/HeinzeRudolf.jpg
 view-if: heinze_advisor = 0 and n_advisors < 3
