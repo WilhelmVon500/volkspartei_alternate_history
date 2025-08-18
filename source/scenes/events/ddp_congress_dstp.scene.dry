@@ -1,0 +1,65 @@
+title: Discontent in the <span style="color: #DCCA4A;">**DStP**</span>.
+subtitle: The conflict between the <span style="color: #D3D3A9;">**Young Germans**</span> and <span style="color: #DCCA4A;">**Democrats**</span> has reached a climax...
+view-if: year == 1930 and month >= 10 and ddp_exist and dstp_formed
+on-arrival: {!
+Q.dstp_collapse_seen = 1;
+Q.dstp_collapse_points = 5;
+
+if (Q.change_ddp_votes >= 0 && Q.dstp_election) {
+    Q.dstp_collapse_points -= 3;
+}
+if (Q.next_election_time - Q.time < 6 && !Q.dstp_election) {
+    Q.dstp_collapse_points -= 2;
+}
+if (Q.time_since_election >= 12 && !Q.dstp_election) {
+    Q.dstp_collapse_points -= 1;
+}
+if ((100 - Q.pro_republic) + Q.nationalism >= 100) {
+    Q.dstp_collapse_points -= 1;
+    Q.ddp_right += 1;
+}
+if (Q.major_curriculum == "humanist") {
+    Q.dstp_collapse_points -= 1;
+}
+if (Q.pro_republic >= 65) {
+    Q.dstp_collapse_points += 1;
+    Q.ddp_left += 1;
+}
+if (Q.nationalism < 50) {
+    Q.dstp_collapse_points += 1;
+}
+if (Q.ddp_relation >= 65) {
+    Q.dstp_collapse_points += 1;
+    Q.ddp_right += 1;
+}
+!}
+max-visits: 1
+tags: event
+new-page: true
+
+= Discontent in the <span style="color: #DCCA4A;">**DStP**</span>
+
+Since the formation of the <span style="color: #DCCA4A;">**DStP**</span> over the last few months, tensions between the old-line <span style="color: #DCCA4A;">democrats</span> and those who joined from the <span style="color: #D3D3A9;">**VNR**</span> have escalated significantly. It seems the consequences of merging a mildly anti-Semitic paramilitary group with a left-liberal party traditionally associated with the Jews have finally caught up to them. [? if change_ddp_votes < 0 and dstp_election: The electoral defeat suffered by the <span style="color: #DCCA4A;">**DStP**</span> in the most recent elections has further fueled internal discontent, with both sides blaming each other for the loss.?][? if not dstp_election: Despite this glaring contradiction, the new party has yet to test its worth in a national election, and skeptics on both sides have kept their criticisms subdued for the time being. ?]
+
+According to the agreement on which the founding of the <span style="color: #DCCA4A;">**DStP**</span> was based, Koch-Weser was to serve as the new party’s parliamentary leader, and Mahraun as the head of its national organization. However, this arrangement is blocked by a group of old-line <span style="color: #DCCA4A;">democrats</span> who succeeded in preventing Koch-Weser’s election as the head of the Reichstag delegation. Relations between the two groups further soured when Mahraun, acting as the "Reichsführer" of the <span style="color: #DCCA4A;">**DStP**</span>, attempted to alter the previously agreed organizational structure. This dispute over the separation of powers has led to open attacks between the opposing sides, with the old-line <span style="color: #DCCA4A;">democrats</span> seeking to sideline Artur Mahraun's <span style="color: #D3D3A9;">**Young German Order**</span>, and Mahraun refusing to relinquish his position as "Reichsführer."
+
+- @dstp_maintained: The <span style="color: #DCCA4A;">**DStP**</span> is maintained!
+- @dstp_collapse: The <span style="color: #DCCA4A;">**DStP**</span> has collapsed!
+
+@dstp_maintained
+view-if: dstp_collapse_points < 4
+on-arrival: dstp_maintained = 1; nationalism += 3; new_middle_ddp -= 2; new_middle_spd += 2; old_middle_ddp += 2; old_middle_nsdap -= 2; unemployed_ddp += 2; ddp_right += 1; ddp_relation -= 5;
+
+Surprisingly, the contradiction that is the <span style="color: #DCCA4A;">**DStP**</span> continues to live on. After intense negotiations between the <span style="color: #DCCA4A;">democrats</span> in favor of the merger, like Koch-Weser, and the dissenting old-line <span style="color: #DCCA4A;">democrats</span>, they agree to elevate Koch-Weser to the chairman of the Reichstag faction. However, Mahraun's control over the party's national organization proved to be a much trickier problem, as Mahraun’s Order remained inflexible when it came to compromise. The deadlock is finally resolved when Mahraun agrees to cede some of his Reichsführer powers to the executive committee in exchange for a larger share of <span style="color: #D3D3A9;">**VNR**</span>-affiliated delegates at next month's party congress.
+
+It seems this experiment will persist, with the <span style="color: #DCCA4A;">**DStP**</span> adopting a more nationalistic and statist identity compared to the old <span style="color: #DCCA4A;">**DDP**</span>. Only time will tell how the party will fare against the rise of the <span style="color: #7A3C00;">**NSDAP**</span>.
+
+@dstp_collapse
+view-if: dstp_collapse_points >= 4
+on-arrival: dstp_collapsed = 1; new_middle_ddp -= 4; old_middle_ddp -= 6; ddp_right += 1; ddp_relation -= 3; other_r += ddp_r*0.3 if dstp_election; ddp_r = ddp_r*0.7 if dstp_election; ddp_leader = "Dietrich"
+
+Negotiations between Mahraun and the <span style="color: #DCCA4A;">democrats</span> have finally collapsed; the experiment has finally fallen apart. The members from Mahraun's <span style="color: #D3D3A9;">**VNR**</span> have split[? if dstp_election:, taking their Reichstag seats with them?]. Responsibility for the break is argued on both sides, with the old-line <span style="color: #DCCA4A;">democrats</span> Mahraun's refusal to compromise and the Order blaming purposeful obstruction.
+
+[? if dstp_election: In terms of consequences, the defection of the <span style="color: #D3D3A9;">**VNR**</span>-affiliated Reichstag delegates has severely diminished their parliamentary influence.?] An air of pessimism and despair has settled over the <span style="color: #DCCA4A;">**DStP**</span>, especially impacting Koch-Weser, who, deeply demoralized by the collapse of the <span style="color: #DCCA4A;">**State Party**</span>, has ultimately decided to retire from politics altogether.
+
+Overall, this entire debacle has essentially resulted in the <span style="color: #DCCA4A;">**DStP**</span> becoming the <span style="color: #DCCA4A;">**DDP**</span> with a new name, albeit with a more nationalistic and statist platform.
