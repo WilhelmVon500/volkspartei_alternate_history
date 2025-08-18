@@ -458,7 +458,7 @@ A majority Weimar coalition is formed, with Braun as Minister-President.
 
 
 @minority_weimar_coalition_prussia
-title: [? if not lvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed: We can form a Weimar Coalition. ?]
+title: [? if not lvp_formed: Refuse to participate in a government, so that a minority Weimar Coalition may be formed. ?][? if lvp_formed: We can form a minority Weimar Coalition. ?]
 subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia < 50
 
