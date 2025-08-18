@@ -465,7 +465,7 @@ view-if: weimar_coalition_prussia < 50
 There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @minority_weimar_coalition_prussia_sure: A minority Weimar coalition takes power.
-- @minority_weimar_coalition_prussia_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @minority_weimar_coalition_prussia_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
 - @coalition_menu: Try a different governing arrangement.
 
 @minority_weimar_coalition_prussia_sure
@@ -474,7 +474,7 @@ on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_pruss
 
 A minority Weimar coalition is formed, with Braun as Minister-President.
 
-@minority_weimar_coalition_prussia_lvp
+@minority_weimar_coalition_prussia_dvp
 view-if: lvp_formed or nfvp_formed
 on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1;
 
