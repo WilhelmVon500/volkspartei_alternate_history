@@ -211,15 +211,11 @@ if (Q.dvp_pl >= Q.spd_pl && Q.dvp_pl >= Q.nsdap_pl && Q.dvp_pl >= Q.kpd_pl) {
 }
 
 
-if (Q.lvp_formed == 0) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl).toFixed(1));
-if (Q.lvp_formed == 1) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_pl).toFixed(1));
+
+if (Q.lvp_formed == 0) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_minus_bvp_pl).toFixed(1));
+if (Q.lvp_formed == 1) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_minus_bvp_pl).toFixed(1));
 Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
 Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-if (Q.kvp_formed) Q.center_right_coalition_prussia = parseFloat((Q.z_pl + Q.ddp_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-if (!Q.kvp_formed) Q.center_right_coalition_prussia = parseFloat((Q.z_pl + Q.ddp_pl + Q.dvp_pl + Q.other_pl + Q.dnvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-Q.right_coalition_prussia = parseFloat((Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.dnvp_pl + Q.wp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-Q.far_right_coalition_prussia = parseFloat((Q.dnvp_pl + Q.nsdap_pl).toFixed(1));
-Q.anti_democratic_coalition_prussia = parseFloat((Q.kpd_pl + Q.nsdap_pl + Q.dnvp_pl).toFixed(1));
 
 
 Q.in_right_coalition_prussia = 0;
@@ -235,10 +231,10 @@ Q.in_far_right_coalition_prussia = 0;
 Q.in_minority_weimar_coalition_prussia = 0;
 Q.in_minority_liberal_catholic_coalition_prussia = 0;
 Q.in_minority_social_liberal_coalition_prussia = 0;
+
 Q.spd_prussia = 0;
 Q.dvp_prussia = 0;
-Q.spd_toleration_prussia = 0;
-Q.dvp_toleration_prussia = 0
+Q.grand_coalition_prussia_failed = 0;
 !}
 on-display: {!
 data = [
@@ -380,13 +376,6 @@ if (window && d3) {
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
 }
-
-
-if (Q.lvp_formed == 0) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_minus_bvp_pl).toFixed(1));
-if (Q.lvp_formed == 1) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_minus_bvp_pl).toFixed(1));
-Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
-Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-
 !}
 
 = Election results
