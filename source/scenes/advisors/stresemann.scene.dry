@@ -8,7 +8,7 @@ view-if: stresemann_advisor = 1
 = Gustav Stresemann
 
 
-Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancellor, and is a long-time [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] leader.
+Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancellor, and is a long-time <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> leader.
 
 - @stresemann_foreign
 - @coalition
@@ -19,7 +19,7 @@ Stresemann is a former [? if chancellor = "Stresemann": and current ?] Chancello
 @stresemann_foreign
 title: Foreign Policy
 subtitle: As Foreign Minister, Stresemann can set our foreign policy.
-unavailable-subtitle: [? if not dvp_in_government: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in government. ?] [? if foreign_minister_party != dvp_name : The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] does not control the Foreign Ministry. ?][? if foreign_minister != "Stresemann" : Stresemann is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+unavailable-subtitle: [? if not dvp_in_government: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is not in government. ?] [? if foreign_minister_party != dvp_name : The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not control the Foreign Ministry. ?][? if foreign_minister != "Stresemann" : Stresemann is not the Foreign Minister. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0 and dvp_in_government and foreign_minister_party == dvp_name and foreign_minister = "Stresemann"
 on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_action = 1
 go-to: foreign_policy
@@ -28,7 +28,7 @@ go-to: foreign_policy
 title: Negotiating with the Coalition
 subtitle: Stresemann can improve our relationships with our coalition partners.
 choose-if: advisor_action_timer <= 0 and dvp_in_government = 1
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in government. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is not in government. ?]
 on-arrival: advisor_action_timer = 6; coalition_dissent -= 1 if spd_in_government = 1 and coalition_dissent > 0; z_relation += 5; ddp_relation += 5; spd_relation += 5
 
 We have improved our relations with the Z, [+ ddp_name +], and SPD, and reduced tensions with the coalition.
@@ -37,7 +37,7 @@ We have improved our relations with the Z, [+ ddp_name +], and SPD, and reduced 
 @toleration
 title: Defending Toleration
 subtitle: Stresemann supports the toleration arrangement with the bourgeois parties.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_toleration: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in toleration. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_toleration: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is not in toleration. ?]
 choose-if: spd_in_government = 0 and spd_toleration = 1 and advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; nationalist_dissent -= 8; neorevisionist_dissent -= 8; industrialist_dissent -= 5;
 
