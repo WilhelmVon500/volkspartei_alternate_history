@@ -1,7 +1,7 @@
 title: <span style="color: #38C538;">**DBP**</span> merges into <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>
 subtitle: Farmers appreciate our rural policies.
 view-if: lvp_formed and agricultural_finance >= 2 and dbp_relation >= 50
-on-arrival: dbp_dvp = 1; dbp_exist = 0; special_interest_dvp = 1; rural_dvp += rural_dbp; catholics_dvp += catholics_dbp; rural_dbp = 0; catholics_dbp = 0;
+on-arrival: dbp_dvp = 1; dbp_exist = 0; special_interest_dvp = 1; special_interest_strength += 10; rural_dvp += rural_dbp; catholics_dvp += catholics_dbp; rural_dbp = 0; catholics_dbp = 0;
 max-visits: 1
 tags: event
 face-image: img/bauernbund.jpg
