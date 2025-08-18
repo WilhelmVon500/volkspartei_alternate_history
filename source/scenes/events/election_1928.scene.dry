@@ -210,6 +210,11 @@ for (var party of Q.parties) {
     election_result[party] = Q[party + '_r'];
 }
 Q.election_records.push(election_result);
+
+
+if (Q.dstp_formed && !Q.dstp_collapse_seen) {
+    Q.dstp_election = 1;
+}
 !}
 on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
 on-display: {!
