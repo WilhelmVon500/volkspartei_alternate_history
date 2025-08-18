@@ -427,6 +427,7 @@ There are some potential coalition arrangements.
 @coalition_menu
 
 - @weimar_coalition_prussia
+- @minority_weimar_coalition_prussia
 - @grand_coalition_prussia
 - @no_majority
 
@@ -435,17 +436,15 @@ title: [? if not lvp_formed: Refuse to participate in a government, so that a We
 subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia >= 50
 
-There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_prussia_sure: A center-left coalition takes power.
 - @weimar_coalition_prussia_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
-
-@no_weimar_coalition_prussia
-go-to: coalition_menu
+- @coalition_menu: Try a different governing arrangement.
 
 @weimar_coalition_prussia_sure
-view-if: lvp_formed == 0
-on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 5; nationalist_dissent += 5;
+view-if: not lvp_formed
+on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; pro_republic += 2; industrialist_dissent += 5; nationalist_dissent += 5;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
 
@@ -454,6 +453,33 @@ view-if: lvp_formed
 on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
+
+
+
+
+@minority_weimar_coalition_prussia
+title: [? if not lvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed: We can form a Weimar Coalition. ?]
+subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
+view-if: weimar_coalition_prussia < 50
+
+There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+
+- @minority_weimar_coalition_prussia_sure: A minority Weimar coalition takes power.
+- @minority_weimar_coalition_prussia_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @coalition_menu: Try a different governing arrangement.
+
+@minority_weimar_coalition_prussia_sure
+view-if: not lvp_formed
+on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 3; nationalist_dissent += 3;
+
+A minority Weimar coalition is formed, with Braun as Minister-President.
+
+@minority_weimar_coalition_prussia_lvp
+view-if: lvp_formed
+on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1;
+
+A minority Weimar coalition is formed, with Braun as Minister-President.
+
 
 
 @grand_coalition_prussia
