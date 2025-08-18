@@ -103,8 +103,8 @@ if (Q.dvp_r >= Q.spd_r && Q.dvp_r >= Q.nsdap_r && Q.dvp_r >= Q.kpd_r) {
 }
 
 // coalitions
-if (Q.lvp_formed == 0) Q.weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_minus_bvp_r).toFixed(1));
-if (Q.lvp_formed == 1) Q.weimar_coalition = parseFloat((Q.spd_r + Q.dvp_r + Q.z_minus_bvp_r).toFixed(1));
+if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_minus_bvp_r).toFixed(1));
+if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition = parseFloat((Q.spd_r + Q.dvp_r + Q.z_minus_bvp_r).toFixed(1));
 Q.grand_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r).toFixed(1));
 Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
@@ -237,7 +237,7 @@ data = data.concat([
         "seats": Math.round(Q.spd_r*5),
     }
 ]);
-if (Q.lvp_formed == 0) {
+if (Q.ddp_exist) {
     data.push({
         "id": "ddp",
         "legend": Q.ddp_name,
@@ -253,7 +253,7 @@ if (Q.dbp_exist && Q.dbp_r) {
         "seats": Math.round(Q.dbp_r*5),
     });
 }
-if (Q.lvp_formed == 1) {
+if (Q.lvp_formed) {
     data.push({
         "id": "lvp",
         "legend": Q.dvp_name,
@@ -275,7 +275,7 @@ data = data.concat([
         "seats": Math.round(3*5),
     }
 ]);
-if (Q.lvp_formed == 0) {
+if (!Q.lvp_formed) {
     data.push({
         "id": "dvp",
         "legend": Q.dvp_name,
@@ -521,22 +521,22 @@ title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a gove
 subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
-There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_sure: A center-left coalition takes power.
-- @weimar_coalition_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @weimar_coalition_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
 
 @no_weimar_coalition
 go-to: no_majority
 
 @weimar_coalition_sure
 subtitle: This will be extremely unpopular within the right wing of our party.
-view-if: lvp_formed == 0
+view-if: not lvp_formed and not nfvp_formed
 on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_leader = "Hugenberg"
 go-to: weimar_coalition_2
 
 
-@weimar_coalition_lvp
+@weimar_coalition_dvp
 view-if: lvp_formed
 on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
@@ -813,7 +813,7 @@ face-image: img/portraits/ScholzErnst.jpg
 Ernst Scholz has become chancellor of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority.
 
 @dietrich_majority_chancellor
-view-if: lvp_formed = 1
+view-if: lvp_formed or nfvp_formed
 on-arrival: chancellor = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
 
