@@ -473,3 +473,10 @@ on-arrival: in_grand_coalition_prussia = 0; grand_coalition_prussia_failed = 1;
 go-to: coalition_menu
 
 WIP
+
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: weimar_coalition_prussia < 50 and (grand_coalition_prussia < 50 or grand_coalition_prussia_failed == 1)
+on-arrival: next_election_time_prussia = time+3; next_election_month_prussia = month + 3; next_election_year_prussia = year; next_election_year_prussia += 1 if next_election_month_prussia > 12; next_election_month_prussia -= 12 if next_election_month_prussia > 12;
