@@ -17,7 +17,7 @@ Paul Moldenhauer, born in 1876 in Cologne, is an economist and politician. He is
 @toleration
 title: Defending Toleration
 subtitle: Moldenhauer supports cooperation with the bourgeois parties.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_toleration: The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] is not in toleration. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_toleration: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is not in toleration. ?]
 choose-if: spd_in_government = 0 and spd_toleration = 1 and advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; left_dissent -= 10; neorevisionist_dissent -= 8; center_dissent -= 5
 
@@ -26,7 +26,7 @@ We have reduced dissent among the anti-toleration factions.
 @finance_ministry_
 title: Fiscal Policy
 subtitle: As Finance Minister, Moldenhauer can enact tax policies.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if dvp_in_government = 0 : [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] not in government: ?] [? if finance_minister_party != dvp_name : The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] does not control the finance ministry. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if dvp_in_government = 0 : <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> not in government: ?] [? if finance_minister_party != dvp_name : The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not control the finance ministry. ?]
 choose-if: advisor_action_timer == 0 and dvp_in_government == 1 and finance_minister_party == dvp_name
 on-arrival: advisor_action_timer = 6; fiscal_policy_timer -= 6; last_advisor_action = 1
 go-to: fiscal_policy
