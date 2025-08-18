@@ -1,5 +1,5 @@
-title: <span style="color: #C0A054;">**DVP**</span> Congress
-subtitle: The <span style="color: #C0A054;">**DVP**</span> decides their future...
+title: <span style="color: var(--dvp-color);">**DVP**</span> Congress
+subtitle: The <span style="color: var(--dvp-color);">**DVP**</span> decides their future...
 view-if: year = 1928 and month = 12
 on-arrival: {!
 Q.dvp_reform_points = 0
@@ -29,11 +29,11 @@ max-visits: 1
 tags: event
 new-page: true
 
-= <span style="color: #C0A054;">**DVP**</span> Congress
+= <span style="color: var(--dvp-color);">**DVP**</span> Congress
 
-A party congress has been called within the <span style="color: #C0A054;">**DVP**</span> over proposed internal reform that would turn the party into a genuine <span style="color: #C0A054;">**People's Party**</span>, not one of industrial interests. 
+A party congress has been called within the <span style="color: var(--dvp-color);">**DVP**</span> over proposed internal reform that would turn the party into a genuine <span style="color: var(--dvp-color);">**People's Party**</span>, not one of industrial interests. 
 
-German industry isn't going to abandon their voice within the <span style="color: #C0A054;">**DVP**</span> so easily, and this is likely to be the last chance Stresemann will have to maintain control of the party, with his declining health.[? if not in_grand_coalition: The left of our party has also been diminished by the current absence of a coalition including both parties. ?]
+German industry isn't going to abandon their voice within the <span style="color: var(--dvp-color);">**DVP**</span> so easily, and this is likely to be the last chance Stresemann will have to maintain control of the party, with his declining health.[? if not in_grand_coalition: The left of our party has also been diminished by the current absence of a coalition including both parties. ?]
 
 - @resultsdvp: The party votes...
 
