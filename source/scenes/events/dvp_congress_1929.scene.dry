@@ -1,15 +1,15 @@
-title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
+title: <span style="color: var(--dvp-color);">**DVP**</span> Leadership Vote
 subtitle: We are choosing a new leader...
 view-if: stresemann_dead = 1 and not lvp_formed
 max-visits: 1
 tags: event
 new-page: false
 
-= <span style="color: #C0A054;">**DVP**</span> Congress
+= <span style="color: var(--dvp-color);">**DVP**</span> Congress
 
 Following the death of Gustav Stresemann, leader of the liberal wing despite his monarchist beliefs and the main proponent of republican collaboration, our party has become polarized on the trajectory we should take. 
 
-On one side are the Stresemannites currently rallying around Julius Curtius. a man whose views promise a continuation of Stresemann’s steps towards our transformation into a true <span style="color: #C0A054;">People’s Party</span>. This would essentially be going forward with the status quo, a stance that has seen criticism from the right-wing.
+On one side are the Stresemannites currently rallying around Julius Curtius. a man whose views promise a continuation of Stresemann’s steps towards our transformation into a true <span style="color: var(--dvp-color);">People’s Party</span>. This would essentially be going forward with the status quo, a stance that has seen criticism from the right-wing.
 
 On the other, the nationalists and industrialists have unified themselves against the liberal movement, putting forward Ernst Scholz as their candidate. They support collaboration with the radical forces of the far-right, and their paramilitaries that have seen rapid growth.
 
