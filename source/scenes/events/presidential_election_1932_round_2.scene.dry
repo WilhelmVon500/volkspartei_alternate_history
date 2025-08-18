@@ -142,7 +142,7 @@ if (Q.braun_campaign) {
 // }
 
 Q.reactionary_votes = Math.round(Q.reactionary_votes*1000)/10;
-Q.eckener_votes = Math.round(Q.braun_votes*1000)/10;
+Q.eckener_votes = Math.round(Q.eckener_votes*1000)/10;
 Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
 Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
 Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
