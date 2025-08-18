@@ -11,14 +11,14 @@ tags: event
 
 WIP
 
-- @colosser_wp_lvp: Colosser and his faction joins <span style="color: #FFA500;">**[+ dvp_name +]**</span>.
+- @colosser_wp_lvp: Colosser and his faction joins <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 - @colosser_wp_ddp: Colosser and his faction joins <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
 
 @colosser_wp_lvp
 view-if: not ddp_exist
 on-arrival: new_middle_dvp += 2; old_middle_dvp += 3; special_interest_strength += 2; colosser_dvp = 1; special_interest_dvp = 1;
 
-Otto Colosser brings his faction into <span style="color: #FFA500;">**[+ dvp_name +]**</span>.
+Otto Colosser brings his faction into <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
 @colosser_wp_ddp
 view-if: ddp_exist
