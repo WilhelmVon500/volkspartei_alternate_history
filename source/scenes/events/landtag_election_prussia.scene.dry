@@ -488,18 +488,18 @@ view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0
 subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] [+ dvp_name +] ([+ grand_coalition_prussia +]%)
 go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = "Left"; grand_coalition_prussia_failed if not (spd_relation >= 45 and dvp_ideology = "Left")
 
-WIP
+We will ask the SPD to include us in Prussian Government.
 
 @grand_coalition_prussia_success
 on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; liberal_strength += 5;
 
-WIP
+The SPD has agreed to form a Grand Coalition!
 
 @grand_coalition_prussia_failed
 on-arrival: in_grand_coalition_prussia = 0; grand_coalition_prussia_failed = 1;
 go-to: coalition_menu
 
-WIP
+The SPD has refused to form a Grand Coalition.
 
 
 
