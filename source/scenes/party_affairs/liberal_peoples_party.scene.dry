@@ -6,7 +6,7 @@ view-if: dvp_ideology == "Left" and ddp_relation >= 65 and lvp_formed = 0 and li
 on-arrival: liberal_peoples_party_timer = 6
 tags: party_affairs
 max-visits: 4
-#subtitle: Can the <span style="color: #C0A054;">**DVP**</span> unite with [+ ddp_name +]?
+#subtitle: Can the <span style="color: var(--dvp-color);">**DVP**</span> unite with [+ ddp_name +]?
 
 = Building a Liberal People's Party
 
