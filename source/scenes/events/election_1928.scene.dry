@@ -400,7 +400,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
+Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
 
 Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition +]%
 
@@ -518,13 +518,13 @@ Ernst Scholz has been appointed chancellor.
 
 @weimar_coalition
 title: [? if not lvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed: We can form a Weimar Coalition. ?]
-subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
+subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
-There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_sure: A center-left coalition takes power.
-- @weimar_coalition_lvp: <span style="color: #FFA500;">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @weimar_coalition_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
 
 @no_weimar_coalition
 go-to: no_majority
@@ -1007,11 +1007,11 @@ Siegfried Kardorff has been appointed chancellor.
 
 @liberal_coalition
 title: We can form a Liberal Coalition.
-subtitle: <span style="color: #C0A054;">**[+ dvp_name +]**</span> + [+ ddp_name +] ([+ liberal_coalition +]%)
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [+ ddp_name +] ([+ liberal_coalition +]%)
 view-if: liberal_coalition >= 50 and not lvp_formed
 on-arrival: leverage += 5; in_liberal_coalition = 1; dvp_in_government = 1; foreign_minister_party = ddp_name; interior_minister_party = ddp_name; justice_minister_party = ddp_name; labor_minister_party = ddp_name; reichswehr_minister_party = ddp_name; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = ddp_name; foreign_minister = "WIP"; interior_minister = "WIP"; justice_minister = "Koch-Weser"; labor_minister = "WIP"; reichswehr_minister = "WIP"; economic_minister = "Dietrich"; finance_minister = "WIP"; agriculture_minister = "WIP";
 
-We have enough votes to form a "Liberal Coalition" government consisting of the <span style="color: #C0A054;">**[+ dvp_name +]**</span> and [+ ddp_name +]!
+We have enough votes to form a "Liberal Coalition" government consisting of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> and [+ ddp_name +]!
 
 Who should be the chancellor?
 
