@@ -7,7 +7,7 @@ new-page: true
 
 = Ernst Scholz
 
-Scholz is the long-time chairman of the [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] Reichstag faction. He is a member of the industrialist faction.
+Scholz is the long-time chairman of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Reichstag faction. He is a member of the industrialist faction.
 
 - @clear_agenda
 - @party_discipline
