@@ -293,7 +293,7 @@ data = data.concat([
         "seats": Math.round(Q.z_pl*4.5),
     },
 ]);
-if (Q.lvp_formed == 0) {
+if (!Q.lvp_formed) {
     data.push({
         "id": "dvp",
         "legend": Q.dvp_name,
@@ -436,7 +436,7 @@ title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a gove
 subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia >= 50
 
-There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_prussia_sure: A center-left coalition takes power.
 - @weimar_coalition_prussia_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
@@ -462,7 +462,7 @@ title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a gove
 subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia < 50
 
-There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @minority_weimar_coalition_prussia_sure: A minority Weimar coalition takes power.
 - @minority_weimar_coalition_prussia_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
