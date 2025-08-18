@@ -197,17 +197,17 @@ if (new_party_sum > 0) {
     }
 }
 
-Q.largest_party = 'SPD';
+Q.largest_party_prussia = 'SPD';
 if (Q.nsdap_pl >= Q.spd_pl && Q.nsdap_pl >= Q.kpd_pl && Q.nsdap_pl >= Q.dvp_pl) {
-    Q.largest_party = 'NSDAP';
+    Q.largest_party_prussia = 'NSDAP';
 }
 
 if (Q.kpd_pl >= Q.spd_pl && Q.kpd_pl >= Q.nsdap_pl && Q.kpd_pl >= Q.dvp_pl) {
-    Q.largest_party = 'KPD';
+    Q.largest_party_prussia = 'KPD';
 }
 
 if (Q.dvp_pl >= Q.spd_pl && Q.dvp_pl >= Q.nsdap_pl && Q.dvp_pl >= Q.kpd_pl) {
-    Q.largest_party = Q.dvp_name;
+    Q.largest_party_prussia = Q.dvp_name;
 }
 
 
@@ -380,6 +380,13 @@ if (window && d3) {
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
 }
+
+
+if (Q.lvp_formed == 0) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_minus_bvp_pl).toFixed(1));
+if (Q.lvp_formed == 1) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_minus_bvp_pl).toFixed(1));
+Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
+Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+
 !}
 
 = Election results
@@ -416,3 +423,64 @@ if (window && d3) {
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_prussia +]% {!</td><td>!} [+ votes_change_other_prussia +] {!</td><td>!} [+ other_pl +]% {!</td><td>!} [+ change_other_pl +] {!</td></tr>!}
 {!</table>!}
+
+**Potential coalitions:**
+
+Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]): [+ weimar_coalition_prussia +]%
+
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_prussia +]%
+
+Bourgeois Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_prussia +]%
+
+There are some potential coalition arrangements.
+
+@coalition_menu
+
+- @weimar_coalition_prussia
+- @grand_coalition_prussia
+- @no_majority
+
+@weimar_coalition_prussia
+title: [? if not lvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed: We can form a Weimar Coalition. ?]
+subtitle: SPD + Z + [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
+view-if: weimar_coalition_prussia >= 50
+
+There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed: [+ ddp_name +]?][? if lvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and lvp_formed == 0: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+
+- @weimar_coalition_prussia_sure: A center-left coalition takes power.
+- @weimar_coalition_prussia_lvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+
+@no_weimar_coalition_prussia
+go-to: coalition_menu
+
+@weimar_coalition_prussia_sure
+view-if: lvp_formed == 0
+on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 5; nationalist_dissent += 5;
+
+A majority Weimar coalition is formed, with Braun as Minister-President.
+
+@weimar_coalition_prussia_lvp
+view-if: lvp_formed
+on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1;
+
+A majority Weimar coalition is formed, with Braun as Minister-President.
+
+
+@grand_coalition_prussia
+title: We can form a Grand Coalition.
+view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0
+subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] [+ dvp_name +] ([+ grand_coalition_prussia +]%)
+go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = "Left"; grand_coalition_prussia_failed if not (spd_relation >= 45 and dvp_ideology = "Left")
+
+WIP
+
+@grand_coalition_prussia_success
+on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; liberal_strength += 5;
+
+WIP
+
+@grand_coalition_prussia_failed
+on-arrival: in_grand_coalition_prussia = 0; grand_coalition_prussia_failed = 1;
+go-to: coalition_menu
+
+WIP
