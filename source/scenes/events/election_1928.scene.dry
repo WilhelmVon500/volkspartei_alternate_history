@@ -53,7 +53,7 @@ for (var party of Q.parties) {
         new_party_sum += Q[party + '_r'];
     } else {
         Q[party + '_r'] = Q[party + '_votes'];
-        if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.25;
+        if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.3;
         new_party_sum += Q[party + '_r'];
         console.log(new_party_sum)
     }
