@@ -1,0 +1,85 @@
+on-arrival: {!
+Q.nfvp_formed = 1;
+Q.ddp_exist = 0;
+
+Q.dvp_name = "NFVP";
+Q.dvp_color = "#FFD700";
+document.body.style.setProperty('--dvp-color', '#FFD700');
+
+Q.democrats_dvp = 1;
+Q.progressives_dvp = 1;
+
+Q.liberal_strength += 10;
+Q.democratic_strength += 25;
+Q.progressive_strength += 5;
+
+Q.workers_dvp += Q.workers_ddp;
+Q.workers_ddp = 0;
+Q.new_middle_dvp += Q.new_middle_ddp;
+Q.new_middle_ddp = 0;
+Q.old_middle_dvp += Q.old_middle_ddp;
+Q.old_middle_ddp = 0;
+Q.rural_dvp += Q.rural_ddp;
+Q.rural_ddp = 0;
+Q.unemployed_dvp += Q.unemployed_ddp;
+Q.unemployed_ddp = 0;
+Q.catholics_dvp += Q.catholics_ddp;
+Q.catholics_ddp = 0;
+
+
+if (Q.in_weimar_coalition == 1) {
+  Q.dvp_in_government = 1
+}
+
+if (Q.in_liberal_coalition == 1) {
+  Q.in_liberal_coalition = 0
+  Q.in_dvp_majority = 1
+}
+
+
+if (Q.chancellor_party == "DVP" || Q.chancellor_party == Q.ddp_name) {
+  Q.chancellor_party = Q.dvp_name
+}
+if (Q.labor_minister_party == "DVP" || Q.labor_minister_party == Q.ddp_name) {
+  Q.labor_minister_party = Q.dvp_name
+}
+if (Q.interior_minister_party == "DVP" || Q.interior_minister_party == Q.ddp_name) {
+  Q.interior_minister_party = Q.dvp_name
+}
+if (Q.finance_minister_party == "DVP" || Q.finance_minister_party == Q.ddp_name) {
+  Q.finance_minister_party = Q.dvp_name
+}
+if (Q.economic_minister_party == "DVP" || Q.economic_minister_party == Q.ddp_name) {
+  Q.economic_minister_party = Q.dvp_name
+}
+if (Q.justice_minister_party == "DVP" || Q.justice_minister_party == Q.ddp_name) {
+  Q.justice_minister_party = Q.dvp_name
+}
+if (Q.foreign_minister_party == "DVP" || Q.foreign_minister_party == Q.ddp_name) {
+  Q.foreign_minister_party = Q.dvp_name
+}
+if (Q.agriculture_minister_party == "DVP" || Q.agriculture_minister_party == Q.ddp_name) {
+  Q.agriculture_minister_party = Q.dvp_name
+}
+if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp_name) {
+  Q.reichswehr_minister_party = Q.dvp_name
+}
+
+
+if (Q.wp_split_seen == 1) {
+  Q.special_interest_strength += 5;
+  Q.colosser_dvp = 1;
+  Q.special_interest_dvp = 1
+}
+
+
+// update all records
+Q.dvp_r += Q.ddp_r;
+Q.ddp_r = 0;
+
+Q.dvp_pl += Q.ddp_pl;
+Q.ddp_pl = 0;
+
+Q.old_dvp_r += Q.old_ddp_r;
+Q.old_ddp_r = 0;
+!}
