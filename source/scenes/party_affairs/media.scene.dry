@@ -8,7 +8,7 @@ card-image: img/poster_4.jpg
 
 = Media
 
-The [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span> ?] has the fewest supportive newspapers of any political party — this has been a significant weakness for us. What actions can we take to remedy this situation?
+The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has the fewest supportive newspapers of any political party — this has been a significant weakness for us. What actions can we take to remedy this situation?
 
 - @campaign
 - @write_editorials
