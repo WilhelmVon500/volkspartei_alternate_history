@@ -1,5 +1,5 @@
 body {
-  --dvp-color: pink;
+  --dvp-color: #C0A054;
   --bg-color: #f3f3e3;
   --border-color: #000;
   --content-bg-color: #f3f3f3;
@@ -549,6 +549,11 @@ table {
 .seat.ddp {
     fill: #DCCA4A;
 }
+.seat.lvp {
+    fill: #FFA500;
+    stroke: var(--border-color);
+    stroke-width: 1.5px;
+}
 .seat.dbp {
     fill: #38C538;
 }
@@ -565,11 +570,6 @@ table {
 }
 .seat.dvp {
     fill: #C0A054;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
-}
-.seat.lvp {
-    fill: #FFA500;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
