@@ -279,7 +279,7 @@ if (Q.dbp_exist && Q.dbp_pl) {
 }
 if (Q.lvp_formed) {
     data.push({
-        "id": "dvp",
+        "id": "lvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
         "seats": Math.round(Q.dvp_pl*4.5),
