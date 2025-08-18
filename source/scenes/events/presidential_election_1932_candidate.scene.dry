@@ -171,7 +171,7 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if bvp_candidate = reactionary_candidate: - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if dvp_candidate = reactionary_candidate: - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if dvp_candidate = reactionary_candidate: - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if csvd_candidate = reactionary_candidate and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
@@ -197,7 +197,7 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if bvp_candidate = "Eckener": - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if dvp_candidate = "Eckener": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if dvp_candidate = "Eckener": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if csvd_candidate = "Eckener" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
@@ -219,7 +219,7 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if dvp_candidate = "Braun": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if dvp_candidate = "Braun": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 <span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
 
