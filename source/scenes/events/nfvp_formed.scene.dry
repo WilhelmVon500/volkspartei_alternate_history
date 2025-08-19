@@ -15,6 +15,9 @@ Q.democratic_strength += 35;
 Q.progressive_strength += 5;
 if (Q.nfvp_peoples_conservatives_success) Q.peoples_conservative_strength += 15
 
+Q.industrialist_dissent += 30
+Q.nationalist_dissent += 100
+
 Q.workers_dvp += Q.workers_ddp;
 Q.workers_ddp = 0;
 Q.new_middle_dvp += Q.new_middle_ddp;
