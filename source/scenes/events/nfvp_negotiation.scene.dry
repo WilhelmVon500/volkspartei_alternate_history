@@ -17,7 +17,7 @@ if (Q.dvp_reform) {
     Q.nfvp_formation_points += 1;
 }
 
-if (((Q.nationalist_strength + Q.industrialist_strength) >= (Q.liberal_strength + Q.labor_strength)) || dvp_ideology = "Right") {
+if (((Q.nationalist_strength + Q.industrialist_strength) >= (Q.liberal_strength + Q.labor_strength)) || Q.dvp_ideology = "Right") {
     Q.nfvp_formation_points -= 5;
 }
 !}
