@@ -564,7 +564,7 @@ table {
     fill: #69A2BE;
 }
 .seat.nfvp {
-    fill: #FFD700;
+    fill: #FFCC00;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
