@@ -1,4 +1,4 @@
-title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
+title: <span style="color: var(--dvp-color);">**DVP**</span> Leadership Vote
 subtitle: Julius Curtius has resigned!
 view-if: curtius_resignation_timer == time and dvp_leader == "Curtius" and not lvp_formed
 max-visits: 1
@@ -6,9 +6,9 @@ tags: event
 face-image: img/portraits/CurtiusJulius.jpg
 new-page: true
 
-= <span style="color: #C0A054;">**DVP**</span> Congress
+= <span style="color: var(--dvp-color);">**DVP**</span> Congress
 
-The <span style="color: #C0A054;">**DVP**</span> is now having an internal party vote to elect a successor to Curtius.
+The <span style="color: var(--dvp-color);">**DVP**</span> is now having an internal party vote to elect a successor to Curtius.
 
 - @kardorff_lead: Siegfried Kardorff
 - @thiel_lead: Otto Thiel
