@@ -172,6 +172,16 @@ go-to: rm_main
 Treviranus has been removed as an advisor. The People's Conservative faction disapproves.
 
 
+@remove_lejeune_jung
+title: Remove Lejeune-Jung
+view-if: lejeune_jung_advisor = 1
+tags: remove_advisor
+on-arrival: lejeune_jung_advisor = 0; peoples_conservative_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Lejeune-Jung has been removed as an advisor. The People's Conservative faction disapproves.
+
+
 # nationalist
 
 @remove_levi
@@ -534,6 +544,19 @@ go-to: advisor_menu
 tags: peoples_conservative_advisor
 
 Gottfried Treviranus is now an advisor.
+
+
+@add_lejeune_jung
+title: Paul Lejeune-Jung
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/LejeuneJungPaul.jpg
+view-if: lejeune_jung_advisor = 0 and n_advisors < 3
+on-arrival: lejeune_jung_advisor = 1; n_advisors += 1; peoples_conservative_strength += 5
+go-to: advisor_menu
+tags: peoples_conservative_advisor
+
+Paul Lejeune-Jung is now an advisor.
 
 
 
