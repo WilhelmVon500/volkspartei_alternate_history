@@ -9,6 +9,9 @@ if (Q.other_votes < 3.8) {
 if (Q.ddp_votes < 3.8) {
     Q.dstp_formation_points += 1;
 }
+if (Q.nfvp_failed) {
+    Q.dstp_formation_points += 1;
+}
 if (Q.next_election_time - Q.time < 6) {
     Q.dstp_formation_points += 1;
 }
