@@ -1,5 +1,5 @@
 title: <span style="color: #FFCC00;">**NFVP**</span> formed
-view-if: year = 1929 and month = 10 and supported_front_1929
+view-if: year = 1929 and month = 10 and supported_front_1929 and nfvp_success
 max-visits: 1
 tags: event
 new-page: true
