@@ -493,7 +493,7 @@ A minority Weimar coalition is formed, with Braun as Minister-President.
 @grand_coalition_prussia
 title: We can form a Grand Coalition.
 view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0
-subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] [+ dvp_name +] ([+ grand_coalition_prussia +]%)
+subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
 go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = "Left"; grand_coalition_prussia_failed if not (spd_relation >= 45 and dvp_ideology = "Left")
 
 We will ask the SPD to include us in Prussian Government.
