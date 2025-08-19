@@ -305,6 +305,7 @@ Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'd
 Q.sapd_formed = 0;
 Q.kvp_formed = 0;
 Q.lvp_formed = 0;
+Q.nfvp_formed = 0;
 
 Q.dbp_exist = 1
 Q.wp_exist = 1
