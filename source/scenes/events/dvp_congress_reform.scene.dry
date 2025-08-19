@@ -41,7 +41,7 @@ German industry isn't going to abandon their voice within the <span style="color
 go-to: left if dvp_reform_points >= 3; right if dvp_reform_points < 3
 
 @left
-on-arrival: dvp_left += 7; spd_relation += 5; workers_dvp += 2; workers_other -= 2; new_middle_dvp += 4; new_middle_other -= 2; new_middle_wp -= 2; old_middle_dvp += 4; old_middle_other -= 4; rural_dvp += 2; rural_other -= 2; catholics_other -= 2; catholics_z -= 2; catholics_dvp += 4; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5
+on-arrival: dvp_left += 7; spd_relation += 5; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 3; new_middle_other -= 1; new_middle_wp -= 2; old_middle_dvp += 2; old_middle_wp -= 2; rural_dvp += 1; rural_other -= 1; catholics_z -= 1; catholics_dvp += 1; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5
 face-image: img/portraits/StresemannGustav.jpg
 
 Stresemann rallies what's left of our party that aren't bought out by industry into adopting the proposed reform, not without any fierce opposition from the other half of the party. The industrialists have diverted their efforts on maintaining influence within the <span style="color: #3F7BC1;">**DNVP**</span> now, to make up for their loss.
