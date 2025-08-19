@@ -1,5 +1,5 @@
 title: The Death of Gustav Stresemann
-view-if: year = 1929 and month >= 9
+view-if: year = 1929 and month >= 10
 frequency: 1000
 max-visits: 1
 tags: event
