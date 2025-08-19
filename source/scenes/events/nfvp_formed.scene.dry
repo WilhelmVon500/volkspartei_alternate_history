@@ -3,8 +3,8 @@ Q.nfvp_formed = 1;
 Q.ddp_exist = 0;
 
 Q.dvp_name = "NFVP";
-Q.dvp_color = "#FFD700";
-document.body.style.setProperty('--dvp-color', '#FFD700');
+Q.dvp_color = "#FFCC00";
+document.body.style.setProperty('--dvp-color', '#FFCC00');
 
 Q.democrats_dvp = 1;
 Q.progressives_dvp = 1;
