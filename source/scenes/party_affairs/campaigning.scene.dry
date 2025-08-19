@@ -23,7 +23,7 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: workers_dvp += 4*(1-dissent); workers_other -= 1; workers_dvp -= 2 if unemployed >= 15; workers_dvp -= 2 if unemployed >= 25; resources -= 1
+on-arrival: workers_dvp += 3*(1-dissent); workers_other -= 1; workers_dvp -= 2 if unemployed >= 15; workers_dvp -= 2 if unemployed >= 25; resources -= 1
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?]
 
@@ -62,7 +62,6 @@ We have increased our campaigning among the unemployed.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-view-if: lvp_formed == 1
-on-arrival: catholics_dvp += 3*(1-dissent); catholics_other -= 1; resources -= 1
+on-arrival: catholics_dvp += 2*(1-dissent); catholics_dvp += 2*(1-dissent) if nfvp_formed; catholics_other -= 1; resources -= 1
 
 We have increased our campaigning among Catholics.
