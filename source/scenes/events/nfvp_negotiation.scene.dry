@@ -1,0 +1,66 @@
+title: Negotiations with <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
+view-if: year == 1929 and month >= 9 and ddp_exist and supported_front_1929
+on-arrival: {!
+Q.nfvp_formation_points = 0;
+if (Q.ddp_relation >= 65) {
+    Q.nfvp_formation_points += 1;
+    Q.ddp_right += 1;
+}
+if (Q.ddp_relation < 50) {
+    Q.nfvp_formation_points -= 1;
+    Q.ddp_right -= 1;
+}
+if (Q.ddp_right > (Q.ddp_left + 2)) {
+    Q.nfvp_formation_points += 1;
+}
+if (Q.dvp_reform) {
+    Q.nfvp_formation_points += 1;
+}
+
+if (((Q.nationalist_strength + Q.industrialist_strength) >= (Q.liberal_strength + Q.labor_strength)) or dvp_ideology = "Right") {
+    Q.nfvp_formation_points -= 5;
+}
+!}
+max-visits: 1
+tags: event
+new-page: true
+
+= Can a new party be formed?
+
+The <span style="color: #D3D3A9;">**Young German Order**</span> has already agreed to unite with us. Now, Stresemann will negotiate with [+ ddp_leader+].
+  
+- @nfvp_ddp_success: The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> agrees to form a new party!
+- @nfvp_ddp_fail: The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> refuses!
+
+@nfvp_ddp_fail
+view-if: nfvp_formation_points < 3
+on-arrival: nfvp_failed = 1
+
+fail. its joever...
+  
+@nfvp_ddp_success
+view-if: nfvp_formation_points >= 3
+on-arrival: nfvp_success = 1
+
+success
+
+  
+- @nfvp_peoples_conservatives
+
+@nfvp_peoples_conservatives
+
+Now Stresemann will negotiate with <span style="color: #0087DC;">People's Conservative</span> faction of <span style="color: #3F7BC1;">**DNVP**</span>.
+
+- @nfvp_peoples_conservatives_success: The <span style="color: #0087DC;">People's Conservatives</span> agrees to form a new party!
+- @nfvp_peoples_conservatives_fail: The <span style="color: #0087DC;">People's Conservatives</span> refuse!
+
+@nfvp_peoples_conservatives_fail
+view-if: not (dnvp_ideology = "Radical")
+
+trevvy will not join us...
+  
+@nfvp_peoples_conservatives_success
+view-if: dnvp_ideology = "Radical"
+on-arrival: nfvp_peoples_conservatives_success = 1
+
+trevvy will join us. wholesome
