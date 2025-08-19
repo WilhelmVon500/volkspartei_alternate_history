@@ -45,7 +45,7 @@ on-arrival: nfvp_success = 1
 success
 
   
-- @nfvp_peoples_conservatives
+- @nfvp_peoples_conservatives: Negotiate with <span style="color: #0087DC;">People's Conservatives</span>.
 
 @nfvp_peoples_conservatives
 
