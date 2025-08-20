@@ -216,8 +216,8 @@ if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_prussia = parseFloat((Q.
 if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_pl).toFixed(1));
 Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
 Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
-if (Q.dnvp_ideology === "Moderate") Q.far_right_coalition_prussia = parseFloat((Q.dnf_pl + Q.nsdap_pl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_prussia = parseFloat((Q.dnvp_pl + Q.nsdap_pl).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_prussia = parseFloat((Q.dnf_pl + Q.nsdap_pl).toFixed(1));
 
 
 Q.in_weimar_coalition_prussia = 0;
@@ -426,7 +426,7 @@ Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="col
 
 Bourgeois Coalition (<span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_prussia +]%
 
-Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_prussia +]%
+Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_prussia +]%
 
 There are some potential coalition arrangements.
 
