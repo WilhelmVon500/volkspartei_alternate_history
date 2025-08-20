@@ -41,6 +41,9 @@ Q.thalmann_votes += Q.kpd_normalized;
 if (Q.dnvp_candidate == "Duesterberg") {
     Q.harzburg_votes += Q.dnvp_normalized;
 }
+if (Q.dnf_candidate == "Duesterberg") {
+    Q.harzburg_votes += Q.dnf_normalized;
+}
 
 
 if (Q.spd_candidate == Q.reactionary_candidate) {
@@ -75,6 +78,9 @@ if (Q.kvp_candidate == Q.reactionary_candidate && Q.kvp_formed) {
 }
 if (Q.dnvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dnvp_normalized;
+}
+if (Q.dnf_candidate == Q.reactionary_candidate) {
+    Q.reactionary_votes += Q.dnf_normalized;
 }
 if (Q.other_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.other_normalized;
@@ -197,7 +203,7 @@ Results:
 <span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
 @no_majority_round1
-on-arrival: presidential_election_r2_trigger = 1; braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if dnvp_candidate = "Duesterberg"; dnvp_candidate = nsdap_candidate if dnvp_candidate = "Duesterberg"; nsdap_candidate = "Hindenburg" if (braun_plurality or eckener_plurality or thalmann_plurality and reactionary_candidate = "Hindenburg"); braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = reactionary_candidate if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = reactionary_candidate if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); z_candidate = reactionary_candidate if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
+on-arrival: presidential_election_r2_trigger = 1; nsdap_candidate = "Hindenburg" if (braun_plurality or eckener_plurality or thalmann_plurality and reactionary_candidate = "Hindenburg"); braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if (dnvp_candidate = "Duesterberg" or dnf_candidate = "Duesterberg"); dnvp_candidate = nsdap_candidate if dnvp_candidate = "Duesterberg"; dnf_candidate = nsdap_candidate if dnf_candidate = "Duesterberg"; braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = reactionary_candidate if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = reactionary_candidate if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); z_candidate = reactionary_candidate if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
 go-to: round2_menu
 
 There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
@@ -570,7 +576,7 @@ We have switched our support to [+reactionary_candidate+].
 
 @round2_braun
 view-if: dvp_candidate != "Braun" and braun_campaign and not new_candidate_r2
-on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener"; dbp_candidate = "Braun" if dbp_candidate = "Eckener"; z_candidate = "Braun" if z_candidate = "Eckener" and z_leader = "Joos"; z_candidate = "Hindenburg" if z_candidate = "Eckener" and z_leader != "Joos"; csvd_candidate = "Hindenburg" if csvd_candidate = "Eckener"; wp_candidate = "Hindenburg" if wp_candidate = "Eckener"; kvp_candidate = "Hindenburg" if kvp_candidate = "Eckener"; dnvp_candidate = "Hindenburg" if dnvp_candidate = "Eckener"; industrialist_dissent += 15; nationalist_dissent += 30
+on-arrival: dvp_candidate = "Braun"; new_candidate_r2 = 1; eckener_campaign = 0; ddp_candidate = "Braun" if ddp_candidate = "Eckener"; dbp_candidate = "Braun" if dbp_candidate = "Eckener"; z_candidate = "Braun" if z_candidate = "Eckener" and z_leader = "Joos"; z_candidate = reactionary_candidate if z_candidate = "Eckener" and z_leader != "Joos"; csvd_candidate = reactionary_candidate if csvd_candidate = "Eckener"; wp_candidate = reactionary_candidate if wp_candidate = "Eckener"; kvp_candidate = reactionary_candidate if kvp_candidate = "Eckener"; dnvp_candidate = reactionary_candidate if dnvp_candidate = "Eckener"; industrialist_dissent += 15; nationalist_dissent += 30
 go-to: round2_menu
 
 We have switched our support to Braun.
