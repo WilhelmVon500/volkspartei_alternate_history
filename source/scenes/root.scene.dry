@@ -483,7 +483,6 @@ Q.old_other_votes = 2.8;
 Q.ddp_name = "DDP";
 Q.dvp_name = "DVP";
 Q.dvp_color = "#C0A054";
-document.body.style.setProperty('--dvp-color', '#C0A054');
 
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
 Q.election_records = [];
