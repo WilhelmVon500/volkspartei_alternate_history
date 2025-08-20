@@ -8,7 +8,7 @@ max-visits: 1
 
 = The Harzburg Front
 
-The far-right parties and paramilitaries - the NSDAP (and its paramilitary the SA), the Stahlhelm paramilitary group, and the DNVP - have united to form the Harzburg Front, as a force dedicated to the overthrow of the current government.
+The far-right parties and paramilitaries - the NSDAP (and its paramilitary the SA), the Stahlhelm paramilitary group, and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnvp_ideology = "Moderate": DNF ?] - have united to form the Harzburg Front, as a force dedicated to the overthrow of the current government.
 
 - @denounce_harzburg: We must denounce the far-right parties.
 - @stay_silent: Stay relatively silent.
