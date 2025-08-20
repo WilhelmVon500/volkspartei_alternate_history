@@ -11,10 +11,6 @@ if (!Q.hitler_deported) {
     Q.nsdap_candidate = "Göring";
 }
 
-if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Duesterberg";
-if (Q.dnvp_ideology == "Moderate") Q.dnvp_candidate = Q.reactionary_candidate;
-Q.dnf_candidate = "Duesterberg";
-
 if (Q.hindenburg_run) {
     Q.reactionary_candidate = "Hindenburg"
 } else if (!Q.hindenburg_run) {
@@ -32,6 +28,11 @@ Q.cnblp_candidate = Q.reactionary_candidate;
 Q.wp_candidate = Q.reactionary_candidate;
 Q.kvp_candidate = Q.reactionary_candidate;
 Q.other_candidate = Q.reactionary_candidate;
+
+
+if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Duesterberg";
+if (Q.dnvp_ideology == "Moderate") Q.dnvp_candidate = Q.reactionary_candidate;
+Q.dnf_candidate = "Duesterberg";
 
              
 Q.kpd_candidate = "Thälmann";
