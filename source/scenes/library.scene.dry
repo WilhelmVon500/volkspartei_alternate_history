@@ -555,15 +555,15 @@ if (d3 && window) {
 {!<table>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} **[+ kpd_r +]%** {!</td><td>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_r +]% {!</td><td>!}
 
-[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} **[+ sapd_r +]%** {!</td><td>!} ?]
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} **[+ spd_r +]%** {!</td><td>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_r +]% {!</td><td>!}
 
-[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} **[+ ddp_r +]%** {!</td><td>!} ?]
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td><td>!} ?]
 
-[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} **[+ dbp_r +]%** {!</td><td>!} ?]
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_r +]% {!</td><td>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td></tr>!}
 
