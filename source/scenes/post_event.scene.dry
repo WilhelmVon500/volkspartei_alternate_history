@@ -1,6 +1,8 @@
 title: Post Event
 new-page: true
 on-arrival: {!
+document.body.style.setProperty('--dvp-color', Q.dvp_color);
+
 Q.last_advisor_action = 0;
 Q.last_cabinet_action = 0;
 // make sure no stat is below 0.
@@ -384,6 +386,16 @@ if (Q.month_actions >= 1) {
             Q.workers_nsdap += 2/12;
             Q.workers_other += 2/12;
             Q.workers_kpd += 2/12;
+            if (Q.dnf_formed) {
+                Q.rural_dnf += 3/12;
+                Q.old_middle_dnf += 4/12;
+                Q.new_middle_dnf += 2/12;
+            } if (Q.kvp_formed) {
+                Q.rural_kvp -= 3/12;
+                Q.rural_dnvp += 3/12;
+                Q.old_middle_kvp -= 3/12;
+                Q.old_middle_dnvp += 3/12;
+            }
         }
         Q.sa_strength += 100/12;
         Q.sh_strength += 100/12;
@@ -414,16 +426,40 @@ if (Q.month_actions >= 1) {
             Q.workers_kpd += 4/12;
             Q.sa_strength += 100/12;
             Q.sh_strength += 50/12;
+            if (Q.kvp_formed) {
+                Q.rural_kvp -= 3/12;
+                Q.rural_dnvp += 3/12;
+                Q.old_middle_kvp -= 3/12;
+                Q.old_middle_dnvp += 3/12;
+                Q.new_middle_kvp -= 3/12;
+                Q.new_middle_dnvp += 3/12;
+            }
+            if (Q.dnf_formed) {
+                Q.rural_dnf += 4/12;
+                Q.old_middle_dnf += 4/12;
+                Q.new_middle_dnf += 2/12;
+            }
         } else if (Q.unemployed > 15) {
             Q.rural_dvp -= 4/12;
             Q.unemployed_nsdap += 4/12;
             Q.old_middle_nsdap += 4/12;
             Q.new_middle_nsdap += 4/12;
             Q.rural_nsdap += 4/12;
+            if (Q.dnf_formed) {
+                Q.rural_dnf += 3/12;
+                Q.old_middle_dnf += 4/12;
+                Q.new_middle_dnf += 2/12;
+            }
         }
     } else if (Q.year == 1932) {
         Q.old_middle_wp -= 4/12;
         Q.old_middle_other -= 3/12;
+        if (Q.dnf_formed) {
+            Q.workers_dnf += 1/12;
+            Q.rural_dnf += 3/12;
+            Q.old_middle_dnf += 3/12;
+            Q.new_middle_dnf += 1/12;
+        }
         Q.rural_cnblp -= 3/12;
         Q.rural_dbp -= 4/12;
         Q.old_middle_nsdap += 7/12;
@@ -431,9 +467,15 @@ if (Q.month_actions >= 1) {
         Q.unemployed_nsdap += 4/12;
         if (!Q.works_program) {
             Q.unemployed += 5/12;
+            Q.workers -= 4/12;
             Q.inflation -= 2/12;
             Q.catholics_z += 2/12;
-            Q.workers -= 4/12;
+            if (Q.dnf_formed) {
+                Q.workers_dnf += 1/12;
+                Q.rural_dnf += 4/12;
+                Q.old_middle_dnf += 4/12;
+                Q.new_middle_dnf += 2/12;
+            }
             Q.rural_dnvp -= 4/12;
             Q.rural_nsdap += 8/12;
             Q.new_middle_nsdap += 10/12;
@@ -451,12 +493,30 @@ if (Q.month_actions >= 1) {
             Q.unemployed_nsdap += 5/12;
             Q.old_middle_nsdap += 5/12;
             Q.new_middle_nsdap += 4/12;
+            if (Q.dnf_formed) {
+                Q.workers_dnf += 2/12;
+                Q.rural_dnf += 4/12;
+                Q.old_middle_dnf += 4/12;
+                Q.new_middle_dnf += 2/12;
+            }
             Q.sa_strength += 50/12;
         } else if (Q.unemployed > 20) {
             Q.rural_nsdap += 2/12;
             Q.unemployed_nsdap += 3/12;
             Q.old_middle_nsdap += 3/12;
             Q.new_middle_nsdap += 2/12;
+            if (Q.dnf_formed) {
+                Q.workers_dnf += 1/12;
+                Q.rural_dnf += 2/12;
+                Q.old_middle_dnf += 2/12;
+                Q.new_middle_dnf += 1/12;
+            }
+            if (Q.kvp_formed) {
+                Q.rural_kvp -= 1/12;
+                Q.rural_dnvp += 1/12;
+                Q.new_middle_kvp -= 1/12;
+                Q.new_middle_dnvp += 1/12;
+            }
         }
     } else if (Q.year >= 1933) {
         if (Q.return_to_normalcy) {
@@ -506,6 +566,12 @@ if (Q.month_actions >= 1) {
             if (Q.new_middle_csvd_normalized < 3) {
                 Q.new_middle_csvd += 4/12;
             }
+            Q.new_middle_dnf -= 0.25;
+            Q.new_middle_dnvp += 0.3;
+            Q.rural_dnf -= 0.6;
+            Q.rural_dnvp += 0.6;
+            Q.old_middle_dnf -= 0.4;
+            Q.old_middle_dnvp += 0.4;
         }
         if (Q.unemployed > 20) {
             Q.rural_nsdap += 2/12;
