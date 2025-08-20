@@ -96,4 +96,16 @@ Q.ddp_pl = 0;
 
 Q.old_dvp_r += Q.old_ddp_r;
 Q.old_ddp_r = 0;
+
+
+
+// local governments
+if (Q.in_grand_coaliton_prussia) {
+  Q.in_grand_coaliton_prussia = 0
+  Q.in_weimar_coalition_prussia = 1
+  if (Q.in_grand_coaliton_prussia) {
+    Q.in_minority_grand_coalition_prussia = 0
+    Q.in_minority_weimar_coalition_prussia = 1
+  }
+}
 !}
