@@ -164,12 +164,15 @@ Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kv
 if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 if (!Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
-Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
+if (Q.dnvp_ideology = "Radical") Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology = "Moderate") Q.far_right_coalition = parseFloat((Q.dnf_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology = "Radical") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
+if (Q.dnvp_ideology = "Moderate") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnf_r).toFixed(1));
 // aka everyone except nazi, kpd, dnvp
 Q.neo_weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r).toFixed(1));
 // Hitler + Right-wing parties
-Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnvp_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology = "Radical") Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnvp_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology = "Moderate") Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnf_r + Q.nsdap_r).toFixed(1));
 Q.liberal_coalition = parseFloat((Q.dvp_r + Q.ddp_r).toFixed(1));
 
 Q.progressive_coalition = parseFloat((Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r).toFixed(1));
@@ -348,13 +351,23 @@ data = data.concat([
         "legend": "DNVP",
         "name": "DNVP",
         "seats": Math.round(Q.dnvp_r*5),
-    },
+    }
+]);
+if (Q.dnf_formed && Q.dnf_r) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_r*5),
+    });
+}
+data = data.concat([
     {
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
         "seats": Math.round(Q.nsdap_r*5),
-    },
+    }
 ]);
 
 if (window && d3) {
@@ -408,6 +421,8 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
 
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} [+ dnf_r +]% {!</td><td>!} [+ str_change_dnf +] {!</td></tr>!} ?]
+
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
@@ -429,7 +444,8 @@ Right-wing Coalition (<span style="color: #000000;">**Z**</span> + <span style="
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
-[? if anti_democratic_coalition >= 50 : Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if anti_democratic_coalition >= 50 and dnvp_ideology == "Radical": Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if anti_democratic_coalition >= 50 and dnvp_ideology == "Moderate": Together, the anti-democratic KPD, DNF, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
 There are some potential coalition arrangements.
 
@@ -454,12 +470,12 @@ There are some potential coalition arrangements.
 
 @far_right_coalition
 title: Far-right coalition
-subtitle: NSDAP + DNVP ([+ far_right_coalition +]%)
+subtitle: NSDAP + [? if dnvp_ideology = "Radical": DNVP ?][? if dnvp_ideology = "Moderate": DNF ?] ([+ far_right_coalition +]%)
 view-if: far_right_coalition >= 50
 go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsdap_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
-There are enough votes for the Nazis and the DNVP to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
+There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnvp_ideology = "Moderate": DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @far_right_win
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
