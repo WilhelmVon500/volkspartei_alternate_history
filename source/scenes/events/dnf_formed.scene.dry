@@ -1,0 +1,44 @@
+on-arrival: {!
+// set up the infrastructure
+Q.dnf_formed = 1;
+Q.parties.push('dnf');
+
+Q.workers_dnf = 0;
+
+Q.new_middle_dnf = 4;
+Q.new_middle_dnvp -= 4;
+
+Q.old_middle_dnf = 6;
+Q.old_middle_dnvp -= 6;
+
+Q.rural_dnf = 15;
+Q.rural_dnvp -= 10;
+Q.rural_cnblp -= 2;
+Q.rural_other -= 3;
+
+Q.unemployed_dnf = 0;
+
+Q.catholics_dnf = 1;
+Q.catholics_dnvp -= 1;
+
+
+if (Q.dvp_ideology = "Right") {
+    Q.dnf_relation = 50
+} else {
+    Q.dnf_relation = 35
+}
+
+
+
+// update all records
+Q.dnf_r = Math.round(Q.dnvp_r * 0.3);
+Q.dnvp_r = Q.dnvp_r - Q.dnf_r;
+
+Q.old_dnf_r = 0;
+for (var record of Q.election_records) {
+    record['dnf'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['dnf'] = 0;
+}
+!}
