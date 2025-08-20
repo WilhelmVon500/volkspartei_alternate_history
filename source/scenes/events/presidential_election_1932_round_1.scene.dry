@@ -198,7 +198,7 @@ Results:
 
 <span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
 
-[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Duesterberg**</span> - [+ harzburg_votes_disp +]% ?][? if dnf_candidate = "Duesterberg": <span style="color: #003755;">**Duesterberg**</span> - [+ harzburg_votes_disp +]% ?]
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Duesterberg**</span> - [+ harzburg_votes_disp +]% ?][? if dnf_candidate = "Duesterberg" and dnf_formed: <span style="color: #003755;">**Duesterberg**</span> - [+ harzburg_votes_disp +]% ?]
 
 <span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
