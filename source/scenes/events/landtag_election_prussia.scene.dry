@@ -41,6 +41,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.2;
     Q.adjustmentFactors_kvp_prussia = 1.2;
     Q.adjustmentFactors_dnvp_prussia = 1.2;
+    Q.adjustmentFactors_dnf_prussia = 0.65;
     Q.adjustmentFactors_nsdap_prussia = 0.66,
     Q.adjustmentFactors_other_prussia = 0.88;
 } else if (Q.year == 1929) {
@@ -56,6 +57,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.3;
     Q.adjustmentFactors_kvp_prussia = 1.3;
     Q.adjustmentFactors_dnvp_prussia = 1.3;
+    Q.adjustmentFactors_dnf_prussia = 0.7;
     Q.adjustmentFactors_nsdap_prussia = 1.0;
     Q.adjustmentFactors_other_prussia = 0.85;
 } else if (Q.year == 1930 && Q.kvp_formed == 1) {
@@ -71,6 +73,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.3;
     Q.adjustmentFactors_kvp_prussia = 1.3;
     Q.adjustmentFactors_dnvp_prussia = 0.8;
+    Q.adjustmentFactors_dnf_prussia = 0.8;
     Q.adjustmentFactors_nsdap_prussia = 1.0;
     Q.adjustmentFactors_other_prussia = 0.8;
 } else if (Q.year == 1930 && Q.kvp_formed == 0) {
@@ -86,6 +89,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.3;
     Q.adjustmentFactors_kvp_prussia = 1.3;
     Q.adjustmentFactors_dnvp_prussia = 1.3;
+    Q.adjustmentFactors_dnf_prussia = 0.8;
     Q.adjustmentFactors_nsdap_prussia = 1.0;
     Q.adjustmentFactors_other_prussia = 0.75;
 } else if (Q.year == 1931) {
@@ -101,6 +105,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.0;
     Q.adjustmentFactors_kvp_prussia = 1.0;
     Q.adjustmentFactors_dnvp_prussia = 1.25;
+    Q.adjustmentFactors_dnf_prussia = 0.9;
     Q.adjustmentFactors_nsdap_prussia = 1.0;
     Q.adjustmentFactors_other_prussia = 0.7;
 } else if (Q.year >= 1932) {
@@ -116,6 +121,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_cnblp_prussia = 1.1;
     Q.adjustmentFactors_kvp_prussia = 1.1;
     Q.adjustmentFactors_dnvp_prussia = 1.2;
+    Q.adjustmentFactors_dnf_prussia = 1.0;
     Q.adjustmentFactors_nsdap_prussia = 1.0;
     Q.adjustmentFactors_other_prussia = 0.65;
 }
