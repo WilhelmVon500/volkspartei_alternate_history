@@ -3,7 +3,7 @@ view-if: year = next_election_year_prussia and month >= next_election_month_prus
 new-page: true
 tags: event
 priority: 2
-on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48;
+on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1)
 set-jump: new_elections
 
 = Prussian Elections, [+ month : month +] [+ year +]
@@ -218,19 +218,10 @@ Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl)
 Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
 
 
-Q.in_right_coalition_prussia = 0;
-Q.in_liberal_catholic_coalition_prussia = 0;
-Q.in_social_liberal_coalition_prussia = 0;
 Q.in_weimar_coalition_prussia = 0;
+Q.in_minority_weimar_coalition_prussia = 0;
 Q.in_grand_coalition_prussia = 0;
 Q.in_minority_grand_coalition_prussia = 0;
-Q.in_spd_majority_prussia = 0;
-Q.in_dvp_majority_prussia = 0;
-Q.in_center_right_coalition_prussia = 0;
-Q.in_far_right_coalition_prussia = 0;
-Q.in_minority_weimar_coalition_prussia = 0;
-Q.in_minority_liberal_catholic_coalition_prussia = 0;
-Q.in_minority_social_liberal_coalition_prussia = 0;
 
 Q.spd_prussia = 0;
 Q.dvp_prussia = 0;
@@ -468,7 +459,7 @@ A majority Weimar coalition is formed, with Braun as Minister-President.
 @minority_weimar_coalition_prussia
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a minority Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a minority Weimar Coalition. ?]
 subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
-view-if: weimar_coalition_prussia < 50
+view-if: weimar_coalition_prussia < 50 and was_in_weimar_coalition_prussia
 
 There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
@@ -480,13 +471,13 @@ There are not enough votes for a majority Weimar Coalition of the Center, SPD an
 view-if: not lvp_formed and not nfvp_formed
 on-arrival: spd_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 3; nationalist_dissent += 3;
 
-A minority Weimar coalition is formed, with Braun as Minister-President.
+A minority Weimar coalition stays in power, with Braun as Minister-President.
 
 @minority_weimar_coalition_prussia_dvp
 view-if: lvp_formed or nfvp_formed
 on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1;
 
-A minority Weimar coalition is formed, with Braun as Minister-President.
+A minority Weimar coalition stays in power, with Braun as Minister-President.
 
 
 
