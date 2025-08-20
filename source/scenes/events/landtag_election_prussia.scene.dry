@@ -427,7 +427,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_prussia +]% {!</td><td>!} [+ votes_change_dnvp_prussia +] {!</td><td>!} [+ dnvp_pl +]% {!</td><td>!} [+ change_dnvp_pl +] {!</td></tr>!}
 
-[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ nsdap_dnf_prussia +]% {!</td><td>!} [+ votes_change_dnf_prussia +] {!</td><td>!} [+ dnf_pl +]% {!</td><td>!} [+ change_dnf_pl +] {!</td></tr>!} ?]
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_prussia +]% {!</td><td>!} [+ votes_change_dnf_prussia +] {!</td><td>!} [+ dnf_pl +]% {!</td><td>!} [+ change_dnf_pl +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_prussia +]% {!</td><td>!} [+ votes_change_nsdap_prussia +] {!</td><td>!} [+ nsdap_pl +]% {!</td><td>!} [+ change_nsdap_pl +] {!</td></tr>!}
 
