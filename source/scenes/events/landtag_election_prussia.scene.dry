@@ -353,7 +353,17 @@ data = data.concat([
         "legend": "DNVP",
         "name": "DNVP",
         "seats": Math.round(Q.dnvp_pl*4.5),
-    },
+    }
+]);
+if (Q.dnf_formed && Q.dnf_pl) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_pl*4.5),
+    });
+}
+data = data.concat([
     {
         "id": "nsdap",
         "legend": "NSDAP",
