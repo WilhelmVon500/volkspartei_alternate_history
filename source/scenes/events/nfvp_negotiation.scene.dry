@@ -51,7 +51,7 @@ success
 
 Now Stresemann will negotiate with <span style="color: #0087DC;">People's Conservative</span> faction of <span style="color: #3F7BC1;">**DNVP**</span>.
 
-- @nfvp_peoples_conservatives_success: The <span style="color: #0087DC;">People's Conservatives</span> agrees to form a new party!
+- @nfvp_peoples_conservatives_success: The <span style="color: #0087DC;">People's Conservatives</span> agree to form a new party!
 - @nfvp_peoples_conservatives_fail: The <span style="color: #0087DC;">People's Conservatives</span> refuse!
 
 @nfvp_peoples_conservatives_fail
