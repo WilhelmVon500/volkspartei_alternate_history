@@ -88,6 +88,60 @@ if (new_party_sum > 0) {
 
 
 
+Q.bvp_votes = parseFloat((Q.z_votes*0.2).toFixed(1));
+if (Q.bvp_votes > 3.6) {
+    Q.bvp_votes = 3.6;
+}
+Q.bvp_r = parseFloat((Q.bvp_votes*1.05).toFixed(1));
+if (Q.bvp_r > 3.7) {
+    Q.bvp_r = 3.7;
+}
+
+Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
+Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
+
+
+Q.votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
+var sign2 = Q.votes_change_bvp > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.votes_change_bvp < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.votes_change_bvp = sign2 + Math.abs(Q.votes_change_bvp).toFixed(1);
+
+Q.str_change_bvp = parseFloat((Q.bvp_r - Q.old_bvp_r).toFixed(1));
+var sign2 = Q.str_change_bvp > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_change_bvp < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
+
+Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_minus_bvp_votes).toFixed(1));
+var sign2 = Q.str_votes_change_z > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_votes_change_z < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_votes_change_z = sign2 + Math.abs(Q.str_votes_change_z).toFixed(1);
+
+Q.str_change_z = parseFloat((Q.z_minus_bvp_r - Q.old_z_minus_bvp_r).toFixed(1));
+var sign2 = Q.str_change_z > 0
+? '<img src="img/arrowup.png"> '
+: Q.str_change_z < 0 
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
+
+Q.old_bvp_votes = Q.bvp_votes;
+Q.old_bvp_r = Q.bvp_r;
+Q.old_z_minus_bvp_votes = Q.z_minus_bvp_votes;
+Q.old_z_minus_bvp_r = Q.z_minus_bvp_r;
+
+
+
+
+
 // The largest party can only be the NSDAP or the SPD.
 Q.largest_party = 'SPD';
 if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r && Q.nsdap_r >= Q.dvp_r) {
@@ -150,58 +204,6 @@ Q.reichswehr_minister_party = 'I';
 Q.economic_minister_party = Q.ddp_name;
 Q.finance_minister_party = Q.ddp_name;
 Q.agriculture_minister_party = 'Z';
-
-
-
-Q.bvp_votes = parseFloat((Q.z_votes*0.2).toFixed(1));
-if (Q.bvp_votes > 3.6) {
-    Q.bvp_votes = 3.6;
-}
-Q.bvp_r = parseFloat((Q.bvp_votes*1.05).toFixed(1));
-if (Q.bvp_r > 3.7) {
-    Q.bvp_r = 3.7;
-}
-
-Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
-Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
-
-
-Q.votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
-var sign2 = Q.votes_change_bvp > 0 
-? '<img src="img/arrowup.png"> ' 
-: Q.votes_change_bvp < 0 
-  ? '<img src="img/arrowdown.png"> ' 
-  : '<img src="img/steady.png"> ';
-Q.votes_change_bvp = sign2 + Math.abs(Q.votes_change_bvp).toFixed(1);
-
-Q.str_change_bvp = parseFloat((Q.bvp_r - Q.old_bvp_r).toFixed(1));
-var sign2 = Q.str_change_bvp > 0 
-? '<img src="img/arrowup.png"> ' 
-: Q.str_change_bvp < 0 
-  ? '<img src="img/arrowdown.png"> ' 
-  : '<img src="img/steady.png"> ';
-Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
-
-Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_minus_bvp_votes).toFixed(1));
-var sign2 = Q.str_votes_change_z > 0 
-? '<img src="img/arrowup.png"> ' 
-: Q.str_votes_change_z < 0 
-  ? '<img src="img/arrowdown.png"> ' 
-  : '<img src="img/steady.png"> ';
-Q.str_votes_change_z = sign2 + Math.abs(Q.str_votes_change_z).toFixed(1);
-
-Q.str_change_z = parseFloat((Q.z_minus_bvp_r - Q.old_z_minus_bvp_r).toFixed(1));
-var sign2 = Q.str_change_z > 0
-? '<img src="img/arrowup.png"> '
-: Q.str_change_z < 0 
-  ? '<img src="img/arrowdown.png"> '
-  : '<img src="img/steady.png"> ';
-Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
-
-Q.old_bvp_votes = Q.bvp_votes;
-Q.old_bvp_r = Q.bvp_r;
-Q.old_z_minus_bvp_votes = Q.z_minus_bvp_votes;
-Q.old_z_minus_bvp_r = Q.z_minus_bvp_r;
 
 
 
