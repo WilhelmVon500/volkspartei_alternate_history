@@ -26,14 +26,14 @@ The Reichsbank serves as the "lender of last resort" for German banks, providing
 @lower_interest_rates
 title: Lower interest rates.
 subtitle: We would inject more currency into the economy, at the risk of increasing inflation.
-on-arrival: economic_growth += 0.5; economic_growth += 0.3 if gold_standard = 0; inflation += 1;
+on-arrival: economic_growth += 0.5; economic_growth += 0.3 if gold_standard = 0; inflation += 1; unemployed -= 1;
 
 We have expanded the money supply, increasing economic growth, employment, and inflation. [? if gold_standard: The need to maintain parity with gold has decreased the efficiency of our actions. ?]
 
 @raise_interest_rates
 title: Raise interest rates.
 subtitle: The currency would contract, and overall demand would lower.
-on-arrival: economic_growth -= 0.8 if inflation < 0; economic_growth -= 0.4; inflation -= 1.5;
+on-arrival: economic_growth -= 0.8 if inflation < 0; economic_growth -= 0.4; inflation -= 1.5; unemployed += 0.5;
 
 We have lowered the money supply, lowering inflation at the cost of employment and growth. [? if inflation < 0: As our currency is deflating, Germans are refusing to spend their currency so it can accumulate value, which further harms the economy. ?]
 
