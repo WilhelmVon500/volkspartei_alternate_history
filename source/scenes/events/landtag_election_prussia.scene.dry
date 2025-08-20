@@ -3,7 +3,7 @@ view-if: year = next_election_year_prussia and month >= next_election_month_prus
 new-page: true
 tags: event
 priority: 2
-on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1)
+on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_far_right_coalition_prussia = 0; was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); was_in_far_right_coalition_prussia = 1 if (in_far_right_coalition == 1); 
 set-jump: new_elections
 
 = Prussian Elections, [+ month : month +] [+ year +]
@@ -216,12 +216,15 @@ if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_prussia = parseFloat((Q.
 if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition_prussia = parseFloat((Q.spd_pl + Q.dvp_pl + Q.z_pl).toFixed(1));
 Q.grand_coalition_prussia = parseFloat((Q.spd_pl + Q.ddp_pl + Q.z_pl + Q.dvp_pl).toFixed(1));
 Q.bourgeois_coalition_prussia = parseFloat((Q.ddp_pl + Q.z_pl + Q.dvp_pl + Q.other_pl + Q.kvp_pl + Q.wp_pl + Q.dbp_pl + Q.cnblp_pl + Q.csvd_pl).toFixed(1));
+if (Q.dnvp_ideology === "Moderate") Q.far_right_coalition_prussia = parseFloat((Q.dnf_pl + Q.nsdap_pl).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_prussia = parseFloat((Q.dnvp_pl + Q.nsdap_pl).toFixed(1));
 
 
 Q.in_weimar_coalition_prussia = 0;
 Q.in_minority_weimar_coalition_prussia = 0;
 Q.in_grand_coalition_prussia = 0;
 Q.in_minority_grand_coalition_prussia = 0;
+Q.in_far_right_coalition_prussia = 0;
 
 Q.spd_prussia = 0;
 Q.dvp_prussia = 0;
@@ -408,6 +411,8 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_prussia +]% {!</td><td>!} [+ votes_change_dnvp_prussia +] {!</td><td>!} [+ dnvp_pl +]% {!</td><td>!} [+ change_dnvp_pl +] {!</td></tr>!}
 
+{!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ nsdap_dnf_prussia +]% {!</td><td>!} [+ votes_change_dnf_prussia +] {!</td><td>!} [+ dnf_pl +]% {!</td><td>!} [+ change_dnf_pl +] {!</td></tr>!}
+
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_prussia +]% {!</td><td>!} [+ votes_change_nsdap_prussia +] {!</td><td>!} [+ nsdap_pl +]% {!</td><td>!} [+ change_nsdap_pl +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_prussia +]% {!</td><td>!} [+ votes_change_other_prussia +] {!</td><td>!} [+ other_pl +]% {!</td><td>!} [+ change_other_pl +] {!</td></tr>!}
@@ -420,6 +425,8 @@ Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="co
 Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_prussia +]%
 
 Bourgeois Coalition (<span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_prussia +]%
+
+Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_prussia +]%
 
 There are some potential coalition arrangements.
 
