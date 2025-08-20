@@ -11,7 +11,9 @@ if (!Q.hitler_deported) {
     Q.nsdap_candidate = "Göring";
 }
 
-Q.dnvp_candidate = "Duesterberg";
+if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Duesterberg";
+if (Q.dnvp_ideology == "Moderate") Q.dnvp_candidate = Q.reactionary_candidate;
+Q.dnf_candidate = "Duesterberg";
 
 if (Q.hindenburg_run) {
     Q.reactionary_candidate = "Hindenburg"
@@ -225,9 +227,11 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
 
-[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?]
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?][? if dnf_candidate = "Duesterberg" and dnf_formed: <span style="color: #003755;">**Theodor Duesterberg**</span> - supported by: ?]
 
 [? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if dnf_candidate = "Duesterberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
 
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
