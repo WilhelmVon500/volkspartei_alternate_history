@@ -483,7 +483,7 @@ A minority Weimar coalition stays in power, with Braun as Minister-President.
 
 @grand_coalition_prussia
 title: We can form a Grand Coalition.
-view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0
+view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0 and not (lvp_formed or nfvp_formed)
 subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
 go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = "Left"; grand_coalition_prussia_failed if not (spd_relation >= 45 and dvp_ideology = "Left")
 
