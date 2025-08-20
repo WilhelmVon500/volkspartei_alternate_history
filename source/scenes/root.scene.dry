@@ -131,7 +131,7 @@ Q.kpd_relation = 0;
 
 Q.dvp_leader = "Stresemann";
 Q.dnvp_leader = "Westarp";
-Q.dnvp_ideology = "Moderate";
+Q.dnvp_ideology = "Radical";
 Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
 Q.kpd_party_leader = "Thälmann";
