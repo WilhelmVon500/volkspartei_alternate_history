@@ -111,14 +111,14 @@ go-to: rm_main
 
 Curtius has been removed as an advisor. The Liberal faction disapproves.
 
-@remove_juchacz
-title: Remove Juchacz
-view-if: juchacz_advisor = 1
+@remove_kardorff
+title: Remove Kardorff
+view-if: kardorff_advisor = 1
 tags: remove_advisor
-on-arrival: juchacz_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: kardorff_advisor = 0; liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Juchacz has been removed as an advisor. The Reformist faction disapproves.
+Kardorff has been removed as an advisor. The Liberal faction disapproves.
 
 @remove_pfulf
 title: Remove Pfülf
@@ -446,7 +446,7 @@ is-card: true
 card-image: img/portraits/SeveringCarl.jpg
 tags: liberal_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: severing_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Carl Severing is now an advisor.
@@ -459,7 +459,7 @@ is-card: true
 card-image: img/portraits/LutherHans.jpg
 tags: liberal_advisor
 view-if: luther_advisor = 0 and n_advisors < 3
-on-arrival: luther_advisor = 1; n_advisors += 1
+on-arrival: luther_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Hans Luther is now an advisor.
@@ -472,7 +472,7 @@ is-card: true
 card-image: img/portraits/StresemannGustav.jpg
 tags: liberal_advisor
 view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 3
-on-arrival: stresemann_advisor = 1; n_advisors += 1
+on-arrival: stresemann_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Gustav Stresemann is now an advisor.
@@ -485,7 +485,7 @@ is-card: true
 card-image: img/portraits/RheinbabenRochus.jpg
 tags: liberal_advisor
 view-if: rheinbaben_advisor = 0 and n_advisors < 3
-on-arrival: rheinbaben_advisor = 1; n_advisors += 1
+on-arrival: rheinbaben_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Rochus von Rheinbaben is now an advisor.
@@ -498,28 +498,28 @@ is-card: true
 card-image: img/portraits/CurtiusJulius.jpg
 tags: liberal_advisor
 view-if: curtius_advisor = 0 and n_advisors < 3
-on-arrival: curtius_advisor = 1; n_advisors += 1
+on-arrival: curtius_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Julius Curtius is now an advisor.
 
 
-@add_juchacz
-title: Marie Juchacz
-subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organization. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Worker's Welfare, Organizing Women ?]
+@add_kardorff
+title: Siegfried Kardorff
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-card-image: img/portraits/JuchaczMarie.jpg
-view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
+card-image: img/portraits/KardorffSiegfried.jpg
+view-if: kardorff_advisor = 0 and n_advisors < 3
+on-arrival: kardorff_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
 
-Marie Juchacz is now an advisor.
+Siegfried Kardorff is now an advisor.
 
 
 @add_pfulf
 title: Antonie Pfülf
-subtitle: Antonie Pfülf is a leader in social policy and women's rights. {!<br><br>!}[? if difficulty < 0 : Actions - Support a People's Party, Women's Rights ?]
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/PfülfAntonie.jpg
 view-if: pfulf_advisor = 0 and n_advisors < 3
