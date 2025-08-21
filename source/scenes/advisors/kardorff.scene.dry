@@ -1,0 +1,23 @@
+title: Siegfried Kardorff
+is-pinned-card: true 
+tags: advisor, liberal
+card-image: img/portraits/KardorffSiegfried.jpg
+new-page: true
+view-if: kardorff_advisor = 1
+
+= Siegfried Kardorff
+
+WIP
+
+- @snap_election
+- @root: Return to main
+
+
+@snap_election
+title: Snap Election
+subtitle: Call a snap election.
+unavailable-subtitle: [? if chancellor != "Kardorff" : Kardorff must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and chancellor == "Kardorff"
+on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
+
+We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
