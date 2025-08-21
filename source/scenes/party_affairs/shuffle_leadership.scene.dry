@@ -120,14 +120,14 @@ go-to: rm_main
 
 Kardorff has been removed as an advisor. The Liberal faction disapproves.
 
-@remove_pfulf
-title: Remove Pfülf
-view-if: pfulf_advisor = 1
+@remove_dohna_schlodien
+title: Remove zu Dohna-Schlodien
+view-if: dohna_schlodien_advisor = 1
 tags: remove_advisor
-on-arrival: pfulf_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: dohna_schlodien_advisor = 0; liberal_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Pfülf has been removed as an advisor. The Reformist faction disapproves.
+Zu Dohna-Schlodien has been removed as an advisor. The Liberal faction disapproves.
 
 
 # labor
@@ -517,17 +517,17 @@ tags: liberal_advisor
 Siegfried Kardorff is now an advisor.
 
 
-@add_pfulf
-title: Antonie Pfülf
+@add_dohna_schlodien
+title: Alexander zu Dohna-Schlodien
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-card-image: img/portraits/PfülfAntonie.jpg
-view-if: pfulf_advisor = 0 and n_advisors < 3
-on-arrival: pfulf_advisor = 1; n_advisors += 1
+card-image: img/portraits/DohnaSchlodienAlexander.jpg
+view-if: dohna_schlodien_advisor = 0 and n_advisors < 3
+on-arrival: dohna_schlodien_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
 
-Antonie Pfülf is now an advisor.
+Alexander zu Dohna-Schlodien is now an advisor.
 
 
 
