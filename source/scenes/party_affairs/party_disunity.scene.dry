@@ -1,7 +1,7 @@
 title: Party Disunity
 new-page: true
 is-card: true
-view-if: party_disunity_timer = 0 and (dissent >= 0.3 or (liberal_dissent > 30 and not liberals_resign) or (industrialist_dissent > 30 and not industrialists_leave) or (nationalist_dissent > 30 and not nationalist_split) or (labor_dissent > 30 and not unions_independent) or (neorevisionist_dissent > 30 and neorevisionism))
+view-if: party_disunity_timer = 0 and (dissent >= 0.3 or (progressive_dissent > 30 and progressives_dvp) or (democratic_dissent > 30 and democrats_dvp) or (liberal_dissent > 30 and not liberals_resign) or (labor_dissent > 30 and not unions_independent) or (industrialist_dissent > 30 and not industrialists_leave) or (peoples_conservative_dissent > 30 and peoples_conservatives_dvp) or (nationalist_dissent > 30 and not nationalist_split))
 on-arrival: month_actions += 1; party_disunity_timer = 4
 card-image: img/Reichstagsfraktion_der_SPD.jpg
 frequency: 200
@@ -22,23 +22,39 @@ The party is being torn apart by internal dissent. Upset at the leadership and g
 Something must be done to reinforce party unity.
 
 - @enforce_unity
+- @concessions_progressives
+- @concessions_democrats
 - @concessions_liberal
+- @concessions_labor
+- @concessions_peoples_conservatives
 - @concessions_industrialist
 - @concessions_nationalist
-- @concessions_labor
-- @concessions_neorevisionists
 - @do_nothing
 
 
 @enforce_unity
 title: Enforce party discipline.
-on-arrival: liberal_dissent -= 5; industrialist_dissent -= 5; labor_dissent -= 5; nationalist_dissent -= 5; neorevisionist_dissent -= 5; workers_dvp -= 2; new_middle_dvp -= 4; old_middle_dvp -= 2
+on-arrival: progressive_dissent -= 5; democratic_dissent -= 5; liberal_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 5; peoples_conservative_dissent -= 5; nationalist_dissent -= 5; workers_dvp -= 2; new_middle_dvp -= 4; old_middle_dvp -= 2
 
 Enforcing party discipline reduces dissent, but it could lead to an exit of dissenting members.
 
 # enforcing party discipline applies to all parties.
 
 # each party has a concessions action and an expulsions action.
+
+@concessions_progressives
+title: Give concessions to the progressives.
+view-if: progressive_dissent > 30 and progressives_dvp = 1
+on-arrival: progressive_dissent -= 7
+
+The progressives will be granted more influence in party decision making.
+
+@concessions_democrats
+title: Give concessions to the democrats.
+view-if: democratic_dissent > 30 and democrats_dvp = 1
+on-arrival: democratic_dissent -= 7
+
+The democrats will be granted more influence in party decision making.
 
 @concessions_liberal
 title: Give concessions to the liberals.
@@ -47,12 +63,26 @@ on-arrival: liberal_dissent -= 7; nationalist_dissent += 5
 
 We have promised to adopt a more liberal posture. This may alienate the right, however.
 
+@concessions_labor
+title: Give concessions to labor.
+view-if: labor_dissent > 30
+on-arrival: labor_dissent -= 7; industrialist_dissent += 5
+
+The trade unions will be granted more influence in party decision making. This upsets the industrialists.
+
 @concessions_industrialist
 title: Give concessions to the industrialists.
 view-if: industrialist_dissent > 30
 on-arrival: industrialist_dissent -= 7; labor_dissent += 5
 
 We have promised to take more policy suggestions from the industrialists. Both the liberal and labor wings of the party might be displeased.
+
+@concessions_peoples_conservatives
+title: Give concessions to the People's Conservatives.
+view-if: peoples_conservative_dissent > 30 and peoples_conservatives_dvp = 1
+on-arrival: peoples_conservative_dissent -= 7
+
+The People's Conservatives will be granted more influence in party decision making.
 
 @concessions_nationalist
 title: Give concessions to the nationalists.
@@ -61,24 +91,10 @@ on-arrival: nationalist_dissent -= 7; liberal_dissent += 5
 
 We have promised that we will listen to the nationalist wing of the party. Of course, this leads to increased dissent from the liberals.
 
-@concessions_labor
-title: Give concessions to labor.
-view-if: labor_dissent > 30
-on-arrival: labor_dissent -= 7; industrialist_dissent += 5
-
-The trade unions will be granted more influence in party decision making. This upsets the industrialists.
-
-@concessions_neorevisionists
-title: Give concessions to the neorevisionists.
-view-if: neorevisionist_dissent > 30 and neorevisionism = 1
-on-arrival: neorevisionist_dissent -= 7
-
-Giving the neorevisionists more influence will cause increased dissent from the centrists.
-
 
 @do_nothing
 title: Let the factions argue with themselves.
-on-arrival: labor_dissent += 1; nationalist_dissent += 1; industrialist_dissent += 1; liberal_dissent += 1
+on-arrival: progressive_dissent += 1; democratic_dissent += 1; liberal_dissent += 1; labor_dissent += 1; industrialist_dissent += 1; peoples_conservative_dissent += 1; nationalist_dissent += 1; 
 
 Let the factions bicker; perhaps dissent is healthy for the party.
 
