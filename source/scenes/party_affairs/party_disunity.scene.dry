@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 view-if: party_disunity_timer = 0 and (dissent >= 0.3 or (progressive_dissent > 30 and progressives_dvp) or (democratic_dissent > 30 and democrats_dvp) or (liberal_dissent > 30 and not liberals_resign) or (labor_dissent > 30 and not unions_independent) or (industrialist_dissent > 30 and not industrialists_leave) or (peoples_conservative_dissent > 30 and peoples_conservatives_dvp) or (nationalist_dissent > 30 and not nationalist_split))
 on-arrival: month_actions += 1; party_disunity_timer = 4
-card-image: img/Reichstagsfraktion_der_SPD.jpg
+card-image: img/dvp.jpg
 frequency: 200
 tags: party_affairs
 
