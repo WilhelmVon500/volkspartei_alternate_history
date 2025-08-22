@@ -1,5 +1,6 @@
 title: <span style="color: var(--dvp-color);">**DVP**</span> Congress
 subtitle: The <span style="color: var(--dvp-color);">**DVP**</span> decides their future...
+face-image: img/dvp.jpg
 view-if: year = 1928 and month = 12
 on-arrival: {!
 Q.dvp_reform_points = 0
