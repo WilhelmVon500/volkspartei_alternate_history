@@ -2,7 +2,7 @@ title: Hamburg Bürgerschaft Election
 view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg
 new-page: true
 tags: event
-priority: 2
+priority: 3
 on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48; dvp_hamburg = 0
 
 = Hamburg Elections, [+ month : month +] [+ year +]
