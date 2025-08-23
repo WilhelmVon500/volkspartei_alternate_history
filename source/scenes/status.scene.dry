@@ -85,6 +85,8 @@ Minister-President of Prussia: [+ prussia_leader +] ([+prussia_leader_party+])
 
 First Mayor of Hamburg: [+ hamburg_leader +] ([+hamburg_leader_party+])
 
+Minister-President of Bavaria: [+ bavaria_leader +] ([+bavaria_leader_party+])
+
 
 
 # = Public Opinion
