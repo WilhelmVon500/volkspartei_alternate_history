@@ -385,7 +385,7 @@ A Far-right Coalition is formed.
 @dvp_majority_bavaria
 title: We can rule alone!
 view-if: dvp_bl >= 50
-subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_hb +]%)
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_bl +]%)
 on-arrival: in_dvp_majority_bavaria = 1; dvp_bavaria = 1;
 
 A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
@@ -404,6 +404,8 @@ WIP
 
 @hamm
 view-if: (dvp_bavaria and (lvp_formed or nfvp_formed)) or in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria
+choose-if: in_dvp_majority_bavaria or in_grand_coalition_bavaria or ((in_bourgeois_coalition_bavaria or in_right_coalition_bavaria) and (dvp_bl + ddp_bl) > bvp_bl)
+unavailable-subtitle: The <span style="color: #69A2BE;">**BVP**</span> can prevent him from becoming the Minister-President.
 on-arrival: bavaria_leader = "Hamm"; bavaria_leader_party = ddp_name if ddp_exist; bavaria_leader_party = dvp_name if lvp_formed or nfvp_formed;
 face-image: img/portraits/HammEduard.jpg
 
