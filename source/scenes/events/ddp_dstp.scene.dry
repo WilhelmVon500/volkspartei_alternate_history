@@ -40,7 +40,7 @@ The <span style="color: #DCCA4A;">**DDP**</span> is a fascinating party, plagued
 
 Pessimism is a widespread feeling within the party, leading to mounting pressure on leader Koch-Weser to do "something". After weeks of secret negotiations, the <span style="color: #DCCA4A;">**DDP**</span> is announcing the result of a proposed merger of the <span style="color: #DCCA4A;">**DDP**</span> and <span style="color: #D3D3A9;">**VNR**</span>.
 
-- @dstp_formed: The <span style="color: #DCCA4A;">**DStP**</span> is formed.
+- @dstp: The <span style="color: #DCCA4A;">**DStP**</span> is formed.
 - @status_quo: The negotiations fail.
 
 @status_quo
@@ -51,7 +51,7 @@ As expected, a merger between a moderately anti-Semitic organization and a party
 
 However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party.
 
-@dstp_formed
+@dstp
 view-if: dstp_formation_points >= 3
 on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
 go-to: dstp_formed
