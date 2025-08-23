@@ -8,13 +8,9 @@ go-to: nfvp_formed
 
 = <span style="color: #FFCC00">**Nationalfortschrittliche Volkspartei**</span> formed
 
-WIP.
-
-- @nfvp_leader: The party has to choose its new leader.
-
-@nfvp_leader
-
 WIP
+
+The party has to choose its new leader.
 
 - @dietrich: Hermann Dietrich.
 - @curtius: Julius Curtius.
