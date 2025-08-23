@@ -31,7 +31,7 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 President: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Chancellor: [+ chancellor +] ([+chancellor_party+])
 
 Reichstag composition:
 
@@ -81,9 +81,9 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Local Governments
 
-Minister-President of Prussia: [+ prussia_leader +] ([+ prussia_leader_party +])
+Minister-President of Prussia: [+ prussia_leader +] ([+prussia_leader_party+])
 
-First Mayor of Hamburg: [+ hamburg_leader +] ([+ hamburg_leader_party +])
+First Mayor of Hamburg: [+ hamburg_leader +] ([+hamburg_leader_party+])
 
 
 
