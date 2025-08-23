@@ -1,1 +1,412 @@
+title: Bavarian Landtag Election
+view-if: year = next_election_year_bavaria and month >= next_election_month_bavaria
+new-page: true
+tags: event
+priority: 3
+on-arrival: next_election_year_bavaria = next_election_year_bavaria + 4; next_election_time_bavaria = time + 48; dvp_bavaria = 0
 
+= Bavarian Elections, [+ month : month +] [+ year +]
+
+The Bavarian elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_bavaria'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+Q.adjustmentFactors_spd_bavaria = 0.75;
+Q.adjustmentFactors_sapd_bavaria = 0.2;
+Q.adjustmentFactors_kpd_bavaria = 0.4;
+Q.adjustmentFactors_ddp_bavaria = 0.5;
+Q.adjustmentFactors_dbp_bavaria = 6.5;
+Q.adjustmentFactors_z_bavaria = 2.2;
+Q.adjustmentFactors_dvp_bavaria = 0.5;
+Q.adjustmentFactors_csvd_bavaria = 0.9;
+Q.adjustmentFactors_wp_bavaria = 0.7;
+Q.adjustmentFactors_cnblp_bavaria = 0;
+Q.adjustmentFactors_kvp_bavaria = 0.5;
+Q.adjustmentFactors_dnvp_bavaria = 0.6;
+Q.adjustmentFactors_dnf_bavaria = 0.5;
+Q.adjustmentFactors_nsdap_bavaria = 1.5;
+Q.adjustmentFactors_other_bavaria = 0.3;
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_bavaria'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_bavaria']
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_bavaria'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_bavaria'] = Math.round(Q[party + '_normalized_bavaria'] * 1000) / 10;
+}
+
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_bl'] = Q[party + '_bl'];
+    Q[party + '_votes_bavaria'] = parseFloat((Q[party + '_votes_bavaria']).toFixed(1))
+    if (Q.constitutional_reform > 0) {
+        if (Q[party + '_votes_bavaria'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_bl'] = 0;
+        } else {
+            Q[party + '_bl'] = Q[party + '_votes_bavaria'];
+        }
+        new_party_sum += Q[party + '_bl'];
+    } else {
+        Q[party + '_bl'] = Q[party + '_votes_bavaria'];
+        if (party == 'other') Q[party + '_bl'] = Q[party + '_votes_bavaria'] * 0.3;
+        new_party_sum += Q[party + '_bl'];
+    }
+
+    Q['change_' + party + '_votes_bavaria'] = Q[party + '_votes_bavaria'] - Q['old_' + party + '_votes_bavaria'];
+    var sign2 = Q['change_' + party + '_votes_bavaria'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_bavaria'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party + '_bavaria'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_bavaria'])).toFixed(1);
+
+    Q['old_' + party + '_votes_bavaria'] = parseFloat((Q[party + '_votes_bavaria']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_bl'] > 0) {
+            Q[party + '_bl'] = Math.round(Q[party + '_bl']*1000/new_party_sum)/10;
+        }
+        Q[party + '_bl'] = parseFloat((Q[party+'_bl']).toFixed(1));
+        
+        Q['change_' + party + '_bl'] = Q[party + '_bl'] - Q['old_' + party + '_bl'];
+        var sign = Q['change_' + party + '_bl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_bl'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['change_' + party + '_bl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_bl'])).toFixed(1);
+    }
+}
+
+
+
+Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.z_bl + Q.dvp_bl).toFixed(1));
+Q.bourgeois_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
+Q.right_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.dnvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_bavaria = parseFloat((Q.dnvp_bl + Q.nsdap_bl).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_bavaria = parseFloat((Q.dnf_bl + Q.nsdap_bl).toFixed(1));
+
+
+Q.in_dvp_majority_bavaria = 0
+Q.in_grand_coalition_bavaria = 0;
+Q.in_bourgeois_coalition_bavaria = 0;
+Q.in_right_coalition_bavaria = 0;
+Q.in_far_right_coalition_bavaria = 0;
+!}
+on-display: {!
+data = [
+    {
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_bl*1.28),
+    }
+];
+if (Q.sapd_formed && Q.sapd_bl) {
+    data.push({
+        "id": "sapd",
+        "legend": "SAPD",
+        "name": "SAPD",
+        "seats": Math.round(Q.sapd_bl*1.28),
+    });
+}
+data = data.concat([
+    {
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_bl*1.28),
+    }
+]);
+if (Q.ddp_exist) {
+    data.push({
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_bl*1.28),
+    });
+}
+if (Q.dbp_exist && Q.dbp_r) {
+    data.push({
+        "id": "dbp",
+        "legend": "DBP",
+        "name": "DBP",
+        "seats": Math.round(Q.dbp_bl*1.28),
+    });
+}
+if (Q.lvp_formed) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_bl*1.28),
+    });
+}
+data = data.concat([
+    {
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round(Q.z_bl*1.28),
+    },
+]);
+if (Q.nfvp_formed) {
+    data.push({
+        "id": "nfvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_bl*1.28),
+    });
+}
+if (!Q.lvp_formed && !Q.nfvp_formed) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_bl*1.28),
+    });
+}
+
+if (Q.csvd_exist && Q.csvd_bl) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_bl*1.28),
+    });
+}
+
+if (Q.wp_exist && Q.wp_bl) {
+    data.push({
+        "id": "wp",
+        "legend": "WP",
+        "name": "WP",
+        "seats": Math.round(Q.wp_bl*1.28),
+    });
+}
+
+data = data.concat([
+    {
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_bl*1.28),
+    }
+]);
+if (Q.kvp_formed && Q.kvp_bl) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_bl*1.28),
+    });
+}
+data = data.concat([
+    {
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_bl*1.28),
+    }
+]);
+if (Q.dnf_formed && Q.dnf_bl) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_bl*1.28),
+    });
+}
+data = data.concat([
+    {
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_bl*1.28),
+    },
+]);
+
+if (window && d3) {
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_bavaria +]%** {!</td><td>!} **[+ votes_change_dvp_bavaria +]** {!</td><td>!} **[+ dvp_bl +]%** {!</td><td>!} **[+ change_dvp_bl +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_bavaria +]% {!</td><td>!} [+ votes_change_kpd_bavaria +] {!</td><td>!} [+ kpd_bl +]% {!</td><td>!} [+ change_kpd_bl +] {!</td></tr>!}
+
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_bavaria +]% {!</td><td>!} [+ votes_change_sapd_bavaria +] {!</td><td>!} [+ sapd_bl +]% {!</td><td>!} [+ change_sapd_bl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_bavaria +]% {!</td><td>!} [+ votes_change_spd_bavaria +] {!</td><td>!} [+ spd_bl +]% {!</td><td>!} [+ change_spd_bl +] {!</td></tr>!}
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_bavaria +]% {!</td><td>!} [+ votes_change_ddp_bavaria +] {!</td><td>!} [+ ddp_bl +]% {!</td><td>!} [+ change_ddp_bl +] {!</td></tr>!} ?]
+
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} BB: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_r +]% {!</td><td>!} [+ str_change_dbp +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ z_votes_bavaria +]% {!</td><td>!} [+ votes_change_z_bavaria +] {!</td><td>!} [+ z_bl +]% {!</td><td>!} [+ change_z_bl +] {!</td></tr>!}
+
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_bavaria +]% {!</td><td>!} [+ votes_change_csvd_bavaria +] {!</td><td>!} [+ csvd_bl +]% {!</td><td>!} [+ change_csvd_bl +] {!</td><td>!} ?]
+
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes_bavaria +]% {!</td><td>!} [+ votes_change_wp_bavaria +] {!</td><td>!} [+ wp_bl +]% {!</td><td>!} [+ change_wp_bl +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_bavaria +]% {!</td><td>!} [+ votes_change_kvp_bavaria +] {!</td><td>!} [+ kvp_bl +]% {!</td><td>!} [+ change_kvp_bl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_bavaria +]% {!</td><td>!} [+ votes_change_dnvp_bavaria +] {!</td><td>!} [+ dnvp_bl +]% {!</td><td>!} [+ change_dnvp_bl +] {!</td></tr>!}
+
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_bavaria +]% {!</td><td>!} [+ votes_change_dnf_bavaria +] {!</td><td>!} [+ dnf_bl +]% {!</td><td>!} [+ change_dnf_bl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_bavaria +]% {!</td><td>!} [+ votes_change_nsdap_bavaria +] {!</td><td>!} [+ nsdap_bl +]% {!</td><td>!} [+ change_nsdap_bl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_bavaria +]% {!</td><td>!} [+ votes_change_other_bavaria +] {!</td><td>!} [+ other_bl +]% {!</td><td>!} [+ change_other_bl +] {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
+
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_bavaria +]%
+
+Bourgeois Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_bavaria +]%
+
+Right Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ right_coalition_bavaria +]%
+
+Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_bavaria +]%
+
+There are some potential coalition arrangements.
+
+@coalition_menu
+
+- @dvp_majority_bavaria
+- @grand_coalition_bavaria
+- @bourgeois_coalition_bavaria
+- @right_coalition_bavaria
+- @far_right_coalition_bavaria
+- @no_majority
+
+@grand_coalition_bavaria
+title: We can form a Grand Coalition.
+view-if: grand_coalition_bavaria >= 50
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_bavaria +]%)
+on-arrival: in_grand_coalition_bavaria = 1; dvp_bavaria = 1;
+
+We will form a Grand Coalition.
+
+- @bavaria_mp
+
+@bourgeois_coalition_bavaria
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_bavaria >= 50
+subtitle: <span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_bavaria +]%)
+on-arrival: in_bourgeois_coalition_bavaria = 1; dvp_bavaria = 1;
+
+A Bourgeois Coalition is formed.
+
+- @bavaria_mp
+
+@right_coalition_bavaria
+title: We can form a Right Coalition.
+view-if: right_coalition_bavaria >= 50
+subtitle: <span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ right_coalition_bavaria +]%)
+on-arrival: in_right_coalition_bavaria = 1; dvp_bavaria = 1;
+
+A Right Coalition is formed.
+
+- @bavaria_mp
+
+@far_right_coalition_bavaria
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_bavaria >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_bavaria +]%)
+on-arrival: in_far_right_coalition_bavaria = 1;
+
+A Far-right Coalition is formed.
+
+- @bavaria_mp
+
+@dvp_majority_bavaria
+title: We can rule alone!
+view-if: dvp_bl >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_hb +]%)
+on-arrival: in_dvp_majority_bavaria = 1; dvp_bavaria = 1;
+
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
+
+- @bavaria_mp
+
+@bavaria_mp
+title: The coalition will choose the mayor.
+
+WIP
+
+- @held: Heinrich Held
+- @epp: Franz Ritter von Epp
+
+@held
+view-if: in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
+on-arrival: bavaria_leader = "Held"; bavaria_leader_party = "BVP"
+
+Heinrich Held was chosen.
+
+@epp
+view-if: in_far_right_coalition_bavaria
+on-arrival: bavaria_leader = "Epp"; bavaria_leader_party = "NSDAP"
+
+Franz Ritter von Epp was chosen.
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: grand_coalition_bavaria < 50 and bourgeois_coalition_bavaria < 50 and right_coalition_bavaria < 50 and far_right_coalition_bavaria < 50
+on-arrival: next_election_time_bavaria = time+3; next_election_month_bavaria = month + 3; next_election_year_bavaria = year; next_election_year_bavaria += 1 if next_election_month_bavaria > 12; next_election_month_bavaria -= 12 if next_election_month_bavaria > 12;
