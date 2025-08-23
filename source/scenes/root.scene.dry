@@ -149,6 +149,7 @@ Q.spd_prussia = 1;
 Q.dvp_prussia = 0;
 // Options: spd, z, dnvp, papen, nsdap
 Q.prussia_leader = "Braun"
+Q.prussia_leader_party = "SPD"
 Q.prussian_government = "SPD";
 Q.in_weimar_coalition_prussia = 1
 
@@ -156,6 +157,7 @@ Q.next_election_year_prussia = 1928;
 Q.next_election_month_prussia = 5;
 
 
+// old landtag seats PRUSSIA
 Q.spd_pl = 25.3;
 Q.kpd_pl = 9.8;
 Q.z_pl = 18.0;
@@ -170,22 +172,6 @@ Q.dnvp_pl = 24.2;
 Q.dnf_pl = 0.0;
 Q.nsdap_pl = 2.5;
 Q.other_pl = 1.7;
-
-// old landtag seats PRUSSIA
-Q.old_spd_pl = 25.3;
-Q.old_kpd_pl = 9.8;
-Q.old_z_pl = 18.0;
-Q.old_dbp_pl = 0.0;
-Q.old_ddp_pl = 6.0;
-Q.old_dvp_pl = 10.0;
-Q.old_csvd_pl = 0.0;
-Q.old_wp_pl = 2.5;
-Q.old_cnblp_pl = 0.0;
-Q.old_kvp_pl = 0.0;
-Q.old_dnvp_pl = 24.2;
-Q.old_dnf_pl = 0.0;
-Q.old_nsdap_pl = 2.5;
-Q.old_other_pl = 1.7;
 
 // old election votes PRUSSIA
 Q.old_spd_votes_prussia = 24.9;
@@ -202,6 +188,49 @@ Q.old_dnvp_votes_prussia = 23.7;
 Q.old_dnf_votes_prussia = 0.0;
 Q.old_nsdap_votes_prussia = 2.5;
 Q.old_other_votes_prussia = 3.5;
+
+
+
+
+// other landtags
+// hamburg
+Q.hamburg_leader = "Petersen"
+Q.hamburg_leader_party = "DDP"
+Q.in_grand_coalition_hamburg = 1
+Q.next_election_year_hamburg = 1928;
+Q.next_election_month_hamburg = 2;
+
+Q.spd_hb = 39.3;
+Q.kpd_hb = 16.9;
+Q.z_hb = 1.3;
+Q.dbp_hb = 0.0;
+Q.ddp_hb = 10.0;
+Q.dvp_hb = 11.2;
+Q.csvd_hb = 0.0;
+Q.wp_hb = 3.8;
+Q.cnblp_hb = 0.0;
+Q.kvp_hb = 0.0;
+Q.dnvp_hb = 15.6;
+Q.dnf_hb = 0.0;
+Q.nsdap_hb = 1.3;
+Q.other_hb = 0.6;
+
+Q.old_spd_votes_hamburg = 38.1;
+Q.old_kpd_votes_hamburg = 17.0;
+Q.old_z_votes_hamburg = 1.5;
+Q.old_dbp_votes_hamburg = 0.0;
+Q.old_ddp_votes_hamburg = 10.1;
+Q.old_dvp_votes_hamburg = 11.2;
+Q.old_csvd_votes_hamburg = 0.0;
+Q.old_wp_votes_hamburg = 4.2;
+Q.old_cnblp_votes_hamburg = 0.0;
+Q.old_kvp_votes_hamburg = 0.0;
+Q.old_dnvp_votes_hamburg = 15.2;
+Q.old_dnf_votes_hamburg = 0.0;
+Q.old_nsdap_votes_hamburg = 1.5;
+Q.old_other_votes_hamburg = 1.2;
+
+
 
 
 
@@ -306,6 +335,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
+Q.states = ['prussia', 'hamburg'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
