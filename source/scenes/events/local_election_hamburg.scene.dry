@@ -341,10 +341,10 @@ title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a gove
 subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
 view-if: weimar_coalition_hamburg >= 50
 
-There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_hamburg_sure: A center-left coalition takes power.
-- @weimar_coalition_hamburg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @weimar_coalition_hamburg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with <span style="color: #000000;">**Center Party**</span> and <span style="color: #E3000F;">**SPD**</span>.
 - @coalition_menu: Try a different governing arrangement.
 
 @weimar_coalition_hamburg_sure
@@ -399,7 +399,7 @@ WIP
 @dauch
 view-if: dvp_hamburg
 choose-if: lvp_formed or nfvp_formed or (not in_grand_coalition_hamburg and not in_weimar_coalition_hamburg) or ((in_grand_coalition_hamburg or in_weimar_coalition_hamburg) and dvp_hb > spd_hb)
-unavailable-subtitle: The SPD can prevent a member of our party from becoming mayor.
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent a member of our party from becoming mayor.
 on-arrival: hamburg_leader = "Dauch"; hamburg_leader_party = dvp_name
 face-image: img/portraits/DauchWalther.jpg
 
