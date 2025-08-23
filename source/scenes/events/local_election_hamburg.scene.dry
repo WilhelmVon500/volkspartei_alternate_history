@@ -359,11 +359,12 @@ on-arrival: dvp_hamburg = 1; in_weimar_coalition_hamburg = 1;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
 
-- @hamburg_mayor: The coalition will choose the mayor.
+- @hamburg_mayor
 
 
 
 @hamburg_mayor
+title: The coalition will choose the mayor.
 
 WIP
 
