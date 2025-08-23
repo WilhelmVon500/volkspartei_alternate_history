@@ -114,7 +114,7 @@ if (new_party_sum > 0) {
 
 
 
-Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.z_bl + Q.dvp_bl).toFixed(1));
+Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.dvp_bl).toFixed(1));
 Q.bourgeois_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
 Q.right_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.dnvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_bavaria = parseFloat((Q.dnvp_bl + Q.nsdap_bl).toFixed(1));
@@ -178,9 +178,9 @@ if (Q.lvp_formed) {
 }
 data = data.concat([
     {
-        "id": "z",
-        "legend": "Center",
-        "name": "Center",
+        "id": "bvp",
+        "legend": "BVP",
+        "name": "BVP",
         "seats": Math.round(Q.z_bl*1.28),
     },
 ]);
@@ -316,11 +316,11 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_bavaria +]%
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_bavaria +]%
 
 Bourgeois Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_bavaria +]%
 
-Right Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ right_coalition_bavaria +]%
+Right Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ right_coalition_bavaria +]%
 
 Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_bavaria +]%
 
@@ -338,7 +338,7 @@ There are some potential coalition arrangements.
 @grand_coalition_bavaria
 title: We can form a Grand Coalition.
 view-if: grand_coalition_bavaria >= 50
-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_bavaria +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_bavaria +]%)
 on-arrival: in_grand_coalition_bavaria = 1; dvp_bavaria = 1;
 
 We will form a Grand Coalition.
@@ -358,7 +358,7 @@ A Bourgeois Coalition is formed.
 @right_coalition_bavaria
 title: We can form a Right Coalition.
 view-if: right_coalition_bavaria >= 50
-subtitle: <span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ right_coalition_bavaria +]%)
+subtitle: <span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?]+ [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?] <span style="color: #3F7BC1;">**DNVP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ right_coalition_bavaria +]%)
 on-arrival: in_right_coalition_bavaria = 1; dvp_bavaria = 1;
 
 A Right Coalition is formed.
@@ -394,7 +394,7 @@ WIP
 - @epp: Franz Ritter von Epp
 
 @held
-view-if: in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
+view-if: in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
 on-arrival: bavaria_leader = "Held"; bavaria_leader_party = "BVP"
 
 Heinrich Held was chosen.
