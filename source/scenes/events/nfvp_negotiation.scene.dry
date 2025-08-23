@@ -1,4 +1,4 @@
-title: Negotiations with <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
+title: Negotiations with <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>
 view-if: year == 1929 and month >= 9 and ddp_exist and supported_front_1929
 on-arrival: {!
 Q.nfvp_formation_points = 0;
