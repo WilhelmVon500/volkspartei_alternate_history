@@ -164,10 +164,10 @@ Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kv
 if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 if (!Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-if (Q.dnvp_ideology = "Radical") Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
-if (Q.dnvp_ideology = "Moderate") Q.far_right_coalition = parseFloat((Q.dnf_r + Q.nsdap_r).toFixed(1));
-if (Q.dnvp_ideology = "Radical") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
-if (Q.dnvp_ideology = "Moderate") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnf_r).toFixed(1));
+if (Q.dnvp_ideology == "Radical") Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology == "Moderate") Q.far_right_coalition = parseFloat((Q.dnf_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_ideology == "Radical") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
+if (Q.dnvp_ideology == "Moderate") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnf_r).toFixed(1));
 // aka everyone except nazi, kpd, dnvp
 Q.neo_weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r).toFixed(1));
 // Hitler + Right-wing parties
