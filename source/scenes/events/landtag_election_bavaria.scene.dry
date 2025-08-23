@@ -391,17 +391,27 @@ title: The coalition will choose the mayor.
 WIP
 
 - @held: Heinrich Held
+- @vogel: Hans Vogel
 - @epp: Franz Ritter von Epp
 
 @held
 view-if: in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
 on-arrival: bavaria_leader = "Held"; bavaria_leader_party = "BVP"
+face-image: img/portraits/HeldHeinrich.jpg
 
 Heinrich Held was chosen.
+
+@vogel
+view-if: in_grand_coalition_bavaria
+on-arrival: bavaria_leader = "Vogel"; bavaria_leader_party = "SPD"
+face-image: img/portraits/VogelHans.jpg
+
+Hans Vogel was chosen.
 
 @epp
 view-if: in_far_right_coalition_bavaria
 on-arrival: bavaria_leader = "Epp"; bavaria_leader_party = "NSDAP"
+face-image: img/portraits/EppFranz.jpg
 
 Franz Ritter von Epp was chosen.
 
