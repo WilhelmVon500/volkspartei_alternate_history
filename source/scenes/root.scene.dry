@@ -194,6 +194,7 @@ Q.old_other_votes_prussia = 3.5;
 
 // other landtags
 // hamburg
+Q.dvp_hamburg = 1
 Q.hamburg_leader = "Petersen"
 Q.hamburg_leader_party = "DDP"
 Q.in_grand_coalition_hamburg = 1
