@@ -337,6 +337,7 @@ There are some potential coalition arrangements.
 - @weimar_coalition_hamburg
 - @grand_coalition_hamburg
 - @far_right_coalition_hamburg
+- @no_majority
 
 @weimar_coalition_hamburg
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
@@ -445,5 +446,11 @@ view-if: in_far_right_coalition_hamburg
 on-arrival: hamburg_leader = "Hugenberg"; hamburg_leader_party = "DNVP" if dnvp_ideology = "Radical"; hamburg_leader_party = "DNF" if dnvp_ideology = "Moderate"
 
 Alfred Hugenberg was chosen.
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: weimar_coalition_hamburg < 50 and grand_coalition_hamburg < 50 and bourgeois_coalition_hamburg < 50 and far_right_coalition_hamburg < 50
+on-arrival: next_election_time_hamburg = time+3; next_election_month_hamburg = month + 3; next_election_year_hamburg = year; next_election_year_hamburg += 1 if next_election_month_hamburg > 12; next_election_month_hamburg -= 12 if next_election_month_hamburg > 12;
 
 
