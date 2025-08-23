@@ -12,7 +12,7 @@ face-image: img/hindenburg_election.jpg
 
 @pres_election
 
-The first round has ended, with no candidate receiving an absolute majority of votes. [+ nsdap_candidate_1932 +]'s results were disappointing to him and his party, [? if not nsdap_candidate = "Hindenburg": but he has chosen to remain as a candidate?][? if nsdap_candidate = "Hindenburg": resulting in him dropping out and supporting Hindenburg instead?]. Thälmann has also remained in the running, refusing to back what they view as the lesser evil.
+The first round has ended, with no candidate receiving an absolute majority of votes. [+ nsdap_candidate +]'s results were disappointing to him and his party, [? if not nsdap_candidate = "Hindenburg": but he has chosen to remain as a candidate?][? if nsdap_candidate = "Hindenburg": resulting in him dropping out and supporting Hindenburg instead?]. Thälmann has also remained in the running, refusing to back what they view as the lesser evil.
 
 - @final_election: The second round results...
 
