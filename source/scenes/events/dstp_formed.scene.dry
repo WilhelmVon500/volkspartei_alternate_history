@@ -1,0 +1,37 @@
+on-arrival: {!
+if Q.chancellor_party == "DDP") {
+  Q.chancellor_party = Q.ddp_name
+}
+if (Q.labor_minister_party == "DDP") {
+  Q.labor_minister_party = Q.ddp_name
+}
+if (Q.interior_minister_party == "DDP") {
+  Q.interior_minister_party = Q.ddp_name
+}
+if (Q.finance_minister_party == "DDP") {
+  Q.finance_minister_party = Q.ddp_name
+}
+if (Q.economic_minister_party == "DDP") {
+  Q.economic_minister_party = Q.ddp_name
+}
+if (Q.justice_minister_party == "DDP") {
+  Q.justice_minister_party = Q.ddp_name
+}
+if (Q.foreign_minister_party == "DDP") {
+  Q.foreign_minister_party = Q.ddp_name
+}
+if (Q.agriculture_minister_party == "DDP") {
+  Q.agriculture_minister_party = Q.ddp_name
+}
+if (Q.reichswehr_minister_party == "DDP") {
+  Q.reichswehr_minister_party = Q.ddp_name
+}
+
+
+
+for (var state of Q.states) {
+    if (Q[state + '_leader_party'] == "DDP") {
+        Q[state + '_leader_party'] = Q.ddp_name
+    }
+}
+!}
