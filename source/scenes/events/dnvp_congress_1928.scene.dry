@@ -18,9 +18,16 @@ The right wing of the party rallied behind Alfred Hugenberg, an industrialist an
 @westarp_lead
 on-arrival: dnvp_leader = "Westarp"; dnvp_ideology = "Moderate"; dvp_left += 1; dnvp_relation += 5 if dvp_ideology = "Left";
 face-image: img/portraits/WestarpKuno.jpg
-go-to: dnf_formed
 
 Westarp remains as the <span style="color: #3F7BC1;">**DNVP**</span> leader. In response, Hugenberg and his faction have left <span style="color: #3F7BC1;">**DNVP**</span> to form their own party.
+
+- @dnf_formation: Alfred Hugenberg and his supporters form <span style="color: #003755;">**DNF**</span>.
+
+@dnf_formation
+face-image: img/hugenberg_boat.jpg
+go-to: dnf_formed
+
+Hugenberg has created a new party.
 
 @hugenberg_lead
 on-arrival: dnvp_leader = "Hugenberg"; dnvp_ideology = "Radical"; workers_dnvp -= 2; pro_republic -= 2; dvp_right += 1; dnvp_relation -= 5 if dvp_ideology = "Left";
