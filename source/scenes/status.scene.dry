@@ -79,6 +79,12 @@ Inflation: [+ inflation_2 +]%
 
 Economic growth: [+ economic_growth_2 +]%
 
+= Local Governments
+
+Minister-President of Prussia: [+ prussia_leader +] ([+ prussia_leader_party +])
+
+First Mayor of Hamburg: [+ hamburg_leader +] ([+ hamburg_leader_party +])
+
 
 
 # = Public Opinion
