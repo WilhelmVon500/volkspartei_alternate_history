@@ -114,19 +114,6 @@ if (new_party_sum > 0) {
     }
 }
 
-Q.largest_party_hamburg = 'SPD';
-if (Q.nsdap_hb >= Q.spd_hb && Q.nsdap_hb >= Q.kpd_hb && Q.nsdap_hb >= Q.dvp_hb) {
-    Q.largest_party_hamburg = 'NSDAP';
-}
-
-if (Q.kpd_hb >= Q.spd_hb && Q.kpd_hb >= Q.nsdap_hb && Q.kpd_hb >= Q.dvp_hb) {
-    Q.largest_party_hamburg = 'KPD';
-}
-
-if (Q.dvp_hb >= Q.spd_hb && Q.dvp_hb >= Q.nsdap_hb && Q.dvp_hb >= Q.kpd_hb) {
-    Q.largest_party_hamburg = Q.dvp_name;
-}
-
 
 
 if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_hamburg = parseFloat((Q.spd_hb + Q.ddp_hb + Q.z_hb).toFixed(1));
@@ -344,7 +331,7 @@ title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a gove
 subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
 view-if: weimar_coalition_hamburg >= 50
 
-There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?].
 
 - @weimar_coalition_hamburg_sure: A center-left coalition takes power.
 - @weimar_coalition_hamburg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with <span style="color: #000000;">**Center Party**</span> and <span style="color: #E3000F;">**SPD**</span>.
