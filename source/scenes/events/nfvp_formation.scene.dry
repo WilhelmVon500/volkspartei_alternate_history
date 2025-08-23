@@ -8,3 +8,32 @@ go-to: nfvp_formed
 = <span style="color: #FFCC00">**Nationalfortschrittliche Volkspartei**</span> formed
 
 WIP.
+
+- @leader: The party has to choose its new leader.
+
+@leader
+
+- @dietrich
+- @curtius
+- @thiel
+
+@dietrich
+on-arrival: dvp_leader = "Dietrich"
+face-image: img/portraits/DietrichHermann.jpg
+
+Hermann Dietrich will be the new leader of our party.
+
+
+@curtius
+on-arrival: dvp_leader = "Curtius"
+face-image: img/portraits/CurtiusJulius.jpg
+
+Julius Curtius will be the new leader of our party.
+
+
+@thiel
+on-arrival: dvp_leader = "Thiel"
+face-image: img/portraits/ThielOtto.jpg
+
+Otto Thiel will be the new leader of our party.
+
