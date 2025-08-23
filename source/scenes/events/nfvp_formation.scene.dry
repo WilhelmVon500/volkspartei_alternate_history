@@ -10,7 +10,12 @@ set-jump: nfvp_formed
 
 WIP
 
-The party has to choose its new leader.
+
+- @leader: The party has to choose its new leader.
+
+@leader
+
+WIP
 
 - @dietrich: Hermann Dietrich will lead our party.
 - @curtius: Julius Curtius will lead our party.
