@@ -365,16 +365,6 @@ We will form a Grand Coalition.
 
 - @hamburg_mayor
 
-@far_right_coalition_hamburg
-title: Far-right Coalition is formed!
-view-if: far_right_coalition_hamburg >= 50
-subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_hamburg +]%)
-on-arrival: in_far_right_coalition_hamburg = 1;
-
-A Far-right Coalition is formed.
-
-- @hamburg_mayor
-
 @bourgeois_coalition_hamburg
 title: We can form a Bourgeois Coalition.
 view-if: bourgeois_coalition_hamburg >= 50
@@ -382,6 +372,16 @@ subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span st
 on-arrival: in_bourgeois_coalition_hamburg = 1; dvp_hamburg = 1;
 
 A Bourgeois Coalition is formed.
+
+- @hamburg_mayor
+
+@far_right_coalition_hamburg
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_hamburg >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_hamburg +]%)
+on-arrival: in_far_right_coalition_hamburg = 1;
+
+A Far-right Coalition is formed.
 
 - @hamburg_mayor
 
