@@ -48,11 +48,11 @@ for (var party of Q.parties) {
         if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
             Q[party + '_r'] = 0;
         } else {
-            Q[party + '_r'] = Q[party + '_votes'];
+            Q[party + '_r'] = parseFloat((Q[party+'_votes']).toFixed(1));
         }
         new_party_sum += Q[party + '_r'];
     } else {
-        Q[party + '_r'] = Q[party + '_votes'];
+        Q[party + '_r'] = parseFloat((Q[party+'_votes']).toFixed(1));
         if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.3;
         new_party_sum += Q[party + '_r'];
         console.log(new_party_sum)
