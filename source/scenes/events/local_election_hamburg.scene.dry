@@ -1,0 +1,321 @@
+title: Hamburg Bürgerschaft Election
+view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg
+new-page: true
+tags: event
+priority: 2
+on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48;
+
+= Hamburg Elections, [+ month : month +] [+ year +]
+
+The Hamburg elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_hamburg'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+Q.adjustmentFactors_spd_hamburg = 1.05;
+Q.adjustmentFactors_sapd_hamburg = 1.05;
+Q.adjustmentFactors_kpd_hamburg = 1.2;
+Q.adjustmentFactors_ddp_hamburg = 1.7;
+Q.adjustmentFactors_dbp_hamburg = 0;
+Q.adjustmentFactors_z_hamburg = 0.2;
+Q.adjustmentFactors_dvp_hamburg = 1.05;
+Q.adjustmentFactors_csvd_hamburg = 1.0;
+Q.adjustmentFactors_wp_hamburg = 0.75;
+Q.adjustmentFactors_cnblp_hamburg = 0;
+Q.adjustmentFactors_kvp_hamburg = 0.8;
+Q.adjustmentFactors_dnvp_hamburg = 0.9;
+Q.adjustmentFactors_dnf_hamburg = 0.9;
+Q.adjustmentFactors_nsdap_hamburg = 0.6;
+Q.adjustmentFactors_other_hamburg = 0.3;
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_hamburg'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_hamburg']
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_hamburg'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_hamburg'] = Math.round(Q[party + '_normalized_hamburg'] * 1000) / 10;
+}
+
+
+
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_hb'] = Q[party + '_hb'];
+    Q[party + '_votes_hamburg'] = parseFloat((Q[party + '_votes_hamburg']).toFixed(1))
+    if (Q.constitutional_reform > 0) {
+        if (Q[party + '_votes_hamburg'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_hb'] = 0;
+        } else {
+            Q[party + '_hb'] = Q[party + '_votes_hamburg'];
+        }
+        new_party_sum += Q[party + '_hb'];
+    } else {
+        Q[party + '_hb'] = Q[party + '_votes_hamburg'];
+        if (party == 'other') Q[party + '_hb'] = Q[party + '_votes_hamburg'] * 0.3;
+        new_party_sum += Q[party + '_hb'];
+    }
+
+    Q['change_' + party + '_votes_hamburg'] = Q[party + '_votes_hamburg'] - Q['old_' + party + '_votes_hamburg'];
+    var sign2 = Q['change_' + party + '_votes_hamburg'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_hamburg'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party + '_hamburg'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_hamburg'])).toFixed(1);
+
+    Q['old_' + party + '_votes_hamburg'] = parseFloat((Q[party + '_votes_hamburg']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_hb'] > 0) {
+            Q[party + '_hb'] = Math.round(Q[party + '_hb']*1000/new_party_sum)/10;
+        }
+        Q[party + '_hb'] = parseFloat((Q[party+'_hb']).toFixed(1));
+        
+        Q['change_' + party + '_hb'] = Q[party + '_hb'] - Q['old_' + party + '_hb'];
+        var sign = Q['change_' + party + '_hb'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_hb'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['change_' + party + '_hb'] = sign + Math.abs(parseFloat(Q['change_' + party + '_hb'])).toFixed(1);
+    }
+}
+
+Q.largest_party_hamburg = 'SPD';
+if (Q.nsdap_hb >= Q.spd_hb && Q.nsdap_hb >= Q.kpd_hb && Q.nsdap_hb >= Q.dvp_hb) {
+    Q.largest_party_hamburg = 'NSDAP';
+}
+
+if (Q.kpd_hb >= Q.spd_hb && Q.kpd_hb >= Q.nsdap_hb && Q.kpd_hb >= Q.dvp_hb) {
+    Q.largest_party_hamburg = 'KPD';
+}
+
+if (Q.dvp_hb >= Q.spd_hb && Q.dvp_hb >= Q.nsdap_hb && Q.dvp_hb >= Q.kpd_hb) {
+    Q.largest_party_hamburg = Q.dvp_name;
+}
+
+
+
+if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_hamburg = parseFloat((Q.spd_hb + Q.ddp_hb + Q.z_hb).toFixed(1));
+if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition_hamburg = parseFloat((Q.spd_hb + Q.dvp_hb + Q.z_hb).toFixed(1));
+Q.grand_coalition_hamburg = parseFloat((Q.spd_hb + Q.ddp_hb + Q.z_hb + Q.dvp_hb).toFixed(1));
+Q.bourgeois_coalition_hamburg = parseFloat((Q.ddp_hb + Q.z_hb + Q.dvp_hb + Q.other_hb + Q.kvp_hb + Q.wp_hb + Q.csvd_hb).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_hamburg = parseFloat((Q.dnvp_hb + Q.nsdap_hb).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap_hb).toFixed(1));
+
+
+Q.in_weimar_coalition_hamburg = 0;
+Q.in_minority_weimar_coalition_hamburg = 0;
+Q.in_grand_coalition_hamburg = 0;
+Q.in_minority_grand_coalition_hamburg = 0;
+Q.in_far_right_coalition_hamburg = 0;
+!}
+on-display: {!
+data = [
+    {
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_hb*1.6),
+    }
+];
+if (Q.sapd_formed && Q.sapd_hb) {
+    data.push({
+            "id": "sapd",
+            "legend": "SAPD",
+            "name": "SAPD",
+            "seats": Math.round(Q.sapd_hb*1.6),
+            });
+}
+data = data.concat([
+    {
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_hb*1.6),
+    }
+]);
+if (Q.ddp_exist) {
+    data.push({
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_hb*1.6),
+    });
+}
+if (Q.lvp_formed) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_hb*1.6),
+    });
+}
+data = data.concat([
+    {
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round(Q.z_hb*1.6),
+    },
+]);
+if (Q.nfvp_formed) {
+    data.push({
+        "id": "nfvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_hb*1.6),
+    });
+}
+if (!Q.lvp_formed && !Q.nfvp_formed) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_hb*1.6),
+    });
+}
+
+if (Q.csvd_exist && Q.csvd_hb) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_hb*1.6),
+    });
+}
+
+if (Q.wp_exist && Q.wp_hb) {
+    data.push({
+        "id": "wp",
+        "legend": "WP",
+        "name": "WP",
+        "seats": Math.round(Q.wp_hb*1.6),
+    });
+}
+
+data = data.concat([
+    {
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_hb*1.6),
+    }
+]);
+if (Q.kvp_formed && Q.kvp_hb) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_hb*1.6),
+    });
+}
+data = data.concat([
+    {
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_hb*1.6),
+    }
+]);
+if (Q.dnf_formed && Q.dnf_hb) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_hb*1.6),
+    });
+}
+data = data.concat([
+    {
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_hb*1.6),
+    },
+]);
+
+if (window && d3) {
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Bürgerschaft Seats</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_hamburg +]%** {!</td><td>!} **[+ votes_change_dvp_hamburg +]** {!</td><td>!} **[+ dvp_hb +]%** {!</td><td>!} **[+ change_dvp_hb +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_hamburg +]% {!</td><td>!} [+ votes_change_kpd_hamburg +] {!</td><td>!} [+ kpd_hb +]% {!</td><td>!} [+ change_kpd_hb +] {!</td></tr>!}
+
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_hamburg +]% {!</td><td>!} [+ votes_change_sapd_hamburg +] {!</td><td>!} [+ sapd_hb +]% {!</td><td>!} [+ change_sapd_hb +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_hamburg +]% {!</td><td>!} [+ votes_change_spd_hamburg +] {!</td><td>!} [+ spd_hb +]% {!</td><td>!} [+ change_spd_hb +] {!</td></tr>!}
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_hamburg +]% {!</td><td>!} [+ votes_change_ddp_hamburg +] {!</td><td>!} [+ ddp_hb +]% {!</td><td>!} [+ change_ddp_hb +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_hamburg +]% {!</td><td>!} [+ votes_change_z_hamburg +] {!</td><td>!} [+ z_hb +]% {!</td><td>!} [+ change_z_hb +] {!</td></tr>!}
+
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_hamburg +]% {!</td><td>!} [+ votes_change_csvd_hamburg +] {!</td><td>!} [+ csvd_hb +]% {!</td><td>!} [+ change_csvd_hb +] {!</td><td>!} ?]
+
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes_hamburg +]% {!</td><td>!} [+ votes_change_wp_hamburg +] {!</td><td>!} [+ wp_hb +]% {!</td><td>!} [+ change_wp_hb +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_hamburg +]% {!</td><td>!} [+ votes_change_kvp_hamburg +] {!</td><td>!} [+ kvp_hb +]% {!</td><td>!} [+ change_kvp_hb +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_hamburg +]% {!</td><td>!} [+ votes_change_dnvp_hamburg +] {!</td><td>!} [+ dnvp_hb +]% {!</td><td>!} [+ change_dnvp_hb +] {!</td></tr>!}
+
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_hamburg +]% {!</td><td>!} [+ votes_change_dnf_hamburg +] {!</td><td>!} [+ dnf_hb +]% {!</td><td>!} [+ change_dnf_hb +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_hamburg +]% {!</td><td>!} [+ votes_change_nsdap_hamburg +] {!</td><td>!} [+ nsdap_hb +]% {!</td><td>!} [+ change_nsdap_hb +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_hamburg +]% {!</td><td>!} [+ votes_change_other_hamburg +] {!</td><td>!} [+ other_hb +]% {!</td><td>!} [+ change_other_hb +] {!</td></tr>!}
+{!</table>!}
