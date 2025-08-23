@@ -43,6 +43,14 @@ Pessimism is a widespread feeling within the party, leading to mounting pressure
 - @dstp_formed: The <span style="color: #DCCA4A;">**DStP**</span> is formed.
 - @status_quo: The negotiations fail.
 
+@status_quo
+view-if: dstp_formation_points < 3
+on-arrival: dstp_formed = 0; pro_republic += 3
+
+As expected, a merger between a moderately anti-Semitic organization and a party seen as the party for the Jews has failed, with the Young German Order leader Artur Mahraun leaving negotiations citing irreconcilable differences.
+
+However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party.
+
 @dstp_formed
 view-if: dstp_formation_points >= 3
 on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
@@ -51,11 +59,3 @@ go-to: dstp_formed
 This has come as a complete shock to those inside and outside the party, for the <span style="color: #DCCA4A;">**DDP**</span> to merge with the political wing of a mildly anti-Semitic paramilitary group "Young German Order".
 
 In this agreement, the <span style="color: #DCCA4A;">**DDP**</span> has promised a "extension of the party to the right". Despite this, the formation of the <span style="color: #DCCA4A;">**DStP**</span> wasn't a simple left-right divide within the party, the Social Republican Circle and labor leader Ernst Lemmer helps prevent a major split among the left.
-
-@status_quo
-view-if: dstp_formation_points < 3
-on-arrival: dstp_formed = 0; pro_republic += 3
-
-As expected, a merger between a moderately anti-Semitic organization and a party seen as the party for the Jews has failed, with the Young German Order leader Artur Mahraun leaving negotiations citing irreconcilable differences.
-
-However, internal opposition to Koch-Weser has reached a boiling point. Forces within the party are now pushing for his retirement due to his failure to revive the party.
