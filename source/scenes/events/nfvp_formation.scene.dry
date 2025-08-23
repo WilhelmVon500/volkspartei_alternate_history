@@ -10,9 +10,9 @@ go-to: nfvp_formed
 
 WIP.
 
-- @leader: The party has to choose its new leader.
+- @nfvp_leader: The party has to choose its new leader.
 
-@leader
+@nfvp_leader
 
 WIP
 
