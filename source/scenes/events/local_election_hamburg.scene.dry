@@ -333,13 +333,14 @@ There are some potential coalition arrangements.
 @coalition_menu
 
 - @weimar_coalition_hamburg
+- @grand_coalition_hamburg
 
 @weimar_coalition_hamburg
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
 subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
 view-if: weimar_coalition_hamburg >= 50
 
-There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_hamburg_sure: A center-left coalition takes power.
 - @weimar_coalition_hamburg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
@@ -349,7 +350,7 @@ There are enough votes for a majority Weimar Coalition of the Center, SPD and [?
 view-if: not lvp_formed and not nfvp_formed
 on-arrival: in_weimar_coalition_hamburg = 1;
 
-A majority Weimar coalition is formed, with Braun as Minister-President.
+A Weimar coalition is formed.
 
 - @hamburg_mayor
 
@@ -357,7 +358,18 @@ A majority Weimar coalition is formed, with Braun as Minister-President.
 view-if: lvp_formed or nfvp_formed
 on-arrival: dvp_hamburg = 1; in_weimar_coalition_hamburg = 1;
 
-A majority Weimar coalition is formed, with Braun as Minister-President.
+A Weimar coalition is formed.
+
+- @hamburg_mayor
+
+
+@grand_coalition_hamburg
+title: We can form a Grand Coalition.
+view-if: grand_coalition_hamburg >= 50 and grand_coalition_hamburg_failed == 0 and not (lvp_formed or nfvp_formed)
+subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_hamburg +]%)
+on-arrival: in_grand_coalition_hamburg = 1; dvp_hamburg = 1;
+
+We will form a Grand Coalition.
 
 - @hamburg_mayor
 
