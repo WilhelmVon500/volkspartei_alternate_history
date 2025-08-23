@@ -13,9 +13,9 @@ WIP.
 
 @leader
 
-- @dietrich
-- @curtius
-- @thiel
+- @dietrich: Hermann Dietrich
+- @curtius: Julius Curtius
+- @thiel: Otto Thiel
 
 @dietrich
 on-arrival: dvp_leader = "Dietrich"
