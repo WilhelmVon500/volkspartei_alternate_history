@@ -333,7 +333,7 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: nationalist_advisor, peoples_conservative_advisor, industrialist_advisor, labor_advisor, liberal_advisor, democratic_advisor, progressive_advisor, nonfactional_advisor
+tags: nationalist_advisor, peoples_conservative_advisor, industrialist_advisor, labor_advisor, liberal_advisor, democratic_advisor, progressive_advisor, special_interest_advisor, nonfactional_advisor
 frequency: 1
 
 
