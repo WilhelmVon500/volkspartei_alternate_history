@@ -17,6 +17,7 @@ The party has to choose its new leader.
 - @thiel: Otto Thiel.
 
 @dietrich
+subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
 
@@ -24,6 +25,7 @@ Hermann Dietrich will be the new leader of our party.
 
 
 @curtius
+subtitle: Curtius belongs to the Stresemannite wing of our party.
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
 
@@ -31,6 +33,7 @@ Julius Curtius will be the new leader of our party.
 
 
 @thiel
+subtitle: Thiel is a prominent labor leader.
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
 
