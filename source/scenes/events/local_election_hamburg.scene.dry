@@ -334,13 +334,14 @@ There are some potential coalition arrangements.
 
 - @weimar_coalition_hamburg
 - @grand_coalition_hamburg
+- @far_right_coalition_hamburg
 
 @weimar_coalition_hamburg
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
-subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
 view-if: weimar_coalition_hamburg >= 50
 
-There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_hamburg == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_hamburg_sure: A center-left coalition takes power.
 - @weimar_coalition_hamburg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
@@ -365,11 +366,21 @@ A Weimar coalition is formed.
 
 @grand_coalition_hamburg
 title: We can form a Grand Coalition.
-view-if: grand_coalition_hamburg >= 50 and grand_coalition_hamburg_failed == 0 and not (lvp_formed or nfvp_formed)
-subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_hamburg +]%)
+view-if: grand_coalition_hamburg >= 50 and not (lvp_formed or nfvp_formed)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_hamburg +]%)
 on-arrival: in_grand_coalition_hamburg = 1; dvp_hamburg = 1;
 
 We will form a Grand Coalition.
+
+- @hamburg_mayor
+
+@far_right_coalition_hamburg
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_hamburg >= 50 and grand_coalition_hamburg_failed == 0 and not (lvp_formed or nfvp_formed)
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_hamburg +]%)
+on-arrival: in_far_right_coalition_hamburg = 1;
+
+Far-right Coalition is formed.
 
 - @hamburg_mayor
 
