@@ -42,7 +42,7 @@ if (Q.year == 1928) {
     Q.adjustmentFactors_kvp_prussia = 1.2;
     Q.adjustmentFactors_dnvp_prussia = 1.2;
     Q.adjustmentFactors_dnf_prussia = 0.65;
-    Q.adjustmentFactors_nsdap_prussia = 0.66,
+    Q.adjustmentFactors_nsdap_prussia = 0.66;
     Q.adjustmentFactors_other_prussia = 0.88;
 } else if (Q.year == 1929) {
     Q.adjustmentFactors_spd_prussia = 0.97;
