@@ -12,11 +12,11 @@ WIP
 
 The party has to choose its new leader.
 
-- @dietrich: Hermann Dietrich
-- @curtius: Julius Curtius
-- @thiel: Otto Thiel
+- @dietrich_nfvp: Hermann Dietrich will lead our party.
+- @curtius_nfvp: Julius Curtius will lead our party.
+- @thiel_nfvp: Otto Thiel will lead our party.
 
-@dietrich
+@dietrich_nfvp
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
@@ -24,7 +24,7 @@ face-image: img/portraits/DietrichHermann.jpg
 Hermann Dietrich will be the new leader of our party.
 
 
-@curtius
+@curtius_nfvp
 subtitle: Curtius belongs to the Stresemannite wing of our party.
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
@@ -32,7 +32,7 @@ face-image: img/portraits/CurtiusJulius.jpg
 Julius Curtius will be the new leader of our party.
 
 
-@thiel
+@thiel_nfvp
 subtitle: Thiel is a prominent labor leader.
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
