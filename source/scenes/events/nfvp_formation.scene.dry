@@ -4,7 +4,6 @@ max-visits: 1
 tags: event
 priority: 3
 new-page: true
-set-jump: nfvp_formed
 
 = <span style="color: #FFCC00">**Nationalfortschrittliche Volkspartei**</span> formed
 
@@ -25,6 +24,7 @@ WIP
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
+go-to: nfvp_formed
 
 Hermann Dietrich will be the new leader of our party.
 
@@ -33,6 +33,7 @@ Hermann Dietrich will be the new leader of our party.
 subtitle: Curtius belongs to the Stresemannite wing of our party.
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
+go-to: nfvp_formed
 
 Julius Curtius will be the new leader of our party.
 
@@ -41,6 +42,7 @@ Julius Curtius will be the new leader of our party.
 subtitle: Thiel is a prominent labor leader.
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
+go-to: nfvp_formed
 
 Otto Thiel will be the new leader of our party.
 
