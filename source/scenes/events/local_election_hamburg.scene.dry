@@ -351,7 +351,7 @@ There are enough votes for a majority Weimar Coalition of the <span style="color
 view-if: not lvp_formed and not nfvp_formed
 on-arrival: in_weimar_coalition_hamburg = 1;
 
-A Weimar coalition is formed.
+A Weimar Coalition is formed.
 
 - @hamburg_mayor
 
@@ -359,7 +359,7 @@ A Weimar coalition is formed.
 view-if: lvp_formed or nfvp_formed
 on-arrival: dvp_hamburg = 1; in_weimar_coalition_hamburg = 1;
 
-A Weimar coalition is formed.
+A Weimar Coalition is formed.
 
 - @hamburg_mayor
 
@@ -376,11 +376,21 @@ We will form a Grand Coalition.
 
 @far_right_coalition_hamburg
 title: Far-right Coalition is formed!
-view-if: far_right_coalition_hamburg >= 50 and grand_coalition_hamburg_failed == 0 and not (lvp_formed or nfvp_formed)
+view-if: far_right_coalition_hamburg >= 50
 subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_hamburg +]%)
 on-arrival: in_far_right_coalition_hamburg = 1;
 
-Far-right Coalition is formed.
+A Far-right Coalition is formed.
+
+- @hamburg_mayor
+
+@bourgeois_coalition_hamburg
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_hamburg >= 50
+subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_hamburg +]%)
+on-arrival: in_bourgeois_coalition_hamburg = 1; dvp_hamburg = 1;
+
+A Bourgeois Coalition is formed.
 
 - @hamburg_mayor
 
@@ -406,7 +416,7 @@ face-image: img/portraits/DauchWalther.jpg
 Walther Dauch was chosen.
 
 @petersen
-view-if: (dvp_hamburg and (nfvp_formed or lvp_formed)) or in_weimar_coalition_hamburg or in_grand_coalition_hamburg
+view-if: (dvp_hamburg and (nfvp_formed or lvp_formed)) or in_weimar_coalition_hamburg or in_grand_coalition_hamburg or in_bourgeois_coalition
 on-arrival: hamburg_leader = "Petersen"; hamburg_leader_party = ddp_name if ddp_exist; hamburg_leader_party = dvp_name if lvp_formed or nfvp_formed
 face-image: img/portraits/PetersenCarl.jpg
 
