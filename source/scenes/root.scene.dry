@@ -232,6 +232,45 @@ Q.old_nsdap_votes_hamburg = 1.5;
 Q.old_other_votes_hamburg = 1.2;
 
 
+// bavaria
+Q.dvp_bavaria = 1
+Q.bavaria_leader = "Held"
+Q.bavaria_leader_party = "BVP"
+Q.in_right_coalition_bavaria = 1
+Q.next_election_year_bavaria = 1928;
+Q.next_election_month_bavaria = 5;
+
+Q.spd_bl = 17.8;
+Q.kpd_bl = 7.0;
+Q.z_bl = 36.5;
+Q.dbp_bl = 7.8;
+Q.ddp_bl = 2.3;
+Q.dvp_bl = 0.0;
+Q.csvd_bl = 0.0;
+Q.wp_bl = 0.0;
+Q.cnblp_bl = 0.0;
+Q.kvp_bl = 0.0;
+Q.dnvp_bl = 8.5;
+Q.dnf_bl = 0.0;
+Q.nsdap_bl = 17.8;
+Q.other_bl = 2.3;
+
+Q.old_spd_votes_bavaria = 17.2;
+Q.old_kpd_votes_bavaria = 8.3;
+Q.old_z_votes_bavaria = 34.0;
+Q.old_dbp_votes_bavaria = 7.1;
+Q.old_ddp_votes_bavaria = 3.2;
+Q.old_dvp_votes_bavaria = 0.0;
+Q.old_csvd_votes_bavaria = 0.0;
+Q.old_wp_votes_bavaria = 0.0;
+Q.old_cnblp_votes_bavaria = 0.0;
+Q.old_kvp_votes_bavaria = 0.0;
+Q.old_dnvp_votes_bavaria = 9.4;
+Q.old_dnf_votes_bavaria = 0.0;
+Q.old_nsdap_votes_bavaria = 17.1;
+Q.old_other_votes_bavaria = 3.7;
+
+
 
 
 
@@ -336,7 +375,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
-Q.states = ['prussia', 'hamburg'];
+Q.states = ['prussia', 'hamburg', 'bavaria'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
