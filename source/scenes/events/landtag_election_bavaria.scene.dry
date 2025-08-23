@@ -160,7 +160,7 @@ if (Q.ddp_exist) {
         "seats": Math.round(Q.ddp_bl*1.28),
     });
 }
-if (Q.dbp_exist && Q.dbp_r) {
+if (Q.dbp_exist) {
     data.push({
         "id": "dbp",
         "legend": "DBP",
@@ -295,7 +295,7 @@ go-to: coalition_menu
 
 [? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_bavaria +]% {!</td><td>!} [+ votes_change_ddp_bavaria +] {!</td><td>!} [+ ddp_bl +]% {!</td><td>!} [+ change_ddp_bl +] {!</td></tr>!} ?]
 
-[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} BB: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_r +]% {!</td><td>!} [+ str_change_dbp +] {!</td></tr>!} ?]
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} BB: {!</td><td>!} [+ dbp_votes_bavaria +]% {!</td><td>!} [+ votes_change_dbp_bavaria +] {!</td><td>!} [+ dbp_bl +]% {!</td><td>!} [+ change_dbp_bl +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ z_votes_bavaria +]% {!</td><td>!} [+ votes_change_z_bavaria +] {!</td><td>!} [+ z_bl +]% {!</td><td>!} [+ change_z_bl +] {!</td></tr>!}
 
