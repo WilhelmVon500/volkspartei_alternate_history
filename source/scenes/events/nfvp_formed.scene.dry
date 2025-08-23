@@ -84,6 +84,9 @@ for (var state of Q.states) {
     if (Q[state + '_leader_party'] == Q.ddp_name || Q[state + '_leader_party'] == "DVP") {
         Q[state + '_leader_party'] = Q.dvp_name
     }
+    if (Q['in_weimar_coalition_' + state]) {
+        Q['dvp_' + state] = 1
+    }
 }
 
 
