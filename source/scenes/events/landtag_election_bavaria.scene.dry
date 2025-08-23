@@ -43,6 +43,13 @@ Q.adjustmentFactors_dnf_bavaria = 0.5;
 Q.adjustmentFactors_nsdap_bavaria = 1.5;
 Q.adjustmentFactors_other_bavaria = 0.3;
 
+if (Q.lvp_formed || Q.nfvp_formed) {
+    Q.adjustmentFactors_dvp_bavaria += 0.2
+}
+if (Q.dbp_dvp) {
+    Q.adjustmentFactors_dvp_bavaria += 0.7
+}
+
 
 
 // Calculate support for each of the parties
