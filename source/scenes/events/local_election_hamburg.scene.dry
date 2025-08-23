@@ -137,6 +137,7 @@ if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_hamburg = parseFloat((Q
 if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap_hb).toFixed(1));
 
 
+Q.in_dvp_majority_hamburg = 0
 Q.in_weimar_coalition_hamburg = 0;
 Q.in_grand_coalition_hamburg = 0;
 Q.in_far_right_coalition_hamburg = 0;
@@ -332,6 +333,7 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
+- @dvp_majority_hamburg
 - @weimar_coalition_hamburg
 - @grand_coalition_hamburg
 - @far_right_coalition_hamburg
@@ -391,6 +393,16 @@ subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span st
 on-arrival: in_bourgeois_coalition_hamburg = 1; dvp_hamburg = 1;
 
 A Bourgeois Coalition is formed.
+
+- @hamburg_mayor
+
+@dvp_majority_hamburg
+title: We can rule alone!
+view-if: dvp_hb >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_hb +]%)
+on-arrival: in_dvp_majority_hamburg = 1; dvp_hamburg = 1;
+
+A DVP majority government is formed.
 
 - @hamburg_mayor
 
