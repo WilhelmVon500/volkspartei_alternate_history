@@ -116,7 +116,7 @@ if (new_party_sum > 0) {
 
 Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.dvp_bl).toFixed(1));
 Q.bourgeois_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
-Q.right_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.dnvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
+Q.right_coalition_bavaria = parseFloat((Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.dnvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_bavaria = parseFloat((Q.dnvp_bl + Q.nsdap_bl).toFixed(1));
 if (Q.dnf_formed) Q.far_right_coalition_bavaria = parseFloat((Q.dnf_bl + Q.nsdap_bl).toFixed(1));
 
@@ -390,9 +390,17 @@ title: The coalition will choose the Minister-President.
 
 WIP
 
+- @hamm: Eduard Hamm
 - @held: Heinrich Held
 - @vogel: Hans Vogel
 - @epp: Franz Ritter von Epp
+
+@hamm
+view-if: (dvp_bavaria and (lvp_formed or nfvp_formed)) or in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria
+on-arrival: bavaria_leader = "Hamm"; bavaria_leader_party = ddp_name if ddp_exist; bavaria_leader_party = dvp_name if lvp_formed or nfvp_formed;
+face-image: img/portraits/HammEduard.jpg
+
+Eduard Hamm was chosen.
 
 @held
 view-if: in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
