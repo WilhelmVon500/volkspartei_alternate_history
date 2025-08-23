@@ -391,7 +391,7 @@ view-if: dvp_hb >= 50
 subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_hb +]%)
 on-arrival: in_dvp_majority_hamburg = 1; dvp_hamburg = 1;
 
-A DVP majority government is formed.
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
 
 - @hamburg_mayor
 
