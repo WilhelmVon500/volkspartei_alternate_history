@@ -38,7 +38,7 @@ We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : I
 
 @liberal_association
 choose-if: resources > 0
-view-if: not lvp_formed
+view-if: not lvp_formed and not nfvp_formed
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
 on-arrival: resources -= 1; liberal_association += 1; nationalist_dissent += 7; liberal_dissent -= 7; liberal_strength += 7; ddp_relation += 3; liberal_peoples_party_progress += 1
