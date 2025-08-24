@@ -218,7 +218,7 @@ if (Q.wp_exist && Q.wp_hb) {
 }
 if (Q.other_hb) {
     data.push({
-        "id": "",
+        "id": "other",
         "legend": "Other",
         "name": "Other",
         "seats": Math.round(Q.other_hb*1.6),
