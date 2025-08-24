@@ -150,7 +150,7 @@ WIP
 @reichsreform_2
 choose-if: reform_support >= pass_threshold
 unavailable-subtitle: We do not have enough support for this policy. [? if pro_republic < 65 : We should have an additional margin for the referendum since we need a majority of voters, and many voters who do not support the republic will not participate. ?][? if spd_prussia: While the SPD is in Prussian government, they will not support this. ?]
-on-arrival: constitutional_reform += 1; reichsreform = 1
+on-arrival: constitutional_reform += 1; reichsreform = 1; next_election_time_hanover = time+3; next_election_month_hanover = month + 3; next_election_year_hanover = year; next_election_year_hanover += 1 if next_election_month_hanover > 12; next_election_month_hanover -= 12 if next_election_month_hanover > 12;
 achievement: verfassungsreform
 
 We have successfully passed a constitutional amendment to make Prussia smaller! Hopefully this results in a more federal Germany.
