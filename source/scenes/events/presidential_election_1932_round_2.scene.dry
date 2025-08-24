@@ -35,7 +35,7 @@ Q.thalmann_votes = 0;
 if (Q.nsdap_candidate != Q.reactionary_candidate) {
     Q.hitler_votes += Q.nsdap_normalized;
 }
-if (Q.dnf_candidate == Q.nsdap_candidate) {
+if (Q.dnf_candidate == Q.nsdap_candidate && Q.dnf_formed) {
     Q.hitler_votes += Q.dnf_normalized;
 }
 if (Q.dnvp_candidate == Q.nsdap_candidate) {
@@ -77,7 +77,7 @@ if (Q.kvp_candidate == Q.reactionary_candidate && Q.kvp_formed) {
 if (Q.dnvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dnvp_normalized;
 }
-if (Q.dnf_candidate == Q.reactionary_candidate) {
+if (Q.dnf_candidate == Q.reactionary_candidate && Q.dnf_formed) {
     Q.reactionary_votes += Q.dnf_normalized;
 }
 if (Q.other_candidate == Q.reactionary_candidate) {
