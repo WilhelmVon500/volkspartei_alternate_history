@@ -565,7 +565,7 @@ Ernst Stendel was chosen.
 
 @fischbeck
 view-if: (dvp_prussia and (lvp_formed or nfvp_formed)) or in_grand_coalition_prussia or in_weimar_coalition_prussia or in_bourgeois_coalition_prussia
-choose-if: in_dvp_majority_prussia or in_bourgeois_coalition_prussia or ((in_weimar_coalition_prussia or in_grand_coalition_prussia) and (dvp_bl + ddp_bl) > spd_bl)
+choose-if: in_dvp_majority_prussia or in_bourgeois_coalition_prussia or (in_grand_coalition_prussia and (dvp_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and dvp_prussia and (dvp_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and not dvp_prussia and ddp_pl > spd_pl)
 unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
 on-arrival: prussia_leader = "Fischbeck"; prussia_leader_party = ddp_name if ddp_exist; prussia_leader_party = dvp_name if lvp_formed or nfvp_formed;
 face-image: img/portraits/FischbeckOtto.jpg
