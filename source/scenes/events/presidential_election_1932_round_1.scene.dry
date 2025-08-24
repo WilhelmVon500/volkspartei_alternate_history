@@ -41,7 +41,7 @@ Q.thalmann_votes += Q.kpd_normalized;
 if (Q.dnvp_candidate == "Duesterberg") {
     Q.harzburg_votes += Q.dnvp_normalized;
 }
-if (Q.dnf_candidate == "Duesterberg") {
+if (Q.dnf_candidate == "Duesterberg" && Q.dnf_formed) {
     Q.harzburg_votes += Q.dnf_normalized;
 }
 
@@ -79,7 +79,7 @@ if (Q.kvp_candidate == Q.reactionary_candidate && Q.kvp_formed) {
 if (Q.dnvp_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += Q.dnvp_normalized;
 }
-if (Q.dnf_candidate == Q.reactionary_candidate) {
+if (Q.dnf_candidate == Q.reactionary_candidate && Q.dnf_formed) {
     Q.reactionary_votes += Q.dnf_normalized;
 }
 if (Q.other_candidate == Q.reactionary_candidate) {
