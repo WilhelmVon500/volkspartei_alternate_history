@@ -271,6 +271,40 @@ Q.old_nsdap_votes_bavaria = 17.1;
 Q.old_other_votes_bavaria = 3.7;
 
 
+// hanover
+Q.spd_hl = 0.0;
+Q.kpd_hl = 0.0;
+Q.z_hl = 0.0;
+Q.dhp_hl = 0.0;
+Q.dbp_hl = 0.0;
+Q.ddp_hl = 0.0;
+Q.dvp_hl = 0.0;
+Q.csvd_hl = 0.0;
+Q.wp_hl = 0.0;
+Q.cnblp_hl = 0.0;
+Q.kvp_hl = 0.0;
+Q.dnvp_hl = 0.0;
+Q.dnf_hl = 0.0;
+Q.nsdap_hl = 0.0;
+Q.other_hl = 0.0;
+
+Q.old_spd_votes_hanover = 0.0;
+Q.old_kpd_votes_hanover = 0.0;
+Q.old_z_votes_hanover = 0.0;
+Q.old_dhp_votes_hanover = 0.0;
+Q.old_dbp_votes_hanover = 0.0;
+Q.old_ddp_votes_hanover = 0.0;
+Q.old_dvp_votes_hanover = 0.0;
+Q.old_csvd_votes_hanover = 0.0;
+Q.old_wp_votes_hanover = 0.0;
+Q.old_cnblp_votes_hanover = 0.0;
+Q.old_kvp_votes_hanover = 0.0;
+Q.old_dnvp_votes_hanover = 0.0;
+Q.old_dnf_votes_hanover = 0.0;
+Q.old_nsdap_votes_hanover = 0.0;
+Q.old_other_votes_hanover = 0.0;
+
+
 
 
 
@@ -377,7 +411,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
-Q.states = ['prussia', 'hamburg', 'bavaria'];
+Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
