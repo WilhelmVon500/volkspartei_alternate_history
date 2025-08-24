@@ -1,7 +1,7 @@
 title: Constitutional Reform
 new-page: true
 is-card: true
-view-if: dvp_in_government = 1 and justice_minister_party = dvp_name and constitutional_reform_timer = 0 and judicial_reform >= 4 and (liberal_strength + democratic_strength + progressive_strength > nationalist_strength + industrialist_strength) and ((in_weimar_coalition) or (in_dvp_majority) or (in_liberal_coalition) or (in_grand_coalition)) and constitutional_reform < 3
+view-if: dvp_in_government = 1 and justice_minister_party = dvp_name and constitutional_reform_timer = 0 and judicial_reform >= 4 and (liberal_strength + democratic_strength + progressive_strength > nationalist_strength + industrialist_strength) and ((in_weimar_coalition) or (in_dvp_majority) or (in_liberal_coalition) or (in_grand_coalition)) and constitutional_reform < 4
 frequency: 25
 on-arrival: month_actions += 1; constitutional_reform_timer += 12; pass_threshold = 0.51; pass_threshold = 0.6 if pro_republic < 65;
 card-image: img/portraits/HeinzeRudolf.jpg
@@ -15,8 +15,6 @@ tags: govt_affairs, cabinet
 
 = Constitutional Reform
 
-# the ideas for constitutional reform here are based on the bundesrepublik basic law... I'm not sure if it's totally realistic to what someone like Mierendorff would've wanted.
-
 Some liberals consider the Weimar Constitution to be inadequate. They believe that the clauses of the constitution are in part responsible for the instability of the country, and must change in order to build a more stable democratic republic.
 
 A constitutional reform requires either a two-thirds supermajority in the Reichstag, or a constitutional referendum with support from a majority of the electorate. If we do not have a supermajority in the Reichstag, we must be assured of strong support from the other parties for the constitutional referendum.
@@ -26,6 +24,7 @@ A constitutional reform requires either a two-thirds supermajority in the Reichs
 - @vote_threshold: Change the vote threshold.
 - @constructive_vonc: Ban non-constructive votes of no confidence.
 - @presidential_powers: Reduce presidential powers.
+- @reichsreform: Reichsreform.
 - @as_is: Do not pursue constitutional reform.
 - @easy_discard
 - @cancel_advisor_action
@@ -125,6 +124,36 @@ on-arrival: constitutional_reform += 1; presidential_powers = 1
 achievement: verfassungsreform
 
 We have successfully passed a constitutional amendment to limit presidential powers! Hopefully this results in a less authoritarian Germany.
+
+
+
+@reichsreform
+subtitle: We will create some new states consisting of parts of Prussian territories.
+on-arrival: {!
+Q.reform_support = Q.dvp_normalized + Q.z_normalized + Q.ddp_normalized + Q.kpd_normalized;
+if ((Q.other_normalized * 0.3) <= 0.01) {
+    Q.reform_support += (Q.other_normalized * 0.3)
+} else {
+    Q.reform_support += 0.01
+}
+if (!Q.spd_prussia) {
+    Q.reform_support += Q.spd_normalized
+}
+!}
+view-if: reichsreform = 0
+
+WIP
+
+- @reichsreform_2: Call a constitutional referendum to pass the reform!
+- @reforms_menu: See other reform options.
+
+@reichsreform_2
+choose-if: reform_support >= pass_threshold
+unavailable-subtitle: We do not have enough support for this policy. [? if pro_republic < 65 : We should have an additional margin for the referendum since we need a majority of voters, and many voters who do not support the republic will not participate. ?][? if spd_prussia: While the SPD is in Prussian government, they will not support this. ?]
+on-arrival: constitutional_reform += 1; reichsreform = 1
+achievement: verfassungsreform
+
+We have successfully passed a constitutional amendment to make Prussia smaller! Hopefully this results in a more federal Germany.
 
 
 
