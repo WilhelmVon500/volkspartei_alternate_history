@@ -574,7 +574,7 @@ Otto Fischbeck was chosen.
 
 @stegerwald
 view-if: in_grand_coalition_prussia or in_bourgeois_coalition_prussia or in_weimar_coalition_prussia
-choose-if: in_bourgeois_coalition_prussia or (in_grand_coalition_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl and dvp_prussia) or (in_weimar_coalition_prussia and (ddp_pl + z_pl) > spd_pl and not dvp_prussia);
+choose-if: in_bourgeois_coalition_prussia or (in_grand_coalition_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and dvp_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and not dvp_prussia and (ddp_pl + z_pl) > spd_pl);
 unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
 on-arrival: prussia_leader = "Stegerwald"; prussia_leader_party = "Z"
 face-image: img/portraits/StegerwaldAdam.jpg
