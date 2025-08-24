@@ -225,15 +225,14 @@ if (Q.wp_exist && Q.wp_bl) {
         "seats": Math.round(Q.wp_bl*1.28),
     });
 }
-
-data = data.concat([
-    {
+if (Q.other_bl) {
+    data.push({
         "id": "other",
         "legend": "Other",
         "name": "Other",
         "seats": Math.round(Q.other_bl*1.28),
-    }
-]);
+    });
+}
 if (Q.kvp_formed && Q.kvp_bl) {
     data.push({
         "id": "kvp",
