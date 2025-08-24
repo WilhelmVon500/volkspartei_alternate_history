@@ -338,15 +338,14 @@ if (Q.cnblp_exist && Q.cnblp_pl) {
         "seats": Math.round(Q.cnblp_pl*4.5),
     });
 }
-
-data = data.concat([
-    {
+if (Q.other_pl) {
+    data.push({
         "id": "other",
         "legend": "Other",
         "name": "Other",
         "seats": Math.round(Q.other_pl*4.5),
-    }
-]);
+    });
+}
 if (Q.kvp_formed && Q.kvp_pl) {
     data.push({
         "id": "kvp",
