@@ -43,6 +43,10 @@ Q.adjustmentFactors_dnf_hamburg = 0.9;
 Q.adjustmentFactors_nsdap_hamburg = 0.6;
 Q.adjustmentFactors_other_hamburg = 0.3;
 
+if (Q.lvp_formed || Q.nfvp_formed) {
+    Q.adjustmentFactors_dvp_hamburg += 0.7
+}
+
 
 
 // Calculate support for each of the parties
