@@ -87,6 +87,8 @@ First Mayor of Hamburg: [+ hamburg_leader +] ([?if hamburg_leader_party=="SPD":<
 
 Minister-President of Bavaria: [+ bavaria_leader +] ([?if bavaria_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if bavaria_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if bavaria_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if bavaria_leader_party=="BVP":<span style="color: #69A2BE;">**BVP**</span>?][?if bavaria_leader_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
 
+[? if reichsreform: Minister-President of Hanover: [+ hanover_leader +] () ?]
+
 
 
 # = Public Opinion
