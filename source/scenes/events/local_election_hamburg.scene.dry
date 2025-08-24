@@ -216,15 +216,14 @@ if (Q.wp_exist && Q.wp_hb) {
         "seats": Math.round(Q.wp_hb*1.6),
     });
 }
-
-data = data.concat([
-    {
-        "id": "other",
+if (Q.other_hb) {
+    data.push({
+        "id": "",
         "legend": "Other",
         "name": "Other",
         "seats": Math.round(Q.other_hb*1.6),
-    }
-]);
+    });
+}
 if (Q.kvp_formed && Q.kvp_hb) {
     data.push({
         "id": "kvp",
@@ -249,14 +248,14 @@ if (Q.dnf_formed && Q.dnf_hb) {
         "seats": Math.round(Q.dnf_hb*1.6),
     });
 }
-data = data.concat([
-    {
+if (Q.nsdap_hb) {
+    data.push({
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
         "seats": Math.round(Q.nsdap_hb*1.6),
-    },
-]);
+    });
+}
 
 if (window && d3) {
     var width = 500;
