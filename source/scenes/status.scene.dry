@@ -81,7 +81,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Local Governments
 
-Minister-President of Prussia: [+ prussia_leader +] ([?if prussia_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?])
+Minister-President of Prussia: [+ prussia_leader +] ([?if prussia_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if prussia_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if prussia_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if prussia_leader_party=="Z":<span style="color: #000000;">**Z**</span>?])
 
 First Mayor of Hamburg: [+ hamburg_leader +] ([?if hamburg_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hamburg_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if hamburg_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hamburg_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hamburg_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?])
 
