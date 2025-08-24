@@ -226,10 +226,12 @@ if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_prussia = parseFloat((Q
 if (Q.dnf_formed) Q.far_right_coalition_prussia = parseFloat((Q.dnf_pl + Q.nsdap_pl).toFixed(1));
 
 
+Q.in_dvp_majority_prussia = 0;
 Q.in_weimar_coalition_prussia = 0;
 Q.in_minority_weimar_coalition_prussia = 0;
 Q.in_grand_coalition_prussia = 0;
 Q.in_minority_grand_coalition_prussia = 0;
+Q.in_bourgeois_coalition_prussia = 0;
 Q.in_far_right_coalition_prussia = 0;
 
 Q.spd_prussia = 0;
@@ -470,11 +472,15 @@ on-arrival: spd_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "S
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
 
+- @prussia_mp
+
 @weimar_coalition_prussia_dvp
 view-if: lvp_formed or nfvp_formed
 on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; in_weimar_coalition_prussia = 1;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
+
+- @prussia_mp
 
 
 
@@ -517,6 +523,8 @@ on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; pr
 
 The SPD has agreed to form a Grand Coalition!
 
+- @prussia_mp
+
 @grand_coalition_prussia_failed
 on-arrival: in_grand_coalition_prussia = 0; grand_coalition_prussia_failed = 1;
 go-to: coalition_menu
@@ -535,7 +543,54 @@ A minority Grand coalition stays in power, with Braun as Minister-President.
 
 
 
+
+@prussia_mp
+title: The coalition will choose the Minister-President.
+
+WIP
+
+- @stendel: Ernst Stendel
+- @braun: Otto Braun
+- @fischbeck: Otto Fischbeck
+- @stegerwald: Adam Stegerwald
+
+@stendel
+view-if: dvp_prussia
+choose-if: in_dvp_majority_prussia or ((in_weimar_coalition_prussia or in_grand_coalition_prussia) and (dvp_pl + ddp_pl) > spd_pl)
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
+on-arrival: prussia_leader = "Stendel"; prussia_leader_party = dvp_name;
+face-image: img/portraits/StendelErnst.jpg
+
+Ernst Stendel was chosen.
+
+@fischbeck
+view-if: (dvp_prussia and (lvp_formed or nfvp_formed)) or in_grand_coalition_prussia or in_weimar_coalition_prussia or in_bourgeois_coalition_prussia
+choose-if: in_dvp_majority_prussia or in_bourgeois_coalition_prussia or ((in_weimar_coalition_prussia or in_grand_coalition_prussia) and (dvp_bl + ddp_bl) > spd_bl)
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
+on-arrival: prussia_leader = "Fischbeck"; prussia_leader_party = ddp_name if ddp_exist; prussia_leader_party = dvp_name if lvp_formed or nfvp_formed;
+face-image: img/portraits/FischbeckOtto.jpg
+
+Otto Fischbeck was chosen.
+
+@stegerwald
+view-if: in_grand_coalition_prussia or in_bourgeois_coalition_prussia or in_weimar_coalition_prussia
+choose-if: in_bourgeois_coalition_prussia or (in_grand_coalition_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl) or (in_weimar_coalition_prussia and (dvp_pl + z_pl + ddp_pl) > spd_pl and dvp_prussia) or (in_weimar_coalition_prussia and (ddp_pl + z_pl) > spd_pl and not dvp_prussia);
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
+on-arrival: prussia_leader = "Stegerwald"; prussia_leader_party = "Z"
+face-image: img/portraits/StegerwaldAdam.jpg
+
+Adam Stegerwald was chosen.
+
+@braun
+view-if: in_grand_coalition_prussia or in_weimar_coalition_prussia
+on-arrival: prussia_leader = "Braun"; prussia_leader_party = "SPD"
+face-image: img/portraits/BraunOtto.jpg
+
+Otto Braun was chosen.
+
+
+
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition_prussia < 50 and (grand_coalition_prussia < 50 or grand_coalition_prussia_failed == 1)
+view-if: weimar_coalition_prussia < 50 and bourgeois_coalition_prussia < 50 and (grand_coalition_prussia < 50 or grand_coalition_prussia_failed == 1)
 on-arrival: next_election_time_prussia = time+3; next_election_month_prussia = month + 3; next_election_year_prussia = year; next_election_year_prussia += 1 if next_election_month_prussia > 12; next_election_month_prussia -= 12 if next_election_month_prussia > 12;
