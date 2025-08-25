@@ -288,6 +288,8 @@ Q.dnf_hl = 0.0;
 Q.nsdap_hl = 0.0;
 Q.other_hl = 0.0;
 
+Q.old_dhp_hl = 0.0;
+
 Q.old_spd_votes_hanover = 0.0;
 Q.old_kpd_votes_hanover = 0.0;
 Q.old_z_votes_hanover = 0.0;
