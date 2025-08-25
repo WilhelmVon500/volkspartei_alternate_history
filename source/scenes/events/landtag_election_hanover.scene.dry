@@ -8,3 +8,106 @@ on-arrival: next_election_year_hanover = next_election_year_hanover + 4; next_el
 = Hanoverian Elections, [+ month : month +] [+ year +]
 
 The Hanoverian elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_hanover'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+Q.adjustmentFactors_spd_hanover = 0.0;
+Q.adjustmentFactors_sapd_hanover = 0.0;
+Q.adjustmentFactors_kpd_hanover = 0.0;
+Q.adjustmentFactors_ddp_hanover = 0.0;
+Q.adjustmentFactors_dbp_hanover = 0;
+Q.adjustmentFactors_z_hanover = 0.0;
+Q.adjustmentFactors_dvp_hanover = 0.0;
+Q.adjustmentFactors_csvd_hanover = 0.0;
+Q.adjustmentFactors_wp_hanover = 0.0;
+Q.adjustmentFactors_cnblp_hanover = 0.0;
+Q.adjustmentFactors_kvp_hanover = 0.0;
+Q.adjustmentFactors_dnvp_hanover = 0.0;
+Q.adjustmentFactors_dnf_hanover = 0.0;
+Q.adjustmentFactors_nsdap_hanover = 0.0;
+Q.adjustmentFactors_other_hanover = 0.0;
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_hanover'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_hanover']
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_hanover'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_hanover'] = Math.round(Q[party + '_normalized_hanover'] * 1000) / 10;
+}
+
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_hl'] = Q[party + '_hl'];
+    Q[party + '_votes_hanover'] = parseFloat((Q[party + '_votes_hanover']).toFixed(1))
+    if (Q.constitutional_reform > 0) {
+        if (Q[party + '_votes_hanover'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_hl'] = 0;
+        } else {
+            Q[party + '_hl'] = Q[party + '_votes_hanover'];
+        }
+        new_party_sum += Q[party + '_hl'];
+    } else {
+        Q[party + '_hl'] = Q[party + '_votes_hanover'];
+        if (party == 'other') Q[party + '_hl'] = Q[party + '_votes_hanover'] * 0.3;
+        new_party_sum += Q[party + '_hl'];
+    }
+
+    Q['change_' + party + '_votes_hanover'] = Q[party + '_votes_hanover'] - Q['old_' + party + '_votes_hanover'];
+    var sign2 = Q['change_' + party + '_votes_hanover'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_hanover'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party + '_hanover'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_hanover'])).toFixed(1);
+
+    Q['old_' + party + '_votes_hanover'] = parseFloat((Q[party + '_votes_hanover']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_hl'] > 0) {
+            Q[party + '_hl'] = Math.round(Q[party + '_hl']*1000/new_party_sum)/10;
+        }
+        Q[party + '_hl'] = parseFloat((Q[party+'_hl']).toFixed(1));
+        
+        Q['change_' + party + '_hl'] = Q[party + '_hl'] - Q['old_' + party + '_hl'];
+        var sign = Q['change_' + party + '_hl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_hl'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['change_' + party + '_hl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_hl'])).toFixed(1);
+    }
+}
