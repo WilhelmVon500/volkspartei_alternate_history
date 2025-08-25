@@ -374,10 +374,102 @@ go-to: coalition_menu
 
 Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**Z**</span>): [+ grand_coalition_hanover +]%
 
-Bourgeois Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #63C489;">**DHP**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_hanover +]%
+Bourgeois Coalition (<span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #63C489;">**DHP**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_hanover +]%
 
 Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_hanover +]%
 
 There are some potential coalition arrangements.
 
 @coalition_menu
+
+- @dvp_majority_hanover
+- @grand_coalition_hanover
+- @bourgeois_coalition_hanover
+- @far_right_coalition_hanover
+- @no_majority
+
+@grand_coalition_hanover
+title: We can form a Grand Coalition.
+view-if: grand_coalition_hanover >= 50
+subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**Z**</span> ([+ grand_coalition_hanover +]%)
+on-arrival: in_grand_coalition_hanover = 1; dvp_hanover = 1;
+
+We will form a Grand Coalition.
+
+- @hanover_mp
+
+@bourgeois_coalition_hanover
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_hanover >= 50
+subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #63C489;">**DHP**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_hanover +]%)
+on-arrival: in_bourgeois_coalition_hanover = 1; dvp_hanover = 1;
+
+A Bourgeois Coalition is formed.
+
+- @hanover_mp
+
+@far_right_coalition_hanover
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_hanover >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_hanover +]%)
+on-arrival: in_far_right_coalition_hanover = 1;
+
+A Far-right Coalition is formed.
+
+- @hanover_mp
+
+@dvp_majority_hanover
+title: We can rule alone!
+view-if: dvp_hl >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_hl +]%)
+on-arrival: in_dvp_majority_hanover = 1; dvp_hanover = 1;
+
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
+
+- @hanover_mp
+
+@hanover_mp
+title: The coalition will choose the Minister-President.
+
+WIP
+
+- @albrecht: Helmuth Albrecht
+- @langwost: Heinrich Langwost
+- @noske: Gustav Noske
+- @schmidt: Otto Schmidt
+
+@albrecht
+view-if: dvp_hanover
+choose-if: in_dvp_majority_hanover or in_grand_coalition_hanover or ((in_bourgeois_coalition_hanover) and dvp_hl > dhp_hl)
+unavailable-subtitle: The <span style="color: #63C489;">**DHP**</span> can prevent him from becoming the Minister-President.
+on-arrival: hanover_leader = "Albrecht"; hanover_leader_party = dvp_name;
+face-image: img/portraits/AlbrechtHelmuth.jpg
+
+Helmuth Albrecht was chosen.
+
+@langwost
+view-if: in_bourgeois_coalition_hanover
+on-arrival: hanover_leader = "Langwost"; hanover_leader_party = "DHP"
+face-image: img/portraits/LangwostHeinrich.jpg
+
+Heinrich Held was chosen.
+
+@noske
+view-if: in_grand_coalition_hanover
+on-arrival: hanover_leader = "Noske"; hanover_leader_party = "SPD"
+face-image: img/portraits/NoskeGustav.jpg
+
+Gustav Noske was chosen.
+
+@schmidt
+view-if: in_far_right_coalition_hanover
+on-arrival: hanover_leader = "Schmidt"; hanover_leader_party = "DNVP" if dnvp_ideology = "Radical"; hanover_leader_party = "DNF" if dnvp_ideology = "Moderate"
+face-image: img/portraits/SchmidtOtto.jpg
+
+Otto Schmidt was chosen.
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: grand_coalition_hanover < 50 and bourgeois_coalition_hanover < 50 and far_right_coalition_hanover < 50
+on-arrival: next_election_time_hanover = time+3; next_election_month_hanover = month + 3; next_election_year_hanover = year; next_election_year_hanover += 1 if next_election_month_hanover > 12; next_election_month_hanover -= 12 if next_election_month_hanover > 12;
