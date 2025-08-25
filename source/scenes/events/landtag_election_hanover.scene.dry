@@ -452,7 +452,7 @@ view-if: in_bourgeois_coalition_hanover
 on-arrival: hanover_leader = "Langwost"; hanover_leader_party = "DHP"
 face-image: img/portraits/LangwostHeinrich.jpg
 
-Heinrich Held was chosen.
+Heinrich Langwost was chosen.
 
 @noske
 view-if: in_grand_coalition_hanover
