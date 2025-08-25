@@ -38,13 +38,6 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: {!
-const total_seats = 500;
-
-for (var party of Q.parties) {
-    Q['old_'+party+'_r'] = Q[party+'_r'];
-    Q['old_'+party+'_seats'] = Q[party+'_seats'];
-}
-
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
