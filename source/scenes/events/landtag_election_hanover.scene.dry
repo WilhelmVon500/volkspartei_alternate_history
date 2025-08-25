@@ -111,3 +111,49 @@ if (new_party_sum > 0) {
         Q['change_' + party + '_hl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_hl'])).toFixed(1);
     }
 }
+
+
+
+Q.dhp_votes_hanover = parseFloat((Q.z_votes_hanover*0.8).toFixed(1));
+Q.dhp_hl = parseFloat((Q.dhp_votes_hanover*1.05).toFixed(1));
+
+Q.z_votes_hanover = parseFloat((Q.z_votes_hanover - Q.dhp_votes_hanover).toFixed(1));
+Q.z_hl = parseFloat((Q.z_hl - Q.dhp_hl).toFixed(1));
+
+
+Q.change_dhp_votes_hanover = Q.dhp_votes_hanover - Q.old_dhp_votes_hanover;
+var sign2 = Q.change_dhp_votes_hanover > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.change_dhp_votes_hanover < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.votes_change_dhp_hanover = sign2 + Math.abs(parseFloat(Q.change_dhp_votes_hanover)).toFixed(1);
+
+Q.change_dhp_hl = Q.dhp_hl - Q.old_dhp_hl;
+var sign = Q.change_dhp_hl > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.change_dhp_hl < 0
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.change_dhp_hl = sign + Math.abs(parseFloat(Q.change_dhp_hl)).toFixed(1);
+
+Q.change_z_votes_hanover = Q.z_votes_hanover - Q.old_z_votes_hanover;
+var sign2 = Q.change_z_votes_hanover > 0
+? '<img src="img/arrowup.png"> ' 
+: Q.change_z_votes_hanover < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.votes_change_z_hanover = sign2 + Math.abs(parseFloat(Q.change_z_votes_hanover)).toFixed(1);
+
+Q.change_z_hl = Q.z_hl - Q.old_z_hl;
+var sign = Q.change_z_hl > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.change_z_hl < 0
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.change_z_hl = sign + Math.abs(parseFloat(Q.change_z_hl)).toFixed(1);
+
+Q.old_dhp_votes_hanover = Q.dhp_votes_hanover;
+Q.old_dhp_hl = Q.dhp_hl;
+Q.old_z_votes_hanover = Q.z_votes_hanover;
+Q.old_z_hl = Q.z_hl;
