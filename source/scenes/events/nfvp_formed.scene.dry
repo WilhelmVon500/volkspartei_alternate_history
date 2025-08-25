@@ -106,6 +106,8 @@ Q.dvp_hb += Q.ddp_hb;
 Q.ddp_hb = 0;
 Q.dvp_bl += Q.ddp_bl;
 Q.ddp_bl = 0;
+Q.dvp_hl += Q.ddp_hl;
+Q.ddp_hl = 0;
 
 
 
