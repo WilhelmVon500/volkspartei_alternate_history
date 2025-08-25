@@ -138,7 +138,7 @@ var sign = Q.change_dhp_hl > 0
   : '<img src="img/steady.png"> ';
 Q.change_dhp_hl = sign + Math.abs(parseFloat(Q.change_dhp_hl)).toFixed(1);
 
-Q.change_z_votes_hanover = Q.z_votes_hanover - Q.old_z_hanover;
+Q.change_z_votes_hanover = Q.z_votes_hanover - old_z_hanover;
 var sign2 = Q.change_z_votes_hanover > 0
 ? '<img src="img/arrowup.png"> ' 
 : Q.change_z_votes_hanover < 0 
