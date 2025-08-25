@@ -116,7 +116,7 @@ if (new_party_sum > 0) {
 
 
 Q.dhp_votes_hanover = parseFloat((Q.z_votes_hanover*0.8).toFixed(1));
-Q.dhp_hl = parseFloat((Q.dhp_votes_hanover*1.05).toFixed(1));
+Q.dhp_hl = parseFloat((Q.dhp_votes_hanover*1.01).toFixed(1));
 
 Q.z_votes_hanover = parseFloat((Q.z_votes_hanover - Q.dhp_votes_hanover).toFixed(1));
 Q.z_hl = parseFloat((Q.z_hl - Q.dhp_hl).toFixed(1));
