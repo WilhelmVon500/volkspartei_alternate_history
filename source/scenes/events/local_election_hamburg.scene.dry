@@ -82,6 +82,7 @@ for (var party of Q.parties) {
             Q[party + '_hb'] = 0;
         } else {
             Q[party + '_hb'] = Q[party + '_votes_hamburg'];
+            if (party == 'other') Q[party + '_hb'] = Q[party + '_votes_hamburg'] * 0.3;
         }
         new_party_sum += Q[party + '_hb'];
     } else {
