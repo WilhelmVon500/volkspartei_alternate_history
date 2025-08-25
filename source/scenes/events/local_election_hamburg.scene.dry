@@ -77,7 +77,7 @@ var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_hb'] = Q[party + '_hb'];
     Q[party + '_votes_hamburg'] = parseFloat((Q[party + '_votes_hamburg']).toFixed(1))
-    if (Q.constitutional_reform > 0) {
+    if (Q.electoral_threshold > 0) {
         if (Q[party + '_votes_hamburg'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
             Q[party + '_hb'] = 0;
         } else {
