@@ -67,7 +67,7 @@ for (var party of Q.parties) {
     Q[party + '_votes_hanover'] = Math.round(Q[party + '_normalized_hanover'] * 1000) / 10;
 }
 
-var old_hl_z = Q.z_hl;
+var old_z_hanover = Q.old_z_votes_hanover;
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_hl'] = Q[party + '_hl'];
@@ -138,7 +138,7 @@ var sign = Q.change_dhp_hl > 0
   : '<img src="img/steady.png"> ';
 Q.change_dhp_hl = sign + Math.abs(parseFloat(Q.change_dhp_hl)).toFixed(1);
 
-Q.change_z_votes_hanover = Q.z_votes_hanover - Q.old_z_votes_hanover;
+Q.change_z_votes_hanover = Q.z_votes_hanover - Q.old_z_hanover;
 var sign2 = Q.change_z_votes_hanover > 0
 ? '<img src="img/arrowup.png"> ' 
 : Q.change_z_votes_hanover < 0 
@@ -146,7 +146,7 @@ var sign2 = Q.change_z_votes_hanover > 0
   : '<img src="img/steady.png"> ';
 Q.votes_change_z_hanover = sign2 + Math.abs(parseFloat(Q.change_z_votes_hanover)).toFixed(1);
 
-Q.change_z_hl = Q.z_hl - Q.old_hl_z;
+Q.change_z_hl = Q.z_hl - Q.old_z_hl;
 var sign = Q.change_z_hl > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.change_z_hl < 0
