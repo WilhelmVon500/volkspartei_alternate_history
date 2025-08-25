@@ -354,14 +354,14 @@ if (Q.kvp_formed && Q.kvp_pl) {
         "seats": Math.round(Q.kvp_pl*4.5),
     });
 }
-data = data.concat([
-    {
+if (Q.dnvp_pl) {
+    data.push({
         "id": "dnvp",
         "legend": "DNVP",
         "name": "DNVP",
         "seats": Math.round(Q.dnvp_pl*4.5),
-    }
-]);
+    });
+}
 if (Q.dnf_formed && Q.dnf_pl) {
     data.push({
         "id": "dnf",
