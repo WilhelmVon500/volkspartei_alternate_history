@@ -38,9 +38,13 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: {!
-// set old results
-// election threshold constitutional reform
-// banning parties
+const total_seats = 500;
+
+for (var party of Q.parties) {
+    Q['old_'+party+'_r'] = Q[party+'_r'];
+    Q['old_'+party+'_seats'] = Q[party+'_seats'];
+}
+
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
@@ -75,6 +79,7 @@ if (new_party_sum > 0) {
             Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
         }
         Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
+        Q[party + '_seats'] = Math.round(Q[party+'_r']*0.5);
         
         Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
         var sign = Q['change_' + party + '_r'] > 0 
