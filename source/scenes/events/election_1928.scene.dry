@@ -38,49 +38,69 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: {!
-var new_party_sum = 0;
-for (var party of Q.parties) {
-    Q['old_' + party + '_r'] = Q[party + '_r'];
-    if (Q.electoral_threshold > 0) {
-        if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
-            Q[party + '_r'] = 0;
-        } else {
-            Q[party + '_r'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        }
-        new_party_sum += Q[party + '_r'];
-    } else {
-        Q[party + '_r'] = parseFloat((Q[party+'_votes']).toFixed(1));
-        if (party == 'other') Q[party + '_r'] = Q[party + '_votes'] * 0.3;
-        new_party_sum += Q[party + '_r'];
-        console.log(new_party_sum)
-    }
+const total_seats = 500;
 
+for (var party of Q.parties) {
+    Q['old_'+party+'_r'] = Q[party+'_r'];
+    Q['old_'+party+'_seats'] = Q[party+'_seats'];
+}
+
+// Step 2: Filter valid parties
+let validParties = Q.parties.filter(party => {
+    return Q[party + '_banned'] !== 1 && Q.party_votes[party] >= Q.electoral_threshold;
+});
+
+// Step 3: D’Hondt table
+let dhondtTable = [];
+
+for (let party of validParties) {
+    let votes = Q.party_votes[party];
+    for (let divisor = 1; divisor <= TOTAL_SEATS; divisor++) {
+        dhondtTable.push({
+            party: party,
+            value: votes / divisor
+        });
+    }
+}
+
+dhondtTable.sort((a, b) => b.value - a.value);
+let topSeats = dhondtTable.slice(0, total_seats);
+
+// Step 4: Count seats
+let seatCounts = {};
+for (let seat of topSeats) {
+    seatCounts[seat.party] = (seatCounts[seat.party] || 0) + 1;
+}
+
+// Step 5: Save seats and % of seats (_seats and _r)
+for (let party of Q.parties) {
+    const seats = seatCounts[party] || 0;
+    Q[party + '_seats'] = seats;
+    Q[party + '_r'] = Math.round((seats / TOTAL_SEATS) * 1000) / 10;  // % of seats
+}
+
+// step 7 - change over time
+for (var party of Q.parties) {
+    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
+    var sign = Q['change_' + party + '_r'] > 0 
+                ? '<img src="img/arrowup.png"> ' 
+                : Q['change_' + party + '_r'] < 0 
+                  ? '<img src="img/arrowdown.png"> ' 
+                  : '<img src="img/steady.png"> ';
+    Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
+
+    // Calculate changes in votes
     Q['change_' + party + '_votes'] = Q[party + '_votes'] - Q['old_' + party + '_votes'];
     var sign2 = Q['change_' + party + '_votes'] > 0 
-                    ? '<img src="img/arrowup.png"> ' 
-                    : Q['change_' + party + '_votes'] < 0 
-                      ? '<img src="img/arrowdown.png"> ' 
-                      : '<img src="img/steady.png"> ';
+                ? '<img src="img/arrowup.png"> ' 
+                : Q['change_' + party + '_votes'] < 0 
+                  ? '<img src="img/arrowdown.png"> ' 
+                  : '<img src="img/steady.png"> ';
     Q['votes_change_' + party] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes'])).toFixed(1);
 
     Q['old_' + party + '_votes'] = parseFloat((Q[party + '_votes']).toFixed(1));
-}
-// calculate new party sum
-if (new_party_sum > 0) {
-    for (var party of Q.parties) {
-        if (Q[party + '_r'] > 0) {
-            Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
-        }
-        Q[party + '_r'] = parseFloat((Q[party+'_r']).toFixed(1));
-        
-        Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
-        var sign = Q['change_' + party + '_r'] > 0 
-                   ? '<img src="img/arrowup.png"> ' 
-                   : Q['change_' + party + '_r'] < 0 
-                     ? '<img src="img/arrowdown.png"> ' 
-                     : '<img src="img/steady.png"> ';
-        Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
-    }
+    
+    // --- NEW: Calculate change in seats
 }
 
 
