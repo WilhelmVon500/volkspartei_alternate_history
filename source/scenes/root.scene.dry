@@ -271,6 +271,45 @@ Q.old_nsdap_votes_bavaria = 17.1;
 Q.old_other_votes_bavaria = 3.7;
 
 
+// wurttemberg
+Q.dvp_wurttemberg = 1
+Q.wurttemberg_leader = "Bolz"
+Q.wurttemberg_leader_party = "Z"
+Q.in_bourgeois_coalition_wurttemberg = 1
+Q.next_election_year_wurttemberg = 1928;
+Q.next_election_month_wurttemberg = 5;
+
+Q.spd_wl = 16.3;
+Q.kpd_wl = 12.5;
+Q.z_wl = 21.3;
+Q.dbp_wl = 0.0;
+Q.ddp_wl = 11.2;
+Q.dvp_wl = 3.7;
+Q.csvd_wl = 0.0;
+Q.wp_wl = 0.0;
+Q.cnblp_wl = 21.3;
+Q.kvp_wl = 0.0;
+Q.dnvp_wl = 10.0;
+Q.dnf_wl = 0.0;
+Q.nsdap_wl = 3.7;
+Q.other_wl = 0.0;
+
+Q.old_spd_votes_wurttemberg = 16.0;
+Q.old_kpd_votes_wurttemberg = 11.7;
+Q.old_z_votes_wurttemberg = 20.9;
+Q.old_dbp_votes_wurttemberg = 0.0;
+Q.old_ddp_votes_wurttemberg = 10.6;
+Q.old_dvp_votes_wurttemberg = 4.6;
+Q.old_csvd_votes_wurttemberg = 0.0;
+Q.old_wp_votes_wurttemberg = 0.0;
+Q.old_cnblp_votes_wurttemberg = 20.2;
+Q.old_kvp_votes_wurttemberg = 0.0;
+Q.old_dnvp_votes_wurttemberg = 10.4;
+Q.old_dnf_votes_wurttemberg = 0.0;
+Q.old_nsdap_votes_wurttemberg = 4.0;
+Q.old_other_votes_wurttemberg = 1.6;
+
+
 // hanover
 Q.spd_hl = 0.0;
 Q.kpd_hl = 0.0;
@@ -413,7 +452,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
-Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover'];
+Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover', 'wurttemberg'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
