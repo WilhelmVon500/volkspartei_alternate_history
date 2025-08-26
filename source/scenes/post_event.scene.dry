@@ -49,7 +49,7 @@ if (Q.stresemann_dead != 1) {
     Q.dvp_left += 0.1
 }
 
-if (Q.dvp_left > Q.dvp_right) {
+if (Q.dvp_left > Q.dvp_right or lvp_formed or nfvp_formed) {
     Q.dvp_ideology = "Left"
 } else {
     Q.dvp_ideology = "Right"
@@ -620,7 +620,7 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
-if (Q.lvp_formed) {
+if (!Q.ddp_exist) {
     Q.workers_ddp = 0;
     Q.new_middle_ddp = 0;
     Q.old_middle_ddp = 0;
