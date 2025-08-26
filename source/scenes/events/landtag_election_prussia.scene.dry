@@ -569,7 +569,7 @@ WIP
 
 @stendel
 view-if: dvp_prussia
-choose-if: in_dvp_majority_prussia or ((in_weimar_coalition_prussia or in_grand_coalition_prussia) and (dvp_pl + ddp_pl) > spd_pl)
+choose-if: in_dvp_majority_prussia or in_bourgeois_coalition_prussia or ((in_weimar_coalition_prussia or in_grand_coalition_prussia) and (dvp_pl + ddp_pl) > spd_pl)
 unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
 on-arrival: prussia_leader = "Stendel"; prussia_leader_party = dvp_name;
 face-image: img/portraits/StendelErnst.jpg
