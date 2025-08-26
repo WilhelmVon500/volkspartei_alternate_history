@@ -273,8 +273,8 @@ Q.old_other_votes_bavaria = 3.7;
 
 // wurttemberg
 Q.dvp_wurttemberg = 1
-Q.wurttemberg_leader = "Bolz"
-Q.wurttemberg_leader_party = "Z"
+Q.wurttemberg_leader = "Bazille"
+Q.wurttemberg_leader_party = "DNVP"
 Q.in_bourgeois_coalition_wurttemberg = 1
 Q.next_election_year_wurttemberg = 1928;
 Q.next_election_month_wurttemberg = 5;
