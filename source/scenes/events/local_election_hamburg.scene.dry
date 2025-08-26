@@ -442,6 +442,8 @@ Alfred Hugenberg was chosen.
 @no_majority
 title: There is no clear governing majority.
 view-if: weimar_coalition_hamburg < 50 and grand_coalition_hamburg < 50 and bourgeois_coalition_hamburg < 50 and far_right_coalition_hamburg < 50
-on-arrival: next_election_time_hamburg = time+3; next_election_month_hamburg = month + 3; next_election_year_hamburg = year; next_election_year_hamburg += 1 if next_election_month_hamburg > 12; next_election_month_hamburg -= 12 if next_election_month_hamburg > 12;
+on-arrival: next_election_time_hamburg = time+3; next_election_month_hamburg = month + 3; next_election_year_hamburg = year; next_election_year_hamburg += 1 if next_election_month_hamburg > 12; next_election_month_hamburg -= 12 if next_election_month_hamburg > 12; workers_kpd += 2; workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1;
+
+There is no path to a majority government for now. New elections have been set for [+ next_election_month_hamburg : month +] [+ next_election_year_hamburg +].
 
 
