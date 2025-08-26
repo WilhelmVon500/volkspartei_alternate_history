@@ -1,0 +1,323 @@
+title: Württemberg Landtag Election
+view-if: year = next_election_year_wurttemberg and month >= next_election_month_wurttemberg
+new-page: true
+tags: event
+priority: 3
+on-arrival: next_election_year_wurttemberg = next_election_year_wurttemberg + 4; next_election_time_wurttemberg = time + 48; dvp_wurttemberg = 0
+set-jump: new_elections
+
+= Württemberg Elections, [+ month : month +] [+ year +]
+
+The Württemberg elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_wurttemberg'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+Q.adjustmentFactors_spd_wurttemberg = 0.8;
+Q.adjustmentFactors_sapd_wurttemberg = 0.2;
+Q.adjustmentFactors_kpd_wurttemberg = 0.7;
+Q.adjustmentFactors_ddp_wurttemberg = 3.0;
+Q.adjustmentFactors_dbp_wurttemberg = 0.0;
+Q.adjustmentFactors_z_wurttemberg = 1.45;
+Q.adjustmentFactors_dvp_wurttemberg = 1.0;
+Q.adjustmentFactors_csvd_wurttemberg = 2.5;
+Q.adjustmentFactors_wp_wurttemberg = 0.0;
+Q.adjustmentFactors_cnblp_wurttemberg = 7.0;
+Q.adjustmentFactors_kvp_wurttemberg = 0.85;
+Q.adjustmentFactors_dnvp_wurttemberg = 0.7;
+Q.adjustmentFactors_dnf_wurttemberg = 0.5;
+Q.adjustmentFactors_nsdap_wurttemberg = 0.7;
+Q.adjustmentFactors_other_wurttemberg = 0.9;
+
+if (Q.lvp_formed || Q.nfvp_formed) {
+    Q.adjustmentFactors_dvp_wurttemberg += 1.5
+}
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_wurttemberg'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_wurttemberg']
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_wurttemberg'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_wurttemberg'] = Math.round(Q[party + '_normalized_wurttemberg'] * 1000) / 10;
+}
+
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_wl'] = Q[party + '_wl'];
+    Q[party + '_votes_wurttemberg'] = parseFloat((Q[party + '_votes_wurttemberg']).toFixed(1))
+    if (Q.electoral_threshold > 0) {
+        if (Q[party + '_votes_wurttemberg'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_wl'] = 0;
+        } else {
+            Q[party + '_wl'] = Q[party + '_votes_wurttemberg'];
+        }
+        new_party_sum += Q[party + '_wl'];
+    } else {
+        Q[party + '_wl'] = Q[party + '_votes_wurttemberg'];
+        if (party == 'other') Q[party + '_wl'] = Q[party + '_votes_wurttemberg'] * 0.3;
+        new_party_sum += Q[party + '_wl'];
+    }
+
+    Q['change_' + party + '_votes_wurttemberg'] = Q[party + '_votes_wurttemberg'] - Q['old_' + party + '_votes_wurttemberg'];
+    var sign2 = Q['change_' + party + '_votes_wurttemberg'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_wurttemberg'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party + '_wurttemberg'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_wurttemberg'])).toFixed(1);
+
+    Q['old_' + party + '_votes_wurttemberg'] = parseFloat((Q[party + '_votes_wurttemberg']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_wl'] > 0) {
+            Q[party + '_wl'] = Math.round(Q[party + '_wl']*1000/new_party_sum)/10;
+        }
+        Q[party + '_wl'] = parseFloat((Q[party+'_wl']).toFixed(1));
+        
+        Q['change_' + party + '_wl'] = Q[party + '_wl'] - Q['old_' + party + '_wl'];
+        var sign = Q['change_' + party + '_wl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_wl'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['change_' + party + '_wl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_wl'])).toFixed(1);
+    }
+}
+
+
+
+if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_wurttemberg = parseFloat((Q.spd_wl + Q.ddp_wl + Q.z_wl).toFixed(1));
+if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition_wurttemberg = parseFloat((Q.spd_wl + Q.dvp_wl + Q.z_wl).toFixed(1));
+Q.grand_coalition_wurttemberg = parseFloat((Q.spd_wl + Q.ddp_wl + Q.z_wl + Q.dvp_wl).toFixed(1));
+Q.bourgeois_coalition_wurttemberg = parseFloat((Q.ddp_wl + Q.z_wl + Q.dvp_wl + Q.other_wl + Q.cnblp_wl + Q.kvp_wl + Q.csvd_wl).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_wurttemberg = parseFloat((Q.dnvp_wl + Q.nsdap_wl).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_wurttemberg = parseFloat((Q.dnf_wl + Q.nsdap_wl).toFixed(1));
+
+
+Q.in_dvp_majority_wurttemberg = 0;
+Q.in_weimar_coalition_wurttemberg = 0;
+Q.in_grand_coalition_wurttemberg = 0;
+Q.in_bourgeois_coalition_wurttemberg = 0;
+Q.in_far_right_coalition_wurttemberg = 0;
+!}
+on-display: {!
+data = [
+    {
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_wl*0.8),
+    }
+];
+if (Q.sapd_formed && Q.sapd_wl) {
+    data.push({
+            "id": "sapd",
+            "legend": "SAPD",
+            "name": "SAPD",
+            "seats": Math.round(Q.sapd_wl*0.8),
+            });
+}
+data = data.concat([
+    {
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_wl*0.8),
+    }
+]);
+if (Q.ddp_exist) {
+    data.push({
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_wl*0.8),
+    });
+}
+if (Q.lvp_formed) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_wl*0.8),
+    });
+}
+data = data.concat([
+    {
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round(Q.z_wl*0.8),
+    },
+]);
+if (Q.nfvp_formed) {
+    data.push({
+        "id": "nfvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_wl*0.8),
+    });
+}
+if (!Q.lvp_formed && !Q.nfvp_formed) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_wl*0.8),
+    });
+}
+
+if (Q.csvd_exist && Q.csvd_wl) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_wl*0.8),
+    });
+}
+if (Q.cnblp_exist && Q.cnblp_wl) {
+    data.push({
+        "id": "wbwb",
+        "legend": "WBWB",
+        "name": "WBWB",
+        "seats": Math.round(Q.cnblp_wl*0.8),
+    });
+}
+if (Q.other_wl) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_wl*0.8),
+    });
+}
+if (Q.kvp_formed && Q.kvp_wl) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_wl*0.8),
+    });
+}
+if (Q.dnvp_wl) {
+    data.push({
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_wl*0.8),
+    });
+}
+if (Q.dnf_formed && Q.dnf_wl) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_wl*0.8),
+    });
+}
+data = data.concat([
+    {
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_wl*0.8),
+    },
+]);
+
+if (window && d3) {
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_wurttemberg +]%** {!</td><td>!} **[+ votes_change_dvp_wurttemberg +]** {!</td><td>!} **[+ dvp_wl +]%** {!</td><td>!} **[+ change_dvp_wl +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_kpd_wurttemberg +] {!</td><td>!} [+ kpd_wl +]% {!</td><td>!} [+ change_kpd_wl +] {!</td></tr>!}
+
+[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_sapd_wurttemberg +] {!</td><td>!} [+ sapd_wl +]% {!</td><td>!} [+ change_sapd_wl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_spd_wurttemberg +] {!</td><td>!} [+ spd_wl +]% {!</td><td>!} [+ change_spd_wl +] {!</td></tr>!}
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_ddp_wurttemberg +] {!</td><td>!} [+ ddp_wl +]% {!</td><td>!} [+ change_ddp_wl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_z_wurttemberg +] {!</td><td>!} [+ z_wl +]% {!</td><td>!} [+ change_z_wl +] {!</td></tr>!}
+
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_csvd_wurttemberg +] {!</td><td>!} [+ csvd_wl +]% {!</td><td>!} [+ change_csvd_wl +] {!</td><td>!} ?]
+
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#006400'> </div> !} WBWB: {!</td><td>!} [+ cnblp_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_cnblp_wurttemberg +] {!</td><td>!} [+ cnblp_wl +]% {!</td><td>!} [+ change_cnblp_wl +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_kvp_wurttemberg +] {!</td><td>!} [+ kvp_wl +]% {!</td><td>!} [+ change_kvp_wl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_dnvp_wurttemberg +] {!</td><td>!} [+ dnvp_wl +]% {!</td><td>!} [+ change_dnvp_wl +] {!</td></tr>!}
+
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_dnf_wurttemberg +] {!</td><td>!} [+ dnf_wl +]% {!</td><td>!} [+ change_dnf_wl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_nsdap_wurttemberg +] {!</td><td>!} [+ nsdap_wl +]% {!</td><td>!} [+ change_nsdap_wl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_wurttemberg +]% {!</td><td>!} [+ votes_change_other_wurttemberg +] {!</td><td>!} [+ other_wl +]% {!</td><td>!} [+ change_other_wl +] {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
+
+Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]): [+ weimar_coalition_wurttemberg +]%
+
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_wurttemberg +]%
+
+Bourgeois Coalition (<span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if cnblp_exist: <span style="color: #006400;">**WBWB**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_wurttemberg +]%
+
+Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_bavaria +]%
+
+There are some potential coalition arrangements.
+
+@coalition_menu
