@@ -344,6 +344,7 @@ Unfortunately, we fail to turn the SPD away from [+ spd_candidate+].
 
 @run_eckener
 choose-if: dvp_ideology = "Left"
+view-if: not reactionary_candidate = "Hindenburg"
 unavailable-subtitle: Why would we run a republican candidate?
 subtitle: This is the default option.
 on-departure: nationalist_dissent += 10; eckener_campaign = 1; dvp_candidate = "Eckener"; ddp_candidate = "Eckener" if ddp_candidate = reactionary_candidate; spd_candidate = "Eckener" if spd_candidate = reactionary_candidate
