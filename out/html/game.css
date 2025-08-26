@@ -563,9 +563,6 @@ table {
 .seat.bvp {
     fill: #69A2BE;
 }
-.seat.dhp {
-    fill: #63C489;
-}
 .seat.nfvp {
     fill: #FFCC00;
     stroke: var(--border-color);
@@ -602,6 +599,12 @@ table {
 }
 .seat.sapd {
     fill: #C40000;
+}
+.seat.dhp {
+    fill: #63C489;
+}
+.seat.wbwb {
+    fill: #006400;
 }
 
 .tooltip-text {
