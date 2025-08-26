@@ -531,7 +531,7 @@ if (Q.month_actions >= 1) {
                 Q.old_middle_wp += 4/12;
             }
 
-            } else if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
+            if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
                 Q.old_middle_kvp += 6/12;
             }
             if (Q.new_middle_kvp_normalized < 10 && Q.kvp_formed) {
