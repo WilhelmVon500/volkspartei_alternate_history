@@ -530,13 +530,7 @@ if (Q.month_actions >= 1) {
             if (Q.old_middle_wp_normalized < 25) {
                 Q.old_middle_wp += 4/12;
             }
-            if (Q.rural_dnvp_normalized < 40 && !Q.kvp_formed) {
-                Q.rural_dnvp += 6/12;
-            } else if (Q.rural_dnvp_normalized < 25 && Q.kvp_formed) {
-                Q.rural_dnvp += 4/12;
-            }
-            if (Q.old_middle_dnvp_normalized < 20 && !Q.kvp_formed) {
-                Q.old_middle_dnvp += 6/12;
+
             } else if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
                 Q.old_middle_kvp += 6/12;
             }
