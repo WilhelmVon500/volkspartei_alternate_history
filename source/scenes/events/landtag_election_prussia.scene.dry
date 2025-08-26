@@ -452,6 +452,8 @@ There are some potential coalition arrangements.
 - @weimar_coalition_prussia
 - @minority_weimar_coalition_prussia
 - @grand_coalition_prussia
+- @minority_grand_coalition_prussia
+- @bourgeois_coalition_prussia
 - @no_majority
 
 @weimar_coalition_prussia
@@ -539,6 +541,18 @@ subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var
 on-arrival: in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; liberal_strength += 5;
 
 A minority Grand coalition stays in power, with Braun as Minister-President.
+
+
+
+@bourgeois_coalition_prussia
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_prussia >= 50
+subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_prussia +]%)
+on-arrival: in_bourgeois_coalition_prussia = 1; dvp_prussia = 1;
+
+A Bourgeois Coalition is formed.
+
+- @prussia_mp
 
 
 
