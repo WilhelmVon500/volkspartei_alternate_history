@@ -3,7 +3,7 @@ view-if: year = next_election_year_prussia and month >= next_election_month_prus
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_bourgeois_coalition_prussia = 0; was_in_far_right_coalition_prussia = 0; was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); was_in_bourgeois_coalition_prussia = 1 if (in_bourgeois_coalition == 1); was_in_far_right_coalition_prussia = 1 if (in_far_right_coalition == 1); 
+on-arrival: next_election_year_prussia = next_election_year_prussia + 4; next_election_time_prussia = time + 48; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_bourgeois_coalition_prussia = 0; was_in_far_right_coalition_prussia = 0; was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); was_in_bourgeois_coalition_prussia = 1 if (in_bourgeois_coalition_prussia == 1); was_in_far_right_coalition_prussia = 1 if (in_far_right_coalition_prussia == 1); 
 set-jump: new_elections
 
 = Prussian Elections, [+ month : month +] [+ year +]
