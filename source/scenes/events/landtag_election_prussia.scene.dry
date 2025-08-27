@@ -469,7 +469,7 @@ There are enough votes for a majority Weimar Coalition of the Center, SPD and [?
 
 @weimar_coalition_prussia_sure
 view-if: not lvp_formed and not nfvp_formed
-on-arrival: spd_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; in_weimar_coalition_prussia = 1; pro_republic += 2; industrialist_dissent += 5; nationalist_dissent += 5;
+on-arrival: spd_prussia = 1; in_weimar_coalition_prussia = 1; pro_republic += 2; industrialist_dissent += 5; nationalist_dissent += 5;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
 
@@ -477,7 +477,7 @@ A majority Weimar coalition is formed, with Braun as Minister-President.
 
 @weimar_coalition_prussia_dvp
 view-if: lvp_formed or nfvp_formed
-on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; in_weimar_coalition_prussia = 1;
+on-arrival: spd_prussia = 1; dvp_prussia = 1; in_weimar_coalition_prussia = 1;
 
 A majority Weimar coalition is formed, with Braun as Minister-President.
 
@@ -499,13 +499,13 @@ There are not enough votes for a majority Weimar Coalition of the Center, SPD an
 
 @minority_weimar_coalition_prussia_sure
 view-if: not lvp_formed and not nfvp_formed
-on-arrival: spd_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 3; nationalist_dissent += 3;
+on-arrival: spd_prussia = 1; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1; pro_republic += 1; industrialist_dissent += 3; nationalist_dissent += 3;
 
 A minority Weimar coalition stays in power, with Braun as Minister-President.
 
 @minority_weimar_coalition_prussia_dvp
 view-if: lvp_formed or nfvp_formed
-on-arrival: spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1;
+on-arrival: spd_prussia = 1; dvp_prussia = 1; in_weimar_coalition_prussia = 1; in_minority_weimar_coalition_prussia = 1;
 
 A minority Weimar coalition stays in power, with Braun as Minister-President.
 
@@ -520,7 +520,7 @@ go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = 
 We will ask the SPD to include us in Prussian Government.
 
 @grand_coalition_prussia_success
-on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; liberal_strength += 5;
+on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; liberal_strength += 5;
 
 The SPD has agreed to form a Grand Coalition!
 
@@ -538,7 +538,7 @@ The SPD has refused to form a Grand Coalition.
 title: Minority Grand Coalition stays in power.
 view-if: grand_coalition_prussia < 50 and was_in_grand_coalition_prussia and not (lvp_formed or nfvp_formed)
 subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
-on-arrival: in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; prussia_leader = "Braun"; prussia_leader_party = "SPD"; liberal_strength += 5;
+on-arrival: in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; liberal_strength += 5;
 
 A minority Grand coalition stays in power, with Braun as Minister-President.
 
