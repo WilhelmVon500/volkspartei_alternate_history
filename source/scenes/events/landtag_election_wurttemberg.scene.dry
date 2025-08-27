@@ -321,3 +321,110 @@ Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp
 There are some potential coalition arrangements.
 
 @coalition_menu
+
+- @weimar_coalition_wurttemberg
+- @grand_coalition_wurttemberg
+- @bourgeois_coalition_wurttemberg
+- @far_right_coalition_wurttemberg
+- @no_majority
+
+@weimar_coalition_wurttemberg
+title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_wurttemberg +]%)
+view-if: weimar_coalition_wurttemberg >= 50
+
+There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?].
+
+- @weimar_coalition_wurttemberg_sure: A center-left coalition takes power.
+- @weimar_coalition_wurttemberg_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with <span style="color: #000000;">**Center Party**</span> and <span style="color: #E3000F;">**SPD**</span>.
+- @coalition_menu: Try a different governing arrangement.
+
+@weimar_coalition_wurttemberg_sure
+view-if: not lvp_formed and not nfvp_formed
+on-arrival: in_weimar_coalition_wurttemberg = 1;
+
+A Weimar Coalition is formed.
+
+- @wurttemberg_sp
+
+@weimar_coalition_wurttemberg_dvp
+view-if: lvp_formed or nfvp_formed
+on-arrival: dvp_wurttemberg = 1; in_weimar_coalition_wurttemberg = 1;
+
+A Weimar Coalition is formed.
+
+- @wurttemberg_sp
+
+
+@grand_coalition_wurttemberg
+title: We can form a Grand Coalition.
+view-if: grand_coalition_wurttemberg >= 50 and not (lvp_formed or nfvp_formed)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_wurttemberg +]%)
+on-arrival: in_grand_coalition_wurttemberg = 1; dvp_wurttemberg = 1;
+
+We will form a Grand Coalition.
+
+- @wurttemberg_sp
+
+@bourgeois_coalition_wurttemberg
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_wurttemberg >= 50
+subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if cnblp_exist: <span style="color: #006400;">**WBWB**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_wurttemberg +]%)
+on-arrival: in_bourgeois_coalition_wurttemberg = 1; dvp_wurttemberg = 1;
+
+A Bourgeois Coalition is formed.
+
+- @wurttemberg_sp
+
+@far_right_coalition_wurttemberg
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_wurttemberg >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_wurttemberg +]%)
+on-arrival: in_far_right_coalition_wurttemberg = 1;
+
+A Far-right Coalition is formed.
+
+- @wurttemberg_sp
+
+@dvp_majority_wurttemberg
+title: We can rule alone!
+view-if: dvp_wl >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_wl +]%)
+on-arrival: in_dvp_majority_wurttemberg = 1; dvp_wurttemberg = 1;
+
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
+
+- @wurttemberg_sp
+
+
+
+@wurttemberg_sp
+title: The coalition will choose the State President.
+
+WIP
+
+- @maier: Reinhold Maier
+- @bolz: Eugen Bolz
+
+@maier
+view-if: (dvp_wurttemberg and (nfvp_formed or lvp_formed)) or in_weimar_coalition_wurttemberg or in_grand_coalition_wurttemberg or in_bourgeois_coalition
+on-arrival: wurttemberg_leader = "Maier"; wurttemberg_leader_party = ddp_name if ddp_exist; wurttemberg_leader_party = dvp_name if lvp_formed or nfvp_formed
+face-image: img/portraits/MaierReinhold.jpg
+
+Reinhold Maier was chosen.
+
+@bolz
+view-if: in_weimar_coalition_wurttemberg or in_grand_coalition_wurttemberg or in_bourgeois_coalition_wurttemberg
+on-arrival: wurttemberg_leader = "Bolz"; wurttemberg_leader_party = "Z"
+face-image: img/portraits/BolzEugen.jpg
+
+Eugen Bolz was chosen.
+
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: weimar_coalition_wurttemberg < 50 and bourgeois_coalition_wurttemberg < 50 and grand_coalition_wurttemberg < 50 and far_right_coalition_wurttemberg < 50
+on-arrival: next_election_time_wurttemberg = time+3; next_election_month_wurttemberg = month + 3; next_election_year_wurttemberg = year; next_election_year_wurttemberg += 1 if next_election_month_wurttemberg > 12; next_election_month_wurttemberg -= 12 if next_election_month_wurttemberg > 12; workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
+
+There is no path to a majority government for now. New elections have been set for [+ next_election_month_wurttemberg : month +] [+ next_election_year_wurttemberg +].
