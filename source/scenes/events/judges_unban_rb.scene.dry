@@ -1,0 +1,7 @@
+title: Reichsbanner unbanned
+subtitle: The judges have re-legalized the Reichsbanner.
+view-if: rb_banned == 1 and rb_ban_timer == 0 and judicial_reform > 2
+on-arrival: rb_banned = 0; rb_strength += 100; rb_militancy += 0.01
+tags: event
+
+Judges have ordered the republican Reichsbanner to be re-legalized. They immediately return to mass recruiting.
