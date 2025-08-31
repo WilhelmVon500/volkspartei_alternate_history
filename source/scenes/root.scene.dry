@@ -354,7 +354,6 @@ Q.old_other_votes_hanover = 0.0;
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
 Q.rb_strength = 2000;
 Q.rb_militancy = 0.01;
-Q.women_in_rb = 0;
 Q.rb_banned = 0;
 Q.sh_strength = 500;
 Q.sh_militancy = 0.5;
