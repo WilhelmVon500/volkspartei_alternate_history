@@ -383,7 +383,7 @@ A Far-right Coalition is formed.
 
 @dvp_majority_bavaria
 title: We can rule alone!
-view-if: dvp_bl >= 50
+view-if: dvp_bl >= 50 and (nfvp_formed or lvp_formed)
 subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_bl +]%)
 on-arrival: in_dvp_majority_bavaria = 1; dvp_bavaria = 1;
 
