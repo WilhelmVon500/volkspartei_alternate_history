@@ -18,6 +18,9 @@ As we have control over the Interior Ministry, we can direct police and intellig
 - @ban_sh: Ban the Stahlhelm.
 - @unban_sh: Unban the Stahlhelm.
 - @persecute_sh
+- @ban_rb: Ban the Reichsbanner.
+- @unban_rb: Unban the Reichsbanner.
+- @persecute_rb
 - @ban_rfb: Ban the Communist RFB.
 - @unban_rfb: Unban the RFB.
 - @persecute_rfb
@@ -64,6 +67,30 @@ unavailable-subtitle: [? if judicial_reform < 4 : The judiciary would not allow 
 on-arrival: sh_strength *= 0.7; sh_militancy -= 0.05; dvp_relation -= 5; prussian_police_loyalty -= 0.1; interior_police_loyalty -= 0.05; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Hindenburg";
 
 We have arrested more of the Stahlhelm's leaders and confiscated their weapons.
+
+
+@ban_rb
+on-arrival: rb_strength *= 0.9; rb_strength *= 0.8 if interior_police_loyalty >= 0.7; rb_banned = 1; spd_relation -= 5; ddp_relation -= 5; interior_police_loyalty += 0.05; coalition_dissent += 1 if spd_in_government and dvp_in_government; rb_ban_timer = 6;
+view-if: rb_banned == 0
+choose-if: dvp_ideology = "Right"
+unavailable-subtitle: Why would we do this?
+
+[? if president_party = "SPD": Banning the Reichsbanner weakens our relationship with President [+president+], as well as the republican parties. ?][? if president_party != "SPD": Banning the Reichsbanner weakens our relationship with the republican parties. ?] [? if spd_in_government = 1: It also weakens our coalition due to the influence of the SPD on the left wing of our coalition. ?]
+
+@unban_rb
+view-if: rb_banned = 1
+on-arrival: rb_banned = 0; rb_strength += 100; spd_relation += 5; ddp_relation += 5; coalition_dissent -= 1 if spd_in_government and dvp_in_government;
+
+The Reichsbanner is no longer banned.
+
+@persecute_rb
+title: Further persecute the Reichsbanner.
+view-if: rb_banned = 1
+choose-if: judicial_reform < 4 and interior_police_loyalty >= 0.7 and dvp_ideology = "Right"
+unavailable-subtitle: [? if dvp_ideology != "Right": Why would we do this? ?] [? if judicial_reform >= 4 : The judiciary would not allow this. ?] [? if interior_police_loyalty < 0.7 : The police are too disloyal to be trusted with this. ?]
+on-arrival: rb_strength *= 0.7; rb_militancy -= 0.02; spd_relation -= 5; ddp_relation -= 5; prussian_police_loyalty -= 0.05; interior_police_loyalty += 0.05; coalition_dissent += 1 if spd_in_government and dvp_in_government;
+
+We have arrested more of the Reichsbanner's leaders and confiscated their weapons.
 
 
 @ban_rfb
