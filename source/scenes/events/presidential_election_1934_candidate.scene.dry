@@ -1,6 +1,8 @@
 title: Presidential Election Candidates
 subtitle: Should we field our own candidate?
 new-page: true
+view-if: hindenburg_dead
+max-visits: 1
 tags: event
 
 WIP
