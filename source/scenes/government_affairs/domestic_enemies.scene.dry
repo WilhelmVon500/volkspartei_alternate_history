@@ -70,7 +70,7 @@ We have arrested more of the Stahlhelm's leaders and confiscated their weapons.
 
 
 @ban_rb
-on-arrival: rb_strength *= 0.9; rb_strength *= 0.8 if interior_police_loyalty >= 0.7; rb_banned = 1; spd_relation -= 5; ddp_relation -= 5; interior_police_loyalty += 0.05; coalition_dissent += 1 if spd_in_government and dvp_in_government; rb_ban_timer = 6;
+on-arrival: rb_strength *= 0.9; rb_strength *= 0.8 if interior_police_loyalty >= 0.7; rb_banned = 1; spd_relation -= 5; ddp_relation -= 5; interior_police_loyalty += 0.05; coalition_dissent += 10 if spd_in_government and dvp_in_government; rb_ban_timer = 6;
 view-if: rb_banned == 0
 choose-if: dvp_ideology = "Right"
 unavailable-subtitle: Why would we do this?
@@ -79,7 +79,7 @@ unavailable-subtitle: Why would we do this?
 
 @unban_rb
 view-if: rb_banned = 1
-on-arrival: rb_banned = 0; rb_strength += 100; spd_relation += 5; ddp_relation += 5; coalition_dissent -= 1 if spd_in_government and dvp_in_government;
+on-arrival: rb_banned = 0; rb_strength += 100; spd_relation += 5; ddp_relation += 5; coalition_dissent -= 2 if spd_in_government and dvp_in_government;
 
 The Reichsbanner is no longer banned.
 
@@ -88,7 +88,7 @@ title: Further persecute the Reichsbanner.
 view-if: rb_banned = 1
 choose-if: judicial_reform < 4 and interior_police_loyalty >= 0.7 and dvp_ideology = "Right"
 unavailable-subtitle: [? if dvp_ideology != "Right": Why would we do this? ?] [? if judicial_reform >= 4 : The judiciary would not allow this. ?] [? if interior_police_loyalty < 0.7 : The police are too disloyal to be trusted with this. ?]
-on-arrival: rb_strength *= 0.7; rb_militancy -= 0.02; spd_relation -= 5; ddp_relation -= 5; prussian_police_loyalty -= 0.05; interior_police_loyalty += 0.05; coalition_dissent += 1 if spd_in_government and dvp_in_government;
+on-arrival: rb_strength *= 0.7; rb_militancy -= 0.02; spd_relation -= 5; ddp_relation -= 5; prussian_police_loyalty -= 0.05; interior_police_loyalty += 0.05; coalition_dissent += 2 if spd_in_government and dvp_in_government;
 
 We have arrested more of the Reichsbanner's leaders and confiscated their weapons.
 
