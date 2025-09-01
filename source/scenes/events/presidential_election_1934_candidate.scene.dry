@@ -315,7 +315,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 
 
 @support_hugenberg
-subtitle: A fellow skeptic of the republic leading the [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>], considered by many as a delusional megalomaniac.
+subtitle: A fellow skeptic of the republic leading the [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>?], considered by many as a delusional megalomaniac.
 choose-if: dvp_ideology = "Right"
 unavailable-subtitle: As long as the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> holds some respect for itself, the party will not endorse this lunatic.
 on-arrival: dvp_candidate = "Hugenberg"
