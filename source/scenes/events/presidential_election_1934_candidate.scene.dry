@@ -12,10 +12,10 @@ if (!Q.hitler_deported) {
 Q.reactionary_candidate = "Westarp"
 
 Q.spd_candidate = "Braun";
-Q.dvp_candidate = Q.reactionary_candidate;
 Q.z_candidate = "Adenauer";
 Q.bvp_candidate = "Adenauer";
 Q.dbp_candidate = "Adenauer";
+Q.dvp_candidate = Q.reactionary_candidate;
 Q.csvd_candidate = Q.reactionary_candidate;
 Q.cnblp_candidate = Q.reactionary_candidate;
 Q.wp_candidate = Q.reactionary_candidate;
