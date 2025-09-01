@@ -29,8 +29,8 @@ if (Q.ddp_ideology == "Left") {
 }
 
 
-if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Hugenberg";
 if (Q.dnvp_ideology == "Moderate") Q.dnvp_candidate = Q.reactionary_candidate;
+if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Hugenberg";
 Q.dnf_candidate = "Hugenberg";
 
 Q.kpd_candidate = "Thälmann";
@@ -46,6 +46,7 @@ tags: event
 
 WIP
 
+- @hugenberg_r1: Support [+reactionary_candidate+].
 - @reactionary_r1: Support [+reactionary_candidate+].
 - @adenauer_r1: Support Konrad Adenauer of the Center Party.
 - @braun_r1: Support Otto Braun of the SPD.
@@ -61,7 +62,7 @@ WIP
 Hopefully, the [+ dvp_candidate +] coalition is strong enough.
 
 @view_candidates
-go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candidate = reactionary_candidate; endorsements_braun if dvp_candidate = "Braun"; endorsements_adenauer if dvp_candidate = "Adenauer"
+go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candidate = reactionary_candidate; endorsements_braun if dvp_candidate = "Braun"; endorsements_adenauer if dvp_candidate = "Adenauer"; endorsements_hugenberg if dvp_candidate = "Hugenberg"
 
 [? if reactionary_candidate = "Westarp": [? if kvp_formed: <span style="color: #455B95;">**Kuno von Westarp**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Kuno von Westarp**</span>?] ?] - supported by:
 
@@ -132,6 +133,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 [? if dnvp_candidate = "Hugenberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if dnf_candidate = "Hugenberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
+
+[? if dvp_candidate = "Hugenberg": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
@@ -246,3 +249,26 @@ We will support Otto Braun.
 @endorsements_braun
 
 We can try to convince parties supporting other candidates to switch their support to Braun.
+
+
+
+
+
+
+
+
+
+
+@hugenberg_r1
+subtitle: We can support a nationalist candidate.
+choose-if: dvp_ideology = "Right"
+unavailable-subtitle: Why?
+on-arrival: dvp_candidate = "Hugenberg"
+
+We will support Alfred Hugenberg.
+
+- @endorsements_hugenberg: Scout out potential endorsements.
+
+@endorsements_hugenberg
+
+We can try to convince parties supporting other candidates to switch their support to Hugenberg.
