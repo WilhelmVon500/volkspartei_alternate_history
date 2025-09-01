@@ -2,7 +2,247 @@ title: Presidential Election Candidates
 subtitle: Should we field our own candidate?
 new-page: true
 view-if: hindenburg_dead
+on-arrival: {!
+if (!Q.hitler_deported) {
+    Q.nsdap_candidate = "Hitler";
+} else {
+    Q.nsdap_candidate = "Göring";
+}
+
+Q.reactionary_candidate = "Westarp"
+
+Q.spd_candidate = "Braun";
+Q.dvp_candidate = Q.reactionary_candidate;
+Q.z_candidate = "Adenauer";
+Q.bvp_candidate = "Adenauer";
+Q.dbp_candidate = "Adenauer";
+Q.csvd_candidate = Q.reactionary_candidate;
+Q.cnblp_candidate = Q.reactionary_candidate;
+Q.wp_candidate = Q.reactionary_candidate;
+Q.kvp_candidate = Q.reactionary_candidate;
+Q.other_candidate = Q.reactionary_candidate;
+
+if (Q.ddp_ideology == "Left") {
+  Q.ddp_candidate = "Braun";
+} else {
+  Q.ddp_candidate = "Adenauer";
+}
+
+
+if (Q.dnvp_ideology == "Radical") Q.dnvp_candidate = "Hugenberg";
+if (Q.dnvp_ideology == "Moderate") Q.dnvp_candidate = Q.reactionary_candidate;
+Q.dnf_candidate = "Hugenberg";
+
+Q.kpd_candidate = "Thälmann";
+
+Q.dvp_campaign = 1
+Q.braun_campaign = 1
+Q.adenauer_campaign = 1
+!}
 max-visits: 1
 tags: event
 
+= Presidential Election Candidates
+
 WIP
+
+- @reactionary_r1: Support [+reactionary_candidate+].
+- @adenauer_r1: Support Konrad Adenauer of the Center Party.
+- @braun_r1: Support Otto Braun of the SPD.
+- @eckener_r1: Support Hugo Eckener as a joint Republican Coalition candidate.
+- @luther_r1: Run Hans Luther.
+- @heuss_r1: Run Theodor Heuss.
+- @hellpach_r1: Run Willy Hellpach.
+
+
+
+@hope
+
+Hopefully, the [+ dvp_candidate +] coalition is strong enough.
+
+@view_candidates
+go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candidate = reactionary_candidate; endorsements_braun if dvp_candidate = "Braun"; endorsements_adenauer if dvp_candidate = "Adenauer"
+
+[? if reactionary_candidate = "Westarp": [? if kvp_formed: <span style="color: #455B95;">**Kuno von Westarp**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Kuno von Westarp**</span>?] ?] - supported by:
+
+[? if dvp_candidate = reactionary_candidate: - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+
+[? if csvd_candidate = reactionary_candidate and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
+[? if wp_candidate = reactionary_candidate and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if cnblp_candidate = reactionary_candidate and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+
+[? if kvp_candidate = reactionary_candidate and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = reactionary_candidate: - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if other_candidate = reactionary_candidate: - <span style="color: #909090;">**Others**</span> ?]
+
+[? if dvp_candidate = "Eckener": **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Luther": <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss": <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach": <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
+
+[? if spd_candidate = "Eckener" or spd_candidate = "Luther" or spd_candidate = "Heuss" or spd_candidate = "Hellpach": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if (ddp_candidate = "Eckener" or ddp_candidate = "Luther" or ddp_candidate = "Heuss" or ddp_candidate = "Hellpach") and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if (dbp_candidate = "Eckener" or dbp_candidate = "Luther" or dbp_candidate = "Heuss" or dbp_candidate = "Hellpach") and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Eckener" or z_candidate = "Luther" or z_candidate = "Heuss" or z_candidate = "Hellpach": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if bvp_candidate = "Eckener" or bvp_candidate = "Luther" or bvp_candidate = "Heuss" or bvp_candidate = "Hellpach": - <span style="color: #69A2BE;">**BVP**</span> ?]
+
+[? if dvp_candidate = "Eckener" or dvp_candidate = "Luther" or dvp_candidate = "Heuss" or dvp_candidate = "Hellpach": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+
+[? if (csvd_candidate = "Eckener" or csvd_candidate = "Luther" or csvd_candidate = "Heuss" or csvd_candidate = "Hellpach") and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
+[? if (wp_candidate = "Eckener" or wp_candidate = "Luther" or wp_candidate = "Heuss" or wp_candidate = "Hellpach") and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if (cnblp_candidate = "Eckener" or cnblp_candidate = "Luther" or cnblp_candidate = "Heuss" or cnblp_candidate = "Hellpach") and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+
+[? if (kvp_candidate = "Eckener" or kvp_candidate = "Luther" or kvp_candidate = "Heuss" or kvp_candidate = "Hellpach") and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = "Eckener" or dnvp_candidate = "Luther" or dnvp_candidate = "Heuss" or dnvp_candidate = "Hellpach": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if adenauer_campaign: <span style="color: #000000;">**Konrad Adenauer**</span> - supported by: ?]
+
+[? if ddp_candidate = "Adenauer" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Adenauer" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Adenauer": - <span style="color: #000000;">**Z**</span> ?]
+
+[? if bvp_candidate = "Adenauer": - <span style="color: #69A2BE;">**BVP**</span> ?]
+
+[? if dvp_candidate = "Adenauer": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+
+[? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
+
+[? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
+
+[? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dvp_candidate = "Braun": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+
+<span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
+
+[? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
+
+[? if dnvp_candidate = "Hugenberg": <span style="color: #3F7BC1;">**Alfred Hugenberg**</span> - supported by: ?][? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Alfred Hugenberg**</span> - supported by: ?]
+
+[? if dnvp_candidate = "Hugenberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if dnf_candidate = "Hugenberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
+
+[? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
+
+[? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
+
+
+@reactionary_r1
+subtitle: We will support a right-wing candidate from another party.
+on-arrival: progressive_dissent += 15; democratic_dissent += 10; dvp_candidate = reactionary_candidate
+
+We will support [+reactionary_candidate+] in this election.
+
+- @endorsements_reactionary: Scout out potential endorsements.
+
+@endorsements_reactionary
+
+We can try to convince parties supporting other candidates to switch their support to [+reactionary_candidate+].
+
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
+
+
+
+
+
+
+
+
+@eckener_r1
+choose-if: dvp_ideology = "Left"
+unavailable-subtitle: Why would we run a republican candidate?
+subtitle: After nominating him, we still have to convince the other parties to support him.
+on-departure: nationalist_dissent += 10; dvp_campaign = 1; dvp_candidate = "Eckener";
+
+We will run Hugo Eckener.
+
+- @endorsements_dvp: Scout out potential endorsements.
+
+@luther_r1
+subtitle: Luther is the [? if not chancellor = "Luther": former ?] Chancellor and Reichsbank President.
+on-departure: dvp_campaign = 1; dvp_candidate = "Luther";
+
+We will run Hans Luther.
+
+- @endorsements_dvp: Scout out potential endorsements.
+
+@heuss_r1
+subtitle: WIP.
+view-if: lvp_formed or nfvp_formed
+on-departure: dvp_campaign = 1; dvp_candidate = "Luther";
+
+We will run Theodor Heuss.
+
+- @endorsements_dvp: Scout out potential endorsements.
+
+@hellpach_r1
+subtitle: WIP.
+view-if: lvp_formed or nfvp_formed
+on-departure: dvp_campaign = 1; dvp_candidate = "Hellpach";
+
+We will run Willy Hellpach.
+
+- @endorsements_dvp: Scout out potential endorsements.
+
+@endorsements_dvp
+
+We can try to convince parties supporting other candidates to switch their support to [+dvp_candidate+].
+
+
+
+
+
+
+
+
+
+
+@adenauer_r1
+subtitle: We can support a Centrist candidate.
+view-if: adenauer_campaign
+on-arrival: dvp_candidate = "Adenauer"
+
+We will support Konrad Adenauer.
+
+- @endorsements_adenauer: Scout out potential endorsements.
+
+@endorsements_adenauer
+
+We can try to convince parties supporting other candidates to switch their support to Adenauer.
+
+
+
+
+
+
+
+
+
+
+@braun_r1
+subtitle: We can support a Social Democratic candidate.
+view-if: braun_campaign
+choose-if: dvp_ideology = "Left"
+unavailable-subtitle: Why?
+on-arrival: industrialist_dissent += 15; nationalist_dissent += 30; dvp_candidate = "Braun"
+
+We will support Otto Braun.
+
+- @endorsements_braun: Scout out potential endorsements.
+
+@endorsements_braun
+
+We can try to convince parties supporting other candidates to switch their support to Braun.
