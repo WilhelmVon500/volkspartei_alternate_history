@@ -210,6 +210,9 @@ We will run Willy Hellpach.
 
 We can try to convince parties supporting other candidates to switch their support to [+dvp_candidate+].
 
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
 
 
 
@@ -231,6 +234,9 @@ We will support Konrad Adenauer.
 @endorsements_adenauer
 
 We can try to convince parties supporting other candidates to switch their support to Adenauer.
+
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
 
 
 
@@ -256,6 +262,9 @@ We will support Otto Braun.
 
 We can try to convince parties supporting other candidates to switch their support to Braun.
 
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
+
 
 
 
@@ -278,3 +287,6 @@ We will support Alfred Hugenberg.
 @endorsements_hugenberg
 
 We can try to convince parties supporting other candidates to switch their support to Hugenberg.
+
+- @view_candidates: View party endorsements.
+- @hope: We have concluded negotiations with other parties.
