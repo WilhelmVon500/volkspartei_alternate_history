@@ -80,27 +80,27 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dvp_candidate = "Eckener": **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Luther": <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss": <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach": <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
 
-[? if spd_candidate = "Eckener" or spd_candidate = "Luther" or spd_candidate = "Heuss" or spd_candidate = "Hellpach": - <span style="color: #E3000F;">**SPD**</span> ?]
+[? if (spd_candidate = "Eckener" or spd_candidate = "Luther" or spd_candidate = "Heuss" or spd_candidate = "Hellpach") and dvp_campaign: - <span style="color: #E3000F;">**SPD**</span> ?]
 
-[? if (ddp_candidate = "Eckener" or ddp_candidate = "Luther" or ddp_candidate = "Heuss" or ddp_candidate = "Hellpach") and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+[? if ((ddp_candidate = "Eckener" or ddp_candidate = "Luther" or ddp_candidate = "Heuss" or ddp_candidate = "Hellpach") and ddp_exist) and dvp_campaign: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if (dbp_candidate = "Eckener" or dbp_candidate = "Luther" or dbp_candidate = "Heuss" or dbp_candidate = "Hellpach") and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+[? if ((dbp_candidate = "Eckener" or dbp_candidate = "Luther" or dbp_candidate = "Heuss" or dbp_candidate = "Hellpach") and dbp_exist) and dvp_campaign: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if z_candidate = "Eckener" or z_candidate = "Luther" or z_candidate = "Heuss" or z_candidate = "Hellpach": - <span style="color: #000000;">**Z**</span> ?]
+[? if (z_candidate = "Eckener" or z_candidate = "Luther" or z_candidate = "Heuss" or z_candidate = "Hellpach") and dvp_campaign: - <span style="color: #000000;">**Z**</span> ?]
 
-[? if bvp_candidate = "Eckener" or bvp_candidate = "Luther" or bvp_candidate = "Heuss" or bvp_candidate = "Hellpach": - <span style="color: #69A2BE;">**BVP**</span> ?]
+[? if (bvp_candidate = "Eckener" or bvp_candidate = "Luther" or bvp_candidate = "Heuss" or bvp_candidate = "Hellpach") and dvp_campaign: - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if dvp_candidate = "Eckener" or dvp_candidate = "Luther" or dvp_candidate = "Heuss" or dvp_candidate = "Hellpach": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+[? if (dvp_candidate = "Eckener" or dvp_candidate = "Luther" or dvp_candidate = "Heuss" or dvp_candidate = "Hellpach") and dvp_campaign: - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
-[? if (csvd_candidate = "Eckener" or csvd_candidate = "Luther" or csvd_candidate = "Heuss" or csvd_candidate = "Hellpach") and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+[? if ((csvd_candidate = "Eckener" or csvd_candidate = "Luther" or csvd_candidate = "Heuss" or csvd_candidate = "Hellpach") and csvd_exist) and dvp_campaign: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
-[? if (wp_candidate = "Eckener" or wp_candidate = "Luther" or wp_candidate = "Heuss" or wp_candidate = "Hellpach") and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+[? if ((wp_candidate = "Eckener" or wp_candidate = "Luther" or wp_candidate = "Heuss" or wp_candidate = "Hellpach") and wp_exist) and dvp_campaign: - <span style="color: #B8996F;">**WP**</span> ?]
 
-[? if (cnblp_candidate = "Eckener" or cnblp_candidate = "Luther" or cnblp_candidate = "Heuss" or cnblp_candidate = "Hellpach") and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+[? if ((cnblp_candidate = "Eckener" or cnblp_candidate = "Luther" or cnblp_candidate = "Heuss" or cnblp_candidate = "Hellpach") and cnblp_exist) and dvp_campaign: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
 
-[? if (kvp_candidate = "Eckener" or kvp_candidate = "Luther" or kvp_candidate = "Heuss" or kvp_candidate = "Hellpach") and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+[? if ((kvp_candidate = "Eckener" or kvp_candidate = "Luther" or kvp_candidate = "Heuss" or kvp_candidate = "Hellpach") and kvp_formed) and dvp_campaign: - <span style="color: #455B95;">**KVP**</span> ?]
 
-[? if dnvp_candidate = "Eckener" or dnvp_candidate = "Luther" or dnvp_candidate = "Heuss" or dnvp_candidate = "Hellpach": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+[? if (dnvp_candidate = "Eckener" or dnvp_candidate = "Luther" or dnvp_candidate = "Heuss" or dnvp_candidate = "Hellpach") and dvp_campaign: - <span style="color: #3F7BC1;">**DNVP**</span> ?]
 
 [? if adenauer_campaign: <span style="color: #000000;">**Konrad Adenauer**</span> - supported by: ?]
 
