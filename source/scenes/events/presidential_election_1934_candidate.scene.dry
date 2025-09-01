@@ -78,7 +78,7 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if other_candidate = reactionary_candidate: - <span style="color: #909090;">**Others**</span> ?]
 
-[? if dvp_candidate = "Eckener": **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Luther": <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss": <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach": <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
+[? if dvp_candidate = "Eckener" and dvp_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Luther" and dvp_campaign: <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss" and dvp_campaign: <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach" and dvp_campaign: <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
 
 [? if (spd_candidate = "Eckener" or spd_candidate = "Luther" or spd_candidate = "Heuss" or spd_candidate = "Hellpach") and dvp_campaign: - <span style="color: #E3000F;">**SPD**</span> ?]
 
