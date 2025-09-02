@@ -176,7 +176,7 @@ go-to: calculation
 @calculation
 go-to: hindenburg_wins if reactionary_plurality == 1 and reactionary_candidate = "Hindenburg"; lettow_vorbeck_wins if reactionary_plurality == 1 and reactionary_candidate = "Lettow-Vorbeck"; eckener_wins if eckener_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if hitler_plurality == 1; braun_wins if braun_plurality == 1
 
-[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed: <span style="color: #455B95;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Paul von Lettow-Vorbeck**</span>?] ?] - [+ reactionary_votes_disp +]%
+[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed: <span style="color: #455B95;">**Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Lettow-Vorbeck**</span>?] ?] - [+ reactionary_votes_disp +]%
 
 [? if eckener_campaign: <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - [+ eckener_votes_disp +]% ?]
 
