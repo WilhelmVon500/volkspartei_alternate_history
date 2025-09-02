@@ -332,7 +332,7 @@ on-arrival: president = "Braun"; president_party = "SPD"; workers_spd += 5; unem
 Otto Braun of the SPD has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
 
 @hugenberg_wins
-on-arrival: president = "Hugenberg"; president_party = "DNF" if dnf_formed; ; president_party = "DNVP" if dnvp_ideology = "Radical"; old_middle_dnf += 5 if dnf_formed; old_middle_dnvp += 5 if dnvp_candidate = "Hugenberg"
+on-arrival: president = "Hugenberg"; president_party = "DNF" if dnf_formed; president_party = "DNVP" if dnvp_ideology = "Radical"; old_middle_dnf += 5 if dnf_formed; old_middle_dnvp += 5 if dnvp_candidate = "Hugenberg"
 
 Surprisingly, Hugenberg has won...
 
