@@ -313,7 +313,7 @@ Theodor Heuss has unexpectedly won the presidency! With a committed <span style=
 @hellpach_wins
 on-arrival: president = "Hellpach"; president_party = dvp_name; new_middle_dvp += 5; old_middle_dvp += 5
 
-Perhaps surprisingly, Karl Jarres has made an unforeseen comeback and won the presidency.
+WIP.
 
 
 @heuss_wins
