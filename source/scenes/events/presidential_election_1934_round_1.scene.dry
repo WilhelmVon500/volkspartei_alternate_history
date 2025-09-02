@@ -4,7 +4,7 @@ view-if: year = 1934 and month >= 9 and presidential_election_1934_seen = 0
 frequency: 1000
 max-visits: 1
 new-page: true
-on-arrival: presidential_election_1934_seen = 1; next_presidential_election_year = year + 7; next_presidential_election_month = month;
+on-arrival: presidential_election_1934_seen = 1;
 tags: event
 go-to: election_algorithm
 set-jump: pres_election
