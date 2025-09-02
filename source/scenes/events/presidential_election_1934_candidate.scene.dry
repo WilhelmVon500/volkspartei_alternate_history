@@ -34,6 +34,7 @@ Q.kpd_candidate = "Thälmann";
 Q.dvp_campaign = 0
 Q.braun_campaign = 1
 Q.adenauer_campaign = 1
+Q.reactionary_campaign = 1
 Q.harzburg_campaign = 1
 if (Q.ddp_exist) Q.heuss_campaign = 1
 !}
@@ -139,6 +140,10 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 [? if spd_candidate = "Braun": - <span style="color: #E3000F;">**SPD**</span> ?]
 
 [? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+
+[? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
 [? if dvp_candidate = "Braun": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
