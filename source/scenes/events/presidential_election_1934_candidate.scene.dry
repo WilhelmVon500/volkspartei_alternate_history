@@ -159,7 +159,7 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 @run_eckener
 choose-if: dvp_ideology = "Left" and resources >= 1
-unavailable-subtitle: [? if not dvp_ideology = "Left": Why would we run a republican candidate? ?][? if resources < 1 : -1 resource - Not enough resources. ?]
+unavailable-subtitle: [? if resources < 1 : -1 resource - Not enough resources. ?][? if not dvp_ideology = "Left": Why would we run a republican candidate? ?]
 subtitle: -1 resource - After nominating him, we still have to convince the other parties to support him.
 on-departure: nationalist_dissent += 10; dvp_campaign = 1; resources -= 1; dvp_candidate = "Eckener";
 
@@ -169,7 +169,7 @@ We will run Hugo Eckener.
 
 @run_jarres
 subtitle: -2 resource - Jarres was our candidate in 1925, before dropping out in favor of Hindenburg.
-unavailable-subtitle: -2 resource - Not enough resources.
+unavailable-subtitle: [? if resources < 2 : -2 resource - Not enough resources. ?][? if not dvp_ideology = "Right": Our party doesn't want to run a right-wing candidate. ?]
 choose-if: resources >= 2
 on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Jarres";
 
