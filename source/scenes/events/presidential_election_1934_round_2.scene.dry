@@ -236,7 +236,7 @@ Q.harzburg_votes_disp = Q.harzburg_votes.toFixed(1);
 Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
 Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 !}
-go-to: westarp_wins if reactionary_plurality and reactionary_candidate = "Westarp"; eckener_wins if dvp_candidate_plurality and dvp_candidate = "Eckener"; jarres_wins if dvp_candidate_plurality and dvp_candidate = "Jarres"; luther_wins if dvp_candidate_plurality and dvp_candidate = "Luther"; heuss_wins_dvp if dvp_candidate_plurality and dvp_candidate = "Heuss"; hellpach_wins if dvp_candidate_plurality and dvp_candidate = "Hellpach"; thalmann_wins if thalmann_plurality; hitler_wins if hitler_plurality; braun_wins if braun_plurality; heuss_wins if heuss_plurality; adenauer_wins if adenauer_plurality; hugenberg_wins if harzburg_plurality;
+go-to: westarp_wins if reactionary_plurality and reactionary_candidate = "Westarp"; eckener_wins if dvp_candidate_plurality and dvp_candidate = "Eckener"; jarres_wins if dvp_candidate_plurality and dvp_candidate = "Jarres"; luther_wins if dvp_candidate_plurality and dvp_candidate = "Luther"; heuss_wins_dvp if dvp_candidate_plurality and dvp_candidate = "Heuss"; hellpach_wins if dvp_candidate_plurality and dvp_candidate = "Hellpach"; thalmann_wins if thalmann_plurality; hitler_wins if hitler_plurality; braun_wins if braun_plurality; heuss_wins if heuss_plurality; adenauer_wins if adenauer_plurality; hugenberg_wins if harzburg_plurality
 
 Results:
 
