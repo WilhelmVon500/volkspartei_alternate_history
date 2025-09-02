@@ -24,6 +24,8 @@ set-jump: post_election
 
 @post_election
 on-arrival: {!
+Q.presidential_election_r2_trigger = 0
+
 Q.bvp_votes = Q.bvp_votes / 100;
 
 Q.dvp_candidate_votes = 0;
