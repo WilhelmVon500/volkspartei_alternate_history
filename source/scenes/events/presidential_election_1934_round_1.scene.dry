@@ -1,1 +1,260 @@
+title: Presidential Election
+subtitle: [? if hindenburg_run: Hindenburg runs for re-election... ?][? if not hindenburg_run: The first round results have come in... ?]
+view-if: year = 1934 and month >= 9 and presidential_election_1934_seen = 0
+frequency: 1000
+max-visits: 1
+new-page: true
+on-arrival: presidential_election_1934_seen = 1; next_presidential_election_year = year + 7; next_presidential_election_month = month;
+tags: event
+go-to: election_algorithm
+set-jump: pres_election
+
+@pres_election
+
+The presidential election's first round is set to take place this month. If no candidate secures a majority, a second round will be held, with the candidate receiving the most votes winning the presidency.
+
+- @final_election: The first round results...
+
+@final_election
+on-arrival: election_round = 0
+go-to: election_algorithm
+set-jump: post_election
+
+
+
+@post_election
+on-arrival: {!
+Q.bvp_votes = Q.bvp_votes / 100;
+
+Q.dvp_candidate_votes = 0;
+Q.reactionary_votes = 0;
+Q.adenauer_votes = 0;
+Q.heuss_votes = 0;
+Q.braun_votes = 0;
+Q.harzburg_votes = 0;
+Q.hitler_votes = 0;
+Q.thalmann_votes = 0;
+
+// initial phase:
+Q.hitler_votes += Q.nsdap_normalized;
+Q.thalmann_votes += Q.kpd_normalized;
+
+if (Q.harzburg_campaign) {
+    if (Q.dnvp_candidate == "Hugenberg") {
+        Q.harzburg_votes += Q.dnvp_normalized;
+    }
+    if (Q.dnf_candidate == "Hugenberg" && Q.dnf_formed) {
+        Q.harzburg_votes += Q.dnf_normalized;
+    }
+    if (Q.dvp_candidate == "Hugenberg") {
+        Q.harzburg_votes += Q.dvp_normalized;
+    }
+    if (Q.wp_candidate == "Hugenberg" && Q.wp_exist) {
+        Q.reactionary_votes += Q.wp_normalized;
+    }
+}
+
+
+if (Q.reactionary_campaign) {
+    if (Q.ddp_candidate == Q.reactionary_candidate && Q.ddp_exist) {
+        Q.reactionary_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == Q.reactionary_candidate && Q.dbp_exist) {
+        Q.reactionary_votes += Q.dbp_normalized;
+    }
+    if (Q.z_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.bvp_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += Q.bvp_votes;
+    }
+    if (Q.dvp_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += Q.dvp_normalized;
+    }
+    if (Q.csvd_candidate == Q.reactionary_candidate && Q.csvd_exist) {
+        Q.reactionary_votes += Q.csvd_normalized;
+    }
+    if (Q.wp_candidate == Q.reactionary_candidate && Q.wp_exist) {
+        Q.reactionary_votes += Q.wp_normalized;
+    }
+    if (Q.cnblp_candidate == Q.reactionary_candidate && Q.cnblp_exist) {
+        Q.reactionary_votes += Q.cnblp_normalized;
+    }
+    if (Q.kvp_candidate == Q.reactionary_candidate && Q.kvp_formed) {
+        Q.reactionary_votes += Q.kvp_normalized;
+    }
+    if (Q.dnvp_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += Q.dnvp_normalized;
+    }
+    if (Q.dnf_candidate == Q.reactionary_candidate && Q.dnf_formed) {
+        Q.reactionary_votes += Q.dnf_normalized;
+    }
+    if (Q.other_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += Q.other_normalized;
+    }
+    if (Q.nsdap_candidate == Q.reactionary_candidate) {
+        Q.reactionary_votes += Q.nsdap_normalized;
+    }
+}
+
+if (Q.dvp_campaign) {
+    if (Q.spd_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += Q.spd_normalized;
+    }
+    if (Q.ddp_candidate == Q.dvp_candidate && Q.ddp_exist) {
+        Q.dvp_candidate_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == Q.dvp_candidate && Q.dbp_exist) {
+        Q.dvp_candidate_votes += Q.dbp_normalized;
+    }
+    if (Q.z_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.bvp_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += Q.bvp_votes;
+    }
+    if (Q.dvp_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += Q.dvp_normalized;
+    }
+    if (Q.csvd_candidate == Q.dvp_candidate && Q.csvd_exist) {
+        Q.dvp_candidate_votes += Q.csvd_normalized;
+    }
+    if (Q.wp_candidate == Q.dvp_candidate && Q.wp_exist) {
+        Q.dvp_candidate_votes += Q.wp_normalized;
+    }
+    if (Q.cnblp_candidate == Q.dvp_candidate && Q.cnblp_exist) {
+        Q.dvp_candidate_votes += Q.cnblp_normalized;
+    }
+    if (Q.kvp_candidate == Q.dvp_candidate && Q.kvp_formed) {
+        Q.dvp_candidate_votes += Q.kvp_normalized;
+    }
+    if (Q.dnvp_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += Q.dnvp_normalized;
+    }
+    if (Q.dnf_candidate == Q.dvp_candidate) {
+        Q.dvp_candidate_votes += Q.dnf_normalized;
+    }
+}
+
+
+if (Q.braun_campaign) {
+    Q.braun_votes += Q.spd_normalized;
+    if (Q.z_candidate == "Braun") {
+        Q.braun_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.ddp_candidate == "Braun" && Q.ddp_exist) {
+        Q.braun_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == "Braun" && Q.dbp_exist) {
+        Q.braun_votes += Q.dbp_normalized;
+    }
+    if (Q.dvp_candidate == "Braun") {
+        Q.braun_votes += Q.dvp_normalized;
+    }
+}
+
+
+if (Q.heuss_campaign) {
+    Q.heuss_votes += Q.ddp_normalized;
+    if (Q.spd_candidate == "Heuss") {
+        Q.heuss_votes += Q.spd_normalized;
+    }
+    if (Q.dbp_candidate == "Heuss" && Q.dbp_exist) {
+        Q.heuss_votes += Q.dbp_normalized;
+    }
+    if (Q.z_candidate == "Heuss") {
+        Q.heuss_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.bvp_candidate == "Heuss") {
+        Q.heuss_votes += Q.bvp_votes;
+    }
+    if (Q.dvp_candidate == "Heuss") {
+        Q.heuss_votes += Q.dvp_normalized;
+    }
+}
+
+
+if (Q.adenauer_campaign) {
+    if (Q.spd_candidate == "Adenauer") {
+        Q.adenauer_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.ddp_candidate == "Adenauer" && Q.ddp_exist) {
+        Q.adenauer_votes += Q.ddp_normalized;
+    }
+    if (Q.dbp_candidate == "Adenauer" && Q.dbp_exist) {
+        Q.adenauer_votes += Q.dbp_normalized;
+    }
+    if (Q.z_candidate == "Adenauer") {
+        Q.adenauer_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.bvp_candidate == "Adenauer") {
+        Q.adenauer_votes += Q.bvp_votes;
+    }
+    if (Q.dvp_candidate == "Adenauer") {
+        Q.adenauer_votes += Q.dvp_normalized;
+    }
+}
+
+// check for majority
+Q.reactionary_votes = Math.round(Q.reactionary_votes*1000)/10;
+Q.dvp_candidate_votes = Math.round(Q.dvp_candidate_votes*1000)/10;
+Q.braun_votes = Math.round(Q.braun_votes*1000)/10;
+Q.heuss_votes = Math.round(Q.heuss_votes*1000)/10;
+Q.adenauer_votes = Math.round(Q.adenauer_votes*1000)/10;
+Q.harzburg_votes = Math.round(Q.harzburg_votes*1000)/10;
+Q.hitler_votes = Math.round(Q.hitler_votes*1000)/10;
+Q.thalmann_votes = Math.round(Q.thalmann_votes*1000)/10;
+
+Q.reactionary_majority = (Q.reactionary_votes >= 50);
+Q.dvp_candidate_majority = (Q.dvp_candidate_votes >= 50);
+Q.braun_majority = (Q.braun_votes >= 50);
+Q.heuss_majority = (Q.heuss_votes >= 50);
+Q.adenauer_majority = (Q.adenauer_votes >= 50);
+Q.thalmann_majority = (Q.thalmann_votes >= 50);
+Q.harzburg_majority = (Q.harzburg_votes >= 50);
+Q.hitler_majority = (Q.hitler_votes >= 50);
+Q.any_majority = Q.reactionary_majority | Q.dvp_candidate_majority | Q.braun_majority | Q.heuss_majority | Q.adenauer_majority | Q.harzburg_majority | Q.thalmann_majority | Q.hitler_majority;
+
+// check for plurality
+Q.reactionary_plurality = (Q.reactionary_votes >= Q.hitler_votes && Q.reactionary_votes >= Q.braun_votes && Q.reactionary_votes >= Q.heuss_votes && Q.reactionary_votes >= Q.adenauer_votes && Q.reactionary_votes >= Q.thalmann_votes && Q.reactionary_votes >= Q.harzburg_votes && Q.reactionary_votes >= Q.dvp_candidate_votes);
+Q.dvp_candidate_plurality = (Q.dvp_candidate_votes >= Q.reactionary_votes && Q.dvp_candidate_votes >= Q.hitler_votes && Q.dvp_candidate_votes >= Q.braun_votes && Q.dvp_candidate_votes >= Q.heuss_votes && Q.dvp_candidate_votes >= Q.adenauer_votes && Q.dvp_candidate_votes >= Q.thalmann_votes && Q.dvp_candidate_votes >= Q.harzburg_votes);
+Q.braun_plurality = (Q.braun_votes >= Q.reactionary_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes && Q.braun_votes >= Q.harzburg_votes && Q.braun_votes >= Q.heuss_votes && Q.braun_votes >= Q.adenauer_votes && Q.braun_votes >= Q.dvp_candidate_votes);
+Q.heuss_plurality = (Q.heuss_votes >= Q.reactionary_votes && Q.heuss_votes >= Q.hitler_votes && Q.heuss_votes >= Q.thalmann_votes && Q.heuss_votes >= Q.harzburg_votes && Q.heuss_votes >= Q.braun_votes && Q.heuss_votes >= Q.adenauer_votes && Q.heuss_votes >= Q.dvp_candidate_votes);
+Q.adenauer_plurality = (Q.adenauer_votes >= Q.reactionary_votes && Q.adenauer_votes >= Q.hitler_votes && Q.adenauer_votes >= Q.thalmann_votes && Q.adenauer_votes >= Q.harzburg_votes && Q.adenauer_votes >= Q.heuss_votes && Q.adenauer_votes >= Q.braun_votes && Q.adenauer_votes >= Q.dvp_candidate_votes);
+Q.harzburg_plurality = (Q.harzburg_votes >= Q.reactionary_votes && Q.harzburg_votes >= Q.braun_votes && Q.harzburg_votes >= Q.heuss_votes && Q.harzburg_votes >= Q.adenauer_votes && Q.harzburg_votes >= Q.hitler_votes && Q.harzburg_votes >= Q.thalmann_votes && Q.harzburg_votes >= Q.dvp_candidate_votes);
+Q.thalmann_plurality = (Q.thalmann_votes >= Q.reactionary_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.heuss_votes && Q.thalmann_votes >= Q.adenauer_votes && Q.thalmann_votes >= Q.hitler_votes && Q.thalmann_votes >= Q.harzburg_votes && Q.thalmann_votes >= Q.dvp_candidate_votes);
+Q.hitler_plurality = (Q.hitler_votes >= Q.reactionary_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.heuss_votes && Q.hitler_votes >= Q.adenauer_votes && Q.hitler_votes >= Q.thalmann_votes && Q.hitler_votes >= Q.harzburg_votes && Q.hitler_votes >= Q.dvp_candidate_votes);
+// If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
+Q.election_round += 1;
+Q.new_candidate_r2 = 0;
+
+// making the vote numbers nicer for the display
+Q.reactionary_votes_disp = Q.reactionary_votes.toFixed(1);
+Q.dvp_candidate_votes_disp = Q.dvp_candidate_votes.toFixed(1);
+Q.braun_votes_disp = Q.braun_votes.toFixed(1);
+Q.heuss_votes_disp = Q.heuss_votes.toFixed(1);
+Q.adenauer_votes_disp = Q.adenauer_votes.toFixed(1);
+Q.harzburg_votes_disp = Q.harzburg_votes.toFixed(1);
+Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
+Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
+!}
+// go-to: westarp_wins if reactionary_majority and reactionary_candidate = "Westarp"; eckener_wins if dvp_candidate_majority and dvp_candidate = "Eckener"; jarres_wins if dvp_candidate_majority and dvp_candidate = "Jarres"; luther_wins if dvp_candidate_majority and dvp_candidate = "Luther"; heuss_wins_dvp if dvp_candidate_majority and dvp_candidate = "Heuss"; hellpach_wins if dvp_candidate_majority and dvp_candidate = "Hellpach"; thalmann_wins if thalmann_majority; hitler_wins if hitler_majority; braun_wins if braun_majority; heuss_wins if heuss_majority; adenauer_wins if adenauer_majority; hugenberg_wins if harzburg_majority; no_majority_round1 if any_majority == 0 and election_round == 1
+
+Results:
+
+[? if reactionary_campaign: [? if kvp_formed: <span style="color: #455B95;">**Kuno von Westarp**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Kuno von Westarp**</span>?] - [+ reactionary_votes_disp +]% ?]
+
+[? if dvp_campaign: <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - [+ dvp_candidate_votes_disp +]% ?]
+
+[? if braun_campaign: <span style="color: #E3000F;">**Braun**</span> - [+ braun_votes_disp +]% ?]
+
+[? if heuss_campaign: <span style="color: #DCCA4A;">**Heuss**</span> - [+ heuss_votes_disp +]% ?]
+
+[? if adenauer_campaign: <span style="color: #000000;">**Adenauer**</span> - [+ adenauer_votes_disp +]% ?]
+
+<span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
+
+[? if harzburg_campaign: [? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Hugenberg**</span>?][? if dnvp_candidate = "Hugenberg" and dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**Hugenberg**</span>?] - [+ harzburg_votes_disp +]% ?]
+
+<span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
