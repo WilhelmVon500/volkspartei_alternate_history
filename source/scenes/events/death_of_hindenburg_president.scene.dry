@@ -2,7 +2,7 @@ title: The Death of Hindenburg
 subtitle: The President has died...
 new-page: true
 view-if: year = 1934 and month >= 8 and president = "Hindenburg"
-on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke (acting)"; president = "Großmann (acting)" if judicial_reform >= 4;
+on-arrival: round = 0; hindenburg_dead = 1; president = "Bumke"; president = "Großmann" if judicial_reform >= 4;
 max-visits: 1
 face-image: img/Hindenburg_head.jpg
 tags: event
