@@ -2,13 +2,13 @@ title: Cabinet
 is-pinned-card: true
 tags: advisor
 card-image: img/muller_cabinet.jpg
-view-if: difficulty < 0 and spd_in_government and chancellor_party = "SPD"
+view-if: difficulty < 0 and dvp_in_government and chancellor_party = "DVP"
 on-arrival: last_cabinet_action = 1
 new-page: true 
 
 = Cabinet
 
-With an SPD chancellor and SPD cabinet members, we can direct the affairs of the national government.
+With a DVP chancellor and DVP cabinet members, we can direct the affairs of the national government.
 
 - #cabinet
 - @back: Return to main
