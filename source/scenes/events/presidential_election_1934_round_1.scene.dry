@@ -214,3 +214,4 @@ Q.thalmann_majority = (Q.thalmann_votes >= 50);
 Q.harzburg_majority = (Q.harzburg_votes >= 50);
 Q.hitler_majority = (Q.hitler_votes >= 50);
 Q.any_majority = Q.reactionary_majority | Q.dvp_candidate_majority | Q.braun_majority | Q.heuss_majority | Q.adenauer_majority | Q.harzburg_majority | Q.thalmann_majority | Q.hitler_majority;
+!}
