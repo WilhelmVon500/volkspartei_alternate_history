@@ -593,7 +593,7 @@ on-arrival: president = "Hindenburg"; president_party = "I"
 As expected, the incumbent Hindenburg wins the presidency.
 
 @lettow_vorbeck_wins
-on-arrival: president = "Lettow-Vorbeck"; president_party = "KVP" if kvp_formed; ; president_party = "DNVP" if dnvp_ideology = "Moderate"
+on-arrival: president = "Lettow-Vorbeck"; president_party = "KVP" if kvp_formed; president_party = "DNVP" if dnvp_ideology = "Moderate"
 
 Paul von Lettow-Vorbeck, a nationalist not far different from Hindenburg, has been elected president.
 
