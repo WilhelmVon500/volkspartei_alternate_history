@@ -237,8 +237,13 @@ Q.adenauer_votes_disp = Q.adenauer_votes.toFixed(1);
 Q.harzburg_votes_disp = Q.harzburg_votes.toFixed(1);
 Q.hitler_votes_disp = Q.hitler_votes.toFixed(1);
 Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
+
+Q.dvp_r1 = 0
+Q.braun_r1 = 0
+Q.heuss_r1 = 0
+Q.adenauer_r1 = 0
 !}
-#go-to: westarp_wins if reactionary_majority and reactionary_candidate = "Westarp"; eckener_wins if dvp_candidate_majority and dvp_candidate = "Eckener"; jarres_wins if dvp_candidate_majority and dvp_candidate = "Jarres"; luther_wins if dvp_candidate_majority and dvp_candidate = "Luther"; heuss_wins_dvp if dvp_candidate_majority and dvp_candidate = "Heuss"; hellpach_wins if dvp_candidate_majority and dvp_candidate = "Hellpach"; thalmann_wins if thalmann_majority; hitler_wins if hitler_majority; braun_wins if braun_majority; heuss_wins if heuss_majority; adenauer_wins if adenauer_majority; hugenberg_wins if harzburg_majority; no_majority_round1 if any_majority == 0 and election_round == 1
+go-to: westarp_wins if reactionary_majority and reactionary_candidate = "Westarp"; eckener_wins if dvp_candidate_majority and dvp_candidate = "Eckener"; jarres_wins if dvp_candidate_majority and dvp_candidate = "Jarres"; luther_wins if dvp_candidate_majority and dvp_candidate = "Luther"; heuss_wins_dvp if dvp_candidate_majority and dvp_candidate = "Heuss"; hellpach_wins if dvp_candidate_majority and dvp_candidate = "Hellpach"; thalmann_wins if thalmann_majority; hitler_wins if hitler_majority; braun_wins if braun_majority; heuss_wins if heuss_majority; adenauer_wins if adenauer_majority; hugenberg_wins if harzburg_majority; no_majority_round1 if any_majority == 0 and election_round == 1
 
 Results:
 
@@ -258,3 +263,89 @@ Results:
 
 <span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
 
+@no_majority_round1
+on-arrival: presidential_election_r2_trigger = 1; braun_r1 = 1 if braun_campaign; heuss_r1 = 1 if heuss_campaign; adenauer_r1 = 1 if adenauer_campaign; dvp_r1 = 1 if dvp_campaign;
+go-to: round2_menu
+
+There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@westarp_wins
+on-arrival: president = "Westarp"; president_party = "KVP" if kvp_formed; ; president_party = "DNVP" if dnvp_ideology = "Moderate"
+
+Kuno von Westarp, a known conservative and nationalist, has been elected president.
+
+
+@eckener_wins
+on-arrival: president = "Eckener"; president_party = "I"; old_middle_dvp += 5; workers_spd += 5 if spd_candidate = "Eckener"; new_middle_ddp += 5 if ddp_candidate = "Eckener"; catholics_z += 5 if z_candidate = "Eckener"
+
+Nationally renown Zeppelin pilot and independent Hugo Eckener has won the presidency! This is a moment of celebration for our party, as his victory helps keep the Nazis at bay.
+
+@jarres_wins
+on-arrival: president = "Jarres"; president_party = dvp_name; old_middle_dvp += 5
+
+Perhaps surprisingly, Karl Jarres has made an unforeseen comeback and won the presidency.
+
+@luther_wins
+on-arrival: president = "Luther"; president_party = dvp_name; new_middle_ddp += 5 if ddp_candidate = "Eckener"; new_middle_dvp += 3; old_middle_dvp += 4
+
+Luther has won
+
+@heuss_wins_dvp
+on-arrival: president = "Heuss"; president_party = dvp_name; new_middle_dvp += 5; old_middle_dvp += 5; pro_republic += 3
+
+Theodor Heuss has unexpectedly won the presidency! With a committed <span style="color: #000000;">repu</span><span style="color: #DD0000;">bli</span><span style="color: #FFCC00;">can</span> at the helm of Germany, the threat to the Republic has, for the most part, subsided.
+
+@hellpach_wins
+on-arrival: president = "Hellpach"; president_party = dvp_name; new_middle_dvp += 5; old_middle_dvp += 5
+
+Perhaps surprisingly, Karl Jarres has made an unforeseen comeback and won the presidency.
+
+
+@heuss_wins
+on-arrival: president = "Heuss"; president_party = ddp_name; new_middle_ddp += 5; new_middle_dvp += 5 if dvp_candidate = "Heuss"; pro_republic += 3
+
+Theodor Heuss has unexpectedly won the presidency! With a committed <span style="color: #000000;">repu</span><span style="color: #DD0000;">bli</span><span style="color: #FFCC00;">can</span> at the helm of Germany, the threat to the Republic has, for the most part, subsided.
+
+@adenauer_wins
+on-arrival: president = "Adenauer"; president_party = "Z"; new_middle_z += 3; old_middle_z += 3; pro_republic += 3
+
+Konrad Adenauer has won the presidency! With a committed <span style="color: #000000;">repu</span><span style="color: #DD0000;">bli</span><span style="color: #FFCC00;">can</span> at the helm of Germany, the threat to the Republic has, for the most part, subsided.
+
+@braun_wins
+on-arrival: president = "Braun"; president_party = "SPD"; workers_spd += 5; unemployed_spd += 3; pro_republic += 3
+
+Otto Braun of the SPD has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
+
+@hugenberg_wins
+on-arrival: president = "Hugenberg"; president_party = "DNF" if dnf_formed; ; president_party = "DNVP" if dnvp_ideology = "Radical"; old_middle_dnf += 5 if dnf_formed; old_middle_dnvp += 5 if dnvp_candidate = "Hugenberg"
+
+Perhaps surprisingly, Karl Jarres has made an unforeseen comeback and won the presidency.
+
+
+@thalmann_wins
+on-arrival: president = "Thälmann"; president_party = "KPD";
+
+Ernst Thälmann of the KPD has won the presidency.
+
+- @civil_war: This is civil war.
+
+@hitler_wins
+on-arrival: president = nsdap_candidate; president_party = "NSDAP"; chancellor = "Hitler"; chancellor_party = "NSDAP"
+
+[? if nsdap_candidate == "Hitler" : Adolf Hitler of the NSDAP has won the presidency. He wastes no time in consolidating power. ?]
+[? if nsdap_candidate != "Hitler" : The NSDAP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+
+- @hitler_takes_power: What do we do now?
