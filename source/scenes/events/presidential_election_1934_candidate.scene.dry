@@ -34,6 +34,7 @@ Q.kpd_candidate = "Thälmann";
 Q.dvp_campaign = 0
 Q.braun_campaign = 1
 Q.adenauer_campaign = 1
+Q.harzburg_campaign = 1
 if (Q.ddp_exist) Q.heuss_campaign = 1
 !}
 max-visits: 1
