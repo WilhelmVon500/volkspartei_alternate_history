@@ -242,7 +242,7 @@ Q.thalmann_votes_disp = Q.thalmann_votes.toFixed(1);
 
 Results:
 
-[? if reactionary_campaign: [? if kvp_formed: <span style="color: #455B95;">**Kuno von Westarp**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Kuno von Westarp**</span>?] - [+ reactionary_votes_disp +]% ?]
+[? if reactionary_campaign: [? if kvp_formed: <span style="color: #455B95;">**Westarp**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Westarp**</span>?] - [+ reactionary_votes_disp +]% ?]
 
 [? if dvp_campaign: [? if dvp_candidate = "Eckener" and dvp_campaign: <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> ?][? if dvp_candidate = "Jarres" and dvp_campaign: <span style="color: #C0A054;">**Jarres**</span> ?][? if dvp_candidate = "Luther" and dvp_campaign: <span style="color: #C0A054;">**Luther**</span> ?][? if dvp_candidate = "Heuss" and dvp_campaign: <span style="color: #DCCA4A;">**Heuss**</span> ?][? if dvp_candidate = "Hellpach" and dvp_campaign: <span style="color: #DCCA4A;">**Hellpach**</span> ?] - [+ dvp_candidate_votes_disp +]% ?]
 
