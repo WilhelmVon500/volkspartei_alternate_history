@@ -215,3 +215,17 @@ Q.harzburg_majority = (Q.harzburg_votes >= 50);
 Q.hitler_majority = (Q.hitler_votes >= 50);
 Q.any_majority = Q.reactionary_majority | Q.dvp_candidate_majority | Q.braun_majority | Q.heuss_majority | Q.adenauer_majority | Q.harzburg_majority | Q.thalmann_majority | Q.hitler_majority;
 !}
+
+// check for plurality
+Q.reactionary_plurality = (Q.reactionary_votes >= Q.hitler_votes && Q.reactionary_votes >= Q.braun_votes && Q.reactionary_votes >= Q.heuss_votes && Q.reactionary_votes >= Q.adenauer_votes && Q.reactionary_votes >= Q.thalmann_votes && Q.reactionary_votes >= Q.harzburg_votes && Q.reactionary_votes >= Q.dvp_candidate_votes);
+Q.dvp_candidate_plurality = (Q.dvp_candidate_votes >= Q.reactionary_votes && Q.dvp_candidate_votes >= Q.hitler_votes && Q.dvp_candidate_votes >= Q.braun_votes && Q.dvp_candidate_votes >= Q.heuss_votes && Q.dvp_candidate_votes >= Q.adenauer_votes && Q.dvp_candidate_votes >= Q.thalmann_votes && Q.dvp_candidate_votes >= Q.harzburg_votes);
+Q.braun_plurality = (Q.braun_votes >= Q.reactionary_votes && Q.braun_votes >= Q.hitler_votes && Q.braun_votes >= Q.thalmann_votes && Q.braun_votes >= Q.harzburg_votes && Q.braun_votes >= Q.heuss_votes && Q.braun_votes >= Q.adenauer_votes && Q.braun_votes >= Q.dvp_candidate_votes);
+Q.heuss_plurality = (Q.heuss_votes >= Q.reactionary_votes && Q.heuss_votes >= Q.hitler_votes && Q.heuss_votes >= Q.thalmann_votes && Q.heuss_votes >= Q.harzburg_votes && Q.heuss_votes >= Q.braun_votes && Q.heuss_votes >= Q.adenauer_votes && Q.heuss_votes >= Q.dvp_candidate_votes);
+Q.adenauer_plurality = (Q.adenauer_votes >= Q.reactionary_votes && Q.adenauer_votes >= Q.hitler_votes && Q.adenauer_votes >= Q.thalmann_votes && Q.adenauer_votes >= Q.harzburg_votes && Q.adenauer_votes >= Q.heuss_votes && Q.adenauer_votes >= Q.braun_votes && Q.adenauer_votes >= Q.dvp_candidate_votes);
+Q.harzburg_plurality = (Q.harzburg_votes >= Q.reactionary_votes && Q.harzburg_votes >= Q.braun_votes && Q.harzburg_votes >= Q.heuss_votes && Q.harzburg_votes >= Q.adenauer_votes && Q.harzburg_votes >= Q.hitler_votes && Q.harzburg_votes >= Q.thalmann_votes && Q.harzburg_votes >= Q.dvp_candidate_votes);
+Q.thalmann_plurality = (Q.thalmann_votes >= Q.reactionary_votes && Q.thalmann_votes >= Q.braun_votes && Q.thalmann_votes >= Q.heuss_votes && Q.thalmann_votes >= Q.adenauer_votes && Q.thalmann_votes >= Q.hitler_votes && Q.thalmann_votes >= Q.harzburg_votes && Q.thalmann_votes >= Q.dvp_candidate_votes);
+Q.hitler_plurality = (Q.hitler_votes >= Q.reactionary_votes && Q.hitler_votes >= Q.braun_votes && Q.hitler_votes >= Q.heuss_votes && Q.hitler_votes >= Q.adenauer_votes && Q.hitler_votes >= Q.thalmann_votes && Q.hitler_votes >= Q.harzburg_votes && Q.hitler_votes >= Q.dvp_candidate_votes);
+// If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
+Q.election_round += 1;
+Q.new_candidate_r2 = 0;
+!}
