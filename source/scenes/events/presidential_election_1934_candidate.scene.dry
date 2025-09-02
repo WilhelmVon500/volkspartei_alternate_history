@@ -3,6 +3,9 @@ subtitle: Should we field our own candidate?
 new-page: true
 view-if: hindenburg_dead
 on-arrival: {!
+Q.next_presidential_election_year = Q.year + 7
+Q.next_presidential_election_month = Q.month
+
 if (!Q.hitler_deported) {
     Q.nsdap_candidate = "Hitler";
 } else {
