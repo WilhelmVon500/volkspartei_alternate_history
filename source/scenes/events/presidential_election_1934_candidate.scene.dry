@@ -181,7 +181,7 @@ We will run Hugo Eckener.
 @run_jarres
 subtitle: -2 resource - Jarres was our candidate in 1925, before dropping out in favor of Hindenburg.
 unavailable-subtitle: [? if resources < 2 : -2 resource - Not enough resources. ?][? if not dvp_ideology = "Right": Our party doesn't want to run a right-wing candidate. ?]
-choose-if: resources >= 2
+choose-if: resources >= 2 and dvp_ideology = "Right"
 on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Jarres";
 
 We will run Karl Jarres.
