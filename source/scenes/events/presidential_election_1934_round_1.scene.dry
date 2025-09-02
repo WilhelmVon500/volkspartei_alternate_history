@@ -252,9 +252,9 @@ Results:
 
 [? if adenauer_campaign: <span style="color: #000000;">**Adenauer**</span> - [+ adenauer_votes_disp +]% ?]
 
-<span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
-
 [? if harzburg_campaign: [? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Hugenberg**</span>?][? if dnvp_candidate = "Hugenberg" and dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**Hugenberg**</span>?] - [+ harzburg_votes_disp +]% ?]
 
 <span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
+
+<span style="color: #954B00;">**[+ nsdap_candidate +]**</span> - [+ hitler_votes_disp +]%
 
