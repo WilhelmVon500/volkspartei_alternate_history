@@ -192,7 +192,9 @@ choose-if: resources >= 2
 view-if: lvp_formed or nfvp_formed
 on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Hellpach";
 
-We will run Willy Hellpach.
+We will run Willy Hellpach. A strange choice, as while he has had mental breakdowns, is quite eccentric and is an ardent support for a strengthened presidency and "Konservativdemokratie". 
+
+A delusional choice, given his history of eccentricity, mental breakdowns, and his ideal of "Konservativdemokratie", believing a practical presidential dictatorship is best.
 
 - @endorsements_dvp: Scout out potential endorsements.
 
