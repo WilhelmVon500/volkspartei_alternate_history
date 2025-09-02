@@ -188,29 +188,29 @@ go-to: hindenburg_wins if reactionary_plurality == 1 and reactionary_candidate =
 
 
 @hindenburg_wins
-on-arrival: president = "Hindenburg"
+on-arrival: president = "Hindenburg"; president_party = "I"
 
 As expected, the incumbent Hindenburg wins the presidency.
 
 @lettow_vorbeck_wins
-on-arrival: president = "Lettow-Vorbeck"
+on-arrival: president = "Lettow-Vorbeck"; president_party = "KVP" if kvp_formed; ; president_party = "DNVP" if dnvp_ideology = "Moderate"
 
 Paul von Lettow-Vorbeck, a nationalist not far different from Hindenburg, has been elected president.
 
 @eckener_wins
-on-arrival: president = "Eckener"; new_middle_dvp += 5; old_middle_dvp += 5
+on-arrival: president = "Eckener"; president_party = "I"; new_middle_dvp += 5; old_middle_dvp += 5
 
 Nationally renown Zeppelin pilot and independent Hugo Eckener has won the presidency! This is a moment of celebration for our party, as his victory helps keep the Nazis at bay.
 
 @thalmann_wins
-on-arrival: president = "Thälmann";
+on-arrival: president = "Thälmann"; president_party = "KPD";
 
 Ernst Thälmann of the KPD has won the presidency.
 
 - @civil_war: This is civil war.
 
 @hitler_wins
-on-arrival: president = nsdap_candidate; chancellor = "Hitler"; chancellor_party = "NSDAP"
+on-arrival: president = nsdap_candidate; president_party = "NSDAP"; chancellor = "Hitler"; chancellor_party = "NSDAP"
 
 [? if nsdap_candidate == "Hitler" : Adolf Hitler of the NSDAP has won the presidency. He wastes no time in consolidating power. ?]
 [? if nsdap_candidate != "Hitler" : The NSDAP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
@@ -219,6 +219,6 @@ on-arrival: president = nsdap_candidate; chancellor = "Hitler"; chancellor_party
 
 
 @braun_wins
-on-arrival: president = "Braun"; workers_spd += 5; old_middle_spd += 3; new_middle_spd += 3; rural_spd += 3; unemployed_spd += 3; pro_republic += 3
+on-arrival: president = "Braun"; president_party = "SPD"; workers_spd += 5; old_middle_spd += 3; new_middle_spd += 3; rural_spd += 3; unemployed_spd += 3; pro_republic += 3
 
 Otto Braun of the SPD has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
