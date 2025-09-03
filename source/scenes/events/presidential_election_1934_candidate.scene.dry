@@ -247,7 +247,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 
 
 @convince_spd_dvp
-view-if: spd_candidate != dvp_candidate
+view-if: spd_candidate != dvp_candidate and not dvp_candidate = "Jarres" and dvp_ideology = "Left"
 go-to: convince_spd_success_dvp if (spd_relation >= 50 and dvp_candidate = "Heuss") or (spd_relation >= 60 and not dvp_candidate = "Heuss"); convince_spd_fail_dvp if not ((spd_relation >= 50 and dvp_candidate = "Heuss") or (spd_relation >= 60 and not dvp_candidate = "Heuss"))
 max-visits: 1
 
