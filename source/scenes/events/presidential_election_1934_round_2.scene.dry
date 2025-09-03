@@ -305,7 +305,7 @@ Konrad Adenauer has won the presidency! With a committed <span style="color: #00
 @braun_wins
 on-arrival: president = "Braun"; president_party = "SPD"; workers_spd += 5; unemployed_spd += 3; pro_republic += 3
 
-Otto Braun of the SPD has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
+Otto Braun of the <span style="color: #E3000F;">**SPD**</span> has won the presidency! This is a moment of celebration for their party, and his victory is able to bolster their support.
 
 @hugenberg_wins
 on-arrival: president = "Hugenberg"; president_party = "DNF" if dnf_formed; president_party = "DNVP" if dnvp_ideology = "Radical"; old_middle_dnf += 5 if dnf_formed; old_middle_dnvp += 5 if dnvp_candidate = "Hugenberg"
@@ -316,14 +316,14 @@ Surprisingly, Hugenberg has won...
 @thalmann_wins
 on-arrival: president = "Thälmann"; president_party = "KPD";
 
-Ernst Thälmann of the KPD has won the presidency.
+Ernst Thälmann of the <span style="color: #8B0000;">**KPD**</span> has won the presidency.
 
 - @civil_war: This is civil war.
 
 @hitler_wins
 on-arrival: president = nsdap_candidate; president_party = "NSDAP"; chancellor = "Hitler"; chancellor_party = "NSDAP"
 
-[? if nsdap_candidate == "Hitler" : Adolf Hitler of the NSDAP has won the presidency. He wastes no time in consolidating power. ?]
-[? if nsdap_candidate != "Hitler" : The NSDAP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+[? if nsdap_candidate == "Hitler" : Adolf Hitler of the <span style="color: #954B00;">**NSDAP**</span> has won the presidency. He wastes no time in consolidating power. ?]
+[? if nsdap_candidate != "Hitler" : The <span style="color: #954B00;">**NSDAP**</span> candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
 
 - @hitler_takes_power: What do we do now?
