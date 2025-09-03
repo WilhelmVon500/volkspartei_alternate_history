@@ -162,13 +162,13 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dnvp_candidate = "Hugenberg": <span style="color: #3F7BC1;">**Alfred Hugenberg**</span> - supported by: ?][? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Alfred Hugenberg**</span> - supported by: ?]
 
-[? if dnvp_candidate = "Hugenberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
-
-[? if dnf_candidate = "Hugenberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
-
 [? if dvp_candidate = "Hugenberg": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if wp_candidate = "Hugenberg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
+[? if dnvp_candidate = "Hugenberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if dnf_candidate = "Hugenberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
 
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
