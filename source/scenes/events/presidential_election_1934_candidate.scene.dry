@@ -278,7 +278,7 @@ Unfortunately, the <span style="color: #000000;">**Center Party**</span> has ref
 
 @convince_bvp_dvp
 view-if: bvp_candidate != dvp_candidate
-go-to: convince_bvp_success_dvp if (z_relation >= 45 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach" or dvp_candidate = "Eckener")) or (z_relation >= 55 and dvp_candidate = "Heuss") or (z_relation >= 40 and dvp_candidate = "Jarres"); convince_z_fail_dvp if not ((z_relation >= 45 and dvp_candidate = "Luther" or dvp_candidate = "Hellpach") or (z_relation >= 55 and dvp_candidate = "Jarres") or (z_relation >= 35 and dvp_candidate = "Heuss" or dvp_candidate = "Eckener"))
+go-to: convince_bvp_success_dvp if (z_relation >= 45 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach" or dvp_candidate = "Eckener")) or (z_relation >= 55 and dvp_candidate = "Heuss") or (z_relation >= 40 and dvp_candidate = "Jarres"); convince_z_fail_dvp if not ((z_relation >= 45 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach" or dvp_candidate = "Eckener")) or (z_relation >= 55 and dvp_candidate = "Heuss") or (z_relation >= 40 and dvp_candidate = "Jarres"))
 max-visits: 1
 
 We try to convince the <span style="color: #69A2BE;">**BVP**</span> to support [+dvp_candidate+].
@@ -294,6 +294,26 @@ on-arrival: bvp_relation -= 3
 go-to: endorsements_dvp
 
 Unfortunately, the <span style="color: #69A2BE;">**BVP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_csvd_dvp
+view-if: csvd_candidate != dvp_candidate
+go-to: convince_csvd_success_dvp if (csvd_relation >= 50 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach")) or (csvd_relation >= 55 and dvp_candidate = "Heuss") or (csvd_relation >= 40 and (dvp_candidate = "Jarres" or dvp_candidate = "Eckener")); convince_csvd_fail_dvp if not ((csvd_relation >= 50 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach")) or (csvd_relation >= 55 and dvp_candidate = "Heuss") or (csvd_relation >= 40 and (dvp_candidate = "Jarres" or dvp_candidate = "Eckener")))
+max-visits: 1
+
+We try to convince the <span style="color: #8ED8E4;">**CSVD**</span> to support [+dvp_candidate+].
+
+@convince_csvd_success_dvp
+on-arrival: csvd_candidate = dvp_candidate;
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #8ED8E4;">**CSVD**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_csvd_fail_dvp
+on-arrival: csvd_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #8ED8E4;">**CSVD**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 
