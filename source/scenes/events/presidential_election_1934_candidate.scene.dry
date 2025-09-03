@@ -226,8 +226,74 @@ A delusional choice, given his history of eccentricity, mental breakdowns, and h
 
 We can try to convince parties supporting other candidates to switch their support to [+dvp_candidate+].
 
+- @convince_dbp_dvp: Convince the <span style="color: #38C538;">**DBP**</span> to back [+dvp_candidate+].
+- @convince_z_dvp: Convince the <span style="color: #000000;">**Center Party**</span> to back [+dvp_candidate+].
+- @convince_bvp_dvp: Convince the <span style="color: #69A2BE;">**BVP**</span> to back [+dvp_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
+
+
+
+
+
+@convince_dbp_dvp
+view-if: dbp_candidate != dvp_candidate
+go-to: convince_dbp_success_dvp if (dbp_relation >= 40 and not dvp_candidate = "Jarres") or (dbp_relation >= 55 and dvp_candidate = "Jarres"); convince_dbp_fail_dvp if not ((dbp_relation >= 40 and not dvp_candidate = "Jarres") or (dbp_relation >= 55 and dvp_candidate = "Jarres"))
+max-visits: 1
+
+We try to convince the <span style="color: #38C538;">**DBP**</span> to support [+dvp_candidate+].
+
+@convince_dbp_success_dvp
+on-arrival: dbp_candidate = dvp_candidate;
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #38C538;">**DBP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_dbp_fail_dvp
+on-arrival: dbp_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #38C538;">**DBP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_z_dvp
+view-if: z_candidate != dvp_candidate
+go-to: convince_z_success_dvp if (z_relation >= 45 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach")) or (z_relation >= 55 and dvp_candidate = "Jarres") or (z_relation >= 35 and (dvp_candidate = "Heuss" or dvp_candidate = "Eckener")); convince_z_fail_dvp if not ((z_relation >= 45 and dvp_candidate = "Luther" or dvp_candidate = "Hellpach") or (z_relation >= 55 and dvp_candidate = "Jarres") or (z_relation >= 35 and dvp_candidate = "Heuss" or dvp_candidate = "Eckener"))
+max-visits: 1
+
+We try to convince the <span style="color: #000000;">**Center Party**</span> to support [+dvp_candidate+].
+
+@convince_z_success_dvp
+on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer";
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #000000;">**Center Party**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_z_fail_dvp
+on-arrival: z_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #000000;">**Center Party**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_bvp_dvp
+view-if: bvp_candidate != dvp_candidate
+go-to: convince_bvp_success_dvp if (z_relation >= 45 and (dvp_candidate = "Luther" or dvp_candidate = "Hellpach" or dvp_candidate = "Eckener")) or (z_relation >= 55 and dvp_candidate = "Heuss") or (z_relation >= 40 and dvp_candidate = "Jarres"); convince_z_fail_dvp if not ((z_relation >= 45 and dvp_candidate = "Luther" or dvp_candidate = "Hellpach") or (z_relation >= 55 and dvp_candidate = "Jarres") or (z_relation >= 35 and dvp_candidate = "Heuss" or dvp_candidate = "Eckener"))
+max-visits: 1
+
+We try to convince the <span style="color: #69A2BE;">**BVP**</span> to support [+dvp_candidate+].
+
+@convince_bvp_success_dvp
+on-arrival: bvp_candidate = dvp_candidate;
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #69A2BE;">**BVP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_bvp_fail_dvp
+on-arrival: bvp_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #69A2BE;">**BVP**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 
