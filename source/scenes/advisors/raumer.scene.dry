@@ -45,4 +45,4 @@ title: End the game.
 choose-if: year >= 1935
 subtitle: We can end the game now.
 unavailable-subtitle: Raumer wants to keep playing.
-go-to: 1934_end
+go-to: 1935_end

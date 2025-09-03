@@ -3,6 +3,9 @@ subtitle: Should we field our own candidate?
 new-page: true
 view-if: hindenburg_dead
 on-arrival: {!
+Q.next_presidential_election_year = Q.year + 7
+Q.next_presidential_election_month = Q.month
+
 if (!Q.hitler_deported) {
     Q.nsdap_candidate = "Hitler";
 } else {
@@ -34,6 +37,8 @@ Q.kpd_candidate = "Thälmann";
 Q.dvp_campaign = 0
 Q.braun_campaign = 1
 Q.adenauer_campaign = 1
+Q.reactionary_campaign = 1
+Q.harzburg_campaign = 1
 if (Q.ddp_exist) Q.heuss_campaign = 1
 !}
 max-visits: 1
@@ -49,6 +54,7 @@ WIP
 - @support_braun: Support Otto Braun of the <span style="color: #E3000F;">**SPD**</span>.
 - @support_heuss: Support Theodor Heuss.
 - @run_eckener: Support Hugo Eckener as a joint Republican Coalition candidate.
+- @run_jarres: Run Karl Jarres.
 - @run_luther: Run Hans Luther.
 - @run_heuss: Run Theodor Heuss.
 - @run_hellpach: Run Willy Hellpach.
@@ -78,29 +84,31 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if other_candidate = reactionary_candidate: - <span style="color: #909090;">**Others**</span> ?]
 
-[? if dvp_candidate = "Eckener" and dvp_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Luther" and dvp_campaign: <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss" and dvp_campaign: <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach" and dvp_campaign: <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
+[? if dvp_candidate = "Eckener" and dvp_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?][? if dvp_candidate = "Jarres" and dvp_campaign: <span style="color: #C0A054;">**Karl Jarres**</span> - supported by: ?][? if dvp_candidate = "Luther" and dvp_campaign: <span style="color: #C0A054;">**Hans Luther**</span> - supported by: ?][? if dvp_candidate = "Heuss" and dvp_campaign: <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?][? if dvp_candidate = "Hellpach" and dvp_campaign: <span style="color: #DCCA4A;">**Willy Hellpach**</span> - supported by: ?]
 
-[? if spd_candidate = "Eckener" or spd_candidate = "Luther" or (spd_candidate = "Heuss" and dvp_campaign) or spd_candidate = "Hellpach": - <span style="color: #E3000F;">**SPD**</span> ?]
+[? if spd_candidate = "Eckener" or spd_candidate = "Luther" or (spd_candidate = "Heuss" and not heuss_campaign) or spd_candidate = "Hellpach" or spd_candidate = "Jarres": - <span style="color: #E3000F;">**SPD**</span> ?]
 
-[? if (ddp_candidate = "Eckener" or ddp_candidate = "Luther" or (ddp_candidate = "Heuss" and dvp_campaign) or ddp_candidate = "Hellpach") and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+[? if (ddp_candidate = "Eckener" or ddp_candidate = "Luther" or (ddp_candidate = "Heuss" and not heuss_campaign) or ddp_candidate = "Hellpach" or ddp_candidate = "Jarres") and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if (dbp_candidate = "Eckener" or dbp_candidate = "Luther" or (dbp_candidate = "Heuss" and dvp_campaign) or dbp_candidate = "Hellpach") and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+[? if (dbp_candidate = "Eckener" or dbp_candidate = "Luther" or (dbp_candidate = "Heuss" and not heuss_campaign) or dbp_candidate = "Hellpach" or dbp_candidate = "Jarres") and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if z_candidate = "Eckener" or z_candidate = "Luther" or (z_candidate = "Heuss" and dvp_campaign) or z_candidate = "Hellpach": - <span style="color: #000000;">**Z**</span> ?]
+[? if z_candidate = "Eckener" or z_candidate = "Luther" or (z_candidate = "Heuss" and not heuss_campaign) or z_candidate = "Hellpach" or z_candidate = "Jarres": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if bvp_candidate = "Eckener" or bvp_candidate = "Luther" or (bvp_candidate = "Heuss" and dvp_campaign) or bvp_candidate = "Hellpach": - <span style="color: #69A2BE;">**BVP**</span> ?]
+[? if bvp_candidate = "Eckener" or bvp_candidate = "Luther" or (bvp_candidate = "Heuss" and not heuss_campaign) or bvp_candidate = "Hellpach" or bvp_candidate = "Jarres": - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if dvp_candidate = "Eckener" or dvp_candidate = "Luther" or (dvp_candidate = "Heuss" and dvp_campaign) or dvp_candidate = "Hellpach": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+[? if dvp_candidate = "Eckener" or dvp_candidate = "Luther" or (dvp_candidate = "Heuss" and not heuss_campaign) or dvp_candidate = "Hellpach" or dvp_candidate = "Jarres": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
-[? if (csvd_candidate = "Eckener" or csvd_candidate = "Luther" or (csvd_candidate = "Heuss" and dvp_campaign) or csvd_candidate = "Hellpach") and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+[? if (csvd_candidate = "Eckener" or csvd_candidate = "Luther" or (csvd_candidate = "Heuss" and not heuss_campaign) or csvd_candidate = "Hellpach" or csvd_candidate = "Jarres") and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
-[? if (wp_candidate = "Eckener" or wp_candidate = "Luther" or (wp_candidate = "Heuss" and dvp_campaign) or wp_candidate = "Hellpach") and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+[? if (wp_candidate = "Eckener" or wp_candidate = "Luther" or (wp_candidate = "Heuss" and not heuss_campaign) or wp_candidate = "Hellpach" or wp_candidate = "Jarres") and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
 
-[? if (cnblp_candidate = "Eckener" or cnblp_candidate = "Luther" or (cnblp_candidate = "Heuss" and dvp_campaign) or cnblp_candidate = "Hellpach") and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+[? if (cnblp_candidate = "Eckener" or cnblp_candidate = "Luther" or (cnblp_candidate = "Heuss" and not heuss_campaign) or cnblp_candidate = "Hellpach" or cnblp_candidate = "Jarres") and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
 
-[? if (kvp_candidate = "Eckener" or kvp_candidate = "Luther" or (kvp_candidate = "Heuss" and dvp_campaign) or kvp_candidate = "Hellpach") and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+[? if (kvp_candidate = "Eckener" or kvp_candidate = "Luther" or (kvp_candidate = "Heuss" and not heuss_campaign) or kvp_candidate = "Hellpach" or kvp_candidate = "Jarres") and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
 
-[? if dnvp_candidate = "Eckener" or dnvp_candidate = "Luther" or (dnvp_candidate = "Heuss" and dvp_campaign) or dnvp_candidate = "Hellpach": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+[? if dnvp_candidate = "Eckener" or dnvp_candidate = "Luther" or (dnvp_candidate = "Heuss" and not heuss_campaign) or dnvp_candidate = "Hellpach" or dnvp_candidate = "Jarres": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if (dnf_candidate = "Eckener" or dnf_candidate = "Luther" or (dnf_candidate = "Heuss" and not heuss_campaign) or dnf_candidate = "Hellpach" or dnf_candidate = "Jarres") and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
 
 [? if adenauer_campaign: <span style="color: #000000;">**Konrad Adenauer**</span> - supported by: ?]
 
@@ -136,6 +144,10 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
+[? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
+
 [? if dvp_candidate = "Braun": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 <span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
@@ -150,17 +162,29 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dvp_candidate = "Hugenberg": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
+[? if wp_candidate = "Hugenberg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
 [? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
 
 @run_eckener
 choose-if: dvp_ideology = "Left" and resources >= 1
-unavailable-subtitle: [? if not dvp_ideology = "Left": Why would we run a republican candidate? ?][? if resources < 1 : -1 resource - Not enough resources. ?]
+unavailable-subtitle: [? if resources < 1 : -1 resource - Not enough resources. ?][? if not dvp_ideology = "Left": Why would we run a republican candidate? ?]
 subtitle: -1 resource - After nominating him, we still have to convince the other parties to support him.
 on-departure: nationalist_dissent += 10; dvp_campaign = 1; resources -= 1; dvp_candidate = "Eckener";
 
 We will run Hugo Eckener.
+
+- @endorsements_dvp: Scout out potential endorsements.
+
+@run_jarres
+subtitle: -2 resource - Jarres was our candidate in 1925, before dropping out in favor of Hindenburg.
+unavailable-subtitle: [? if resources < 2 : -2 resource - Not enough resources. ?][? if not dvp_ideology = "Right": Our party doesn't want to run a right-wing candidate. ?]
+choose-if: resources >= 2 and dvp_ideology = "Right"
+on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Jarres";
+
+We will run Karl Jarres.
 
 - @endorsements_dvp: Scout out potential endorsements.
 
@@ -175,7 +199,7 @@ We will run Hans Luther.
 - @endorsements_dvp: Scout out potential endorsements.
 
 @run_heuss
-subtitle: -2 resource - WIP.
+subtitle: -2 resource - A rising star of the former <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> and a key figure in the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. Known for his strong republican beliefs, his support for Liberal Democracy, and his civic nationalism; he is a strong candidate who could garner the support of Social Democrats and centrists better than Luther or Hellpach.
 unavailable-subtitle: -2 resource - Not enough resources.
 choose-if: resources >= 2
 view-if: lvp_formed or nfvp_formed

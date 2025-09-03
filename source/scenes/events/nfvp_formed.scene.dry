@@ -51,6 +51,9 @@ if (Q.in_liberal_coalition == 1) {
 }
 
 
+if (Q.president_party == "DVP" || Q.president_party == Q.ddp_name) {
+  Q.president_party = Q.dvp_name
+}
 if (Q.chancellor_party == "DVP" || Q.chancellor_party == Q.ddp_name) {
   Q.chancellor_party = Q.dvp_name
 }

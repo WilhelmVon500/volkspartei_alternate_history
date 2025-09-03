@@ -29,7 +29,7 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-President: [+ president +]
+President: [+ president +] ([?if president_party=="I":<span style="color: #808080;">**I**</span>?][?if president_party=="KPD":<span style="color: #8B0000;">**KPD**</span>?][?if president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if president_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if president_party=="KVP":<span style="color: #455B95;">**KVP**</span>?][?if president_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if president_party=="DNF":<span style="color: #003755;">**DNF**</span>?][?if president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
 
 Chancellor: [+ chancellor +] ([?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?])
 
@@ -127,7 +127,7 @@ State President of Württemberg: [+ wurttemberg_leader +] ([?if wurttemberg_lead
 = Party Leadership
 
 [? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +]) ?]
-[? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Lemmer": Left Liberalism ([+ dvp_leader +]) ?] ?]
+[? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ([+ dvp_leader +]) ?] ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Dietrich": Classical Liberalism ?][? if dvp_leader = "Curtius": National Liberalism ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ?] ([+ dvp_leader +]) ?]
 
 <span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: Christian Democracy ([+ z_party_leader +])

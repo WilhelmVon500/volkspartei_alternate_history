@@ -1,4 +1,7 @@
 on-arrival: {!
+if (Q.president_party == "DDP") {
+  Q.president_party = Q.ddp_name
+}
 if (Q.chancellor_party == "DDP") {
   Q.chancellor_party = Q.ddp_name
 }
