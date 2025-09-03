@@ -34,25 +34,16 @@ for (var party of Q.parties) {
     }
     Q[party + '_support'] = party_support;
     total_support += party_support;
-    if (party == "other") {
-        if (Q.csvd_exist) Q.csvd_normalized = Q.workers_other_normalized*Q.workers;
-    }
 }
 // 2. normalize support (fraction)
 // 3. Round to integers
 // TODO: round to 1 decimal instead of rounding to integers
 // to do that, we multiply party_normalized*1000 and divide the rounded number by 10.
 for (var party of Q.parties) {
-    if (party == "other") {
-        if (Q.csvd_exist) Q.csvd_votes = (Q.csvd_normalized/total_support);
-    }
     Q[party+'_normalized'] = Q[party + '_support']/total_support;
     Q[party+'_votes'] = Math.round(Q[party+'_normalized']*1000)/10;
     Q[party + '_votes_disp'] = Q[party+'_votes'];
     // display
-    if (party == "other") {
-        Q.csvd_votes = Math.round(Q.csvd_votes*1000)/10;
-    }
 }
 !}
 go-to: jumpScene
