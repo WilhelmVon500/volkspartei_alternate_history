@@ -264,7 +264,7 @@ max-visits: 1
 We try to convince the <span style="color: #000000;">**Center Party**</span> to support [+dvp_candidate+].
 
 @convince_z_success_dvp
-on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer";
+on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = reactionary_candidate if dbp_candidate = "Adenauer" and reactionary_campaign; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = reactionary_candidate if bvp_candidate = "Adenauer" and reactionary_campaign; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer";
 go-to: endorsements_dvp
 
 Thanks to our friendly relations, the <span style="color: #000000;">**Center Party**</span> is now campaigning for [+dvp_candidate+] in the election.
