@@ -324,7 +324,7 @@ Theodor Heuss has unexpectedly won the presidency! With a committed <span style=
 @adenauer_wins
 on-arrival: president = "Adenauer"; president_party = "Z"; new_middle_z += 3; old_middle_z += 3; pro_republic += 3
 
-Konrad Adenauer has won the presidency! With a committed republican at the helm of Germany, the threat to the Republic has, for the most part, subsided.
+Konrad Adenauer has won the presidency! With a committed <span style="color: #000000;">repu</span><span style="color: #DD0000;">bli</span><span style="color: #FFCC00;">can</span> at the helm of Germany, the threat to the Republic has, for the most part, subsided.
 
 @braun_wins
 on-arrival: president = "Braun"; president_party = "SPD"; workers_spd += 5; unemployed_spd += 3; pro_republic += 3
