@@ -130,6 +130,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dvp_candidate = "Adenauer": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
+[? if csvd_candidate = "Adenauer" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+
 [? if heuss_campaign: <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?]
 
 [? if spd_candidate = "Heuss": - <span style="color: #E3000F;">**SPD**</span> ?]
@@ -232,14 +234,36 @@ A delusional choice, given his history of eccentricity, mental breakdowns, and h
 
 We can try to convince parties supporting other candidates to switch their support to [+dvp_candidate+].
 
+- @convince_spd_dvp: Convince the <span style="color: #E3000F;">**SPD**</span> to back [+dvp_candidate+].
 - @convince_dbp_dvp: Convince the <span style="color: #38C538;">**DBP**</span> to back [+dvp_candidate+].
 - @convince_z_dvp: Convince the <span style="color: #000000;">**Center Party**</span> to back [+dvp_candidate+].
 - @convince_bvp_dvp: Convince the <span style="color: #69A2BE;">**BVP**</span> to back [+dvp_candidate+].
+- @convince_csvd_dvp: Convince the <span style="color: #8ED8E4;">**CSVD**</span> to back [+dvp_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
 
 
+
+
+@convince_spd_dvp
+view-if: spd_candidate != dvp_candidate
+go-to: convince_spd_success_dvp if (spd_relation >= 50 and dvp_candidate = "Heuss") or (spd_relation >= 60 and not dvp_candidate = "Heuss"); convince_spd_fail_dvp if not ((spd_relation >= 50 and dvp_candidate = "Heuss") or (spd_relation >= 60 and not dvp_candidate = "Heuss"))
+max-visits: 1
+
+We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+dvp_candidate+].
+
+@convince_spd_success_dvp
+on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0; ddp_candidate = "Adenauer" if ddp_candidate = "Braun" and adenauer_campaign; ddp_candidate = dvp_candidate if ddp_candidate = "Braun";
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_spd_fail_dvp
+on-arrival: spd_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #E3000F;">**SPD**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 @convince_dbp_dvp
@@ -270,7 +294,7 @@ max-visits: 1
 We try to convince the <span style="color: #000000;">**Center Party**</span> to support [+dvp_candidate+].
 
 @convince_z_success_dvp
-on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = reactionary_candidate if dbp_candidate = "Adenauer" and reactionary_campaign; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = reactionary_candidate if bvp_candidate = "Adenauer" and reactionary_campaign; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer";
+on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = reactionary_candidate if dbp_candidate = "Adenauer" and reactionary_campaign; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = reactionary_candidate if bvp_candidate = "Adenauer" and reactionary_campaign; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer"; csvd_candidate = reactionary_candidate if csvd_candidate = "Adenauer" and reactionary_campaign; csvd_candidate = dvp_candidate if csvd_candidate = "Adenauer";
 go-to: endorsements_dvp
 
 Thanks to our friendly relations, the <span style="color: #000000;">**Center Party**</span> is now campaigning for [+dvp_candidate+] in the election.
@@ -296,7 +320,6 @@ go-to: endorsements_dvp
 Thanks to our friendly relations, the <span style="color: #69A2BE;">**BVP**</span> is now campaigning for [+dvp_candidate+] in the election.
 
 @convince_bvp_fail_dvp
-on-arrival: bvp_relation -= 3
 go-to: endorsements_dvp
 
 Unfortunately, the <span style="color: #69A2BE;">**BVP**</span> has refused to support [+dvp_candidate+] for the presidency.
