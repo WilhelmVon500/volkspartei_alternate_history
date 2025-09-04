@@ -383,9 +383,9 @@ on-arrival: dvp_candidate = "Adenauer"
 
 We will support Konrad Adenauer.
 
-- @endorsements_z: Scout out potential endorsements.
+- @endorsements_adenauer: Scout out potential endorsements.
 
-@endorsements_z
+@endorsements_adenauer
 
 We can try to convince parties supporting other candidates to switch their support to Adenauer.
 
@@ -403,12 +403,12 @@ We try to convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to 
 
 @convince_ddp_success_z
 on-arrival: ddp_candidate = z_candidate; heuss_campaign = 0;
-go-to: endorsements_z
+go-to: endorsements_adenauer
 
 Thanks to our friendly relations, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> is now campaigning for [+z_candidate+] in the election.
 
 @convince_ddp_fail_z
-go-to: endorsements_z
+go-to: endorsements_adenauer
 
 Unfortunately, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> has refused to support [+z_candidate+] for the presidency.
 
