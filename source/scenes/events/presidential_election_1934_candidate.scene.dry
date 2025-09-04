@@ -401,7 +401,7 @@ max-visits: 1
 We try to convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to support [+z_candidate+].
 
 @convince_ddp_success_z
-on-arrival: ddp_candidate = z_candidate;
+on-arrival: ddp_candidate = z_candidate; heuss_campaign = 0;
 go-to: endorsements_z
 
 Thanks to our friendly relations, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> is now campaigning for [+z_candidate+] in the election.
