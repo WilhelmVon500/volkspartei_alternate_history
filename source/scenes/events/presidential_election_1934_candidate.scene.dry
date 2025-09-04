@@ -272,19 +272,19 @@ view-if: ddp_candidate != dvp_candidate and ddp_exist
 go-to: convince_ddp_success_dvp if (ddp_relation >= 30 and ddp_ideology = "Right" and not dvp_candidate = "Jarres") or (ddp_relation >= 35 and (ddp_ideology = "Moderate" and not dvp_candidate = "Jarres") or (ddp_ideology = "Right" and ddp_candidate = "Jarres")) or (ddp_relation >= 40 and (ddp_ideology = "Left" and not dvp_candidate = "Jarres") or (ddp_ideology = "Moderate" and ddp_candidate = "Jarres")) or (ddp_relation >= 45 and (ddp_ideology = "Left" and dvp_candidate = "Jarres")); convince_ddp_fail_dvp if not ((ddp_relation >= 30 and ((ddp_ideology = "Right" or ddp_ideology = "Moderate") and not dvp_candidate = "Jarres")) or (ddp_relation >= 35 and (ddp_ideology = "Moderate" and not dvp_candidate = "Jarres") or (ddp_ideology = "Right" and ddp_candidate = "Jarres")) or (ddp_relation >= 40 and (ddp_ideology = "Left" and not dvp_candidate = "Jarres") or (ddp_ideology = "Moderate" and ddp_candidate = "Jarres")) or (ddp_relation >= 45 and (ddp_ideology = "Left" and dvp_candidate = "Jarres")))
 max-visits: 1
 
-We try to convince the <span style="color: #E3000F;">**[+ddp_name+]**</span> to support [+dvp_candidate+].
+We try to convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to support [+dvp_candidate+].
 
 @convince_ddp_success_dvp
 on-arrival: ddp_candidate = dvp_candidate; heuss_campaign = 0;
 go-to: endorsements_dvp
 
-Thanks to our friendly relations, the <span style="color: #E3000F;">**[+ddp_name+]**</span> is now campaigning for [+dvp_candidate+] in the election.
+Thanks to our friendly relations, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> is now campaigning for [+dvp_candidate+] in the election.
 
 @convince_ddp_fail_dvp
 on-arrival: ddp_relation -= 3
 go-to: endorsements_dvp
 
-Unfortunately, the <span style="color: #E3000F;">**[+ddp_name+]**</span> has refused to support [+dvp_candidate+] for the presidency.
+Unfortunately, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 @convince_dbp_dvp
