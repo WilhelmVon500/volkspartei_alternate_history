@@ -12,7 +12,14 @@ face-image: img/Kollwitz_Arbeitslosigkeit.jpg
 
 The economic crisis has caused mass layoffs all throughout Germany, affecting the industrial working class the hardest. Our welfare spending is increasing due to the greater need.
 
-In the midst of all this, our party's economic experts in cooperation with those of the <span style="color: #000000;">**Center Party**</span> have devised a plan to cut benefits for the unemployed, lower taxes on the rich, and raise taxes on the working class, as part of a plan to balance the budget and discipline labor. They see these reforms as paramount in order to keep our finances solvent. The <span style="color: #E3000F;">**SPD**</span>, however, has strenuously objected to the proposed budget modifications, seeing them as an attempt by the bourgeois to dismantle the welfare system they have fought so hard for. If we attempt to go forward with this plan, they are threatening to blow up the coalition. They have instead proposed their own measure to maintain budget solvency, which calls for increased taxes on the rich to keep the unemployment insurance program fully funded. Our industrialist backers and middle class base, however, see this as completely unacceptable.
+In the midst of all this, our party's economic experts in cooperation with those of the <span style="color: #000000;">**Center Party**</span> have devised a plan to cut benefits for the unemployed, lower taxes on the rich, and raise taxes on the working class, as part of a plan to balance the budget and discipline labor. They see these reforms as paramount in order to keep our finances solvent.
+
+The <span style="color: #E3000F;">**SPD**</span>, however, has strenuously objected to the proposed budget modifications, seeing it as an attempt by the bourgeois to dismantle the welfare system they have fought so hard for.
+
+If we attempt to go forward with this plan, they are threatening to blow up the coalition.
+
+They have instead proposed their own measure to maintain budget solvency, which calls for increased taxes on the rich to keep the unemployment insurance program fully funded. Our industrialist backers and middle class base, however, see this as completely unacceptable.
+
 Thankfully, President Hindenburg is on our side, and will likely support any attempts at passing these reforms by emergency decree if the government were to collapse.
 
 [? if unemployment_insurance_crisis = 2 : This is the second time our finances have been imperiled thusly. Obviously, the previous reforms have not sufficiently disciplined labor to allow the economy to recover. ?]
