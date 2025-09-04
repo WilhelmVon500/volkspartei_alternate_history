@@ -472,12 +472,12 @@ We try to convince the <span style="color: #000000;">**Center Party**</span> to 
 
 @convince_z_success_ddp
 on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = reactionary_candidate if dbp_candidate = "Adenauer" and reactionary_campaign; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = reactionary_candidate if bvp_candidate = "Adenauer" and reactionary_campaign; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer"; csvd_candidate = reactionary_candidate if csvd_candidate = "Adenauer" and reactionary_campaign; csvd_candidate = dvp_candidate if csvd_candidate = "Adenauer";
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Thanks to our friendly relations, the <span style="color: #000000;">**Center Party**</span> is now campaigning for [+dvp_candidate+] in the election.
 
 @convince_z_fail_ddp
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Unfortunately, the <span style="color: #000000;">**Center Party**</span> has refused to support [+dvp_candidate+] for the presidency.
 
@@ -491,12 +491,12 @@ We try to convince the <span style="color: #38C538;">**DBP**</span> to support [
 
 @convince_dbp_success_ddp
 on-arrival: dbp_candidate = dvp_candidate;
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Thanks to our friendly relations, the <span style="color: #38C538;">**DBP**</span> is now campaigning for [+dvp_candidate+] in the election.
 
 @convince_dbp_fail_ddp
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Unfortunately, the <span style="color: #38C538;">**DBP**</span> has refused to support [+dvp_candidate+] for the presidency.
 
@@ -510,12 +510,12 @@ We try to convince the <span style="color: #69A2BE;">**BVP**</span> to support [
 
 @convince_bvp_success_ddp
 on-arrival: bvp_candidate = dvp_candidate;
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Thanks to our friendly relations, the <span style="color: #69A2BE;">**BVP**</span> is now campaigning for [+dvp_candidate+] in the election.
 
 @convince_bvp_fail_ddp
-go-to: endorsements_ddp
+go-to: endorsements_heuss
 
 Unfortunately, the <span style="color: #69A2BE;">**BVP**</span> has refused to support [+dvp_candidate+] for the presidency.
 
