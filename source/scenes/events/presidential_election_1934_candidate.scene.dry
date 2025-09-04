@@ -389,6 +389,7 @@ We will support Konrad Adenauer.
 
 We can try to convince parties supporting other candidates to switch their support to Adenauer.
 
+- @convince_ddp_z: Convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to back [+z_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
@@ -410,25 +411,6 @@ Thanks to our friendly relations, the <span style="color: #DCCA4A;">**[+ddp_name
 go-to: endorsements_z
 
 Unfortunately, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> has refused to support [+z_candidate+] for the presidency.
-
-
-@convince_csvd_z
-view-if: csvd_candidate != z_candidate and csvd_exist
-go-to: convince_csvd_success_z if csvd_relation >= 45; convince_csvd_fail_z if not csvd_relation >= 45
-max-visits: 1
-
-We try to convince the <span style="color: #8ED8E4;">**CSVD**</span> to support [+z_candidate+].
-
-@convince_csvd_success_z
-on-arrival: csvd_candidate = z_candidate;
-go-to: endorsements_z
-
-Thanks to our friendly relations, the <span style="color: #8ED8E4;">**CSVD**</span> is now campaigning for [+z_candidate+] in the election.
-
-@convince_csvd_fail_z
-go-to: endorsements_z
-
-Unfortunately, the <span style="color: #8ED8E4;">**CSVD**</span> has refused to support [+z_candidate+] for the presidency.
 
 
 
