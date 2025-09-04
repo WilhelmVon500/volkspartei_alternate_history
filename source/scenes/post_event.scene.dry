@@ -288,9 +288,9 @@ if (Q.month_actions >= 1) {
             Q.economic_expansion += Q.economic_growth;
         }
     }
-    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.spd_in_government) {
+    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.dvp_in_government) {
         Q.economic_expansion += Q.economic_growth;
-    } else if (Q.economic_growth > 0 && Q.spd_in_government) {
+    } else if (Q.economic_growth > 0 && Q.dvp_in_government) {
         Q.economic_expansion += Q.economic_growth/2;
     }
     /////////////////////////////// update opinions based on economy
