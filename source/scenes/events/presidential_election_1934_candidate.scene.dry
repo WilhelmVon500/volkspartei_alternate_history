@@ -389,9 +389,29 @@ We will support Konrad Adenauer.
 
 We can try to convince parties supporting other candidates to switch their support to Adenauer.
 
+- @convince_spd_z: Convince the <span style="color: #E3000F;">**SPD**</span> to back [+z_candidate+].
 - @convince_ddp_z: Convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to back [+z_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
+
+
+@convince_spd_z
+view-if: spd_candidate != z_candidate
+go-to: convince_spd_success_z if (spd_relation >= 45 and nsdap_votes >= 20) or (spd_relation >= 50 and nsdap_votes >= 15) or spd_relation >= 55; convince_spd_fail_z if not ((spd_relation >= 45 and nsdap_votes >= 20) or (spd_relation >= 50 and nsdap_votes >= 15) or spd_relation >= 55)
+max-visits: 1
+
+We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+z_candidate+].
+
+@convince_spd_success_z
+on-arrival: spd_candidate = z_candidate; braun_campaign = 0;
+go-to: endorsements_adenauer
+
+Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+z_candidate+] in the election.
+
+@convince_spd_fail_z
+go-to: endorsements_adenauer
+
+Unfortunately, the <span style="color: #E3000F;">**SPD**</span> has refused to support [+z_candidate+] for the presidency.
 
 
 @convince_ddp_z
