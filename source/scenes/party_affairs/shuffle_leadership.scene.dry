@@ -454,7 +454,7 @@ Carl Severing is now an advisor.
 
 @add_luther
 title: Hans Luther
-subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Monetary Policy, Support a united liberal party ?]
+subtitle: Hans Luther is a prominent politician and banker, who has served as Chancellor in 1925-1926. {!<br><br>!}[? if difficulty < 0 : Actions - Monetary Policy[?if not lvp_formed and not nfvp_formed:, Support a united liberal party ?] ?]
 is-card: true
 card-image: img/portraits/LutherHans.jpg
 tags: liberal_advisor
