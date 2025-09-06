@@ -558,29 +558,29 @@ if (Q.month_actions >= 1) {
                 Q.new_middle_csvd += 4/12;
             }
             if (Q.dnf_formed) {
-                if (Q.new_middle_dnvp < 60) {
+                if (Q.new_middle_dnvp_normalized < 20) {
                     Q.new_middle_dnf -= 0.25;
                     Q.new_middle_dnvp += 0.3;
                 }
-                if (Q.rural_dnvp < 90) {
+                if (Q.rural_dnvp_normalized < 30) {
                     Q.rural_dnf -= 0.6;
                     Q.rural_dnvp += 0.6;
                 }
-                if (Q.old_middle_dnvp < 60) {
+                if (Q.old_middle_dnvp_normalized < 20) {
                     Q.old_middle_dnf -= 0.4;
                     Q.old_middle_dnvp += 0.4;
                 }
             }
             if (Q.kvp_formed) {
-                if (Q.new_middle_kvp < 70) {
+                if (Q.new_middle_kvp_normalized < 25) {
                     Q.new_middle_dnvp -= 0.25;
                     Q.new_middle_kvp += 0.3;
                 }
-                if (Q.rural_kvp < 60) {
+                if (Q.rural_kvp_normalized < 20) {
                     Q.rural_dnvp -= 0.6;
                     Q.rural_kvp += 0.6;
                 }
-                if (Q.old_middle_kvp < 70) {
+                if (Q.old_middle_kvp_normalized < 25) {
                     Q.old_middle_dnvp -= 0.4;
                     Q.old_middle_kvp += 0.4;
                 }

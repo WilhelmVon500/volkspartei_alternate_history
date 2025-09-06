@@ -243,6 +243,15 @@ go-to: rm_main
 
 Dietrich has been removed as an advisor. The Democratic faction disapproves.
 
+@remove_hellpach
+title: Remove Hellpach
+view-if: hellpach_advisor = 1
+tags: remove_advisor
+on-arrival: hellpach_advisor = 0; democratic_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Hellpach has been removed as an advisor. The Democratic faction disapproves.
+
 @remove_leber
 title: Remove Leber
 view-if: leber_advisor = 1
@@ -677,17 +686,17 @@ tags: democratic_advisor
 
 Hermann Dietrich is now an advisor.
 
-@add_leber
-title: Julius Leber
-subtitle: Julius Leber is a former Reichswehr officer who resigned in opposition to the Kapp coup attempt. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Democracy, Military Affairs, Building a People's Party ?]
+@add_hellpach
+title: Willy Hellpach
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-card-image: img/portraits/LeberJulius.jpg
-view-if: leber_advisor = 0 and n_advisors < 3
-on-arrival: leber_advisor = 1; n_advisors += 1; democratic_strength += 5
+card-image: img/portraits/HellpachWilly.jpg
+view-if: hellpach_advisor = 0 and n_advisors < 3
+on-arrival: hellpach_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
 
-Julius Leber is now an advisor.
+Willy Hellpach is now an advisor.
 
 
 # Progressive advisors
