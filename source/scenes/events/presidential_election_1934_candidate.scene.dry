@@ -472,7 +472,7 @@ max-visits: 1
 We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+dvp_candidate+].
 
 @convince_spd_success_ddp
-on-arrival: spd_candidate = dvp_candidate;
+on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0;
 go-to: endorsements_heuss
 
 Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+dvp_candidate+] in the election.
