@@ -1431,6 +1431,7 @@ Who will be the justice minister?
 @heinze_justice
 on-arrival: foreign_minister = "Heinze"; foreign_minister_party = dvp_name;
 go-to: ministries
+face-image: img/portraits/HeinzeRudolf.jpg
 
 Rudolf Heinze of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
 
@@ -1438,6 +1439,7 @@ Rudolf Heinze of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</
 on-arrival: foreign_minister = "Schiffer"; foreign_minister_party = dvp_name;
 view-if: lvp_formed or nfvp_formed
 go-to: ministries
+face-image: img/portraits/SchifferEugen.jpg
 
 Eugen Schiffer of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
 
@@ -1459,12 +1461,14 @@ Who will be the foreign minister?
 on-arrival: foreign_minister = "Stresemann"; foreign_minister_party = dvp_name;
 view-if: not stresemann_dead
 go-to: ministries
+face-image: img/portraits/StresemannGustav.jpg
 
 Gustav Stresemann of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Foreign Minister.
 
 @curtius_foreign
 on-arrival: foreign_minister = "Curtius"; foreign_minister_party = dvp_name;
 go-to: ministries
+face-image: img/portraits/CurtiusJulius.jpg
 
 Julius Curtius of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Foreign Minister.
 
