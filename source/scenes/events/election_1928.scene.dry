@@ -1423,6 +1423,8 @@ choose-if: leverage >= 10
 view-if: justice_minister_party != dvp_name
 on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister = "Heinze"; justice_minister = "Schiffer" if lvp_formed or nfvp_formed
 
+Who will be the justice minister?
+
 - @heinze_justice: Rudolf Heinze
 - @schiffer_justice: Eugen Schiffer
 
@@ -1447,6 +1449,8 @@ tags: mins_1928
 choose-if: leverage >= 5 
 view-if: foreign_minister_party != dvp_name
 on-arrival: leverage -= 5;
+
+Who will be the foreign minister?
 
 - @stresemann_foreign: Gustav Stresemann
 - @curtius_foreign: Julius Curtius
