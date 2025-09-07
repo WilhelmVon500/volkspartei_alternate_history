@@ -1409,10 +1409,28 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 5 
 view-if: economic_minister_party != dvp_name
-on-arrival: leverage -= 5; economic_minister_party = dvp_name; economic_minister = "Krohne"; economic_minister = "Hamm" if lvp_formed or nfvp_formed
-go-to: ministries
+on-arrival: leverage -= 5;
 
-[? if economic_minister = "Krohne": Rudolf Krohne ?][? if economic_minister = "Hamm": Eduard Hamm ?] of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Economic Minister.
+Who will be the economic minister?
+
+- @krohne_economic: Rudolf Krohne
+- @hamm_economic: Eduard Hamm
+
+@krohne_economic
+on-arrival: foreign_minister = "Krohne"; foreign_minister_party = dvp_name;
+go-to: ministries
+face-image: img/portraits/KrohneRudolf.jpg
+
+Rudolf Krohne of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Economic Minister.
+
+@hamm_economic
+on-arrival: foreign_minister = "Hamm"; foreign_minister_party = dvp_name;
+view-if: lvp_formed or nfvp_formed
+go-to: ministries
+face-image: img/portraits/HammEduard.jpg
+
+Eduard Hamm of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Economic Minister.
+
 
 @justice
 title: Justice Ministry
@@ -1421,7 +1439,7 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
 view-if: justice_minister_party != dvp_name
-on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister = "Heinze"; justice_minister = "Schiffer" if lvp_formed or nfvp_formed
+on-arrival: leverage -= 10;
 
 Who will be the justice minister?
 
