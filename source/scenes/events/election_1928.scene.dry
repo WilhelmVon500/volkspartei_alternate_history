@@ -1426,7 +1426,7 @@ on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister 
 - @heinze_justice: Rudolf Heinze
 - @schiffer_justice: Eugen Schiffer
 
-@heinze_foreign
+@heinze_justice
 on-arrival: foreign_minister = "Heinze"; foreign_minister_party = dvp_name;
 go-to: ministries
 
