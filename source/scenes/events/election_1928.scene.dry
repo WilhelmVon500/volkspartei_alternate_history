@@ -1422,9 +1422,22 @@ tags: mins_1928
 choose-if: leverage >= 10 
 view-if: justice_minister_party != dvp_name
 on-arrival: leverage -= 10; justice_minister_party = dvp_name; justice_minister = "Heinze"; justice_minister = "Schiffer" if lvp_formed or nfvp_formed
+
+- @heinze_justice: Rudolf Heinze
+- @schiffer_justice: Eugen Schiffer
+
+@heinze_foreign
+on-arrival: foreign_minister = "Heinze"; foreign_minister_party = dvp_name;
 go-to: ministries
 
-[? if justice_minister = "Heinze": Rudolf Heinze ?][? if justice_minister = "Schiffer": Eugen Schiffer ?] of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
+Rudolf Heinze of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
+
+@schiffer_justice
+on-arrival: foreign_minister = "Schiffer"; foreign_minister_party = dvp_name;
+view-if: lvp_formed or nfvp_formed
+go-to: ministries
+
+Eugen Schiffer of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
 
 @foreign
 title: Foreign Ministry
@@ -1433,21 +1446,34 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 5 
 view-if: foreign_minister_party != dvp_name
-on-arrival: leverage -= 5; foreign_minister_party = dvp_name; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if stresemann_dead
+on-arrival: leverage -= 5;
+
+- @stresemann_foreign: Gustav Stresemann
+- @curtius_foreign: Julius Curtius
+
+@stresemann_foreign
+on-arrival: foreign_minister = "Stresemann"; foreign_minister_party = dvp_name;
+view-if: not stresemann_dead
 go-to: ministries
 
-[? if stresemann_dead = 0: Gustav Stresemann ?][? if stresemann_dead = 1: Julius Curtius ?] of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Foreign Minister.
+Gustav Stresemann of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Foreign Minister.
+
+@curtius_foreign
+on-arrival: foreign_minister = "Curtius"; foreign_minister_party = dvp_name;
+go-to: ministries
+
+Julius Curtius of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Foreign Minister.
 
 
 @agriculture
 title: Agricultural Ministry
 subtitle: This is not our usual domain.
 unavailable-subtitle: We do not have enough leverage.
+tags: mins_1928
 choose-if: leverage >= 10 
 view-if: agriculture_minister_party != dvp_name
 on-arrival: leverage -= 10; agriculture_minister_party = dvp_name; agriculture_minister = "Kanitz"
 go-to: ministries
-tags: mins_1928
 
 Gerhard von Kanitz of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Agriculture Minister.
 
