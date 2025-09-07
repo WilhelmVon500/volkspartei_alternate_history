@@ -553,7 +553,7 @@ subtitle: The sensible socialist reformer from the <span style="color: #E3000F;"
 view-if: braun_campaign
 choose-if: dvp_ideology = "Left"
 unavailable-subtitle: We do not bow to socialists, whether revolutionary or “moderate”, they are socialists all the same.
-on-arrival: industrialist_dissent += 15; nationalist_dissent += 30; dvp_candidate = "Braun"
+on-arrival: industrialist_dissent += 15; nationalist_dissent += 30; dvp_candidate = "Braun"; spd_relation += 5
 
 We will support Otto Braun.
 
@@ -563,8 +563,68 @@ We will support Otto Braun.
 
 We can try to convince parties supporting other candidates to switch their support to Braun.
 
+- @convince_ddp_spd: Convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to back [+dvp_candidate+].
+- @convince_dbp_spd: Convince the <span style="color: #38C538;">**DBP**</span> to back [+dvp_candidate+].
+- @convince_z_spd: Convince the <span style="color: #000000;">**Center Party**</span> to back [+dvp_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
+
+
+@convince_ddp_spd
+view-if: ddp_candidate != dvp_candidate and ddp_exist
+go-to: convince_ddp_success_spd if ddp_relation >= 35; convince_ddp_fail_spd if not (ddp_relation >= 35)
+max-visits: 1
+
+We try to convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to support [+dvp_candidate+].
+
+@convince_ddp_success_spd
+on-arrival: ddp_candidate = dvp_candidate; heuss_campaign = 0;
+go-to: endorsements_braun
+
+Thanks to our friendly relations, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_ddp_fail_spd
+go-to: endorsements_braun
+
+Unfortunately, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_dbp_spd
+view-if: dbp_candidate != dvp_candidate
+go-to: convince_dbp_success_spd if dbp_relation >= 55; convince_dbp_fail_spd if not dbp_relation >= 55
+max-visits: 1
+
+We try to convince the <span style="color: #38C538;">**DBP**</span> to support [+dvp_candidate+].
+
+@convince_dbp_success_spd
+on-arrival: dbp_candidate = dvp_candidate;
+go-to: endorsements_braun
+
+Thanks to our friendly relations, the <span style="color: #38C538;">**DBP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_dbp_fail_spd
+go-to: endorsements_braun
+
+Unfortunately, the <span style="color: #38C538;">**DBP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_z_spd
+view-if: z_candidate != dvp_candidate
+go-to: convince_z_success_spd if z_relation >= 40; convince_z_fail_spd if not z_relation >= 40
+max-visits: 1
+
+We try to convince the <span style="color: #000000;">**Center Party**</span> to support [+dvp_candidate+].
+
+@convince_z_success_spd
+on-arrival: z_candidate = dvp_candidate; adenauer_campaign = 0; dbp_candidate = reactionary_candidate if dbp_candidate = "Adenauer" and reactionary_campaign; dbp_candidate = dvp_candidate if dbp_candidate = "Adenauer"; bvp_candidate = reactionary_candidate if bvp_candidate = "Adenauer" and reactionary_campaign; bvp_candidate = dvp_candidate if bvp_candidate = "Adenauer"; csvd_candidate = reactionary_candidate if csvd_candidate = "Adenauer" and reactionary_campaign; csvd_candidate = dvp_candidate if csvd_candidate = "Adenauer";
+go-to: endorsements_braun
+
+Thanks to our friendly relations, the <span style="color: #000000;">**Center Party**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_z_fail_spd
+go-to: endorsements_braun
+
+Unfortunately, the <span style="color: #000000;">**Center Party**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 
