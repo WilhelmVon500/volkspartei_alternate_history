@@ -16,6 +16,7 @@ The <span style="color: #C0A054;">**DVP**</span> cannot govern by itself yet. Be
 - @spd: Strengthen our bonds with the Social Democratic Party.
 - @kvp: Strengthen our bonds with the Conservative People's Party.
 - @dnvp
+- @bourgeois: Strengthen our relations bonds with smaller bourgeois parties.
 - @dvp_alone: The <span style="color: #C0A054;">**DVP**</span> can stand alone for now.
 - @easy_discard
 
@@ -80,6 +81,16 @@ unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; DNVP_relation += 5*(1 - dissent)
 
 [? if dnvp_ideology = "Radical" and dvp_ideology = "Right": Our mutual disdain for the Weimar Republic’s parliamentary catastrophe has made us natural allies with the radicalized DNVP. ?][? if dnvp_ideology = "Moderate" and not dnvp_leader = "Treviranus" and dvp_ideology = "Right": The DNVP’s reluctance to participate in the Reichstag under the moderates has made them a possible ally, despite our differences. ?][? if dnvp_leader = "Treviranus" and dvp_ideology = "Right": Ties with the DNVP have grown increasingly strained with our rapidly diverging views on the Republic, but negotiations are still possible with their nationalistic tendencies. ?][? if dnvp_ideology = "Radical" and dvp_ideology = "Left": Having the DNVP barrel towards rabid anti-parliamentarian tendencies has made any attempts of reconciliation increasingly moot. ?][? if dnvp_ideology = "Moderate" and not dnvp_leader = "Treviranus" and dvp_ideology = "Left": With the DNVP embracing a middle ground between the young parliamentarians and the radicals, perhaps we could find some compromise. ?][? if dnvp_leader = "Treviranus" and dvp_ideology = "Left": Having followed us in our more republican stance, the DNVP could be a great ally, should the SPD either be entirely excluded from government or embrace a radical rightward shift. ?]
+
+
+@bourgeois
+subtitle: -1 resources
+view-if: dbp_exist or csvd_exist or wp_exist or cnblp_exist
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; dbp_relation += 4*(1 - dissent); csvd_relation += 4*(1 - dissent); wp_relation += 4*(1 - dissent); cnblp_relation += 4*(1 - dissent)
+
+We have improved our relations with some smaller bourgeois parties.
 
 
 @dvp_alone
