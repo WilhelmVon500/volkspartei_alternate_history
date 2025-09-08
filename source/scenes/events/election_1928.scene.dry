@@ -1512,6 +1512,7 @@ Gustav Stresemann of the <span style="color: var(--dvp-color);">**[+ dvp_name +]
 
 @curtius_foreign
 on-arrival: foreign_minister = "Curtius"; foreign_minister_party = dvp_name;
+view-if: stresemann_dead
 go-to: ministries
 face-image: img/portraits/CurtiusJulius.jpg
 
