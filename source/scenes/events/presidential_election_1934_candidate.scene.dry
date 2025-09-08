@@ -162,7 +162,7 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
 
-[? if dnvp_candidate = "Hugenberg": <span style="color: #3F7BC1;">**Alfred Hugenberg**</span> - supported by: ?][? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Alfred Hugenberg**</span> - supported by: ?]
+[? if dnvp_candidate = "Hugenberg" and not dnf_formed: <span style="color: #3F7BC1;">**Alfred Hugenberg**</span> - supported by: ?][? if dnf_candidate = "Hugenberg" and dnf_formed: <span style="color: #003755;">**Alfred Hugenberg**</span> - supported by: ?]
 
 [? if dvp_candidate = "Hugenberg": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
@@ -657,7 +657,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 
 
 @support_hugenberg
-subtitle: A fellow skeptic of the republic leading the [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>?], considered by many as a delusional megalomaniac.
+subtitle: A fellow skeptic of the republic leading the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnvp_ideology = "Moderate": <span style="color: #003755;">**DNF**</span>?], considered by many as a delusional megalomaniac.
 choose-if: dvp_ideology = "Right"
 unavailable-subtitle: As long as the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> holds some respect for itself, the party will not endorse this lunatic.
 on-arrival: dvp_candidate = "Hugenberg"
