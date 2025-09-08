@@ -287,7 +287,6 @@ if (Q.bvp_r) {
         "seats": Math.round(Q.bvp_r*5),
     });
 }
-]);
 if (Q.nfvp_formed && Q.dvp_r) {
     data.push({
         "id": "nfvp",
