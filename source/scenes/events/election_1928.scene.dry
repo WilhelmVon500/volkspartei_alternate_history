@@ -1375,10 +1375,27 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 15
 view-if: labor_minister_party != dvp_name
-on-arrival: leverage -= 15; labor_minister_party = dvp_name; labor_minister = "Thiel"
-go-to: ministries
+on-arrival: leverage -= 15
 
-Otto Thiel of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed labor minister.
+Who will be the labor minister?
+
+- @thiel_labor: Otto Thiel
+- @erkelenz_labor: Anton Erkelenz
+
+@thiel_labor
+on-arrival: labor_minister = "Thiel"; labor_minister_party = dvp_name;
+go-to: ministries
+face-image: img/portraits/ThielOtto.jpg
+
+Otto Thiel of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Labor Minister.
+
+@erkelenz_labor
+on-arrival: labor_minister = "Erkelenz"; labor_minister_party = dvp_name;
+view-if: lvp_formed or nfvp_formed
+go-to: ministries
+face-image: img/portraits/ErkelenzAnton.jpg
+
+Anton Erkelenz of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Labor Minister.
 
 @interior
 title: Interior Ministry
@@ -1416,10 +1433,27 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 5 
 view-if: finance_minister_party != dvp_name
-on-arrival: leverage -= 5; finance_minister_party = dvp_name; finance_minister = "Moldenhauer"
+on-arrival: leverage -= 5; 
+
+Who will be the finance minister?
+
+- @moldenhauer_finance: Paul Moldenhauer
+- @dietrich_finance: Hermann Dietrich
+
+@moldenhauer_finance
+on-arrival: finance_minister = "Moldenhauer"; finance_minister_party = dvp_name;
 go-to: ministries
+face-image: img/portraits/MoldenhauerPaul.jpg
 
 Paul Moldenhauer of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Finance Minister.
+
+@dietrich_finance
+on-arrival: finance_minister = "Dietrich"; finance_minister_party = dvp_name;
+view-if: lvp_formed or nfvp_formed
+go-to: ministries
+face-image: img/portraits/HermannDietrich.jpg
+
+Hermann Dietrich of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Finance Minister.
 
 @economic
 title: Economic Ministry
@@ -1538,10 +1572,27 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 15 
 view-if: reichswehr_minister_party != dvp_name
-on-arrival: leverage -= 15; reichswehr_minister_party = dvp_name; reichswehr_minister = "Seeckt"; reichswehr_minister = "Gessler" if lvp_formed or nfvp_formed
-go-to: ministries
+on-arrival: leverage -= 15
 
-[? if reichswehr_minister = "Seeckt": Hans von Seeckt ?][? if reichswehr_minister = "Gessler": Otto Gessler ?] of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Reichswehr Minister.
+Who will be the Reichswehr minister?
+
+- @seeckt_reichswehr: Hans von Seeckt
+- @gessler_reichswehr: Otto Gessler
+
+@seeckt_reichswehr
+on-arrival: reichswehr_minister = "Seeckt"; reichswehr_minister_party = dvp_name;
+go-to: ministries
+face-image: img/portraits/SeecktHans.jpg
+
+Hans von Seeckt of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Reichswehr Minister.
+
+@gessler_reichswehr
+on-arrival: reichswehr_minister = "Gessler"; reichswehr_minister_party = dvp_name;
+view-if: lvp_formed or nfvp_formed
+go-to: ministries
+face-image: img/portraits/GesslerOtto.jpg
+
+Otto Gessler of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Reichswehr Minister.
 
 
 
