@@ -38,7 +38,7 @@ Germany, like the rest of the world, is still deep in the economic crisis, even 
 
 @stable_currency_out_of_gov
 title: German representatives call for stable currency, along with Britain and France.
-view-if: not spd_in_government
+view-if: not dvp_in_government
 on-arrival: west_relation += 1
 
 As expected, the conservative German bankers support Britain and France's plan to stabilize currency exchange rates. In response to the continued support for fixed currency exchange rates and the impasse on debts, the Americans pull out of the conference, leaving it with no agreements whatsoever.
@@ -49,14 +49,14 @@ As expected, the conservative German bankers support Britain and France's plan t
 
 @support_roosevelt
 title: Support Roosevelt's ideas - we must devalue currency.
-view-if: spd_in_government
+view-if: dvp_in_government
 
 
 We support Roosevelt's plan for controlled inflation, leaving us at odds with the European powers. In response to the continued support for fixed currency exchange rates by France and Britain and the impasse on debts, the Americans pull out of the conference, leaving it with no agreements whatsoever.
 
 @support_france
 title: Support France and Britain - we must have stable currency.
-view-if: spd_in_government
+view-if: dvp_in_government
 on-arrival: west_relation += 1; eu_progress += 1
 
 Our position brings us closer to other European powers. In response to the continued support for fixed currency exchange rates and the impasse on debts, the Americans pull out of the conference, leaving it with no agreements whatsoever.
@@ -64,7 +64,7 @@ Our position brings us closer to other European powers. In response to the conti
 
 @salvage
 title: Can we try to salvage the negotiations?
-view-if: spd_in_government
+view-if: dvp_in_government
 
 How should we try to salvage the negotiations?
 
@@ -73,22 +73,22 @@ How should we try to salvage the negotiations?
 - @no_business: Nothing can be done.
 
 @salvage_currency
-choose-if: woytinsky_advisor = 1 and wtb_implemented > 1
-unavailable-subtitle: Wladimir Woytinsky would be extremely helpful right now.
-on-arrival: unemployed -= 2 if unemployed >= 10; unemployed -= 1.5 if unemployed >= 5; inflation += 1.5; workers_spd += 4*(1-dissent); new_middle_spd += 3*(1-dissent); economic_growth += 1.5 if economic_growth < 3
+choose-if: lautenbach_plan_progress > 0 and schacht_plan_progress = 0
+unavailable-subtitle: [? if lautenbach_plan_progress = 0 and schacht_plan_progress = 0 : We need some evidence that this course of action would be economically beneficial. Perhaps if we had implemented an economic plan of our own? ?] [? if schacht_plan_progress > 0: Hjalmar Schacht's economic policies have worked, but the Entente is angered by our blatant violations of the Treaty of Versailles, and is unlikely to be amenable to negotiation. ?]
+on-arrival: unemployed -= 2 if unemployed >= 10; unemployed -= 1.5 if unemployed >= 5; inflation += 1.5; workers_dvp += 4*(1-dissent); new_middle_dvp += 3*(1-dissent); economic_growth += 1.5 if economic_growth < 3
 
-Wladimir Woytinsky, now part of our delegation to the conference, uses our successful implementation of the WTB-plan in order to argue for loosening currency valuation. The argument is at least somewhat convincing, and an agreement is reached, leading to increased inflation and demand stimulus throughout the world.
+Wilhelm Lautenbach, part of our delegation to the conference, uses our successful implementation of the Lautenbach plan in order to argue for loosening currency valuation. The argument is at least somewhat convincing, and an agreement is reached, leading to increased inflation and demand stimulus throughout the world.
 
 @salvage_debts
 choose-if: reparations <= -2 and pacifism >= 3 and (rearmament_exposed or west_relation >= 3)
 unavailable-subtitle: We cannot argue for pacifism in our current state.
-on-arrival: budget += 1; unemployed -= 1 if unemployed >= 10; unemployed -= 1 if unemployed >= 5; inflation += 1 if inflation < 0; new_middle_spd += 4*(1-dissent); workers_spd += 3*(1-dissent); economic_growth += 1 if economic_growth < 3
+on-arrival: budget += 1; unemployed -= 1 if unemployed >= 10; unemployed -= 1 if unemployed >= 5; inflation += 1 if inflation < 0; new_middle_dvp += 4*(1-dissent); workers_dvp += 3*(1-dissent); economic_growth += 1 if economic_growth < 3
 
 We try to argue that reducing war debts will reduce the risk of a future European war, using our successful disarmament and the reduction in Versailles reparation payments as an argument. The argument is at least somewhat convincing to the Americans, leading to an agreement to reduce debts from the Great War. This indirectly also improves our economy.
 
 @no_business
 title: This conference is none of our concern.
-view-if: spd_in_government
+view-if: !dvp_in_government
 
 The conference collapses, as expected. In response to the continued support for fixed currency exchange rates and the impasse on debts, the Americans pull out of the conference, leaving it with no agreements whatsoever.
 
