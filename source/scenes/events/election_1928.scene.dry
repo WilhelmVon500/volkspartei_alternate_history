@@ -1451,7 +1451,7 @@ Paul Moldenhauer of the <span style="color: var(--dvp-color);">**[+ dvp_name +]*
 on-arrival: finance_minister = "Dietrich"; finance_minister_party = dvp_name;
 view-if: lvp_formed or nfvp_formed
 go-to: ministries
-face-image: img/portraits/HermannDietrich.jpg
+face-image: img/portraits/DietrichHermann.jpg
 
 Hermann Dietrich of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Finance Minister.
 
