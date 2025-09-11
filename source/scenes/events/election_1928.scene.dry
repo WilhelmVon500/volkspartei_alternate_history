@@ -1514,6 +1514,7 @@ on-arrival: leverage -= 10;
 Who will be the justice minister?
 
 - @heinze_justice: Rudolf Heinze
+- @kardorff_justice: Siegfried Kardorff
 - @schiffer_justice: Eugen Schiffer
 
 @heinze_justice
@@ -1522,6 +1523,13 @@ go-to: ministries
 face-image: img/portraits/HeinzeRudolf.jpg
 
 Rudolf Heinze of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
+
+@kardorff_justice
+on-arrival: justice_minister = "Kardorff"; justice_minister_party = dvp_name;
+go-to: ministries
+face-image: img/portraits/KardorffSiegfried.jpg
+
+Siegfried Kardorff of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Justice Minister.
 
 @schiffer_justice
 on-arrival: justice_minister = "Schiffer"; justice_minister_party = dvp_name;
