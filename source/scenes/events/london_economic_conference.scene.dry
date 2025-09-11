@@ -88,7 +88,7 @@ We try to argue that reducing war debts will reduce the risk of a future Europea
 
 @no_business
 title: This conference is none of our concern.
-view-if: !dvp_in_government
+view-if: not dvp_in_government
 
 The conference collapses, as expected. In response to the continued support for fixed currency exchange rates and the impasse on debts, the Americans pull out of the conference, leaving it with no agreements whatsoever.
 
