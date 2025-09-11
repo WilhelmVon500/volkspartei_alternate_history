@@ -1469,6 +1469,7 @@ Who will be the economic minister?
 - @curtius_economic: Julius Curtius
 - @krohne_economic: Rudolf Krohne
 - @hamm_economic: Eduard Hamm
+- @lejeune_jung_economic: Paul Lejeune-Jung
 
 @curtius_economic
 on-arrival: economic_minister = "Curtius"; economic_minister_party = dvp_name;
@@ -1491,6 +1492,14 @@ go-to: ministries
 face-image: img/portraits/HammEduard.jpg
 
 Eduard Hamm of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Economic Minister.
+
+@lejeune_jung_economic
+on-arrival: economic_minister = "Lejeune-Jung"; economic_minister_party = dvp_name;
+view-if: peoples_conservatives_dvp
+go-to: ministries
+face-image: img/portraits/LejeuneJungPaul.jpg
+
+Paul Lejeune-Jung of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Economic Minister.
 
 
 @justice
