@@ -1,6 +1,6 @@
 title: Presidential Election
 subtitle: [? if hindenburg_run: Hindenburg runs for re-election... ?][? if not hindenburg_run: The first round results have come in... ?]
-view-if: year = 1934 and month >= 9 and presidential_election_1934_seen = 0
+view-if: year = 1934 and month >= 9 and presidential_election_1934_seen = 0 and (president = "Bumke" or president = "Großmann")
 frequency: 1000
 max-visits: 1
 new-page: true
