@@ -1560,10 +1560,27 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
 view-if: agriculture_minister_party != dvp_name
-on-arrival: leverage -= 10; agriculture_minister_party = dvp_name; agriculture_minister = "Kanitz"
+on-arrival: leverage -= 10
+
+Who will be the agriculture minister?
+
+- @kanitz_agriculture: Gerhard von Kanitz
+- @fehr_agriculture: Anton Fehr
+
+@kanitz_agriculture
+on-arrival: agriculture_minister = "Kanitz"; agriculture_minister_party = dvp_name;
 go-to: ministries
+face-image: img/portraits/KanitzGerhard.jpg
 
 Gerhard von Kanitz of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Agriculture Minister.
+
+@fehr_agriculture
+on-arrival: agriculture_minister = "Fehr"; agriculture_minister_party = dvp_name;
+view-if: dbp_dvp
+go-to: ministries
+face-image: img/portraits/FehrAnton.jpg
+
+Anton Fehr of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Agriculture Minister.
 
 @reichswehr
 title: Reichswehr Ministry
