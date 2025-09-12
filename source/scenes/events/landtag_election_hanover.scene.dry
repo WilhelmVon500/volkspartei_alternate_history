@@ -471,7 +471,8 @@ Otto Schmidt was chosen.
 
 @no_majority
 title: There is no clear governing majority.
+subtitle: The current government will stay in power as a minority coalition.
 view-if: grand_coalition_hanover < 50 and bourgeois_coalition_hanover < 50 and far_right_coalition_hanover < 50
-on-arrival: next_election_time_hanover = time+3; next_election_month_hanover = month + 3; next_election_year_hanover = year; next_election_year_hanover += 1 if next_election_month_hanover > 12; next_election_month_hanover -= 12 if next_election_month_hanover > 12; workers_nsdap += 1; unemployed_nsdap += 1; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
+on-arrival: workers_nsdap += 1; unemployed_nsdap += 1; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
 
 There is no path to a majority government for now. New elections have been set for [+ next_election_month_hanover : month +] [+ next_election_year_hanover +].
