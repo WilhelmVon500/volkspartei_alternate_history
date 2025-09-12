@@ -20,7 +20,7 @@ face-image: img/portraits/WestarpKuno.jpg
 Despite some dissent from the more <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> forces within the <span style="color: #3F7BC1;">**DNVP**</span>, the congress goes through without incident.
 
 @treviranus_lead
-on-arrival: dnvp_leader = "Treviranus"; rural_dnf += 3; rural_dnvp -= 3; new_middle_dnvp += 3; workers_dnvp += 1; catholics_dnvp += 3; pro_republic += 5; dvp_left += 1; dnvp_relation += 10 if dvp_ideology = "Left"; dnvp_relation -= 5 if dvp_ideology = "Right";
+on-arrival: dnvp_leader = "Treviranus"; dnvp_tory_democracy = 1; rural_dnf += 3; rural_dnvp -= 3; new_middle_dnvp += 3; workers_dnvp += 1; catholics_dnvp += 3; pro_republic += 5; dvp_left += 1; dnvp_relation += 10 if dvp_ideology = "Left"; dnvp_relation -= 5 if dvp_ideology = "Right";
 face-image: img/portraits/TreviranusGottfried.jpg
 
 Gottfried Treviranus has been elected as leader of the <span style="color: #3F7BC1;">**DNVP**</span>, a member of the Young Conservative faction and is supportive of transforming the party into a constructive conservative force. The defeat of the radical right and national conservative forces within the <span style="color: #3F7BC1;">**DNVP**</span> helps pave the way for Treviranus' vision of a Christian Democratic, albeit nationalist party.
