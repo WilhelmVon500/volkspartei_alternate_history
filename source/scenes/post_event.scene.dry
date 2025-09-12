@@ -548,13 +548,10 @@ if (Q.month_actions >= 1) {
             if (Q.rural_dbp_normalized < 8) {
                 Q.rural_dbp += 4/12;
             }
-            if (Q.catholics_dbp_normalized < 2) {
-                Q.catholics_dbp += 4/12;
-            }
             if (Q.workers_csvd_normalized < 4) {
                 Q.workers_csvd += 4/12;
             }
-            if (Q.new_middle_csvd_normalized < 7) {
+            if (Q.new_middle_csvd_normalized < 5) {
                 Q.new_middle_csvd += 4/12;
             }
             if (Q.dnf_formed) {
