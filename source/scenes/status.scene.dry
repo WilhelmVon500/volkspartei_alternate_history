@@ -30,8 +30,8 @@ Internal dissent: [+ dissent_percent : dissent +]
 = Government
 
 President: [+ president +] ([?if president_party=="I":<span style="color: #808080;">**I**</span>?][?if president_party=="KPD":<span style="color: #8B0000;">**KPD**</span>?][?if president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if president_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if president_party=="KVP":<span style="color: #455B95;">**KVP**</span>?][?if president_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if president_party=="DNF":<span style="color: #003755;">**DNF**</span>?][?if president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
-
 Chancellor: [+ chancellor +] ([?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?])
+[? if president == "Hindenburg": <div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;"><img src="img/portraits/Hindenburg.jpg" alt="Paul von Hindenburg" style="width: 50%;"> ?][? if president == "Eckener": <div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;"><img src="img/portraits/EckenerHugo.jpg" alt="Hugo Eckener" style="width: 50%;"> ?]
 
 Reichstag composition:
 
