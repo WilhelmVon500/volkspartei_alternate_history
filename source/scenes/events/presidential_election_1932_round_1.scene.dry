@@ -210,7 +210,7 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 [? if duesterberg_r1: Following last month’s events, Duesterberg has withdrawn from the race. ?]
 
-[? if (braun_plurality or eckener_plurality or thalmann_plurality) and reactionary_candidate = "Hindenburg": In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to [+ reactionary_candidate+]. ?]
+[? if (braun_plurality or eckener_plurality or thalmann_plurality) and reactionary_candidate = "Hindenburg": In order to consolidate the vote for the Right, and to prevent a [? if braun_plurality or eckener_plurality: republican ?][? if thalmann_plurality: communist ?] from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to [+ reactionary_candidate+]. ?]
 
 [? if (hitler_plurality or harzburg_plurality) and braun_r1: In order to consolidate the vote for the Republicans, and to prevent a rightist from becoming president, Braun is no longer running in the second round, and has switched his endorsement to [+ spd_candidate+]. ?]
 
