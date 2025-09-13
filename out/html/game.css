@@ -188,7 +188,7 @@ blockquote + blockquote.attribution {
 .tools {
   marginLeft: '-6em';
   padding: 0.6em;
-  width: 18rem;
+  width: 20rem;
   color: var(--text-color);
   background-color: var(--content-bg-color);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
