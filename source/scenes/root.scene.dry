@@ -50,14 +50,14 @@ Q.dvp_left = 5
 Q.dvp_right = 1
 
 // factions
-Q.factions = ['nationalist', 'peoples_conservative', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
+Q.factions = ['nationalist', 'industrialist', 'peoples_conservative', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
 // should this be normalized to 100%?
 Q.nationalist_strength = 20;
 Q.nationalist_dissent = 15;
-Q.peoples_conservative_strength = 0;
-Q.peoples_conservative_dissent = 10;
 Q.industrialist_strength = 30;
 Q.industrialist_dissent = 0;
+Q.peoples_conservative_strength = 0;
+Q.peoples_conservative_dissent = 10;
 Q.labor_strength = 10;
 Q.labor_dissent = 20;
 Q.liberal_strength = 35;
