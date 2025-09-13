@@ -139,7 +139,6 @@ Q.old_z_minus_bvp_r = Q.z_minus_bvp_r;
 
 
 
-// The largest party can only be the NSDAP or the SPD.
 Q.largest_party = 'SPD';
 if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r && Q.nsdap_r >= Q.dvp_r) {
     Q.largest_party = 'NSDAP';
@@ -510,12 +509,12 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @right_coalition
 title: A right-wing coalition may be formed.
-subtitle: Z + BVP + [+ dvp_name +] + DNVP + [? if kvp_formed: KVP +  ?][? if wp_exist: WP +  ?][? if cnblp_exist: CNBLP +  ?][? if csvd_exist: CSVD +  ?] Others ([+ right_coalition +]%)
+subtitle: <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #3F7BC1;">**DNVP**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ right_coalition +]%)
 unavailable-subtitle: The DNVP is not interested in a coalition with the "November criminals" in the Center Party.
 view-if: right_coalition >= 50
 choose-if: dnvp_leader != "Hugenberg"
 
-There are enough votes for a right-wing coalition of the Center, BVP, [+ dvp_name +], DNVP, [? if kvp_formed: KVP, ?] [? if wp_exist: WP, ?][? if cnblp_exist: CNBLP, ?][? if csvd_exist: CSVD, ?] and minor conservative parties.
+There are enough votes for a right-wing coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #69A2BE;">**BVP**</span>, <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, <span style="color: #3F7BC1;">**DNVP**</span>, [? if kvp_formed: <span style="color: #455B95;">**KVP**</span>, ?] [? if wp_exist: <span style="color: #B8996F;">**WP**</span>, ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>, ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span>, ?] and minor conservative parties.
 
 - @right_coalition_sure: Yes, we will participate in a right coalition.
 - @coalition_menu: Actually, we wish to form other coalition after all.
@@ -550,13 +549,13 @@ Ernst Scholz has been appointed chancellor.
 
 @weimar_coalition
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
-subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
-There are enough votes for a Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_sure: A center-left coalition takes power.
-- @weimar_coalition_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
+- @weimar_coalition_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with <span style="color: #000000;">**Center Party**</span> and <span style="color: #E3000F;">**SPD**</span>.
 
 @no_weimar_coalition
 go-to: no_majority
@@ -580,7 +579,7 @@ Who should be the chancellor?
 
 @dietrich_weimar_chancellor
 title: Hermann Dietrich for Chancellor
-subtitle: Dietrich is a former member of DDP Business Wing.
+subtitle: Dietrich is a former member of <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Business Wing.
 on-arrival: chancellor = "Dietrich"; chancellor_party = dvp_name;
 face-image: img/portraits/DietrichHermann.jpg
 go-to: ministries
@@ -589,9 +588,9 @@ go-to: ministries
 Hermann Dietrich has been appointed chancellor.
 
 @wels_weimar_chancellor
-title: Support SPD candidate for chancellorship
-subtitle: This will improve our relations with SPD.
-on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_relation += 5
+title: Support <span style="color: #E3000F;">**SPD**</span> candidate for chancellorship
+subtitle: This will improve our relations with <span style="color: #E3000F;">**SPD**</span>.
+on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_relation += 5; leverage += 5
 face-image: img/portraits/WelsOtto.jpg
 go-to: ministries
 
@@ -630,9 +629,9 @@ go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; n
 @no_majority_spd
 on-arrival: chancellor = "Brüning"; chancellor_party = "Z"
 
-There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker SPD government, his preferred chancellor is Heinrich Brüning of the Center Party, who could lead a "presidential" government.
+There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker <span style="color: #E3000F;">**SPD**</span> government, his preferred chancellor is Heinrich Brüning of the Center Party, who could lead a "presidential" government.
 
-- @toleration_bruning: Will SPD tolerate Brüning?
+- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning?
 - @new_grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 
@@ -654,13 +653,13 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 @no_majority_bruning_toleration
 on-arrival: no_majority_bruning_elections += 1
 
-There is no path to a majority government. One option would be to have a continuation of the current Brüning government; if SPD tolerate it, then it would retain a majority vote against no-confidence.
+There is no path to a majority government. One option would be to have a continuation of the current Brüning government; if <span style="color: #E3000F;">**SPD**</span> tolerate it, then it would retain a majority vote against no-confidence.
 
 Alternatively, we could try to form a "new grand coalition" of all constitutional parties except the NSDAP, KPD, and DNVP. The stumbling block are the minor conservative parties such as the "Economic Party of the Middle Class", who detest any hint of socialism and would ruin the country before working with Marxists.
 
 The third option is to have new elections.
 
-- @toleration_bruning: Will SPD tolerate Brüning?
+- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning?
 - @new_grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 - @unity_government
@@ -668,15 +667,15 @@ The third option is to have new elections.
 
 @new_grand_coalition
 title: A "New Grand Coalition" of all the constitutional parties?
-subtitle: SPD + Z + BVP + [+ ddp_name +] + [+ dvp_name +] + Others ([+ neo_weimar_coalition +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #909090;">**Others**</span> ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
 choose-if: z_relation >= 50 and spd_relation >= 30
-unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + [+ dvp_name +] + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if spd_relation < 30 : We do not have adequate relations with the SPD. ?]
+unavailable-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #909090;">**Others**</span> ([+ neo_weimar_coalition +]%) - [? if z_relation < 20 : We do not have adequate relations with the <span style="color: #000000;">**Center Party**</span>. ?][? if spd_relation < 30 : We do not have adequate relations with the <span style="color: #E3000F;">**SPD**</span>. ?]
 
 WIP
 
 - @use_resources
-- @toleration_bruning: No. Will SPD tolerate Brüning?
+- @toleration_bruning: No. Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning?
 - @new_elections: No. We will have new elections.
 - @unity_government
 
@@ -709,7 +708,7 @@ We have assembled a new coalition under Otto Braun.
 
 @unity_government
 title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
-subtitle: SPD + Z + BVP + [+ ddp_name +] + [+ dvp_name +] + Others ([+ neo_weimar_coalition +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #909090;">**Others**</span> ([+ neo_weimar_coalition +]%)
 view-if: z_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and z_relation >= 10
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
@@ -732,8 +731,8 @@ on-arrival: z_relation -= 8; ddp_relation -= 5; spd_relation -= 5
 Our rejection of the unity government has hurt our relations with the bourgeois and center-right parties.
 
 - @brauns_dilemma
-- @toleration_bruning: Will SPD tolerate a minority government led by Brüning?
-- @toleration_wirth: Will SPD tolerate a minority government led by Joseph Wirth?
+- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate a minority government led by Brüning?
+- @toleration_wirth: Will <span style="color: #E3000F;">**SPD**</span> tolerate a minority government led by Joseph Wirth?
 - @new_elections: There will be new elections.
 
 
@@ -781,13 +780,13 @@ There is no path to a majority government for now. The scheming around President
 # if NSDAP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 
 @spd_majority
-title: SPD majority alone
-subtitle: SPD: [+ spd_r +]%
+title: <span style="color: #E3000F;">**SPD**</span> majority alone
+subtitle: <span style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
 view-if: spd_r >= 50
 on-arrival: chancellor = "Empty"; chancellor_party = "SPD"; spd_in_government = 1; in_spd_majority = 1; pro_republic += 5; foreign_minister_party = "SPD"; foreign_minister = "Breitscheid"; interior_minister_party = "SPD"; interior_minister = "Severing"; justice_minister_party = "SPD"; justice_minister = "Radbruch"; labor_minister_party = "SPD"; labor_minister = "Wissell"; reichswehr_minister_party = "SPD"; reichswehr_minister = "Leber"; economic_minister_party = "SPD"; economic_minister = "Schmidt"; finance_minister_party = "SPD"; finance_minister = "Hilferding"; agriculture_minister_party = "SPD"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
 
-Finally, the SPD can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
+Finally, the <span style="color: #E3000F;">**SPD**</span> can govern alone!
 
 Who should be chancellor?
 
@@ -801,26 +800,24 @@ view-if: not historical_mode or not spd_prussia
 on-arrival: chancellor = "Braun"
 
 [? if president == "Braun": Our experts have checked the constitution, and have discovered that there is no specific prohibition against the Chancellor also being the President (the President may not be a member of the Reichstag; there is no law saying that the Chancellor must be a member of the Reichstag). Thus, we have Chancellor-President Otto Braun. ?]
-[? if president != "Braun": Otto Braun has become chancellor of the SPD majority. ?]
+[? if president != "Braun": Otto Braun has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority. ?]
 
 @breitscheid_majority_chancellor
 on-arrival: chancellor = "Breitscheid"
 
-Rudolf Breitscheid has become chancellor of the SPD majority.
+Rudolf Breitscheid has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority.
 
 @muller_majority_chancellor
 view-if: muller_dead = 0
 on-arrival: chancellor = "Müller"
 
-Hermann Müller has become chancellor of the SPD majority.
+Hermann Müller has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority.
 
 @wels_majority_chancellor
 view-if: muller_dead = 1
 on-arrival: chancellor = "Wels"
 
-Otto Wels has become chancellor of the SPD majority.
-
-# TODO: Otto Wels should be able to be chancellor of a Grand Coalition, Weimar Coalition, or SPD majority after Müller dies.
+Otto Wels has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority.
 
 @dvp_majority
 title: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority alone
@@ -887,7 +884,7 @@ title: We will form an emergency government with Braun's support.
 subtitle: This may have the effect of inflamming public sentiment against us, and the reactionaries will be against us each step of the way.
 on-arrival: sa_strength += 100; sh_strength += 100; in_emergency_government = 1
 
-Yes, an emergency minority government, with the support of the SPD. Who should lead this emergency minority government?
+Yes, an emergency minority government, with the support of the <span style="color: #E3000F;">**SPD**</span>. Who should lead this emergency minority government?
 
 - @braun_emergency_chancellor: Otto Braun for Chancellor-President!
 - @breitscheid_emergency_chancellor: Rudolf Breitscheid for emergency Chancellor.
@@ -1009,7 +1006,7 @@ view-if: no_confidence_votes <= 50
 on-arrival: in_minority_government = 1; in_emergency_government = 0;
 achievement: minderheitsregierung
 
-We have won the vote of no confidence, and are currently ruling under an SPD minority government. Now our task is to fix the country.
+We have won the vote of no confidence, and are currently ruling under an <span style="color: #E3000F;">**SPD**</span> minority government. Now our task is to fix the country.
 
 
 @bourgeois_coalition
@@ -1072,28 +1069,23 @@ Hermann Dietrich has been appointed chancellor.
 @grand_coalition
 title: We can form a Grand Coalition.
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
-subtitle: SPD + Z + BVP + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition +]%)
 go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD") or (largest_party == "SPD" and spd_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and spd_r < 30) or (n_elections <= 1 and largest_party != "SPD"))
-
-# TODO: if there are enough votes to form a grand coalition, who leads? Does the SPD lead or does Brüning (Z) lead? In reality this depended on Hindenburg's will, basically, which in turn depended on what his camarilla supported.
-# In the first election, SPD always leads. In subsequent elections, if spd_r >= 29 then SPD leads, otherwise Z leads?
 
 @grand_coalition_z_lead
 go-to: grand_coalition_z_lead_2 if spd_relation >= 30; grand_coalition_fail if spd_relation < 30
 
-There are enough votes to form a majority coalition consisting of the SPD, Center Party, BVP[? if ddp_exist:, [+ ddp_name +] ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. Given our rather weak electoral performance, [? if spd_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : and the vote of no confidence against us, ?] President has asked the Center Party to take the lead role in forming a government.
-
-# TODO: if the SPD participated in bringing down the previous government via a vote-of-no-confidence, or if we were essentially removed from government by our coalition partners, we should be more reluctant to participate in a new government.
+There are enough votes to form a majority coalition consisting of the <span style="color: #E3000F;">**SPD**</span>, <span style="color: #000000;">**Center Party**</span>, <span style="color: #69A2BE;">**BVP**</span>[? if ddp_exist:, <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. Given our rather weak electoral performance, [? if spd_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : and the vote of no confidence against us, ?] President has asked the Center Party to take the lead role in forming a government.
 
 @grand_coalition_z_lead_2
 
 The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
-Brüning is not opposed to a coalition with SPD. Alternatively, we could pressure them to enter a "toleration" agreement.
+Brüning is not opposed to a coalition with <span style="color: #E3000F;">**SPD**</span>. Alternatively, we could pressure them to enter a "toleration" agreement.
 
-- @join_bruning: SPD joins the Brüning coalition.
+- @join_bruning: <span style="color: #E3000F;">**SPD**</span> joins the Brüning coalition.
 - @bruning_oppo: They join the opposition.
-- @toleration_bruning: Will SPD "tolerate" a minority Brüning government?
+- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> "tolerate" a minority Brüning government?
 - @unity_government
 
 @join_bruning
@@ -1107,12 +1099,12 @@ Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of min
 on-arrival: spd_in_government = 0; dvp_in_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12;
 go-to: ministries
 
-By refusing to join the grand coalition or tolerating it, the SPD essentially throws the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
+By refusing to join the grand coalition or tolerating it, the <span style="color: #E3000F;">**SPD**</span> essentially throws the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
 
-If SPD does not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
+If <span style="color: #E3000F;">**SPD**</span> does not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
 
-- @join_bruning: SPD joins the Brüning coalition.
-- @toleration_bruning: Will SPD tolerate Brüning after all?
+- @join_bruning: <span style="color: #E3000F;">**SPD**</span> joins the Brüning coalition.
+- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning after all?
 - @brauns_dilemma
 - @new_elections: New elections, it is!
 
@@ -1189,12 +1181,12 @@ SPD has decided to tolerate Brüning's government. This means that they will vot
 @grand_coalition_fail
 on-arrival: grand_coalition_failed = 1
 
-Unfortunately, the SPD is unwilling to enter into another coalition with the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> and BVP, so the grand coalition is unable to be formed.
+Unfortunately, the <span style="color: #E3000F;">**SPD**</span> is unwilling to enter into another coalition with the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> and <span style="color: #69A2BE;">**BVP**</span>, so the grand coalition is unable to be formed.
 
 - @no_majority: Thus, there is no clear majority.
 - @brauns_dilemma
 - @right_coalition_2: Perhaps a right-wing coalition may form.
-- @beg_spd: Perhaps we could ask the SPD to change their minds?
+- @beg_spd: Perhaps we could ask the <span style="color: #E3000F;">**SPD**</span> to change their minds?
 - @unity_government
 - @coalition_menu: What are the other governing arrangements?
 
@@ -1206,14 +1198,14 @@ go-to: spd_socialist if stresemann_dead == 1; spd_stresemann if stresemann_dead 
 @spd_stresemann
 go-to: join_bruning
 
-Under the influence of Gustav Stresemann, the SPD agrees to allow us into the coalition.
+Under the influence of Gustav Stresemann, the <span style="color: #E3000F;">**SPD**</span> agrees to allow us into the coalition.
 
 
 @spd_socialist
 
-The SPD asks us to adhere to their socialist economic policies in exchange for us joining the coalition.
+The <span style="color: #E3000F;">**SPD**</span> asks us to adhere to their socialist economic policies in exchange for us joining the coalition.
 
-- @beg_spd_2: But they would not have a majority without the SPD! The DNVP and NSDAP have no interest in participating in government.
+- @beg_spd_2: But they would not have a majority without the <span style="color: #E3000F;">**SPD**</span>! The [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span> have no interest in participating in government.
 - @no_majority: There is no chance that we would agree.
 - @brauns_dilemma
 - @coalition_menu: What are the other governing arrangements?
@@ -1222,7 +1214,7 @@ The SPD asks us to adhere to their socialist economic policies in exchange for u
 @beg_spd_2
 go-to: beg_spd_succeed if spd_relation >= 20; beg_spd_fail if spd_relation < 20
 
-We make the case that without the SPD, there is no parliamentary majority, given the DNVP and NSDAP's hostility to constitutional government.
+We make the case that without the <span style="color: #E3000F;">**SPD**</span>, there is no parliamentary majority, given the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span>'s hostility to constitutional government.
 
 @beg_spd_succeed
 go-to: join_bruning
@@ -1233,16 +1225,16 @@ Somehow, we succeed in convincing them! We are now in a coalition.
 @beg_spd_fail
 go-to: no_majority
 
-As expected, the SPD is too set in their socialist ways.
+As expected, the <span style="color: #E3000F;">**SPD**</span> is too set in their socialist ways.
 
 
 
 @grand_coalition_spd_lead
 on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20
 
-As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center Party, BVP[? if ddp_exist: , [+ ddp_name +] ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
+As expected, the <span style="color: #E3000F;">**SPD**</span> is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked the <span style="color: #E3000F;">**SPD**</span> to form a majority coalition with the <span style="color: #000000;">**Center Party**</span>, <span style="color: #69A2BE;">**BVP**</span>[? if ddp_exist: , <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
-[? if spd_relation < 20 : As our relation with the SPD is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
+[? if spd_relation < 20 : As our relation with the <span style="color: #E3000F;">**SPD**</span> is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 
 Who should be the chancellor?
 
@@ -1266,7 +1258,7 @@ Müller's appointment as chancellor is approved by all members of the coalition.
 @wels
 title: Support Otto Wels for Chancellor
 view-if: muller_dead = 1
-subtitle: Otto Wels is the leader of SPD, but can he also be chancellor? This may give us a better position in negotiating for other cabinet positions.
+subtitle: Otto Wels is the leader of <span style="color: #E3000F;">**SPD**</span>, but can he also be chancellor? This may give us a better position in negotiating for other cabinet positions.
 on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_relation += 3; nationalist_dissent += 5; leverage += 5;
 go-to: ministries
 
@@ -1278,7 +1270,7 @@ subtitle: Heinrich Brüning will be chancellor.
 on-arrival: chancellor = "Brüning"; chancellor_party = "Z"; z_relation += 3; spd_relation -= 3;
 go-to: ministries
 
-The SPD reluctantly accepts Brüning's appointment.
+The <span style="color: #E3000F;">**SPD**</span> reluctantly accepts Brüning's appointment.
 
 [? if year == 1928 : Since Wilhelm Marx resigned, Heinrich Brüning has been appointed chancellor. ?]
 
