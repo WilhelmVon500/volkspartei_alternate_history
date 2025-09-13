@@ -28,6 +28,7 @@ view-if: not lvp_formed and not nfvp_formed
 choose-if: advisor_action_timer == 0 and ddp_relation >= 50
 on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_peoples_party_progress += 1; liberal_strength += 5; nationalist_strength -= 5; nationalist_dissent += 5; dvp_left += 1; ddp_relation += 3; dnvp_relation -= 2; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"
 
+We are pushing forward proposals for a united liberal party against the nationalists within our party. We are also building ties with [+ ddp_name +] organizations.
 
 @form_liberal_peoples_party
 choose-if: dvp_ideology = "Left" and liberal_peoples_party_progress >= 6 and ddp_relation >= 65 and advisor_action_timer = 0
@@ -37,6 +38,7 @@ on-arrival: advisor_action_timer = 6; liberal_peoples_party_timer = 6; liberal_s
 go-to: lvp_formed
 achievement: volkspartei
 
+In a joint emergency conference with [+ ddp_name +], we have decided to unite our parties to become a liberal people's party.
 
 @snap_election
 title: Snap Election
