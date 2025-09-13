@@ -427,8 +427,7 @@ Eugen Bolz was chosen.
 
 @no_majority
 title: There is no clear governing majority.
-subtitle: The recently instituted constructive vote of no confidence will allow our government to stay in power
 view-if: weimar_coalition_wurttemberg < 50 and bourgeois_coalition_wurttemberg < 50 and grand_coalition_wurttemberg < 50 and far_right_coalition_wurttemberg < 50
 on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
 
-There is no path to a majority government for now. New elections have been set for [+ next_election_month_wurttemberg : month +] [+ next_election_year_wurttemberg +].
+There is no path to a majority government for now. The current government will stay in power as a minority coalition.
