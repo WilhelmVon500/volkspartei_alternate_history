@@ -1062,12 +1062,13 @@ Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of min
 on-arrival: spd_in_government = 0; dvp_in_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12;
 go-to: ministries
 
-By refusing to join the grand coalition or tolerating it, the <span style="color: #E3000F;">**SPD**</span> essentially throws the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
+By refusing to join the grand coalition or tolerating it, the <span style="color: #E3000F;">**SPD**</span> essentially throws the balance of government to the right wing. [? if right_coalition >= 50: There are enough votes to form a right-wing coalition that includes the DNVP. ?][? if right_coalition < 50: There are not enough votes to form a right-wing coalition that includes the DNVP. This means that there is no route to a majority coalition. ?]
 
 If <span style="color: #E3000F;">**SPD**</span> does not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
 
 - @join_bruning: <span style="color: #E3000F;">**SPD**</span> joins the Brüning coalition.
 - @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning after all?
+- @right_coalition
 - @brauns_dilemma
 - @new_elections: New elections, it is!
 
