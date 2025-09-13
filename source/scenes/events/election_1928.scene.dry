@@ -782,7 +782,6 @@ Finally, the <span style="color: #E3000F;">**SPD**</span> can govern alone!
 Who should be chancellor?
 
 - @braun_majority_chancellor: Otto Braun for Chancellor.
-- @breitscheid_majority_chancellor: Rudolf Breitscheid for Chancellor.
 - @muller_majority_chancellor: Hermann Müller for Chancellor.
 - @wels_majority_chancellor: Otto Wels for Chancellor.
 
@@ -792,11 +791,6 @@ on-arrival: chancellor = "Braun"
 
 [? if president == "Braun": Our experts have checked the constitution, and have discovered that there is no specific prohibition against the Chancellor also being the President (the President may not be a member of the Reichstag; there is no law saying that the Chancellor must be a member of the Reichstag). Thus, we have Chancellor-President Otto Braun. ?]
 [? if president != "Braun": Otto Braun has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority. ?]
-
-@breitscheid_majority_chancellor
-on-arrival: chancellor = "Breitscheid"
-
-Rudolf Breitscheid has become chancellor of the <span style="color: #E3000F;">**SPD**</span> majority.
 
 @muller_majority_chancellor
 view-if: muller_dead = 0
@@ -878,7 +872,6 @@ on-arrival: sa_strength += 100; sh_strength += 100; in_emergency_government = 1
 Yes, an emergency minority government, with the support of the <span style="color: #E3000F;">**SPD**</span>. Who should lead this emergency minority government?
 
 - @braun_emergency_chancellor: Otto Braun for Chancellor-President!
-- @breitscheid_emergency_chancellor: Rudolf Breitscheid for emergency Chancellor.
 - @bruning_emergency_chancellor: Brüning of the Center Party, as a goodwill gesture toward the bourgeoisie.
 - @wirth_emergency_chancellor: Joseph Wirth of the Center Party, as a gesture of republican unity.
 
@@ -893,15 +886,6 @@ Thus, we have Chancellor-President Otto Braun. He claims that he will resign as 
 
 - @far_right_coup
 - @emergency_no_confidence: The Nazis immediately call a no-confidence vote against us...
-
-@breitscheid_emergency_chancellor
-subtitle: The Communists are warming to him...
-on-arrival: chancellor = "Breitscheid"; chancellor_party = "SPD"; spd_in_government = 1; kpd_relation += 5; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD"; reichswehr_loyalty -= 0.1;
-
-We have appointed Rudolf Breitscheid as emergency chancellor. The Communists consider him less objectionable than the alternatives, although it is unclear whether they will tolerate this government.
-
-- @far_right_coup
-- @emergency_no_confidence
 
 
 @bruning_emergency_chancellor
