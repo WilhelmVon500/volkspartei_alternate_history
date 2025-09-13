@@ -529,7 +529,7 @@ go-to: right_coalition_2
 
 @right_coalition_2
 view-if: right_coalition >= 50
-on-arrival: dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DNVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
+on-arrival: dvp_in_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "DNVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_coalition = 1;
 
 A majority right coalition is formed.
 
@@ -570,7 +570,7 @@ go-to: weimar_coalition_2
 
 @weimar_coalition_dvp
 view-if: lvp_formed or nfvp_formed
-on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; dvp_toleration = 0; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+on-arrival: spd_in_government = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 Who should be the chancellor?
 
@@ -612,7 +612,7 @@ Joseph Wirth has been appointed chancellor.
 
 @weimar_coalition_2
 view-if: weimar_coalition >= 50 and not lvp_formed and not nfvp_formed
-on-arrival: spd_in_government = 1; spd_toleration = 0; dvp_toleration = 0; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 A majority Weimar coalition is formed, with Wels as chancellor.
 
@@ -1073,7 +1073,6 @@ Hermann Dietrich has been appointed chancellor.
 title: We can form a Grand Coalition.
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
 subtitle: SPD + Z + BVP + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition +]%)
-on-arrival: in_grand_coalition = 1; dvp_in_government = 1; spd_in_government = 1
 go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD") or (largest_party == "SPD" and spd_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and spd_r < 30) or (n_elections <= 1 and largest_party != "SPD"))
 
 # TODO: if there are enough votes to form a grand coalition, who leads? Does the SPD lead or does Brüning (Z) lead? In reality this depended on Hindenburg's will, basically, which in turn depended on what his camarilla supported.
@@ -1105,7 +1104,7 @@ go-to: ministries
 Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of ministries.
 
 @bruning_oppo
-on-arrival: spd_in_government = 0; dvp_in_government = 1; spd_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1
+on-arrival: spd_in_government = 0; dvp_in_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12;
 go-to: ministries
 
 By refusing to join the grand coalition or tolerating it, the SPD essentially throws the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the NSDAP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the DNVP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the NSDAP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
@@ -1131,16 +1130,17 @@ if (Q.next_election_month > 12) {
 if (Q.chancellor == "Brüning") {
     Q.z_relation -= 5;
 }
-Q.pro_republic -= 8;
+Q.pro_republic -= 6;
 Q.workers_spd -= 5;
-Q.new_middle_spd -= 5;
-Q.old_middle_spd -= 5;
-Q.rural_spd -= 5;
-Q.catholics_spd -= 3;
 Q.new_middle_dvp -= 8;
 Q.old_middle_dvp -= 8;
 Q.new_middle_ddp -= 5;
 Q.old_middle_ddp -= 10;
+Q.rural_dbp -= 3;
+Q.workers_csvd -= 2;
+Q.new_middle_csvd -= 2;
+Q.new_middle_kvp -= 3;
+Q.old_middle_kvp -= 3;
 Q.rural_dnvp -= 5;
 Q.workers_nsdap += 5;
 Q.old_middle_nsdap += 6;
@@ -1150,6 +1150,7 @@ Q.unemployed_nsdap += 5;
 // Thresholds are kind of arbitrary - adjusted because of negative economic effects on pro_republic
 if (Q.pro_republic < 45 && Q.pro_republic >= 36) {
     Q.workers_spd -= 6;
+    Q.new_middle_ddp -= 2;
 }
 if (Q.pro_republic < 36) {
     // TODO: if you pursue a consistently revolutionary course, you might avoid this? But you might also cause a coalition between Hitler and the Center.
@@ -1159,8 +1160,6 @@ if (Q.pro_republic < 36) {
     Q.unemployed_spd -= 2;
     Q.new_middle_spd -= 5;
     Q.old_middle_spd -= 5;
-    Q.rural_spd -= 5;
-    Q.catholics_spd -= 3;
     Q.workers_nsdap += 8;
     Q.old_middle_nsdap += 8;
     Q.new_middle_nsdap += 8;
@@ -1221,7 +1220,7 @@ The SPD asks us to adhere to their socialist economic policies in exchange for u
 
 
 @beg_spd_2
-go-to: beg_spd_succeed; beg_spd_fail
+go-to: beg_spd_succeed if spd_relation >= 20; beg_spd_fail if spd_relation < 20
 
 We make the case that without the SPD, there is no parliamentary majority, given the DNVP and NSDAP's hostility to constitutional government.
 
@@ -1239,7 +1238,7 @@ As expected, the SPD is too set in their socialist ways.
 
 
 @grand_coalition_spd_lead
-on-arrival: leverage -= 5 if spd_relation < 20
+on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20
 
 As expected, the SPD is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked SPD to form a majority coalition with the Center Party, BVP[? if ddp_exist: , [+ ddp_name +] ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
@@ -1256,53 +1255,32 @@ Who should be the chancellor?
 
 
 @muller
-title: Hermann Müller for Chancellor
+title: Support Hermann Müller for Chancellor
 view-if: muller_dead = 0
-subtitle: Müller is popular within the party, and is the preferred candidate of the Center and other parties.
-on-arrival: dvp_in_government = 1; chancellor = "Müller"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+subtitle: Müller is popular within the party, and is the preferred candidate of the Center and other parties. This may give us a better position in negotiating for other cabinet positions.
+on-arrival: chancellor = "Müller"; chancellor_party = "SPD"; spd_relation += 3; nationalist_dissent += 5; leverage += 5;
 go-to: ministries
 
-Müller's appointment as chancellor is approved by all our potential allies.
+Müller's appointment as chancellor is approved by all members of the coalition.
 
 @wels
-title: Otto Wels for Chancellor
+title: Support Otto Wels for Chancellor
 view-if: muller_dead = 1
-subtitle: Otto Wels is a party leader, but can he also be chancellor?
-on-arrival: dvp_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
+subtitle: Otto Wels is the leader of SPD, but can he also be chancellor? This may give us a better position in negotiating for other cabinet positions.
+on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_relation += 3; nationalist_dissent += 5; leverage += 5;
 go-to: ministries
 
-Otto Wels's appointment as chancellor is approved by our potential allies.
-
-@braun
-title: Otto Braun for Chancellor
-view-if: not historical_mode or not spd_prussia
-subtitle: Braun is currently the Minister-President of Prussia, and is one of our most popular leaders. However, other parties may have qualms about concentrating too much power in one man.
-
-The Center party has significant qualms about appointing Braun as chancellor, given that he is already Minister-President of Prussia. They ask for either more cabinet positions, or for Braun to resign his state government role. The latter is completely unacceptable.
-
-- @muller
-- @wels
-- @braun_2: Let the Center have their cabinet positions.
-
-@braun_2
-subtitle: Otto Braun will be Chancellor.
-view-if: not historical_mode
-on-arrival: dvp_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; leverage += 10; in_grand_coalition = 1 if in_weimar_coalition == 0
-go-to: ministries
-
-We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
-
+Otto Wels's appointment as chancellor is approved by all members of the coalition.
 
 @z_chancellor
 title: Support the Center Party candidate for chancellorship.
-subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: nationalist_dissent += 5; z_relation += 10; spd_relation -= 5; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0 and in_bourgeois_coalition == 0 and in_right_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
+subtitle: Heinrich Brüning will be chancellor.
+on-arrival: chancellor = "Brüning"; chancellor_party = "Z"; z_relation += 3; spd_relation -= 3;
 go-to: ministries
 
-This is highly unexpected, and many in the left and center of our party are criticizing this decision.
+The SPD reluctantly accepts Brüning's appointment.
 
 [? if year == 1928 : Since Wilhelm Marx resigned, Heinrich Brüning has been appointed chancellor. ?]
-[? if year > 1928: Heinrich Brüning of the Center Party has been appointed chancellor. ?]
 
 @z_chancellor_wirth
 title: Support Joseph Wirth of the Center Party for chancellorship.
