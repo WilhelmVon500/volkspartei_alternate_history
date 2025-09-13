@@ -33,46 +33,45 @@ President: [+ president +] ([?if president_party=="I":<span style="color: #80808
 
 Chancellor: [+ chancellor +] ([?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?])
 
-<div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if president == "Hindenburg": <img src="img/portraits/Hindenburg.jpg" alt="Paul von Hindenburg" style="width: 50%; height: 200px;"> ?][? if president == "Lettow-Vorbeck": <img src="img/portraits/LettowVorbeckPaul.jpg" alt="Paul von Lettow-Vorbeck" style="width: 50%; height: 200px;"> ?][? if president == "Westarp": <img src="img/portraits/WestarpKuno.jpg" alt="Kuno von Westarp" style="width: 50%; height: 200px;"> ?][? if president == "Eckener": <img src="img/portraits/EckenerHugo.jpg" alt="Hugo Eckener" style="width: 50%; height: 200px;"> ?][? if president == "Luther": <img src="img/portraits/LutherHans.jpg" alt="Hans Luther" style="width: 50%; height: 200px;"> ?][? if president == "Jarres": <img src="img/portraits/JarresKarl.jpg" alt="Karl Jarres" style="width: 50%; height: 200px;"> ?][? if president == "Hellpach": <img src="img/portraits/HellpachWilly.jpg" alt="Willy Hellpach" style="width: 50%; height: 200px;"> ?][? if president == "Heuss": <img src="img/portraits/HeussTheodor.jpg" alt="Theodor Heuss" style="width: 50%; height: 200px;"> ?][? if president == "Adenauer": <img src="img/portraits/AdenauerKonrad.jpg" alt="Konrad Adenauer" style="width: 50%; height: 200px;"> ?][? if president == "Braun": <img src="img/portraits/BraunOtto.jpg" alt="Otto Braun" style="width: 50%; height: 200px;"> ?]
+<div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if president == "Hindenburg": <img src="img/portraits/Hindenburg.jpg" alt="Paul von Hindenburg" style="width: 50%; height: 200px;"> ?][? if president == "Lettow-Vorbeck": <img src="img/portraits/LettowVorbeckPaul.jpg" alt="Paul von Lettow-Vorbeck" style="width: 50%; height: 200px;"> ?][? if president == "Westarp": <img src="img/portraits/WestarpKuno.jpg" alt="Kuno von Westarp" style="width: 50%; height: 200px;"> ?][? if president == "Eckener": <img src="img/portraits/EckenerHugo.jpg" alt="Hugo Eckener" style="width: 50%; height: 200px;"> ?][? if president == "Luther": <img src="img/portraits/LutherHans.jpg" alt="Hans Luther" style="width: 50%; height: 200px;"> ?][? if president == "Jarres": <img src="img/portraits/JarresKarl.jpg" alt="Karl Jarres" style="width: 50%; height: 200px;"> ?][? if president == "Hellpach": <img src="img/portraits/HellpachWilly.jpg" alt="Willy Hellpach" style="width: 50%; height: 200px;"> ?][? if president == "Heuss": <img src="img/portraits/HeussTheodor.jpg" alt="Theodor Heuss" style="width: 50%; height: 200px;"> ?][? if president == "Adenauer": <img src="img/portraits/AdenauerKonrad.jpg" alt="Konrad Adenauer" style="width: 50%; height: 200px;"> ?][? if president == "Braun": <img src="img/portraits/BraunOtto.jpg" alt="Otto Braun" style="width: 50%; height: 200px;"> ?][? if president == "Thälmann": <img src="img/portraits/ThälmannErnst.jpg" alt="Ernst Thälmann" style="width: 50%; height: 200px;"> ?][? if president == "Hugenberg": <img src="img/portraits/HugenbergAlfred.jpg" alt="Alfred Hugenberg" style="width: 50%; height: 200px;"> ?]
 [? if chancellor == "Marx": <img src="img/portraits/MarxWilhelm.jpg" alt="Wilhelm Marx" style="width: 50%; height: 200px;"></div> ?]</div>
 
-Reichstag composition:
+[? if dvp_in_government: Budget: [+ budget +] ?]
 
-# 1928: 30, 1930: 25, 1932: 22
+= Reichstag
+
+Next election: [+ next_election_month : month +] [+ next_election_year +]
+
 <span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
 [? if sapd_formed and sapd_r > 0: <span class="tooltip-text" title="Socialist Workers' Party of Germany" style="color: #C40000;">**SAPD**</span>: [+ sapd_r +]% ?]
-# 1928: 15, 1930: 15, 1932: 
+
 <span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>: [+ z_r +]%
-# 1928: 10, 1930: 13
+
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
-#
+
 [? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_r +]% ?]
-# 1928: 5, 1930: 4 (as DstP)
+
 [? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_r +]% ?]
-# 1928: 9, 1930: 5
+
 [? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
-#
+
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_r +]% ?]
-#
+
 [? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: [+ wp_r +]% ?]
-#
+
 [? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_r +]% ?]
-#
+
 [? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_r +]% ?]
-# 1928: 14, 1930: 7
+
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_r +]%
-#
+
 [? if dnf_formed: <span class="tooltip-text" title="German National Front" style="color: #003755;">**DNF**</span>: [+ dnf_r +]% ?]
-# 1928: 3, 1930: 18
+
 <span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
+
 <span style="color: #909090;">**Others**</span>: [+ other_r +]%
-
-[? if dvp_in_government = 1 : Budget: [+ budget +] ?]
-
-Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Economics
 
