@@ -1239,7 +1239,7 @@ Who should be the chancellor?
 @muller
 title: Support Hermann Müller for Chancellor
 view-if: muller_dead = 0
-subtitle: Müller is popular within the party, and is the preferred candidate of the Center and other parties. This may give us a better position in negotiating for other cabinet positions.
+subtitle: Müller is the preferred candidate of the <span style="color: #E3000F;">**SPD**</span> and other parties. This may give us a better position in negotiating for other cabinet positions.
 on-arrival: chancellor = "Müller"; chancellor_party = "SPD"; spd_relation += 3; nationalist_dissent += 5; leverage += 5;
 go-to: ministries
 
