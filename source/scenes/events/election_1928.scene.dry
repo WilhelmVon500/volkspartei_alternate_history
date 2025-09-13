@@ -695,15 +695,6 @@ Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-
 Who should be chancellor?
 
 - @join_bruning: For better or for worse, it must be Heinrich Brüning of the Center.
-- @braun_chancellor_new: Otto Braun for Chancellor?
-
-@braun_chancellor_new
-subtitle: This will reduce our leverage in the ministries.
-view-if: not historical_mode or not spd_prussia
-on-arrival: leverage -= 10; chancellor = "Braun"; chancellor_party = "SPD"
-go-to: ministries
-
-We have assembled a new coalition under Otto Braun.
 
 
 @unity_government
@@ -1239,7 +1230,6 @@ As expected, the <span style="color: #E3000F;">**SPD**</span> is the largest par
 Who should be the chancellor?
 
 - @muller
-- @braun
 - @wels
 - @z_chancellor
 - @z_chancellor_wirth
@@ -1287,12 +1277,11 @@ go-to: ministries
 @no_govt
 title: We do not form the government.
 subtitle: This will cause significant internal dissent, and will lead to increased distrust from other parties.
-on-arrival: liberal_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; neorevisionist_dissent += 5
+on-arrival: progressive_dissent += 5; democratic_dissent += 5; liberal_dissent += 5; labor_dissent += 5; industrialist_dissent += 5; peoples_conservative_dissent += 5; nationalist_dissent += 5
 
 Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the other parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and moderate left parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
 
 - @muller
-- @braun
 - @z_chancellor
 - @no_govt_goals: Yes, we're sure.
 
