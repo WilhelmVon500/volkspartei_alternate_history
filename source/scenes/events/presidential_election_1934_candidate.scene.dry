@@ -3,6 +3,7 @@ subtitle: Should we field our own candidate?
 new-page: true
 view-if: hindenburg_dead and (president = "Bumke" or president = "Großmann")
 on-arrival: {!
+Q.presidential_election_r2_trigger = 0
 Q.next_presidential_election_year = Q.year + 7
 Q.next_presidential_election_month = Q.month
 
