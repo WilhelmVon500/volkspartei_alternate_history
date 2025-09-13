@@ -434,8 +434,7 @@ Franz Ritter von Epp was chosen.
 
 @no_majority
 title: There is no clear governing majority.
-subtitle: The current government will stay in power as a minority coalition.
 view-if: grand_coalition_bavaria < 50 and bourgeois_coalition_bavaria < 50 and right_coalition_bavaria < 50 and far_right_coalition_bavaria < 50
 on-arrival: workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 2;
 
-There is no path to a majority government for now. New elections have been set for [+ next_election_month_bavaria : month +] [+ next_election_year_bavaria +].
+There is no path to a majority government for now. The current government will stay in power as a minority coalition.
