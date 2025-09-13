@@ -458,10 +458,10 @@ There are some potential coalition arrangements.
 
 @weimar_coalition_prussia
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
-subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia >= 50
 
-There are enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @weimar_coalition_prussia_sure: A center-left coalition takes power.
 - @weimar_coalition_prussia_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
@@ -488,10 +488,10 @@ A majority Weimar coalition is formed, with Braun as Minister-President.
 
 @minority_weimar_coalition_prussia
 title: Minority Weimar Coalition stays in power.
-subtitle: SPD + Z + [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_prussia +]%)
 view-if: weimar_coalition_prussia < 50 and was_in_weimar_coalition_prussia
 
-There are not enough votes for a majority Weimar Coalition of the Center, SPD and [? if not lvp_formed and not nfvp_formed: [+ ddp_name +]?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are not enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?], but a minority coalition can be formed. [? if largest_party_prussia == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @minority_weimar_coalition_prussia_sure: A minority Weimar coalition takes power.
 - @minority_weimar_coalition_prussia_dvp: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> forms coalition with Center Party and SPD.
@@ -514,15 +514,15 @@ A minority Weimar coalition stays in power, with Braun as Minister-President.
 @grand_coalition_prussia
 title: We can form a Grand Coalition.
 view-if: grand_coalition_prussia >= 50 and grand_coalition_prussia_failed == 0 and not (lvp_formed or nfvp_formed)
-subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
 go-to: grand_coalition_prussia_success if spd_relation >= 45 and dvp_ideology = "Left"; grand_coalition_prussia_failed if not (spd_relation >= 45 and dvp_ideology = "Left")
 
-We will ask the SPD to include us in Prussian Government.
+We will ask the <span style="color: #E3000F;">**SPD**</span> to include us in Prussian Government.
 
 @grand_coalition_prussia_success
 on-arrival: in_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; liberal_strength += 5;
 
-The SPD has agreed to form a Grand Coalition!
+The <span style="color: #E3000F;">**SPD**</span> has agreed to form a Grand Coalition!
 
 - @prussia_mp
 
@@ -530,14 +530,14 @@ The SPD has agreed to form a Grand Coalition!
 on-arrival: in_grand_coalition_prussia = 0; grand_coalition_prussia_failed = 1;
 go-to: coalition_menu
 
-The SPD has refused to form a Grand Coalition.
+The <span style="color: #E3000F;">**SPD**</span> has refused to form a Grand Coalition.
 
 
 
 @minority_grand_coalition_prussia
 title: Minority Grand Coalition stays in power.
 view-if: grand_coalition_prussia < 50 and was_in_grand_coalition_prussia and not (lvp_formed or nfvp_formed)
-subtitle: SPD + Z + [? if ddp_exist: [+ ddp_name +] + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_prussia +]%)
 on-arrival: in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 1; spd_prussia = 1; dvp_prussia = 1; liberal_strength += 5;
 
 A minority Grand coalition stays in power, with Braun as Minister-President.
