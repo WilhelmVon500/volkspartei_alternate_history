@@ -62,6 +62,6 @@ We have increased our campaigning among the unemployed.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: catholics_dvp += 2*(1-dissent); catholics_dvp += 2*(1-dissent) if nfvp_formed; catholics_other -= 1; resources -= 1
+on-arrival: catholics_dvp += 1*(1-dissent); catholics_dvp += 1*(1-dissent) if nfvp_formed; catholics_other -= 1; resources -= 1
 
 We have increased our campaigning among Catholics.
