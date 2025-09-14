@@ -580,7 +580,7 @@ Who should be the chancellor?
 @dietrich_weimar_chancellor
 title: Hermann Dietrich for Chancellor
 subtitle: Dietrich is a former member of <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> Business Wing.
-on-arrival: chancellor = "Dietrich"; chancellor_party = dvp_name;
+on-arrival: chancellor = "Dietrich"; chancellor_party = dvp_name; leverage -= 5
 face-image: img/portraits/DietrichHermann.jpg
 go-to: ministries
 
