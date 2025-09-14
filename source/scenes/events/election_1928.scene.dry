@@ -1060,7 +1060,6 @@ Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of min
 
 @bruning_oppo
 on-arrival: spd_in_government = 0; dvp_in_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12;
-go-to: ministries
 
 By refusing to join the grand coalition or tolerating it, the <span style="color: #E3000F;">**SPD**</span> essentially throws the balance of government to the right wing. [? if right_coalition >= 50: There are enough votes to form a right-wing coalition that includes the DNVP. ?][? if right_coalition < 50: There are not enough votes to form a right-wing coalition that includes the DNVP. This means that there is no route to a majority coalition. ?]
 
@@ -1128,6 +1127,7 @@ if (Q.far_right_coalition >= 50) {
     Q.coup_progress += 3;
 }
 !}
+go-to: ministries if dvp_in_government
 
 There is no path to a workable Reichstag majority or minority government. The next elections are set for [+ next_election_month : month +] [+ next_election_year +].
 
