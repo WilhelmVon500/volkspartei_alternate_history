@@ -3,7 +3,7 @@ subtitle: The President is to announce whether or not he will run again.
 new-page: true
 on-arrival: {!
 Q.hindenburg_run_points = 0;
-if (Q.nsdap_votes > 25 && Q.dnvp_ideology == "Moderate") {
+if (Q.nsdap_votes + Q.dnf_votes > 25 && Q.dnvp_ideology == "Moderate") {
     Q.hindenburg_run_points += 5;
 } else if (Q.nsdap_votes + Q.dnvp_votes > 25 && Q.dnvp_ideology == "Radical") {
     Q.hindenburg_run_points += 5;
