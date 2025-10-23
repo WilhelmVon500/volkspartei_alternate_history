@@ -236,9 +236,17 @@ Current relations: [+ spd_relation : relationships +]
 
 Current relations: [+ z_relation : relationships +]
 
+[? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> - <span style="color: #8ED8E4;">*Christlich-Sozialer Volksdienst*</span> (Christian Social People's Service) - a centre-right party, formed by members of the Christian Social faction of <span style="color: #3F7BC1;">**DNVP**</span>. The party supports state welfare, trade unions and workers participation in management. ?]
+
+[? if csvd_exist: Current relations: [+ csvd_relation : relationships +] ?]
+
 [? if wp_exist: <span style="color: #B8996F;">**WP**</span> - <span style="color: #B8996F;">*Wirtschaftspartei*</span> (Economic Party) - a small conservative party that emerged from small and medium-sized business interest groups that had achieved political success in the Berlin area since 1920. The <span style="color: #B8996F;">**WP**</span> limits itself to representing the interests of homeowners, landowners, craftsmen, and small business owners and is located in the bourgeois-right spectrum. [? if wp_ideology = "Radical": Recently, the party has made a turn to the right. ?] ?]
 
 [? if wp_exist: Current relations: [+ wp_relation : relationships +] ?]
+
+[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> - <span style="color: #7FCEB1;">*Christlich-Nationale Bauern- und Landvolkpartei*</span> (Christian-National Peasants' and Farmers' Party) - an agrarian conservative party representing interests of the Protestant rural population, mostly the small and medium farmers. ?]
+
+[? if cnblp_exist: Current relations: [+ cnblp_relation : relationships +] ?]
 
 [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;">*Konservative Volkspartei*</span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
 
