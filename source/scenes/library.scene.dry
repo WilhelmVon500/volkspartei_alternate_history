@@ -65,9 +65,9 @@ go-to: cabinet if spd_in_government; menu if not spd_in_government
 
 = Current Government
 
-President: [+ president +]
+President: [+ president +] ([?if president_party=="I":<span style="color: #808080;">**I**</span>?][?if president_party=="KPD":<span style="color: #8B0000;">**KPD**</span>?][?if president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if president_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if president_party=="KVP":<span style="color: #455B95;">**KVP**</span>?][?if president_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if president_party=="DNF":<span style="color: #003755;">**DNF**</span>?][?if president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Chancellor: [+ chancellor +] ([?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?])
 
 Reichstag composition:
 
@@ -218,7 +218,7 @@ Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD
 go-to: menu
 
 # WIP: LVP/NFVP formation
-**DVP** - *Deutsche Volkspartei* (German People's Party) - This is us. We are a conservative-liberal party, supported by the middle classes and bourgeoisie.
+**DVP** - *Deutsche Volkspartei* (German People's Party) - This is us.
 
 <span style="color: #8B0000;">**KPD**</span> - <span style="color: #8B0000;">*Kommunistische Partei Deutschlands*</span> (German Communist Party) - a radical left-wing offshoot of the <span style="color: #E3000F;">**SPD**</span> that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
 
@@ -235,6 +235,10 @@ Current relations: [+ spd_relation : relationships +]
 <span style="color: #000000;">**Z**</span> - <span style="color: #000000;">*Zentrumspartei*</span> (Center Party) - a centrist to center-right Catholic party that supports the Republic. They have often been in coalitions with us. They are often associated with the <span style="color: #69A2BE;">**BVP**</span> (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
 
 Current relations: [+ z_relation : relationships +]
+
+[? if wp_exist: <span style="color: #B8996F;">**WP**</span> - <span style="color: #B8996F;">*Wirtschaftspartei*</span> (Economic Party) - a small conservative party that emerged from small and medium-sized business interest groups that had achieved political success in the Berlin area since 1920. The <span style="color: #B8996F;">**WP**</span> limits itself to representing the interests of homeowners, landowners, craftsmen, and small business owners and is located in the bourgeois-right spectrum. [? if wp_ideology = "Radical": Recently, the party has made a turn to the right. ?] ?]
+
+[? if wp_exist: Current relations: [+ wp_relation : relationships +] ?]
 
 [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;">*Konservative Volkspartei*</span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
 
