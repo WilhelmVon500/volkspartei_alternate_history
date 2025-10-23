@@ -264,7 +264,7 @@ Current relations: [+ dnvp_relation : relationships +]
 
 [? if dnf_formed: Current relations: [+ dnf_relation : relationships +] ?]
 
-<span style="color: #954B00;">**NSDAP**</span> - <span style="color: #954B00;">*Nationalsozialistische Deutsche Arbeiterpartei*</span> - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
+<span style="color: #954B00;">**NSDAP**</span> - <span style="color: #954B00;">*Nationalsozialistische Deutsche Arbeiterpartei*</span> (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
 
 Current relations: [+ nsdap_relation : relationships +]
 
