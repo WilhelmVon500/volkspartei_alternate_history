@@ -131,6 +131,7 @@ if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap
 Q.in_dvp_majority_hamburg = 0
 Q.in_weimar_coalition_hamburg = 0;
 Q.in_grand_coalition_hamburg = 0;
+Q.in_bourgeois_coalition_hamburg = 0;
 Q.in_far_right_coalition_hamburg = 0;
 !}
 on-display: {!
