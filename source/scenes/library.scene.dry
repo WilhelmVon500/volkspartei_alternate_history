@@ -217,39 +217,42 @@ Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD
 @parties
 go-to: menu
 
-**SPD** - *Sozialdemokratische Partei Deutschlands* (Social Democratic Party of Germany) - this is us. We are a socialist and democratic party of the working class. We are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. We are the foremost defenders of the Republic. The modern SPD was formed from a merger of the "Majority" SPD, which supported the Great War, and the "Independent" SPD or USPD, which opposed the war.
+# WIP: LVP/NFVP formation
+**DVP** - *Deutsche Volkspartei* (German People's Party) - This is us. We are a conservative-liberal party, supported by the middle classes and bourgeoisie.
 
-**Z** - *Zentrumspartei* (Center Party) - a centrist to center-right Catholic party that supports the Republic, and has historically supported many of our labor, welfare, and anti-militarist priorities. They have often been in coalitions with us. They are often associated with the **BVP** (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
+<span style="color: #8B0000;">**KPD**</span> - <span style="color: #8B0000;">*Kommunistische Partei Deutschlands*</span> (German Communist Party) - a radical left-wing offshoot of the <span style="color: #E3000F;">**SPD**</span> that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
+
+Current relations: [+ kpd_relation: relationships +]
+
+<span style="color: #E3000F;">**SPD**</span> - <span style="color: #E3000F;">*Sozialdemokratische Partei Deutschlands*</span> (Social Democratic Party of Germany) - a socialist and democratic party of the working class. They are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. They are the foremost defenders of the Republic. The modern <span style="color: #E3000F;">**SPD**</span> was formed from a merger of the "Majority" <span style="color: #E3000F;">**SPD**</span>, which supported the Great War, and the "Independent" <span style="color: #C40000;">**SPD**</span> or <span style="color: #C40000;">**USPD**</span>, which opposed the war.
+
+Current relations: [+ spd_relation : relationships +]
+
+[? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> - <span style="color: #DCCA4A;">*Deutsche Demokratische Partei*</span> (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if dstp_formed : They have recently reformed themselves as the German State Party (DStP). ?] ?]
+
+[? if ddp_exist: Current relations: [+ ddp_relation : relationships +] ?]
+
+<span style="color: #000000;">**Z**</span> - <span style="color: #000000;">*Zentrumspartei*</span> (Center Party) - a centrist to center-right Catholic party that supports the Republic. They have often been in coalitions with us. They are often associated with the <span style="color: #69A2BE;">**BVP**</span> (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
 
 Current relations: [+ z_relation : relationships +]
 
-# TODO: replace this with the german state party after 1930
-**DDP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently reformed themselves as the German State Party (DStP). ?]
+[? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;">*Konservative Volkspartei*</span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
 
-Current relations: [+ ddp_relation : relationships +]
+[? if kvp_formed: Current relations: [+ kvp_relation : relationships +] ?]
 
-# WIP: LVP formation
-**DVP** - *Deutsche Volkspartei* (German People's Party) - a conservative-liberal party, supported by the middle classes and bourgeoisie. We have occasionally been in coalitions.
-
-Current relations: [+ dvp_relation : relationships +]
-
-**DNVP** - *Deutschnationale Volkspartei* (German National People's Party) - a right-wing nationalist-conservative party, with authoritarian, monarchist, and racist elements. It is supported by the former aristocracy, rural landowners, and conservative Lutherans.
+<span style="color: #3F7BC1;">**DNVP**</span> - <span style="color: #3F7BC1;">*Deutschnationale Volkspartei*</span> (German National People's Party) - a right-wing nationalist-conservative party, with authoritarian, monarchist, and racist elements. It is supported by the former aristocracy, rural landowners, and conservative Lutherans. We have occasionally been in coalitions.
 
 Current relations: [+ dnvp_relation : relationships +]
 
-[? if kvp_formed: KVP - *Konservative Volkspartei* (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
+[? if dnf_formed: <span style="color: #003755;">**DNF**</span> - <span style="color: #003755;">*Deutschnationale Front*</span> (German National Front) - a far-right nationalist-conservative party, led by Alfred Hugenberg, originally split from the <span style="color: #3F7BC1;">**DNVP**</span>. It is supported by a small but loyal base of Hugenberg supporters, consisting of former aristocrats, racists and nationalists. ?]
 
-**KPD** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the SPD that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
+[? if dnf_formed: Current relations: [+ dnf_relation : relationships +] ?]
 
-Current relations: [+ kpd_relation : relationships +]
-
-[? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the SPD, the SAPD is essentially an agglomeration of various left-wing splinter groups between the SPD and KPD. ?]
-
-**NSDAP** - *Nationalsozialistische Deutsche Arbeiterpartei* - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
+<span style="color: #954B00;">**NSDAP**</span> - <span style="color: #954B00;">*Nationalsozialistische Deutsche Arbeiterpartei*</span> - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
 
 Current relations: [+ nsdap_relation : relationships +]
 
-**Other parties** - there is a multitude of small, mostly conservative parties, such as the Economic Party of the German Middle Class, the Farmer's Party, the Agricultural League, and others. Their political position usually lies between the [+ dvp_name +] and DNVP. 
+**Other parties** - there is a multitude of other small parties.
 
 @paramilitaries
 on-arrival: {!
