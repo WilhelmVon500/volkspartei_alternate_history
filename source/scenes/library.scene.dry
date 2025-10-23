@@ -252,7 +252,7 @@ Current relations: [+ z_relation : relationships +]
 
 [? if cnblp_exist: Current relations: [+ cnblp_relation : relationships +] ?]
 
-[? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;"><i>Konservative Volkspartei</i></span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
+[? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;"><i>Konservative Volkspartei</i></span> (Conservative People's Party) - a party recently formed in a split from the <span style="color: #3F7BC1;">**DNVP**</span>, the <span style="color: #455B95;">**KVP**</span> is essentially an agglomeration of moderate conservative groups. ?]
 
 [? if kvp_formed: Current relations: [+ kvp_relation : relationships +] ?]
 
