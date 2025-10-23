@@ -274,14 +274,18 @@ Support for the Republic: [+ pro_republic_disp +]%
 Minister-President of Prussia: [+ prussia_leader +] ([?if prussia_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if prussia_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if prussia_leader_party=="Z":<span style="color: #000000;">**Z**</span>?][?if prussia_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?])
 
 = Hamburg
+
 First Mayor of Hamburg: [+ hamburg_leader +] ([?if hamburg_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hamburg_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if hamburg_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hamburg_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hamburg_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?])
 
 = Bavaria
+
 Minister-President of Bavaria: [+ bavaria_leader +] ([?if bavaria_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if bavaria_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if bavaria_leader_party=="BVP":<span style="color: #69A2BE;">**BVP**</span>?][?if bavaria_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if bavaria_leader_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
 
 = Württemberg
+
 State President of Württemberg: [+ wurttemberg_leader +] ([?if wurttemberg_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if wurttemberg_leader_party=="Z":<span style="color: #000000;">**Z**</span>?][?if wurttemberg_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if wurttemberg_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?])
 
 [? if reichsreform: = Hanover ?]
+
 [? if reichsreform: Minister-President of Hanover: [+ hanover_leader +] ([?if hanover_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hanover_leader_party=="DHP":<span style="color: #63C489;">**DHP**</span>?][?if hanover_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hanover_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hanover_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?]) ?]
 
