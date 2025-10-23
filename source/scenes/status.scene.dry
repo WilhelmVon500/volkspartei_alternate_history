@@ -268,6 +268,7 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 
 @states
+
 = Prussia
 
 Minister-President of Prussia: [+ prussia_leader +] ([?if prussia_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if prussia_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if prussia_leader_party=="Z":<span style="color: #000000;">**Z**</span>?][?if prussia_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?])
