@@ -228,11 +228,11 @@ Current relations: [+ kpd_relation: relationships +]
 
 Current relations: [+ spd_relation : relationships +]
 
-[? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> - <span style="color: #DCCA4A;">*Deutsche Demokratische Partei*</span> (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if dstp_formed : They have recently reformed themselves as the German State Party (DStP). ?] ?]
+[? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> - <span style="color: #DCCA4A;"><i>Deutsche Demokratische Partei</i></span> (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if dstp_formed : They have recently reformed themselves as the German State Party (DStP). ?] ?]
 
 [? if ddp_exist: Current relations: [+ ddp_relation : relationships +] ?]
 
-[? if dbp_exist: <span style="color: #38C538;">**DBP**</span> - <span style="color: #38C538;">*Deutsche Bauernpartei*</span> (German Farmers' Party) - a liberal and strongly non-clerical agrarian party founded by the representatives of <span style="color: #38C538;">**BB**</span> (Bavarian Peasants' League) to expand its electoral base. The party supports the republic. ?]
+[? if dbp_exist: <span style="color: #38C538;">**DBP**</span> - <span style="color: #38C538;"><i>Deutsche Bauernpartei</i></span> (German Farmers' Party) - a liberal and strongly non-clerical agrarian party founded by the representatives of <span style="color: #38C538;">**BB**</span> (Bavarian Peasants' League) to expand its electoral base. The party supports the republic. ?]
 
 [? if dbp_exist: Current relations: [+ dbp_relation : relationships +] ?]
 
@@ -240,19 +240,19 @@ Current relations: [+ spd_relation : relationships +]
 
 Current relations: [+ z_relation : relationships +]
 
-[? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> - <span style="color: #8ED8E4;">*Christlich-Sozialer Volksdienst*</span> (Christian Social People's Service) - a centre-right party, formed by members of the Christian Social faction of <span style="color: #3F7BC1;">**DNVP**</span>. The party supports state welfare, trade unions and workers participation in management. ?]
+[? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> - <span style="color: #8ED8E4;"><i>Christlich-Sozialer Volksdienst</i></span> (Christian Social People's Service) - a centre-right party, formed by members of the Christian Social faction of <span style="color: #3F7BC1;">**DNVP**</span>. The party supports state welfare, trade unions and workers participation in management. ?]
 
 [? if csvd_exist: Current relations: [+ csvd_relation : relationships +] ?]
 
-[? if wp_exist: <span style="color: #B8996F;">**WP**</span> - <span style="color: #B8996F;">*Wirtschaftspartei*</span> (Economic Party) - a small conservative party that emerged from small and medium-sized business interest groups that had achieved political success in the Berlin area since 1920. The <span style="color: #B8996F;">**WP**</span> limits itself to representing the interests of homeowners, landowners, craftsmen, and small business owners and is located in the bourgeois-right spectrum. [? if wp_ideology = "Radical": Recently, the party has made a turn to the right. ?] ?]
+[? if wp_exist: <span style="color: #B8996F;">**WP**</span> - <span style="color: #B8996F;"><i>Wirtschaftspartei</i></span> (Economic Party) - a small conservative party that emerged from small and medium-sized business interest groups that had achieved political success in the Berlin area since 1920. The <span style="color: #B8996F;">**WP**</span> limits itself to representing the interests of homeowners, landowners, craftsmen, and small business owners and is located in the bourgeois-right spectrum. [? if wp_ideology = "Radical": Recently, the party has made a turn to the right. ?] ?]
 
 [? if wp_exist: Current relations: [+ wp_relation : relationships +] ?]
 
-[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> - <span style="color: #7FCEB1;">*Christlich-Nationale Bauern- und Landvolkpartei*</span> (Christian-National Peasants' and Farmers' Party) - an agrarian conservative party representing interests of the Protestant rural population, mostly the small and medium farmers. ?]
+[? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> - <span style="color: #7FCEB1;"><i>Christlich-Nationale Bauern- und Landvolkpartei</i></span> (Christian-National Peasants' and Farmers' Party) - an agrarian conservative party representing interests of the Protestant rural population, mostly the small and medium farmers. ?]
 
 [? if cnblp_exist: Current relations: [+ cnblp_relation : relationships +] ?]
 
-[? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;">*Konservative Volkspartei*</span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
+[? if kvp_formed: <span style="color: #455B95;">**KVP**</span> - <span style="color: #455B95;"><i>Konservative Volkspartei</i></span> (Conservative People's Party) - a party recently formed in a split from the DNVP, the KVP is essentially an agglomeration of various splinter groups between the [+ dvp_name +] and DNVP. ?]
 
 [? if kvp_formed: Current relations: [+ kvp_relation : relationships +] ?]
 
@@ -260,7 +260,7 @@ Current relations: [+ z_relation : relationships +]
 
 Current relations: [+ dnvp_relation : relationships +]
 
-[? if dnf_formed: <span style="color: #003755;">**DNF**</span> - <span style="color: #003755;">*Deutschnationale Front*</span> (German National Front) - a far-right nationalist-conservative party, led by Alfred Hugenberg, originally split from the <span style="color: #3F7BC1;">**DNVP**</span>. It is supported by a small but loyal base of Hugenberg supporters, consisting of former aristocrats, racists and nationalists. ?]
+[? if dnf_formed: <span style="color: #003755;">**DNF**</span> - <span style="color: #003755;"><i>Deutschnationale Front</i></span> (German National Front) - a far-right nationalist-conservative party, led by Alfred Hugenberg, originally split from the <span style="color: #3F7BC1;">**DNVP**</span>. It is supported by a small but loyal base of Hugenberg supporters, consisting of former aristocrats, racists and nationalists. ?]
 
 [? if dnf_formed: Current relations: [+ dnf_relation : relationships +] ?]
 
