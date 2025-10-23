@@ -273,19 +273,29 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 Minister-President: [+ prussia_leader +] ([?if prussia_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if prussia_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if prussia_leader_party=="Z":<span style="color: #000000;">**Z**</span>?][?if prussia_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?])
 
+Government: [? if in_dvp_majority_prussia: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_weimar_coalition_prussia: Weimar Coalition ?][? if in_grand_coalition_prussia: Grand Coalition ?][? if in_bourgeois_coalition_prussia: Bourgeois Coalition ?][? if in_far_right_coalition_prussia: Far-Right Coalition ?]
+
 = Hamburg
 
 First Mayor: [+ hamburg_leader +] ([?if hamburg_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hamburg_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if hamburg_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hamburg_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hamburg_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?])
+
+Government: [? if in_dvp_majority_hamburg: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_weimar_coalition_hamburg: Weimar Coalition ?][? if in_grand_coalition_hamburg: Grand Coalition ?][? if in_bourgeois_coalition_hamburg: Bourgeois Coalition ?][? if in_far_right_coalition_hamburg: Far-Right Coalition ?]
 
 = Bavaria
 
 Minister-President: [+ bavaria_leader +] ([?if bavaria_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if bavaria_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if bavaria_leader_party=="BVP":<span style="color: #69A2BE;">**BVP**</span>?][?if bavaria_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if bavaria_leader_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
 
+Government: [? if in_dvp_majority_bavaria: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_grand_coalition_bavaria: Grand Coalition ?][? if in_bourgeois_coalition_bavaria: Bourgeois Coalition ?][? if in_right_coalition_bavaria: Right Coalition ?][? if in_far_right_coalition_bavaria: Far-Right Coalition ?]
+
 = Württemberg
 
 State President: [+ wurttemberg_leader +] ([?if wurttemberg_leader_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if wurttemberg_leader_party=="Z":<span style="color: #000000;">**Z**</span>?][?if wurttemberg_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if wurttemberg_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?])
 
+Government: [? if in_dvp_majority_wurttemberg: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_weimar_coalition_wurttemberg: Weimar Coalition ?][? if in_grand_coalition_wurttemberg: Grand Coalition ?][? if in_bourgeois_coalition_wurttemberg: Bourgeois Coalition ?][? if in_far_right_coalition_wurttemberg: Far-Right Coalition ?]
+
 [? if reichsreform: = Hanover ?]
+
+[? if reichsreform: Government: [? if in_dvp_majority_hanover: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_grand_coalition_hanover: Grand Coalition ?][? if in_bourgeois_coalition_hanover: Bourgeois Coalition ?][? if in_far_right_coalition_hanover: Far-Right Coalition ?] ?]
 
 [? if reichsreform: Minister-President: [+ hanover_leader +] ([?if hanover_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hanover_leader_party=="DHP":<span style="color: #63C489;">**DHP**</span>?][?if hanover_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hanover_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hanover_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?]) ?]
 
