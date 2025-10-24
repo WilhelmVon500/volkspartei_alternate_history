@@ -10,7 +10,7 @@ tags: event
 
 - @urge_against_austerity
 - @new_grand_coalition
-- @stay_course: Stay the course, for stability's sake.
+- @refuse: We refuse their demands.
 - @easy_discard
 
 @vonc
@@ -55,6 +55,7 @@ They are now part of a "constitutional coalition" government that includes all r
 
 
 
-@stay_course
+@refuse
+on_arrival: toleration_explode += 1; spd_relation -= 3; workers_dvp -= 2; progressive_dissent += 3;
 
-We will stay the course of toleration, for the sake of stability.
+We will refuse their demands. This may not end well, though...
