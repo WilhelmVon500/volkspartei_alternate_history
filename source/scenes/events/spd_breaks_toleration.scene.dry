@@ -1,0 +1,43 @@
+title: <span style="color: #E3000F;">**SPD**</span> Breaks Toleration!
+subtitle: We have angered the <span style="color: #E3000F;">**Social Democrats**</span> too much...
+new-page: true
+view-if: spd_toleration and toleration_explode >= 3
+tags: event
+
+= <span style="color: #E3000F;">**SPD**</span> Breaks Toleration!
+
+The <span style="color: #E3000F;">**SPD**</span> has called for a vote of no confidence.
+
+- @try_assuage: Try to assuage the <span style="color: #E3000F;">**SPD**</span>.
+- @let_it_happen: Let the vote happen.
+
+@try_assuage
+
+How do we assuage the <span style="color: #E3000F;">**Social Democrats**</span>?
+
+- @welfare: Increase welfare spending.
+- @resources: Use our resources to reduce dissent within the coalition.
+- @let_it_happen: Never mind. Let the vote happen.
+
+@welfare
+view-if: budget >= 1
+subtitle: -1 Budget
+on-arrival: toleration_explode = 0; workers_spd += 5; unemployed_spd += 5; old_middle_dvp -= 5; old_middle_z -= 3; nationalist_dissent += 15; industrialist_dissent += 15; labor_dissent -= 5; progressive_dissent -= 5; labor_strength += 5; progressive_strength += 5; welfare += 1; budget -= 1; unemployed -= 2; dnvp_relation -= 10 if dnvp_ideology = "Radical"
+
+Fine. We enacted a massive reform to increase welfare, in order to maintain the stability of our coalition. The vote has been called off.
+
+@resources
+choose-if: resources >= 2
+unavailable-subtitle: We do not have enough resources.
+subtitle: -2 resources
+on-arrival: resources -= 2; toleration_explode -= 1;
+
+By transferring resources to our coalition partners, we can reduce their dissent against our policies. This is a crude, but effective solution.
+
+
+@let_it_happen
+on-arrival: spd_in_government = 0; spd_toleration = 0; in_grand_coalition = 0; in_bourgeois_coalition = 1; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; nationalist_strength += 8; pro_republic -= 5; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; workers_dvp -= 3; new_middle_dvp -= 3; old_middle_z -= 2; rural_z -= 2;
+
+The vote succeeds, and our government has resigned. Chancellor [+ chancellor +] remains as the head of a caretaker government, but no longer has the power to enact new policies.
+
+New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
