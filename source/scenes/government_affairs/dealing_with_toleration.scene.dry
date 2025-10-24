@@ -11,7 +11,6 @@ tags: event
 - @urge_against_austerity
 - @new_grand_coalition
 - @refuse: We refuse their demands.
-- @easy_discard
 
 @vonc
 on-arrival: spd_in_government = 0; spd_toleration = 0; in_grand_coalition = 0; in_bourgeois_coalition = 0; chancellor = "Brüning"; chancellor_party = "Z"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; nationalist_strength += 8; pro_republic -= 5; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; workers_dvp -= 3; new_middle_dvp -= 3; old_middle_z -= 2; rural_z -= 2;
