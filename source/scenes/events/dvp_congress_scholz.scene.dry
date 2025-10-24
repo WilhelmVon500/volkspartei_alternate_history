@@ -16,7 +16,7 @@ Ernst Scholz has resigned due to health reasons.
 
 
 @dohna_lead
-on-arrival: dvp_leader = "Dohna-Schlodien"; spd_relation += 5; ddp_relation += 10; z_relation += 3; dnvp_relation -= 5 if dnvp_ideology == "Radical"; old_middle_dvp += 1; new_middle_dvp += 2; pro_republic += 2; liberal_strength += 5; liberal_dissent -= 5; nationalist_strength - 5; nationalist_dissent += 5; dvp_left += 1
+on-arrival: dvp_leader = "Dohna-Schlodien";
 face-image: img/portraits/DohnaSchlodienAlexander.jpg
 
 Alexander zu Dohna-Schlodien has surprisingly won! His victory represents our party's shift back to moderate positions.
