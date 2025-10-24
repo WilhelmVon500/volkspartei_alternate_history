@@ -135,9 +135,7 @@ Q.dnvp_ideology = "Radical";
 Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
 Q.kpd_party_leader = "Thälmann";
-Q.z_leader = "Brüning";
-// party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
-Q.z_party_leader = "Marx";
+Q.z_leader = "Marx";
 Q.nsdap_leader = "Hitler";
 
 Q.dnvp_tory_democracy = 0;
