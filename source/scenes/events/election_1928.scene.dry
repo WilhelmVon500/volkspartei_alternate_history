@@ -195,6 +195,7 @@ Q.in_emergency_government = 0;
 Q.in_minority_government = 0;
 Q.in_unity_government = 0;
 Q.spd_toleration = 0;
+Q.toleration_explode = 0;
 Q.dvp_toleration = 0;
 Q.spd_caretaker = 0;
 Q.foreign_minister_party = 'Z';
