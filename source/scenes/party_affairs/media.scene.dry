@@ -70,7 +70,7 @@ subtitle: -5 resources
 choose-if: resources >= 5
 unavailable-subtitle: Not enough resources.
 view-if: radio = 0 and newspaper > 3
-on-arrival: radio += 1; resources -= 5; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 2*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; resources -= 5; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 1*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
 
 Our new radio station allows us to connect to people in a more intimate setting than before, spreading the message of our party along with music and other popular content.
 
@@ -80,7 +80,7 @@ subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
 view-if: radio > 0 and radio <= 3
-on-arrival: radio += 1; resources -= 2; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 2*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; resources -= 2; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 1*(1 - dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
 
 Our new radio network has a mix of popular and political programming, and is proving a success.
 
@@ -88,6 +88,6 @@ Our new radio network has a mix of popular and political programming, and is pro
 title: We must keep on building up our radio network.
 subtitle: It is now financially self-sufficient, and does not require any more resources.
 view-if: radio > 3
-on-arrival: radio += 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 2*(1 - dissent); rural_dvp += 3*(1 - dissent); unemployed_dvp += 2*(1-dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 4*(1 - dissent); workers_dvp += 1*(1 - dissent); rural_dvp += 3*(1 - dissent); unemployed_dvp += 2*(1-dissent); socialism -= 3*(1 - dissent); pro_republic += 3*(1-dissent) if democratization > 1
 
 Our radio network has become a successful tool for spreading our message.
