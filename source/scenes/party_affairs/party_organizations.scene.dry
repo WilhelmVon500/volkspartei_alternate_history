@@ -41,7 +41,7 @@ choose-if: resources > 0
 view-if: not lvp_formed and not nfvp_formed
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; liberal_association += 1; nationalist_dissent += 7; liberal_dissent -= 7; liberal_strength += 7; ddp_relation += 3; liberal_peoples_party_progress += 1
+on-arrival: resources -= 1; liberal_association += 1; nationalist_dissent += 7; liberal_dissent -= 7; liberal_strength += 7; ddp_right += 1; ddp_relation += 3; liberal_peoples_party_progress += 1
 
 We have supported the Liberal Association, strengthening the movement for a united liberal party.
 
