@@ -1,6 +1,6 @@
 title: <span style="color: #C0A054;">**DVP**</span> Leadership Vote
 subtitle: Ernst Scholz has resigned!
-view-if: year = 1930 and month = 12 and dvp_leader == "Scholz" and not lvp_formed
+view-if: year = 1930 and month = 12 and dvp_leader == "Scholz" and not lvp_formed and not nfvp_formed
 max-visits: 1
 tags: event
 face-image: img/portraits/ScholzErnst.jpg
@@ -10,18 +10,25 @@ new-page: true
 
 Ernst Scholz has resigned due to health reasons.
 
+- @dohna_lead: Alexander zu Dohna-Schlodien
 - @dingeldey_lead: Eduard Dingeldey
 - @hugo_lead: Otto Hugo
 
 
+@dohna_lead
+on-arrival: dvp_leader = "Dohna-Schlodien"; spd_relation += 5; ddp_relation += 10; z_relation += 3; dnvp_relation -= 5 if dnvp_ideology == "Radical"; old_middle_dvp += 1; new_middle_dvp += 2; pro_republic += 2; liberal_strength += 5; liberal_dissent -= 5; nationalist_strength - 5; nationalist_dissent += 5; dvp_left += 1
+face-image: img/portraits/DohnaSchlodienAlexander.jpg
+
+Alexander zu Dohna-Schlodien has surprisingly won! His victory represents our party's shift back to moderate positions.
+
 @dingeldey_lead
-on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 5; dnvp_relation += 5 if dnvp_leader == "Hugenberg"; old_middle_dvp -= 1; new_middle_dvp -= 2; pro_republic -= 2; nationalist_strength += 3; liberal_dissent += 5; dvp_right += 1
+on-arrival: dvp_leader = "Dingeldey"; spd_relation -= 5; ddp_relation -= 5; dnvp_relation += 5 if dnvp_ideology == "Radical"; old_middle_dvp -= 1; new_middle_dvp -= 2; pro_republic -= 2; nationalist_strength += 3; liberal_dissent += 5; dvp_right += 1
 face-image: img/portraits/DingeldeyEduard.jpg
 
 Eduard Dingeldey has won. Though a compromise candidate, he still represents a shift to the right.
 
 @hugo_lead
-on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; dnvp_relation += 10 if dnvp_leader == "Hugenberg"; nsdap_relation += 5; new_middle_dvp -= 4; workers_dvp -= 8; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 5; industrialist_dissent -= 7; liberal_dissent += 10; dvp_right += 3
+on-arrival: dvp_leader = "Hugo"; spd_relation -= 10; ddp_relation -= 10; dnvp_relation += 10 if dnvp_leader == "Hugenberg"; nsdap_relation += 5; new_middle_dvp -= 4; workers_dvp -= 8; pro_republic -= 3; nationalist_strength += 5; industrialist_strength += 5; industrialist_dissent -= 7; liberal_dissent += 10; dvp_right += 3
 face-image: img/portraits/HugoOtto.jpg
 
 Otto Hugo has won. Backed by the party's far right wing, he represents a significant shift to the right.
