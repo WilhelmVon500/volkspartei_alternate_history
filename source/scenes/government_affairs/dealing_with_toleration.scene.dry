@@ -1,34 +1,20 @@
 title: Dealing with Toleration
 new-page: true
-is-card: true
-card-image: img/portraits/BrüningHeinrich.jpg
-view-if: dealing_with_toleration_timer = 0 and spd_toleration and chancellor_party == "Z"
-on-arrival: dealing_with_toleration_timer += 6; month_actions += 1
-tags: govt_affairs
-#subtitle: Despite not being in government, we can still provide support.
+view-if: dealing_with_toleration_timer = 0 and spd_toleration
+on-arrival: dealing_with_toleration_timer += 6
+tags: event
 
 = Dealing with Toleration
 
-We are currently acting as external support to the government of Chancellor [+ chancellor +]. How should we use our position?
+<span style="color: #E3000F;">**SPD**</span> is currently acting as external support to the government of Chancellor [+ chancellor +]. Still, they want to somehow use their position.
 
-- @break_toleration
 - @urge_against_austerity
-- @improve_relations
 - @new_grand_coalition
 - @stay_course: Stay the course, for stability's sake.
 - @easy_discard
 
-@break_toleration
-view-if: not constructive_vonc
-title: End the toleration agreement with a vote of no confidence!
-
-Are we sure about this? A vote of no confidence would trigger new elections, and potentially an increased vote-share for the extremist parties.
-
-- @vonc: Yes, end this arrangement!
-- @stay_course: No, we should stay the course.
-
 @vonc
-on-arrival: spd_in_government = 0; spd_toleration = 0; in_grand_coalition = 0; chancellor = "Brüning"; chancellor_party = "Z"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; left_strength += 8; pro_republic -= 5; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 5; left_dissent -= 5
+on-arrival: spd_in_government = 0; spd_toleration = 0; in_grand_coalition = 0; in_bourgeois_coalition = 0; chancellor = "Brüning"; chancellor_party = "Z"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; nationalist_strength += 8; pro_republic -= 5; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; workers_dvp -= 3; new_middle_dvp -= 3; old_middle_z -= 2; rural_z -= 2;
 
 We have called for a vote of no confidence, and have brought down this government. Chancellor [+ chancellor +] currently rules as acting chancellor.
 
@@ -51,29 +37,19 @@ on-arrival: z_relation -= 3; dvp_relation -= 3
 Unfortunately, our negotiations have met with failure. The center-right parties increasingly see us as a nuisance, and might not wish to continue these negotiations.
 
 
-@improve_relations
-title: Improve relations with the parties of the coalition.
-on-arrival: z_relation += 5*(1-dissent); dvp_relation += 4*(1-dissent); left_dissent += 5;
-
-We have increased our level of contact and discussions with the parties of the coalition, primarily the Center Party and DVP.
-
-Our attempts to reach out to the center-right are met with disdain by leftists within our party.
-
-
-
 
 @new_grand_coalition
-title: Can we join the government in a new grand coalition?
+title: Can the <span style="color: #E3000F;">**SPD**</span> join the government in a new grand coalition?
 view-if: neo_weimar_coalition >= 50
-choose-if: z_relation >= 50 and dvp_relation >= 30 and resources >= 2
+choose-if: z_relation >= 50 and (kvp_relation >= 35 or not kvp_formed)
 subtitle: We will need 2 resources to smooth out the process of forming the coalition.
-unavailable-subtitle: [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 30 : We do not have adequate relations with the DVP. ?] [? if resources < 2 : We do not have enough resources. ?]
-on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; spd_toleration = 0; left_dissent += 6; reformist_strength += 5; leverage = 20 if leverage >= 20
+unavailable-subtitle: [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if kvp_relation < 35 and kvp_formed: We do not have adequate relations with the KVP. ?]
+on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; spd_toleration = 0; nationalist_dissent += 7; liberal_strength += 5; democratic_strength += 5; progressive_strength += 5
 achievement: constitutional_coalition
 
-Our negotiations have succeeded, and the Center Party and DVP have agreed to form a new coalition government with us!
+Our negotiations have succeeded, and the SPD has agreed to form a new coalition government with us!
 
-We are now part of a "constitutional coalition" government that includes all parties except the extremists of the KPD, DNVP, and NSDAP. [+ chancellor +] will remain as chancellor. Leftists in our party are skeptical of this arrangement.
+They are now part of a "constitutional coalition" government that includes all republican parties. [+ chancellor +] will remain as chancellor. Radical rightists in our party are skeptical of this arrangement.
 
 - @election_1928.ministries: Now, we must select our ministries.
 
