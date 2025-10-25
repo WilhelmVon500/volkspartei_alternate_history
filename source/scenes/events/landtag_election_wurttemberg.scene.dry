@@ -148,7 +148,7 @@ data = [
         "seats": Math.round(Q.spd_wl*0.8),
     }
 ];
-if (Q.aspd_formed && Q.aspd_wl) {
+if (Q.aspd_exist && Q.aspd_wl) {
     data.push({
             "id": "aspd",
             "legend": "ASPD",
