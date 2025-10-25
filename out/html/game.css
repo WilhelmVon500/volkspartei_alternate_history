@@ -547,6 +547,9 @@ table {
 .seat.spd {
     fill: #E3000F;
 }
+.seat.aspd {
+    fill: #FE9E00;
+}
 .seat.ddp {
     fill: #DCCA4A;
 }
