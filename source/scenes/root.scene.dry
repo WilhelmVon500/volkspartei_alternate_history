@@ -464,6 +464,7 @@ Q.dbp_exist = 1
 Q.wp_exist = 1
 Q.cnblp_exist = 1
 Q.csvd_exist = 0
+Q.aspd_exist = 0
 
 Q.ddp_exist = 1
 Q.dstp_formed = 0
