@@ -246,7 +246,7 @@ Current relations: [+ spd_relation : relationships +]
 
 [? if dbp_exist: Current relations: [+ dbp_relation : relationships +] ?]
 
-<span style="color: #000000;">**Z**</span> - <span style="color: #000000;">*Zentrumspartei*</span> (Center Party) - a centrist to center-right Catholic party that supports the Republic. They have often been in coalitions with us. They are often associated with the <span style="color: #69A2BE;">**BVP**</span> (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
+<span style="color: #000000;">**Z**</span> - <span style="color: #000000;">*Zentrumspartei*</span> (Center Party) - a centrist to center-right Catholic party that supports the Republic. They have often been in coalitions with us. They are often associated with the <span style="color: #69A2BE;">**BVP**</span> (Bavarian People's Party), which represents Catholics in Bavaria.
 
 Current relations: [+ z_relation : relationships +]
 
