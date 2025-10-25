@@ -10,9 +10,11 @@ if (Q.aspd_leader == "Heldt") {
 }
   
 
-Q.workers_aspd = 5;
+Q.workers_aspd = Q.workers_other;
+Q.workers_other = 0;
 
-Q.unemployed_aspd = 3;
+Q.unemployed_aspd = Q.unemployed_other;
+Q.unemployed_other = 0;
 
 
 if (Q.dvp_ideology == "Right") {
