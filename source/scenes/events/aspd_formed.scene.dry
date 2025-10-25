@@ -1,0 +1,31 @@
+on-arrival: {!
+// set up the infrastructure
+Q.aspd_exist = 1;
+Q.parties.push('aspd');
+
+Q.aspd_ideology = "Moderate"
+Q.aspd_leader = "Heldt"
+  
+
+Q.workers_aspd = 5;
+
+Q.unemployed_aspd = 3;
+
+
+if (Q.dvp_ideology = "Right") {
+    Q.dnf_relation = 30
+} else {
+    Q.dnf_relation = 45
+}
+
+
+
+// update all records
+Q.old_aspd_r = 0;
+for (var record of Q.election_records) {
+    record['aspd'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['aspd'] = 0;
+}
+!}
