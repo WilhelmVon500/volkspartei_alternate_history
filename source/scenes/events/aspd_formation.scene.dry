@@ -10,8 +10,8 @@ go-to: aspd_exist
 
 WIP
 
-- @heldt: Heldt will be the chairman of the party.
-- @niekisch: Surprisingly, Niekisch is elected chairman!
+- @heldt: Max Heldt will be the chairman of the party.
+- @niekisch: Surprisingly, Ernst Niekisch is elected chairman!
 
 @heldt
 on-arrival: aspd_ideology = "Moderate"; aspd_leader = "Heldt"
