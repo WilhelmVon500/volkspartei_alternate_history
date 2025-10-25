@@ -28,7 +28,7 @@ for (var c of Q.classes) {
 
 // Define adjustment factors
 Q.adjustmentFactors_spd_hanover = 1.1;
-Q.adjustmentFactors_sapd_hanover = 0.8;
+Q.adjustmentFactors_aspd_hanover = 0.8;
 Q.adjustmentFactors_kpd_hanover = 0.7;
 Q.adjustmentFactors_ddp_hanover = 0.8;
 Q.adjustmentFactors_dbp_hanover = 0.0;
@@ -180,24 +180,22 @@ data = [
         "name": "KPD",
         "seats": Math.round(Q.kpd_hl*1.5),
     }
-];
-if (Q.sapd_formed && Q.sapd_hl) {
-    data.push({
-            "id": "sapd",
-            "legend": "SAPD",
-            "name": "SAPD",
-            "seats": Math.round(Q.sapd_hl*1.5),
-            });
-}
-data = data.concat([
     {
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
         "seats": Math.round(Q.spd_hl*1.5),
     }
-]);
-if (Q.ddp_exist) {
+];
+if (Q.aspd_exist && Q.aspd_hl) {
+    data.push({
+        "id": "aspd",
+        "legend": "ASPD",
+        "name": "ASPD",
+        "seats": Math.round(Q.aspd_hl*1.5),
+    });
+}
+if (Q.ddp_exist && Q.ddp_hl) {
     data.push({
         "id": "ddp",
         "legend": Q.ddp_name,
@@ -205,7 +203,7 @@ if (Q.ddp_exist) {
         "seats": Math.round(Q.ddp_hl*1.5),
     });
 }
-if (Q.lvp_formed) {
+if (Q.lvp_formed && Q.dvp_hl) {
     data.push({
         "id": "lvp",
         "legend": Q.dvp_name,
@@ -229,7 +227,7 @@ if (Q.dhp_hl) {
         "seats": Math.round(Q.dhp_hl*1.5),
     });
 }
-if (Q.nfvp_formed) {
+if (Q.nfvp_formed && Q.dvp_hl) {
     data.push({
         "id": "nfvp",
         "legend": Q.dvp_name,
@@ -237,7 +235,7 @@ if (Q.nfvp_formed) {
         "seats": Math.round(Q.dvp_hl*1.5),
     });
 }
-if (!Q.lvp_formed && !Q.nfvp_formed) {
+if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_hl) {
     data.push({
         "id": "dvp",
         "legend": Q.dvp_name,
