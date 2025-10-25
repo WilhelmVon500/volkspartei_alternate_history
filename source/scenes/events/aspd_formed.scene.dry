@@ -12,11 +12,11 @@ Q.workers_aspd = 5;
 Q.unemployed_aspd = 3;
 
 
-if (Q.dvp_ideology = "Right") {
+if (Q.dvp_ideology == "Right") {
     Q.aspd_relation = 30
-} else if (Q.dvp_ideology = "Left" && Q.aspd_ideology = "Moderate") {
+} else if (Q.dvp_ideology == "Left" && Q.aspd_ideology == "Moderate") {
     Q.aspd_relation = 45
-} else if (Q.dvp_ideology = "Left" && Q.aspd_ideology = "Radical") {
+} else if (Q.dvp_ideology == "Left" && Q.aspd_ideology == "Radical") {
     Q.aspd_relation = 15
 }
 
