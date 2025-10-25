@@ -14,12 +14,12 @@ WIP
 - @niekisch: Surprisingly, Niekisch is elected chairman!
 
 @heldt
-on-arrival: aspd_ideology = "Moderate", aspd_leader = "Heldt"
+on-arrival: aspd_ideology = "Moderate"; aspd_leader = "Heldt"
 
 WIP
 
 
 @niekisch
-on-arrival: aspd_ideology = "Radical", aspd_leader = "Niekisch"
+on-arrival: aspd_ideology = "Radical"; aspd_leader = "Niekisch"
 
 WIP
