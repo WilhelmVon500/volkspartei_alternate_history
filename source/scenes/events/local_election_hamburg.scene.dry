@@ -141,7 +141,7 @@ data = [
         "legend": "KPD",
         "name": "KPD",
         "seats": Math.round(Q.kpd_hb*1.6),
-    }
+    },
     {
         "id": "spd",
         "legend": "SPD",
