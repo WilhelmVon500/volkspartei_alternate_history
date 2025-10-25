@@ -3,8 +3,11 @@ on-arrival: {!
 Q.aspd_exist = 1;
 Q.parties.push('aspd');
 
-Q.aspd_ideology = "Moderate"
-Q.aspd_leader = "Heldt"
+if (Q.aspd_leader == "Heldt") {
+    Q.aspd_ideology = "Moderate"
+} else if (Q.aspd_leader == "Niekisch") {
+    Q.aspd_ideology = "Radical"
+}
   
 
 Q.workers_aspd = 5;
