@@ -218,7 +218,7 @@ Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD
 go-to: menu
 
 # WIP: LVP/NFVP formation
-**DVP** - *Deutsche Volkspartei* (German People's Party) - This is us.
+<span style="color: var(--dvp-color);">**DVP**/span> - <span style="color: var(--dvp-color);">*Deutsche Volkspartei*/span> (German People's Party) - This is us. A conglomeration of likeminded liberals and industrial interests united in nationalism and de jure collaboration with the Weimar Republic, we are the descendants of the once-dominant National Liberal Party. We have commonly advocated for the interests of the German middle class, and under Gustav Stresemann’s leadership, our reputation as a sensible alternative to the incoherent German Democrats and somewhat radical National Populists has only strengthened itself. However, our Industrialists and Nationalists grow unfettered, potentially compromising our position as the party of reason.
 
 <span style="color: #8B0000;">**KPD**</span> - <span style="color: #8B0000;">*Kommunistische Partei Deutschlands*</span> (German Communist Party) - a radical left-wing offshoot of the <span style="color: #E3000F;">**SPD**</span> that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
 
