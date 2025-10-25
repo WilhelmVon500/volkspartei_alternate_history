@@ -4,7 +4,6 @@ view-if: year >= 1935 and return_to_normalcy
 max-visits: 1
 tags: event
 new-page: true
-set-jump: aspd_formed
 
 = The <span style="color: #FE9E00;">**ASPD**</span> is refounded!
 
@@ -14,12 +13,14 @@ WIP
 - @niekisch: Surprisingly, Ernst Niekisch is elected chairman!
 
 @heldt
-on-arrival: aspd_ideology = "Moderate"; aspd_leader = "Heldt"
+on-arrival: aspd_leader = "Heldt"
+go-to: aspd_formed
 
 WIP
 
 
 @niekisch
-on-arrival: aspd_ideology = "Radical"; aspd_leader = "Niekisch"
+on-arrival: aspd_leader = "Niekisch"
+go-to: aspd_formed
 
 WIP
