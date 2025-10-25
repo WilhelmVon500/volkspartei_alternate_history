@@ -42,21 +42,19 @@ Chancellor: [+ chancellor +] ([?if chancellor_party=="SPD":<span style="color: #
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
-<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
-#
-[? if sapd_formed and sapd_r > 0: <span class="tooltip-text" title="Socialist Workers' Party of Germany" style="color: #C40000;">**SAPD**</span>: [+ sapd_r +]% ?]
-#
-<span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>: [+ z_r +]%
-#
-<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
-#
-[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_r +]% ?]
-#
-[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_r +]% ?]
-#
 [? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
+#
+<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
+#
+<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
+#
+[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_r +]% ?]
+#
+[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_r +]% ?]
+#
+<span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>: [+ z_r +]%
 #
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_r +]% ?]
 #
@@ -90,13 +88,15 @@ Economic growth: [+ economic_growth_2 +]%
 = Inter-party Relations
 
 
-<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: [+ z_relation : relationships +]
-
-[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_relation : relationships +] ?]
+<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_relation : relationships +]
 
 <span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_relation : relationships +]
 
-[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_relation : relationships +] ?]
+[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_relation : relationships +] ?]
+
+[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_relation : relationships +] ?]
+
+<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: [+ z_relation : relationships +]
 
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_relation : relationships +] ?]
 
@@ -104,9 +104,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_relation : relationships +] ?]
 
-[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_relation : relationships +] ?]
-
-<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_relation : relationships +]
+[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_relation : relationships +] ?]
 
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_relation : relationships +]
 
@@ -120,11 +118,15 @@ Economic growth: [+ economic_growth_2 +]%
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ([+ dvp_leader +]) ?] ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Dietrich": Classical Liberalism ?][? if dvp_leader = "Curtius": National Liberalism ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ?] ([+ dvp_leader +]) ?]
 
-<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: Christian Democracy ([+ z_leader +])
+<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: Stalinism ([+ kpd_leader +])
+
+<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: Social Democracy (Wels)
 
 [? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [? if ddp_ideology = "Left": Progressive Liberalism?][? if ddp_ideology = "Moderate": Left Liberalism?][? if ddp_ideology = "Right": Classical Liberalism?] ([+ ddp_leader +]) ?]
 
-<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: Social Democracy (Wels)
+[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: Liberal Agrarianism (Gandorfer) ?]
+
+<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: Christian Democracy ([+ z_leader +])
 
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: Christian Socialism (Simpfendörfer) ?]
 
@@ -132,15 +134,11 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: Agrarian Conservatism (Baum) ?]
 
-[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: Liberal Agrarianism (Gandorfer) ?]
-
 [? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: Christian Conservatism (Westarp) ?]
 
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [? if dnvp_leader = "Westarp": National Conservatism ?][? if dnvp_leader = "Hugenberg": Authoritarian Conservatism ?][? if dnvp_leader = "Treviranus": Tory Democracy ?] ([+ dnvp_leader +])
 
 [? if dnf_formed: <span class="tooltip-text" title="German National Front" style="color: #003755;">**DNF**</span>: Authoritarian Conservatism (Hugenberg) ?]
-
-<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: Stalinism ([+ kpd_leader +])
 
 <span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: Nazism ([+ nsdap_leader +])
 
