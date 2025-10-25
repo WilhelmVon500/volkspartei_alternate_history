@@ -4,6 +4,7 @@ max-visits: 1
 tags: event
 face-image: img/portraits/LutherHans.jpg
 new-page: true
+on-arrival: lvp_congress_luther_seen = 1
 
 = <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Congress
 
