@@ -29,7 +29,7 @@ for (var c of Q.classes) {
 
 // Define adjustment factors
 Q.adjustmentFactors_spd_wurttemberg = 0.85;
-Q.adjustmentFactors_sapd_wurttemberg = 0.2;
+Q.adjustmentFactors_aspd_wurttemberg = 0.2;
 Q.adjustmentFactors_kpd_wurttemberg = 0.85;
 Q.adjustmentFactors_ddp_wurttemberg = 3.0;
 Q.adjustmentFactors_dbp_wurttemberg = 0.0;
