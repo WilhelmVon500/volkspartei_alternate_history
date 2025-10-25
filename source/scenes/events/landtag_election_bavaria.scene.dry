@@ -28,7 +28,7 @@ for (var c of Q.classes) {
 
 // Define adjustment factors
 Q.adjustmentFactors_spd_bavaria = 0.75;
-Q.adjustmentFactors_sapd_bavaria = 0.2;
+Q.adjustmentFactors_aspd_bavaria = 0.5;
 Q.adjustmentFactors_kpd_bavaria = 0.3;
 Q.adjustmentFactors_ddp_bavaria = 0.5;
 Q.adjustmentFactors_dbp_bavaria = 6.5;
@@ -141,25 +141,23 @@ data = [
         "legend": "KPD",
         "name": "KPD",
         "seats": Math.round(Q.kpd_bl*1.28),
-    }
-];
-if (Q.sapd_formed && Q.sapd_bl) {
-    data.push({
-        "id": "sapd",
-        "legend": "SAPD",
-        "name": "SAPD",
-        "seats": Math.round(Q.sapd_bl*1.28),
-    });
-}
-data = data.concat([
+    },
     {
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
         "seats": Math.round(Q.spd_bl*1.28),
     }
-]);
-if (Q.ddp_exist) {
+];
+if (Q.aspd_formed && Q.aspd_bl) {
+    data.push({
+        "id": "aspd",
+        "legend": "ASPD",
+        "name": "ASPD",
+        "seats": Math.round(Q.aspd_bl*1.28),
+    });
+}
+if (Q.ddp_exist && Q.ddp_bl) {
     data.push({
         "id": "ddp",
         "legend": Q.ddp_name,
@@ -167,7 +165,7 @@ if (Q.ddp_exist) {
         "seats": Math.round(Q.ddp_bl*1.28),
     });
 }
-if (Q.dbp_exist) {
+if (Q.dbp_exist && Q.dbp_bl) {
     data.push({
         "id": "dbp",
         "legend": "DBP",
@@ -175,7 +173,7 @@ if (Q.dbp_exist) {
         "seats": Math.round(Q.dbp_bl*1.28),
     });
 }
-if (Q.lvp_formed) {
+if (Q.lvp_formed && Q.dvp_bl) {
     data.push({
         "id": "lvp",
         "legend": Q.dvp_name,
@@ -191,7 +189,7 @@ data = data.concat([
         "seats": Math.round(Q.z_bl*1.28),
     },
 ]);
-if (Q.nfvp_formed) {
+if (Q.nfvp_formed && Q.dvp_bl) {
     data.push({
         "id": "nfvp",
         "legend": Q.dvp_name,
@@ -199,7 +197,7 @@ if (Q.nfvp_formed) {
         "seats": Math.round(Q.dvp_bl*1.28),
     });
 }
-if (!Q.lvp_formed && !Q.nfvp_formed) {
+if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_bl) {
     data.push({
         "id": "dvp",
         "legend": Q.dvp_name,
@@ -295,9 +293,9 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_bavaria +]% {!</td><td>!} [+ votes_change_kpd_bavaria +] {!</td><td>!} [+ kpd_bl +]% {!</td><td>!} [+ change_kpd_bl +] {!</td></tr>!}
 
-[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_bavaria +]% {!</td><td>!} [+ votes_change_sapd_bavaria +] {!</td><td>!} [+ sapd_bl +]% {!</td><td>!} [+ change_sapd_bl +] {!</td></tr>!} ?]
-
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_bavaria +]% {!</td><td>!} [+ votes_change_spd_bavaria +] {!</td><td>!} [+ spd_bl +]% {!</td><td>!} [+ change_spd_bl +] {!</td></tr>!}
+
+[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes_bavaria +]% {!</td><td>!} [+ votes_change_aspd_bavaria +] {!</td><td>!} [+ aspd_bl +]% {!</td><td>!} [+ change_aspd_bl +] {!</td><td>!} ?]
 
 [? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_bavaria +]% {!</td><td>!} [+ votes_change_ddp_bavaria +] {!</td><td>!} [+ ddp_bl +]% {!</td><td>!} [+ change_ddp_bl +] {!</td></tr>!} ?]
 
