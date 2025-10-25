@@ -543,16 +543,16 @@ if (Q.month_actions >= 1) {
             }
 
             if (Q.rural_cnblp_normalized < 12) {
-                Q.rural_cnblp += 4/12;
+                Q.rural_cnblp += 6/12;
             }
             if (Q.rural_dbp_normalized < 8) {
                 Q.rural_dbp += 4/12;
             }
-            if (Q.workers_csvd_normalized < 4) {
-                Q.workers_csvd += 4/12;
+            if (Q.workers_csvd_normalized < 5) {
+                Q.workers_csvd += 6/12;
             }
-            if (Q.new_middle_csvd_normalized < 5) {
-                Q.new_middle_csvd += 4/12;
+            if (Q.new_middle_csvd_normalized < 7) {
+                Q.new_middle_csvd += 6/12;
             }
             if (Q.workers_aspd_normalized < 7) {
                 Q.workers_aspd += 6/12;
