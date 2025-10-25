@@ -234,7 +234,7 @@ Current relations: [+ kpd_relation: relationships +]
 
 Current relations: [+ spd_relation : relationships +]
 
-[? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span> - <span style="color: #FE9E00;">*Alte Sozialdemokratische Partei Deutschlands*</span> (Old Social Democratic Party of Germany) - WIP ?]
+[? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span> - <span style="color: #FE9E00;"><i>Alte Sozialdemokratische Partei Deutschlands</i></span> (Old Social Democratic Party of Germany) - WIP ?]
 
 [? if aspd_exist: Current relations: [+ aspd_relation : relationships +] ?]
 
