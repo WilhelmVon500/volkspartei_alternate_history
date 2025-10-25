@@ -4,7 +4,7 @@ view-if: year >= 1935 and return_to_normalcy
 max-visits: 1
 tags: event
 new-page: true
-go-to: aspd_exist
+go-to: aspd_formed
 
 = The <span style="color: #FE9E00;">**ASPD**</span> is refounded!
 
