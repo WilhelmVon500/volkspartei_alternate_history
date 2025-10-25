@@ -1,0 +1,25 @@
+title: Party for the National Proletariat
+subtitle: The <span style="color: #FE9E00;">**ASPD**</span> is refounded!
+view-if: year >= 1935 and return_to_normalcy
+max-visits: 1
+tags: event
+new-page: true
+go-to: aspd_exist
+
+= The <span style="color: #FE9E00;">**ASPD**</span> is refounded!
+
+WIP
+
+- @heldt: Heldt will be the chairman of the party.
+- @niekisch: Surprisingly, Niekisch is elected chairman!
+
+@heldt
+on-arrival: aspd_ideology = "Moderate", aspd_leader = "Heldt"
+
+WIP
+
+
+@niekisch
+on-arrival: aspd_ideology = "Radical", aspd_leader = "Niekisch"
+
+WIP
