@@ -228,6 +228,10 @@ Current relations: [+ kpd_relation: relationships +]
 
 Current relations: [+ spd_relation : relationships +]
 
+[? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span> - <span style="color: #FE9E00;">*Alte Sozialdemokratische Partei Deutschlands*</span> (Old Social Democratic Party of Germany) - WIP ?]
+
+[? if aspd_exist: Current relations: [+ aspd_relation : relationships +] ?]
+
 [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> - <span style="color: #DCCA4A;"><i>Deutsche Demokratische Partei</i></span> (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if dstp_formed : They have recently reformed themselves as the German State Party (DStP). ?] ?]
 
 [? if ddp_exist: Current relations: [+ ddp_relation : relationships +] ?]
