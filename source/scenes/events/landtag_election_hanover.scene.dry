@@ -341,9 +341,9 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_hanover +]% {!</td><td>!} [+ votes_change_kpd_hanover +] {!</td><td>!} [+ kpd_hl +]% {!</td><td>!} [+ change_kpd_hl +] {!</td></tr>!}
 
-[? if sapd_formed: {!<tr><td><div class="box" style='background-color:#C40000'> </div> !} SAPD: {!</td><td>!} [+ sapd_votes_hanover +]% {!</td><td>!} [+ votes_change_sapd_hanover +] {!</td><td>!} [+ sapd_hl +]% {!</td><td>!} [+ change_sapd_hl +] {!</td></tr>!} ?]
-
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_hanover +]% {!</td><td>!} [+ votes_change_spd_hanover +] {!</td><td>!} [+ spd_hl +]% {!</td><td>!} [+ change_spd_hl +] {!</td></tr>!}
+
+[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes_hanover +]% {!</td><td>!} [+ votes_change_aspd_hanover +] {!</td><td>!} [+ aspd_hl +]% {!</td><td>!} [+ change_aspd_hl +] {!</td><td>!} ?]
 
 [? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_hanover +]% {!</td><td>!} [+ votes_change_ddp_hanover +] {!</td><td>!} [+ ddp_hl +]% {!</td><td>!} [+ change_ddp_hl +] {!</td></tr>!} ?]
 
