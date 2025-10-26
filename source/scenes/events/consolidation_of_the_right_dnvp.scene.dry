@@ -4,6 +4,7 @@ view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate"
 new-page: true
 max-visits: 1
 tags: event
+priority: 4
 on-arrival: {!
 
 !}
@@ -28,7 +29,7 @@ on-arrival: {!
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dnf = 1;
              
-    Q.dnf_r += Q.wp_r;
+    Q.dnf_r = Math.round(Q.dnf_r + Q.wp_r);
     Q.wp_r = 0;
   
     Q.new_middle_dnf += Q.new_middle_wp;
@@ -48,7 +49,7 @@ on-arrival: {!
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dnvp = 1;
              
-    Q.dnvp_r += Q.wp_r;
+    Q.dnvp_r = Math.round(Q.dnvp_r + Q.wp_r);
     Q.wp_r = 0;
   
     Q.new_middle_dnvp += Q.new_middle_wp;
@@ -68,7 +69,7 @@ on-arrival: {!
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dvp = 1;
              
-    Q.dvp_r += Q.wp_r;
+    Q.dvp_r = Math.round(Q.dvp_r + Q.wp_r);
     Q.wp_r = 0;
   
     Q.new_middle_dvp += Q.new_middle_wp;
