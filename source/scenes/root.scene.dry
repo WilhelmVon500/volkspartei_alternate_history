@@ -85,6 +85,7 @@ Q.christian_socials_dvp = 0;
 Q.dbp_dvp = 0;
 Q.wp_dvp = 0;
 Q.colosser_dvp = 0;
+Q.cnblp_dvp = 0;
 
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
