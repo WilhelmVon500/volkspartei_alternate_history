@@ -22,7 +22,7 @@ The DNVP is trying to convince the smaller parties to unite.
 
 @wp_dnf
 unavailable-subtitle: The WP is not interested in uniting with far-right radicals.
-available-if: wp_ideology = "Radical"
+choose-if: wp_ideology = "Radical"
 on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
@@ -42,7 +42,7 @@ The WP has decided to unite with Hugenberg's DNF.
 
 @wp_dnvp
 unavailable-subtitle: The WP is not interested in uniting with moderate right.
-available-if: wp_ideology = "Moderate"
+choose-if: wp_ideology = "Moderate"
 on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
@@ -62,7 +62,7 @@ The WP has decided to unite with the DNVP.
 
 @wp_dvp
 unavailable-subtitle: The WP is not interested in uniting with us.
-available-if: (wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")
+choose-if: (wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")
 on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
