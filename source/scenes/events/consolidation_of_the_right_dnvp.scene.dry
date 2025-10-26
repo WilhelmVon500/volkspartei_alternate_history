@@ -62,7 +62,7 @@ The WP has decided to unite with the DNVP.
 
 @wp_dvp
 unavailable-subtitle: The WP is not interested in uniting with us.
-choose-if: (wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")
+choose-if: (wp_ideology = "Moderate" and dvp_ideology = "Left" and wp_relation >= 45) or (wp_ideology = "Radical" and dvp_ideology = "Right" and wp_relation >= 45)
 on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
