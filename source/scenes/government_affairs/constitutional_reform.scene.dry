@@ -1,7 +1,7 @@
 title: Constitutional Reform
 new-page: true
 is-card: true
-view-if: dvp_in_government = 1 and justice_minister_party = dvp_name and constitutional_reform_timer = 0 and judicial_reform >= 4 and (liberal_strength + democratic_strength + progressive_strength > nationalist_strength + industrialist_strength) and ((in_weimar_coalition) or (in_dvp_majority) or (in_liberal_coalition) or (in_grand_coalition)) and constitutional_reform < 4
+view-if: dvp_in_government = 1 and justice_minister_party = dvp_name and constitutional_reform_timer = 0 and judicial_reform >= 4
 frequency: 25
 on-arrival: month_actions += 1; constitutional_reform_timer += 12; pass_threshold = 0.51; pass_threshold = 0.6 if pro_republic < 65;
 card-image: img/portraits/HeinzeRudolf.jpg
