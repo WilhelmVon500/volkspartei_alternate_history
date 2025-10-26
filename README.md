@@ -1,4 +1,4 @@
-# Social Democracy: An Alternate History
+# Volkspartei: An Alternate History
 
 ## Included Libraries
 
