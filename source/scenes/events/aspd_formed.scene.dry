@@ -28,6 +28,7 @@ if (Q.dvp_ideology == "Right") {
 
 
 // update all records
+Q.aspd_r = 0;
 Q.old_aspd_r = 0;
 for (var record of Q.election_records) {
     record['aspd'] = 0;
