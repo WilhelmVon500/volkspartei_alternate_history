@@ -13,7 +13,11 @@ on-arrival: {!
 
 The <span style="color: #3F7BC1;">**DNVP**</span> is trying to convince the smaller parties to unite.
 
--@wp: What will the <span style="color: #B8996F;">**WP**</span> do?
+- @parties: Let's see what we can do.
+
+WIP.
+
+- @wp: What will the <span style="color: #B8996F;">**WP**</span> do?
 
 @wp
 view-if: wp_exist
@@ -51,6 +55,8 @@ The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenb
 
 [? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
 [? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
+
+- @parties: What about other parties?
   
 
 @wp_dnvp
@@ -83,6 +89,8 @@ The <span style="color: #B8996F;">**WP**</span> has decided to unite with the <s
 [? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
 [? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
 
+- @parties: What about other parties?
+
 
 @wp_dvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with us.
@@ -103,3 +111,5 @@ on-arrival: {!
 !}
 
 Surprisingly, the <span style="color: #B8996F;">**WP**</span> has decided to unite with us.
+
+- @parties: What about other parties?
