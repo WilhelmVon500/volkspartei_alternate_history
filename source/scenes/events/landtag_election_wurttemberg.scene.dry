@@ -48,6 +48,13 @@ if (Q.lvp_formed || Q.nfvp_formed) {
     Q.adjustmentFactors_dvp_wurttemberg += 1.5
 }
 
+if (Q.cnblp_kvp) {
+    Q.adjustmentFactors_kvp_wurttemberg += 1.5
+}
+if (Q.cnblp_dnvp) {
+    Q.adjustmentFactors_dnvp_wurttemberg += 1.5
+}
+
 
 
 // Calculate support for each of the parties
