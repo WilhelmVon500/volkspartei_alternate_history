@@ -1,0 +1,12 @@
+title: Martin Schiele
+is-pinned-card: true
+tags: advisor, special_interest
+card-image: img/portraits/SchieleMartin.jpg
+view-if: schiele_advisor = 1
+new-page: true 
+
+= Martin Schiele
+
+WIP.
+
+- @root: Return to main
