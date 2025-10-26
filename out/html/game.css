@@ -554,7 +554,7 @@ table {
     fill: #DCCA4A;
 }
 .seat.lvp {
-    fill: #FFA500;
+    fill: #FFCC00;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
