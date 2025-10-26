@@ -545,7 +545,7 @@ if (Q.month_actions >= 1) {
                 Q.catholics_z += 6/12;
             }
 
-            if (Q.rural_cnblp_normalized < 12) {
+            if (Q.rural_cnblp_normalized < 17) {
                 Q.rural_cnblp += 6/12;
             }
             if (Q.rural_dbp_normalized < 8) {
@@ -580,7 +580,7 @@ if (Q.month_actions >= 1) {
                     Q.old_middle_dnf -= 0.6;
                     Q.old_middle_dnvp += 0.6;
                 }
-                if (Q.rural_dnvp_normalized < 50 && cnblp_dnvp) {
+                if (Q.rural_dnvp_normalized < 60 && cnblp_dnvp) {
                     Q.rural_dnf -= 0.6;
                     Q.rural_dnvp += 0.6;
                 }
@@ -610,7 +610,7 @@ if (Q.month_actions >= 1) {
                     Q.old_middle_dnvp -= 0.6;
                     Q.old_middle_kvp += 0.6;
                 }
-                if (Q.rural_kvp_normalized < 45 && cnblp_kvp) {
+                if (Q.rural_kvp_normalized < 55 && cnblp_kvp) {
                     Q.rural_dnvp -= 0.6;
                     Q.rural_kvp += 0.6;
                 }
