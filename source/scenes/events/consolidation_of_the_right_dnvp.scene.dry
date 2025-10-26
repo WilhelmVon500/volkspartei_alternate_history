@@ -126,3 +126,42 @@ Surprisingly, the <span style="color: #B8996F;">**WP**</span> has decided to uni
 view-if: cnblp_exist
 
 WIP
+
+- @cnblp_dnvp: The <span style="color: #7FCEB1;">**CNBLP**</span> unites with <span style="color: #3F7BC1;">**DNVP**</span>!
+- @cnblp_dvp: Can we convince the <span style="color: #7FCEB1;">**CNBLP**</span> to unite with us?
+  
+
+@cnblp_dnvp
+on-departure: {!
+    Q.cnblp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'cnblp');
+    Q.cnblp_dnvp = 1;
+             
+    Q.dnvp_r = Math.round(Q.dnvp_r + Q.cnblp_r);
+    Q.cnblp_r = 0;
+  
+    Q.rural_dnvp += Q.rural_cnblp;
+    Q.rural_cnblp = 0;
+!}
+
+The <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with the <span style="color: #3F7BC1;">**DNVP**</span>.
+
+- @parties: What about other parties?
+
+
+@cnblp_dvp
+unavailable-subtitle: The <span style="color: #7FCEB1;">**CNBLP**</span> is not interested in uniting with us.
+choose-if: (dvp_ideology = "Left") and cnblp_relation >= 50 and dvp_votes > cnblp_votes and agricultural_finance >= 2
+on-departure: {!
+    Q.cnblp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'cnblp');
+    Q.cnblp_dvp = 1;
+    Q.special_interest_dvp = 1;
+             
+    Q.dvp_r = Math.round(Q.dvp_r + Q.cnblp_r);
+    Q.cnblp_r = 0;
+!}
+
+Surprisingly, the <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with us.
+
+- @parties: What about other parties?
