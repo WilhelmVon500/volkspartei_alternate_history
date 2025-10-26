@@ -22,6 +22,6 @@ Otto Colosser brings his faction into <span style="color: var(--dvp-color);">**[
 
 @colosser_wp_ddp
 view-if: ddp_exist
-on-arrival: new_middle_ddp += 2; old_middle_dvp += 3; 
+on-arrival: new_middle_ddp += 2; old_middle_dvp += 3; colosser_ddp = 1;
 
 Otto Colosser brings his faction into <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
