@@ -77,6 +77,7 @@ Q.liberals_resign = 0;
 
 // have we discovered neorevisionism?
 Q.peoples_conservatives_dvp = 0;
+Q.christian_socials_dvp = 0;
 Q.democrats_dvp = 0;
 Q.progressives_dvp = 0;
 Q.special_interest_dvp = 0;
