@@ -37,9 +37,20 @@ on-arrival: {!
     Q.new_middle_wp = 0;
     Q.old_middle_dnf += Q.old_middle_wp;
     Q.old_middle_wp = 0;
+
+    if (!Q.wp_split_seen && Q.ddp_exist) {
+        Q.wp_split_seen = 1;
+    }
+    if (!Q.wp_split_seen && !Q.ddp_exist) {
+        Q.colosser_dvp = 1;
+        Q.special_interest_dvp = 1;
+    }
 !}
 
 The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenberg's <span style="color: #003755;">**DNF**</span>.
+
+[? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
+[? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
   
 
 @wp_dnvp
@@ -57,10 +68,21 @@ on-arrival: {!
     Q.new_middle_wp = 0;
     Q.old_middle_dnvp += Q.old_middle_wp;
     Q.old_middle_wp = 0;
+
+    if (!Q.wp_split_seen && Q.ddp_exist) {
+        Q.wp_split_seen = 1;
+    }
+    if (!Q.wp_split_seen && !Q.ddp_exist) {
+        Q.colosser_dvp = 1;
+        Q.special_interest_dvp = 1;
+    }
 !}
 
 The <span style="color: #B8996F;">**WP**</span> has decided to unite with the <span style="color: #3F7BC1;">**DNVP**</span>.
-  
+
+[? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
+[? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
+
 
 @wp_dvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with us.
@@ -69,6 +91,7 @@ on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dvp = 1;
+    Q.special_interest_dvp = 1;
              
     Q.dvp_r = Math.round(Q.dvp_r + Q.wp_r);
     Q.wp_r = 0;
