@@ -31,7 +31,7 @@ view-if: wp_exist
 @wp_dnf
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with far-right radicals.
 choose-if: wp_ideology = "Radical"
-on-arrival: {!
+on-departure: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dnf = 1;
@@ -64,7 +64,7 @@ The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenb
 @wp_dnvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with moderate right.
 choose-if: wp_ideology = "Moderate"
-on-arrival: {!
+on-departure: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dnvp = 1;
@@ -97,7 +97,7 @@ The <span style="color: #B8996F;">**WP**</span> has decided to unite with the <s
 @wp_dvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with us.
 choose-if: ((wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")) and wp_relation >= 45 and dvp_votes > wp_votes
-on-arrival: {!
+on-departure: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
     Q.wp_dvp = 1;
