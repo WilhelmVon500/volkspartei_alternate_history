@@ -1,1 +1,216 @@
+title: Consolidation of the Right
+subtitle: The right-wing parties are trying to unite.
+view-if: electoral_threshold > 0 and kvp_formed and (csvd_exist or wp_exist or cnblp_exist)
+new-page: true
+max-visits: 1
+tags: event
+priority: 4
+on-arrival: {!
 
+!}
+
+= Consolidation of the Right
+
+The <span style="color: #455B95;">**KVP**</span> is trying to convince the smaller parties to unite.
+
+- @parties: Let's see what we can do.
+
+@parties
+
+WIP.
+
+- @wp: What will the <span style="color: #B8996F;">**WP**</span> do?
+- @cnblp: What will the <span style="color: #7FCEB1;">**CNBLP**</span> do?
+- @csvd: What will the <span style="color: #8ED8E4;">**CSVD**</span> do?
+
+
+@wp
+view-if: wp_exist
+
+WIP
+
+- @wp_dnvp: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #3F7BC1;">**DNVP**</span>!
+- @wp_kvp: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #455B95;">**KVP**</span>!
+- @wp_dvp: Can we convince the <span style="color: #B8996F;">**Economic Party**</span> to unite with us?
+
+@wp_dnvp
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with far-right radicals.
+choose-if: wp_ideology = "Radical"
+on-departure: {!
+    Q.wp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'wp');
+    Q.wp_dnvp = 1;
+             
+    Q.dnvp_r = Math.round(Q.dnvp_r + Q.wp_r);
+    Q.wp_r = 0;
+  
+    Q.new_middle_dnvp += Q.new_middle_wp;
+    Q.new_middle_wp = 0;
+    Q.old_middle_dnvp += Q.old_middle_wp;
+    Q.old_middle_wp = 0;
+
+    if (!Q.wp_split_seen && Q.ddp_exist) {
+        Q.wp_split_seen = 1;
+    }
+    if (!Q.wp_split_seen && !Q.ddp_exist) {
+        Q.colosser_dvp = 1;
+        Q.special_interest_dvp = 1;
+    }
+!}
+
+The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenberg's <span style="color: #3F7BC1;">**DNVP**</span>.
+
+[? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
+[? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
+
+- @parties: What about other parties?
+  
+
+@wp_kvp
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with moderate right.
+choose-if: wp_ideology = "Moderate"
+on-departure: {!
+    Q.wp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'wp');
+    Q.wp_kvp = 1;
+             
+    Q.kvp_r = Math.round(Q.kvp_r + Q.wp_r);
+    Q.wp_r = 0;
+  
+    Q.new_middle_kvp += Q.new_middle_wp;
+    Q.new_middle_wp = 0;
+    Q.old_middle_kvp += Q.old_middle_wp;
+    Q.old_middle_wp = 0;
+
+    if (!Q.wp_split_seen && Q.ddp_exist) {
+        Q.wp_split_seen = 1;
+    }
+    if (!Q.wp_split_seen && !Q.ddp_exist) {
+        Q.colosser_dvp = 1;
+        Q.special_interest_dvp = 1;
+    }
+!}
+
+The <span style="color: #B8996F;">**WP**</span> has decided to unite with the <span style="color: #455B95;">**KVP**</span>.
+
+[? if not wp_split_seen and ddp_exist: Otto Colosser and his faction have split to join the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>. ?]
+[? if not wp_split_seen and not ddp_exist: Otto Colosser and his faction have split to join us! ?]
+
+- @parties: What about other parties?
+
+
+@wp_dvp
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with us.
+choose-if: ((wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")) and wp_relation >= 45 and dvp_votes > wp_votes
+on-departure: {!
+    Q.wp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'wp');
+    Q.wp_dvp = 1;
+    Q.special_interest_dvp = 1;
+             
+    Q.dvp_r = Math.round(Q.dvp_r + Q.wp_r);
+    Q.wp_r = 0;
+  
+    Q.new_middle_dvp += Q.new_middle_wp;
+    Q.new_middle_wp = 0;
+    Q.old_middle_dvp += Q.old_middle_wp;
+    Q.old_middle_wp = 0;
+!}
+
+Surprisingly, the <span style="color: #B8996F;">**WP**</span> has decided to unite with us.
+
+- @parties: What about other parties?
+
+
+
+@cnblp
+view-if: cnblp_exist
+
+WIP
+
+- @cnblp_kvp: The <span style="color: #7FCEB1;">**CNBLP**</span> unites with <span style="color: #455B95;">**KVP**</span>!
+- @cnblp_dvp: Can we convince the <span style="color: #7FCEB1;">**CNBLP**</span> to unite with us?
+  
+
+@cnblp_kvp
+on-departure: {!
+    Q.cnblp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'cnblp');
+    Q.cnblp_kvp = 1;
+             
+    Q.kvp_r = Math.round(Q.kvp_r + Q.cnblp_r);
+    Q.cnblp_r = 0;
+  
+    Q.rural_kvp += Q.rural_cnblp;
+    Q.rural_cnblp = 0;
+!}
+
+The <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with the <span style="color: #455B95;">**KVP**</span>.
+
+- @parties: What about other parties?
+
+
+@cnblp_dvp
+unavailable-subtitle: The <span style="color: #7FCEB1;">**CNBLP**</span> is not interested in uniting with us.
+choose-if: (dvp_ideology = "Left") and cnblp_relation >= 50 and dvp_votes > cnblp_votes and agricultural_finance >= 2
+on-departure: {!
+    Q.cnblp_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'cnblp');
+    Q.cnblp_dvp = 1;
+    Q.special_interest_dvp = 1;
+             
+    Q.dvp_r = Math.round(Q.dvp_r + Q.cnblp_r);
+    Q.cnblp_r = 0;
+!}
+
+Surprisingly, the <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with us.
+
+- @parties: What about other parties?
+
+
+
+@csvd
+view-if: csvd_exist
+
+WIP
+
+- @csvd_kvp: The <span style="color: #8ED8E4;">**CSVD**</span> unites with <span style="color: #455B95;">**KVP**</span>!
+- @csvd_z: The <span style="color: #8ED8E4;">**CSVD**</span> unites with <span style="color: #000000;">**Zentrum**</span>!
+- @csvd_dvp: Can we convince the <span style="color: #8ED8E4;">**CSVD**</span> to unite with us?
+  
+
+@csvd_kvp
+on-departure: {!
+    Q.csvd_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'csvd');
+    Q.csvd_kvp = 1;
+             
+    Q.kvp_r = Math.round(Q.kvp_r + Q.csvd_r);
+    Q.csvd_r = 0;
+  
+    Q.workers_kvp += Q.workers_csvd;
+    Q.workers_csvd = 0;
+    Q.new_middle_kvp += Q.new_middle_csvd;
+    Q.new_middle_csvd = 0;
+!}
+
+The <span style="color: #8ED8E4;">**CSVD**</span> has decided to unite with the <span style="color: #455B95;">**KVP**</span>.
+
+- @parties: What about other parties?
+
+
+@csvd_dvp
+unavailable-subtitle: The <span style="color: #8ED8E4;">**CSVD**</span> is not interested in uniting with us.
+choose-if: dvp_ideology = "Left" and csvd_relation >= 50 and dvp_votes > csvd_votes and not unions_independent
+on-departure: {!
+    Q.csvd_exist = 0;
+    Q.parties = Q.parties.filter(party => party !== 'csvd');
+    Q.christian_socials_dvp = 1;
+             
+    Q.dvp_r = Math.round(Q.dvp_r + Q.csvd_r);
+    Q.csvd_r = 0;
+!}
+
+Surprisingly, the <span style="color: #8ED8E4;">**CSVD**</span> has decided to unite with us.
+
+- @parties: What about other parties?
