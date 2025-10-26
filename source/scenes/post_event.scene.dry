@@ -573,6 +573,14 @@ if (Q.month_actions >= 1) {
                     Q.old_middle_dnf -= 0.4;
                     Q.old_middle_dnvp += 0.4;
                 }
+                if (Q.old_middle_dnvp_normalized < 30 and wp_dnvp) {
+                    Q.old_middle_dnf -= 0.6;
+                    Q.old_middle_dnvp += 0.6;
+                }
+                if (Q.rural_dnvp_normalized < 40 and cnblp_dnvp) {
+                    Q.rural_dnf -= 0.6;
+                    Q.rural_dnvp += 0.6;
+                }
             }
             if (Q.kvp_formed) {
                 if (Q.new_middle_kvp_normalized < 25) {
