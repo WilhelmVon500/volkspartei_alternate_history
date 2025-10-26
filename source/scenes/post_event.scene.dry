@@ -565,7 +565,7 @@ if (Q.month_actions >= 1) {
                     Q.new_middle_dnf -= 0.25;
                     Q.new_middle_dnvp += 0.3;
                 }
-                if (Q.rural_dnvp_normalized < 30) {
+                if (Q.rural_dnvp_normalized < 40) {
                     Q.rural_dnf -= 0.6;
                     Q.rural_dnvp += 0.6;
                 }
@@ -577,7 +577,7 @@ if (Q.month_actions >= 1) {
                     Q.old_middle_dnf -= 0.6;
                     Q.old_middle_dnvp += 0.6;
                 }
-                if (Q.rural_dnvp_normalized < 40 && cnblp_dnvp) {
+                if (Q.rural_dnvp_normalized < 50 && cnblp_dnvp) {
                     Q.rural_dnf -= 0.6;
                     Q.rural_dnvp += 0.6;
                 }
@@ -587,7 +587,7 @@ if (Q.month_actions >= 1) {
                     Q.new_middle_dnvp -= 0.25;
                     Q.new_middle_kvp += 0.3;
                 }
-                if (Q.rural_kvp_normalized < 20) {
+                if (Q.rural_kvp_normalized < 30) {
                     Q.rural_dnvp -= 0.6;
                     Q.rural_kvp += 0.6;
                 }
@@ -607,7 +607,7 @@ if (Q.month_actions >= 1) {
                     Q.old_middle_dnvp -= 0.6;
                     Q.old_middle_kvp += 0.6;
                 }
-                if (Q.rural_kvp_normalized < 35 && cnblp_kvp) {
+                if (Q.rural_kvp_normalized < 45 && cnblp_kvp) {
                     Q.rural_dnvp -= 0.6;
                     Q.rural_kvp += 0.6;
                 }
