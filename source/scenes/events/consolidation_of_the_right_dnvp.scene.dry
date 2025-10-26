@@ -1,6 +1,6 @@
 title: Consolidation of the Right
 subtitle: The right-wing parties are trying to unite.
-view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate"
+view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate" and year >= 1932
 new-page: true
 max-visits: 1
 tags: event
@@ -11,18 +11,19 @@ on-arrival: {!
 
 = Consolidation of the Right
 
-The DNVP is trying to convince the smaller parties to unite.
+The <span style="color: #3F7BC1;">**DNVP**</span> is trying to convince the smaller parties to unite.
 
--@wp: What will the WP do?
+-@wp: What will the <span style="color: #B8996F;">**WP**</span> do?
 
 @wp
+view-if: wp_exist
 
-- @wp_dnf: The Economic Party unites with DNF!
-- @wp_dnvp: The Economic Party unites with DNVP!
-- @wp_dvp: Can we convince the Economic Party to unite with us?
+- @wp_dnf: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #003755;">**DNF**</span>!
+- @wp_dnvp: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #3F7BC1;">**DNVP**</span>!
+- @wp_dvp: Can we convince the <span style="color: #B8996F;">**Economic Party**</span> to unite with us?
 
 @wp_dnf
-unavailable-subtitle: The WP is not interested in uniting with far-right radicals.
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with far-right radicals.
 choose-if: wp_ideology = "Radical"
 on-arrival: {!
     Q.wp_exist = 0;
@@ -38,11 +39,11 @@ on-arrival: {!
     Q.old_middle_wp = 0;
 !}
 
-The WP has decided to unite with Hugenberg's DNF.
+The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenberg's <span style="color: #003755;">**DNF**</span>.
   
 
 @wp_dnvp
-unavailable-subtitle: The WP is not interested in uniting with moderate right.
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with moderate right.
 choose-if: wp_ideology = "Moderate"
 on-arrival: {!
     Q.wp_exist = 0;
@@ -58,12 +59,12 @@ on-arrival: {!
     Q.old_middle_wp = 0;
 !}
 
-The WP has decided to unite with the DNVP.
+The <span style="color: #B8996F;">**WP**</span> has decided to unite with the <span style="color: #3F7BC1;">**DNVP**</span>.
   
 
 @wp_dvp
-unavailable-subtitle: The WP is not interested in uniting with us.
-choose-if: (wp_ideology = "Moderate" and dvp_ideology = "Left" and wp_relation >= 45) or (wp_ideology = "Radical" and dvp_ideology = "Right" and wp_relation >= 45)
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with us.
+choose-if: ((wp_ideology = "Moderate" and dvp_ideology = "Left") or (wp_ideology = "Radical" and dvp_ideology = "Right")) and wp_relation >= 45 and dvp_votes > wp_votes
 on-arrival: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
@@ -78,4 +79,4 @@ on-arrival: {!
     Q.old_middle_wp = 0;
 !}
 
-Surprisingly, the WP has decided to unite with us.
+Surprisingly, the <span style="color: #B8996F;">**WP**</span> has decided to unite with us.
