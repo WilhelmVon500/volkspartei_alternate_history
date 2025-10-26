@@ -173,14 +173,14 @@ if (Q.lvp_formed && Q.dvp_hb) {
         "seats": Math.round(Q.dvp_hb*1.6),
     });
 }
-data = data.concat([
-    {
+if (Q.z_hb) {
+    data.push({
         "id": "z",
         "legend": "Center",
         "name": "Center",
         "seats": Math.round(Q.z_hb*1.6),
-    },
-]);
+    });
+}
 if (Q.nfvp_formed && Q.dvp_hb) {
     data.push({
         "id": "nfvp",
