@@ -295,6 +295,16 @@ go-to: rm_main
 Kübler has been removed as an advisor. The Special Interest faction disapproves.
 
 
+@remove_schiele
+title: Remove Schiele
+view-if: schiele_advisor = 1
+tags: remove_advisor
+on-arrival: schiele_advisor = 0; special_interest_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Schiele has been removed as an advisor. The Special Interest faction disapproves.
+
+
 @remove_colosser
 title: Remove Colosser
 view-if: colosser_advisor = 1
@@ -748,6 +758,19 @@ on-arrival: kubler_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
 Konrad Kübler is now an advisor.
+
+
+@add_schiele
+title: Martin Schiele
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/SchieleMartin.jpg
+tags: special_interest_advisor
+view-if: schiele_advisor = 0 and n_advisors < 3 and cnblp_dvp = 1
+on-arrival: schiele_advisor = 1; n_advisors += 1; special_interest_strength += 5
+go-to: advisor_menu
+
+Martin Schiele is now an advisor.
 
 
 @add_colosser
