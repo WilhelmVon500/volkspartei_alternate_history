@@ -9,4 +9,14 @@ new-page: true
 
 WIP.
 
+- @rally_catholics
 - @root: Return to main
+
+@rally_catholics
+title: Rally catholics
+subtitle: Lejeune-Jung's strategies are aimed at catholic voters.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: catholics_dvp += 2*(1-dissent); advisor_action_timer = 6
+
+WIP.
