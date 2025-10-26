@@ -1,11 +1,11 @@
-title: <span style="color: #FFCC00;">**NFVP**</span> formed
+title: <span style="color: var(--dvp-color);">**NFVP**</span> formed
 view-if: year = 1929 and month = 10 and supported_front_1929 and nfvp_success
 max-visits: 1
 tags: event
 priority: 3
 new-page: true
 
-= <span style="color: #FFCC00">**Nationalfortschrittliche Volkspartei**</span> formed
+= <span style="color: var(--dvp-color);">**Nationalfortschrittliche Volkspartei**</span> formed
 
 WIP
 
