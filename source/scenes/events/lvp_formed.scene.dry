@@ -3,8 +3,8 @@ Q.lvp_formed = 1;
 Q.ddp_exist = 0;
 
 Q.dvp_name = "LVP";
-Q.dvp_color = "#FFA500";
-document.body.style.setProperty('--dvp-color', '#FFA500');
+Q.dvp_color = "#FFCC00";
+document.body.style.setProperty('--dvp-color', '#FFCC00');
 
 Q.dvp_leader = "Luther";
 
