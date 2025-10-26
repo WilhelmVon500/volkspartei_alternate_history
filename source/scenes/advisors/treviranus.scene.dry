@@ -9,4 +9,24 @@ new-page: true
 
 WIP.
 
+- @criticize_the_far_right
+- @rally_for_the_republic
 - @root: Return to main
+
+@criticize_the_far_right
+title: Criticize the national opposition
+subtitle: WIP.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] 
+on-arrival: advisor_action_timer = 6; dnf_relation -= 4; dnvp_relation -= 4 if dnvp_ideology = "Radical"; workers_dnf -= 3*(1-dissent); new_middle_dnf -= 3*(1-dissent); old_middle_dnf -= 3*(1-dissent); rural_dnf -= 3*(1-dissent); workers_dnvp -= 3*(1-dissent) if dnvp_ideology = "Radical"; new_middle_dnvp -= 3*(1-dissent) if dnvp_ideology = "Radical"; old_middle_dnvp -= 3*(1-dissent) if dnvp_ideology = "Radical"; rural_dnvp -= 3*(1-dissent) if dnvp_ideology = "Radical"
+
+WIP.
+
+@rally_for_the_republic
+title: Rally for the Republic
+subtitle: Rally our party and the German people to defend the Republic.
+choose-if: advisor_action_timer == 0 
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; pro_republic += 5; democratization += 1; workers_dvp += 1*(1-dissent) if democratization >= 4; new_middle_dvp += 2*(1-dissent) if democratization >= 4; old_middle_dvp += 3*(1-dissent) if democratization >= 4; rural_dvp += 1*(1-dissent) if democratization >= 4;
+
+Treviranus helps us to rally the people in defense of the Republic.
