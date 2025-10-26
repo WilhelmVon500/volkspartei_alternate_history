@@ -1,0 +1,12 @@
+title: Franz Behrens
+is-pinned-card: true
+tags: advisor, labor
+card-image: img/portraits/BehrensFranz.jpg
+view-if: behrens_advisor = 1
+new-page: true 
+
+= Franz Behrens
+
+WIP.
+
+- @root: Return to main
