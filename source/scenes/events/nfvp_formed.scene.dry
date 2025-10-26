@@ -9,11 +9,13 @@ document.body.style.setProperty('--dvp-color', '#00A2DE');
 Q.democrats_dvp = 1;
 Q.progressives_dvp = 1;
 if (Q.nfvp_peoples_conservatives_success) Q.peoples_conservatives_dvp = 1
+if (Q.nfvp_peoples_conservatives_success) Q.christian_socials_dvp = 1
 
 Q.liberal_strength += 10;
 Q.democratic_strength += 35;
 Q.progressive_strength += 5;
 if (Q.nfvp_peoples_conservatives_success) Q.peoples_conservative_strength += 15
+if (Q.nfvp_peoples_conservatives_success) Q.labor_strength += 5
 
 Q.industrialist_dissent += 30
 Q.nationalist_dissent += 100
