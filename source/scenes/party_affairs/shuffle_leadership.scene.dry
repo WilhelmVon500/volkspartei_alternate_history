@@ -159,6 +159,15 @@ go-to: rm_main
 
 Wissell has been removed as an advisor. The Labor faction disapproves.
 
+@remove_behrens
+title: Remove Behrens
+view-if: behrens_advisor = 1
+tags: remove_advisor
+on-arrival: behrens_advisor = 0; labor_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Behrens has been removed as an advisor. The Labor faction disapproves.
+
 
 # peoples conservative
 
@@ -670,6 +679,18 @@ on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3
 go-to: advisor_menu
 
 Rudolf Wissell is now an advisor.
+
+@add_behrens
+title: Franz Behrens
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/BehrensFranz.jpg
+tags: labor_advisor
+view-if: behrens_advisor = 0 and n_advisors < 3 and unions_independent = 0 and christian_socials_dvp
+on-arrival: behrens_advisor = 1; n_advisors += 1; labor_strength += 5
+go-to: advisor_menu
+
+Franz Behrens is now an advisor.
 
 
 # democratic leaders
