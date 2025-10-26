@@ -1,4 +1,6 @@
 on-arrival: {!
+Q.newspaper += 2
+
 Q.lvp_formed = 1;
 Q.ddp_exist = 0;
 
