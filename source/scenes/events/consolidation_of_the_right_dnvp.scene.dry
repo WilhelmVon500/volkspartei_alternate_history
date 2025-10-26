@@ -22,8 +22,11 @@ WIP.
 - @wp: What will the <span style="color: #B8996F;">**WP**</span> do?
 - @cnblp: What will the <span style="color: #7FCEB1;">**CNBLP**</span> do?
 
+
 @wp
 view-if: wp_exist
+
+WIP
 
 - @wp_dnf: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #003755;">**DNF**</span>!
 - @wp_dnvp: The <span style="color: #B8996F;">**Economic Party**</span> unites with <span style="color: #3F7BC1;">**DNVP**</span>!
@@ -116,3 +119,10 @@ on-departure: {!
 Surprisingly, the <span style="color: #B8996F;">**WP**</span> has decided to unite with us.
 
 - @parties: What about other parties?
+
+
+
+@cnblp
+view-if: cnblp_exist
+
+WIP
