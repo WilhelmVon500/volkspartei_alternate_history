@@ -1,6 +1,6 @@
 title: Consolidation of the Right
 subtitle: The right-wing parties are trying to unite.
-view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate" and year >= 1932
+view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate"
 new-page: true
 max-visits: 1
 tags: event
