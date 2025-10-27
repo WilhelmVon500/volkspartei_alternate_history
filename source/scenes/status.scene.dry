@@ -164,6 +164,34 @@ Economic growth: [+ economic_growth_2 +]%
 [? if special_interest_dvp: {!<span class="tooltip-text" title="WIP." style="color: #909090;">!}**Special Interest**{!</span>!} strength: [+ special_interest_strength : strength +], dissent: [+ special_interest_dissent : dissent +] ?]
 
 
+@government
+
+= Government
+
+<div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if president == "Hindenburg": <img src="img/portraits/Hindenburg.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Lettow-Vorbeck": <img src="img/portraits/LettowVorbeckPaul.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Westarp": <img src="img/portraits/WestarpKuno.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Eckener": <img src="img/portraits/EckenerHugo.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Luther": <img src="img/portraits/LutherHans.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Jarres": <img src="img/portraits/JarresKarl.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Hellpach": <img src="img/portraits/HellpachWilly.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Heuss": <img src="img/portraits/HeussTheodor.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Adenauer": <img src="img/portraits/AdenauerKonrad.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Braun": <img src="img/portraits/BraunOtto.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Hugenberg": <img src="img/portraits/HugenbergAlfred.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Simons": <img src="img/portraits/SimonsWalter.jpg" style="width: 50%; height: 200px;"> ?]
+[? if chancellor == "Marx": <img src="img/portraits/MarxWilhelm.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Brüning": <img src="img/portraits/BrüningHeinrich.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Wirth": <img src="img/portraits/WirthJoseph.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Papen": <img src="img/portraits/PapenFranz.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Schleicher": <img src="img/portraits/SchleicherKurt.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Wels": <img src="img/portraits/WelsOtto.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Müller": <img src="img/portraits/MüllerHermann.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Scholz": <img src="img/portraits/ScholzErnst.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Kardorff": <img src="img/portraits/KardorffSiegfried.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Curtius": <img src="img/portraits/CurtiusJulius.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Stresemann": <img src="img/portraits/StresemannGustav.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Dietrich": <img src="img/portraits/DietrichHermann.jpg" style="width: 50%; height: 200px;"> ?]</div>
+
+President: [+ president +] ([?if president_party=="I":<span style="color: #808080;">**I**</span>?][?if president_party=="KPD":<span style="color: #8B0000;">**KPD**</span>?][?if president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if president_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if president_party=="KVP":<span style="color: #455B95;">**KVP**</span>?][?if president_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if president_party=="DNF":<span style="color: #003755;">**DNF**</span>?][?if president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
+
+Chancellor: [+ chancellor +] ([?if chancellor_party=="I":<span style="color: #808080;">**I**</span>?][?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?][?if chancellor_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
+
+Labor: [+ labor_minister +] ([+labor_minister_party+])
+
+Interior: [+ interior_minister +] ([+interior_minister_party+])
+
+Finance: [+ finance_minister +] ([+finance_minister_party+])
+
+Economic: [+ economic_minister +] ([+economic_minister_party+])
+
+Justice: [+ justice_minister +] ([+justice_minister_party+])
+
+Foreign: [+ foreign_minister +] ([+foreign_minister_party+])
+
+Reichswehr: [+ reichswehr_minister +] ([+reichswehr_minister_party+])
+
+Agriculture: [+ agriculture_minister +] ([+agriculture_minister_party+])
+
+
 @paramilitaries
 on-arrival: {!
 if (Q.rb_strength) {
@@ -266,34 +294,6 @@ Unemployed: <span style="color: #8B0000;">**KPD**</span>: [+ unemployed_kpd_disp
 Catholics: <span style="color: #8B0000;">**KPD**</span>: [+ catholics_kpd_display +]%, <span style="color: #E3000F;">**SPD**</span>: [+ catholics_spd_display +]%, [? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span>: [+ catholics_aspd_display +]%, ?] <span style="color: #000000;">**Z**</span>: [+ catholics_z_display +]%, [? if dbp_exist: <span style="color: #38C538;">**DBP**</span>: [+ catholics_dbp_display +]%, ?] [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ catholics_ddp_display +]%, ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ catholics_dvp_display +]%, [? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span>: [+ catholics_csvd_display +]%, ?] [? if wp_exist: <span style="color: #B8996F;">**WP**</span>: [+ catholics_wp_display +]%, ?] [? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>: [+ catholics_cnblp_display +]%, ?] [? if kvp_formed: <span style="color: #455B95;">**KVP**</span>: [+ catholics_kvp_display +]%, ?] <span style="color: #3F7BC1;">**DNVP**</span>: [+ catholics_dnvp_display +]%, [? if dnf_formed: <span style="color: #003755;">**DNF**</span>: [+ catholics_dnf_display +]%, ?] <span style="color: #954B00;">**NSDAP**</span>: [+ catholics_nsdap_display +]%, <span style="color: #909090;">**Others**</span>: [+ catholics_other_display +]% [? if sapd_formed: <span style="color: #C40000;">**SAPD**</span>: [+ catholics_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
-
-
-@government
-
-= Government
-
-<div style="display: flex;gap: 5px;margin-bottom: 5px;margin-left: -3px;">[? if president == "Hindenburg": <img src="img/portraits/Hindenburg.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Lettow-Vorbeck": <img src="img/portraits/LettowVorbeckPaul.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Westarp": <img src="img/portraits/WestarpKuno.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Eckener": <img src="img/portraits/EckenerHugo.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Luther": <img src="img/portraits/LutherHans.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Jarres": <img src="img/portraits/JarresKarl.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Hellpach": <img src="img/portraits/HellpachWilly.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Heuss": <img src="img/portraits/HeussTheodor.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Adenauer": <img src="img/portraits/AdenauerKonrad.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Braun": <img src="img/portraits/BraunOtto.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Hugenberg": <img src="img/portraits/HugenbergAlfred.jpg" style="width: 50%; height: 200px;"> ?][? if president == "Simons": <img src="img/portraits/SimonsWalter.jpg" style="width: 50%; height: 200px;"> ?]
-[? if chancellor == "Marx": <img src="img/portraits/MarxWilhelm.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Brüning": <img src="img/portraits/BrüningHeinrich.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Wirth": <img src="img/portraits/WirthJoseph.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Papen": <img src="img/portraits/PapenFranz.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Schleicher": <img src="img/portraits/SchleicherKurt.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Wels": <img src="img/portraits/WelsOtto.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Müller": <img src="img/portraits/MüllerHermann.jpg" style="width: 50%; height: 200px;"></div> ?][? if chancellor == "Scholz": <img src="img/portraits/ScholzErnst.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Kardorff": <img src="img/portraits/KardorffSiegfried.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Curtius": <img src="img/portraits/CurtiusJulius.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Stresemann": <img src="img/portraits/StresemannGustav.jpg" style="width: 50%; height: 200px;"> ?][? if chancellor == "Dietrich": <img src="img/portraits/DietrichHermann.jpg" style="width: 50%; height: 200px;"> ?]</div>
-
-President: [+ president +] ([?if president_party=="I":<span style="color: #808080;">**I**</span>?][?if president_party=="KPD":<span style="color: #8B0000;">**KPD**</span>?][?if president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if president_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if president_party=="KVP":<span style="color: #455B95;">**KVP**</span>?][?if president_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if president_party=="DNF":<span style="color: #003755;">**DNF**</span>?][?if president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
-
-Chancellor: [+ chancellor +] ([?if chancellor_party=="I":<span style="color: #808080;">**I**</span>?][?if chancellor_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if chancellor_party==ddp_name:<span style="color: #DCCA4A;">**[+ddp_name+]**</span>?][?if chancellor_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if chancellor_party=="Z":<span style="color: #000000;">**Z**</span>?][?if chancellor_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
-
-Labor: [+ labor_minister +] ([+labor_minister_party+])
-
-Interior: [+ interior_minister +] ([+interior_minister_party+])
-
-Finance: [+ finance_minister +] ([+finance_minister_party+])
-
-Economic: [+ economic_minister +] ([+economic_minister_party+])
-
-Justice: [+ justice_minister +] ([+justice_minister_party+])
-
-Foreign: [+ foreign_minister +] ([+foreign_minister_party+])
-
-Reichswehr: [+ reichswehr_minister +] ([+reichswehr_minister_party+])
-
-Agriculture: [+ agriculture_minister +] ([+agriculture_minister_party+])
 
 
 @states
