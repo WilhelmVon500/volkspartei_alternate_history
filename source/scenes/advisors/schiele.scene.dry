@@ -9,4 +9,24 @@ new-page: true
 
 WIP.
 
+- @agriculture
+- @rural_campaign
 - @root: Return to main
+
+@agriculture
+title: Agricultural Policy
+subtitle: Baade is the Minister of Agriculture.
+choose-if: advisor_action_timer <= 0 and dvp_in_government and agriculture_minister_party == dvp_name and agriculture_minister = "Schiele"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not dvp_in_government: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is not in government. ?] [? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not control the Agriculture Ministry. ?][? if agriculture_minister != "Schiele": Schiele is not the Agriculture Minister. ?]
+on-arrival: advisor_action_timer = 6; agricultural_policy_timer -= 6; last_advisor_action = 1
+go-to: agricultural_policy
+
+
+@rural_campaign
+title: Rural Campaign
+subtitle: Try to campaign among the rural populace.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [+ advisor_action_timer +] months before next advisor action.
+on-arrival: advisor_action_timer = 6; rural_dvp += 3*(1-dissent);
+
+We have increased our campaigning among farmers and the rural populace.
