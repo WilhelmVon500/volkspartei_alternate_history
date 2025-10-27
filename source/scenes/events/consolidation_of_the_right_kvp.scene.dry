@@ -236,8 +236,6 @@ WIP
   
 
 @vrp_ddp
-unavailable-subtitle: The <span style="color: #0075EB;">**VRP**</span> is not interested in uniting with them.
-choose-if: not ddp_exist and dvp_ideology = "Right"
 on-departure: {!
     Q.vrp_exist = 0;
   
