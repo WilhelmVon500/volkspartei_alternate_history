@@ -480,6 +480,9 @@ Q.cnblp_exist = 1
 Q.csvd_exist = 0
 Q.aspd_exist = 0
 
+Q.vrp_exist = 1
+Q.vnr_exist = 1
+
 Q.ddp_exist = 1
 Q.dstp_formed = 0
 Q.ddp_left = 0
