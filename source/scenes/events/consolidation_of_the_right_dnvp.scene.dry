@@ -21,6 +21,7 @@ WIP.
 
 - @wp: What will the <span style="color: #B8996F;">**WP**</span> do?
 - @cnblp: What will the <span style="color: #7FCEB1;">**CNBLP**</span> do?
+- @vrp: What will the <span style="color: #0075EB;">**VRP**</span> do?
 
 
 @wp
@@ -160,8 +161,69 @@ on-departure: {!
              
     Q.dvp_r = Math.round(Q.dvp_r + Q.cnblp_r);
     Q.cnblp_r = 0;
+  
+    Q.rural_dvp += Q.rural_cnblp;
+    Q.rural_cnblp = 0;
 !}
 
 Surprisingly, the <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with us.
+
+- @parties: What about other parties?
+
+
+
+@vrp
+view-if: vrp_exist
+
+WIP
+
+- @vrp_ddp: The <span style="color: #0075EB;">**VRP**</span> unites with <span style="color: #DCCA4A;">**[+ddp_name+]**</span>!
+- @vrp_dnvp: The <span style="color: #0075EB;">**VRP**</span> unites with <span style="color: #3F7BC1;">**DNVP**</span>!
+- @vrp_dvp: Can we convince the <span style="color: #0075EB;">**VRP**</span> to unite with us?
+  
+
+@vrp_ddp
+unavailable-subtitle: The <span style="color: #0075EB;">**VRP**</span> is not interested in uniting with them.
+choose-if: not ddp_exist and dvp_ideology = "Right"
+on-departure: {!
+    Q.vrp_exist = 0;
+  
+    Q.old_middle_ddp += Q.old_middle_other;
+    Q.old_middle_other = 0;
+!}
+
+The <span style="color: #0075EB;">**VRP**</span> has decided to unite with the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>.
+
+- @parties: What about other parties?
+  
+
+@vrp_dnvp
+unavailable-subtitle: The <span style="color: #0075EB;">**VRP**</span> is not interested in uniting with them.
+choose-if: not ddp_exist and dvp_ideology = "Right"
+on-departure: {!
+    Q.vrp_exist = 0;
+  
+    Q.old_middle_dnvp += Q.old_middle_other;
+    Q.old_middle_other = 0;
+!}
+
+The <span style="color: #0075EB;">**VRP**</span> has decided to unite with the <span style="color: #3F7BC1;">**DNVP**</span>.
+
+- @parties: What about other parties?
+
+
+@vrp_dvp
+unavailable-subtitle: The <span style="color: #0075EB;">**VRP**</span> is not interested in uniting with us.
+choose-if: dvp_ideology = "Left"
+on-departure: {!
+    Q.vrp_exist = 0;
+    Q.vrp_dvp = 1;
+    Q.special_interest_dvp = 1;
+             
+    Q.old_middle_dvp += Q.old_middle_other;
+    Q.old_middle_other = 0;
+!}
+
+Surprisingly, the <span style="color: #0075EB;">**VRP**</span> has decided to unite with us.
 
 - @parties: What about other parties?
