@@ -1526,6 +1526,7 @@ on-arrival: leverage -= 10
 Who will be the agriculture minister?
 
 - @kanitz_agriculture: Gerhard von Kanitz
+- @schiele_agriculture: Martin Schiele
 - @fehr_agriculture: Anton Fehr
 
 @kanitz_agriculture
@@ -1534,6 +1535,14 @@ go-to: ministries
 face-image: img/portraits/KanitzGerhard.jpg
 
 Gerhard von Kanitz of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Agriculture Minister.
+
+@schiele_agriculture
+on-arrival: agriculture_minister = "Schiele"; agriculture_minister_party = dvp_name;
+view-if: cnblp_dvp
+go-to: ministries
+face-image: img/portraits/SchieleMartin.jpg
+
+Martin Schiele of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has been appointed Agriculture Minister.
 
 @fehr_agriculture
 on-arrival: agriculture_minister = "Fehr"; agriculture_minister_party = dvp_name;
