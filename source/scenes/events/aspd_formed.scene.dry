@@ -18,7 +18,7 @@ Q.unemployed_other = 0;
 
 
 if (Q.dvp_ideology == "Right") {
-    Q.aspd_relation = 30
+    Q.aspd_relation = 25
 } else if (Q.dvp_ideology == "Left" && Q.aspd_ideology == "Moderate") {
     Q.aspd_relation = 45
 } else if (Q.dvp_ideology == "Left" && Q.aspd_ideology == "Radical") {
