@@ -252,7 +252,7 @@ if (Q.spd_r) {
         "seats": Math.round(Q.spd_r*5),
     });
 }
-if (Q.aspd_exist && Q.aspd_r) {
+if (Q.aspd_exist && Q.aspd_r && Q.aspd_ideology == "Moderate") {
     data.push({
         "id": "aspd",
         "legend": "ASPD",
@@ -373,6 +373,14 @@ if (Q.dnf_formed && Q.dnf_r) {
         "legend": "DNF",
         "name": "DNF",
         "seats": Math.round(Q.dnf_r*5),
+    });
+}
+if (Q.aspd_exist && Q.aspd_r && Q.aspd_ideology == "Radical") {
+    data.push({
+        "id": "aspd",
+        "legend": "ASPD",
+        "name": "ASPD",
+        "seats": Math.round(Q.aspd_r*5),
     });
 }
 if (Q.nsdap_r) {
