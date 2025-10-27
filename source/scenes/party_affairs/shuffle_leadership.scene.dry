@@ -355,8 +355,8 @@ Heinze has been removed as an advisor.
 
 @add_advisors
 title: Add advisors
-choose-if: n_advisors < 3
-unavailable-subtitle: Maximum of 3 advisors.
+choose-if: n_advisors < 4
+unavailable-subtitle: Maximum of 4 advisors.
 go-to: advisor_menu
 
 @advisor_menu
@@ -378,47 +378,47 @@ frequency: 1
 - @remove_none: Stop changing advisors.
 
 @nationalist
-view-if: n_advisors < 3
+view-if: n_advisors < 4
 
 - #nationalist_advisor
 
 @industrialist
-view-if: n_advisors < 3
+view-if: n_advisors < 4
 
 - #industrialist_advisor
 
 @peoples_conservative
-view-if: peoples_conservatives_dvp > 0 and n_advisors < 3
+view-if: peoples_conservatives_dvp > 0 and n_advisors < 4
 
 - #peoples_conservative_advisor
 
 @liberal
-view-if: n_advisors < 3
+view-if: n_advisors < 4
 
 - #liberal_advisor
 
 @labor
-view-if: n_advisors < 3
+view-if: n_advisors < 4
 
 - #labor_advisor
 
 @democratic
-view-if: democrats_dvp > 0 and n_advisors < 3
+view-if: democrats_dvp > 0 and n_advisors < 4
 
 - #democratic_advisor
 
 @progressive
-view-if: progressives_dvp > 0 and n_advisors < 3
+view-if: progressives_dvp > 0 and n_advisors < 4
 
 - #progressive_advisor
 
 @nonfactional
-view-if: n_advisors < 3
+view-if: n_advisors < 4
 
 - #nonfactional_advisor
 
 @special_interest
-view-if: special_interest_dvp > 0 and n_advisors < 3
+view-if: special_interest_dvp > 0 and n_advisors < 4
 
 - #special_interest_advisor
 
@@ -431,7 +431,7 @@ subtitle: Ernst Scholz is the leader of our faction in Reichstag. {!<br><br>!}[?
 is-card: true
 card-image: img/portraits/ScholzErnst.jpg
 tags: industrialist_advisor
-view-if: scholz_advisor = 0 and n_advisors < 3 and industrialists_leave = 0
+view-if: scholz_advisor = 0 and n_advisors < 4 and industrialists_leave = 0
 on-arrival: scholz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -444,7 +444,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, P
 is-card: true
 card-image: img/portraits/JarresKarl.jpg
 tags: industrialist_advisor
-view-if: jarres_advisor = 0 and n_advisors < 3 and industrialists_leave = 0
+view-if: jarres_advisor = 0 and n_advisors < 4 and industrialists_leave = 0
 on-arrival: jarres_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -457,7 +457,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, P
 is-card: true
 card-image: img/portraits/RaumerHans.jpg
 tags: industrialist_advisor
-view-if: raumer_advisor = 0 and n_advisors < 3
+view-if: raumer_advisor = 0 and n_advisors < 4
 on-arrival: raumer_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -473,7 +473,7 @@ subtitle: Carl Severing is a one-time Prussian interior minister and police refo
 is-card: true
 card-image: img/portraits/SeveringCarl.jpg
 tags: liberal_advisor
-view-if: severing_advisor = 0 and n_advisors < 3
+view-if: severing_advisor = 0 and n_advisors < 4
 on-arrival: severing_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -486,7 +486,7 @@ subtitle: Hans Luther is a prominent politician and banker, who has served as Ch
 is-card: true
 card-image: img/portraits/LutherHans.jpg
 tags: liberal_advisor
-view-if: luther_advisor = 0 and n_advisors < 3
+view-if: luther_advisor = 0 and n_advisors < 4
 on-arrival: luther_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -499,7 +499,7 @@ subtitle: Stresemann is a former [? if chancellor = "Stresemann": and current ?]
 is-card: true
 card-image: img/portraits/StresemannGustav.jpg
 tags: liberal_advisor
-view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 3
+view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 4
 on-arrival: stresemann_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -512,7 +512,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Media ?]
 is-card: true
 card-image: img/portraits/RheinbabenRochus.jpg
 tags: liberal_advisor
-view-if: rheinbaben_advisor = 0 and n_advisors < 3
+view-if: rheinbaben_advisor = 0 and n_advisors < 4
 on-arrival: rheinbaben_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -525,7 +525,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - International Relatio
 is-card: true
 card-image: img/portraits/CurtiusJulius.jpg
 tags: liberal_advisor
-view-if: curtius_advisor = 0 and n_advisors < 3
+view-if: curtius_advisor = 0 and n_advisors < 4
 on-arrival: curtius_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -537,7 +537,7 @@ title: Siegfried Kardorff
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/KardorffSiegfried.jpg
-view-if: kardorff_advisor = 0 and n_advisors < 3
+view-if: kardorff_advisor = 0 and n_advisors < 4
 on-arrival: kardorff_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
@@ -550,7 +550,7 @@ title: Alexander zu Dohna-Schlodien
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/DohnaSchlodienAlexander.jpg
-view-if: dohna_schlodien_advisor = 0 and n_advisors < 3
+view-if: dohna_schlodien_advisor = 0 and n_advisors < 4
 on-arrival: dohna_schlodien_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
@@ -566,7 +566,7 @@ title: Gottfried Treviranus
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/TreviranusGottfried.jpg
-view-if: treviranus_advisor = 0 and n_advisors < 3
+view-if: treviranus_advisor = 0 and n_advisors < 4
 on-arrival: treviranus_advisor = 1; n_advisors += 1; peoples_conservative_strength += 5
 go-to: advisor_menu
 tags: peoples_conservative_advisor
@@ -579,7 +579,7 @@ title: Paul Lejeune-Jung
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/LejeuneJungPaul.jpg
-view-if: lejeune_jung_advisor = 0 and n_advisors < 3
+view-if: lejeune_jung_advisor = 0 and n_advisors < 4
 on-arrival: lejeune_jung_advisor = 1; n_advisors += 1; peoples_conservative_strength += 5
 go-to: advisor_menu
 tags: peoples_conservative_advisor
@@ -595,7 +595,7 @@ title: Paul Levi
 subtitle: Paul Levi is a former KPD leader who was purged for criticizing Communist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD ?]
 is-card: true
 card-image: img/portraits/LeviPaul.jpg
-view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
+view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 4 and left_split = 0
 on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -607,7 +607,7 @@ title: Hans von Seeckt
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Right, Military affairs, Against Toleration ?]
 is-card: true
 card-image: img/portraits/SeecktHans.jpg
-view-if: seeckt_advisor = 0 and n_advisors < 3
+view-if: seeckt_advisor = 0 and n_advisors < 4
 on-arrival: seeckt_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -619,7 +619,7 @@ title: Otto Hugo
 subtitle: Otto Hugo is a prominent member of the right wing in the <span style="color: var(--dvp-color);">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
 is-card: true
 card-image: img/portraits/HugoOtto.jpg
-view-if: hugo_advisor = 0 and n_advisors < 3 and left_split = 0
+view-if: hugo_advisor = 0 and n_advisors < 4 and left_split = 0
 on-arrival: hugo_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -631,7 +631,7 @@ title: Max Seydewitz
 subtitle: Max Seydewitz is a former leader of the youth wing, current supporter of the left wing of the SPD, and advocates for class struggle. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Class Struggle, Socialist Youth, Against Toleration ?]
 is-card: true
 card-image: img/portraits/SeydewitzMax.jpg
-view-if: seydewitz_advisor = 0 and n_advisors < 3 and left_split = 0
+view-if: seydewitz_advisor = 0 and n_advisors < 4 and left_split = 0
 on-arrival: seydewitz_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -643,7 +643,7 @@ title: Anna Siemsen
 subtitle: Anna Siemsen is an and educational reform advocate and pacifist, who was one of the few German women to receive a PhD in the pre-war period. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Pacifism, Educational Curriculum, Educational Structure ?]
 is-card: true
 card-image: img/portraits/SiemsenAnna.jpg
-view-if: siemsen_advisor = 0 and n_advisors < 3 and left_split = 0
+view-if: siemsen_advisor = 0 and n_advisors < 4 and left_split = 0
 on-arrival: siemsen_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -660,7 +660,7 @@ subtitle: Hans Bechly is the leader of the DHV, the German National Association 
 is-card: true
 card-image: img/portraits/BechlyHans.jpg
 tags: labor_advisor
-view-if: bechly_advisor = 0 and n_advisors < 3 and unions_independent = 0
+view-if: bechly_advisor = 0 and n_advisors < 4 and unions_independent = 0
 on-arrival: bechly_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -672,7 +672,7 @@ subtitle: Otto Thiel is a politician and unionist affiliated with the DHV, the r
 is-card: true
 card-image: img/portraits/ThielOtto.jpg
 tags: labor_advisor
-view-if: thiel_advisor = 0 and n_advisors < 3
+view-if: thiel_advisor = 0 and n_advisors < 4
 on-arrival: thiel_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -684,7 +684,7 @@ subtitle: Rudolf Wissell is an economist who has been the Labor Minister, and is
 is-card: true
 card-image: img/portraits/WissellRudolf.jpg
 tags: labor_advisor
-view-if: wissell_advisor = 0 and n_advisors < 3 and unions_independent = 0
+view-if: wissell_advisor = 0 and n_advisors < 4 and unions_independent = 0
 on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3
 go-to: advisor_menu
 
@@ -696,7 +696,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/BehrensFranz.jpg
 tags: labor_advisor
-view-if: behrens_advisor = 0 and n_advisors < 3 and unions_independent = 0 and christian_socials_dvp
+view-if: behrens_advisor = 0 and n_advisors < 4 and unions_independent = 0 and christian_socials_dvp
 on-arrival: behrens_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -710,7 +710,7 @@ title: Hermann Dietrich
 subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/DietrichHermann.jpg
-view-if: dietrich_advisor = 0 and n_advisors < 3
+view-if: dietrich_advisor = 0 and n_advisors < 4
 on-arrival: dietrich_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
@@ -722,7 +722,7 @@ title: Willy Hellpach
 subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/HellpachWilly.jpg
-view-if: hellpach_advisor = 0 and n_advisors < 3
+view-if: hellpach_advisor = 0 and n_advisors < 4
 on-arrival: hellpach_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
@@ -738,7 +738,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising
 is-card: true
 card-image: img/portraits/ErkelenzAnton.jpg
 tags: progressive_advisor
-view-if: erkelenz_advisor = 0 and n_advisors < 3
+view-if: erkelenz_advisor = 0 and n_advisors < 4
 on-arrival: erkelenz_advisor = 1; n_advisors += 1; progressive_strength += 5
 go-to: advisor_menu
 
@@ -753,7 +753,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Neg
 is-card: true
 card-image: img/portraits/KublerKonrad.jpg
 tags: special_interest_advisor
-view-if: kubler_advisor = 0 and n_advisors < 3 and dbp_dvp = 1
+view-if: kubler_advisor = 0 and n_advisors < 4 and dbp_dvp = 1
 on-arrival: kubler_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
@@ -766,7 +766,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/SchieleMartin.jpg
 tags: special_interest_advisor
-view-if: schiele_advisor = 0 and n_advisors < 3 and cnblp_dvp = 1
+view-if: schiele_advisor = 0 and n_advisors < 4 and cnblp_dvp = 1
 on-arrival: schiele_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
@@ -779,7 +779,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Neg
 is-card: true
 card-image: img/portraits/ColosserOtto.jpg
 tags: special_interest_advisor
-view-if: colosser_advisor = 0 and n_advisors < 3 and (colosser_dvp or wp_dvp)
+view-if: colosser_advisor = 0 and n_advisors < 4 and (colosser_dvp or wp_dvp)
 on-arrival: colosser_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
@@ -793,7 +793,7 @@ title: Fritz Baade
 subtitle: Fritz Baade is one of the few agricultural policy experts in the SPD. {!<br><br>!}[? if difficulty < 0 : Actions - Agricultural Policy, Rural Campaigning, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/BaadeFritz.jpg
-view-if: baade_advisor = 0 and n_advisors < 3
+view-if: baade_advisor = 0 and n_advisors < 4
 on-arrival: baade_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
@@ -806,7 +806,7 @@ title: Rudolf Heinze
 subtitle: Rudolf Heinze is a renowned legal scholar and long-time <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
 is-card: true
 card-image: img/portraits/HeinzeRudolf.jpg
-view-if: heinze_advisor = 0 and n_advisors < 3
+view-if: heinze_advisor = 0 and n_advisors < 4
 on-arrival: heinze_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
@@ -819,7 +819,7 @@ title: Paul Moldenhauer
 subtitle: Paul Moldenhauer is an economist and politician. He is a professor at the University of Cologne. {!<br><br>!}[? if difficulty < 0 : Actions - Defending Toleration, Fiscal Policy ?]
 is-card: true
 card-image: img/portraits/MoldenhauerPaul.jpg
-view-if: moldenhauer_advisor = 0 and n_advisors < 3
+view-if: moldenhauer_advisor = 0 and n_advisors < 4
 on-arrival: moldenhauer_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
