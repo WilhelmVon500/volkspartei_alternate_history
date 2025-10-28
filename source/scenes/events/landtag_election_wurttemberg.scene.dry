@@ -409,8 +409,18 @@ title: The coalition will choose the State President.
 
 WIP
 
+- @bickes: Theodor Bickes
 - @maier: Reinhold Maier
 - @bolz: Eugen Bolz
+
+@bickes
+view-if: dvp_wurttemberg
+choose-if: in_dvp_majority_wurttemberg or ((in_grand_coalition_wurttemberg or in_bourgeois_coalition_wurttemberg) and (dvp_wl + ddp_wl) > z_wl) or (in_weimar_coalition_wurttemberg and dvp_wurttemberg and (dvp_wl + ddp_wl) > z_wl)
+unavailable-subtitle: The <span style="color: #000000;">**Center Party**</span> can prevent him from becoming the Minister-President.
+on-arrival: wurttemberg_leader = "Bickes"; wurttemberg_leader_party = dvp_name
+face-image: img/portraits/BickesTheodor.jpg
+
+Theodor Bickes was chosen.
 
 @maier
 view-if: (dvp_wurttemberg and (nfvp_formed or lvp_formed)) or in_weimar_coalition_wurttemberg or in_grand_coalition_wurttemberg or in_bourgeois_coalition_wurttemberg
