@@ -385,7 +385,7 @@ Q.rfb_banned_prussia = 0;
 
 Q.interior_police_strength = 50;
 Q.interior_police_militancy = 1;
-Q.interior_police_loyalty = 0.45;
+Q.interior_police_loyalty = 0.6;
 
 Q.prussian_police_strength = 90;
 Q.prussian_police_militancy = 1;
@@ -394,7 +394,7 @@ Q.prussian_police_loyalty = 0.5;
 // strength includes actual military and de facto reserves?
 Q.reichswehr_strength = 100;
 Q.reichswehr_militancy = 5;
-Q.reichswehr_loyalty = 0.2;
+Q.reichswehr_loyalty = 0.5;
 
 // The state of the country
 
