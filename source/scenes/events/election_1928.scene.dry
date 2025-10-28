@@ -1215,7 +1215,7 @@ As expected, the <span style="color: #E3000F;">**SPD**</span> is too set in thei
 
 
 @grand_coalition_spd_lead
-on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20
+on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20; foreign_minister = "Wirth"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Wissel"; labor_minister_party = "SPD"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Wirth"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Dietrich" if ddp_exist; agriculture_minister_party = ddp_name if ddp_exist;
 
 As expected, the <span style="color: #E3000F;">**SPD**</span> is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked the <span style="color: #E3000F;">**SPD**</span> to form a majority coalition with the <span style="color: #000000;">**Center Party**</span>, <span style="color: #69A2BE;">**BVP**</span>[? if ddp_exist: , <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
@@ -1226,7 +1226,7 @@ Who should be the chancellor?
 - @muller
 - @wels
 - @z_chancellor
-- @z_chancellor_wirth
+- @coalition_menu: What are the other governing arrangements?
 - @no_govt
 
 
@@ -1258,13 +1258,6 @@ The <span style="color: #E3000F;">**SPD**</span> reluctantly accepts Brüning's 
 
 [? if year == 1928 : Since Wilhelm Marx resigned, Heinrich Brüning has been appointed chancellor. ?]
 
-@z_chancellor_wirth
-title: Support Joseph Wirth of the Center Party for chancellorship.
-view-if: z_leader == "Joos"
-subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; spd_relation += 3; NSDAP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; dvp_in_government = 1; leverage += 5
-go-to: ministries
-
 
 
 
@@ -1276,6 +1269,7 @@ on-arrival: progressive_dissent += 5; democratic_dissent += 5; liberal_dissent +
 Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the other parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and moderate left parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
 
 - @muller
+- @wels
 - @z_chancellor
 - @no_govt_goals: Yes, we're sure.
 
