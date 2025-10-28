@@ -5,9 +5,6 @@ new-page: true
 max-visits: 1
 tags: event
 priority: 4
-on-arrival: {!
-
-!}
 
 = Consolidation of the Right
 
