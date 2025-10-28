@@ -51,13 +51,24 @@ This development could be either beneficial or detrimental to us. If we wanted t
 
 The absence of a candidate for the German middle and moderate right to rally behind creates a vacuum, which will likely be filled as other parties announce their candidates in the near future.
 
+- @convince_hindenburg: The country needs him!
 - @presidential_election_1932_candidate: Who will the candidates be now that Hindenburg is retiring?
 
 @hindenburg_running
 title: We await his decision.
 view-if: hindenburg_run
-on-arrival: new_middle_kvp += 4; old_middle_kvp += 4; rural_kvp += 2
+on-arrival: new_middle_kvp += 4; old_middle_kvp += 4; rural_kvp += 2; new_middle_dnvp += 4 if dnvp_ideology = "Moderate"; old_middle_dnvp += 4 if dnvp_ideology = "Moderate"; rural_dnvp += 2 if dnvp_ideology = "Moderate"
 
 The Sahm committee for Hindenburg's re-election has been dissolved and replaced by a much larger, national "United Hindenburg Committees" organization, which will work in coordination with the various local Hindenburg committees across the country. With the appointment of Westarp and Gereke to top positions, and the exclusion of socialist and Center politicians, they are attempting to position Hindenburg as the candidate of the moderate right.
 
 - @presidential_election_1932_candidate: Who will the candidates be now that Hindenburg has decided to run for re-election?
+
+
+@convince_hindenburg
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: hindenburg_run = 1
+go-to: hindenburg_running
+
+We have convinced Hindenburg to run! Uh, yes, by gifting him an estate. That's not corruption if you are trying to save the country!
