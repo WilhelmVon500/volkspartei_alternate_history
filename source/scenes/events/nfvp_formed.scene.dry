@@ -59,6 +59,11 @@ if (Q.in_liberal_coalition == 1) {
 }
 
 
+if (Q.economic_minister == "Lejeune-Jung" && Q.peoples_conservatives_dvp) {
+  Q.economic_minister_party = Q.dvp_name
+}
+
+
 if (Q.president_party == "DVP" || Q.president_party == Q.ddp_name) {
   Q.president_party = Q.dvp_name
 }
