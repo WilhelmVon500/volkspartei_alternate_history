@@ -788,7 +788,7 @@ Q.spd_no_confidence = 0;
 Q.no_confidence_against_spd = 0;
 
 // Advisors/Leaders
-Q.n_advisors = 3;
+Q.n_advisors = 4;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
@@ -872,6 +872,7 @@ Q.muller_dead = 0;
 Q.stresemann_advisor = 1; // Gustav Stresemann
 Q.hugo_advisor = 1; // Otto Hugo
 Q.scholz_advisor = 1; // Ernst Scholz
+Q.curtius_advisor = 1; // Julius Curtius
 
 // left advisors
 Q.seeckt_advisor = 0; // Hans von Seeckt
