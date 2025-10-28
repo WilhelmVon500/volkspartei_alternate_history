@@ -67,7 +67,7 @@ The Sahm committee for Hindenburg's re-election has been dissolved and replaced 
 @convince_hindenburg
 subtitle: -1 resources
 choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
+unavailable-subtitle: -1 resources. Not enough resources.
 on-arrival: hindenburg_run = 1
 go-to: hindenburg_running
 
