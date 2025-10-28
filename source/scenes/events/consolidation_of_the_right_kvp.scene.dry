@@ -236,6 +236,7 @@ WIP
   
 
 @vrp_ddp
+view-if: ddp_exist
 on-departure: {!
     Q.vrp_exist = 0;
   
