@@ -4,7 +4,7 @@ view-if: electoral_threshold > 0 and kvp_formed and (csvd_exist or wp_exist or c
 new-page: true
 max-visits: 1
 tags: event
-priority: 4
+priority: 3
 
 = Consolidation of the Right
 
