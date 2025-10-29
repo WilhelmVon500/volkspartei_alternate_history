@@ -33,6 +33,7 @@ WIP
 
 @wp_dnvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with far-right radicals.
+view-if: dnvp_exist
 choose-if: wp_ideology = "Radical"
 on-departure: {!
     Q.wp_exist = 0;
