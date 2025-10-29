@@ -1,6 +1,6 @@
 title: <span style="color: var(--dvp-color);">**DVP**</span> Leadership Vote
 subtitle: Julius Curtius has resigned!
-view-if: curtius_resignation_timer == time and dvp_leader == "Curtius" and not lvp_formed and not nfvp_formed
+view-if: curtius_resignation_timer == time and dvp_leader == "Curtius" and not lvp_formed and not nfvp_formed and not dkp_formed
 max-visits: 1
 tags: event
 face-image: img/portraits/CurtiusJulius.jpg
