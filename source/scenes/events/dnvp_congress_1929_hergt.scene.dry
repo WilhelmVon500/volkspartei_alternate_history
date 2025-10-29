@@ -1,21 +1,21 @@
 title: <span style="color: #3F7BC1;">**DNVP**</span> Leadership Vote
 subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> decides their fate...
-view-if: dnvp_leader = "Westarp" and year = 1929 and month = 11
+view-if: dnvp_leader = "Hergt" and year = 1929 and month = 11
 max-visits: 1
 tags: event
-face-image: img/portraits/WestarpKuno.jpg
+face-image: img/portraits/HergtOskar.jpg
 new-page: true
 
 = <span style="color: #3F7BC1;">**DNVP**</span> Congress
 
 WIP
 
-- @westarp_lead: Kuno von Westarp
+- @hergt_lead: Oskar Hergt
 - @treviranus_lead: Gottfried Treviranus
 
-@westarp_lead
-on-arrival: dnvp_leader = "Westarp"; dvp_right += 1; old_middle_dnvp += 3; rural_dnvp += 3
-face-image: img/portraits/WestarpKuno.jpg
+@hergt_lead
+on-arrival: dnvp_leader = "Hergt"; dvp_right += 1; old_middle_dnvp += 3; rural_dnvp += 3
+face-image: img/portraits/HergtOskar.jpg
 
 Despite some dissent from the more <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> forces within the <span style="color: #3F7BC1;">**DNVP**</span>, the congress goes through without incident.
 
