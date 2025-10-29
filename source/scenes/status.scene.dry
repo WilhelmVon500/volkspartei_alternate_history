@@ -131,7 +131,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: Liberal Agrarianism (Gandorfer) ?]
 
-<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: Christian Democracy ([+ z_leader +])
+<span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: [? if z_ideology = "Right": Christian Democracy ?][? if z_ideology = "Left": Christian Democracy ?] ([+ z_leader +])
 
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: Christian Socialism (Simpfendörfer) ?]
 
