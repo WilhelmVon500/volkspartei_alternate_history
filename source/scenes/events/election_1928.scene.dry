@@ -377,6 +377,14 @@ if (Q.kvp_formed && Q.kvp_r) {
         "seats": Math.round(Q.kvp_r*5),
     });
 }
+if (Q.dkp_formed) {
+    data.push({
+        "id": "dkp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_r*5),
+    });
+}
 if (Q.dnvp_exist && Q.dnvp_r) {
     data.push({
         "id": "dnvp",
@@ -500,12 +508,12 @@ There are some potential coalition arrangements.
 
 @far_right_coalition
 title: Far-right coalition
-subtitle: NSDAP + [? if dnvp_ideology = "Radical": DNVP ?][? if dnvp_ideology = "Moderate": DNF ?] ([+ far_right_coalition +]%)
+subtitle: NSDAP [? if dnvp_exist and dnvp_ideology = "Radical": DNVP + ?][? if dnf_formed = "Moderate": DNF + ?] ([+ far_right_coalition +]%)
 view-if: far_right_coalition >= 50
 go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsdap_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
-There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnvp_ideology = "Moderate": DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
+There are enough votes for the Nazis and the [? if dnvp_exist and dnvp_ideology = "Radical": DNVP ?][? if dnf_formed = "Moderate": DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @far_right_win
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
@@ -593,7 +601,7 @@ go-to: no_majority
 @weimar_coalition_sure
 subtitle: This will be extremely unpopular within the right wing of our party.
 view-if: not lvp_formed and not nfvp_formed
-on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_leader = "Hugenberg"
+on-arrival: pro_republic += 3; industrialist_dissent += 15; nationalist_dissent += 25; NSDAP_relation -= 5; DNVP_relation -= 5 if dnvp_ideology = "Radical"
 go-to: weimar_coalition_2
 
 
@@ -685,7 +693,7 @@ on-arrival: no_majority_bruning_elections += 1
 
 There is no path to a majority government. One option would be to have a continuation of the current Brüning government; if <span style="color: #E3000F;">**SPD**</span> tolerate it, then it would retain a majority vote against no-confidence.
 
-Alternatively, we could try to form a "new grand coalition" of all constitutional parties except the NSDAP, KPD, and DNVP. The stumbling block are the minor conservative parties such as the "Economic Party of the Middle Class", who detest any hint of socialism and would ruin the country before working with Marxists.
+Alternatively, we could try to form a "new grand coalition" of all constitutional parties except the NSDAP, KPD, and [? if dnvp_exist and dnvp_ideology = "Radical": DNVP?][? if dnf_formed: DNVP?]. The stumbling block are the minor conservative parties such as the "Economic Party of the Middle Class", who detest any hint of socialism and would ruin the country before working with Marxists.
 
 The third option is to have new elections.
 
@@ -942,7 +950,7 @@ title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
 on-arrival: z_no_confidence = 1 if z_relation < 45; kpd_no_confidence = 1 if kpd_relation < 45; other_no_confidence = 1 if (z_relation + spd_relation)/2 < 45; dvp_no_confidence = 1 if spd_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = nsdap_r + dnvp_r; no_confidence_votes += z_r if z_no_confidence; no_confidence_votes += dvp_r if dvp_no_confidence; no_confidence_votes += kpd_r if kpd_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
-The NSDAP and DNVP will vote against us, of course. The other parties vote their conscience. [? if z_no_confidence: The Center Party is voting against us. ?] [? if kpd_no_confidence: The KPD votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
+The NSDAP [? if dnvp_exist and dnvp_ideology = "Radical": and DNVP ?][? if dnf_formed: and DNF ?] will vote against us, of course. The other parties vote their conscience. [? if z_no_confidence: The Center Party is voting against us. ?] [? if kpd_no_confidence: The KPD votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
 In total, [+ no_confidence_votes +]% of the Reichstag is against us. [? if no_confidence_succeeds : We have lost the vote of no confidence. ?]
 
@@ -1004,11 +1012,11 @@ We have won the vote of no confidence, and are currently ruling under an <span s
 
 @bourgeois_coalition
 title: We can form a Bourgeois Coalition.
-subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span> +  ?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> + ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> + ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> + ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> + ?][? if aspd_exist and aspd_ideology = "Moderate": <span style="color: #FE9E00;">**ASPD**</span> + ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition +]%)
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if dnvp_exist and dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span> +  ?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> + ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> + ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> + ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> + ?][? if aspd_exist and aspd_ideology = "Moderate": <span style="color: #FE9E00;">**ASPD**</span> + ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition +]%)
 view-if: bourgeois_coalition >= 50
-on-arrival: leverage += 5; leverage += 5 if z_leader == "Brüning"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister = "Brüning"; foreign_minister_party = "Z"; interior_minister = "Wirth"; interior_minister_party = "Z"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Stegerwald"; labor_minister_party = "Z"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Hermes"; economic_minister_party = "Z"; economic_minister = "Lejeune-Jung" if not peoples_conservatives_dvp and (kvp_formed or dnvp_ideology = "Moderate"); economic_minister_party = "KVP" if not peoples_conservatives_dvp and kvp_formed; economic_minister_party = "DNVP" if not peoples_conservatives_dvp and dnvp_ideology = "Moderate"; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Fehr" if dbp_exist; agriculture_minister_party = "DBP" if dbp_exist;
+on-arrival: leverage += 5; leverage += 5 if z_leader == "Brüning"; in_bourgeois_coalition = 1; dvp_in_government = 1; foreign_minister = "Brüning"; foreign_minister_party = "Z"; interior_minister = "Wirth"; interior_minister_party = "Z"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Stegerwald"; labor_minister_party = "Z"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Hermes"; economic_minister_party = "Z"; economic_minister = "Lejeune-Jung" if not peoples_conservatives_dvp and (kvp_formed or (dnvp_exist and dnvp_ideology = "Moderate")); economic_minister_party = "KVP" if not peoples_conservatives_dvp and kvp_formed; economic_minister_party = "DNVP" if not peoples_conservatives_dvp and dnvp_exist and dnvp_ideology = "Moderate"; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Fehr" if dbp_exist; agriculture_minister_party = "DBP" if dbp_exist;
 
-We have enough votes to form a "Bourgeois Coalition" government consisting of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, <span style="color: #000000;">**Center**</span> (<span style="color: #000000;">**Z**</span>), [? if ddp_exist: <span style="color: #DCCA4A;">**Democratic**</span> (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span>), ?][? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**National People's**</span> (<span style="color: #3F7BC1;">**DNVP**</span>), ?][? if kvp_formed: <span style="color: #455B95;">**Conservative People's**</span> (<span style="color: #455B95;">**KVP**</span>), ?][? if wp_exist: <span style="color: #B8996F;">**Economic**</span> (<span style="color: #B8996F;">**WP**</span>), ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>, ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span>, ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span>, ?][? if aspd_exist and aspd_ideology = "Moderate": <span style="color: #FE9E00;">**ASPD**</span>, ?] <span style="color: #69A2BE;">**BVP**</span> and small conservative parties!
+We have enough votes to form a "Bourgeois Coalition" government consisting of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, <span style="color: #000000;">**Center**</span> (<span style="color: #000000;">**Z**</span>), [? if ddp_exist: <span style="color: #DCCA4A;">**Democratic**</span> (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span>), ?][? if dnvp_exist and dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**National People's**</span> (<span style="color: #3F7BC1;">**DNVP**</span>), ?][? if kvp_formed: <span style="color: #455B95;">**Conservative People's**</span> (<span style="color: #455B95;">**KVP**</span>), ?][? if wp_exist: <span style="color: #B8996F;">**Economic**</span> (<span style="color: #B8996F;">**WP**</span>), ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span>, ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span>, ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span>, ?][? if aspd_exist and aspd_ideology = "Moderate": <span style="color: #FE9E00;">**ASPD**</span>, ?] <span style="color: #69A2BE;">**BVP**</span> and small conservative parties!
 
 Who should be the chancellor?
 
@@ -1198,7 +1206,7 @@ Under the influence of Gustav Stresemann, the <span style="color: #E3000F;">**SP
 
 The <span style="color: #E3000F;">**SPD**</span> asks us to adhere to their socialist economic policies in exchange for us joining the coalition.
 
-- @beg_spd_2: But they would not have a majority without the <span style="color: #E3000F;">**SPD**</span>! The [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span> have no interest in participating in government.
+- @beg_spd_2: But they would not have a majority without the <span style="color: #E3000F;">**SPD**</span>! The [? if dnvp_exist and dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span> have no interest in participating in government.
 - @no_majority: There is no chance that we would agree.
 - @brauns_dilemma
 - @coalition_menu: What are the other governing arrangements?
@@ -1207,7 +1215,7 @@ The <span style="color: #E3000F;">**SPD**</span> asks us to adhere to their soci
 @beg_spd_2
 go-to: beg_spd_succeed if spd_relation >= 20; beg_spd_fail if spd_relation < 20
 
-We make the case that without the <span style="color: #E3000F;">**SPD**</span>, there is no parliamentary majority, given the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span>'s hostility to constitutional government.
+We make the case that without the <span style="color: #E3000F;">**SPD**</span>, there is no parliamentary majority, given the [? if dnvp_exist and dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] and <span style="color: #954B00;">**NSDAP**</span>'s hostility to constitutional government.
 
 @beg_spd_succeed
 go-to: join_bruning
