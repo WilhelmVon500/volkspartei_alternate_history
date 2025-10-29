@@ -1,6 +1,6 @@
 title: <span style="color: #3F7BC1;">**DNVP**</span> Leadership Vote
 subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> decides their fate...
-view-if: dnvp_leader = "Hergt" and year = 1929 and month = 11
+view-if: dnvp_exist and dnvp_leader = "Hergt" and year = 1929 and month = 11
 max-visits: 1
 tags: event
 face-image: img/portraits/HergtOskar.jpg
