@@ -1,6 +1,6 @@
 title: <span style="color: #3F7BC1;">**DNVP**</span> Leadership Vote
 subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> chooses a new leader...
-view-if: dnvp_leader = "Westarp" and year = 1928 and month = 10
+view-if: dnvp_leader = "Hergt" and year = 1928 and month = 10
 max-visits: 1
 tags: event
 face-image: img/dnvp_congress.jpg
@@ -10,16 +10,16 @@ new-page: true
 
 A leadership vote is being held at the <span style="color: #3F7BC1;">**DNVP**</span>'s congress following the resignation of its former leader Kuno von Westarp.
 
-The right wing of the party rallied behind Alfred Hugenberg, an industrialist and head of a media empire. The moderate wing supports Westarp's re-election.
+The right wing of the party rallied behind Alfred Hugenberg, an industrialist and head of a media empire. The moderate wing supports Oskar Hergt.
 
-- @westarp_lead: Kuno von Westarp
+- @hergt_lead: Oskar Hergt
 - @hugenberg_lead: Alfred Hugenberg
 
-@westarp_lead
-on-arrival: dnvp_leader = "Westarp"; dnvp_ideology = "Moderate"; dvp_left += 1; dnvp_relation += 5 if dvp_ideology = "Left";
-face-image: img/portraits/WestarpKuno.jpg
+@hergt_lead
+on-arrival: dnvp_leader = "Hergt"; dnvp_ideology = "Moderate"; dvp_left += 1; dnvp_relation += 5 if dvp_ideology = "Left";
+face-image: img/portraits/HergtOskar.jpg
 
-Westarp remains as the <span style="color: #3F7BC1;">**DNVP**</span> leader. In response, Hugenberg and his faction have left <span style="color: #3F7BC1;">**DNVP**</span> to form their own party.
+Hergt is elected to lead the <span style="color: #3F7BC1;">**DNVP**</span>. In response, Hugenberg and his faction have left <span style="color: #3F7BC1;">**DNVP**</span> to form their own party.
 
 - @dnf_formation: Alfred Hugenberg and his supporters form <span style="color: #003755;">**DNF**</span>.
 
