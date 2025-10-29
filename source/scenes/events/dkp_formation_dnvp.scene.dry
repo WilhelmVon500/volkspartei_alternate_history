@@ -1,0 +1,46 @@
+title: <span style="color: #3F7BC1;">**DkP**</span> formed!
+max-visits: 1
+tags: event
+priority: 3
+new-page: true
+
+= <span style="color: #3F7BC1;">**Deutschkonservative Partei**</span> formed
+
+WIP
+
+
+- @leader: The party has to choose its new leader.
+
+@leader
+
+WIP
+
+- @hergt: Oskar Hergt will lead our party.
+- @dingeldey: Eduard Dingeldey will lead our party.
+- @hugo: Otto Hugo will lead our party.
+
+@hergt
+subtitle: Hergt was the former leader of the <span style="color: #3F7BC1;">**DNVP**</span>'s moderate wing.
+on-arrival: dvp_leader = "Hergt"
+face-image: img/portraits/HergtOskar.jpg
+go-to: dkp_formed_kvp
+
+WIP
+
+
+@dingeldey
+subtitle: Dingeldey belongs to the moderate wing of our new party.
+on-arrival: dvp_leader = "Dingeldey"
+face-image: img/portraits/DingeldeyEduard.jpg
+go-to: dkp_formed_kvp
+
+WIP
+  
+
+@hugo
+subtitle: Otto Hugo is one of the leaders of the nationalist wing.
+on-arrival: dvp_leader = "Hugo"
+face-image: img/portraits/HugoOtto.jpg
+go-to: dkp_formed_kvp
+
+WIP
