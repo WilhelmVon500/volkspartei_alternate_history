@@ -24,7 +24,7 @@ WIP
 subtitle: Westarp is the former leader of the <span style="color: #3F7BC1;">**DNVP**</span>.
 on-arrival: dvp_leader = "Westarp"
 face-image: img/portraits/WestarpKuno.jpg
-go-to: dkp_formed_kvp
+go-to: dkp_formed_dnvp
 
 WIP
 
@@ -33,7 +33,7 @@ WIP
 subtitle: Dingeldey belongs to the moderate wing of our new party.
 on-arrival: dvp_leader = "Dingeldey"
 face-image: img/portraits/DingeldeyEduard.jpg
-go-to: dkp_formed_kvp
+go-to: dkp_formed_dnvp
 
 WIP
   
@@ -42,6 +42,6 @@ WIP
 subtitle: Otto Hugo is one of the leaders of the nationalist wing.
 on-arrival: dvp_leader = "Hugo"
 face-image: img/portraits/HugoOtto.jpg
-go-to: dkp_formed_kvp
+go-to: dkp_formed_dnvp
 
 WIP
