@@ -1,0 +1,76 @@
+on-arrival: {!
+Q.newspaper += 2
+
+Q.dkp_formed = 1;
+Q.dnvp_exist = 0;
+Q.parties = Q.parties.filter(party => party !== 'dnvp');
+
+Q.dvp_name = "DkP";
+Q.dvp_color = "#3F7BC1";
+document.body.style.setProperty('--dvp-color', '#3F7BC1');
+
+Q.peoples_conservatives_dvp = 1;
+Q.monarchists_dvp = 1;
+
+Q.workers_dvp += Q.workers_dnvp;
+Q.workers_dnvp -= 0;
+
+Q.new_middle_dvp += Q.new_middle_dnvp;
+Q.new_middle_dnvp -= 0;
+             
+Q.old_middle_dvp += Q.old_middle_dnvp;
+Q.old_middle_dnvp -= 0;
+             
+Q.rural_dvp += Q.rural_dnvp;
+Q.rural_dnvp -= 0;
+             
+Q.unemployed_dvp += Q.unemployed_dnvp;
+Q.unemployed_dnvp -= 0;
+
+Q.catholics_dvp += Q.catholics_dnvp;
+Q.catholics_dnvp -= 0;
+
+
+if (Q.president_party == "DVP" || Q.president_party == "DNVP") {
+  Q.president_party = Q.dvp_name
+}
+if (Q.chancellor_party == "DVP" || Q.chancellor_party == "DNVP") {
+  Q.chancellor_party = Q.dvp_name
+}
+if (Q.labor_minister_party == "DVP" || Q.labor_minister_party == "DNVP") {
+  Q.labor_minister_party = Q.dvp_name
+}
+if (Q.interior_minister_party == "DVP" || Q.interior_minister_party == "DNVP") {
+  Q.interior_minister_party = Q.dvp_name
+}
+if (Q.finance_minister_party == "DVP" || Q.finance_minister_party == "DNVP") {
+  Q.finance_minister_party = Q.dvp_name
+}
+if (Q.economic_minister_party == "DVP" || Q.economic_minister_party == "DNVP") {
+  Q.economic_minister_party = Q.dvp_name
+}
+if (Q.justice_minister_party == "DVP" || Q.justice_minister_party == "DNVP") {
+  Q.justice_minister_party = Q.dvp_name
+}
+if (Q.foreign_minister_party == "DVP" || Q.foreign_minister_party == "DNVP") {
+  Q.foreign_minister_party = Q.dvp_name
+}
+if (Q.agriculture_minister_party == "DVP" || Q.agriculture_minister_party == "DNVP") {
+  Q.agriculture_minister_party = Q.dvp_name
+}
+if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == "DNVP") {
+  Q.reichswehr_minister_party = Q.dvp_name
+}
+
+
+for (var state of Q.states) {
+    if (Q[state + '_leader_party'] == Q.ddp_name || Q[state + '_leader_party'] == "DNVP") {
+        Q[state + '_leader_party'] = Q.dvp_name
+    }
+}
+
+
+
+// update all records
+Q.dvp_r += Q.dnvp_r;
+Q.dnvp_r = 0;
