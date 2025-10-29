@@ -1,5 +1,5 @@
-title: Center Party Conference
-subtitle: The Center Party chooses their new leader...
+title: <span style="color: #000000;">**Center Party**</span> Conference
+subtitle: The <span style="color: #000000;">**Center Party**</span> chooses their new leader...
 view-if: year = 1928 and month = 12 and z_leader = "Marx"
 max-visits: 1
 tags: event
@@ -7,11 +7,9 @@ new-page: true
 
 = Center Party Conference
 
-# reference: Evans, Ellen L. “Adam Stegerwald and the Role of the Christian Trade Unions in the Weimar Republic.” The Catholic Historical Review 59, no. 4 (1974): 602–26.
+Wilhelm Marx, former <span style="color: #000000;">**Center Party**</span> chancellor and presidential candidate, has chosen to resign from leadership of the <span style="color: #000000;">**Center Party**</span>. Now, the party holds a conference to replace him.
 
-Wilhelm Marx, former Center Party chancellor and presidential candidate, has chosen to resign from leadership of the Center Party. Now, the party holds a conference to replace him.
-
-The consensus candidate on the right is Ludwig Kaas, a Catholic priest who represents the party's traditionalists. On the other hand, there is Joseph Joos, a leader of the Catholic trade unions, who has been more supportive of cooperation with the SPD than most of the Center Party. We can try to influence the party to support Heinrich Brüning, financial policy spokesman for the Center faction in Reichstag.
+The consensus candidate on the right is Ludwig Kaas, a Catholic priest who represents the party's traditionalists. On the other hand, there is Joseph Joos, a leader of the Catholic trade unions, who has been more supportive of cooperation with the <span style="color: #E3000F;">**SPD**</span> than most of the <span style="color: #000000;">**Center Party**</span>. We can try to influence the party to support Heinrich Brüning, financial policy spokesman for the <span style="color: #000000;">**Center**</span> faction in Reichstag.
 
 - @z_kaas: The Center Party elects Ludwig Kaas as the party chair.
 - @z_joos: The Center Party elects Joseph Joos as the party chair.
@@ -24,7 +22,7 @@ on-arrival: z_leader = "Kaas"
 choose-if: pro_republic < 65
 face-image: img/portraits/KaasLudwig.jpg
 
-Ludwig Kaas has been selected as the chairman of the Center Party. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
+Ludwig Kaas has been selected as the chairman of the <span style="color: #000000;">**Center Party**</span>. He seems to represent a rightward turn from Marx, and will preside over a <span style="color: #000000;">**Center Party**</span> less inclined to compromise with the left.
 
 @z_joos
 unavailable-subtitle: Joos doesn't have enough support.
@@ -32,7 +30,7 @@ on-arrival: z_leader = "Joos"; z_relation -= 2 if dvp_ideology = "Right"; worker
 choose-if: pro_republic >= 65
 face-image: img/portraits/JoosJoseph.jpg
 
-Joseph Joos has been selected as the chairman of the Center Party. He has long been a friend of the SPD, and will be more inclined to collaborate with them compared to Kaas. He also increases the appeal of the Center Party to the working class.
+Joseph Joos has been selected as the chairman of the <span style="color: #000000;">**Center Party**</span>. He has long been a friend of the <span style="color: #E3000F;">**SPD**</span>, and will be more inclined to collaborate with them compared to Kaas. He also increases the appeal of the <span style="color: #000000;">**Center Party**</span> to the working class.
 
 @z_bruning
 unavailable-subtitle: Our relations are not good enough.
@@ -41,7 +39,7 @@ choose-if: z_relation >= 65
 on-arrival: z_leader = "Brüning"; z_relation += 2
 face-image: img/portraits/BrüningHeinrich.jpg
 
-With our grassroots connections, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
+With our grassroots connections, we have been able to influence the <span style="color: #000000;">**Center**</span> delegates to support Heinrich Brüning as the new <span style="color: #000000;">**Center**</span> chairman. 
 
 @z_bruning_campaign
 choose-if: z_relation >= 55 and resources >= 1 
@@ -51,4 +49,4 @@ subtitle: -1 resource. Brüning is likely to be friendlier to us than Kaas or Jo
 on-arrival: resources -= 1; z_leader = "Brüning"; z_relation += 2
 face-image: img/portraits/BrüningHeinrich.jpg
 
-With our grassroots connections as well as a professional campaign, we have been able to influence the Center delegates to support Heinrich Brüning as the new Center chairman. 
+With our grassroots connections as well as a professional campaign, we have been able to influence the <span style="color: #000000;">**Center**</span> delegates to support Heinrich Brüning as the new <span style="color: #000000;">**Center**</span> chairman. 
