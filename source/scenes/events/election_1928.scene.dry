@@ -162,7 +162,7 @@ Q.liberal_coalition = parseFloat((Q.dvp_r + Q.ddp_r).toFixed(1));
 
 if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.grand_coalition = parseFloat((Q.grand_coalition + Q.aspd_r).toFixed(1));
 Q.bourgeois_coalition = parseFloat((Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-if (Q.dnvp_ideology == "Moderate") Q.bourgeois_coalition = parseFloat((Q.bourgeois_coalition + Q.dnvp_r).toFixed(1));
+if (Q.dnvp_exist && Q.dnvp_ideology == "Moderate") Q.bourgeois_coalition = parseFloat((Q.bourgeois_coalition + Q.dnvp_r).toFixed(1));
 if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.bourgeois_coalition = parseFloat((Q.bourgeois_coalition + Q.aspd_r).toFixed(1));
 
 if (Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
@@ -170,20 +170,20 @@ if (!Q.kvp_formed) Q.center_right_coalition = parseFloat((Q.z_r + Q.ddp_r + Q.dv
 if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.center_right_coalition = parseFloat((Q.center_right_coalition + Q.aspd_r).toFixed(1));
 
 Q.neo_weimar_coalition = parseFloat((Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.wp_r + Q.dbp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
-if (Q.dnvp_ideology == "Moderate") Q.neo_weimar_coalition = parseFloat((Q.neo_weimar_coalition + Q.dnvp_r).toFixed(1));
+if (Q.dnvp_exist && Q.dnvp_ideology == "Moderate") Q.neo_weimar_coalition = parseFloat((Q.neo_weimar_coalition + Q.dnvp_r).toFixed(1));
 if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.neo_weimar_coalition = parseFloat((Q.neo_weimar_coalition + Q.aspd_r).toFixed(1));
 
 Q.right_coalition = parseFloat((Q.z_r + Q.dvp_r + Q.other_r + Q.kvp_r + Q.dnvp_r + Q.wp_r + Q.cnblp_r + Q.csvd_r).toFixed(1));
 
-if (Q.dnvp_ideology == "Radical") Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
-if (Q.dnvp_ideology == "Moderate") Q.far_right_coalition = parseFloat((Q.dnf_r + Q.nsdap_r).toFixed(1));
+if (Q.dnvp_exist && Q.dnvp_ideology == "Radical") Q.far_right_coalition = parseFloat((Q.dnvp_r + Q.nsdap_r).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition = parseFloat((Q.dnf_r + Q.nsdap_r).toFixed(1));
 
 if (Q.dnvp_ideology == "Radical") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnvp_r).toFixed(1));
-if (Q.dnvp_ideology == "Moderate") Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnf_r).toFixed(1));
+if (Q.dnf_formed) Q.anti_democratic_coalition = parseFloat((Q.kpd_r + Q.nsdap_r + Q.dnf_r).toFixed(1));
 
 // Hitler + Right-wing parties
 if (Q.dnvp_ideology == "Radical") Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnvp_r + Q.nsdap_r).toFixed(1));
-if (Q.dnvp_ideology == "Moderate") Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnf_r + Q.nsdap_r).toFixed(1));
+if (Q.dnf_formed) Q.hitler_right_coalition = parseFloat((Q.dvp_r + Q.dnf_r + Q.nsdap_r).toFixed(1));
 
 Q.progressive_coalition = parseFloat((Q.spd_r + Q.kpd_r + Q.ddp_r).toFixed(1));
 if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.progressive_coalition = parseFloat((Q.progressive_coalition + Q.aspd_r).toFixed(1));
@@ -326,7 +326,7 @@ if (Q.nfvp_formed && Q.dvp_r) {
         "seats": Math.round(Q.dvp_r*5),
     });
 }
-if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_r) {
+if (!Q.lvp_formed && !Q.nfvp_formed && !Q.dkp_formed && Q.dvp_r) {
     data.push({
         "id": "dvp",
         "legend": Q.dvp_name,
@@ -377,7 +377,7 @@ if (Q.kvp_formed && Q.kvp_r) {
         "seats": Math.round(Q.kvp_r*5),
     });
 }
-if (Q.dnvp_r) {
+if (Q.dnvp_exist && Q.dnvp_r) {
     data.push({
         "id": "dnvp",
         "legend": "DNVP",
@@ -451,7 +451,7 @@ go-to: coalition_menu
 
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
+[? if dnvp_exist: {!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!} ?]
 
 [? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} [+ dnf_r +]% {!</td><td>!} [+ str_change_dnf +] {!</td></tr>!} ?]
 
@@ -475,7 +475,7 @@ Right-wing Coalition (<span style="color: #000000;">**Z**</span> + <span style="
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
 [? if anti_democratic_coalition >= 50 and dnvp_ideology == "Radical": Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
-[? if anti_democratic_coalition >= 50 and dnvp_ideology == "Moderate": Together, the anti-democratic KPD, DNF, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if anti_democratic_coalition >= 50 and dnf_formed: Together, the anti-democratic KPD, DNF, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
 There are some potential coalition arrangements.
 
