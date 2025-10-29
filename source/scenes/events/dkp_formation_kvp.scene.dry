@@ -1,5 +1,5 @@
 title: <span style="color: #3F7BC1;">**DkP**</span> formed!
-view-if: kvp_formed && 0 = 1
+view-if: kvp_formed and wip
 max-visits: 1
 tags: event
 priority: 3
