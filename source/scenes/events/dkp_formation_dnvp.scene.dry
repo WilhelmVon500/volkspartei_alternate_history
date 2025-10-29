@@ -1,5 +1,5 @@
 title: <span style="color: #3F7BC1;">**DkP**</span> formed!
-view-if: dnvp_ideology = "Moderate"
+view-if: 0 == 1
 max-visits: 1
 tags: event
 priority: 3
