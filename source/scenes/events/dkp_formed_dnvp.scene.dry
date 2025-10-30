@@ -6,8 +6,8 @@ Q.dnvp_exist = 0;
 Q.parties = Q.parties.filter(party => party !== 'dnvp');
 
 Q.dvp_name = "DkP";
-Q.dvp_color = "#3F7BC1";
-document.body.style.setProperty('--dvp-color', '#3F7BC1');
+Q.dvp_color = "#011993";
+document.body.style.setProperty('--dvp-color', '#011993');
 
 Q.peoples_conservatives_dvp = 1;
 Q.monarchists_dvp = 1;
