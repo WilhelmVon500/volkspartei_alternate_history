@@ -1,5 +1,5 @@
 title: Hamburg Bürgerschaft Election
-view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg
+view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg and wip
 new-page: true
 tags: event
 priority: 3
