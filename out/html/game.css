@@ -592,11 +592,6 @@ table {
 .seat.kvp {
     fill: #455B95;
 }
-.seat.dkp {
-    fill: #0781E5;
-    stroke: var(--border-color);
-    stroke-width: 1.5px;
-}
 .seat.dnvp {
     fill: #3F7BC1;
 }
