@@ -1,6 +1,6 @@
 title: <span style="color: var(--dvp-color);">**DVP**</span> Leadership Vote
 subtitle: We are choosing a new leader...
-view-if: stresemann_dead = 1 and not lvp_formed and not nfvp_formed and not dkp_formed
+view-if: stresemann_dead = 1 and not lvp_formed and not nfvp_formed
 on-arrival: dvp_congress_1929_seen = 1
 max-visits: 1
 tags: event
