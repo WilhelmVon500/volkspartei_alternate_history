@@ -1,5 +1,5 @@
 title: Hanover Landtag Election
-view-if: year = next_election_year_hanover and month >= next_election_month_hanover and reichsreform
+view-if: year = next_election_year_hanover and month >= next_election_month_hanover and reichsreform and wip
 new-page: true
 tags: event
 priority: 3
