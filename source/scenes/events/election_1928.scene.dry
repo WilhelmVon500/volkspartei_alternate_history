@@ -1037,7 +1037,7 @@ Siegfried Kardorff has been appointed chancellor.
 @liberal_coalition
 title: We can form a Liberal Coalition.
 subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ([+ liberal_coalition +]%)
-view-if: liberal_coalition >= 50 and not lvp_formed and not nfvp_formed
+view-if: liberal_coalition >= 50 and not lvp_formed and not nfvp_formed and not dkp_formed
 on-arrival: leverage += 5; in_liberal_coalition = 1; dvp_in_government = 1; foreign_minister_party = ddp_name; interior_minister_party = ddp_name; justice_minister_party = ddp_name; labor_minister_party = ddp_name; reichswehr_minister_party = ddp_name; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = ddp_name; foreign_minister = "Solf"; interior_minister = "Koch-Weser"; justice_minister = "Koch-Weser"; labor_minister = "Erkelenz"; reichswehr_minister = "Gessler"; economic_minister = "Dietrich"; finance_minister = "Dietrich"; agriculture_minister = "Dietrich";
 
 We have enough votes to form a "Liberal Coalition" government consisting of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> and <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>!
@@ -1068,7 +1068,7 @@ Hermann Dietrich has been appointed chancellor.
 
 @grand_coalition
 title: We can form a Grand Coalition.
-view-if: grand_coalition >= 50 and grand_coalition_failed == 0
+view-if: grand_coalition >= 50 and grand_coalition_failed == 0 and not dkp_formed
 subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span> ?] ([+ grand_coalition +]%)
 go-to: grand_coalition_spd_lead if (n_elections <= 1 and largest_party == "SPD") or (largest_party == "SPD" and spd_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and spd_r < 30) or (n_elections <= 1 and largest_party != "SPD"))
 
