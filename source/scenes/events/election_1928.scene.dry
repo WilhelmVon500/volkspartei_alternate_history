@@ -472,13 +472,13 @@ go-to: coalition_menu
 
 Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]): [+ weimar_coalition +]%
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?]): [+ grand_coalition +]%
+[? if not dkp_formed: Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?]): [+ grand_coalition +]% ?]
 
 Bourgeois Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span> +  ?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if dbp_exist: <span style="color: #38C538;">**DBP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?][? if aspd_exist and aspd_ideology = "Moderate": <span style="color: #FE9E00;">**ASPD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition +]%
 
 Right-wing Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if cnblp_exist: <span style="color: #7FCEB1;">**CNBLP**</span> +  ?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #3F7BC1;">**DNVP**</span> + <span style="color: #909090;">**Others**</span>): [+ right_coalition +]%
 
-[? if ddp_exist: Liberal Coalition (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
+[? if ddp_exist and not dkp_formed: Liberal Coalition (<span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ liberal_coalition +]% ?]
 
 [? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -1037,7 +1037,7 @@ Siegfried Kardorff has been appointed chancellor.
 @liberal_coalition
 title: We can form a Liberal Coalition.
 subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ([+ liberal_coalition +]%)
-view-if: liberal_coalition >= 50 and not lvp_formed and not nfvp_formed and not dkp_formed
+view-if: liberal_coalition >= 50 and ddp_exist and not dkp_formed
 on-arrival: leverage += 5; in_liberal_coalition = 1; dvp_in_government = 1; foreign_minister_party = ddp_name; interior_minister_party = ddp_name; justice_minister_party = ddp_name; labor_minister_party = ddp_name; reichswehr_minister_party = ddp_name; economic_minister_party = ddp_name; finance_minister_party = ddp_name; agriculture_minister_party = ddp_name; foreign_minister = "Solf"; interior_minister = "Koch-Weser"; justice_minister = "Koch-Weser"; labor_minister = "Erkelenz"; reichswehr_minister = "Gessler"; economic_minister = "Dietrich"; finance_minister = "Dietrich"; agriculture_minister = "Dietrich";
 
 We have enough votes to form a "Liberal Coalition" government consisting of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> and <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>!
