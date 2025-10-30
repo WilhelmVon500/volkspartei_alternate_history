@@ -20,20 +20,18 @@ WIP
 - @dingeldey: Eduard Dingeldey will lead our party.
 - @hugo: Otto Hugo will lead our party.
 
-@hergt
-subtitle: Hergt was the former leader of the <span style="color: #3F7BC1;">**DNVP**</span>'s moderate wing.
-on-arrival: dvp_leader = "Hergt"
-face-image: img/portraits/HergtOskar.jpg
-go-to: dkp_formed_kvp
-
-WIP
-
-
 @westarp
 subtitle: Westarp is the former leader of the <span style="color: #3F7BC1;">**DNVP**</span>.
 on-arrival: dvp_leader = "Westarp"
 face-image: img/portraits/WestarpKuno.jpg
 go-to: dkp_formed_kvp
+
+
+@dingeldey
+subtitle: Dingeldey belongs to the moderate wing of our new party.
+on-arrival: dvp_leader = "Dingeldey"
+face-image: img/portraits/DingeldeyEduard.jpg
+go-to: dkp_formed_dnvp
 
 WIP
   
