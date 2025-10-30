@@ -1,11 +1,11 @@
-title: <span style="color: #3F7BC1;">**DkP**</span> formed!
+title: <span style="color: #011993;">**DkP**</span> formed!
 view-if: dnvp_ideology = "Moderate" and wip
 max-visits: 1
 tags: event
 priority: 3
 new-page: true
 
-= <span style="color: #3F7BC1;">**Deutschkonservative Partei**</span> formed
+= <span style="color: #011993;">**Deutschkonservative Partei**</span> formed
 
 WIP
 
