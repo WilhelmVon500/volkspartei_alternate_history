@@ -50,12 +50,10 @@ Q.dvp_left = 5
 Q.dvp_right = 1
 
 // factions
-Q.factions = ['nationalist', 'monarchist', 'peoples_conservative', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
+Q.factions = ['nationalist', 'peoples_conservative', 'industrialist', 'labor', 'liberal', 'democratic', 'progressive', 'special_interest'];
 // should this be normalized to 100%?
 Q.nationalist_strength = 20;
 Q.nationalist_dissent = 15;
-Q.monarchist_strength = 0;
-Q.monarchist_dissent = 10;
 Q.peoples_conservative_strength = 0;
 Q.peoples_conservative_dissent = 10;
 Q.industrialist_strength = 30;
@@ -78,7 +76,6 @@ Q.nationalist_split = 0;
 Q.liberals_resign = 0;
 
 // have we discovered neorevisionism?
-Q.monarchists_dvp = 0;
 Q.peoples_conservatives_dvp = 0;
 Q.democrats_dvp = 0;
 Q.progressives_dvp = 0;
@@ -474,7 +471,6 @@ Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover', 'wurttemberg'];
 // TODO: add 'sapd' later on
 Q.lvp_formed = 0;
 Q.nfvp_formed = 0;
-Q.dkp_formed = 0;
 
 Q.kvp_formed = 0;
 Q.dnf_formed = 0;
