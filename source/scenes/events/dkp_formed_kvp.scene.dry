@@ -90,4 +90,8 @@ if (Q.cnblp_exist) {
 // update all records
 Q.dvp_r += Q.kvp_r;
 Q.kvp_r = 0;
+
+
+Q.spd_relation = 25
+Q.ddp_relation = 30
 !}
