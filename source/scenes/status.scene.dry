@@ -39,10 +39,9 @@ Chancellor: [+ chancellor +] ([?if chancellor_party=="I":<span style="color: #80
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
-[? if not lvp_formed and not nfvp_formed and not dkp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
+[? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
-[? if dkp_formed: <span class="tooltip-text" title="German Conservative Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 #
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
 #
@@ -116,10 +115,9 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Party Leadership
 
-[? if not lvp_formed and not nfvp_formed and not dkp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +]) ?]
+[? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Stresemann" or (dvp_ideology = "Left" and dvp_leader != "Thiel" and dvp_leader != "Dingeldey"): National Liberalism ?][? if dvp_leader != "Stresemann" and dvp_leader != "Thiel" and dvp_ideology = "Right": Nationalist Capitalism?][? if dvp_leader = "Thiel": Paternalistic Liberalism?] ([+ dvp_leader +]) ?]
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Luther" or dvp_leader = "Dietrich": Classical Liberalism ([+ dvp_leader +]) ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ([+ dvp_leader +]) ?] ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [? if dvp_leader = "Dietrich": Classical Liberalism ?][? if dvp_leader = "Curtius": National Liberalism ?][? if dvp_leader = "Thiel": Paternalistic Liberalism ?] ([+ dvp_leader +]) ?]
-[? if dkp_formed: <span class="tooltip-text" title="German Conservative Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: National Conservatism ([+ dvp_leader +]) ?]
 
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: Stalinism ([+ kpd_leader +])
 
@@ -150,8 +148,6 @@ Economic growth: [+ economic_growth_2 +]%
 = Internal Factions of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>
 
 [? if not nationalist_split: {!<span class="tooltip-text" title="Born from the right-wing of the former NLP (National Liberal Party), they are skeptical or downright repulsed by any participation within the republic, and have been growing alongside Stresemann’s physical decline. Many espouse cooperation with the reactionary parties and adoption of Hugenburg’s radical rhetoric. [After the Great Depression;] Some have even been eying the Nazis’ growth and seek to deepen ties between the anti-parliamentary right." style="color: #3F7BC1;">!}**Nationalist**{!</span>!} strength: [+ nationalist_strength : strength +], dissent: [+ nationalist_dissent : dissent +] ?]
-
-[? if monarchists_dvp: {!<span class="tooltip-text" title="WIP." style="color: #3F7BC1;">!}**Monarchist**{!</span>!} strength: [+ monarchist_strength : strength +], dissent: [+ monarchist_dissent : dissent +] ?]
 
 [? if peoples_conservatives_dvp: {!<span class="tooltip-text" title="WIP." style="color: #0087DC;">!}**People's Conservatives**{!</span>!} strength: [+ peoples_conservative_strength : strength +], dissent: [+ peoples_conservative_dissent : dissent +] ?]
 
