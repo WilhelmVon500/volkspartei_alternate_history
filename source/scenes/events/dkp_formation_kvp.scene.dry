@@ -1,11 +1,11 @@
-title: <span style="color: #3F7BC1;">**DkP**</span> formed!
+title: <span style="color: #011993;">**DkP**</span> formed!
 view-if: kvp_formed and wip
 max-visits: 1
 tags: event
 priority: 3
 new-page: true
 
-= <span style="color: #3F7BC1;">**Deutschkonservative Partei**</span> formed
+= <span style="color: #011993;">**Deutschkonservative Partei**</span> formed
 
 WIP
 
@@ -25,6 +25,8 @@ subtitle: Westarp is the former leader of the <span style="color: #3F7BC1;">**DN
 on-arrival: dvp_leader = "Westarp"
 face-image: img/portraits/WestarpKuno.jpg
 go-to: dkp_formed_kvp
+
+WIP
 
 
 @dingeldey
