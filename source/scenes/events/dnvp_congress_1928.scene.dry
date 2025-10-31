@@ -1,6 +1,6 @@
 title: <span style="color: #3F7BC1;">**DNVP**</span> Leadership Vote
 subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> chooses a new leader...
-view-if: dnvp_exist and year = 1928 and month = 10
+view-if: year = 1928 and month = 10
 max-visits: 1
 tags: event
 face-image: img/dnvp_congress.jpg
