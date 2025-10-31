@@ -746,9 +746,6 @@ if (Q.month == 1) {
     Q.budget += 1
 }
 
-if (Q.chancellor == "Brüning") {
-    Q.bruning_chancellor_time += 1
-}
 if (Q.chancellor == "Schleicher") {
     Q.schleicher_chancellor_time += 1
 }
