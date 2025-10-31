@@ -31,11 +31,11 @@ President [+ president +] has called for emergency elections, to be held next mo
 
 
 @accept_hitler
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; spd_in_government = 0
+on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; spd_in_government = 0; in_far_right_coalition = 1
 
 After the resignation of the chancellor, Hitler has been appointed chancellor[? if hitler_deported: , after being made a citizen again ?].
 
-- @hitler_takes_power
+- @hitler_chancellor
 
 @ask_resign
 
@@ -165,4 +165,4 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; spd_in_government
 
 Threatened with a civil war, and unwilling to fight anymore, President [+ president +] dismisses the current government and appoints Hitler of the NSDAP as chancellor.
 
-- @hitler_takes_power
+- @hitler_chancellor
