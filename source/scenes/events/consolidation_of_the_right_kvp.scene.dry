@@ -33,7 +33,6 @@ WIP
 
 @wp_dnvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with far-right radicals.
-view-if: dnvp_exist
 choose-if: wp_ideology = "Radical"
 on-departure: {!
     Q.wp_exist = 0;
@@ -67,7 +66,7 @@ The <span style="color: #B8996F;">**WP**</span> has decided to unite with Hugenb
 
 @wp_kvp
 unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> is not interested in uniting with moderate right.
-choose-if: wp_ideology = "Moderate" or not dnvp_exist
+choose-if: wp_ideology = "Moderate"
 on-departure: {!
     Q.wp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'wp');
