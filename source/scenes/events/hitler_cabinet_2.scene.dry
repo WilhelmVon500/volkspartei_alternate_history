@@ -1,6 +1,7 @@
 title: The Reichstag fire
 view-if: hitler_chancellor_time = 4 and president = "Hindenburg"
 tags: event
+max-visits: 1
 new-page: true
 
 = The Reichstag fire
