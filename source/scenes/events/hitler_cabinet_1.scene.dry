@@ -19,6 +19,7 @@ if (Q.next_election_month > 12) {
     Q.next_election_month -= 12;
     Q.next_election_year += 1;
 }
+!}
 
 = The Reichstag is dissolved for new elections
 
