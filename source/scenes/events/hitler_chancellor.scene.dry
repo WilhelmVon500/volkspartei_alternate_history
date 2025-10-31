@@ -1,7 +1,27 @@
 title: Hitler appointed Chancellor!
 subtitle: The beginning of the end...
 view-if: year >= 1933 and president = "Hindenburg" and (chancellor = "Papen" or chancellor = "Schleicher") and in_grand_coalition = 0 and spd_in_government = 0 and largest_party = "NSDAP" and hitler_deported = 0 and not presidential_powers and not schleichers_scheme_success
-on-departure: chancellor = "Hitler"; chancellor_party = "NSDAP"
+on-departure: chancellor = "Hitler"; chancellor_party = "NSDAP"; 
+foreign_minister = 'Neurath';
+interior_minister = 'Frick';
+justice_minister = 'Gürtner';
+labor_minister = 'Seldte';
+reichswehr_minister = 'Blomberg';
+economic_minister = 'Hugenberg';
+finance_minister = 'Krosigk';
+agriculture_minister = 'Hugenberg';
+foreign_minister_party = 'I';
+interior_minister_party = 'NSDAP';
+justice_minister_party = 'DNVP' if dnvp_ideology = "Radical";
+justice_minister_party = 'DNF' if dnf_formed;
+labor_minister_party = 'DNVP' if dnvp_ideology = "Radical";
+labor_minister_party = 'DNF' if dnf_formed;
+reichswehr_minister_party = 'I';
+economic_minister_party = 'DNVP' if dnvp_ideology = "Radical";
+economic_minister_party = 'DNF' if dnf_formed;
+finance_minister_party = 'I';
+agriculture_minister_party = 'DNVP' if dnvp_ideology = "Radical";
+agriculture_minister_party = 'DNF' if dnf_formed;
 tags: event
 new-page: true
 
@@ -11,25 +31,5 @@ Internal scheming by the camarilla surrounding the president has caused Presiden
 
 He has promised a campaign of revenge against the socialists, and the Nazis have already spilled blood. In his published manifesto, he promises a campaign of unspeakable horror against Jews, and endless wars of violent expansion that will ruin all of Europe.
 
-What are we to do now?
-
-- @fight: We will fight on the streets to prevent Hitler from taking power.
-- @give_up: We will vote against the nazis in the Reichstag.
-
-
-@fight
-
-Do we realize that this means civil war, against the full force of the state?
-
-- @civil_war: Yes.
-- @give_up: We are not ready for war. Instead, we will vote against the nazis in the Reichstag.
-
-@give_up
-
-Speeches are made. Votes are held. Bullets fly in the streets. Some socialists are killed or jailed. Others flee the country. What can votes even do at this juncture?
-
-The Reichstag is burned, ostensibly by a foreign communist. In the wake, the Nazis pass decrees giving them unlimited power. They, combined with the DNVP, will win a majority at the next elections.
-
-Germany is lost.
-
-- @game_over
+[? if dvp_ideology = "Left": Is Germany lost? ?]
+[? if dvp_ideology = "Right": The question is, can he be tamed? ?]
