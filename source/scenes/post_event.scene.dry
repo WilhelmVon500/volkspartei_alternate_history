@@ -157,6 +157,7 @@ if (Q.month_actions >= 1) {
     }
     if (!Q.weeks_enabled) {
         Q.month += 1;
+        Q.week = 1;
     }
     if (Q.month >= 13) {
         Q.month = 1;
