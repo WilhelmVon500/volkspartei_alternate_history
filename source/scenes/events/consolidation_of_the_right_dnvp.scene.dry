@@ -1,6 +1,6 @@
 title: Consolidation of the Right
 subtitle: The right-wing parties are trying to unite.
-view-if: electoral_threshold > 0 and dnvp_exist and dnvp_ideology = "Moderate" and (csvd_exist or wp_exist or cnblp_exist or vrp_exist) and wip
+view-if: electoral_threshold > 0 and dnvp_ideology = "Moderate" and (csvd_exist or wp_exist or cnblp_exist or vrp_exist) and wip
 new-page: true
 max-visits: 1
 tags: event
