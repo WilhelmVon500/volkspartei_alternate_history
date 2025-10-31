@@ -19,10 +19,12 @@ go-to: start_menu_2
 @start
 on-arrival: {!
 Q.started = 1;
+Q.weeks_enabled = 0;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1928;
 Q.month = 2;
+Q.week = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
 
