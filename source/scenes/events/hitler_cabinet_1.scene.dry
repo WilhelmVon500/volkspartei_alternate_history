@@ -1,1 +1,17 @@
+title: The Reichstag fire
+view-if: hitler_chancellor_timer = 4 and president = "Hindenburg"
+tags: event
+new-page: true
 
+= The Reichstag fire
+
+WIP
+
+- @reichstag_fire_decree: Hindenburg signs the decree.
+
+@reichstag_fire_decree
+on-arrival: workers_kpd -= 8
+
+WIP
+
+The <span style="color: #8B0000;">**KPD**</span> is now de-facto outlawed.
