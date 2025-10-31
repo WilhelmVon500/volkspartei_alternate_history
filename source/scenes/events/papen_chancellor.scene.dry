@@ -18,7 +18,7 @@ Be it through the failures of the democratic parties to successfully form a gove
 @reject
 subtitle: Our loyalty to the Republic will not be shaken.
 view-if: dvp_ideology = "Left"
-on-arrival: spd_relation += 5; z_relation += 5; ddp_relation += 5; kvp_relation += 5; rejected_papen = 1
+on-arrival: spd_relation += 5; dnvp_relation -= 10 if dnvp_ideology = "Radical"; dnf_relation -= 10 if dnf_formed; z_relation += 5; ddp_relation += 5; kvp_relation += 5 if kvp_formed; dnvp_relation += 5 if dnvp_ideology = "Moderate"; rejected_papen = 1
 
 Papen is immediately faced with a vote of no confidence, given his unpopularity.
 
@@ -29,7 +29,7 @@ Papen is immediately faced with a vote of no confidence, given his unpopularity.
 @tolerate
 subtitle: The republic is a sinking ship, but we cannot be a part of this sudden presidential cabinet.
 view-if: dvp_ideology = "Right"
-on-arrival: dvp_toleration = 1; spd_relation -= 5; z_relation -= 5; ddp_relation -= 5; kvp_relation -= 5; papen_coalition += dvp_r; workers_dvp -= 5; new_middle_dvp -= 3; old_middle_dvp -= 1; rural_dvp -= 1; tolerated_papen = 1
+on-arrival: dvp_toleration = 1; dnvp_relation += 5 if dnvp_ideology = "Radical"; dnf_relation += 5 if dnf_formed; spd_relation -= 5; z_relation -= 5; ddp_relation -= 5; kvp_relation -= 5 if kvp_formed; dnvp_relation -= 5 if dnvp_ideology = "Moderate"; papen_coalition += dvp_r; workers_dvp -= 5; new_middle_dvp -= 3; old_middle_dvp -= 1; rural_dvp -= 1; tolerated_papen = 1
 
 Although Hindenburg would have liked for us to directly join Papen and work towards reshaping the republic into a more stable and autocratic state, he will accept our terms, as long as we promise to put our weight behind Papen. The situation is tense, the <span style="color: #954B00;">**Nazis**</span> and <span style="color: #8B0000;">**Communists**</span> have already infiltrated much of society, yet we have not been convinced of the potential <span style="color: #954B00;">**NSDAP**</span> taming project that a few on the right have put forward, with their vehement rhetoric and radicalism taking away from most hopes towards reconciliation. With the republic giving way, and Stresemann’s liberalizing influence on the party no longer tying us to the Weimar parties, our last remaining allies are the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnvp_ideology = "Radical": <span style="color: #003755;">**DNF**</span> ?] and the various bourgeois parties.
 [? if (dnvp_ideology = "Radical" and dnvp_relation > nsdap_relation) or (dnf_formed and dnf_relation > nsdap_relation): Even if our stance towards the <span style="color: #954B00;">**NSDAP**</span> were to change, we currently remain closer to the monarchists within the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnvp_ideology = "Radical": <span style="color: #003755;">**DNF**</span> ?], and talks are already beginning about a joint list.
@@ -43,7 +43,7 @@ Papen is immediately faced with a vote of no confidence, given his unpopularity.
 @accept
 subtitle: Caesar (Hitler) has risen from his grave, and we will do our best to tame him.
 view-if: dvp_ideology = "Right"
-on-arrival: dvp_in_government = 1; spd_relation -= 10; z_relation -= 10; ddp_relation -= 10; kvp_relation -= 10; economic_minister = "Hugo"; economic_minister_party = dvp_name; papen_coalition += dvp_r; workers_dvp -= 8; new_middle_dvp -= 5; old_middle_dvp -= 3; rural_dvp -= 3; accepted_papen = 1
+on-arrival: dvp_in_government = 1; dnvp_relation += 10 if dnvp_ideology = "Radical"; dnf_relation += 10 if dnf_formed; spd_relation -= 10; z_relation -= 10; ddp_relation -= 10; kvp_relation -= 10 if kvp_formed; dnvp_relation -= 10 if dnvp_ideology = "Moderate"; economic_minister = "Hugo"; economic_minister_party = dvp_name; papen_coalition += dvp_r; workers_dvp -= 8; new_middle_dvp -= 5; old_middle_dvp -= 3; rural_dvp -= 3; accepted_papen = 1
 
 As expected, we will be a part of Papen’s cabinet, much to the dismay of the remaining republicans left in the nation. Many of our remaining voters, the few who could stomach our fervent shift towards anti-parliamentarianism and alignment with the far right, rally in support of our decision, but the rest of the political spectrum has denounced our presence in this emergency-borne cabinet. For our part, Hindenburg has slowly begun to shift his own perceptions on Hitler, beginning to see him as a potential marionette to control rather than an upstart meant to be crushed. Perhaps the <span style="color: #954B00;">**Nazis**</span> could be tamed to be less destructive towards its fellow nationalists, though, most likely, the <span style="color: #954B00;">**Nazis**</span> will probably try to attain power for themselves.
 
