@@ -746,6 +746,19 @@ if (Q.month == 1) {
     Q.budget += 1
 }
 
+if (Q.chancellor != "Brüning") {
+    Q.bruning_chancellor_timer = 0
+}
+if (Q.chancellor != "Schleicher") {
+    Q.schleicher_chancellor_timer = 0
+}
+if (Q.chancellor != "Papen") {
+    Q.papen_chancellor_timer = 0
+}
+if (Q.chancellor != "Hitler") {
+    Q.hitler_chancellor_timer = 0
+}
+
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
