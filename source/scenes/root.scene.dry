@@ -816,7 +816,7 @@ Q.timers = ['advisor_action', 'crisis_program',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes',
             // chancellors
-            'bruning', 'papen', 'schleicher', 'hitler'];
+            'bruning_chancellor', 'papen_chancellor', 'schleicher_chancellor', 'hitler_chancellor'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
@@ -870,10 +870,10 @@ Q.sh_ban_timer = 0;
 Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
-Q.bruning_timer = 0;
-Q.papen_timer = 0;
-Q.schleicher_timer = 0;
-Q.hitler_timer = 0;
+Q.bruning_chancellor_timer = 0;
+Q.papen_chancellor_timer = 0;
+Q.schleicher_chancellor_timer = 0;
+Q.hitler_chancellor_timer = 0;
 
 Q.muller_dead = 0;
 
