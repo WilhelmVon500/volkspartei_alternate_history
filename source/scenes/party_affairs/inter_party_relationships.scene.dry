@@ -76,7 +76,6 @@ The KVP is a moderate right wing party.
 @dnvp
 title: [? if dnvp_ideology = "Moderate" and not dnvp_leader = "Treviranus": Increase communications with the national-conservatives from DNVP. ?][? if dnvp_ideology = "Radical" and dvp_ideology = "Right": Collaborate with the anti-democratic rightists from DNVP. ?][? if dnvp_leader = "Treviranus" and dvp_ideology = "Right": Reconcile with the parliamentary turncoats from DNVP. ?][? if dnvp_ideology = "Radical" and dvp_ideology = "Left": Meet with the radical anti-republican rightists from DNVP. ?][? if dnvp_leader = "Treviranus" and dvp_ideology = "Left": Find common ground with the people's conservatives from DNVP. ?]
 subtitle: -1 resources
-view-if: dnvp_exist
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; DNVP_relation += 5*(1 - dissent)
