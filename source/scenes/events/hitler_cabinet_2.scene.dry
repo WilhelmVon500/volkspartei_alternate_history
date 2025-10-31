@@ -11,7 +11,7 @@ WIP
 - @reichstag_fire_decree: Hindenburg signs the decree.
 
 @reichstag_fire_decree
-on-arrival: workers_kpd -= 8
+on-arrival: workers_kpd -= 8; reichstag_fire_decree = 1
 
 WIP
 
