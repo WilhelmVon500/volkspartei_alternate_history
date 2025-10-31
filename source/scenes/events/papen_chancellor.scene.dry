@@ -67,5 +67,3 @@ view-if: papen_coalition < 50
 on-arrival: old_middle_dnvp += 3 if dnvp_ideology = "Radical"; old_middle_dnf += 3 if dnf_formed
 
 Perhaps surprisingly, Papen managed to get a majority in Reichstag.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
