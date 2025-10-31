@@ -20,14 +20,14 @@ view-if: dvp_ideology = "Right"
 title: Use the holiday to rally support for the republic—and against Papen's ambitions.
 on-arrival: workers_dvp -= 3; new_middle_dvp -= 3; spd_relation -= 7; z_relation -= 5; ddp_relation -= 5; kvp_relation -= 3 if kvp_formed; dnvp_relation -= 3 if dnvp_ideology = "Moderate"
 
-We asked Papen for a meeting and he accepted! We used it to talk about economic policy and a solution for the economic crisis. Perhaps the parties of the Weimar Coalition, especially the <span style="color: #E3000F;">**SPD**</span>, will never forgive us this step and it may hurt our public popularity..
+We asked Papen for a meeting and he accepted! We used it to talk about economic policy and a solution for the economic crisis. Perhaps the parties of the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> Coalition, especially the <span style="color: #E3000F;">**SPD**</span>, will never forgive us this step and it may hurt our public popularity..
 
 
 @rally_weimar
 view-if: dvp_ideology = "Left"
-title: We should try to reconcile with the Weimar Parties and be part of a Rally
-on-arrival: pro_republic += 7; workers_spd += 1; new_middle_ddp += 1; new_middle_dvp += 1; new_middle_spd += 2; new_middle_nsdap -= 4; new_middle_ddp += 2; new_middle_z += 2; old_middle_ddp += 2; old_middle_z += 2; rural_ddp += 1; spd_relation += 5; z_relation += 3; ddp_relation += 3
+title: We should try to reconcile with the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> Parties and be part of a Rally
+on-arrival: pro_republic += 7; workers_spd += 3; new_middle_ddp += 1; new_middle_dvp += 3; new_middle_spd += 2; new_middle_nsdap -= 4; new_middle_ddp += 2; new_middle_z += 2; old_middle_ddp += 2; old_middle_z += 2; old_middle_dvp += 3; rural_z += 2; spd_relation += 5; z_relation += 3; ddp_relation += 3
 
-The Republic is in a political and economic crisis and we need to talk to them, who made them and can only peserve it. All Weimar parties are convinced, that only together the republican system can live on. 
+The Republic is in a political and economic crisis and we need to talk to them, who made them and can only peserve it. All <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> parties are convinced, that only together the republican system can live on. 
 
-Papen is disappointed in us and may have lost another possible „ally“, but his dreams of a „Kaiserreich“ and a new regime is even to much for our liberal opinions. Our relations with all the Weimar parties improved, mostly the with the <span style="color: #E3000F;">**SPD**</span>. We now have the chance to rally together with the <span style="color: #000000;">**Center Party**</span>[?if ddp_exist:, <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] and even the <span style="color: #E3000F;">**SPD**</span>.
+Papen is disappointed in us and may have lost another possible „ally“, but his dreams of a „Kaiserreich“ and a new regime is even to much for our liberal opinions. Our relations with all the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> parties improved, mostly the with the <span style="color: #E3000F;">**SPD**</span>. We now have the chance to rally together with the <span style="color: #000000;">**Center Party**</span>[?if ddp_exist:, <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] and even the <span style="color: #E3000F;">**SPD**</span>.
