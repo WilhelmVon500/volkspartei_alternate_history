@@ -40,7 +40,7 @@ The <span style="color: #E3000F;">**SPD**</span> will vote against.
 @zentrum
 on-arrival: z_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; bvp_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; z_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat; bvp_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat
 
-WIP
+WIP [? if z_enabling_act = "For": support ?][? if z_enabling_act = "Against": against ?]
 
 - @kvp: How will the <span style="color: #455B95;">**KVP**</span> vote?
 - @dnvp: How will the <span style="color: #3F7BC1;">**DNVP**</span> vote?
@@ -49,7 +49,7 @@ WIP
 view-if: kvp_formed
 on-arrival: kvp_enabling_act = "For" if kvp_leader != "Treviranus" or z_enabling_act = "For"; kvp_enabling_act = "Against" if kvp_leader == "Treviranus" and z_enabling_act = "Against";
 
-WIP
+WIP [? if kvp_enabling_act = "For": support ?][? if kvp_enabling_act = "Against": against ?]
 
 - @dvp
 
@@ -57,7 +57,7 @@ WIP
 view-if: dnvp_ideology = "Moderate"
 on-arrival: dnvp_enabling_act = "For" if dnvp_leader != "Treviranus" or z_enabling_act = "For"; dnvp_enabling_act = "Against" if dnvp_leader == "Treviranus" and z_enabling_act = "Against";
 
-WIP
+WIP [? if dnvp_enabling_act = "For": support ?][? if dnvp_enabling_act = "Against": against ?]
 
 - @dvp
 
@@ -94,6 +94,8 @@ if (Q.dnvp_enabling_act == "For") Q.dnvp_relation += 5;
 
 WIP
 
+[? if z_enabling_act = "Against": Weimar [? if kvp_enabling_act = "Against" or dnvp_enabling_act = "Against": and even some other right-wing ?] parties are outraged, and we will not be able to influence them. ?]
+
 - @other_parties
 
 @oppose
@@ -113,7 +115,6 @@ if (Q.dnvp_enabling_act == "For") Q.dnvp_relation -= 5;
 
 WIP
 
-[? if z_enabling_act = "Against": Weimar [? if kvp_enabling_act = "Against" or dnvp_enabling_act = "Against": and even some other right-wing ?] parties are outraged, and we will not be able to influence them. ?]
 
 
 
