@@ -209,24 +209,6 @@ if (Q.month_actions >= 1) {
 
 
 
-    if (Q.chancellor == "Papen") {
-        Q.papen_chancellor_time += 1;
-    } else {
-        Q.papen_chancellor_time = 0;
-    }
-    if (Q.chancellor == "Schleicher") {
-        Q.schleicher_chancellor_time += 1;
-    } else {
-        Q.schleicher_chancellor_time = 0;
-    }
-    if (Q.chancellor == "Hitler") {
-        Q.hitler_chancellor_time += 1;
-    } else {
-        Q.hitler_chancellor_time = 0;
-    }
-
-
-
     // decrement timers
     for (timer of Q.timers) {
         if (Q[timer+'_timer'] && Q[timer+'_timer'] > 0) {
@@ -721,6 +703,45 @@ if (Q.month_actions >= 1) {
         }
     }
 }
+
+
+
+
+
+
+
+if (Q.chancellor == "Papen") {
+    Q.papen_chancellor_time += 1;
+} else {
+    Q.papen_chancellor_time = 0;
+}
+if (Q.chancellor == "Schleicher") {
+    Q.schleicher_chancellor_time += 1;
+} else {
+    Q.schleicher_chancellor_time = 0;
+}
+if (Q.chancellor == "Hitler") {
+    Q.hitler_chancellor_time += 1;
+} else {
+    Q.hitler_chancellor_time = 0;
+}
+
+if (Q.president == "Hindenburg" && Q.chancellor == "Brüning" && !Q.spd_in_government && Q.year >= 1930) {
+    Q.bruning_chancellor_time += 1;
+
+    if (Q.spd_toleration) {
+        Q.bruning_toleration_time += 1; 
+        Q.ddp_cohesion -= 0.25;
+        if (Q.dvp_in_government) Q.nationalist_dissent += 0.5;
+    } else if (!Q.spd_toleration) {
+        Q.bruning_toleration_time = 0;
+    }
+}
+if (!Q.spd_toleration) {
+    Q.bruning_toleration_time = 0;
+}
+
+
 
 
 
