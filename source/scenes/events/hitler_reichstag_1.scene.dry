@@ -1,1 +1,73 @@
+title: The Enabling Act
+subtitle: Hitler attempts to consolidate his power.
+view-if: hitler_chancellor_time = 8 and chancellor = "Hitler" and president = "Hindenburg"
+tags: event
+max-visits: 1
+new-page: true
 
+= The Enabling Act
+
+WIP
+
+- @voting: The voting begins.
+
+@voting
+on-arrival: {!
+Q.for_r = 0;
+Q.against_r = 0;
+for (var party of Q.parties) {
+    if (Q[party + '_ea_for']) {
+        Q.for_r = parseFloat((Q.for_r + Q[party+'_r']).toFixed(1));
+    } else if (Q[party + '_ea_against']) {
+        Q.against_r = parseFloat((Q.against_r + Q[party+'_r']).toFixed(1));
+    }
+}
+!}
+on-display: {!
+data = []
+if (Q.for_r) {
+    data.push({
+        "id": "for",
+        "legend": "For",
+        "name": "For",
+        "seats": Math.round(Q.for_r*Q.reichstag_size),
+    });
+}
+if (Q.against_r) {
+    data.push({
+        "id": "against",
+        "legend": "Against",
+        "name": "Against",
+        "seats": Math.round(Q.against_r*Q.reichstag_size),
+    });
+}
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+= The Reichstag
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Reichstag Seats</td>!}
+{!<tr><td><div class="box" style='background-color:#158e33'> </div> !}For: {!</td><td>!} [+ for_r +]% {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#c51313'> </div> !}Against: {!</td><td>!} [+ against_r +]% {!</td></tr>!}
+
+WIP
