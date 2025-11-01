@@ -650,7 +650,7 @@ A majority Weimar coalition is formed, with Wels as chancellor.
 title: There is no clear governing majority.
 view-if: weimar_coalition < 50 and bourgeois_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and far_right_coalition < 50
 on-arrival: no_majority_elections += 1
-go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"
+go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"; no_majority_hitler if chancellor = "Hitler"
 
 # TODO: if there is an anti-democratic coalition majority, you should appoint Papen.
 
@@ -791,14 +791,11 @@ go-to: hitler_chancellor
 # TODO: there should be a second Schleicher option if the NSDAP isn't the strongest
 
 
-@hitler_chancellor
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"
+@no_majority_hitler
+on-arrival: in_far_right_coalition = 1; chancellor = "Hitler"; chancellor_party = "NSDAP"; foreign_minister = 'Neurath'; interior_minister = 'Frick'; justice_minister = 'Gürtner'; labor_minister = 'Seldte'; reichswehr_minister = 'Blomberg'; economic_minister = 'Hugenberg'; finance_minister = 'Krosigk'; agriculture_minister = 'Hugenberg'; foreign_minister_party = 'I'; interior_minister_party = 'NSDAP'; justice_minister_party = 'DNVP' if dnvp_ideology = "Radical"; justice_minister_party = 'DNF' if dnf_formed; labor_minister_party = 'DNVP' if dnvp_ideology = "Radical"; labor_minister_party = 'DNF' if dnf_formed; reichswehr_minister_party = 'I'; economic_minister_party = 'DNVP' if dnvp_ideology = "Radical"; economic_minister_party = 'DNF' if dnf_formed; finance_minister_party = 'I'; agriculture_minister_party = 'DNVP' if dnvp_ideology = "Radical"; agriculture_minister_party = 'DNF' if dnf_formed;
 
-There is no path to a majority government for now. The scheming around President Hindenburg is leading to only one path - that of Chancellor Adolf Hitler. [? if largest_party == "NSDAP" : Since they are the largest party, it is not exactly contrary to parliamentary procedure, so it is difficult to raise objections solely on procedural grounds. ?] [? if hitler_deported: Despite his earlier deportation, the Nazi leaders and their reactionary allies have connived for the president to give him German citizenship after all. ?]
+President has decided to give Hitler one more chance.
 
-- @hitler_takes_power: What now?
-
-# if NSDAP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 
 @spd_majority
 title: <span style="color: #E3000F;">**SPD**</span> majority alone
