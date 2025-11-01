@@ -72,3 +72,20 @@ if (window && d3) {
 {!<tr><td><div class="box" style='background-color:#c51313'> </div> !}Against: {!</td><td>!} [+ against_r +]% {!</td></tr>!}
 
 WIP
+
+- @passed: The Enabling Act is passed!
+- @defeated: The Enabling Act is defeated in Reichstag!
+
+@passed
+subtitle: Is this a point of no return?
+view-if: for_r >= 66.6
+on-arrival: workers_nsdap += 3; new_middle_nsdap += 3; old_middle_nsdap += 3; rural_nsdap += 3; unemployed_nsdap += 5; enabling_act = 1;
+
+WIP
+
+@defeated
+subtitle: The Republic has been saved, for now...
+view_if: for_r < 66.6
+on-arrival: workers_spd += 3; new_middle_ddp += 3 if ddp_enabling_act = "Against"; new_middle_dvp += 3 if dvp_enabling_act = "Against"; new_middle_z += 3 if z_enabling_act = "Against"; new_middle_csvd += 3 if csvd_enabling_act = "Against"; old_middle_dvp += 3 if dvp_enabling_act = "Against"; old_middle_z += 3 if z_enabling_act = "Against"; old_middle_kvp += 3 if kvp_enabling_act = "Against"; old_middle_dnvp += 3 if dnvp_enabling_act = "Against"; enabling_act_failed = 1;
+
+WIP
