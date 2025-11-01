@@ -19,6 +19,8 @@ go-to: start_menu_2
 @start
 on-arrival: {!
 Q.started = 1;
+Q.rubicon = 0;
+Q.rubicon_time = 0;
 Q.weeks_enabled = 0;
 // time elapsed (in months)
 Q.time = 1;
