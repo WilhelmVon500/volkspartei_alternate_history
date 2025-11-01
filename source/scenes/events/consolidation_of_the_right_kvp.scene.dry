@@ -150,7 +150,7 @@ The <span style="color: #7FCEB1;">**CNBLP**</span> has decided to unite with the
 
 @cnblp_dvp
 unavailable-subtitle: The <span style="color: #7FCEB1;">**CNBLP**</span> is not interested in uniting with us.
-choose-if: (dvp_ideology = "Left") and cnblp_relation >= 50 and dvp_votes > cnblp_votes and not lvp_formed and not nfvp_formed
+choose-if: (dvp_ideology = "Left") and cnblp_relation >= 50 and dvp_votes > cnblp_votes and not lvp_formed and not nfvp_formed and not dvp_land_reform
 on-departure: {!
     Q.cnblp_exist = 0;
     Q.parties = Q.parties.filter(party => party !== 'cnblp');
