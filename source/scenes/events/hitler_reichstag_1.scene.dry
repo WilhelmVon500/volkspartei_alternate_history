@@ -4,6 +4,7 @@ view-if: hitler_chancellor_time = 9 and chancellor = "Hitler" and president = "H
 tags: event
 max-visits: 1
 new-page: true
+on-arrival: enabling_act_seen = 1
 
 = The Enabling Act
 
