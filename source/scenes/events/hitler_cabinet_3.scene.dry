@@ -15,6 +15,8 @@ All <span style="color: #8B0000;">**Communist**</span> deputies were also arrest
 
 @reichstag
 on-arrival: {!
+Q.reichstag_size *= parseFloat(((100 - Q.kpd_r)/100).toFixed(2))
+
 for (var party of Q.parties) {
     Q[party+'_r_pre'] = Q[party+'_r'];
 }
