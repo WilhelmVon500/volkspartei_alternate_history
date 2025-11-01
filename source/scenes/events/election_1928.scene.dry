@@ -502,7 +502,7 @@ There are some potential coalition arrangements.
 title: Far-right coalition
 subtitle: NSDAP [? if dnvp_ideology = "Radical": DNVP + ?][? if dnf_formed = "Moderate": DNF + ?] ([+ far_right_coalition +]%)
 view-if: far_right_coalition >= 50
-go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsdap_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
+go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president == "Hindenburg"; far_right_fail if (year < 1932 and nsdap_r < 44) and president == "Hindenburg"; far_right_other if president != "Hindenburg"
 priority: 2
 
 There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnf_formed = "Moderate": DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
@@ -511,8 +511,6 @@ There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DN
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
 
 [? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
-
-- @hitler_takes_power: What do we do now?
 
 
 @far_right_fail
@@ -524,12 +522,12 @@ Schleicher's government is deeply unpopular among all parties of the Reichstag. 
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
-@far_right_braun
+@far_right_other
 on-arrival: coup_progress += 2
 
-President Braun faces a dilemma. Is it "democratic" to let democracy be destroyed, if the majority of voters have willed it so? Some, even on the left, suggest that the Nazis would not *truly* be as horrific as their platform suggests, and that giving them power would let them discredit themselves in the eyes of the public.
+President [+ president +] faces a dilemma. Is it "democratic" to let democracy be destroyed, if the majority of voters have willed it so? Some, even on the left, suggest that the Nazis would not *truly* be as horrific as their platform suggests, and that giving them power would let them discredit themselves in the eyes of the public.
 
-Alternatively, Braun could use the emergency powers of the presidency. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
+Alternatively, [+ president +] could use the emergency powers of the presidency. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
 
 - @emergency_braun: We will form an emergency government with Braun's support.
 - @new_elections: We will have new elections.
@@ -641,7 +639,7 @@ Joseph Wirth has been appointed chancellor.
 
 @weimar_coalition_2
 view-if: weimar_coalition >= 50 and not lvp_formed and not nfvp_formed
-on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+on-arrival: spd_in_government = 1; chancellor = "Wels"; chancellor_party = "SPD"; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1; ddp_cohesion += 2; ddp_left += 1;
 
 A majority Weimar coalition is formed, with Wels as chancellor.
 
