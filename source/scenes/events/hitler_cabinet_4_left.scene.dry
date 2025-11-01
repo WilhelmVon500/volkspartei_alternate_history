@@ -35,15 +35,15 @@ on_arrival: spd_enabling_act = "Against"
 
 The <span style="color: #E3000F;">**SPD**</span> will vote against.
 
-- @zentrum
+- @zentrum: How will the <span style="color: #000000;">**Center Party**</span> vote?
 
 @zentrum
 on-arrival: z_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; bvp_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; z_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat; bvp_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat
 
 WIP
 
-- @dnvp
-- @kvp
+- @kvp: How will the <span style="color: #455B95;">**KVP**</span> vote?
+- @dnvp: How will the <span style="color: #3F7BC1;">**DNVP**</span> vote?
 
 @kvp
 view-if: kvp_formed
