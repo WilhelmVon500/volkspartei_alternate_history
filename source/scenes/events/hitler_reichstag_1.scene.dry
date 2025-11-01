@@ -60,7 +60,7 @@ if (window && d3) {
 }
 !}
 
-= The Reichstag
+= The Reichstag Votes
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
