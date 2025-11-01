@@ -162,6 +162,28 @@ if (Q.dissent < 0) {
     Q.dissent = 0.95;
 }
 
+
+
+if (Q.month_actions >= 1) {
+    if (Q.chancellor == "Papen") {
+        Q.papen_chancellor_time += 1
+    } else {
+        Q.papen_chancellor_time = 0
+    }
+    if (Q.chancellor == "Schleicher") {
+        Q.schleicher_chancellor_time += 1
+    } else {
+        Q.schleicher_chancellor_time = 0
+    }
+    if (Q.chancellor == "Hitler") {
+        Q.hitler_chancellor_time += 1
+    } else {
+        Q.hitler_chancellor_time = 0
+    }
+}
+
+
+
 // 1. update dates
 if (Q.month_actions >= 1) {
     Q.time += 1;
@@ -685,24 +707,6 @@ if (Q.reichstag_fire_decree) {
     Q.workers_kpd -= 6/12
     Q.unemployed_kpd -= 6/12
     Q.workers_spd -= 3/12
-}
-
-
-
-if (Q.chancellor == "Papen") {
-    Q.papen_chancellor_time += 1
-} else {
-    Q.papen_chancellor_time = 0
-}
-if (Q.chancellor == "Schleicher") {
-    Q.schleicher_chancellor_time += 1
-} else {
-    Q.schleicher_chancellor_time = 0
-}
-if (Q.chancellor == "Hitler") {
-    Q.hitler_chancellor_time += 1
-} else {
-    Q.hitler_chancellor_time = 0
 }
 
 
