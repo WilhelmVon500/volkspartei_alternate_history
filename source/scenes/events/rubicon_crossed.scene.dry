@@ -21,6 +21,11 @@ const header = document.querySelector('header');
 header.style.color = '#0077FF';
 contentElement.style.color = '#FFFFFF';
 
+const qualitiesH1 = document.querySelector('#qualities h1');
+if (qualitiesH1) {
+    qualitiesH1.style.color = 'white';
+}
+
 const headerLinks = document.querySelectorAll('#header-links a');
 headerLinks.forEach(link => {
     link.style.color = 'black';
