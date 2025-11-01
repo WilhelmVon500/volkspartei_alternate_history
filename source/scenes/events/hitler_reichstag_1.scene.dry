@@ -16,9 +16,9 @@ on-arrival: {!
 Q.for_r = 0;
 Q.against_r = 0;
 for (var party of Q.parties) {
-    if (Q[party + '_ea_for']) {
+    if (Q[party + '_enabling_act'] == "For") {
         Q.for_r = parseFloat((Q.for_r + Q[party+'_r']).toFixed(1));
-    } else if (Q[party + '_ea_against']) {
+    } else if (Q[party + '_enabling_act'] == "Against") {
         Q.against_r = parseFloat((Q.against_r + Q[party+'_r']).toFixed(1));
     }
 }
