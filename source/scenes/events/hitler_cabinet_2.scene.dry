@@ -1,5 +1,5 @@
 title: The Reichstag Burns!
-subtitle: A suspected arson attack, ostensibly by a foreign <span style="color: #700000;">**Communist**</span>.
+subtitle: A suspected arson attack, ostensibly by a foreign <span style="color: #8B0000;">**Communist**</span>.
 view-if: hitler_chancellor_time = 4 and chancellor = "Hitler" and president = "Hindenburg"
 tags: event
 max-visits: 1
