@@ -1,7 +1,6 @@
 title: The <span style="color: #8B0000;">**Communist Party**</span> has been banned!
-view-if: hitler_chancellor_time = 6 and chancellor = "Hitler" and president = "Hindenburg"
+view-if: hitler_chancellor_time = 7 and chancellor = "Hitler" and president = "Hindenburg"
 on-arrival: kpd_banned = 1; workers_kpd -= 5; unemployed_kpd -= 5; rfb_militancy *= 0.9; rfb_strength *= 0.9
-priority: -2
 tags: event
 max-visits: 1
 new-page: true
