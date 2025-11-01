@@ -164,7 +164,9 @@ if (Q.dissent < 0) {
 
 
 
-if (Q.month_actions >= 1) {
+if (Q.month_actions >= 1 && Q.rubicon) {
+    Q.rubicon_time += 1;
+
     if (Q.chancellor == "Papen") {
         Q.papen_chancellor_time += 1;
     } else {
