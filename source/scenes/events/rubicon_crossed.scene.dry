@@ -1,0 +1,20 @@
+title: The Rubicon is Crossed
+subtitle: The fate of Germany rests in President Hindenburg.
+view-if: chancellor = "Papen" and president == "Hindenburg" and papen_chancellor_time = 1
+priority: 5
+new-page: true
+tags: event
+max-visits: 1
+on-arrival: {!
+Q.rubicon = 1; 
+Q.weeks_enabled = 1;
+Q.week = 1;
+!}
+
+= The Rubicon is Crossed
+
+With the dismissal of the previous government—despite its parliamentary majority—the foundations of democracy are crumbling before our eyes.
+
+Whatever path Hindenburg takes now will be chosen not by the people, but by those who whisper in his ear.
+
+Time slows. We enter the week-by-week struggle.
