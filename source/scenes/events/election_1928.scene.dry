@@ -508,9 +508,9 @@ priority: 2
 There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnf_formed: DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @far_right_win
-on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
+on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; foreign_minister = 'Neurath'; interior_minister = 'Frick'; justice_minister = 'Gürtner'; labor_minister = 'Seldte'; reichswehr_minister = 'Blomberg'; economic_minister = 'Hugenberg'; finance_minister = 'Krosigk'; agriculture_minister = 'Hugenberg'; foreign_minister_party = 'I'; interior_minister_party = 'NSDAP'; justice_minister_party = 'DNVP' if dnvp_ideology = "Radical"; justice_minister_party = 'DNF' if dnf_formed; labor_minister_party = 'DNVP' if dnvp_ideology = "Radical"; labor_minister_party = 'DNF' if dnf_formed; reichswehr_minister_party = 'I'; economic_minister_party = 'DNVP' if dnvp_ideology = "Radical"; economic_minister_party = 'DNF' if dnf_formed; finance_minister_party = 'I'; agriculture_minister_party = 'DNVP' if dnvp_ideology = "Radical"; agriculture_minister_party = 'DNF' if dnf_formed;
 
-[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsdap_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
+[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that the leader of NSDAP must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president != "Hindenburg" : because it is what the constitution would stipulate. ?]
 
 
 @far_right_fail
