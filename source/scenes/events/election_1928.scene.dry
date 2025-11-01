@@ -3,7 +3,7 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month and (week >= next_election_week or not weeks_enabled)) or (year > next_election_year)
-on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4;
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; 
 set-jump: post_election_1928
 face-image: img/Rothe_Wahlen_1903.jpg
 
@@ -194,6 +194,8 @@ Q.leverage = Q.dvp_r;
 
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
+Q.hindenburg_angry_old = Q.hindenburg_angry;
+Q.hindenburg_angry = 0;
 Q.coalition_dissent = 0;
 Q.nsdap_coalition_dissent = 0;
 Q.spd_in_government = 0;
@@ -599,7 +601,7 @@ go-to: weimar_coalition_2
 
 @weimar_coalition_dvp
 view-if: lvp_formed or nfvp_formed
-on-arrival: spd_in_government = 1; dvp_in_government = 1; foreign_minister_party = "Z"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "SPD"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
+on-arrival: spd_in_government = 1; dvp_in_government = 1; foreign_minister = "Brüning"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Radbruch"; justice_minister_party = "SPD"; labor_minister = "Stegerwald"; labor_minister_party = "Z"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; in_weimar_coalition = 1;
 
 Who should be the chancellor?
 
