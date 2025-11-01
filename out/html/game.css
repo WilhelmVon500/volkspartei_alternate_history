@@ -611,6 +611,13 @@ table {
     fill: #006400;
 }
 
+.seat.for {
+    fill: #158e33;
+}
+.seat.against {
+    fill: #c51313;
+}
+
 .tooltip-text {
     text-decoration: underline;
     text-decoration-style: dotted;
