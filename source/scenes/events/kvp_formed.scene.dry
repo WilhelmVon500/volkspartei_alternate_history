@@ -3,6 +3,8 @@ on-arrival: {!
 Q.kvp_formed = 1;
 Q.parties.push('kvp');
 
+Q.kvp_leader = "Westarp";
+
 Q.workers_kvp = 1;
 Q.workers_dnvp -= 1;
 
