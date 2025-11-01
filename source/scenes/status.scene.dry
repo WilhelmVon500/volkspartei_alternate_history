@@ -137,7 +137,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: Agrarian Conservatism (Baum) ?]
 
-[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: Christian Conservatism (Westarp) ?]
+[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: Christian Conservatism ([+kvp_leader+]) ?]
 
 <span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [? if dnvp_leader = "Westarp" or dnvp_leader = "Hergt": National Conservatism ?][? if dnvp_leader = "Hugenberg": Authoritarian Conservatism ?][? if dnvp_leader = "Treviranus": Tory Democracy ?] ([+ dnvp_leader +])
 
