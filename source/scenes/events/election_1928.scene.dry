@@ -500,12 +500,12 @@ There are some potential coalition arrangements.
 
 @far_right_coalition
 title: Far-right coalition
-subtitle: NSDAP [? if dnvp_ideology = "Radical": DNVP + ?][? if dnf_formed = "Moderate": DNF + ?] ([+ far_right_coalition +]%)
+subtitle: NSDAP [? if dnvp_ideology = "Radical": + DNVP ?][? if dnf_formed: + DNF ?] ([+ far_right_coalition +]%)
 view-if: far_right_coalition >= 50
 go-to: far_right_win if (year >= 1932 or nsdap_r >= 44) and president == "Hindenburg"; far_right_fail if (year < 1932 and nsdap_r < 44) and president == "Hindenburg"; far_right_other if president != "Hindenburg"
 priority: 2
 
-There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnf_formed = "Moderate": DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
+There are enough votes for the Nazis and the [? if dnvp_ideology = "Radical": DNVP ?][? if dnf_formed: DNF ?] to form a coalition. [+ nsdap_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @far_right_win
 on-arrival: chancellor = nsdap_leader; chancellor_party = "NSDAP"
