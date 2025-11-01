@@ -1,6 +1,6 @@
 title: The Enabling Act
 subtitle: Hitler attempts to consolidate his power.
-view-if: hitler_chancellor_time = 8 and chancellor = "Hitler" and president = "Hindenburg"
+view-if: hitler_chancellor_time = 9 and chancellor = "Hitler" and president = "Hindenburg"
 tags: event
 max-visits: 1
 new-page: true
