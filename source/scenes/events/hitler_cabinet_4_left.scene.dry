@@ -118,8 +118,9 @@ WIP
 
 
 @other_parties
+title: Can we try to influence other parties to vote against the Act?
 
-Can we try to influence other parties to vote against the Act?
+WIP
 
 - @convince_ddp: Convince the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> to vote against this law
 - @convince_dbp: Convince the <span style="color: #38C538;">**DBP**</span> to vote against this law
