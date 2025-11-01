@@ -64,11 +64,11 @@ WIP
 @dvp
 title: Now, we have to make our decision.
 on-arrival: {!
-if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.csvd_enabling_act = "Against";
-if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") && Q.wp_ideology = "Moderate") Q.wp_enabling_act = "Against";
-if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.cnblp_enabling_act = "Against";
-if (Q.z_enabling_act == "Against") Q.ddp_enabling_act = "Against";
-if (Q.z_enabling_act == "Against") Q.dbp_enabling_act = "Against";
+if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.csvd_enabling_act = "Against"
+if ((Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") && Q.wp_ideology = "Moderate") Q.wp_enabling_act = "Against"
+if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.cnblp_enabling_act = "Against"
+if (Q.z_enabling_act == "Against") Q.ddp_enabling_act = "Against"
+if (Q.z_enabling_act == "Against") Q.dbp_enabling_act = "Against"
 !}
 
 - @support: We have no other choice than to support it...
