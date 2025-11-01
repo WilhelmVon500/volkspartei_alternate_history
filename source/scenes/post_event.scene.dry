@@ -741,6 +741,29 @@ if (!Q.spd_toleration) {
     Q.bruning_toleration_time = 0;
 }
 
+if (Q.bruning_chancellor_time == 1) {
+    Q.hindenburg_angry_bruning = 0;
+}
+
+
+
+if (Q.bruning_chancellor_time > 1) {
+    if (Q.largest_party == "NSDAP" && Q.nsdap_r >= 26) {
+        Q.hindenburg_angry_bruning += 5;
+    }
+    if (Q.spd_toleration) {
+        Q.hindenburg_angry_bruning += 1;
+    }
+    if (Q.dvp_ideology == "Right") {
+        Q.hindenburg_angry_bruning += 1;
+    }
+    if (Q.dnvp_ideology == "Moderate") {
+        Q.hindenburg_angry_bruning -= 3;
+    } else if (Q.kvp_formed) {
+        Q.hindenburg_angry_bruning -= 2;
+    }
+}
+
 
 
 
