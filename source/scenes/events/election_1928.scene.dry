@@ -672,13 +672,7 @@ go-to: no_majority_bruning_toleration if (no_majority_elections <= 3 and anti_de
 
 
 @hindenburg_appoints_papen
-on-arrival: chancellor = "Papen"; chancellor_party = "I"; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; sa_banned = 0; pro_republic -= 8; finance_minister_party = "I"; interior_minister_party = "I"; economic_minister_party = "I"; labor_minister_party = "I"; foreign_minister_party = "I"; agriculture_minister_party = "I"; reichswehr_minister = "I";
-
-There is no path to a majority government. President Hindenburg is tired of the chaos, and appoints Franz von Papen as chancellor instead of Brüning. Papen is a indenpendent formerly from the Center Party, and is significantly to the right of the majority of the Center Party.
-
-Papen is immediately faced with a vote of no confidence, given his unpopularity. However the [+ dvp_name +] votes, he is guaranteed to fall, due to the unanimous hatred against him from all other parties.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
+go-to: papen_chancellor
 
 @no_majority_bruning_toleration
 on-arrival: no_majority_bruning_elections += 1
