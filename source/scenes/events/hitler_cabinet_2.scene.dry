@@ -1,14 +1,15 @@
-title: The Reichstag fire
+title: The Reichstag Burns!
+subtitle: A suspected arson attack, ostensibly by a foreign <span style="color: #700000;">**Communist**</span>.
 view-if: hitler_chancellor_time = 4 and chancellor = "Hitler" and president = "Hindenburg"
 tags: event
 max-visits: 1
 new-page: true
 
-= The Reichstag fire
+= The Reichstag Burns
 
 WIP
 
-- @reichstag_fire_decree: Hindenburg signs the decree.
+- @reichstag_fire_decree: The "Reichstag Fire Decree" is signed by Hindenburg.
 
 @reichstag_fire_decree
 on-arrival: workers_kpd -= 8; reichstag_fire_decree = 1
