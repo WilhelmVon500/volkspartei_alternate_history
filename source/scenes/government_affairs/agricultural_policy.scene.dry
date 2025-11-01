@@ -24,10 +24,10 @@ title: Land Reform
 subtitle: -1 budget - Break up the large aristocratic estates and give land to landless workers.
 unavailable-subtitle: [? if budget <= 0 : Requires 1 budget. ?] [? if judicial_reform < 2 : The judiciary would never allow this. ?]
 choose-if: judicial_reform >= 2 and budget > 0
-on-arrival: budget -= 1; land_reform += 1; coalition_dissent += 1; dvp_land_reform = 1; rural_dvp += 5*(1-dissent); rural_nsdap -= 4*(1-dissent); unemployed -= 1 if unemployed >= 5; spd_relation += 5; z_relation -= 4; left_strength += 8; left_dissent -= 5; rural_sol += 3; rural_policy += 1; coup_progress += 1; agriculture_goal_completed += 1;
+on-arrival: budget -= 1; land_reform += 1; coalition_dissent += 1 if not in_weimar_coalition; dvp_land_reform = 1; rural_dvp += 5*(1-dissent); rural_nsdap -= 4*(1-dissent); unemployed -= 1 if unemployed >= 5; spd_relation += 5; dnvp_relation -= 4; kvp_relation -= 4; cnblp_relation -= 7; progressive_strength += 5; progressive_dissent -= 5; rural_sol += 3; rural_policy += 1; hindenburg_angry += 10;
 max-visits: 4
 
-With our policy of land reform, we are acquiring farmland from large estates, and giving the land to farmworkers' associations and small peasants. In essence, this brings class struggle to the countryside, breaking the semi-feudal property relations present in East Prussia and other areas with large estates. The bourgeois parties and large farmers despise our intrusion into the sacredness of private property, while leftists are cautiously optimistic.
+With our policy of land reform, we are acquiring farmland from large estates, and giving the land to farmworkers' associations and small peasants. In essence, this brings class struggle to the countryside, breaking the semi-feudal property relations present in East Prussia and other areas with large estates. The right wing parties and large farmers despise our intrusion into the sacredness of private property, while leftists are cautiously optimistic.
 
 
 @agricultural_finance
