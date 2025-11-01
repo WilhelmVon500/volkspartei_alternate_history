@@ -601,6 +601,9 @@ Q.catholics_other = 1;
 // note: the Z figures also include the BVP (Bavarian people's party)
 // since they were ideologically similar, but they were separate parties.
 // They did not have a CDU/CSU-style relationship.
+Q.reichstag_size = 5;
+
+
 Q.spd_r = 26.5;
 Q.kpd_r = 9.1;
 Q.z_r = 17.8;
