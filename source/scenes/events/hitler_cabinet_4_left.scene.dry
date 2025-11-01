@@ -1,1 +1,219 @@
+title: Hitler declares his intention to pass an Enabling Act
+view-if: hitler_chancellor_time = 8 and chancellor = "Hitler" and president = "Hindenburg" and dvp_ideology = "Left"
+tags: event
+max-visits: 1
+new-page: true
+on-arrival: {!
+Q.kpd_enabling_act = "Against"
+Q.spd_enabling_act = "Against"
+Q.aspd_enabling_act = "Against"
+if (Q.ddp_ideology == "Left") Q.ddp_enabling_act = "Against"
+if (Q.ddp_ideology != "Left") Q.ddp_enabling_act = "For"
+Q.dbp_enabling_act = "Against"
+Q.z_enabling_act = "Against"
+Q.bvp_enabling_act = "Against"
+Q.csvd_enabling_act = "For"
+Q.wp_enabling_act = "For"
+Q.cnblp_enabling_act = "For"
+Q.kvp_enabling_act = "For"
+Q.dnvp_enabling_act = "For"
+Q.dnf_enabling_act = "For"
+Q.nsdap_enabling_act = "For"
+Q.other_enabling_act = "For"
+!}
+
+= Hitler declares his intention to pass an Enabling Act
+  
+WIP
+
+We must see, how will the other parties vote.
+
+- @spd: As expected, the <span style="color: #E3000F;">**SPD**</span> will vote against this act.
+
+@spd
+on_arrival: spd_enabling_act = "Against"
+
+The <span style="color: #E3000F;">**SPD**</span> will vote against.
+
+- @zentrum
+
+@zentrum
+on-arrival: z_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; bvp_enabling_act = "Against" if z_leader != "Kaas" or reichskonkordat; z_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat; bvp_enabling_act = "For" if z_leader == "Kaas" and not reichskonkordat
+
+WIP
+
+- @dnvp
+- @kvp
+
+@kvp
+view-if: kvp_formed
+on-arrival: kvp_enabling_act = "For" if kvp_leader != "Treviranus" or z_enabling_act = "For"; kvp_enabling_act = "Against" if kvp_leader == "Treviranus" and z_enabling_act = "Against";
+
+WIP
+
+- @dvp
+
+@dnvp
+view-if: dnvp_ideology = "Moderate"
+on-arrival: dnvp_enabling_act = "For" if dnvp_leader != "Treviranus" or z_enabling_act = "For"; dnvp_enabling_act = "Against" if dnvp_leader == "Treviranus" and z_enabling_act = "Against";
+
+WIP
+
+- @dvp
+
+@dvp
+title: Now, we have to make our decision.
+on-arrival: {!
+if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.csvd_enabling_act = "Against";
+if ((Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") && Q.wp_ideology = "Moderate") Q.wp_enabling_act = "Against";
+if (Q.kvp_enabling_act == "Against" || Q.dnvp_enabling_act == "Against") Q.cnblp_enabling_act = "Against";
+if (Q.z_enabling_act == "Against") Q.ddp_enabling_act = "Against";
+if (Q.z_enabling_act == "Against") Q.dbp_enabling_act = "Against";
+!}
+
+- @support: We have no other choice than to support it...
+- @oppose: We will vote against this act!
+
+@support
+on-arrival: {!
+Q.dvp_enabling_act = "For"
+
+Q.workers_dvp -= 6;
+Q.new_middle_dvp -= 3;
+Q.old_middle_dvp -= 2;
+Q.rural_dvp -= 3;
+
+Q.spd_relation -= 5;
+Q.nsdap_relation += 10;
+if (Q.z_enabling_act == "Against") Q.z_relation -= 3;
+if (Q.ddp_enabling_act == "Against") Q.ddp_relation -= 7;
+if (Q.kvp_enabling_act == "Against" && Q.kvp_formed) Q.kvp_relation -= 3;
+if (Q.dnvp_enabling_act == "Against" && Q.dnvp_ideology == "Moderate") Q.dnvp_relation -= 3;
+if (Q.dnvp_enabling_act == "For") Q.dnvp_relation += 5;
+!}
+
+WIP
+
+- @other_parties
+
+@oppose
+on-arrival: {!
+Q.dvp_enabling_act = "Against"
+
+Q.new_middle_dvp += 3;
+
+Q.spd_relation += 5;
+Q.nsdap_relation -= 5;
+if (Q.z_enabling_act == "Against") Q.z_relation += 3;
+if (Q.ddp_enabling_act == "Against") Q.ddp_relation += 7;
+if (Q.kvp_enabling_act == "Against" && Q.kvp_formed) Q.kvp_relation += 3;
+if (Q.dnvp_enabling_act == "Against" && Q.dnvp_ideology == "Moderate") Q.dnvp_relation += 3;
+if (Q.dnvp_enabling_act == "For") Q.dnvp_relation -= 5;
+!}
+
+WIP
+
+[? if z_enabling_act = "Against": Weimar [? if kvp_enabling_act = "Against" or dnvp_enabling_act = "Against": and even some other right-wing ?] parties are outraged, and we will not be able to influence them. ?]
+
+
+
+@other_parties
+
+Can we try to influence other parties to vote against the Act?
+
+- @convince_ddp: Convince the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> to vote against this law
+- @convince_dbp: Convince the <span style="color: #38C538;">**DBP**</span> to vote against this law
+- @convince_z: Convince the <span style="color: #000000;">**Center Party**</span> to vote against this law
+- @convince_csvd: Convince the <span style="color: #8ED8E4;">**CSVD**</span> to vote against this law
+- @convince_wp: Convince the <span style="color: #B8996F;">**WP**</span> to vote against this law
+- @convince_cnblp: Convince the <span style="color: #7FCEB1;">**CNBLP**</span> to vote against this law
+- @convince_kvp: Convince the <span style="color: #455B95;">**KVP**</span> to vote against this law
+- @convince_dnvp: Convince the <span style="color: #3F7BC1;">**DNVP**</span> to vote against this law
+
+
+@convince_ddp
+view-if: ddp_exist and ddp_enabling_act = "For"
+on-arrival: ddp_enabling_act = "Against"
+
+We convinced the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_dbp
+unavailable-subtitle: The <span style="color: #38C538;">**DBP**</span> are unable to be convinced.
+choose-if: z_enabling_act = "Against"
+view-if: dbp_exist and dbp_enabling_act = "For"
+on-arrival: dbp_enabling_act = "Against"
+
+We convinced the <span style="color: #38C538;">**DBP**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_z
+unavailable-subtitle: The <span style="color: #000000;">**Center Party**</span> are unable to be convinced.
+choose-if: z_relation >= 60 or (z_relation >= 45 and prussian_concordat)
+view-if: z_enabling_act = "For"
+on-arrival: z_enabling_act = "Against"; bvp_enabling_act = "Against"
+
+We convinced the <span style="color: #000000;">**Center Party**</span> and <span style="color: #69A2BE;">**BVP**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_csvd
+unavailable-subtitle: The <span style="color: #8ED8E4;">**CSVD**</span> are unable to be convinced.
+choose-if: (kvp_enabling_act = "Against" and kvp_formed) or (dnvp_enabling_act = "Against" and dnvp_ideology = "Moderate")
+view-if: csvd_enabling_act = "For" and csvd_exist
+on-arrival: csvd_enabling_act = "Against";
+
+We convinced the <span style="color: #8ED8E4;">**CSVD**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_wp
+unavailable-subtitle: The <span style="color: #B8996F;">**WP**</span> are unable to be convinced.
+choose-if: (kvp_enabling_act = "Against" and kvp_formed) or (dnvp_enabling_act = "Against" and dnvp_ideology = "Moderate")
+view-if: wp_enabling_act = "For" and wp_ideology = "Moderate" and wp_exist
+on-arrival: wp_enabling_act = "Against";
+
+We convinced the <span style="color: #B8996F;">**WP**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_cnblp
+unavailable-subtitle: The <span style="color: #7FCEB1;">**CNBLP**</span> are unable to be convinced.
+choose-if: (kvp_enabling_act = "Against" and kvp_formed) or (dnvp_enabling_act = "Against" and dnvp_ideology = "Moderate")
+view-if: cnblp_enabling_act = "For" and cnblp_exist
+on-arrival: cnblp_enabling_act = "Against";
+
+We convinced the <span style="color: #7FCEB1;">**CNBLP**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_kvp
+unavailable-subtitle: The <span style="color: #455B95;">**KVP**</span> are unable to be convinced.
+choose-if: kvp_leader = "Treviranus" and z_enabling_act = "Against"
+view-if: kvp_enabling_act = "For" and kvp_formed
+on-arrival: kvp_enabling_act = "Against";
+
+We convinced the <span style="color: #455B95;">**KVP**</span> to vote against this law!
+
+- @other_parties
+
+
+@convince_dnvp
+unavailable-subtitle: The <span style="color: #3F7BC1;">**DNVP**</span> are unable to be convinced.
+choose-if: dnvp_leader = "Treviranus" and z_enabling_act = "Against"
+view-if: dnvp_enabling_act = "For" and dnvp_ideology = "Moderate"
+on-arrival: dnvp_enabling_act = "Against";
+
+We convinced the <span style="color: #3F7BC1;">**DNVP**</span> to vote against this law!
+
+- @other_parties
+
 
