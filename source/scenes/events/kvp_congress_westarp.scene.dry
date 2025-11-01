@@ -13,7 +13,7 @@ WIP
 - @westarp_lead: Kuno Westarp
 - @treviranus_lead: Gottfried Treviranus
 
-@hergt_lead
+@westarp_lead
 on-arrival: kvp_leader = "Westarp"; old_middle_kvp += 3; rural_kvp += 3
 face-image: img/portraits/WestarpKuno.jpg
 
