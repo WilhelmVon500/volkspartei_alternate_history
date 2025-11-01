@@ -31,7 +31,7 @@ However, the ban has not been as effective as initially hoped. Few weapons have 
 
 
 @sa_ban_dvp
-view-if: interior_minister_party = dvp_name and dvp_ideology = "Left"
+view-if: interior_minister_party = dvp_name
 on-arrival: sa_strength *= 0.7; sa_militancy -= 0.1; sa_banned = 1; sa_nationwide_ban = 1; sa_ban_timer = 6; hindenburg_angry += 20; unemployed_nsdap -= 5; workers_nsdap -= 3; new_middle_nsdap -= 3; spd_relation += 5; dnvp_relation -= 3 if dnvp_ideology = "Radical"; dnf_relation -= 3 if dnf_formed; nsdap_relation -= 5;
 
 With control of the Interior Ministry, we have used these revelations as a pretext to ban the <span style="color: #954B00;">**SA**</span> nationwide. This has led to a noticeable drop in political violence, effectively dealing a blow to the <span style="color: #954B00;">Nazis</span>, who had relied on intimidation tactics to gain votes. This also improves our relation with <span style="color: #E3000F;">**SPD**</span>.
