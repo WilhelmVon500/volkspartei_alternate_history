@@ -689,14 +689,20 @@ if (Q.reichstag_fire_decree) {
 
 
 
-if (Q.chancellor == "Schleicher") {
-    Q.schleicher_chancellor_time += 1
-}
 if (Q.chancellor == "Papen") {
     Q.papen_chancellor_time += 1
+} else {
+    Q.papen_chancellor_time = 0
+}
+if (Q.chancellor == "Schleicher") {
+    Q.schleicher_chancellor_time += 1
+} else {
+    Q.schleicher_chancellor_time = 0
 }
 if (Q.chancellor == "Hitler") {
     Q.hitler_chancellor_time += 1
+} else {
+    Q.hitler_chancellor_time = 0
 }
 
 
