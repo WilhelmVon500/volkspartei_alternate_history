@@ -38,6 +38,8 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: {!
+Q.reichstag_size = 5;
+
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
