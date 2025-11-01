@@ -40,7 +40,7 @@ However, the ban has not been as effective as initially hoped. Few weapons have 
 
 @sa_ban_dvp_refuse
 unavailable-subtitle: The [+ president +] pressures us to ban the <span style="color: #954B00;">**SA**</span>.
-choose-if: never
+choose-if: False
 
 
 @sa_ban_bruning
