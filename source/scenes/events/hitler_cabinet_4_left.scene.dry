@@ -96,8 +96,6 @@ WIP
 
 [? if z_enabling_act = "Against": Weimar [? if kvp_enabling_act = "Against" or dnvp_enabling_act = "Against": and even some other right-wing ?] parties are outraged, and we will not be able to influence them. ?]
 
-- @other_parties
-
 @oppose
 on-arrival: {!
 Q.dvp_enabling_act = "Against"
@@ -115,6 +113,7 @@ if (Q.dnvp_enabling_act == "For") Q.dnvp_relation -= 5;
 
 WIP
 
+- @other_parties
 
 
 
