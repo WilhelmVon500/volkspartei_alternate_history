@@ -9,6 +9,37 @@ on-arrival: {!
 Q.rubicon = 1; 
 Q.weeks_enabled = 1;
 Q.week = 1;
+
+
+
+
+
+const contentElement = document.getElementById('content');
+contentElement.style.backgroundColor = '#645E51';
+
+const header = document.querySelector('header');
+header.style.color = '#0077FF';
+contentElement.style.color = '#FFFFFF';
+
+const headerLinks = document.querySelectorAll('#header-links a');
+headerLinks.forEach(link => {
+    link.style.color = 'black';
+});
+
+const tabContainer = document.querySelector('.tab_container');
+if (tabContainer) {
+    tabContainer.style.backgroundColor = '#c3b8a0';
+}
+
+const tabButtons = document.querySelectorAll('.tab_button');
+tabButtons.forEach((button) => {
+    button.style.backgroundColor = '#c3b8a0';
+});
+
+const activeTabButton = document.querySelector('.tab_button.active');
+if (activeTabButton) {
+    activeTabButton.style.backgroundColor = '#f3f3f3';
+}
 !}
 
 = The Rubicon is Crossed
