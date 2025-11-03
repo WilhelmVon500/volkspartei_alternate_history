@@ -77,22 +77,6 @@ for (var c of Q.classes) {
         Q[c + '_' + party + '_normalized'] = 100*Q[c+'_'+party]/class_votes;
         Q[c + '_' + party + '_display'] = Math.round(100*Q[c+'_'+party]/class_votes);
     }
-    for (var party of Q.parties) {
-        if (class_votes >= 150) {
-            if (class_votes >= 200) {
-                Q[c+'_'+party] *= 0.99;
-                if (class_votes >= 250) {
-                    Q[c+'_'+party] *= 0.98;
-                    if (class_votes >= 300) {
-                        Q[c+'_'+party] *= 0.96;
-                    }
-                }
-            }
-            if (Q.year >= 1934) {
-                Q[c+'_'+party] *= 0.98;
-            }
-        }
-    }
 }
 // calculate support for each of the parties
 var total_support = 0; 
