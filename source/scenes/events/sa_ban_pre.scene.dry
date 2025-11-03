@@ -39,6 +39,7 @@ With control of the Interior Ministry, we have used these revelations as a prete
 However, the ban has not been as effective as initially hoped. Few weapons have been seized, because the plans to ban the <span style="color: #954B00;">SA</span> were leaked by none other than General Kurt von Schleicher, who believes this move interferes with his taming strategy.
 
 @sa_ban_dvp_refuse
+view-if: interior_minister_party = dvp_name
 unavailable-subtitle: The [+ president +] pressures us to ban the <span style="color: #954B00;">**SA**</span>.
 choose-if: False
 
