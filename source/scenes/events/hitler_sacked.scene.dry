@@ -1,5 +1,5 @@
 title: [+ chancellor +] is Sacked!
-view-if: chancellor_party == "NSDAP" and president != "Hindenburg" and president != "Hitler" and president != "Göring"
+view-if: chancellor_party == "NSDAP" and president != "Hindenburg" and president != "Hitler" and president != "Göring" and president != "Simons"
 new-page: true
 tags: event
 max-visits: 1
@@ -7,6 +7,6 @@ on-arrival: in_far_right_coalition = 0; chancellor = "Vacant"; chancellor_party 
 
 = President takes action against the <span style="color: #954B00;">**NSDAP**</span>
 
-The newly elected president, [+ president +], holds little sympathy for [+ chancellor +] or his party, and has compelled his resignation as Chancellor.
+The newly elected president, [+ president +], holds little sympathy for Hitler or his party, and has compelled his resignation as Chancellor.
 
 The next elections are set for [+ next_election_month : month +] [+ next_election_year +].
