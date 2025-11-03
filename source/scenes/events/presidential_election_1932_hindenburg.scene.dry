@@ -20,6 +20,7 @@ if (Q.spd_votes >= 29) Q.hindenburg_run_points += 1;
 if (Q.pro_republic >= 70) Q.hindenburg_run_points -= 1;
 if (Q.unemployed < 15) Q.hindenburg_run_points -= 1;
 if (Q.unemployed >= 30) Q.hindenburg_run_points += 1;
+if (Q.bruning_toleration_time) Q.hindenburg_run_points += 3;
 if (Q.hindenburg_run_points >= 7) Q.hindenburg_run = 1;
 
 Q.hindenburg_signatures = Math.round(Q.hindenburg_run_points * 0.445 * 100) / 100;
