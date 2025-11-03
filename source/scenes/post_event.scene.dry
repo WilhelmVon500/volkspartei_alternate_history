@@ -217,11 +217,11 @@ if ((Q.month_actions >= 1 && !Q.rubicon) || (Q.month_actions >= 4 && Q.rubicon))
             Q.resources += 2;
         }
     }
-    if (Q.chancellor == "Papen" && !Q.papen_time) {
-        Q.papen_time += 1;
+    if (Q.chancellor == "Papen" && !Q.papen_chancellor_time) {
+        Q.papen_chancellor_time += 1;
     }
-    if (Q.chancellor == "Schleicher" && !Q.schleicher_time) {
-        Q.papen_time += 1;
+    if (Q.chancellor == "Schleicher" && !Q.schleicher_chancellor_time) {
+        Q.papen_chancellor_time += 1;
     }
     // decrement timers
     if (!Q.rubicon) {
