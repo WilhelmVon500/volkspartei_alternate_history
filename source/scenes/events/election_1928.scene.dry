@@ -217,22 +217,6 @@ Q.spd_toleration = 0;
 Q.toleration_explode = 0;
 Q.dvp_toleration = 0;
 Q.spd_caretaker = 0;
-Q.foreign_minister = 'Vacant';
-Q.interior_minister = 'Vacant';
-Q.justice_minister = 'Vacant';
-Q.labor_minister = 'Vacant';
-Q.reichswehr_minister = 'Vacant';
-Q.economic_minister = 'Vacant';
-Q.finance_minister = 'Vacant';
-Q.agriculture_minister = 'Vacant';
-Q.foreign_minister_party = 'I';
-Q.interior_minister_party = 'I';
-Q.justice_minister_party = 'I';
-Q.labor_minister_party = 'I';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = 'I';
-Q.finance_minister_party = 'I';
-Q.agriculture_minister_party = 'I';
 
 
 
