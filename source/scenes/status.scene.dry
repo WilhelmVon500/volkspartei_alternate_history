@@ -39,8 +39,6 @@ Chancellor: [+ chancellor +] ([?if chancellor_party=="I":<span style="color: #80
 
 = Reichstag
 
-Reichstag President: [+ reichstag_president +] ([?if reichstag_president_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if reichstag_president_party=="Z":<span style="color: #000000;">**Z**</span>?][?if reichstag_president_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if reichstag_president_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?])
-
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 [? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
