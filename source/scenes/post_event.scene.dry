@@ -149,7 +149,24 @@ if (Q.dissent < 0) {
 
 
 if (Q.month_actions >= 1 && Q.rubicon) {
+    Q.month_actions = 0;
     Q.rubicon_time += 1;
+    Q.week += 1;
+    if (Q.week >= 5) {
+        Q.week = 1
+        Q.month += 1
+    }
+    if (!Q.weeks_enabled) {
+        Q.month += 1;
+        Q.week = 1;
+    }
+    if (Q.month >= 13) {
+        Q.month = 1;
+        Q.year += 1;
+        if (Q.historical_mode) {
+            Q.resources += 2;
+        }
+    }
 
 
 
@@ -194,15 +211,6 @@ if (Q.month_actions >= 1 && Q.rubicon) {
 if (Q.month_actions >= 1) {
     Q.time += 1;
     Q.month_actions = 0;
-    Q.week += 1;
-    if (Q.week >= 5) {
-        Q.week = 1
-        Q.month += 1
-    }
-    if (!Q.weeks_enabled) {
-        Q.month += 1;
-        Q.week = 1;
-    }
     if (Q.month >= 13) {
         Q.month = 1;
         Q.year += 1;
