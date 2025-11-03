@@ -1,1 +1,20 @@
+title: Papen Lifts the Ban on the <span style="color: #954B00;">**SA**</span>!
+subtitle: Political violence has made a resurgence...
+view-if: chancellor = "Papen" and papen_chancellor_time = 2 and sa_nationwide_ban
+new-page: true
+tags: event
+max-visits: 1
 
+= <span style="color: #954B00;">**SA**</span> Ban Lifted
+
+The ban on the <span style="color: #954B00;">**SA**</span>, instituted by the previous cabinet, has been lifted in an emergency decree. This is doubtlessly apart of the conditions the [+ nsdap_leader +] attached for the <span style="color: #954B00;">**NSDAP**</span>'s support of the cabinet, as its paramilitary plays a large role in disrupting political meetings and creating an oppressive atmosphere on the streets.
+
+This is met with an instant increase in political violence, with the lifting of the ban being opposed by everyone except the <span style="color: #954B00;">Nazis</span>. This also eliminates the last rationale for continued <span style="color: #954B00;">Nazi</span> support for the unpopular Papen.
+
+- @signed
+
+@signed
+title: The decree is signed by President Hindenburg.
+on-arrival: sa_strength *= 2; sa_militancy += 0.1; pro_republic -= 5; sa_ban_repealed = 1; sa_nationwide_ban = 0; sa_banned = 0
+
+The <span style="color: #954B00;">**SA**</span> immediately returns to mass recruiting and arming. This is too much for the Prussian police to handle.
