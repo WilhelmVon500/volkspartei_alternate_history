@@ -1,0 +1,13 @@
+title: The Reichstag is dissolved for new elections.
+subtitle: As part of Schleicher's promise to [+ nsdap_leader +].
+view-if: next_election_time >= time+1
+on-arrival: next_election_time = time+1 if next_election_time >= time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; next_election_week = week + 7; next_election_week -= 4 if next_election_week > 4; next_election_week -= 4 if next_election_week > 4; next_election_week = 4 if next_election_week == 0
+new-page: true
+tags: event
+max-visits: 1
+
+= The Reichstag is Dissolved
+
+Papen has dissolved the Reichstag to spark new elections, as apart of their promise to the <span style="color: #954B00;">**NSDAP**</span> and the hope that they'll win the most seats in the Reichstag, allowing Papen a majority needed to establish an authoritarian government.
+
+New Reichstag elections are set for [+ next_election_month : month +] [+ next_election_year +], Week [+ next_election_week +].
