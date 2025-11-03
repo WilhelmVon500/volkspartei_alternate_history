@@ -29,8 +29,6 @@ Resources available: [+ resources +]
 
 [? if dvp_in_government and not in_dvp_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if dvp_in_government and president == "Hindenburg" : Hindenburg's approval: [+ hindenburg_angry : hindenburg_angry +] ?]
-
 Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
