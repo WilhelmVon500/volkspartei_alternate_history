@@ -206,7 +206,7 @@ Q.month_actions_checked = Q.month_actions;
 
 
 // 1. update dates
-if ((Q.month_actions >= 1 && !Q.rubicon) || (Q.month_actions >= 4 && Q.rubicon)) {
+if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4)) {
     Q.time += 1;
     Q.month_actions = 0;
     Q.month += 1;
