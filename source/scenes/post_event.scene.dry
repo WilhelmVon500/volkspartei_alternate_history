@@ -151,6 +151,41 @@ if (Q.dissent < 0) {
 if (Q.month_actions >= 1 && Q.rubicon) {
     Q.rubicon_time += 1;
 
+
+
+    if (Q.chancellor == "Papen") {
+        Q.papen_chancellor_time += 1;
+    } else {
+        Q.papen_chancellor_time = 0;
+    }
+    if (Q.chancellor == "Schleicher") {
+        Q.schleicher_chancellor_time += 1;
+    } else {
+        Q.schleicher_chancellor_time = 0;
+    }
+    if (Q.chancellor == "Hitler") {
+        Q.hitler_chancellor_time += 1;
+    } else {
+        Q.hitler_chancellor_time = 0;
+    }
+    
+    if (Q.president == "Hindenburg" && Q.chancellor == "Brüning" && !Q.spd_in_government && Q.year >= 1930) {
+        Q.bruning_chancellor_time += 1;
+    
+        if (Q.spd_toleration) {
+            Q.bruning_toleration_time += 1; 
+            Q.ddp_cohesion -= 0.25;
+            if (Q.dvp_in_government) Q.nationalist_dissent += 0.5;
+        } else if (!Q.spd_toleration) {
+            Q.bruning_toleration_time = 0;
+        }
+    }
+    if (!Q.spd_toleration) {
+        Q.bruning_toleration_time = 0;
+    }
+
+
+
     if (Q.chancellor == "Hitler" && (!Q.enabling_act_seen || Q.enabling_act)) {
         Q.workers_nsdap += 2/12;
         Q.new_middle_nsdap += 4/12;
@@ -694,43 +729,10 @@ if (Q.month_actions >= 1) {
 
 
 
-if (Q.chancellor == "Papen") {
-    Q.papen_chancellor_time += 1;
-} else {
-    Q.papen_chancellor_time = 0;
-}
-if (Q.chancellor == "Schleicher") {
-    Q.schleicher_chancellor_time += 1;
-} else {
-    Q.schleicher_chancellor_time = 0;
-}
-if (Q.chancellor == "Hitler") {
-    Q.hitler_chancellor_time += 1;
-} else {
-    Q.hitler_chancellor_time = 0;
-}
-
-if (Q.president == "Hindenburg" && Q.chancellor == "Brüning" && !Q.spd_in_government && Q.year >= 1930) {
-    Q.bruning_chancellor_time += 1;
-
-    if (Q.spd_toleration) {
-        Q.bruning_toleration_time += 1; 
-        Q.ddp_cohesion -= 0.25;
-        if (Q.dvp_in_government) Q.nationalist_dissent += 0.5;
-    } else if (!Q.spd_toleration) {
-        Q.bruning_toleration_time = 0;
-    }
-}
-if (!Q.spd_toleration) {
-    Q.bruning_toleration_time = 0;
-}
 
 if (Q.bruning_chancellor_time == 1) {
     Q.hindenburg_angry_bruning = 0;
 }
-
-
-
 if (Q.bruning_chancellor_time > 1) {
     if (Q.largest_party == "NSDAP" && Q.nsdap_r >= 26) {
         Q.hindenburg_angry_bruning += 5;
