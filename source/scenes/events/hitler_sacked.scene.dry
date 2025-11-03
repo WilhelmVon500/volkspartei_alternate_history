@@ -3,7 +3,7 @@ view-if: chancellor_party == "NSDAP" and president != "Hindenburg" and president
 new-page: true
 tags: event
 max-visits: 1
-on-arrival: in_far_right_coalition = 0; chancellor = "Vacant"; chancellor_party = "I"; foreign_minister = 'Vacant'; interior_minister = 'Vacant'; justice_minister = 'Vacant'; labor_minister = 'Vacant'; reichswehr_minister = 'Vacant'; economic_minister = 'Vacant'; finance_minister = 'Vacant'; agriculture_minister = 'Vacant'; foreign_minister_party = 'I'; interior_minister_party = 'I'; justice_minister_party = 'I'; labor_minister_party = 'I'; reichswehr_minister_party = 'I'; economic_minister_party = 'I'; finance_minister_party = 'I'; agriculture_minister_party = 'I';
+on-arrival: in_far_right_coalition = 0; chancellor = "Vacant"; chancellor_party = "I"; foreign_minister = 'Vacant'; interior_minister = 'Vacant'; justice_minister = 'Vacant'; labor_minister = 'Vacant'; reichswehr_minister = 'Vacant'; economic_minister = 'Vacant'; finance_minister = 'Vacant'; agriculture_minister = 'Vacant'; foreign_minister_party = 'I'; interior_minister_party = 'I'; justice_minister_party = 'I'; labor_minister_party = 'I'; reichswehr_minister_party = 'I'; economic_minister_party = 'I'; finance_minister_party = 'I'; agriculture_minister_party = 'I'; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
 = President takes action against the <span style="color: #954B00;">**NSDAP**</span>
 
