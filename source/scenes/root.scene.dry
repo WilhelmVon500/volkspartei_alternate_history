@@ -822,6 +822,27 @@ Q.timers = ['advisor_action', 'crisis_program',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes'];
+Q.rubicon_timers = ['advisor_action', 'crisis_program',
+            'fundraising', 'ideology',
+            'inter_party_relationships', 'international_relations',
+            'iron_front', 'media', 'enemies',
+            'party_organizations', 'rally', 'reichsbanner',
+            'shuffle_leadership', 'streetfighting', 'liberal_peoples_party',
+            'party_disunity',
+            // govt
+            'agricultural_policy', 'domestic_enemies', 'fiscal_policy', 'monetary_policy',
+            'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
+            'police', 'prussian_affairs', 'shuffle_cabinet', 'social_welfare',
+            'homosexual_rights', 'economic_policy', 'coalition_affairs',
+            'war_guilt', 'dealing_with_toleration',
+            'constitutional_reform', 'labor_rights',
+            'education_science', 'curriculum',
+            // events
+            'emergency_cuts', 'unemployment_insurance',
+            'rb_ban', 'sa_ban', 'sh_ban', 'papen_chancellor',
+            'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
+            'high_inflation', 'banking_crisis', 'march_on_berlin',
+            'understanding_enemy', 'schleichers_schemes'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
