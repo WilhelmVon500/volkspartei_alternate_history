@@ -155,11 +155,12 @@ if (Q.rubicon && Q.month_actions >= 1 && Q.month_actions != Q.month_actions_chec
         Q.week = 1
         Q.month += 1
     }
-    if (Q.month >= 13) {
-        Q.month = 1;
-        Q.year += 1;
-        if (Q.historical_mode) {
-            Q.resources += 2;
+
+
+
+    for (timer of Q.rubicon_timers) {
+        if (Q[timer+'_timer'] && Q[timer+'_timer'] > 0) {
+            Q[timer+'_timer'] -= 1;
         }
     }
 
