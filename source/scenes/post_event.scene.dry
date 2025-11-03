@@ -25,44 +25,6 @@ if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
 
-if (Q.pro_republic >= (Q.nsdap_votes + Q.dnvp_votes + Q.kpd_votes + Q.other_votes + 30)) {
-    Q.dvp_left += 0.1
-}
-
-if (Q.liberal_strength > Q.nationalist_strength + (Q.industrialist_strength * 0.5)) {
-    Q.dvp_left += 0.1
-} else {
-    Q.dvp_right += 0.1
-}
-
-if (Q.dvp_left + Q.dvp_right >= 30) {
-    Q.dvp_left *= 0.9;
-    Q.dvp_right *= 0.9;
-}
-
-if (Q.ddp_left + Q.ddp_right >= 20) {
-    Q.ddp_left *= 0.9;
-    Q.ddp_right *= 0.9;
-}
-
-if (Q.stresemann_dead != 1) {
-    Q.dvp_left += 0.1
-}
-
-if (Q.dvp_left > Q.dvp_right || Q.lvp_formed || Q.nfvp_formed) {
-    Q.dvp_ideology = "Left"
-} else {
-    Q.dvp_ideology = "Right"
-}
-
-if (Q.ddp_right > (Q.ddp_left + 4)) {
-    Q.ddp_ideology = "Right"
-} else if (Q.ddp_left > (Q.ddp_right + 4)) {
-    Q.ddp_ideology = "Left"
-} else {
-    Q.ddp_ideology = "Moderate"
-}
-
 // re-calculate party support
 // calculate normalized class voting for the achievements
 for (var c of Q.classes) {
@@ -718,42 +680,88 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
             Q.catholics_dvp -= 6/12;
         }
     }
-}
 
-
-
-if (Q.president == "Hindenburg" && Q.chancellor == "Brüning" && !Q.spd_in_government && Q.year >= 1930) {
-    Q.bruning_chancellor_time += 1;
+    if (Q.pro_republic >= (Q.nsdap_votes + Q.dnvp_votes + Q.kpd_votes + Q.other_votes + 30)) {
+        Q.dvp_left += 0.1
+    }
     
-    if (Q.spd_toleration) {
-        Q.bruning_toleration_time += 1; 
-        Q.ddp_cohesion -= 0.25;
-        if (Q.dvp_in_government) Q.nationalist_dissent += 0.5;
-    } else if (!Q.spd_toleration) {
+    if (Q.liberal_strength > Q.nationalist_strength + (Q.industrialist_strength * 0.5)) {
+        Q.dvp_left += 0.1
+    } else {
+        Q.dvp_right += 0.1
+    }
+    
+    if (Q.dvp_left + Q.dvp_right >= 30) {
+        Q.dvp_left *= 0.9;
+        Q.dvp_right *= 0.9;
+    }
+    
+    if (Q.ddp_left + Q.ddp_right >= 20) {
+        Q.ddp_left *= 0.9;
+        Q.ddp_right *= 0.9;
+    }
+    
+    if (Q.stresemann_dead != 1) {
+        Q.dvp_left += 0.1
+    }
+    
+    if (Q.dvp_left > Q.dvp_right || Q.lvp_formed || Q.nfvp_formed) {
+        Q.dvp_ideology = "Left"
+    } else {
+        Q.dvp_ideology = "Right"
+    }
+    
+    if (Q.ddp_right > (Q.ddp_left + 4)) {
+        Q.ddp_ideology = "Right"
+    } else if (Q.ddp_left > (Q.ddp_right + 4)) {
+        Q.ddp_ideology = "Left"
+    } else {
+        Q.ddp_ideology = "Moderate"
+    }
+    
+    
+    
+    if (Q.president == "Hindenburg" && Q.chancellor == "Brüning" && !Q.spd_in_government && Q.year >= 1930) {
+        Q.bruning_chancellor_time += 1;
+        
+        if (Q.spd_toleration) {
+            Q.bruning_toleration_time += 1; 
+            Q.ddp_cohesion -= 0.25;
+            if (Q.dvp_in_government) Q.nationalist_dissent += 0.5;
+        } else if (!Q.spd_toleration) {
+            Q.bruning_toleration_time = 0;
+        }
+    }
+    if (!Q.spd_toleration) {
         Q.bruning_toleration_time = 0;
     }
-}
-if (!Q.spd_toleration) {
-    Q.bruning_toleration_time = 0;
-}
+    
+    if (Q.bruning_chancellor_time == 1) {
+        Q.hindenburg_angry_bruning = 0;
+    }
+    if (Q.bruning_chancellor_time > 1) {
+        if (Q.largest_party == "NSDAP" && Q.nsdap_r >= 26) {
+            Q.hindenburg_angry_bruning += 5;
+        }
+        if (Q.spd_toleration) {
+            Q.hindenburg_angry_bruning += 1;
+        }
+        if (Q.dvp_ideology == "Right") {
+            Q.hindenburg_angry_bruning += 1;
+        }
+        if (Q.dnvp_ideology == "Moderate") {
+            Q.hindenburg_angry_bruning -= 3;
+        } else if (Q.kvp_formed) {
+            Q.hindenburg_angry_bruning -= 2;
+        }
+    }
 
-if (Q.bruning_chancellor_time == 1) {
-    Q.hindenburg_angry_bruning = 0;
-}
-if (Q.bruning_chancellor_time > 1) {
-    if (Q.largest_party == "NSDAP" && Q.nsdap_r >= 26) {
-        Q.hindenburg_angry_bruning += 5;
-    }
-    if (Q.spd_toleration) {
-        Q.hindenburg_angry_bruning += 1;
-    }
-    if (Q.dvp_ideology == "Right") {
-        Q.hindenburg_angry_bruning += 1;
-    }
-    if (Q.dnvp_ideology == "Moderate") {
-        Q.hindenburg_angry_bruning -= 3;
-    } else if (Q.kvp_formed) {
-        Q.hindenburg_angry_bruning -= 2;
+
+
+
+
+    if (Q.month == 1) {
+        Q.budget += 1
     }
 }
 
@@ -842,10 +850,6 @@ if (!Q.aspd_exist) {
     Q.rural_aspd = 0;
     Q.unemployed_aspd = 0;
     Q.catholics_aspd = 0;
-}
-
-if (Q.month == 1) {
-    Q.budget += 1
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
