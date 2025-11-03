@@ -87,7 +87,7 @@ for (var party of Q.parties) {
             party_support += Q[c]*Q[c+'_'+party];
         } else  { 
             party_support += Q[c]*Q[c+'_'+party+'_normalized'];
-        } 
+        }
     }
     Q[party + '_support'] = party_support;
     total_support += party_support; 
