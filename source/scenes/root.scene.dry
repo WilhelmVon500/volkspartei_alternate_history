@@ -729,6 +729,11 @@ Q.agriculture_minister_party = 'DNVP';
 Q.reichsbank_president = 'Schacht';
 Q.reichsbank_president_party = 'I';
 
+
+Q.reichstag_president = "Löbe";
+Q.reichstag_president_party = 'SPD';
+
+
 // Events: what has occurred?
 Q.panzerkreuzer_seen = 0;
 Q.panzerkreuzer_funded = 0;
