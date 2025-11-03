@@ -8,32 +8,18 @@ tags: event
 
 <span style="color: #E3000F;">**SPD**</span> is currently acting as external support to the government of Chancellor [+ chancellor +]. Still, they want to somehow use their position.
 
-- @urge_against_austerity
+- @social_spending
 - @new_grand_coalition
 - @refuse: We refuse their demands.
 
-@vonc
-on-arrival: spd_in_government = 0; spd_toleration = 0; in_grand_coalition = 0; in_bourgeois_coalition = 0; chancellor = "Brüning"; chancellor_party = "Z"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; nationalist_strength += 8; pro_republic -= 5; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; workers_dvp -= 3; new_middle_dvp -= 3; old_middle_z -= 2; rural_z -= 2;
 
-We have called for a vote of no confidence, and have brought down this government. Chancellor [+ chancellor +] currently rules as acting chancellor.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
-
-@urge_against_austerity
-title: Urge the coalition against austerity politics, and to increase social spending.
+@social_spending
+title: Moderate our austerity politics and increase social spending.
 choose-if: budget >= 1
 unavailable-subtitle: This can only happen with a budget surplus.
-go-to: urge_success if dvp_relation >= 30 and z_relation >= 40; urge_failure if dvp_relation < 30 or z_relation < 40
+on-arrival: welfare += 1; budget -= 1; workers_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); kvp_relation -= 3; dnvp_relation -= 3; spd_relation += 3; progressive_dissent -= 5; democratic_dissent -= 5; industrialist_dissent += 5; nationalist_dissent += 5;
 
-@urge_success
-on-arrival: welfare += 1; budget -= 1; workers_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); z_relation -= 3; dvp_relation -= 3; reformist_dissent -= 5; center_dissent -= 5; labor_dissent -= 5;
-
-We have successfully urged the coalition parties to increase social spending! Unfortunately, the center-right parties increasingly see us as a nuisance, and might not wish to continue these negotiations.
-
-@urge_failure
-on-arrival: z_relation -= 3; dvp_relation -= 3
-
-Unfortunately, our negotiations have met with failure. The center-right parties increasingly see us as a nuisance, and might not wish to continue these negotiations.
+We have increased social spending to appease the <span style="color: #E3000F;">**SPD**</span>.
 
 
 
