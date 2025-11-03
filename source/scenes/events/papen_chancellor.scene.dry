@@ -20,10 +20,9 @@ subtitle: Our loyalty to the Republic will not be shaken.
 view-if: dvp_ideology = "Left"
 on-arrival: spd_relation += 5; dnvp_relation -= 10 if dnvp_ideology = "Radical"; dnf_relation -= 10 if dnf_formed; z_relation += 5; ddp_relation += 5; kvp_relation += 5 if kvp_formed; dnvp_relation += 5 if dnvp_ideology = "Moderate"; dvp_rejected_papen = 1
 
-Papen is immediately faced with a vote of no confidence, given his unpopularity.
+We have rebuffed Hindenburg’s offer, dealing a serious blow to the nationalist-supported cabinet and shaking Hindenburg’s grip over the republic. Although we cannot topple Papen’s government just yet, our exclusion from the cabinet has brought its stability into serious doubt. The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has come far from its efforts at party reform, and as one of the few forces of the moderate right remaining, the Weimar parties look to us as a partner to protect the republic.
 
-- @papen_survives: Papen's government survives the vote of no confidence.
-- @papen_vonc: Papen's government fails to gain Reichstag's confidence.
+Democracy is on its knees, but we will help it stand up and fight.
 
 
 @tolerate
@@ -32,12 +31,9 @@ view-if: dvp_ideology = "Right"
 on-arrival: dvp_toleration = 1; dnvp_relation += 5 if dnvp_ideology = "Radical"; dnf_relation += 5 if dnf_formed; spd_relation -= 5; z_relation -= 5; ddp_relation -= 5; kvp_relation -= 5 if kvp_formed; dnvp_relation -= 5 if dnvp_ideology = "Moderate"; papen_coalition += dvp_r; workers_dvp -= 5; new_middle_dvp -= 3; old_middle_dvp -= 1; rural_dvp -= 1; dvp_toleration_papen = 1
 
 Although Hindenburg would have liked for us to directly join Papen and work towards reshaping the republic into a more stable and autocratic state, he will accept our terms, as long as we promise to put our weight behind Papen. The situation is tense, the <span style="color: #954B00;">**Nazis**</span> and <span style="color: #8B0000;">**Communists**</span> have already infiltrated much of society, yet we have not been convinced of the potential <span style="color: #954B00;">**NSDAP**</span> taming project that a few on the right have put forward, with their vehement rhetoric and radicalism taking away from most hopes towards reconciliation. With the republic giving way, and Stresemann’s liberalizing influence on the party no longer tying us to the Weimar parties, our last remaining allies are the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnvp_ideology = "Radical": <span style="color: #003755;">**DNF**</span> ?] and the various bourgeois parties.
-[? if (dnvp_ideology = "Radical" and dnvp_relation > nsdap_relation) or (dnf_formed and dnf_relation > nsdap_relation): Even if our stance towards the <span style="color: #954B00;">**NSDAP**</span> were to change, we currently remain closer to the monarchists within the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnvp_ideology = "Radical": <span style="color: #003755;">**DNF**</span> ?], and talks are already beginning about a joint list. ?]
 
-Papen is immediately faced with a vote of no confidence, given his unpopularity.
+[? if (dnvp_ideology = "Radical" and dnvp_relation > nsdap_relation) or (dnf_formed and dnf_relation > nsdap_relation): Even if our stance towards the <span style="color: #954B00;">**NSDAP**</span> was to change, we currently remain closer to the monarchists within the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnvp_ideology = "Radical": <span style="color: #003755;">**DNF**</span> ?], and talks are already beginning about a joint list. ?]
 
-- @papen_survives: Papen's government survives the vote of no confidence.
-- @papen_vonc: Papen's government fails to gain Reichstag's confidence.
 
 
 @accept
@@ -47,23 +43,3 @@ on-arrival: dvp_in_government = 1; dnvp_relation += 10 if dnvp_ideology = "Radic
 
 As expected, we will be a part of Papen’s cabinet, much to the dismay of the remaining republicans left in the nation. Many of our remaining voters, the few who could stomach our fervent shift towards anti-parliamentarianism and alignment with the far right, rally in support of our decision, but the rest of the political spectrum has denounced our presence in this emergency-borne cabinet. For our part, Hindenburg has slowly begun to shift his own perceptions on Hitler, beginning to see him as a potential marionette to control rather than an upstart meant to be crushed. Perhaps the <span style="color: #954B00;">**Nazis**</span> could be tamed to be less destructive towards its fellow nationalists, though, most likely, the <span style="color: #954B00;">**Nazis**</span> will probably try to attain power for themselves.
 
-Papen is immediately faced with a vote of no confidence, given his unpopularity.
-
-- @papen_survives: Papen's government survives the vote of no confidence.
-- @papen_vonc: Papen's government fails to gain Reichstag's confidence.
-
-
-
-@papen_vonc
-view-if: papen_coalition < 50
-on-arrival: next_election_time = time+3 if next_election_time >= time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; 
-
-The chancellor was guaranteed to fall, due to the unanimous hatred against him from all other parties. Meanwhile, he is governing via emergency powers with Hindenburg.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
-
-@papen_survives
-view-if: papen_coalition >= 50
-on-arrival: old_middle_dnvp += 3 if dnvp_ideology = "Radical"; old_middle_dnf += 3 if dnf_formed
-
-Perhaps surprisingly, Papen managed to get a majority in Reichstag.
