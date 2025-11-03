@@ -766,7 +766,7 @@ face-image: img/portraits/PapenFranz.jpg
 
 With the <span style="color: #954B00;">**NSDAP**</span> commanding a strong position in parliament, it can decide the fate of the independent Papen cabinet, as only the [? if dnvp_ideology == "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #003755;">**DNF**</span>?][? if dvp_papen: and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] are the only other parties willing to tie themselves to the unpopular chancellor.
 
-However, it's likely that even a coalition of all parties to the right won't receive a majority, not without the support of the antagonistic <span style="color: #000000;">Center Party</span>. The new Reichstag will convene on [+ next_reichstag_month : month +] [+ next_reichstag_year +], Week [+ next_reichstag_week +].
+However, it's likely that even a coalition of all parties to the right won't receive a majority, not without the support of the antagonistic <span style="color: #000000;">**Center Party**</span>. The new Reichstag will convene on [+ next_reichstag_month : month +] [+ next_reichstag_year +], Week [+ next_reichstag_week +].
 
 
 @no_majority_papen_2
