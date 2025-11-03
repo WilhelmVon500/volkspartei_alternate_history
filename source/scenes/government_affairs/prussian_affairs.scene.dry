@@ -16,8 +16,8 @@ We can enact policies in Prussia.
 - @police_loyalty: Bolster the loyalty of the police.
 - @police_strength: Recruit additional police.
 - @bureaucracy: Purge the bureaucracy of reactionary elements.
-- @ban_sa: Ban the SA, the Nazi paramilitary group.
-- @unban_sa: Reverse the SA ban.
+- @ban_sa: Ban the <span style="color: #954B00;">**SA**</span>, the <span style="color: #954B00;">Nazi</span> paramilitary group.
+- @unban_sa: Reverse the <span style="color: #954B00;">**SA**</span> ban.
 - @ban_rfb: Ban the RFB, the Communist paramilitary.
 - @unban_rfb: Reverse the RFB ban.
 - @ban_sh: Ban the Stahlhelm, the Nationalist paramilitary.
@@ -49,6 +49,8 @@ The bureaucracy is deeply reactionary, and many abuse their power to favor the p
 
 @ban_sa
 view-if: nazi_urgency >= 3 and sa_banned == 0
+choose-if: not sa_ban_repealed
+unavailable-subtitle: [+ chancellor +] has threatened a Reichsexekution, if we don't follow the orders of his decree.
 on-arrival: sa_strength *= 0.9; sa_strength *= 0.75 if prussian_police_loyalty >= 0.75; sa_banned = 1; dvp_relation -= 3; prussian_police_loyalty -= 0.05; sa_militancy -= 0.05; sa_ban_timer = 6;
 
 As it turns out, the Nazi SA has many allies in the police and bureaucracy. Our relationship with the police weakens, and the SA can still organize illegally, right under the police's noses. [? if prussian_police_loyalty >= 0.7 : Nevertheless, the SA is substantially weakened by our ban. ?] 
