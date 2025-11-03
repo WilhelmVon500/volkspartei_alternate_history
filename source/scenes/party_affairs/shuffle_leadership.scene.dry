@@ -315,6 +315,16 @@ go-to: rm_main
 Colosser has been removed as an advisor. The Special Interest faction disapproves.
 
 
+@remove_drewitz
+title: Remove Drewitz
+view-if: drewitz_advisor = 1
+tags: remove_advisor
+on-arrival: drewitz_advisor = 0; special_interest_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Drewitz has been removed as an advisor. The Special Interest faction disapproves.
+
+
 ## nonfactional
 
 @remove_baade
@@ -775,7 +785,7 @@ Martin Schiele is now an advisor.
 
 @add_colosser
 title: Otto Colosser
-subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/ColosserOtto.jpg
 tags: special_interest_advisor
@@ -784,6 +794,19 @@ on-arrival: colosser_advisor = 1; n_advisors += 1; special_interest_strength += 
 go-to: advisor_menu
 
 Otto Colosser is now an advisor.
+
+
+@add_drewitz
+title: Hermann Drewitz
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/DrewitzHermann.jpg
+tags: special_interest_advisor
+view-if: drewitz_advisor = 0 and n_advisors < 4 and wp_dvp
+on-arrival: drewitz_advisor = 1; n_advisors += 1; special_interest_strength += 5
+go-to: advisor_menu
+
+Hermann Drewitz is now an advisor.
 
 
 # Nonfactional advisors
