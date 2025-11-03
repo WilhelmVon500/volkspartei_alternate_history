@@ -44,7 +44,7 @@ on-arrival: time_to_election = 3; spd_in_government = 0; in_grand_coalition = 0;
 
 Fine. If the <span style="color: #E3000F;">socialists</span> wish to blow up the government, let them do so. We have the support of Hindenburg, and they do not.
 
-[? if chancellor_party = "SPD" : Heinrich Brüning of the <span style="color: #000000;">**Center Party**</span> has been appointed Chancellor. ?] Brüning now leads an all-bourgeois cabinet, in which we have been given control of the Finance and Foreign ministries. Using the emergency powers of Article 48, Brüning and President Hindenburg have passed the welfare cuts over the objections of the Reichstag.
+Heinrich Brüning of the <span style="color: #000000;">**Center Party**</span> has been appointed Chancellor. Brüning now leads an all-bourgeois cabinet, in which we have been given control of the Finance and Foreign ministries. Using the emergency powers of Article 48, Brüning and President Hindenburg have passed the welfare cuts over the objections of the Reichstag.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
