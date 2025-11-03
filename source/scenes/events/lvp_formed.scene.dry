@@ -77,6 +77,14 @@ if (Q.reichswehr_minister_party == "DVP" || Q.reichswehr_minister_party == Q.ddp
 }
 
 
+if (Q.reichstag_president_party == "DVP" || Q.reichstag_president_party == Q.ddp_name) {
+  Q.reichstag_president_party = Q.dvp_name
+}
+if (Q.reichsbank_president_party == "DVP" || Q.reichsbank_president_party == Q.ddp_name) {
+  Q.reichsbank_president_party = Q.dvp_name
+}
+
+
 for (var state of Q.states) {
     if (Q[state + '_leader_party'] == Q.ddp_name || Q[state + '_leader_party'] == "DVP") {
         Q[state + '_leader_party'] = Q.dvp_name
