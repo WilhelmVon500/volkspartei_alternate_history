@@ -21,7 +21,7 @@ Despite some dissent from the more <span style="color: #000000;">rep</span><span
 
 @treviranus_lead
 view-if: not peoples_conservatives_dvp
-on-arrival: dnvp_leader = "Treviranus"; rural_dnvp += 3; rural_kvp -= 3; new_middle_kvp += 3; workers_kvp += 1; catholics_kvp += 3; pro_republic += 5;
+on-arrival: kvp_leader = "Treviranus"; rural_dnvp += 3; rural_kvp -= 3; new_middle_kvp += 3; workers_kvp += 1; catholics_kvp += 3; pro_republic += 5;
 face-image: img/portraits/TreviranusGottfried.jpg
 
 Gottfried Treviranus has been elected as leader of the <span style="color: #455B95;">**KVP**</span>, a member of the Young Conservative faction and is supportive of transforming the party into a democratic conservative force. The defeat of the national conservative forces within the <span style="color: #455B95;">**KVP**</span> helps pave the way for Treviranus' vision of a Christian Democratic, albeit nationalist party.
