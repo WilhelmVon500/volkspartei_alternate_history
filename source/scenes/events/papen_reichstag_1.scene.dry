@@ -1,0 +1,73 @@
+title: The Reichstag Reconvenes
+subtitle: A new President of the Reichstag must be elected.
+view-if: chancellor == "Papen" and (next_reichstag_time == rubicon_time and next_reichstag_time > 0)
+new-page: true
+tags: event
+max-visits: 1
+go-to: nsdap_lead if largest_party == "NSDAP"; spd_lead if largest_party != "NSDAP"
+
+= Reichstag Reconvenes
+
+The Reichstag has reconvened for the first time since the election, with a significantly larger contingent of <span style="color: #954B00;">**NSDAP**</span> members now present. The immediate issue at hand is the election of the President of the Reichstag. While the position has traditionally been a procedural one, it has taken on heightened importance under Papen's presidential government, given the President's authority to influence the agenda and adjourn sessions.
+
+By long-standing custom, the role is granted to the largest parliamentary delegation. That delegation is now the <span style="color: #954B00;">**NSDAP**</span>. The <span style="color: #000000;">Center Party</span> holds the balance of power. Will they uphold tradition and hand a key parliamentary post to an openly anti-constitutional party?
+
+@nsdap_lead
+on-arrival: {!
+Q.next_reichstag_time = Q.rubicon_time + 2;
+Q.next_reichstag_week = Q.week + 2;
+Q.next_reichstag_month = Q.month;
+Q.next_reichstag_year = Q.year;
+
+if (Q.next_reichstag_week > 4) {
+  Q.next_reichstag_week -= 4;
+  Q.next_reichstag_month += 1;
+}
+
+if (Q.next_reichstag_week > 4) {
+  Q.next_reichstag_week -= 4;
+  Q.next_reichstag_month += 1;
+}
+
+if (Q.next_reichstag_month > 12) {
+  Q.next_reichstag_month -= 12;
+  Q.next_reichstag_year += 1;
+}
+
+Q.pro_republic -= 3;
+Q.reichstag_president = "Göring";
+!}
+
+With negotiations between the <span style="color: #000000;">Center Party</span> and the <span style="color: #954B00;">**NSDAP**</span> underway, previously hostile relations have thawed enough for the <span style="color: #000000;">Center Party</span> to support Hermann Göring’s election as President of the Reichstag. The <span style="color: #954B00;">**NSDAP**</span> delegation’s newfound decorum convinced many that the party had turned over a new leaf.
+
+In line with a promise made to the <span style="color: #000000;">Center Party</span>, the Reichstag has adjourned for two more weeks to allow coalition talks to take place. Yet unease is growing within the <span style="color: #000000;">Center Party</span> at the possibility of a <span style="color: #954B00;">**NSDAP**</span> chancellorship, and they may soon walk away from the table.
+
+@spd_lead
+on-arrival: {!
+Q.next_reichstag_time = Q.rubicon_time + 2;
+Q.next_reichstag_week = Q.week + 2;
+Q.next_reichstag_month = Q.month;
+Q.next_reichstag_year = Q.year;
+
+if (Q.next_reichstag_week > 4) {
+  Q.next_reichstag_week -= 4;
+  Q.next_reichstag_month += 1;
+}
+
+if (Q.next_reichstag_week > 4) {
+  Q.next_reichstag_week -= 4;
+  Q.next_reichstag_month += 1;
+}
+
+if (Q.next_reichstag_month > 12) {
+  Q.next_reichstag_month -= 12;
+  Q.next_reichstag_year += 1;
+}
+
+Q.pro_republic += 3;
+Q.reichstag_president = "Löbe";
+!}
+
+In Reichstag tradition, as the <span style="color: #E3000F;">**SPD**</span> is the largest party, the <span style="color: #000000;">Center Party</span> feels bound to support them.
+
+The Reichstag agenda committee, over <span style="color: #E3000F;">**Social Democratic**</span> objections, has voted for a two-week adjournment.
