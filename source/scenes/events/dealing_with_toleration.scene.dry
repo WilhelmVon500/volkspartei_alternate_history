@@ -9,7 +9,6 @@ tags: event
 <span style="color: #E3000F;">**SPD**</span> is currently acting as external support to the government of Chancellor [+ chancellor +]. Still, they want to somehow use their position.
 
 - @social_spending
-- @new_grand_coalition
 - @refuse: We refuse their demands.
 
 
@@ -21,22 +20,6 @@ on-arrival: welfare += 1; budget -= 1; workers_spd += 5*(1-dissent); unemployed_
 
 We have increased social spending to appease the <span style="color: #E3000F;">**SPD**</span>.
 
-
-
-@new_grand_coalition
-title: Can the <span style="color: #E3000F;">**SPD**</span> join the government in a new grand coalition?
-view-if: neo_weimar_coalition >= 50
-choose-if: z_relation >= 50 and (kvp_relation >= 35 or not kvp_formed)
-subtitle: We will need 2 resources to smooth out the process of forming the coalition.
-unavailable-subtitle: [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if kvp_relation < 35 and kvp_formed: We do not have adequate relations with the KVP. ?]
-on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; spd_toleration = 0; nationalist_dissent += 7; liberal_strength += 5; democratic_strength += 5; progressive_strength += 5
-achievement: constitutional_coalition
-
-Our negotiations have succeeded, and the SPD has agreed to form a new coalition government with us!
-
-They are now part of a "constitutional coalition" government that includes all republican parties. [+ chancellor +] will remain as chancellor. Radical rightists in our party are skeptical of this arrangement.
-
-- @election_1928.ministries: Now, we must select our ministries.
 
 
 
