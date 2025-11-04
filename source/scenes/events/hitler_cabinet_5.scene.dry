@@ -1,0 +1,14 @@
+title: Oberfohren Memorandum publicized
+subtitle: Are <span style="color: #954B00;">**Nazis**</span> responsible for the Reichstag Fire?
+view-if: hitler_chancellor_time = 12 and chancellor = "Hitler" and president = "Hindenburg"
+on-arrival: new_middle_nsdap -= 5; old_middle_nsdap -= 5; new_middle_dnvp += 5 if dnvp_ideology = "Radical"; old_middle_dnvp += 5 if dnvp_ideology = "Radical"; new_middle_dnf += 5 if dnf_formed; old_middle_dnf += 5 if dnf_formed; 
+tags: event
+max-visits: 1
+new-page: true
+face-img: img/portraits/OberfohrenErnst.jpg 
+
+= Oberfohren Memorandum Publicized
+
+According to the memorandum Ernst Oberfohren, in his capacity as chairman of Reichstag delegation of the jointly governing [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span> ?][? if dnf_formed: <span style="color: #003755;">**DNF**</span> ?] had compiled irrefutable evidence, that identified the <span style="color: #954B00;">**Nazis**</span> as the true instigators of the Reichstag arson. The argument regarding the fire was that it could not have been the work of a single person (Van der Lubbe) – but a group.
+  
+> *″The agents of Herr Göring, led by the Silesian <span style="color: #954B00;">**SA**</span> leader, Reichstag-deputy Heines, entering the Reichstag through the heating-pipe passage coming from the palace of the President of the Reichstag. Every <span style="color: #954B00;">**SA**</span> and <span style="color: #954B00;">**SS**</span> leader was carefully selected and had a special station assigned to him. As soon as the outposts in the Reichstag signalled that the <span style="color: #8B0000;">**Communist**</span> deputies Torgler and Koenen had left the building, the <span style="color: #954B00;">**SA**</span> troops set to work.″*
