@@ -36,6 +36,7 @@ if (Q.next_reichstag_month > 12) {
 
 Q.pro_republic -= 3;
 Q.reichstag_president = "Göring";
+Q.reichstag_president_rubicon = 1;
 !}
 
 With negotiations between the <span style="color: #000000;">Center Party</span> and the <span style="color: #954B00;">**NSDAP**</span> underway, previously hostile relations have thawed enough for the <span style="color: #000000;">Center Party</span> to support Hermann Göring’s election as President of the Reichstag. The <span style="color: #954B00;">**NSDAP**</span> delegation’s newfound decorum convinced many that the party had turned over a new leaf.
@@ -66,6 +67,7 @@ if (Q.next_reichstag_month > 12) {
 
 Q.pro_republic += 3;
 Q.reichstag_president = "Löbe";
+Q.reichstag_president_rubicon = 1;
 !}
 
 In Reichstag tradition, as the <span style="color: #E3000F;">**SPD**</span> is the largest party, the <span style="color: #000000;">Center Party</span> feels bound to support them.
