@@ -1,0 +1,30 @@
+title: Schleicher's Betrayal
+subtitle: Wilhelm Groener, long-time Defense Minister and Brüning's strongest ally, is forced to resign...
+view-if: year == 1932 and month == 5 and sa_nationwide_ban and groener_resigns and president == "Hindenburg" and bruning_chancellor_time
+priority: 3
+tags: event
+new-page: true
+on-arrival: groener_explode = 1
+max-visits: 1
+face-image: img/portraits/GroenerWilhelm.jpg
+
+= Schleicher's Betrayal
+
+Schleicher’s unwavering belief in his "taming strategy" which involves bringing the <span style="color: #954B00;">**NSDAP**</span> into the government, led him to successfully orchestrate the removal of Wilhelm Groener as Minister of Defense for enforcing the ban on the <span style="color: #954B00;">**SA**</span>.
+
+Groener, unable to believe that Schleicher—his friend, protégé, and "adoptive son"—would betray him, became increasingly uncertain in his role, particularly in his dealings with Hindenburg and the Reichswehr leadership.
+
+Once Hindenburg was convinced that the Reichsbanner posed a greater threat than the <span style="color: #954B00;">**SA**</span>, Schleicher seized the opportunity to push for Groener’s removal. Already plagued by self-doubt, Groener delivered an embarrassingly poor speech in the Reichstag defending the ban, effectively sealing his fate. Schleicher then forced the issue by threatening to resign alongside Chief of the Army Kurt von Hammerstein if Groener remained in office. Under mounting pressure and faced with Hindenburg’s anger, Groener ultimately resigned.
+
+Seems like Schleicher is in contact with the <span style="color: #954B00;">**NSDAP**</span> and this maneuver is merely a precondition for securing their support for a new right-wing government.
+
+- @bruning_explode: The Brüning government is critically weakened and is set to become the next victim of Schleicher's schemes.
+
+@bruning_explode
+on-arrival: hindenburg_angry_bruning += 35
+
+Groener, one of Brüning’s longest-standing and most loyal allies, is now out of the equation. Brüning, deeply loyal to him, was fully prepared to resign the chancellorship if Groener was forced out of the cabinet. However, unwilling to let Brüning risk his own position on his behalf, Groener chose to step down.
+
+His resignation as Minister of Defense has dealt a severe blow to the Brüning cabinet, further diminishing its chances of surviving the deepening political crisis triggered by the fallout from the local elections. Among Hindenburg’s inner circle of advisors, no one had been more steadfast in supporting Brüning than Groener. His departure has severely weakened the chancellor’s standing with the Reich President, leaving him fully exposed to the machinations of Schleicher and his entourage.
+
+With Groener gone, Schleicher is now free from external restraints to pursue his strategy of taming the <span style="color: #954B00;">Nazis</span>, answerable only to Hindenburg. Sensing that Brüning has been fatally weakened, the <span style="color: #954B00;">Nazis</span> have intensified their attacks on his government, seeking to bring it down once and for all.
