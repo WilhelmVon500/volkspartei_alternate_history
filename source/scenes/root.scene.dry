@@ -22,7 +22,6 @@ Q.started = 1;
 Q.rubicon = 0;
 Q.rubicon_time = 0;
 Q.weeks_enabled = 0;
-Q.reichstag_rubicon = 0;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1928;
@@ -157,6 +156,8 @@ Q.hindenburg_angry_bruning = 0;
 
 
 // rubicon
+Q.no_majority_papen_elections = 0;
+Q.reichstag_rubicon = 0;
 Q.hindenburg_schleicher_r = 5;
 Q.hindenburg_papen_r = 5;
 
