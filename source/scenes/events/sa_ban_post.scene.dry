@@ -1,7 +1,7 @@
 title: Schleicher's Betrayal
 subtitle: Wilhelm Groener, long-time Defense Minister and Brüning's strongest ally, is forced to resign...
 view-if: year == 1932 and month == 5 and sa_nationwide_ban and groener_resigns and president == "Hindenburg" and bruning_chancellor_time
-priority: 6
+priority: 4
 tags: event
 new-page: true
 on-arrival: groener_explode = 1
