@@ -1,6 +1,6 @@
 title: Papen Faces a Vote of No Confidence!
 subtitle: His first test of strength before the Reichstag.
-view-if: chancellor = "Papen" and papen_chancellor_time and next_reichstag_time == rubicon_time and next_reichstag_time > 0
+view-if: chancellor = "Papen" and papen_chancellor_time and next_reichstag_time == rubicon_time and next_reichstag_time > 0 and reichstag_president_rubicon
 on-arrival: reichstag_rubicon = 1
 new-page: true
 tags: event
