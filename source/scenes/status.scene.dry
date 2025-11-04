@@ -25,7 +25,11 @@ Resources available: [+ resources +]
 
 [? if president == "Hindenburg" and not bruning_chancellor_time: Hindenburg's approval: [+ hindenburg_angry : hindenburg_angry +] ?]
 
-[? if president == "Hindenburg" and bruning_chancellor_time: Hindenburg's approval: [+ hindenburg_angry_bruning : hindenburg_angry_bruning +] ?]
+[? if president == "Hindenburg" and bruning_chancellor_time and not chancellor == "Papen" and not chancellor == "Schleicher": Hindenburg's approval: [+ hindenburg_angry_bruning : hindenburg_angry_bruning +] ?]
+
+[? if chancellor == "Papen": Hindenburg's confidence: [+ hindenburg_papen_r : confidence +]<br> ?]
+
+[? if chancellor == "Schleicher": Hindenburg's confidence: [+ hindenburg_schleicher_r : confidence +]<br> ?]
 
 [? if dvp_in_government and not in_dvp_majority: Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
