@@ -5,7 +5,7 @@ on-arrival: new_middle_nsdap -= 5; old_middle_nsdap -= 5; new_middle_dnvp += 5 i
 tags: event
 max-visits: 1
 new-page: true
-face-img: img/portraits/OberfohrenErnst.jpg 
+face-image: img/portraits/OberfohrenErnst.jpg 
 
 = Oberfohren Memorandum Publicized
 
