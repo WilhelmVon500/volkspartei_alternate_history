@@ -158,6 +158,7 @@ Q.hindenburg_angry_bruning = 0;
 // rubicon
 Q.no_majority_papen_elections = 0;
 Q.reichstag_rubicon = 0;
+Q.reichstag_president_rubicon = 0;
 Q.hindenburg_schleicher_r = 5;
 Q.hindenburg_papen_r = 5;
 
