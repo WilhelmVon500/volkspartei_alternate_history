@@ -1,0 +1,89 @@
+title: Papen Faces a Vote of No Confidence!
+subtitle: His first test of strength before the Reichstag.
+view-if: chancellor = "Papen" and papen_chancellor_time and next_reichstag_time == rubicon_time and next_reichstag_time > 0
+on-arrival: reichstag_rubicon = 1
+new-page: true
+tags: event
+max-visits: 1
+
+= Vote of No Confidence
+
+The Reichstag has reconvened after its brief adjournment, prepared to address the issue of the Papen cabinet. Von Papen has lost all hope of gaining the <span style="color: #954B00;">**NSDAP**</span>'s toleration, especially after their stubborn insistence on making [+ nsdap_leader +] chancellor. All parties, except for the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>,?][? if dvp_papen or dvp_toleration_papen: and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?] have made their opposition to Papen clear, making his dismissal nearly certain.
+
+Yet, von Papen holds a card up his sleeve. Hindenburg has already secured a decree allowing him to suspend elections beyond the constitutionally mandated 60 days. All he needs now is to present it to the Reichstag before the vote of no confidence begins.
+
+- @reichstag_1
+
+@reichstag_1
+title: The Reichstag goes into session.
+on-arrival: {!
+Q.papen_votes = 0;
+Q.anti_papen_votes = 0;
+
+if (Q.dvp_papen || Q.dvp_toleration_papen) Q.papen_votes += Q.dvp_r;
+if (Q.dnvp_ideology == "Radical") Q.papen_votes += Q.dnvp_r;
+if (Q.dnf_formed) Q.papen_votes += Q.dnf_r;
+Q.papen_votes = Math.round(Q.papen_votes * 10) / 10;
+Q.anti_papen_votes = Math.round((100 - Q.papen_votes) * 10) / 10;
+
+Q.new_middle_nsdap -= 3;
+Q.old_middle_nsdap -= 4;
+Q.rural_nsdap -= 3;
+Q.catholics_nsdap -= 5;
+Q.new_middle_dnf += 4;
+Q.old_middle_dnf += 6;
+Q.rural_dnf += 4;
+Q.catholics_dnf += 5;
+             
+if (Q.dvp_papen || Q.dvp_toleration_papen) {
+    Q.new_middle_dvp += 1;
+    Q.catholics_dvp += 1;
+}
+if (Q.dnvp_ideology == "Radical") {
+    Q.new_middle_dnvp += 7;
+    Q.old_middle_dnvp += 8;
+    Q.rural_dnvp += 4;
+    Q.catholics_dnvp += 4;
+}
+!}
+
+As expected, the <span style="color: #8B0000;">**Communists**</span> have secured unanimous approval for a change in the order of business to allow an immediate vote on a motion of no confidence against Papen, and not even the <span style="color: #3F7BC1;">**DNVP**</span> was willing to lift a finger to prevent this. 
+
+With no objection, the vote was to begin just as Chancellor von Papen has arrived inside the Reichstag to present his emergency decree to the chamber, disrupting his plans to present both decrees at once. He had placed the folder on Reichstag President [? if reichstag_president == "Göring": Hermann Göring?][? if reichstag_president == "Löbe": Paul Löbe?]'s desk, and demanded him to read it to the floor. However, [+ reichstag_president +] has trick up his sleeve: he could pretend he didn't see it and proceed with the no confidence motion anyway.
+
+In the end, Papen is defeated by a humiliating margin with [+ anti_papen_votes +]% of the Reichstag voting against him, only supported by the [? if dnvp_ideology == "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed:<span style="color: #003755;">**DNF**</span>?][? if dvp_papen or dvp_toleration_papen: and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]. They're expected to benefit from disillusioned conservative <span style="color: #954B00;">Nazi</span> voters, who had backed them under the impression they would support the Papen cabinet.
+
+- @reichstag_2
+
+@reichstag_2
+title: The Reichstag is dissolved for new elections.
+subtitle: The cabinet can still sign the decree though...
+on-arrival: {!
+Q.hindenburg_papen_r -= 1;
+Q.reichstag_rubicon = 0;
+
+Q.next_election_week = Q.week + 6;
+Q.next_election_month = Q.month;
+Q.next_election_year = Q.year;
+Q.next_election_time = Q.time;
+
+let added_months = Math.floor(Q.next_election_week / 4);
+Q.next_election_month += added_months;
+Q.next_election_time += added_months;
+Q.next_election_week = Q.next_election_week % 4;
+if (Q.next_election_week === 0) Q.next_election_week = 1;
+
+if (Q.next_election_month > 12) {
+    Q.next_election_month -= 12;
+    Q.next_election_year += 1;
+}
+!}
+
+With the vulnerability and widespread opposition to the Papen cabinet now fully exposed in parliament, Schleicher’s plan for Papen to sign the decree postponing elections indefinitely has been put on hold. The <span style="color: #000000;">**Center Party**</span> has also threatened to impeach Hindenburg should he proceed with such an action.
+
+The time is not yet right for the government to openly violate the constitution, and doing so could spark a civil war. The Reichswehr would not be able to withstand the opposition of 90% of the nation.
+
+A minor constitutional crisis erupts when Reichstag President [+ reichstag_president +] disputes the validity of Papen's dissolution decree. [+ reichstag_president +] argues that the Reichstag remains in session, contending that the decree is invalid as it was countersigned by a government that had just been overthrown by a vote of no confidence. [+ reichstag_president +] ultimately concedes the issue before the courts were to decide, and new Reichstag elections are scheduled for [+ next_election_month : month +] [+ next_election_year +], Week [+ next_election_week +].
+
+
+  
