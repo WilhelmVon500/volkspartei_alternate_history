@@ -155,6 +155,10 @@ Q.hindenburg_angry = 0;
 Q.hindenburg_angry_bruning = 0;
 
 
+// toleration
+Q.political_decree = 0;
+
+
 // rubicon
 Q.no_majority_papen_elections = 0;
 Q.reichstag_rubicon = 0;
