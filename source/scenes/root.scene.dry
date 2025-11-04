@@ -156,6 +156,12 @@ Q.hindenburg_angry = 0;
 Q.hindenburg_angry_bruning = 0;
 
 
+// rubicon
+Q.hindenburg_schleicher_r = 5;
+Q.hindenburg_papen_r = 5;
+Q.hindenburg_hitler_r = 1;
+
+
 // Does the SPD lead in Prussia?
 Q.spd_prussia = 1;
 Q.dvp_prussia = 0;
