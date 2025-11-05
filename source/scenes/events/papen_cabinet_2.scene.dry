@@ -1,0 +1,20 @@
+title: Papen's First Emergency Decree
+subtitle: A virtual abolishment of unemployment insurance!
+view-if: chancellor = "Papen" and papen_chancellor_time == 2
+new-page: true
+tags: event
+max-visits: 1
+
+= Papen's First Emergency Decree
+
+Papen has unveiled his first emergency decree—one that keeps most of Brüning’s planned austerity measures but strips away the system of peasant homesteads. Most egregiously, it subjects all recipients of unemployment insurance to a means test after just six weeks. In effect, the system has been dismantled—radicalizing the proletariat, especially toward the <span style="color: #8B0000;">**Communists**</span>.
+
+Unlike Brüning, who at least aimed to share the burdens of austerity across classes, Papen’s decree openly targets the working poor. Unsurprisingly, the gutting of the welfare state has triggered a spike in unemployment and a sharp dip in the stock market. As ever, Germany finds itself with no shortage of problems.
+
+- @signed
+
+@signed
+title: The decree is signed by President Hindenburg.
+on-arrival: unemployed += 3.5; economic_growth -= 1; inflation -= 1; budget += 1; unemployed_kpd += 4; workers_kpd += 4; workers_spd += 2; unemployed_spd += 2; workers_dvp -= 2 if dvp_papen or dvp_toleration_papen; workers_dnvp -= 2 if dnvp_ideology = "Radical"; workers_dnf -= 2 if dnf_formed; workers_nsdap -= 2; unemployed_nsdap -= 2; new_middle_nsdap -= 2; new_middle_kpd += 2; pro_republic -= 5
+
+The decree confirms the overtly anti-social character of the so-called “cabinet of barons,” and has ignited fury across the working class. With nearly two-thirds of the country now irrevocably hostile to the chancellor, it is impossible for any party outside the <span style="color: #808080;">reactionary</span> right to support him without suffering severe electoral consequences.
