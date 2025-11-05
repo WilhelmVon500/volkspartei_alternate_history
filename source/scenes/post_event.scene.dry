@@ -118,15 +118,11 @@ if (Q.rubicon && Q.month_actions >= 1 && Q.month_actions != Q.month_actions_chec
         Q.week = 1;
     }
 
-
-
     for (timer of Q.rubicon_timers) {
         if (Q[timer+'_timer'] && Q[timer+'_timer'] > 0) {
             Q[timer+'_timer'] -= 1;
         }
     }
-
-
 
     if (Q.chancellor == "Papen") {
         Q.papen_chancellor_time += 1;
@@ -142,6 +138,14 @@ if (Q.rubicon && Q.month_actions >= 1 && Q.month_actions != Q.month_actions_chec
         Q.hitler_chancellor_time += 1;
     } else {
         Q.hitler_chancellor_time = 0;
+    }
+
+
+
+    if (Q.papen_economy_time >= Q.rubicon_time) {
+        Q.unemployed -= 2/12;
+        Q.economic_growth += 2/12;
+        Q.inflation += 1/12;
     }
 
 
