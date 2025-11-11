@@ -12,7 +12,7 @@ At the Labor and Socialist International, we can forge contacts with our fratern
 
 - @fr_uk: Build relationships with the French AD and British Liberal Party to move their governments in Germany's favor.
 - @austria: Support pan-German parties in Austria.
-- @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
+- @sudetenland: Support German parties of Sudetenland.
 - @comintern: Forget the second international - embed a spy in the Comintern's conference.
 - @america: Contact the Republican party of America.
 - @return: We do not need international contacts at the moment.
@@ -66,13 +66,13 @@ WIP.
 [? if austrian_parliament_seen and not austrian_civil_war_seen: WIP. ?]
 
 
-@scandi
+@sudetenland
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
+on-arrival: sudetenland_strength += 1;
 
-The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
+We have improved relations with Sudeten-German parties, such as Christian <span style="color: #AA98A9;">**DCVP**</span>, agrarian <span style="color: #016A38;">**BdL**</span> and [? if dvp_ideology = "Left": liberal <span style="color: #23B68A;">**DDFP**</span>?][? if dvp_ideology = "Right": radical nationalist <span style="color: #964B00;">**SdP**</span>?].
 
 @comintern
 subtitle: -1 resources
