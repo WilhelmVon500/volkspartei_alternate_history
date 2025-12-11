@@ -212,7 +212,7 @@ subtitle: -2 resource - A rising star of the former <span style="color: #DCCA4A;
 unavailable-subtitle: -2 resource - Not enough resources.
 choose-if: resources >= 2
 view-if: lvp_formed or nfvp_formed
-on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Luther";
+on-departure: dvp_campaign = 1; resources -= 2; dvp_candidate = "Heuss";
 
 We will run Theodor Heuss.
 
