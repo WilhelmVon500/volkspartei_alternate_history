@@ -1,6 +1,6 @@
 title: <span style="color: #455B95;">**KVP**</span> Leadership Vote
 subtitle: The <span style="color: #455B95;">**KVP**</span> decides their fate...
-view-if: year = 1930 and month = 12
+view-if: year = 1930 and month = 12 and kvp_formed
 max-visits: 1
 tags: event
 face-image: img/portraits/WestarpKuno.jpg
