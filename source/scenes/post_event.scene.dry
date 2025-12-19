@@ -590,7 +590,7 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
             if (Q.new_middle_csvd_normalized < 7) {
                 Q.new_middle_csvd += 6/12;
             }
-            if (Q.workers_aspd_normalized < 7) {
+            if (Q.workers_aspd_normalized < 5) {
                 Q.workers_aspd += 6/12;
             }
             if (Q.unemployed_aspd_normalized < 5) {
