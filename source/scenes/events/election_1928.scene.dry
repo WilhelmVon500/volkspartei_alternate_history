@@ -1109,7 +1109,11 @@ If <span style="color: #E3000F;">**SPD**</span> does not at least "tolerate" the
 - @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning after all?
 - @right_coalition
 - @brauns_dilemma
-- @new_elections: New elections, it is!
+- @new_elections_bruning: New elections, it is!
+
+@new_elections_bruning
+on-arrival: in_bourgeois_coalition = 1; minority_government = 1;
+go-to: new_elections
 
 
 @new_elections
