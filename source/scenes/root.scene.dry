@@ -833,7 +833,8 @@ Q.timers = ['advisor_action', 'crisis_program',
             'rb_ban', 'sa_ban', 'sh_ban', 'papen_chancellor',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes'];
+            'understanding_enemy', 'schleichers_schemes',
+            'negotiation_wp'];
 Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'fundraising', 'ideology',
             'inter_party_relationships', 'international_relations',
@@ -854,7 +855,8 @@ Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'rb_ban', 'sa_ban', 'sh_ban', 'papen_chancellor',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes'];
+            'understanding_enemy', 'schleichers_schemes',
+            'negotiation_wp'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
@@ -872,6 +874,7 @@ Q.reichsbanner_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
 Q.liberal_peoples_party_timer = 0;
+Q.negotiation_wp_timer = 0;
 // n_elections is the number of elections that have happened since the start of the game.
 Q.n_elections = 0;
 // number of elections without a clear majority.
