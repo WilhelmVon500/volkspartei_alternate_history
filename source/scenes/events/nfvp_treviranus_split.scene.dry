@@ -1,0 +1,11 @@
+title: People's Conservatives Split
+new-page: true 
+subtitle: The Moderate Right's disagreements with our policies have grown too severe.
+tags: event
+view-if: peoples_conservatives_dvp and peoples_conservative_dissent >= 60
+on-arrival: peoples_conservatives_dvp = 0; peoples_conservative_strength = peoples_conservative_strength/2; old_middle_dvp -= 5; old_middle_kvp += 4; old_middle_other += 1; n_advisors -= 1 if treviranus_advisor == 1; treviranus_advisor = 0; n_advisors -= 1 if lejeune_jung_advisor == 1; lejeune_jung_advisor = 0;
+max-visits: 1
+
+= People's Conservative members split
+
+Our policy choices have greatly offended the conservatives, and many of their leaders have split to join the <span style="color: #455B95;">**KVP**</span>.
