@@ -26,6 +26,35 @@ We are pushing forward proposals for a united middle class party. We are also bu
 @convince_wp
 unavailable-subtitle: Our relations with <span style="color: #B8996F;">**WP**</span> are not good enough.
 choose-if: wp_relation >= 60
-on-arrival: special_interest_dvp = 1; wp_dvp = 1; special_interest_strength += 7; progressive_dissent += 5; industrialist_dissent += 5; spd_relation -= 5;
+on-arrival: {!
+Q.wp_exist = 0;
+Q.special_interest_dvp = 1;
+Q.wp_dvp = 1;
+
+Q.special_interest_strength += 7;
+Q.progressive_dissent += 5;
+Q.industrialist_dissent += 5;
+
+Q.spd_relation -= 5;
+
+Q.new_middle_dvp += Q.new_middle_wp;
+Q.new_middle_wp = 0;
+Q.old_middle_dvp += Q.old_middle_wp;
+Q.old_middle_wp = 0;
+
+Q.dvp_r = parseFloat((Q.dvp_r + Q.wp_r).toFixed(1));
+Q.wp_r = 0;
+
+Q.dvp_pl = parseFloat((Q.dvp_pl + Q.wp_pl).toFixed(1));
+Q.wp_pl = 0;
+Q.dvp_hb = parseFloat((Q.dvp_hb + Q.wp_hb).toFixed(1));
+Q.wp_hb = 0;
+Q.dvp_bl = parseFloat((Q.dvp_bl + Q.wp_bl).toFixed(1));
+Q.wp_bl = 0;
+Q.dvp_wl = parseFloat((Q.dvp_wl + Q.wp_wl).toFixed(1));
+Q.wp_wl = 0;
+Q.dvp_hl = parseFloat((Q.dvp_hl + Q.wp_hl).toFixed(1));
+Q.wp_hl = 0;
+!}
 
 We have convinced the <span style="color: #B8996F;">**Economic Party**</span> to merge their organizations into our party. Are we truly the Party of the Mittelstand now?
