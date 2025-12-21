@@ -32,6 +32,7 @@ Q.adjustmentFactors_aspd_bavaria = 0.5;
 Q.adjustmentFactors_kpd_bavaria = 0.3;
 Q.adjustmentFactors_ddp_bavaria = 0.5;
 Q.adjustmentFactors_dbp_bavaria = 6.5;
+Q.adjustmentFactors_csrp_bavaria = 0.0;
 Q.adjustmentFactors_z_bavaria = 2.2;
 Q.adjustmentFactors_dvp_bavaria = 0.5;
 Q.adjustmentFactors_csvd_bavaria = 0.9;
