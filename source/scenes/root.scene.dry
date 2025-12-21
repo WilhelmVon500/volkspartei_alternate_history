@@ -785,9 +785,9 @@ Q.nationalize_budget = 4;
 Q.factory_takeovers = 0;
 // progress on the moderate economic plan
 Q.moderate_plan_progress = 0;
-// European Union negotiation process
-Q.eu = 0;
-Q.eu_progress = 0;
+// Europabund negotiation process
+Q.eb = 0;
+Q.eb_progress = 0;
 // science/education
 Q.science = 0;
 Q.education_science = 0;
