@@ -476,7 +476,6 @@ There are some potential coalition arrangements.
 - @grand_coalition
 - @new_grand_coalition
 - @liberal_coalition
-- @unity_government
 - @far_right_coalition
 - @no_majority
 - @brauns_dilemma
@@ -591,7 +590,7 @@ Who should be the chancellor?
 
 - @dietrich_weimar_chancellor
 - @wels_weimar_chancellor
-- @wirth_weimar_chancellor
+- @guerard_weimar_chancellor
 
 @dietrich_weimar_chancellor
 title: Hermann Dietrich for Chancellor
@@ -613,15 +612,15 @@ go-to: ministries
 
 Otto Wels has been appointed chancellor.
 
-@wirth_weimar_chancellor
-title: Support Joseph Wirth of the Center Party for chancellorship.
+@guerard_weimar_chancellor
+title: Support Theodor Guérard of the Center Party for chancellorship.
 subtitle: This will improve our relations with the Center Party.
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; z_relation += 5
-face-image: img/portraits/WirthJoseph.jpg
+on-arrival: chancellor = "Guérard"; chancellor_party = "Z"; z_relation += 5
+face-image: img/portraits/GuérardTheodor.jpg
 go-to: ministries
 
 
-Joseph Wirth has been appointed chancellor.
+Theodor Guérard has been appointed chancellor.
 
 
 
@@ -636,7 +635,7 @@ A majority Weimar coalition is formed, with Wels as chancellor.
 title: There is no clear governing majority.
 view-if: weimar_coalition < 50 and bourgeois_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and far_right_coalition < 50
 on-arrival: no_majority_elections += 1
-go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"; no_majority_hitler if chancellor = "Hitler"
+go-to: no_majority_bruning if chancellor = "Brüning"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"; no_majority_hitler if chancellor = "Hitler"
 
 # TODO: if there is an anti-democratic coalition majority, you should appoint Papen.
 
@@ -672,7 +671,6 @@ The third option is to have new elections.
 - @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning?
 - @new_grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
-- @unity_government
 
 
 @new_grand_coalition
@@ -687,7 +685,6 @@ WIP
 - @use_resources
 - @toleration_bruning: No. Will <span style="color: #E3000F;">**SPD**</span> tolerate Brüning?
 - @new_elections: No. We will have new elections.
-- @unity_government
 
 @use_resources
 title: Use our resources to smooth over the creation of a coalition.
@@ -705,35 +702,6 @@ Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-
 Who should be chancellor?
 
 - @join_bruning: For better or for worse, it must be Heinrich Brüning of the Center.
-
-
-@unity_government
-title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #909090;">**Others**</span> ([+ neo_weimar_coalition +]%)
-view-if: z_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and z_relation >= 10
-
-The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
-
-- @unity_government_2
-- @reject_unity_government: No, we will not accept this offer.
-
-@unity_government_2
-title: Accept the offer!
-on-arrival: chancellor = "Wirth"; chancellor_party = "I"; spd_in_government = 1; in_grand_coalition = 1; in_unity_government = 1; leverage = 15; z_relation += 5; spd_relation += 4
-achievement: constitutional_coalition
-go-to: ministries
-
-We have formed a new unity government of all the constitutional parties! We have a limited choice in ministries for this government.
-
-
-@reject_unity_government
-on-arrival: z_relation -= 8; ddp_relation -= 5; spd_relation -= 5
-
-Our rejection of the unity government has hurt our relations with the bourgeois and center-right parties.
-
-- @brauns_dilemma
-- @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> tolerate a minority government led by Brüning?
-- @new_elections: There will be new elections.
 
 
 
@@ -906,7 +874,6 @@ Yes, an emergency minority government, with the support of the <span style="colo
 
 - @wels_emergency_chancellor: Otto Wels!
 - @bruning_emergency_chancellor: Brüning of the Center Party, as a goodwill gesture toward the bourgeoisie.
-- @wirth_emergency_chancellor: Joseph Wirth of the Center Party, as a gesture of republican unity.
 
 @wels_emergency_chancellor
 on-arrival: chancellor = "Wels"; chancellor_party = "SPD"; spd_in_government = 1; pro_republic -= 5; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD";
@@ -921,15 +888,6 @@ Otto Wels was appointed chancellor.
 on-arrival: chancellor = "Brüning"; chancellor_party = "Z"; spd_in_government = 1; z_relation += 10; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD" 
 
 The Center Party is pleased, and somewhat surprised, that we have appointed [+ chancellor +] as chancellor.
-
-- @far_right_coup
-- @emergency_no_confidence
-
-@wirth_emergency_chancellor
-view-if: z_leader == "Joos"
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; spd_in_government = 1; z_relation += 10; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD" 
-
-The Center Party is pleased that we have appointed [+ chancellor +] as chancellor.
 
 - @far_right_coup
 - @emergency_no_confidence
@@ -1089,11 +1047,10 @@ Brüning is not opposed to a coalition with <span style="color: #E3000F;">**SPD*
 - @join_bruning: <span style="color: #E3000F;">**SPD**</span> joins the Brüning coalition.
 - @bruning_oppo: They join the opposition.
 - @toleration_bruning: Will <span style="color: #E3000F;">**SPD**</span> "tolerate" a minority Brüning government?
-- @unity_government
 
 @join_bruning
 view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
-on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister = "Wirth"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Wissel"; labor_minister_party = "SPD"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Wirth"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Dietrich" if ddp_exist; agriculture_minister_party = ddp_name if ddp_exist; leverage = 15 if leverage >= 15;
+on-arrival: spd_in_government = 1; dvp_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister = "Wirth"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Wissel"; labor_minister_party = "SPD"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Dietrich" if ddp_exist; agriculture_minister_party = ddp_name if ddp_exist; leverage = 15 if leverage >= 15;
 go-to: ministries
 
 Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of ministries.
@@ -1181,7 +1138,7 @@ The people's faith in democracy is shaken by this ordeal. Of course, the Nazis a
 @toleration_bruning
 choose-if: neo_weimar_coalition >= 50
 unavailable-subtitle: Parties supporting Brüning do not have a majority.
-on-arrival: spd_in_government = 0; dvp_in_government = 1; spd_toleration = 1; in_bourgeois_coalition = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister = "Brüning"; foreign_minister_party = "Z"; interior_minister = "Wirth"; interior_minister_party = "Z"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Bredt" if wp_exist and not wp_defect; justice_minister_party = "WP" if wp_exist and not wp_defect; labor_minister = "Stegerwald"; labor_minister_party = "Z"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Warmbold"; economic_minister_party = "I"; economic_minister = "Dietrich" if ddp_exist; economic_minister_party = ddp_name if ddp_exist; finance_minister = "Wirth"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Schiele" if not cnblp_dvp; agriculture_minister_party = "CNBLP" if cnblp_exist; agriculture_minister_party = "KVP" if cnblp_kvp; agriculture_minister_party = "DNVP" if cnblp_dnvp; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
+on-arrival: spd_in_government = 0; dvp_in_government = 1; spd_toleration = 1; in_bourgeois_coalition = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister = "Brüning"; foreign_minister_party = "Z"; interior_minister = "Wirth"; interior_minister_party = "Z"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Bredt" if wp_exist and not wp_defect; justice_minister_party = "WP" if wp_exist and not wp_defect; labor_minister = "Stegerwald"; labor_minister_party = "Z"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Warmbold"; economic_minister_party = "I"; economic_minister = "Dietrich" if ddp_exist; economic_minister_party = ddp_name if ddp_exist; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Schiele" if not cnblp_dvp; agriculture_minister_party = "CNBLP" if cnblp_exist; agriculture_minister_party = "KVP" if cnblp_kvp; agriculture_minister_party = "DNVP" if cnblp_dnvp; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
 go-to: ministries
 
 The <span style="color: #E3000F;">**SPD**</span> has decided to tolerate Brüning's government. This means that they will vote against no-confidence votes to make sure they fail, but also that they will not be directly participating as ministers in the government. Thus, we can prevent a new election and stop the far right from entering government.
@@ -1195,7 +1152,6 @@ Unfortunately, the <span style="color: #E3000F;">**SPD**</span> is unwilling to 
 - @brauns_dilemma
 - @right_coalition_2: Perhaps a right-wing coalition may form.
 - @beg_spd: Perhaps we could ask the <span style="color: #E3000F;">**SPD**</span> to change their minds?
-- @unity_government
 - @coalition_menu: What are the other governing arrangements?
 
 @grand_coalition_fail_hindenburg
@@ -1245,7 +1201,7 @@ As expected, the <span style="color: #E3000F;">**SPD**</span> is too set in thei
 
 
 @grand_coalition_spd_lead
-on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20; foreign_minister = "Wirth"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Wissel"; labor_minister_party = "SPD"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Wirth"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Dietrich" if ddp_exist; agriculture_minister_party = ddp_name if ddp_exist;
+on-arrival: spd_in_government = 1; dvp_in_government = 1; in_grand_coalition = 1; leverage -= 5 if spd_relation < 20; foreign_minister = "Wirth"; foreign_minister_party = "Z"; interior_minister = "Severing"; interior_minister_party = "SPD"; justice_minister = "Guérard"; justice_minister_party = "Z"; justice_minister = "Koch-Weser" if ddp_exist; justice_minister_party = ddp_name if ddp_exist; labor_minister = "Wissel"; labor_minister_party = "SPD"; reichswehr_minister = "Groener"; reichswehr_minister_party = "I"; economic_minister = "Schmidt"; economic_minister_party = "SPD"; finance_minister = "Köhler"; finance_minister_party = "Z"; agriculture_minister = "Hermes"; agriculture_minister_party = "Z"; agriculture_minister = "Dietrich" if ddp_exist; agriculture_minister_party = ddp_name if ddp_exist;
 
 As expected, the <span style="color: #E3000F;">**SPD**</span> is the largest party, and this time, they are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked the <span style="color: #E3000F;">**SPD**</span> to form a majority coalition with the <span style="color: #000000;">**Center Party**</span>, <span style="color: #69A2BE;">**BVP**</span>[? if ddp_exist: , <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?], and <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
@@ -1660,7 +1616,7 @@ go-to: ministries
 @drop_foreign
 title: Drop the Foreign Ministry.
 view-if: foreign_minister_party = dvp_name
-on-arrival: foreign_minister_party = "Z"; foreign_minister = "Wirth"; leverage += 5; foreign_minister_party = ddp_name if in_liberal_coalition; foreign_minister = "Solf" if in_liberal_coalition
+on-arrival: foreign_minister_party = "Z"; foreign_minister = "Brüning"; leverage += 5; foreign_minister_party = ddp_name if in_liberal_coalition; foreign_minister = "Solf" if in_liberal_coalition
 tags: drop_mins_1928
 go-to: ministries
 
