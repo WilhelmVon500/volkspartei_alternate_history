@@ -209,7 +209,7 @@ Results:
 <span style="color: #8B0000;">**Thälmann**</span> - [+ thalmann_votes_disp +]%
 
 @no_majority_round1
-on-arrival: presidential_election_r2_trigger = 1; nsdap_candidate = "Hindenburg" if ((braun_plurality or eckener_plurality or thalmann_plurality) and reactionary_candidate = "Hindenburg"); braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if (dnvp_candidate = "Duesterberg" or dnf_candidate = "Duesterberg"); dnvp_candidate = nsdap_candidate if dnvp_candidate = "Duesterberg"; dnf_candidate = nsdap_candidate if dnf_candidate = "Duesterberg"; braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = reactionary_candidate if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = reactionary_candidate if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); z_candidate = reactionary_candidate if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
+on-arrival: presidential_election_r2_trigger = 1; nsdap_candidate = "Hindenburg" if ((braun_plurality or eckener_plurality or thalmann_plurality) and reactionary_candidate = "Hindenburg"); braun_r1 = 1 if braun_campaign; eckener_r1 = 1 if eckener_campaign; duesterberg_r1 = 1 if (dnvp_candidate = "Duesterberg" or dnf_candidate = "Duesterberg"); dnvp_candidate = nsdap_candidate if dnvp_candidate = "Duesterberg"; dnf_candidate = nsdap_candidate if dnf_candidate = "Duesterberg"; braun_campaign = 0 if (hitler_plurality or harzburg_plurality); spd_candidate = reactionary_candidate if (braun_campaign = 0 and spd_candidate = "Braun" and not eckener_campaign); spd_candidate = "Eckener" if (braun_campaign = 0 and spd_candidate = "Braun" and eckener_campaign); ddp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); ddp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); dbp_candidate = reactionary_candidate if (braun_campaign = 0 and dbp_candidate = "Braun" and not eckener_campaign); dbp_candidate = "Eckener" if (braun_campaign = 0 and dbp_candidate = "Braun" and eckener_campaign); csrp_candidate = reactionary_candidate if (braun_campaign = 0 and ddp_candidate = "Braun" and not eckener_campaign); csrp_candidate = "Eckener" if (braun_campaign = 0 and ddp_candidate = "Braun" and eckener_campaign); z_candidate = reactionary_candidate if (braun_campaign = 0 and z_candidate = "Braun" and not eckener_campaign); z_candidate = "Eckener" if (braun_campaign = 0 and z_candidate = "Braun" and eckener_campaign);
 go-to: round2_menu
 
 There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
@@ -318,7 +318,7 @@ go-to: r2_spd_failed_eckener if spd_relation < 40; r2_spd_success_eckener if spd
 max-visits: 1
 
 @r2_spd_success_eckener
-on-arrival: spd_candidate = "Eckener"; braun_campaign = 0; z_candidate = "Eckener" if z_candidate = "Braun"; dbp_candidate = "Eckener" if dbp_candidate = "Braun"; ddp_candidate = "Eckener" if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
+on-arrival: spd_candidate = "Eckener"; braun_campaign = 0; z_candidate = "Eckener" if z_candidate = "Braun"; csrp_candidate = "Eckener" if csrp_candidate = "Braun"; dbp_candidate = "Eckener" if dbp_candidate = "Braun"; ddp_candidate = "Eckener" if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
 go-to: round2_menu
 
 The SPD are convinced! They will be part of the Eckener coalition.
@@ -578,7 +578,7 @@ go-to: r2_spd_failed_reactionary if spd_relation < 45; r2_spd_success_reactionar
 max-visits: 1
 
 @r2_spd_success_reactionary
-on-arrival: spd_candidate = reactionary_candidate; braun_campaign = 0; z_candidate = reactionary_candidate if z_candidate = "Braun"; dbp_candidate = reactionary_candidate if dbp_candidate = "Braun"; ddp_candidate = reactionary_candidate if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
+on-arrival: spd_candidate = reactionary_candidate; braun_campaign = 0; z_candidate = reactionary_candidate if z_candidate = "Braun"; csrp_candidate = reactionary_candidate if csrp_candidate = "Braun"; dbp_candidate = reactionary_candidate if dbp_candidate = "Braun"; ddp_candidate = reactionary_candidate if ddp_candidate = "Braun"; braun_votes = 0; spd_relation += 3
 go-to: round2_menu
 
 The SPD are convinced! They will be part of the [+reactionary_candidate+] coalition.
