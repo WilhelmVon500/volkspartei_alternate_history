@@ -246,6 +246,10 @@ Current relations: [+ spd_relation : relationships +]
 
 [? if dbp_exist: Current relations: [+ dbp_relation : relationships +] ?]
 
+[? if csrp_exist: <span style="color: #FF6B21;">**CSRP**</span> - <span style="color: #FE9E00;"><i>Christlich-Soziale Reichspartei</i></span> (Christian Social Reich Party) - WIP ?]
+
+[? if csrp_exist: Current relations: [+ csrp_relation : relationships +] ?]
+
 <span style="color: #000000;">**Z**</span> - <span style="color: #000000;">*Zentrumspartei*</span> (Center Party) - a centrist to center-right Catholic party that supports the Republic. They have often been in coalitions with us. They are often associated with the <span style="color: #69A2BE;">**BVP**</span> (Bavarian People's Party), which represents Catholics in Bavaria.
 
 Current relations: [+ z_relation : relationships +]
@@ -546,8 +550,8 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'kpd': '#8B0000', 'spd': '#E3000F', 'aspd': '#FE9E00', 'ddp': '#DCCA4A', 'dbp': '#38C538', 'z': '#000', 'dvp': Q.dvp_color, 'lvp': '#FFA500', 'csvd': '#8ED8E4', 'kvp': '#455B95', 'wp': '#B8996F', 'cnblp': '#7FCEB1', 'dnvp': '#3f7bc1', 'dnf': '#003755', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'kpd': 'KPD', 'spd': 'SPD', 'aspd': 'ASPD', 'ddp': Q.ddp_name, 'dbp': 'DBP', 'z': 'Z + BVP', 'dvp': Q.dvp_name, 'kvp': 'KVP', 'csvd': 'CSVD', 'wp': 'WP', 'cnblp': 'CNBLP', 'dnvp': 'DNVP', 'dnf': 'DNF', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'kpd': '#8B0000', 'spd': '#E3000F', 'aspd': '#FE9E00', 'ddp': '#DCCA4A', 'dbp': '#38C538', 'csrp': '#FF6B21', 'z': '#000', 'dvp': Q.dvp_color, 'lvp': '#FFA500', 'csvd': '#8ED8E4', 'kvp': '#455B95', 'wp': '#B8996F', 'cnblp': '#7FCEB1', 'dnvp': '#3f7bc1', 'dnf': '#003755', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'kpd': 'KPD', 'spd': 'SPD', 'aspd': 'ASPD', 'ddp': Q.ddp_name, 'dbp': 'DBP', 'csrp': 'CSRP', 'z': 'Z + BVP', 'dvp': Q.dvp_name, 'kvp': 'KVP', 'csvd': 'CSVD', 'wp': 'WP', 'cnblp': 'CNBLP', 'dnvp': 'DNVP', 'dnf': 'DNF', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
     if (Q.election_records.length > 0) {
@@ -559,8 +563,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'kpd': '#8B0000', 'spd': '#E3000F', 'aspd': '#FE9E00', 'ddp': '#DCCA4A', 'dbp': '#38C538', 'z': '#000', 'dvp': Q.dvp_color, 'lvp': '#FFA500', 'csvd': '#8ED8E4', 'kvp': '#455B95', 'wp': '#B8996F', 'cnblp': '#7FCEB1', 'dnvp': '#3f7bc1', 'dnf': '#003755', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'kpd': 'KPD', 'spd': 'SPD', 'aspd': 'ASPD', 'ddp': Q.ddp_name, 'dbp': 'DBP', 'z': 'Z + BVP', 'dvp': Q.dvp_name, 'kvp': 'KVP', 'csvd': 'CSVD', 'wp': 'WP', 'cnblp': 'CNBLP', 'dnvp': 'DNVP', 'dnf': 'DNF', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'kpd': '#8B0000', 'spd': '#E3000F', 'aspd': '#FE9E00', 'ddp': '#DCCA4A', 'dbp': '#38C538', 'csrp': '#FF6B21', 'z': '#000', 'dvp': Q.dvp_color, 'lvp': '#FFA500', 'csvd': '#8ED8E4', 'kvp': '#455B95', 'wp': '#B8996F', 'cnblp': '#7FCEB1', 'dnvp': '#3f7bc1', 'dnf': '#003755', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'kpd': 'KPD', 'spd': 'SPD', 'aspd': 'ASPD', 'ddp': Q.ddp_name, 'dbp': 'DBP', 'csrp': 'CSRP', 'z': 'Z + BVP', 'dvp': Q.dvp_name, 'kvp': 'KVP', 'csvd': 'CSVD', 'wp': 'WP', 'cnblp': 'CNBLP', 'dnvp': 'DNVP', 'dnf': 'DNF', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
