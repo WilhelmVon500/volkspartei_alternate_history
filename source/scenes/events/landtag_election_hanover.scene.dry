@@ -32,6 +32,7 @@ Q.adjustmentFactors_aspd_hanover = 0.8;
 Q.adjustmentFactors_kpd_hanover = 0.7;
 Q.adjustmentFactors_ddp_hanover = 0.8;
 Q.adjustmentFactors_dbp_hanover = 0.0;
+Q.adjustmentFactors_csrp_hanover = 0.0;
 Q.adjustmentFactors_z_hanover = 1.6;
 Q.adjustmentFactors_dvp_hanover = 1.0;
 Q.adjustmentFactors_csvd_hanover = 1.0;
