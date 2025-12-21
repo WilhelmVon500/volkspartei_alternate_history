@@ -1,0 +1,34 @@
+title: Negotiations with the DBP
+new-page: true
+is-card: true
+card-image: img/bauernbund.jpg
+view-if: dbp_exist and (nfvp_formed or lvp_formed) and negotiation_dbp_timer = 0
+on-arrival: negotiation_dbp_timer = 6
+tags: party_affairs
+
+= Negotiations with the <span style="color: #38C538;">**DBP**</span>
+
+WIP
+
+- @build_support: We must build more support for this merger.
+- @dbp_agricultural_finance: Agricultural Financing
+- @convince_dbp: We can convince the <span style="color: #38C538;">**DBP**</span> to join our ranks!
+- @root: Perhaps we can discuss this at a later time.
+- @easy_discard
+- @cancel_advisor_action
+
+
+@build_support
+on-arrival: dbp_relation += 3; nationalist_dissent += 5; industrialist_dissent += 3;
+
+We are pushing forward proposals for a merger of liberal peasant organizations into our party.
+
+@dbp_agricultural_finance
+subtitle: -1 budget - Increase financing for agricultural credit and insurance.
+unavailable-subtitle: [? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?][? if agriculture_minister_party = dvp_name and budget < 1: -1 budget - We do not have the necessary budget. ?]
+choose-if: agriculture_minister_party = dvp_name and budget >= 1
+go-to: agricultural_policy.agricultural_finance
+
+@convince_dbp
+unavailable-subtitle: [? if dbp_relation < 60: Our relations with <span style="color: #38C538;">**DBP**</span> are not good enough. ?][? if agricultural_finance < 2: We have not done enough agricultural policies for <span style="color: #38C538;">**DBP**</span> to merge with us. ?]
+choose-if: dbp_relation >= 60 and agricultural_finance >= 2
