@@ -99,6 +99,9 @@ if (Q.eckener_campaign) {
     if (Q.dbp_candidate == "Eckener" && Q.dbp_exist) {
         Q.eckener_votes += Q.dbp_normalized;
     }
+    if (Q.csrp_candidate == "Eckener" && Q.csrp_exist) {
+        Q.eckener_votes += Q.csrp_normalized;
+    }
     if (Q.z_candidate == "Eckener") {
         Q.eckener_votes += (Q.z_normalized - Q.bvp_votes);
     }
@@ -130,6 +133,9 @@ if (Q.braun_campaign) {
     Q.braun_votes += Q.spd_normalized;
     if (Q.z_candidate == "Braun") {
         Q.braun_votes += (Q.z_normalized - Q.bvp_votes);
+    }
+    if (Q.csrp_candidate == "Braun") {
+        Q.braun_votes += (Q.csrp_normalized);
     }
     if (Q.ddp_candidate == "Braun" && Q.ddp_exist) {
         Q.braun_votes += Q.ddp_normalized;
@@ -225,6 +231,7 @@ There is no majority in this round. In the second round, any candidate who wins 
 - @round2_convince_dbp_reactionary: Convince the DBP to switch their support to us.
 - @round2_convince_spd_reactionary: Convince the SPD to switch their support to us.
 - @round2_convince_z_eckener: Convince the Center to switch their support to us.
+- @round2_convince_csrp_eckener: Convince the CSRP to switch their support to us.
 - @round2_convince_ddp_eckener: Convince the [+ ddp_name +] to switch their support to us.
 - @round2_convince_dbp_eckener: Convince the DBP to switch their support to us.
 - @round2_convince_spd_eckener: Convince the SPD to switch their support to us.
@@ -343,6 +350,26 @@ on-arrival: z_relation -= 3
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from [+z_candidate+].
+
+
+@round2_convince_csrp_eckener
+view-if: csrp_candidate != dvp_candidate and dvp_candidate = "Eckener" and csrp_exist
+go-to: r2_csrp_failed_eckener if csrp_relation < 45; r2_csrp_success_eckener if csrp_relation >= 45
+max-visits: 1
+
+@r2_csrp_success_eckener
+on-arrival: nsdap_candidate = "Hindenburg" if eckener_votes + csrp_normalized > hitler_votes and reactionary_candidate = "Hindenburg"; csrp_candidate = "Eckener"; eckener_votes += csrp_normalized; csrp_relation += 3
+go-to: round2_menu
+
+The CSRP are convinced! They will be part of the Eckener coalition.
+
+[? if not nsdap_candidate = "Hindenburg" and eckener_votes + csrp_normalized > hitler_votes and reactionary_candidate = "Hindenburg": With the CSRP supporting Eckener, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a republican from becoming president. ?]
+
+@r2_csrp_failed_eckener
+on-arrival: csrp_relation -= 3
+go-to: round2_menu
+
+Unfortunately, we fail to turn them away from [+csrp_candidate+].
 
 
 
