@@ -5,14 +5,13 @@ tags: party_affairs
 view-if: party_organizations_timer <= 0
 on-arrival: month_actions += 1; party_organizations_timer = 6;
 card-image: img/Mann_der_Arbeit.jpg
-#subtitle: Outside of electoral politics, the SPD runs a social world onto itself.
 
 = Party Organizations
 
-In addition to being a political party, the SPD is a social world onto itself, with a vast array of associated organizations which serve the social needs of their members from cradle to grave.
+WIP
 
 - @newspapers: Fund more newspapers and journalists.
-- @welfare: Fund more mutual aid and welfare programs.
+- @dhv: Strengthen our influence in the DHV.
 - @liberal_association: Fund the Liberal Association, interparty organization calling for liberal unity.
 - @youth: Support the youth organizations.
 - @nothing: Do not increase funding for any program.
@@ -28,13 +27,13 @@ go-to: media
 # TODO: differing outcomes based on whether you've seen media, and what kind of media you've supported.
 
 
-@welfare
+@dhv
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; workers_aid += 1; unemployed_dvp += 3*(1 - dissent);
+on-arrival: resources -= 1; unions += 1; workers_dvp += 2*(1 - dissent); new_middle_dvp += 1*(1 - dissent); labor_strength += 5; progressive_strength += 3;
 
-We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : In an age of economic crisis, this will be helpful for improving our standing among the unemployed. ?]
+We have increased our influence in the DHV.
 
 @liberal_association
 choose-if: resources > 0
