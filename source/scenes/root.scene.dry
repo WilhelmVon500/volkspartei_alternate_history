@@ -181,10 +181,11 @@ Q.next_election_month_prussia = 5;
 
 
 // old landtag seats PRUSSIA
+Q.kpd_pl = 9.8;
 Q.spd_pl = 25.3;
 Q.aspd_pl = 0.0;
-Q.kpd_pl = 9.8;
 Q.z_pl = 18.0;
+Q.csrp_pl = 0.0;
 Q.dbp_pl = 0.0;
 Q.ddp_pl = 6.0;
 Q.dvp_pl = 10.0;
@@ -198,10 +199,11 @@ Q.nsdap_pl = 2.5;
 Q.other_pl = 1.7;
 
 // old election votes PRUSSIA
+Q.old_kpd_votes_prussia = 9.6;
 Q.old_spd_votes_prussia = 24.9;
 Q.old_aspd_votes_prussia = 0.0;
-Q.old_kpd_votes_prussia = 9.6;
 Q.old_z_votes_prussia = 17.6;
+Q.old_csrp_votes_prussia = 0.0;
 Q.old_dbp_votes_prussia = 0.0;
 Q.old_ddp_votes_prussia = 5.9;
 Q.old_dvp_votes_prussia = 9.8;
@@ -271,6 +273,7 @@ Q.spd_bl = 17.8;
 Q.aspd_bl = 0.0;
 Q.kpd_bl = 7.0;
 Q.z_bl = 36.5;
+Q.csrp_bl = 0.0;
 Q.dbp_bl = 7.8;
 Q.ddp_bl = 2.3;
 Q.dvp_bl = 0.0;
@@ -287,6 +290,7 @@ Q.old_spd_votes_bavaria = 17.2;
 Q.old_aspd_votes_bavaria = 0.0;
 Q.old_kpd_votes_bavaria = 8.3;
 Q.old_z_votes_bavaria = 34.0;
+Q.old_csrp_votes_bavaria = 0.0;
 Q.old_dbp_votes_bavaria = 7.1;
 Q.old_ddp_votes_bavaria = 3.2;
 Q.old_dvp_votes_bavaria = 0.0;
@@ -312,6 +316,7 @@ Q.spd_wl = 16.3;
 Q.aspd_wl = 0.0;
 Q.kpd_wl = 12.5;
 Q.z_wl = 21.3;
+Q.csrp_wl = 0.0;
 Q.dbp_wl = 0.0;
 Q.ddp_wl = 11.2;
 Q.dvp_wl = 3.7;
@@ -328,6 +333,7 @@ Q.old_spd_votes_wurttemberg = 16.0;
 Q.old_aspd_votes_wurttemberg = 0.0;
 Q.old_kpd_votes_wurttemberg = 11.7;
 Q.old_z_votes_wurttemberg = 20.9;
+Q.old_csrp_votes_wurttemberg = 0.0;
 Q.old_dbp_votes_wurttemberg = 0.0;
 Q.old_ddp_votes_wurttemberg = 10.6;
 Q.old_dvp_votes_wurttemberg = 4.6;
@@ -495,6 +501,7 @@ Q.dnf_formed = 0;
 
 Q.aspd_exist = 0
 Q.dbp_exist = 1
+Q.csrp_exist = 0
 Q.wp_exist = 1
 Q.cnblp_exist = 1
 Q.csvd_exist = 0
