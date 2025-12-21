@@ -20,8 +20,8 @@ What should our foreign policy priority be?
 - @negotiate
 - @reduce_reparations
 - @expose
-- @european_union
-- @european_union_2
+- @europabund
+- @europabund_2
 - @concordat_negotiate
 - @concordat
 - @support_austria
@@ -46,7 +46,7 @@ We also aim to improve relations with our eastern neighbors, Poland and Czechosl
 @customs_union
 title: Form a customs union with Austria?
 subtitle: This will likely incur the wrath of France.
-unavailable-subtitle: This is superseded by the European Union.
+unavailable-subtitle: This is superseded by the Europabund.
 choose-if: eu = 0
 view-if: black_thursday_seen = 1 and customs_union = 0
 
@@ -129,25 +129,25 @@ on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; center_dissent 
 
 In public, we provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Privately, we provide financial and various forms of "support" to our comrades in Austria in their struggle against dictatorship.
 
-@european_union
-title: Take steps to form a "European Union".
+@europabund
+title: Take steps to form a "Europabund".
 subtitle: Is a "United States of Europe" possible?
 unavailable-subtitle: [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
-view-if: reparations <= -2 and eu_progress < 2
+view-if: reparations <= -2 and eb_progress < 2
 choose-if: west_relation >= 5 and east_relation >= 4
-on-arrival: eu_progress += 1; west_relation += 1
+on-arrival: eb_progress += 1; west_relation += 1
 
-Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
+Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "Europabund", however.
 
 
-@european_union_2
-title: We can sign a treaty to form a European Union!
-view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2
+@europabund_2
+title: We can sign a treaty to form a Europabund!
+view-if: west_relation >= 5 and east_relation >= 4 and eb_progress >= 2
 on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_dvp += 2*(1-dissent); new_middle_dvp += 7*(1-dissent); old_middle_dvp += 7*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 4*(1-dissent); unemployed_dvp += 2*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
 max-visits: 1
 achievement: eu
 
-Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a European Union! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
+Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a Europabund! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
 
 A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment.
 
