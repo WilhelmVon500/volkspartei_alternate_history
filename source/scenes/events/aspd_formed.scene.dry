@@ -16,6 +16,11 @@ Q.workers_other = 0;
 Q.unemployed_aspd = Q.unemployed_other;
 Q.unemployed_other = 0;
 
+Q.new_middle_aspd = 0;
+Q.old_middle_aspd = 0;
+Q.rural_aspd = 0;
+Q.catholics_aspd = 0;
+
 
 if (Q.dvp_ideology == "Right") {
     Q.aspd_relation = 25
