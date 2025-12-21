@@ -1,0 +1,33 @@
+on-arrival: {!
+// set up the infrastructure
+Q.csrp_exist = 1;
+Q.parties.push('csrp');
+  
+
+Q.catholics_csrp = Q.catholics_other;
+Q.catholics_other = 0;
+Q.catholics_csrp += 5;
+Q.catholics_z -= 5;
+
+Q.workers_csrp = 2;
+Q.workers_z -= 2;
+
+
+} else if (Q.dvp_ideology == "Left") {
+    Q.csrp_relation = 45
+} else if (Q.dvp_ideology == "Right") {
+    Q.csrp_relation = 15
+}
+
+
+
+// update all records
+Q.csrp_r = 0;
+Q.old_csrp_r = 0;
+for (var record of Q.election_records) {
+    record['csrp'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['csrp'] = 0;
+}
+!}
