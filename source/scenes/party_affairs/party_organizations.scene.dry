@@ -49,7 +49,7 @@ We have supported the Liberal Association, strengthening the movement for a unit
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; young_liberals += 1; liberal_strength += 5; democratic_strength += 5
+on-arrival: resources -= 1; youth += 1; liberal_strength += 5; democratic_strength += 5
 
 WIP.
 
