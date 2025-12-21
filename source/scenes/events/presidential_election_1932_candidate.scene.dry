@@ -21,6 +21,7 @@ Q.spd_candidate = Q.reactionary_candidate;
 Q.dvp_candidate = Q.reactionary_candidate;
 Q.z_candidate = Q.reactionary_candidate;
 Q.bvp_candidate = Q.reactionary_candidate;
+Q.csrp_candidate = Q.reactionary_candidate;
 Q.ddp_candidate = Q.reactionary_candidate;
 Q.dbp_candidate = Q.reactionary_candidate;
 Q.csvd_candidate = Q.reactionary_candidate;
@@ -40,6 +41,7 @@ Q.kpd_candidate = "Thälmann";
 if (Q.nsdap_votes < 20) {
   Q.braun_campaign = 1;
   Q.spd_candidate = "Braun";
+  Q.csrp_candidate = "Braun";
   Q.ddp_candidate = "Braun";
   if (Q.z_leader == "Joos") {
     Q.z_candidate = "Braun";
@@ -170,6 +172,8 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if dbp_candidate = reactionary_candidate and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = reactionary_candidate and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = reactionary_candidate: - <span style="color: #000000;">**Z**</span> ?]
 
 [? if bvp_candidate = reactionary_candidate: - <span style="color: #69A2BE;">**BVP**</span> ?]
@@ -196,6 +200,8 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 
 [? if dbp_candidate = "Eckener" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = "Eckener" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Eckener": - <span style="color: #000000;">**Z**</span> ?]
 
 [? if bvp_candidate = "Eckener": - <span style="color: #69A2BE;">**BVP**</span> ?]
@@ -219,6 +225,8 @@ go-to: endorsements_reactionary if dvp_candidate = reactionary_candidate; endors
 [? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
 [? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if csrp_candidate = "Braun" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
 
 [? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
@@ -256,6 +264,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 - @convince_ddp_reactionary: Convince the [+ ddp_name +] to back [+reactionary_candidate+].
 - @convince_dbp_reactionary: Convince the DBP to back [+reactionary_candidate+].
 - @convince_spd_reactionary: Convince the SPD to back [+reactionary_candidate+].
+- @convince_csrp_reactionary: Convince the CSRP to back [+reactionary_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
@@ -299,6 +308,26 @@ go-to: endorsements_reactionary
 Unfortunately, the DBP has refused to support [+reactionary_candidate+] for the presidency.
 
 
+@convince_csrp_reactionary
+view-if: csrp_exist and csrp_candidate != reactionary_candidate
+go-to: convince_csrp_success_reactionary if csrp_relation >= 45; convince_csrp_fail_reactionary if csrp_relation < 45
+max-visits: 1
+
+We try to convince the CSRP to support [+reactionary_candidate+].
+
+@convince_csrp_success_reactionary
+on-arrival: csrp_relation += 3; csrp_candidate = reactionary_candidate; braun_votes -= csrp_normalized if csrp_candidate = "Braun"
+go-to: endorsements_reactionary
+
+Thanks to our friendly relations, the CSRP is now campaigning for [+reactionary_candidate+] in the election.
+
+@convince_csrp_fail_reactionary
+on-arrival: csrp_relation -= 3
+go-to: endorsements_reactionary
+
+Unfortunately, the CSRP has refused to support [+reactionary_candidate+] for the presidency.
+
+
 @convince_ddp_reactionary
 view-if: ddp_exist and ddp_candidate != reactionary_candidate
 go-to: convince_ddp_success_reactionary if ddp_relation >= 40 and ddp_name = "DDP"; convince_ddp_fail_reactionary if ddp_relation < 40
@@ -328,7 +357,7 @@ max-visits: 1
 We remind the SPD leaders that, despite his known reactionary nature, [+reactionary_candidate+] has at least been keeping the Nazis at bay.
 
 @convince_spd_success_reactionary
-on-arrival: spd_relation += 3; spd_candidate = reactionary_candidate; braun_campaign = 0 if braun_campaign
+on-arrival: spd_relation += 3; spd_candidate = reactionary_candidate; braun_campaign = 0 if braun_campaign; ddp_candidate = reactionary_candidate if ddp_candidate = "Braun"; dbp_candidate = reactionary_candidate if dbp_candidate = "Braun"; csrp_candidate = reactionary_candidate if csrp_candidate = "Braun"; z_candidate = reactionary_candidate if z_candidate = "Braun"
 go-to: endorsements_reactionary
 
 The SPD is convinced! They will be part of the [+reactionary_candidate+] coalition.
@@ -365,6 +394,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 - @convince_dbp_eckener: Convince the DBP to back Eckener.
 - @convince_spd_eckener: Convince the SPD to back Eckener.
 - @convince_csvd_eckener: Convince the CSVD to back Eckener.
+- @convince_csrp_eckener: Convince the CSRP to back Eckener.
 - @convince_wp_eckener: Convince the WP to back Eckener.
 - @convince_cnblp_eckener: Convince the CNBLP to back Eckener.
 - @convince_kvp_eckener: Convince the KVP to back Eckener.
@@ -410,6 +440,26 @@ on-arrival: dbp_relation -= 3
 go-to: endorsements_eckener
 
 Unfortunately, the DBP has refused to support Eckener for the presidency.
+
+
+@convince_csrp_eckener
+view-if: csrp_exist and csrp_candidate != "Eckener"
+go-to: convince_csrp_success_eckener if csrp_relation >= 40; convince_csrp_fail_eckener if csrp_relation < 40
+max-visits: 1
+
+We try to convince the CSRP to support Eckener.
+
+@convince_csrp_success_eckener
+on-arrival: csrp_relation += 3; csrp_candidate = "Eckener"; braun_votes -= csrp_normalized if csrp_candidate = "Braun"
+go-to: endorsements_eckener
+
+Thanks to our friendly relations, the CSRP is now campaigning for Eckener in the election.
+
+@convince_csrp_fail_eckener
+on-arrival: csrp_relation -= 3
+go-to: endorsements_eckener
+
+Unfortunately, the CSRP has refused to support Eckener for the presidency.
 
 
 @convince_ddp_eckener
