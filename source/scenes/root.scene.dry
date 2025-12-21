@@ -540,6 +540,16 @@ Q.old_csvd_r = 0;
 Q.csvd_votes = 0;
 Q.old_csvd_votes = 0;
 
+Q.csrp_r = 0;
+Q.old_csrp_r = 0;
+Q.csrp_votes = 0;
+Q.old_csrp_votes = 0;
+
+Q.aspd_r = 0;
+Q.old_aspd_r = 0;
+Q.aspd_votes = 0;
+Q.old_aspd_votes = 0;
+
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
