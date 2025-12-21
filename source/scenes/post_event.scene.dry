@@ -578,6 +578,13 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
                 Q.catholics_z += 6/12;
             }
 
+            if (Q.workers_csrp_normalized < 2) {
+                Q.workers_csrp += 4/12;
+            }
+            if (Q.catholics_csrp_normalized < 7) {
+                Q.catholics_csrp += 5/12;
+            }
+
             if (Q.rural_cnblp_normalized < 17) {
                 Q.rural_cnblp += 6/12;
             }
