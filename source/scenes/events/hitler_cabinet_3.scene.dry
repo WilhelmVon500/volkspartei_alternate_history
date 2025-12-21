@@ -91,6 +91,14 @@ if (Q.lvp_formed && Q.dvp_r) {
         "seats": Math.round(Q.dvp_r*Q.reichstag_size),
     });
 }
+if (Q.csrp_exist && Q.csrp_r) {
+    data.push({
+        "id": "csrp",
+        "legend": "CSRP",
+        "name": "CSRP",
+        "seats": Math.round(Q.csrp_r*Q.reichstag_size),
+    });
+}
 if (Q.z_r) {
     data.push({
         "id": "z",
@@ -226,6 +234,8 @@ if (window && d3) {
 [? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td></tr>!} ?]
 
 [? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_r +]% {!</td></tr>!} ?]
+
+[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_r +]% {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td></tr>!}
 
