@@ -53,6 +53,9 @@ if (Q.ddp_candidate == Q.reactionary_candidate && Q.ddp_exist) {
 if (Q.dbp_candidate == Q.reactionary_candidate && Q.dbp_exist) {
     Q.reactionary_votes += Q.dbp_normalized;
 }
+if (Q.csrp_candidate == Q.reactionary_candidate && Q.csrp_exist) {
+    Q.reactionary_votes += Q.csrp_normalized;
+}
 if (Q.z_candidate == Q.reactionary_candidate) {
     Q.reactionary_votes += (Q.z_normalized - Q.bvp_votes);
 }
@@ -98,6 +101,9 @@ if (Q.eckener_campaign) {
     if (Q.dbp_candidate == "Eckener" && Q.dbp_exist) {
         Q.eckener_votes += Q.dbp_normalized;
     }
+    if (Q.csrp_candidate == "Eckener" && Q.csrp_exist) {
+        Q.eckener_votes += Q.csrp_normalized;
+    }
     if (Q.z_candidate == "Eckener") {
         Q.eckener_votes += (Q.z_normalized - Q.bvp_votes);
     }
@@ -135,6 +141,9 @@ if (Q.braun_campaign) {
     }
     if (Q.dbp_candidate == "Braun" && Q.dbp_exist) {
         Q.braun_votes += Q.dbp_normalized;
+    }
+    if (Q.csrp_candidate == "Braun" && Q.csrp_exist) {
+        Q.braun_votes += Q.csrp_normalized;
     }
     if (Q.dvp_candidate == "Braun") {
         Q.braun_votes += Q.dvp_normalized;
