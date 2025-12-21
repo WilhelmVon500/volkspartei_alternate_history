@@ -99,6 +99,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if (dbp_candidate = "Eckener" or dbp_candidate = "Luther" or (dbp_candidate = "Heuss" and not heuss_campaign) or dbp_candidate = "Hellpach" or dbp_candidate = "Jarres") and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if (csrp_candidate = "Eckener" or csrp_candidate = "Luther" or (csrp_candidate = "Heuss" and not heuss_campaign) or csrp_candidate = "Hellpach" or csrp_candidate = "Jarres") and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Eckener" or z_candidate = "Luther" or (z_candidate = "Heuss" and not heuss_campaign) or z_candidate = "Hellpach" or z_candidate = "Jarres": - <span style="color: #000000;">**Z**</span> ?]
 
 [? if bvp_candidate = "Eckener" or bvp_candidate = "Luther" or (bvp_candidate = "Heuss" and not heuss_campaign) or bvp_candidate = "Hellpach" or bvp_candidate = "Jarres": - <span style="color: #69A2BE;">**BVP**</span> ?]
@@ -125,6 +127,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dbp_candidate = "Adenauer" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = "Adenauer" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Adenauer": - <span style="color: #000000;">**Z**</span> ?]
 
 [? if bvp_candidate = "Adenauer": - <span style="color: #69A2BE;">**BVP**</span> ?]
@@ -141,6 +145,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if dbp_candidate = "Heuss" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = "Heuss" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Heuss": - <span style="color: #000000;">**Z**</span> ?]
 
 [? if bvp_candidate = "Heuss": - <span style="color: #69A2BE;">**BVP**</span> ?]
@@ -154,6 +160,8 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 [? if ddp_candidate = "Braun" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
 [? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+
+[? if csrp_candidate = "Braun" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
 
 [? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
@@ -238,6 +246,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 - @convince_spd_dvp: Convince the <span style="color: #E3000F;">**SPD**</span> to back [+dvp_candidate+].
 - @convince_ddp_dvp: Convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to back [+dvp_candidate+].
 - @convince_dbp_dvp: Convince the <span style="color: #38C538;">**DBP**</span> to back [+dvp_candidate+].
+- @convince_csrp_dvp: Convince the <span style="color: #FF6B21;">**CSRP**</span> to back [+dvp_candidate+].
 - @convince_z_dvp: Convince the <span style="color: #000000;">**Center Party**</span> to back [+dvp_candidate+].
 - @convince_bvp_dvp: Convince the <span style="color: #69A2BE;">**BVP**</span> to back [+dvp_candidate+].
 - @convince_csvd_dvp: Convince the <span style="color: #8ED8E4;">**CSVD**</span> to back [+dvp_candidate+].
@@ -256,7 +265,7 @@ max-visits: 1
 We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+dvp_candidate+].
 
 @convince_spd_success_dvp
-on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0; ddp_candidate = "Adenauer" if ddp_candidate = "Braun" and adenauer_campaign; ddp_candidate = dvp_candidate if ddp_candidate = "Braun";
+on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0; ddp_candidate = "Adenauer" if ddp_candidate = "Braun" and adenauer_campaign; ddp_candidate = dvp_candidate if ddp_candidate = "Braun"; csrp_candidate = "Adenauer" if csrp_candidate = "Braun" and adenauer_campaign; csrp_candidate = dvp_candidate if csrp_candidate = "Braun";
 go-to: endorsements_dvp
 
 Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+dvp_candidate+] in the election.
@@ -306,6 +315,26 @@ on-arrival: dbp_relation -= 3
 go-to: endorsements_dvp
 
 Unfortunately, the <span style="color: #38C538;">**DBP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_csrp_dvp
+view-if: csrp_candidate != dvp_candidate and csrp_exist
+go-to: convince_csrp_success_dvp if csrp_relation >= 50 and not dvp_candidate = "Jarres"; convince_csrp_fail_dvp if not csrp_relation >= 50 or dvp_candidate = "Jarres"
+max-visits: 1
+
+We try to convince the <span style="color: #FF6B21;">**CSRP**</span> to support [+dvp_candidate+].
+
+@convince_csrp_success_dvp
+on-arrival: csrp_candidate = dvp_candidate;
+go-to: endorsements_dvp
+
+Thanks to our friendly relations, the <span style="color: #FF6B21;">**CSRP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_csrp_fail_dvp
+on-arrival: csrp_relation -= 3
+go-to: endorsements_dvp
+
+Unfortunately, the <span style="color: #FF6B21;">**CSRP**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 @convince_z_dvp
@@ -392,6 +421,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 
 - @convince_spd_z: Convince the <span style="color: #E3000F;">**SPD**</span> to back [+dvp_candidate+].
 - @convince_ddp_z: Convince the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> to back [+dvp_candidate+].
+- @convince_csrp_z: Convince the <span style="color: #FF6B21;">**CSRP**</span> to back [+dvp_candidate+].
 - @view_candidates: View party endorsements.
 - @hope: We have concluded negotiations with other parties.
 
@@ -404,7 +434,7 @@ max-visits: 1
 We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+dvp_candidate+].
 
 @convince_spd_success_z
-on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0;
+on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0; ddp_candidate = dvp_candidate if ddp_candidate = "Braun"; csrp_candidate = "Heuss" if csrp_candidate = "Braun" and heuss_campaign; csrp_candidate = dvp_candidate if csrp_candidate = "Braun"
 go-to: endorsements_adenauer
 
 Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+dvp_candidate+] in the election.
@@ -434,6 +464,25 @@ go-to: endorsements_adenauer
 Unfortunately, the <span style="color: #DCCA4A;">**[+ddp_name+]**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
+@convince_csrp_z
+view-if: csrp_candidate != dvp_candidate
+go-to: convince_csrp_success_z if csrp_relation >= 50; convince_csrp_fail_z if csrp_relation < 50
+max-visits: 1
+
+We try to convince the <span style="color: #FF6B21;">**CSRP**</span> to support [+dvp_candidate+].
+
+@convince_csrp_success_z
+on-arrival: csrp_candidate = dvp_candidate;
+go-to: endorsements_adenauer
+
+Thanks to our friendly relations, the <span style="color: #FF6B21;">**CSRP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_csrp_fail_z
+go-to: endorsements_adenauer
+
+Unfortunately, the <span style="color: #FF6B21;">**CSRP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
 
 
 
@@ -459,6 +508,7 @@ We can try to convince parties supporting other candidates to switch their suppo
 
 - @convince_spd_ddp: Convince the <span style="color: #E3000F;">**SPD**</span> to back [+dvp_candidate+].
 - @convince_dbp_ddp: Convince the <span style="color: #38C538;">**DBP**</span> to back [+dvp_candidate+].
+- @convince_csrp_ddp: Convince the <span style="color: #FF6B21;">**CSRP**</span> to back [+dvp_candidate+].
 - @convince_z_ddp: Convince the <span style="color: #000000;">**Center Party**</span> to back [+dvp_candidate+].
 - @convince_bvp_ddp: Convince the <span style="color: #69A2BE;">**BVP**</span> to back [+dvp_candidate+].
 - @view_candidates: View party endorsements.
@@ -473,7 +523,7 @@ max-visits: 1
 We try to convince the <span style="color: #E3000F;">**SPD**</span> to support [+dvp_candidate+].
 
 @convince_spd_success_ddp
-on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0;
+on-arrival: spd_candidate = dvp_candidate; braun_campaign = 0; csrp_candidate = dvp_candidate
 go-to: endorsements_heuss
 
 Thanks to our friendly relations, the <span style="color: #E3000F;">**SPD**</span> is now campaigning for [+dvp_candidate+] in the election.
@@ -501,6 +551,25 @@ Thanks to our friendly relations, the <span style="color: #38C538;">**DBP**</spa
 go-to: endorsements_heuss
 
 Unfortunately, the <span style="color: #38C538;">**DBP**</span> has refused to support [+dvp_candidate+] for the presidency.
+
+
+@convince_csrp_ddp
+view-if: csrp_candidate != dvp_candidate
+go-to: convince_csrp_success_ddp if csrp_relation >= 45; convince_csrp_fail_ddp if not csrp_relation >= 45
+max-visits: 1
+
+We try to convince the <span style="color: #FF6B21;">**CSRP**</span> to support [+dvp_candidate+].
+
+@convince_csrp_success_ddp
+on-arrival: csrp_candidate = dvp_candidate;
+go-to: endorsements_heuss
+
+Thanks to our friendly relations, the <span style="color: #FF6B21;">**CSRP**</span> is now campaigning for [+dvp_candidate+] in the election.
+
+@convince_csrp_fail_ddp
+go-to: endorsements_heuss
+
+Unfortunately, the <span style="color: #FF6B21;">**CSRP**</span> has refused to support [+dvp_candidate+] for the presidency.
 
 
 @convince_z_ddp
