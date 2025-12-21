@@ -246,7 +246,7 @@ Current relations: [+ spd_relation : relationships +]
 
 [? if dbp_exist: Current relations: [+ dbp_relation : relationships +] ?]
 
-[? if csrp_exist: <span style="color: #FF6B21;">**CSRP**</span> - <span style="color: #FE9E00;"><i>Christlich-Soziale Reichspartei</i></span> (Christian Social Reich Party) - WIP ?]
+[? if csrp_exist: <span style="color: #FF6B21;">**CSRP**</span> - <span style="color: #FF6B21;"><i>Christlich-Soziale Reichspartei</i></span> (Christian Social Reich Party) - WIP ?]
 
 [? if csrp_exist: Current relations: [+ csrp_relation : relationships +] ?]
 
