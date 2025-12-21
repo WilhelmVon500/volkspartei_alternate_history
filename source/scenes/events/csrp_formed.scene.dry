@@ -13,7 +13,7 @@ Q.workers_csrp = 2;
 Q.workers_z -= 2;
 
 
-} else if (Q.dvp_ideology == "Left") {
+if (Q.dvp_ideology == "Left") {
     Q.csrp_relation = 45
 } else if (Q.dvp_ideology == "Right") {
     Q.csrp_relation = 15
