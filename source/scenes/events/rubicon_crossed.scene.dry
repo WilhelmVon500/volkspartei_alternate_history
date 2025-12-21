@@ -1,6 +1,6 @@
 title: The Rubicon is Crossed
 subtitle: The fate of Germany rests in President Hindenburg.
-view-if: chancellor = "Papen" and president == "Hindenburg" and papen_chancellor_time = 1
+view-if: wip and chancellor = "Papen" and president == "Hindenburg" and papen_chancellor_time = 1
 priority: 5
 new-page: true
 tags: event
