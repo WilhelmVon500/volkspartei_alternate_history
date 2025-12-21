@@ -9,7 +9,7 @@ card-image: img/weimar_coalition_2.jpg
 
 = Inter-Party Relationships
 
-The <span style="color: #C0A054;">**DVP**</span> cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the Bourgeois Coalitions of the <span style="color: #C0A054;">**DVP**</span>, Center, BVP, and Democratic parties. We can reach out and build additional connections with these parties, or perhaps we can stand alone.
+The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the Bourgeois Coalitions of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, Center, BVP, and Democratic parties. We can reach out and build additional connections with these parties, or perhaps we can stand alone.
 
 - @ddp: Strengthen our bonds with the left-liberal German Democratic Party
 - @center: Strengthen our bonds with the Catholic Center Party.
