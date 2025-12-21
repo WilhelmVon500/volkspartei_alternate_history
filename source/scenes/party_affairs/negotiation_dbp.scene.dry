@@ -32,3 +32,25 @@ go-to: agricultural_policy.agricultural_finance
 @convince_dbp
 unavailable-subtitle: [? if dbp_relation < 60: Our relations with <span style="color: #38C538;">**DBP**</span> are not good enough. ?][? if agricultural_finance < 2: We have not done enough agricultural policies for <span style="color: #38C538;">**DBP**</span> to merge with us. ?]
 choose-if: dbp_relation >= 60 and agricultural_finance >= 2
+on-arrival: {!
+Q.dbp_exist = 0;
+Q.special_interest_dvp = 1;
+Q.dbp_dvp = 1;
+
+Q.special_interest_strength += 5;
+Q.nationalist_dissent += 15;
+Q.industrialist_dissent += 5;
+
+Q.rural_dvp += Q.rural_dbp;
+Q.rural_dbp = 0;
+Q.catholics_dvp += Q.catholics_dbp;
+Q.catholics_dbp = 0;
+
+Q.dvp_r = parseFloat((Q.dvp_r + Q.dbp_r).toFixed(1));
+Q.dbp_r = 0;
+
+Q.dvp_pl = parseFloat((Q.dvp_pl + Q.dbp_pl).toFixed(1));
+Q.dbp_pl = 0;
+Q.dvp_bl = parseFloat((Q.dvp_bl + Q.dbp_bl).toFixed(1));
+Q.dbp_bl = 0;
+!}
