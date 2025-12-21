@@ -9,6 +9,7 @@ tags: event
 = <span style="color: #B8996F;">**WP**</span> Split
 
 WIP
+
 - @colosser_stays: The conflict has been resolved.
 - @colosser_wp_dvp: Colosser and his faction joins <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 - @colosser_wp_ddp: Colosser and his faction joins <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
