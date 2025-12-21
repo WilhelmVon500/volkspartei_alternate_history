@@ -32,6 +32,7 @@ Q.adjustmentFactors_aspd_hamburg = 1.05;
 Q.adjustmentFactors_kpd_hamburg = 1.35;
 Q.adjustmentFactors_ddp_hamburg = 2.0;
 Q.adjustmentFactors_dbp_hamburg = 0.0;
+Q.adjustmentFactors_csrp_hamburg = 0.0;
 Q.adjustmentFactors_z_hamburg = 0.15;
 Q.adjustmentFactors_dvp_hamburg = 1.2;
 Q.adjustmentFactors_csvd_hamburg = 1.0;
