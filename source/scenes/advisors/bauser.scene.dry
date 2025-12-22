@@ -1,0 +1,12 @@
+title: Adolf Bauser
+is-pinned-card: true
+tags: advisor, special_interest
+card-image: img/portraits/BauserAdolf.jpg
+view-if: bauser_advisor = 1
+new-page: true 
+
+= Adolf Bauser
+
+WIP
+
+- @root: Return to main
