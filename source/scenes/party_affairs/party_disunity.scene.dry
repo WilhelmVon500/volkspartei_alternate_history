@@ -17,7 +17,7 @@ The party is being torn apart by internal dissent. Upset at the leadership and g
 [? if industrialist_dissent > 30 : The industrialists are displeased with the direction of our party. ?]
 [? if labor_dissent > 30 : The trade unions disagree with our present course of action. ?]
 [? if nationalist_dissent > 30: Nationalists are making noises about another party split. ?]
-[? if neorevisionist_dissent > 30 and neorevisionism = 1 : Neorevisionists are in disagreement about our political direction. ?]
+[? if special_interest_dissent > 30 and special_interest_dvp: Special interest groups are in disagreement about our political direction. ?]
 
 Something must be done to reinforce party unity.
 
@@ -29,6 +29,7 @@ Something must be done to reinforce party unity.
 - @concessions_peoples_conservatives
 - @concessions_industrialist
 - @concessions_nationalist
+- @concessions_special_interest
 - @do_nothing
 
 
@@ -90,6 +91,13 @@ view-if: nationalist_dissent > 30
 on-arrival: nationalist_dissent -= 7; liberal_dissent += 5
 
 We have promised that we will listen to the nationalist wing of the party. Of course, this leads to increased dissent from the liberals.
+
+@concessions_special_interest
+title: Give concessions to the special interest groups.
+view-if: special_interest_dissent > 30 and special_interest_dvp = 1
+on-arrival: special_interest_dissent -= 7
+
+The Special interest groups will be granted more influence in party decision making.
 
 
 @do_nothing
