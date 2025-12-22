@@ -2,8 +2,8 @@ title: Bourgeois Parliamentary Group
 new-page: true
 is-card: true
 card-image: img/reichstag_1.jpg
-view-if: bourgeois_parliament and negotiation_bourgeois_parliament_timer = 0
-on-arrival: negotiation_bourgeois_parliament_timer = 12
+view-if: bourgeois_parliament and bourgeois_parliament_timer = 0
+on-arrival: bourgeois_parliament_timer = 12
 tags: parliamentary_affairs
 
 = Bourgeois Parliamentary Group
