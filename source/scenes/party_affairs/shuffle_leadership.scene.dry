@@ -325,6 +325,16 @@ go-to: rm_main
 Drewitz has been removed as an advisor. The Special Interest faction disapproves.
 
 
+@remove_bauser
+title: Remove Bauser
+view-if: bauser_advisor = 1
+tags: remove_advisor
+on-arrival: bauser_advisor = 0; special_interest_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Bauser has been removed as an advisor. The Special Interest faction disapproves.
+
+
 ## nonfactional
 
 @remove_baade
@@ -807,6 +817,19 @@ on-arrival: drewitz_advisor = 1; n_advisors += 1; special_interest_strength += 5
 go-to: advisor_menu
 
 Hermann Drewitz is now an advisor.
+
+
+@add_bauser
+title: Adolf Bauser
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/BauserAdolf.jpg
+tags: special_interest_advisor
+view-if: bauser_advisor = 0 and n_advisors < 4 and vrp_dvp
+on-arrival: bauser_advisor = 1; n_advisors += 1; special_interest_strength += 5
+go-to: advisor_menu
+
+Adolf Bauser is now an advisor.
 
 
 # Nonfactional advisors
