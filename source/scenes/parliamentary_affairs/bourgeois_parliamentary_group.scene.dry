@@ -17,7 +17,7 @@ WIP
 
 
 @improve_relations
-on-arrival: kvp_relation += 3 if kvp_formed; dnvp_relation += 3 if dnvp_ideology = "Moderate"; wp_relation += 3 if wp_ideology = "Moderate"; ddp_relation += 3; ddp_right += 1; dbp_relation += 3; cnblp_relation += 3; csvd_relation += 3;
+on-arrival: kvp_relation += 3 if kvp_formed; dnvp_relation += 3 if dnvp_ideology = "Moderate"; wp_relation += 3 if bourgeois_parliament_wp; ddp_relation += 3 if bourgeois_parliament_ddp; ddp_right += 1 if bourgeois_parliament_ddp; dbp_relation += 3; cnblp_relation += 3; csvd_relation += 3;
 
 We are improving relations with fellow bourgeois parties.
 
