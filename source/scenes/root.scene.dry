@@ -521,6 +521,9 @@ Q.ddp_ideology = "Moderate"
 Q.wp_ideology = "Moderate"
 
 
+Q.bourgeois_parliament = 0
+
+
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;
