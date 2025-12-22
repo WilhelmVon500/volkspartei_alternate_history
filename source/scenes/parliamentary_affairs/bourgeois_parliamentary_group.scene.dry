@@ -24,8 +24,8 @@ We are improving relations with fellow bourgeois parties.
 
 @raise_civil_servant_wages
 subtitle: -1 budget.
-unavailable-subtitle: -1 budget. We do not have the necessary budget.
-choose-if: budget >= 1
+unavailable-subtitle: -1 budget. [? if budget < 1: We do not have the necessary budget. ?][? if finance_minister_party != dvp_name: We do not control the Finance Ministry. ?]
+choose-if: budget >= 1 and finance_minister_party = dvp_name
 on-arrival: budget -= 1; kvp_relation += 5 if kvp_formed; dnvp_relation += 5 if dnvp_ideology = "Moderate"; spd_relation -= 3; labor_dissent += 5; progressive_dissent += 5;
 
 We have raised wages for civil servants, improving our relations with the [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span>?].
