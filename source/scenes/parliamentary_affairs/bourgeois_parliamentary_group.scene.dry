@@ -1,0 +1,31 @@
+title: Bourgeois Parliamentary Group
+new-page: true
+is-card: true
+card-image: img/reichstag_1.jpg
+view-if: bourgeois_parliament and negotiation_bourgeois_parliament_timer = 0
+on-arrival: negotiation_bourgeois_parliament_timer = 12
+tags: parliamentary_affairs
+
+= Bourgeois Parliamentary Group
+
+WIP
+
+- @improve_relations: Improve relations with the party of the Group.
+- @raise_civil_servant_wages: Raise wages for civil servants.
+- @root: Perhaps we can discuss this at a later time.
+- @easy_discard
+
+
+@improve_relations
+on-arrival: kvp_relation += 3 if kvp_formed; dnvp_relation += 3 if dnvp_ideology = "Moderate"; wp_relation += 3 if wp_ideology = "Moderate"; ddp_relation += 3; ddp_right += 1; dbp_relation += 3; cnblp_relation += 3; csvd_relation += 3;
+
+We are improving relations with fellow bourgeois parties.
+
+
+@raise_civil_servant_wages
+subtitle: -1 budget.
+unavailable-subtitle: -1 budget. We do not have the necessary budget.
+choose-if: budget >= 1
+on-arrival: budget -= 1; kvp_relation += 5 if kvp_formed; dnvp_relation += 5 if dnvp_ideology = "Moderate"; spd_relation -= 3; labor_dissent += 5; progressive_dissent += 5;
+
+We have raised wages for civil servants, improving our relations with the [? if dnvp_ideology = "Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?][? if kvp_formed: <span style="color: #455B95;">**KVP**</span>?].
