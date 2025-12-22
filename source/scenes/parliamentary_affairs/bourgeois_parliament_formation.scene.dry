@@ -2,8 +2,8 @@ title: Bourgeois Parliamentary Group?
 new-page: true
 is-card: true
 card-image: img/reichstag_1.jpg
-view-if: not bourgeois_parliament and negotiation_bourgeois_parliament_formation_timer = 0 and year >= 1929
-on-arrival: negotiation_bourgeois_parliament_formation_timer = 3
+view-if: not bourgeois_parliament and bourgeois_parliament_formation_timer = 0 and year >= 1929
+on-arrival: bourgeois_parliament_formation_timer = 3
 tags: parliamentary_affairs
 
 = Bourgeois Parliamentary Group?
