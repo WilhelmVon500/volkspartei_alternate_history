@@ -2,7 +2,7 @@ title: Negotiations with the WP
 new-page: true
 is-card: true
 card-image: img/wp.jpg
-view-if: wp_exist and nfvp_formed and negotiation_wp_timer = 0 and wp_ideology = "Moderate"
+view-if: wp_exist and negotiation_wp_timer = 0
 on-arrival: negotiation_wp_timer = 6
 tags: parliamentary_affairs
 
@@ -10,21 +10,23 @@ tags: parliamentary_affairs
 
 WIP
 
-- @build_support: We must build more support for this merger.
-- @convince_wp: We can convince the <span style="color: #B8996F;">**WP**</span> to join our ranks!
+- @build_support_nfvp: We must build more support for this merger.
+- @convince_wp_nfvp: We can convince the <span style="color: #B8996F;">**WP**</span> to join our ranks!
 - @root: Perhaps we can discuss this at a later time.
 - @easy_discard
 - @cancel_advisor_action
 
 
-@build_support
+@build_support_nfvp
+view-if: nfvp_formed and wp_ideology = "Moderate"
 on-arrival: wp_relation += 5; progressive_dissent += 3; industrialist_dissent += 3;
 
 We are pushing forward proposals for a united middle class party. We are also building ties with <span style="color: #B8996F;">**WP**</span>-affiliated organizations.
 
   
-@convince_wp
+@convince_wp_nfvp
 unavailable-subtitle: Our relations with <span style="color: #B8996F;">**WP**</span> are not good enough.
+view-if: nfvp_formed and wp_ideology = "Moderate"
 choose-if: wp_relation >= 60
 on-arrival: {!
 Q.wp_exist = 0;
