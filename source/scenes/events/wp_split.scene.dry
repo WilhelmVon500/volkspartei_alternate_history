@@ -23,11 +23,17 @@ Otto Colosser and the rebellious district organizations are drawn back into the 
 @colosser_wp_dvp
 view-if: (dvp_ideology = "Right") and not ddp_exist
 on-arrival: wp_ideology = "Radical"; wp_split_seen = 1; old_middle_wp -= 3; new_middle_wp -= 2; new_middle_dvp += 2; old_middle_dvp += 3; special_interest_strength += 2; colosser_dvp = 1; wp_relation -= 10 if dvp_ideology = "Left"; wp_relation += 3 if dvp_ideology = "Right"; special_interest_dvp = 1;
+on-departure: bourgeois_parliament_wp = 0;
 
 Otto Colosser brings his faction into <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
+
+[? if bourgeois_parliament_wp: The <span style="color: #B8996F;">**Economic Party**</span> has left our bourgeois group in parliament. ?]
 
 @colosser_wp_ddp
 view-if: (dvp_ideology = "Right") and ddp_exist
 on-arrival: wp_ideology = "Radical"; wp_split_seen = 1; old_middle_wp -= 3; new_middle_wp -= 2; new_middle_ddp += 2; old_middle_dvp += 3; wp_relation -= 10 if dvp_ideology = "Left"; wp_relation += 3 if dvp_ideology = "Right";
+on-departure: bourgeois_parliament_wp = 0;
 
 Otto Colosser brings his faction into <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
+
+[? if bourgeois_parliament_wp: The <span style="color: #B8996F;">**Economic Party**</span> has left our bourgeois group in parliament. ?]
