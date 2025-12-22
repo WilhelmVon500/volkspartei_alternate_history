@@ -178,7 +178,7 @@ The <span style="color: #0075EB;">**VRP**</span> has decided to unite with the <
 
 @vrp_kvp
 unavailable-subtitle: The <span style="color: #0075EB;">**VRP**</span> is not interested in uniting with them.
-choose-if: not ddp_exist and dvp_ideology = "Right"
+choose-if: not ddp_exist
 on-departure: {!
     Q.vrp_exist = 0;
   
