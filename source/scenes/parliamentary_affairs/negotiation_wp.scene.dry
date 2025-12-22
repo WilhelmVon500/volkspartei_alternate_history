@@ -4,7 +4,7 @@ is-card: true
 card-image: img/wp.jpg
 view-if: wp_exist and nfvp_formed and negotiation_wp_timer = 0 and wp_ideology = "Moderate"
 on-arrival: negotiation_wp_timer = 6
-tags: party_affairs
+tags: parliamentary_affairs
 
 = Negotiations with the <span style="color: #B8996F;">**WP**</span>
 
