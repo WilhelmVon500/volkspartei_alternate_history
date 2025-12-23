@@ -1,0 +1,26 @@
+title: Negotiations with the SPD
+new-page: true
+is-card: true
+card-image: img/spd.jpg
+view-if: negotiation_spd_timer = 0
+on-arrival: negotiation_spd_timer = 12
+tags: parliamentary_affairs
+
+= Negotiations with the <span style="color: #E3000F;">**SPD**</span>
+
+WIP
+
+- @cut_poor_spd: Cut consumption taxes for the poor.
+- @root: Perhaps we can discuss this at a later time.
+- @easy_discard
+
+
+
+@cut_poor_spd
+subtitle: -2 budget
+unavailable-subtitle: -2 budget - [? if finance_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Finance Ministry ?][? if lower_tax_rates < -5: Tax rates are already too low. ?]
+choose-if: finance_minister_party = dvp_name and budget >= 2 and lower_tax_rates >= -5
+on-arrival: spd_relation += 5
+go-to: fiscal_policy.cut_poor
+
+WIP
