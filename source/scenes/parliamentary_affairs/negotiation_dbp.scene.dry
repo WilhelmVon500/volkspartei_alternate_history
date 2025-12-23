@@ -1,10 +1,6 @@
-title: Negotiations with the DBP
-new-page: true
-is-card: true
-card-image: img/bauernbund.jpg
-view-if: dbp_exist and negotiation_dbp_timer = 0
-on-arrival: negotiation_dbp_timer = 12
-tags: parliamentary_affairs
+title: Negotiations with the <span style="color: #38C538;">**DBP**</span>
+face-image: img/bauernbund.jpg
+view-if: dbp_exist
 
 = Negotiations with the <span style="color: #38C538;">**DBP**</span>
 
