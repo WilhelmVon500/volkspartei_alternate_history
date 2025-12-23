@@ -25,6 +25,8 @@ choose-if: finance_minister_party = dvp_name and budget >= 2 and upper_tax_rates
 on-arrival: wp_relation += 5
 go-to: fiscal_policy.cut_rich
 
+WIP
+
 
 @build_support_nfvp
 view-if: nfvp_formed and wp_ideology = "Moderate"
