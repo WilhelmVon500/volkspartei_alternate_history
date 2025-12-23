@@ -10,8 +10,12 @@ WIP
 - @dbp_agricultural_finance: Agricultural Financing
 - @build_support: We must build more support for this merger.
 - @convince_dbp: We can convince the <span style="color: #38C538;">**DBP**</span> to join our ranks!
-- @root: Perhaps we can discuss this at a later time.
-- @easy_discard
+- @go_to_negotiation_others: Actually, we want to negotiate with some other party.
+
+
+@go_to_negotiation_others
+on-arrival: negotiation_others_timer = 0
+go-to: negotiation_others
 
 
 @build_support
@@ -19,6 +23,7 @@ view-if: nfvp_formed or lvp_formed
 on-arrival: dbp_relation += 3; nationalist_dissent += 5; industrialist_dissent += 3;
 
 We are pushing forward proposals for a merger of liberal peasant organizations into our party.
+
 
 @dbp_agricultural_finance
 subtitle: -1 budget - Increase financing for agricultural credit and insurance.
