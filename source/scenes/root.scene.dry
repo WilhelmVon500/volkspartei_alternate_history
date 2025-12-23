@@ -858,7 +858,7 @@ Q.timers = ['advisor_action', 'crisis_program',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes',
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
-            'negotiation_wp', 'negotiation_dbp'];
+            'negotiation_spd', 'negotiation_wp', 'negotiation_dbp'];
 Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'fundraising', 'ideology',
             'inter_party_relationships', 'international_relations',
@@ -881,7 +881,7 @@ Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes',
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
-            'negotiation_wp', 'negotiation_dbp'];
+            'negotiation_spd', 'negotiation_wp', 'negotiation_dbp'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
@@ -901,6 +901,7 @@ Q.streetfighting_timer = 0;
 Q.liberal_peoples_party_timer = 0;
 Q.bourgeois_parliament_formation_timer = 0;
 Q.bourgeois_parliament_timer = 0;
+Q.negotiation_spd_timer = 0;
 Q.negotiation_dbp_timer = 0;
 Q.negotiation_wp_timer = 0;
 // n_elections is the number of elections that have happened since the start of the game.
