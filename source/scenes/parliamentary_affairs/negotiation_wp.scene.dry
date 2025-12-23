@@ -1,5 +1,6 @@
 title: Negotiate with the <span style="color: #B8996F;">**WP**</span>.
 face-image: img/wp.jpg
+new-page: true
 view-if: wp_exist
 
 = Negotiations with the <span style="color: #B8996F;">**WP**</span>
