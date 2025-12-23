@@ -21,5 +21,4 @@ WIP
 subtitle: -2 budget
 unavailable-subtitle: -2 budget - [? if finance_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Finance Ministry ?][? if lower_tax_rates < -5: Tax rates are already too low. ?]
 choose-if: finance_minister_party = dvp_name and budget >= 2 and lower_tax_rates >= -5
-on-arrival: spd_relation += 5
 go-to: fiscal_policy.cut_poor
