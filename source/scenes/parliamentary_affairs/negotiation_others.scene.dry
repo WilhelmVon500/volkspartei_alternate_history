@@ -1,4 +1,4 @@
-title: Negotiations with smaller parties
+title: Negotiations with Smaller Parties
 new-page: true
 is-card: true
 card-image: img/ballot.jpg
@@ -6,7 +6,7 @@ view-if: negotiation_others_timer = 0
 on-arrival: negotiation_others_timer = 3
 tags: parliamentary_affairs
 
-= Negotiations with smaller parties
+= Negotiations with Smaller Parties
 
 WIP
 
