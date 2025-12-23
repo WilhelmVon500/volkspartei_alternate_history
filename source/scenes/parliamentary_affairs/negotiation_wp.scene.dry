@@ -10,10 +10,20 @@ tags: parliamentary_affairs
 
 WIP
 
+- @cut_rich_wp: Cut income taxes for the rich and the middle class.
 - @build_support_nfvp: We must build more support for this merger.
 - @convince_wp_nfvp: We can convince the <span style="color: #B8996F;">**WP**</span> to join our ranks!
 - @root: Perhaps we can discuss this at a later time.
 - @easy_discard
+
+
+
+@cut_rich_wp
+subtitle: -2 budget
+unavailable-subtitle: -2 budget - [? if finance_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Finance Ministry ?][? if upper_tax_rates < -5: Tax rates are already too low. ?]
+choose-if: finance_minister_party = dvp_name and budget >= 2 and upper_tax_rates >= -5
+on-arrival: wp_relation += 5
+go-to: fiscal_policy.cut_rich
 
 
 @build_support_nfvp
