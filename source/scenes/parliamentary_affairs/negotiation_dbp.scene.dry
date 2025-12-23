@@ -1,5 +1,6 @@
 title: Negotiate with the <span style="color: #38C538;">**DBP**</span>.
 face-image: img/bauernbund.jpg
+new-page: true
 view-if: dbp_exist
 
 = Negotiations with the <span style="color: #38C538;">**DBP**</span>
