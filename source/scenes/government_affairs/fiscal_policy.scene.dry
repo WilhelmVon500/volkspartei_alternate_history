@@ -71,7 +71,7 @@ title: Cut consumption taxes for the poor.
 subtitle: -2 budget
 unavailable-subtitle: -2 budget - [? if lower_tax_rates < -5: Tax rates are already too low. ?]
 choose-if: budget >= 2 and lower_tax_rates >= -5
-on-arrival: budget -= 2; lower_tax_rates -= 1; workers_dvp += 3*(1-dissent); unemployed -= 1 if unemployed >= 5; inflation += 0.6; economic_growth += 0.4; finance_goal_completed += 1; labor_dissent -= 3;
+on-arrival: budget -= 2; lower_tax_rates -= 1; workers_dvp += 3*(1-dissent); unemployed -= 1 if unemployed >= 5; inflation += 0.6; economic_growth += 0.4; finance_goal_completed += 1; labor_dissent -= 3; spd_relation += 3;
 
 Our tax cuts disproportionately benefit the poor and working class.
 
@@ -81,7 +81,7 @@ title: Cut income taxes for the rich and the middle class.
 subtitle: -2 budget
 unavailable-subtitle: -2 budget - [? if upper_tax_rates < -5: Tax rates are already too low. ?]
 choose-if: budget >= 2 and upper_tax_rates >= -5
-on-arrival: budget -= 2; upper_tax_rates -= 1; new_middle_dvp += 4*(1-dissent); old_middle_dvp += 4*(1-dissent); coalition_dissent += 1 if in_grand_coalition or in_weimar_coalition; spd_relation -= 5; unemployed -= 1 if unemployed >= 5; capital_strike_progress -= 1 if upper_tax_rates < 0; inflation += 0.6; economic_growth += 0.4; industrialist_dissent -= 10; labor_dissent += 3;
+on-arrival: budget -= 2; upper_tax_rates -= 1; new_middle_dvp += 4*(1-dissent); old_middle_dvp += 4*(1-dissent); coalition_dissent += 1 if in_grand_coalition or in_weimar_coalition; spd_relation -= 3; unemployed -= 1 if unemployed >= 5; capital_strike_progress -= 1 if upper_tax_rates < 0; inflation += 0.6; economic_growth += 0.4; industrialist_dissent -= 10; labor_dissent += 3;
 
 We have reduced income and property taxes for the rich and middle class. Our bourgeois voters approve of this orthodox economic course.
 
