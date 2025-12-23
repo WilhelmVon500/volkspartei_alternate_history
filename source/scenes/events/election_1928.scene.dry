@@ -330,7 +330,6 @@ if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_r) {
         "seats": Math.round(Q.dvp_r*Q.reichstag_size),
     });
 }
-
 if (Q.csvd_exist && Q.csvd_r) {
     data.push({
         "id": "csvd",
@@ -339,7 +338,6 @@ if (Q.csvd_exist && Q.csvd_r) {
         "seats": Math.round(Q.csvd_r*Q.reichstag_size),
     });
 }
-
 if (Q.wp_exist && Q.wp_r) {
     data.push({
         "id": "wp",
@@ -348,7 +346,6 @@ if (Q.wp_exist && Q.wp_r) {
         "seats": Math.round(Q.wp_r*Q.reichstag_size),
     });
 }
-
 if (Q.cnblp_exist && Q.cnblp_r) {
     data.push({
         "id": "cnblp",
