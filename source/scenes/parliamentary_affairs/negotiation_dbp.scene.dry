@@ -10,9 +10,9 @@ tags: parliamentary_affairs
 
 WIP
 
+- @dbp_agricultural_finance: Agricultural Financing
 - @build_support: We must build more support for this merger.
 - @convince_dbp: We can convince the <span style="color: #38C538;">**DBP**</span> to join our ranks!
-- @dbp_agricultural_finance: Agricultural Financing
 - @root: Perhaps we can discuss this at a later time.
 - @easy_discard
 
@@ -25,7 +25,7 @@ We are pushing forward proposals for a merger of liberal peasant organizations i
 
 @dbp_agricultural_finance
 subtitle: -1 budget - Increase financing for agricultural credit and insurance.
-unavailable-subtitle: [? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?][? if agriculture_minister_party = dvp_name and budget < 1: -1 budget - We do not have the necessary budget. ?]
+unavailable-subtitle: -1 budget - [? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?][? if agriculture_minister_party = dvp_name and budget < 1: We do not have the necessary budget. ?]
 choose-if: agriculture_minister_party = dvp_name and budget >= 1
 go-to: agricultural_policy.agricultural_finance
 
