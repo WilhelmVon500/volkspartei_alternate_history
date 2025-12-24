@@ -114,7 +114,10 @@ if (new_party_sum > 0) {
     }
 }
 
-
+Q.vrp_votes_saxony = 0;
+Q.vnr_votes_saxony = 0;
+Q.vrp_sl = 0;
+Q.vnr_sl = 0;
 if (Q.vrp_exist) {
     Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.6).toFixed(1));
     Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
@@ -141,7 +144,6 @@ if (Q.vrp_exist) {
       : '<img src="img/steady.png"> ';
     Q.change_vrp_sl = sign + Math.abs(parseFloat(Q.change_vrp_sl)).toFixed(1);
 }
-
 if (Q.vnr_exist) {
     Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
     Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
@@ -246,4 +248,168 @@ Q.in_dvp_majority_saxony = 0;
 Q.in_grand_coalition_saxony = 0;
 Q.in_bourgeois_coalition_saxony = 0;
 Q.in_far_right_coalition_saxony = 0;
+!}
+on-display: {!
+data = []
+if (Q.kpd_sl) {
+    data.push({
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_sl*0.96),
+    });
+}
+if (Q.spd_sl) {
+    data.push({
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_sl*0.96),
+    });
+}
+if (Q.aspd_sl) {
+    data.push({
+        "id": "aspd",
+        "legend": "ASPD",
+        "name": "ASPD",
+        "seats": Math.round(Q.aspd_sl*0.96),
+    });
+}
+if (Q.ddp_exist && Q.ddp_sl) {
+    data.push({
+        "id": "ddp",
+        "legend": "DDP",
+        "name": "DDP",
+        "seats": Math.round(Q.ddp_sl*0.96),
+    });
+}
+if (Q.lvp_formed && Q.dvp_sl) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_sl*0.96),
+    });
+}
+if (Q.z_sl) {
+    data.push({
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round(Q.z_sl*0.96),
+    });
+}
+if (Q.nfvp_formed && Q.dvp_sl) {
+    data.push({
+        "id": "nfvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_sl*0.96),
+    });
+}
+if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_sl) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_sl*0.96),
+    });
+}
+if (Q.vnr_exist && Q.vnr_sl) {
+    data.push({
+        "id": "vnr",
+        "legend": "VNR",
+        "name": "VNR",
+        "seats": Math.round(Q.vnr_sl*0.96),
+    });
+}
+if (Q.vrp_exist && Q.vrp_sl) {
+    data.push({
+        "id": "vrp",
+        "legend": "VRP",
+        "name": "VRP",
+        "seats": Math.round(Q.vrp_sl*0.96),
+    });
+}
+if (Q.csvd_exist && Q.csvd_sl) {
+    data.push({
+        "id": "csvd",
+        "legend": "CSVD",
+        "name": "CSVD",
+        "seats": Math.round(Q.csvd_sl*0.96),
+    });
+}
+if (Q.wp_exist && Q.wp_sl) {
+    data.push({
+        "id": "wp",
+        "legend": "WP",
+        "name": "WP",
+        "seats": Math.round(Q.wp_sl*0.96),
+    });
+}
+if (Q.cnblp_exist && Q.cnblp_sl) {
+    data.push({
+        "id": "cnblp",
+        "legend": "CNBLP",
+        "name": "CNBLP",
+        "seats": Math.round(Q.cnblp_sl*0.96),
+    });
+}
+if (Q.other_sl) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_sl*0.96),
+    });
+}
+if (Q.kvp_formed && Q.kvp_sl) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_sl*0.96),
+    });
+}
+if (Q.dnvp_sl) {
+    data.push({
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_sl*0.96),
+    });
+}
+if (Q.dnf_formed && Q.dnf_sl) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_sl*0.96),
+    });
+}
+if (Q.nsdap_sl) {
+    data.push({
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_sl*0.96),
+    });
+}
+
+if (window && d3) {
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
 !}
