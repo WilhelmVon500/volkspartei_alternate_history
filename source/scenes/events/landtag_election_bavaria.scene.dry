@@ -152,20 +152,23 @@ Q.in_right_coalition_bavaria = 0;
 Q.in_far_right_coalition_bavaria = 0;
 !}
 on-display: {!
-data = [
-    {
+data = []
+if (Q.kpd_bl) {
+    data.push({
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
         "seats": Math.round(Q.kpd_bl*1.28),
-    },
-    {
+    });
+}
+if (Q.spd_bl) {
+    data.push({
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
         "seats": Math.round(Q.spd_bl*1.28),
-    }
-];
+    });
+}
 if (Q.aspd_exist && Q.aspd_bl) {
     data.push({
         "id": "aspd",
@@ -198,14 +201,14 @@ if (Q.lvp_formed && Q.dvp_bl) {
         "seats": Math.round(Q.dvp_bl*1.28),
     });
 }
-data = data.concat([
-    {
+if (Q.z_bl) {
+    data.push({
         "id": "bvp",
         "legend": "BVP",
         "name": "BVP",
         "seats": Math.round(Q.z_bl*1.28),
-    },
-]);
+    });
+}
 if (Q.nfvp_formed && Q.dvp_bl) {
     data.push({
         "id": "nfvp",
@@ -222,7 +225,6 @@ if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_bl) {
         "seats": Math.round(Q.dvp_bl*1.28),
     });
 }
-
 if (Q.csvd_exist && Q.csvd_bl) {
     data.push({
         "id": "csvd",
@@ -231,7 +233,6 @@ if (Q.csvd_exist && Q.csvd_bl) {
         "seats": Math.round(Q.csvd_bl*1.28),
     });
 }
-
 if (Q.wp_exist && Q.wp_bl) {
     data.push({
         "id": "wp",
@@ -272,14 +273,14 @@ if (Q.dnf_formed && Q.dnf_bl) {
         "seats": Math.round(Q.dnf_bl*1.28),
     });
 }
-data = data.concat([
-    {
+if (Q.nsdap_bl) {
+    data.push({
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
         "seats": Math.round(Q.nsdap_bl*1.28),
-    },
-]);
+    });
+}
 
 if (window && d3) {
     var width = 500;
