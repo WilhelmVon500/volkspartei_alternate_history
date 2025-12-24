@@ -122,9 +122,6 @@ if (Q.vrp_exist) {
     Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.6).toFixed(1));
     Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
     
-    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vrp_votes_saxony).toFixed(1));
-    Q.other_sl = parseFloat((Q.other_sl - Q.vrp_sl).toFixed(1));
-    
     Q.old_vrp_votes_saxony = Q.vrp_votes_saxony;
     Q.old_vrp_sl = Q.vrp_sl;
 
@@ -148,9 +145,6 @@ if (Q.vnr_exist) {
     Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
     Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
     
-    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vnr_votes_saxony).toFixed(1));
-    Q.other_sl = parseFloat((Q.other_sl - Q.vnr_sl).toFixed(1));
-    
     Q.old_vnr_votes_saxony = Q.vnr_votes_saxony;
     Q.old_vnr_sl = Q.vnr_sl;
 
@@ -169,6 +163,14 @@ if (Q.vnr_exist) {
       ? '<img src="img/arrowdown.png"> '
       : '<img src="img/steady.png"> ';
     Q.change_vnr_sl = sign + Math.abs(parseFloat(Q.change_vnr_sl)).toFixed(1);
+}
+if (Q.vrp_exist) {
+    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vrp_votes_saxony).toFixed(1));
+    Q.other_sl = parseFloat((Q.other_sl - Q.vrp_sl).toFixed(1));
+}
+if (Q.vnr_exist) {
+    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vnr_votes_saxony).toFixed(1));
+    Q.other_sl = parseFloat((Q.other_sl - Q.vnr_sl).toFixed(1));
 }
 
 Q.change_other_votes_saxony = Q.other_votes_saxony - old_other_saxony;
