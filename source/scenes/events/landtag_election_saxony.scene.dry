@@ -420,3 +420,40 @@ if (window && d3) {
 = Election results
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_saxony +]%** {!</td><td>!} **[+ votes_change_dvp_saxony +]** {!</td><td>!} **[+ dvp_sl +]%** {!</td><td>!} **[+ change_dvp_sl +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_saxony +]% {!</td><td>!} [+ votes_change_kpd_saxony +] {!</td><td>!} [+ kpd_sl +]% {!</td><td>!} [+ change_kpd_sl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_saxony +]% {!</td><td>!} [+ votes_change_spd_saxony +] {!</td><td>!} [+ spd_sl +]% {!</td><td>!} [+ change_spd_sl +] {!</td></tr>!}
+
+[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes_saxony +]% {!</td><td>!} [+ votes_change_aspd_saxony +] {!</td><td>!} [+ aspd_sl +]% {!</td><td>!} [+ change_aspd_sl +] {!</td><td>!} ?]
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_saxony +]% {!</td><td>!} [+ votes_change_ddp_saxony +] {!</td><td>!} [+ ddp_sl +]% {!</td><td>!} [+ change_ddp_sl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_saxony +]% {!</td><td>!} [+ votes_change_z_saxony +] {!</td><td>!} [+ z_sl +]% {!</td><td>!} [+ change_z_sl +] {!</td></tr>!}
+
+[? if vnr_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} VNR: {!</td><td>!} [+ vnr_votes_saxony +]% {!</td><td>!} [+ votes_change_vnr_saxony +] {!</td><td>!} [+ vnr_sl +]% {!</td><td>!} [+ change_vnr_sl +] {!</td><td>!} ?]
+
+[? if vrp_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} VRP: {!</td><td>!} [+ vrp_votes_saxony +]% {!</td><td>!} [+ votes_change_vrp_saxony +] {!</td><td>!} [+ vrp_sl +]% {!</td><td>!} [+ change_vrp_sl +] {!</td><td>!} ?]
+
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_saxony +]% {!</td><td>!} [+ votes_change_csvd_saxony +] {!</td><td>!} [+ csvd_sl +]% {!</td><td>!} [+ change_csvd_sl +] {!</td><td>!} ?]
+
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} WP: {!</td><td>!} [+ wp_votes_saxony +]% {!</td><td>!} [+ votes_change_wp_saxony +] {!</td><td>!} [+ wp_sl +]% {!</td><td>!} [+ change_wp_sl +] {!</td><td>!} ?]
+
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} SLV: {!</td><td>!} [+ cnblp_votes_saxony +]% {!</td><td>!} [+ votes_change_cnblp_saxony +] {!</td><td>!} [+ cnblp_sl +]% {!</td><td>!} [+ change_cnblp_sl +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_saxony +]% {!</td><td>!} [+ votes_change_kvp_saxony +] {!</td><td>!} [+ kvp_sl +]% {!</td><td>!} [+ change_kvp_sl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_saxony +]% {!</td><td>!} [+ votes_change_dnvp_saxony +] {!</td><td>!} [+ dnvp_sl +]% {!</td><td>!} [+ change_dnvp_sl +] {!</td></tr>!}
+
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_saxony +]% {!</td><td>!} [+ votes_change_dnf_saxony +] {!</td><td>!} [+ dnf_sl +]% {!</td><td>!} [+ change_dnf_sl +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_saxony +]% {!</td><td>!} [+ votes_change_nsdap_saxony +] {!</td><td>!} [+ nsdap_sl +]% {!</td><td>!} [+ change_nsdap_sl +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_saxony +]% {!</td><td>!} [+ votes_change_other_saxony +] {!</td><td>!} [+ other_sl +]% {!</td><td>!} [+ change_other_sl +] {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
