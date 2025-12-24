@@ -352,7 +352,7 @@ Next election: [+ next_election_month_wurttemberg: month +] [+ next_election_yea
 
 Minister-President: [+ saxony_leader +] ([?if saxony_leader_party=="ASPD":<span style="color: #FE9E00;">**ASPD**</span>?][?if saxony_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?])
 
-Government: [? if in_dvp_majority_saxony: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_weimar_coalition_saxony: Weimar Coalition ?][? if in_grand_coalition_saxony: Grand Coalition ?][? if in_bourgeois_coalition_saxony: Bourgeois Coalition ?][? if in_far_right_coalition_saxony: Far-Right Coalition ?]
+Government: [? if in_dvp_majority_saxony: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_grand_coalition_saxony: Grand Coalition ?][? if in_bourgeois_coalition_saxony: Bourgeois Coalition ?][? if in_far_right_coalition_saxony: Far-Right Coalition ?]
 
 Next election: [+ next_election_month_saxony: month +] [+ next_election_year_saxony +]
 
