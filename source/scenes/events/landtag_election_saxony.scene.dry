@@ -82,7 +82,6 @@ for (var party of Q.parties) {
         new_party_sum += Q[party + '_sl'];
     } else {
         Q[party + '_sl'] = Q[party + '_votes_saxony'];
-        if (party == 'other') Q[party + '_sl'] = Q[party + '_votes_saxony'] * 0.3;
         new_party_sum += Q[party + '_sl'];
     }
 
@@ -118,7 +117,7 @@ Q.vrp_votes_saxony = 0;
 Q.vnr_votes_saxony = 0;
 Q.vrp_sl = 0;
 Q.vnr_sl = 0;
-if (Q.vrp_exist) {
+if (Q.vrp_exist && Q.other_sl) {
     Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.6).toFixed(1));
     Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
     
@@ -141,7 +140,7 @@ if (Q.vrp_exist) {
       : '<img src="img/steady.png"> ';
     Q.change_vrp_sl = sign + Math.abs(parseFloat(Q.change_vrp_sl)).toFixed(1);
 }
-if (Q.vnr_exist) {
+if (Q.vnr_exist && Q.other_sl) {
     Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
     Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
     
@@ -164,11 +163,11 @@ if (Q.vnr_exist) {
       : '<img src="img/steady.png"> ';
     Q.change_vnr_sl = sign + Math.abs(parseFloat(Q.change_vnr_sl)).toFixed(1);
 }
-if (Q.vrp_exist) {
+if (Q.vrp_exist && Q.other_sl) {
     Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vrp_votes_saxony).toFixed(1));
     Q.other_sl = parseFloat((Q.other_sl - Q.vrp_sl).toFixed(1));
 }
-if (Q.vnr_exist) {
+if (Q.vnr_exist && Q.other_sl) {
     Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vnr_votes_saxony).toFixed(1));
     Q.other_sl = parseFloat((Q.other_sl - Q.vnr_sl).toFixed(1));
 }
