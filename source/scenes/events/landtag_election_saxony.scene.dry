@@ -237,7 +237,7 @@ if (!Q.aspd_exist) {
 
 
 
-Q.grand_coalition_saxony = parseFloat((Q.spd_sl + Q.ddp_sl + Q.z_sl + Q.dvp_sl).toFixed(1));
+Q.grand_coalition_saxony = parseFloat((Q.spd_sl + Q.aspd_sl + Q.ddp_sl + Q.z_sl + Q.dvp_sl).toFixed(1));
 Q.bourgeois_coalition_saxony = parseFloat((Q.aspd_sl + Q.ddp_sl + Q.z_sl + Q.dvp_sl + Q.vnr_sl + Q.vrp_sl + Q.wp_sl + Q.other_sl + Q.cnblp_sl + Q.kvp_sl + Q.csvd_sl).toFixed(1));
 if (Q.dnvp_ideology === "Moderate") Q.bourgeois_coalition_saxony = parseFloat((Q.bourgeois_coalition_saxony + Q.dnvp_sl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_saxony = parseFloat((Q.dnvp_sl + Q.nsdap_sl).toFixed(1));
