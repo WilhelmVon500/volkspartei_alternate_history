@@ -372,9 +372,9 @@ Q.dnf_sl = 0.0;
 Q.nsdap_sl = 2.0;
 Q.other_sl = 0.0;
 
-Q.old_aspd_hl = 4.2;
-Q.old_vnr_hl = 0.0;
-Q.old_vrp_hl = 4.2;
+Q.old_aspd_sl = 4.2;
+Q.old_vnr_sl = 0.0;
+Q.old_vrp_sl = 4.2;
 
 Q.old_spd_votes_saxony = 32.1;
 Q.old_aspd_votes_saxony = 4.2;
