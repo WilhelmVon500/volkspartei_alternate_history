@@ -118,7 +118,7 @@ Q.vnr_votes_saxony = 0;
 Q.vrp_sl = 0;
 Q.vnr_sl = 0;
 if (Q.vrp_exist && Q.other_sl) {
-    Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.6).toFixed(1));
+    Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.55).toFixed(1));
     Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
     
     Q.old_vrp_votes_saxony = Q.vrp_votes_saxony;
