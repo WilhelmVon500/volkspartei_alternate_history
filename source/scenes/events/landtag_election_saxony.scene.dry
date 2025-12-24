@@ -510,7 +510,7 @@ A Bourgeois Coalition is formed.
 
 @minority_bourgeois_coalition_saxony
 title: Can we form a minority Bourgeois Coalition, tolerated by <span style="color: #E3000F;">**SPD**</span> or the Far-Right?
-view-if: ((bourgeois_coalition_saxony + spd_sl) >= 50) or ((bourgeois_coalition_saxony + dnf_sl + nsdap_sl) >= 50 and dnvp_ideology = "Moderate") or ((bourgeois_coalition_saxony + dnvp_sl + nsdap_sl) >= 50 and dnvp_ideology = "Radical")
+view-if: bourgeois_coalition_saxony < 50 and (((bourgeois_coalition_saxony + spd_sl) >= 50) or ((bourgeois_coalition_saxony + dnf_sl + nsdap_sl) >= 50 and dnvp_ideology = "Moderate") or ((bourgeois_coalition_saxony + dnvp_sl + nsdap_sl) >= 50 and dnvp_ideology = "Radical"))
 subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] [? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if dnvp_ideology = "Moderate": + <span style="color: #3F7BC1;">**DNVP**</span> ?][? if wp_exist: + <span style="color: #B8996F;">**WP**</span> ?][? if vrp_exist: + <span style="color: #0075EB;">**VRP**</span> ?][? if vnr_exist: + <span style="color: #D3D3A9;">**VNR**</span> ?][? if cnblp_exist: + <span style="color: #7FCEB1;">**SLV**</span> ?][? if csvd_exist: + <span style="color: #8ED8E4;">**CSVD**</span> ?] + <span style="color: #FE9E00;">**ASPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_saxony +]%)
 
 We can try to form a Bourgeois Coalition. For this, we need to get toleration from a party outside.
