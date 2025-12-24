@@ -120,9 +120,6 @@ Q.vnr_sl = 0;
 if (Q.vrp_exist && Q.other_sl) {
     Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.55).toFixed(1));
     Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
-    
-    Q.old_vrp_votes_saxony = Q.vrp_votes_saxony;
-    Q.old_vrp_sl = Q.vrp_sl;
 
     Q.change_vrp_votes_saxony = Q.vrp_votes_saxony - Q.old_vrp_votes_saxony;
     var sign2 = Q.change_vrp_votes_saxony > 0 
@@ -139,13 +136,13 @@ if (Q.vrp_exist && Q.other_sl) {
       ? '<img src="img/arrowdown.png"> '
       : '<img src="img/steady.png"> ';
     Q.change_vrp_sl = sign + Math.abs(parseFloat(Q.change_vrp_sl)).toFixed(1);
+    
+    Q.old_vrp_votes_saxony = Q.vrp_votes_saxony;
+    Q.old_vrp_sl = Q.vrp_sl;
 }
 if (Q.vnr_exist && Q.other_sl) {
     Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
     Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
-    
-    Q.old_vnr_votes_saxony = Q.vnr_votes_saxony;
-    Q.old_vnr_sl = Q.vnr_sl;
 
     Q.change_vnr_votes_saxony = Q.vnr_votes_saxony - Q.old_vnr_votes_saxony;
     var sign2 = Q.change_vnr_votes_saxony > 0 
@@ -162,6 +159,9 @@ if (Q.vnr_exist && Q.other_sl) {
       ? '<img src="img/arrowdown.png"> '
       : '<img src="img/steady.png"> ';
     Q.change_vnr_sl = sign + Math.abs(parseFloat(Q.change_vnr_sl)).toFixed(1);
+    
+    Q.old_vnr_votes_saxony = Q.vnr_votes_saxony;
+    Q.old_vnr_sl = Q.vnr_sl;
 }
 if (Q.vrp_exist && Q.other_sl) {
     Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vrp_votes_saxony).toFixed(1));
@@ -197,11 +197,6 @@ if (!Q.aspd_exist) {
     
     Q.spd_votes_saxony = parseFloat((Q.spd_votes_saxony - Q.aspd_votes_saxony).toFixed(1));
     Q.spd_sl = parseFloat((Q.spd_sl - Q.aspd_sl).toFixed(1));
-    
-    Q.old_aspd_votes_saxony = Q.aspd_votes_saxony;
-    Q.old_aspd_sl = Q.aspd_sl;
-    Q.old_spd_votes_saxony = Q.spd_votes_saxony;
-    Q.old_spd_sl = Q.spd_sl;
 
     Q.change_aspd_votes_saxony = Q.aspd_votes_saxony - Q.old_aspd_votes_saxony;
     var sign2 = Q.change_aspd_votes_saxony > 0 
@@ -234,6 +229,11 @@ if (!Q.aspd_exist) {
       ? '<img src="img/arrowdown.png"> '
       : '<img src="img/steady.png"> ';
     Q.change_spd_sl = sign + Math.abs(parseFloat(Q.change_spd_sl)).toFixed(1);
+    
+    Q.old_aspd_votes_saxony = Q.aspd_votes_saxony;
+    Q.old_aspd_sl = Q.aspd_sl;
+    Q.old_spd_votes_saxony = Q.spd_votes_saxony;
+    Q.old_spd_sl = Q.spd_sl;
 }
 
 
