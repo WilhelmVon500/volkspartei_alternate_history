@@ -260,6 +260,9 @@ Q.in_dvp_majority_saxony = 0;
 Q.in_grand_coalition_saxony = 0;
 Q.in_bourgeois_coalition_saxony = 0;
 Q.in_far_right_coalition_saxony = 0;
+
+Q.spd_toleration_saxony = 0;
+Q.far_right_toleration_saxony = 0;
 !}
 on-display: {!
 data = []
@@ -480,6 +483,7 @@ There are some potential coalition arrangements.
 
 - @dvp_majority_saxony
 - @grand_coalition_saxony
+- @minority_bourgeois_coalition_saxony
 - @bourgeois_coalition_saxony
 - @far_right_coalition_saxony
 
@@ -501,6 +505,37 @@ subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if
 on-arrival: in_bourgeois_coalition_saxony = 1; dvp_saxony = 1;
 
 A Bourgeois Coalition is formed.
+
+- @saxony_mp
+
+@minority_bourgeois_coalition_saxony
+title: Can we form a Bourgeois Coalition?
+view-if: ((bourgeois_coalition_saxony + spd_sl) >= 50) or ((bourgeois_coalition_saxony + nsdap_sl) >= 50) or ((bourgeois_coalition_saxony + dnvp_sl + nsdap_sl) >= 50 and dnvp_ideology = "Radical")
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] [? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if dnvp_ideology = "Moderate": + <span style="color: #3F7BC1;">**DNVP**</span> ?][? if wp_exist: + <span style="color: #B8996F;">**WP**</span> ?][? if vrp_exist: + <span style="color: #0075EB;">**VRP**</span> ?][? if vnr_exist: + <span style="color: #D3D3A9;">**VNR**</span> ?][? if cnblp_exist: + <span style="color: #7FCEB1;">**SLV**</span> ?][? if csvd_exist: + <span style="color: #8ED8E4;">**CSVD**</span> ?] + <span style="color: #FE9E00;">**ASPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_saxony +]%)
+
+We can try to form a Bourgeois Coalition. For this, we need to get toleration from a party outside.
+
+- @ask_spd: Maybe the <span style="color: #E3000F;">**SPD**</span> can tolerate us?
+- @ask_far_right: Is the Far-Right going to offer us toleration?
+- @coalition_menu: Try a different governing arrangement.
+
+@ask_spd
+view-if: (bourgeois_coalition_saxony + spd_sl) >= 50
+choose-if: dvp_ideology = "Left"
+unavailable-subtitle: The <span style="color: #E3000F;">**Social Democrats**</span> are unwilling to support us.
+on-arrival: in_bourgeois_coalition_saxony = 1; dvp_saxony = 1; spd_toleration_saxony = 1;
+
+We have formed a Bourgeois Coalition with toleration from the <span style="color: #E3000F;">**SPD**</span>.
+
+- @saxony_mp
+
+@ask_far_right
+view-if: ((bourgeois_coalition_saxony + nsdap_sl) >= 50) or ((bourgeois_coalition_saxony + dnvp_sl + nsdap_sl) >= 50 and dnvp_ideology = "Radical")
+choose-if: dvp_ideology = "Right"
+unavailable-subtitle: The Far-Right will not support us.
+on-arrival: in_bourgeois_coalition_saxony = 1; dvp_saxony = 1; far_right_toleration_saxony = 1;
+
+We have formed a Bourgeois Coalition with toleration from the Far-Right.
 
 - @saxony_mp
 
@@ -537,8 +572,8 @@ WIP
 
 @blucher
 view-if: dvp_saxony
-choose-if: in_dvp_majority_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl)
-unavailable-subtitle: [? if in_grand_coalition_saxony: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President. ?][? if in_bourgeois_coalition_saxony: Our coalition partners consider him too liberal. ?]
+choose-if: in_dvp_majority_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl) or (in_bourgeois_coalition_saxony and spd_toleration_saxony)
+unavailable-subtitle: [? if in_grand_coalition_saxony: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President. ?][? if in_bourgeois_coalition_saxony and not spd_toleration_saxony: Our coalition partners consider him too liberal. ?]
 on-arrival: saxony_leader = "Blüher"; saxony_leader_party = dvp_name
 face-image: img/portraits/BlüherBernhard.jpg
 
@@ -546,7 +581,7 @@ Bernhard Blüher was elected.
 
 @bunger
 view-if: dvp_saxony
-choose-if: in_dvp_majority_saxony or in_bourgeois_coalition_saxony
+choose-if: in_dvp_majority_saxony or (in_bourgeois_coalition_saxony and not spd_toleration_saxony)
 unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> will not support him.
 on-arrival: saxony_leader = "Bünger"; saxony_leader_party = dvp_name
 face-image: img/portraits/BüngerWilhelm.jpg
