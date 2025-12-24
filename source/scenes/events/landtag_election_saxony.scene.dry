@@ -482,4 +482,56 @@ There are some potential coalition arrangements.
 #- @grand_coalition_saxony
 #- @bourgeois_coalition_saxony
 #- @far_right_coalition_saxony
-#- @no_majority
+- @saxony_mp
+
+
+
+@saxony_mp
+title: The coalition will choose the Minister-President.
+
+WIP
+
+- @blucher: Bernhard Blüher
+- @bunger: Wilhelm Bünger
+- @heldt: Max Heldt
+- @killinger: Manfred Killinger
+
+@blucher
+view-if: dvp_saxony
+choose-if: in_dvp_majority_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl)
+unavailable-subtitle: [? if in_grand_coalition_saxony: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President. ?][? if in_bourgeois_coalition_saxony: Our coalition partners consider him too liberal. ?]
+on-arrival: saxony_leader = "Blüher"; saxony_leader_party = dvp_name
+face-image: img/portraits/BlüherBernhard.jpg
+
+Bernhard Blüher was elected.
+
+@bunger
+view-if: dvp_saxony
+choose-if: in_dvp_majority_saxony or in_bourgeois_coalition_saxony
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> will not support him.
+on-arrival: saxony_leader = "Bünger"; saxony_leader_party = dvp_name
+face-image: img/portraits/BüngerWilhelm.jpg
+
+Wilhelm Bünger was elected.
+
+@heldt
+view-if: in_grand_coalition_saxony or in_bourgeois_coalition_saxony
+on-arrival: saxony_leader = "Heldt"; saxony_leader_party = "ASPD"
+face-image: img/portraits/HeldtMax.jpg
+
+Max Heldt was elected.
+
+@killinger
+view-if: in_far_right_coalition_saxony
+on-arrival: saxony_leader = "Killinger"; saxony_leader_party = "NSDAP"
+
+Manfred Killinger was elected.
+
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: bourgeois_coalition_saxony < 50 and grand_coalition_saxony < 50 and far_right_coalition_saxony < 50
+on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
+
+There is no path to a majority government for now. The current government will stay in power as a minority coalition.
