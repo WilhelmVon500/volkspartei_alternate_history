@@ -1,0 +1,249 @@
+title: Saxony Landtag Election
+view-if: year = next_election_year_saxony and month >= next_election_month_saxony
+new-page: true
+tags: event
+priority: 3
+on-arrival: next_election_year_saxony = next_election_year_saxony + 4; next_election_time_saxony = time + 48; dvp_saxony = 0
+
+= Saxon Elections, [+ month : month +] [+ year +]
+
+The Saxon state elections are to be held now.
+
+- @new_elections: May we do our best...
+
+@new_elections
+on-arrival: {!
+for (var c of Q.classes) {
+    var class_votes = 0;
+    for (var party of Q.parties) {
+        if (Q[c + '_' + party] < 0) {
+            Q[c + '_' + party] = 0;
+        }
+        class_votes += Q[c + '_' + party];
+    }
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized_saxony'] = Math.round(100 * Q[c + '_' + party] / class_votes);
+    }
+}
+
+// Define adjustment factors
+Q.adjustmentFactors_spd_saxony = 1.25;
+Q.adjustmentFactors_aspd_saxony = 1.5;
+Q.adjustmentFactors_kpd_saxony = 1.25;
+Q.adjustmentFactors_ddp_saxony = 1.0;
+Q.adjustmentFactors_dbp_saxony = 0.0;
+Q.adjustmentFactors_csrp_saxony = 0.0;
+Q.adjustmentFactors_z_saxony = 0.06;
+Q.adjustmentFactors_dvp_saxony = 1.3;
+Q.adjustmentFactors_csvd_saxony = 1.0;
+Q.adjustmentFactors_wp_saxony = 2.0;
+Q.adjustmentFactors_cnblp_saxony = 1.6;
+Q.adjustmentFactors_kvp_saxony = 1.3;
+Q.adjustmentFactors_dnvp_saxony = 0.6;
+Q.adjustmentFactors_dnf_saxony = 0.3;
+Q.adjustmentFactors_nsdap_saxony = 1.0;
+Q.adjustmentFactors_other_saxony = 1.9;
+
+
+
+// Calculate support for each of the parties
+var total_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
+    for (var c of Q.classes) {
+        if (Q.old_demographics) {
+            party_support += Q[c] * Q[c + '_' + party];
+        } else {
+            party_support += Q[c] * Q[c + '_' + party + '_normalized_saxony'];
+        }
+    }
+    // Apply adjustment factor
+    Q[party + '_support'] = party_support * Q['adjustmentFactors_' + party + '_saxony']
+    total_support += Q[party + '_support'];
+}
+
+// Normalize support (fraction)
+for (var party of Q.parties) {
+    Q[party + '_normalized_saxony'] = Q[party + '_support'] / total_support;
+    Q[party + '_votes_saxony'] = Math.round(Q[party + '_normalized_saxony'] * 1000) / 10;
+}
+
+var old_z_saxony = Q.old_z_votes_saxony;
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_sl'] = Q[party + '_sl'];
+    Q[party + '_votes_saxony'] = parseFloat((Q[party + '_votes_saxony']).toFixed(1))
+    if (Q.electoral_threshold > 0) {
+        if (Q[party + '_votes_saxony'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+            Q[party + '_sl'] = 0;
+        } else {
+            Q[party + '_sl'] = Q[party + '_votes_saxony'];
+        }
+        new_party_sum += Q[party + '_sl'];
+    } else {
+        Q[party + '_sl'] = Q[party + '_votes_saxony'];
+        if (party == 'other') Q[party + '_sl'] = Q[party + '_votes_saxony'] * 0.3;
+        new_party_sum += Q[party + '_sl'];
+    }
+
+    Q['change_' + party + '_votes_saxony'] = Q[party + '_votes_saxony'] - Q['old_' + party + '_votes_saxony'];
+    var sign2 = Q['change_' + party + '_votes_saxony'] > 0 
+                    ? '<img src="img/arrowup.png"> ' 
+                    : Q['change_' + party + '_votes_saxony'] < 0 
+                      ? '<img src="img/arrowdown.png"> ' 
+                      : '<img src="img/steady.png"> ';
+    Q['votes_change_' + party + '_saxony'] = sign2 + Math.abs(parseFloat(Q['change_' + party + '_votes_saxony'])).toFixed(1);
+
+    Q['old_' + party + '_votes_saxony'] = parseFloat((Q[party + '_votes_saxony']).toFixed(1));
+}
+// calculate new party sum if electoral reform
+if (new_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (Q[party + '_sl'] > 0) {
+            Q[party + '_sl'] = Math.round(Q[party + '_sl']*1000/new_party_sum)/10;
+        }
+        Q[party + '_sl'] = parseFloat((Q[party+'_sl']).toFixed(1));
+        
+        Q['change_' + party + '_sl'] = Q[party + '_sl'] - Q['old_' + party + '_sl'];
+        var sign = Q['change_' + party + '_sl'] > 0 
+                   ? '<img src="img/arrowup.png"> ' 
+                   : Q['change_' + party + '_sl'] < 0
+                     ? '<img src="img/arrowdown.png"> '
+                     : '<img src="img/steady.png"> ';
+        Q['change_' + party + '_sl'] = sign + Math.abs(parseFloat(Q['change_' + party + '_sl'])).toFixed(1);
+    }
+}
+
+
+if (Q.vrp_exist) {
+    Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.6).toFixed(1));
+    Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
+    
+    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vrp_votes_saxony).toFixed(1));
+    Q.other_sl = parseFloat((Q.other_sl - Q.vrp_sl).toFixed(1));
+    
+    Q.old_vrp_votes_saxony = Q.vrp_votes_saxony;
+    Q.old_vrp_sl = Q.vrp_sl;
+
+    Q.change_vrp_votes_saxony = Q.vrp_votes_saxony - Q.old_vrp_votes_saxony;
+    var sign2 = Q.change_vrp_votes_saxony > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_vrp_votes_saxony < 0 
+      ? '<img src="img/arrowdown.png"> ' 
+      : '<img src="img/steady.png"> ';
+    Q.votes_change_vrp_saxony = sign2 + Math.abs(parseFloat(Q.change_vrp_votes_saxony)).toFixed(1);
+    
+    Q.change_vrp_sl = Q.vrp_sl - Q.old_vrp_sl;
+    var sign = Q.change_vrp_sl > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_vrp_sl < 0
+      ? '<img src="img/arrowdown.png"> '
+      : '<img src="img/steady.png"> ';
+    Q.change_vrp_sl = sign + Math.abs(parseFloat(Q.change_vrp_sl)).toFixed(1);
+}
+
+if (Q.vnr_exist) {
+    Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
+    Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
+    
+    Q.other_votes_saxony = parseFloat((Q.other_votes_saxony - Q.vnr_votes_saxony).toFixed(1));
+    Q.other_sl = parseFloat((Q.other_sl - Q.vnr_sl).toFixed(1));
+    
+    Q.old_vnr_votes_saxony = Q.vnr_votes_saxony;
+    Q.old_vnr_sl = Q.vnr_sl;
+
+    Q.change_vnr_votes_saxony = Q.vnr_votes_saxony - Q.old_vnr_votes_saxony;
+    var sign2 = Q.change_vnr_votes_saxony > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_vnr_votes_saxony < 0 
+      ? '<img src="img/arrowdown.png"> ' 
+      : '<img src="img/steady.png"> ';
+    Q.votes_change_vnr_saxony = sign2 + Math.abs(parseFloat(Q.change_vnr_votes_saxony)).toFixed(1);
+    
+    Q.change_vnr_sl = Q.vnr_sl - Q.old_vnr_sl;
+    var sign = Q.change_vnr_sl > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_vnr_sl < 0
+      ? '<img src="img/arrowdown.png"> '
+      : '<img src="img/steady.png"> ';
+    Q.change_vnr_sl = sign + Math.abs(parseFloat(Q.change_vnr_sl)).toFixed(1);
+}
+
+Q.change_other_votes_saxony = Q.other_votes_saxony - old_other_saxony;
+var sign2 = Q.change_other_votes_saxony > 0
+? '<img src="img/arrowup.png"> ' 
+: Q.change_other_votes_saxony < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.votes_change_other_saxony = sign2 + Math.abs(parseFloat(Q.change_other_votes_saxony)).toFixed(1);
+
+Q.change_other_sl = Q.other_sl - Q.old_other_sl;
+var sign = Q.change_other_sl > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.change_other_sl < 0
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.change_other_sl = sign + Math.abs(parseFloat(Q.change_other_sl)).toFixed(1);
+
+Q.old_other_votes_saxony = Q.other_votes_saxony;
+Q.old_other_sl = Q.other_sl;
+
+if (!Q.aspd_exist) {
+    Q.aspd_votes_saxony = parseFloat((Q.spd_votes_saxony*0.08).toFixed(1));
+    Q.aspd_sl = parseFloat((Q.aspd_votes_saxony*1.01).toFixed(1));
+    
+    Q.spd_votes_saxony = parseFloat((Q.spd_votes_saxony - Q.aspd_votes_saxony).toFixed(1));
+    Q.spd_sl = parseFloat((Q.spd_sl - Q.aspd_sl).toFixed(1));
+    
+    Q.old_aspd_votes_saxony = Q.aspd_votes_saxony;
+    Q.old_aspd_sl = Q.aspd_sl;
+    Q.old_spd_votes_saxony = Q.spd_votes_saxony;
+    Q.old_spd_sl = Q.spd_sl;
+
+    Q.change_aspd_votes_saxony = Q.aspd_votes_saxony - Q.old_aspd_votes_saxony;
+    var sign2 = Q.change_aspd_votes_saxony > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_aspd_votes_saxony < 0 
+      ? '<img src="img/arrowdown.png"> ' 
+      : '<img src="img/steady.png"> ';
+    Q.votes_change_aspd_saxony = sign2 + Math.abs(parseFloat(Q.change_aspd_votes_saxony)).toFixed(1);
+    
+    Q.change_aspd_sl = Q.aspd_sl - Q.old_aspd_sl;
+    var sign = Q.change_aspd_sl > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_aspd_sl < 0
+      ? '<img src="img/arrowdown.png"> '
+      : '<img src="img/steady.png"> ';
+    Q.change_aspd_sl = sign + Math.abs(parseFloat(Q.change_aspd_sl)).toFixed(1);
+
+    Q.change_spd_votes_saxony = Q.spd_votes_saxony - old_spd_saxony;
+    var sign2 = Q.change_spd_votes_saxony > 0
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_spd_votes_saxony < 0 
+      ? '<img src="img/arrowdown.png"> ' 
+      : '<img src="img/steady.png"> ';
+    Q.votes_change_spd_saxony = sign2 + Math.abs(parseFloat(Q.change_spd_votes_saxony)).toFixed(1);
+    
+    Q.change_spd_sl = Q.spd_sl - Q.old_spd_sl;
+    var sign = Q.change_spd_sl > 0 
+    ? '<img src="img/arrowup.png"> ' 
+    : Q.change_spd_sl < 0
+      ? '<img src="img/arrowdown.png"> '
+      : '<img src="img/steady.png"> ';
+    Q.change_spd_sl = sign + Math.abs(parseFloat(Q.change_spd_sl)).toFixed(1);
+}
+
+
+
+Q.grand_coalition_saxony = parseFloat((Q.spd_sl + Q.ddp_sl + Q.z_sl + Q.dvp_sl).toFixed(1));
+Q.bourgeois_coalition_saxony = parseFloat((Q.aspd_sl + Q.ddp_sl + Q.z_sl + Q.dvp_sl + Q.vnr_sl + Q.vrp_sl + Q.wp_sl + Q.other_sl + Q.cnblp_sl + Q.kvp_sl + Q.csvd_sl).toFixed(1));
+if (Q.dnvp_ideology === "Moderate") Q.bourgeois_coalition_saxony = parseFloat((Q.bourgeois_coalition_saxony + Q.dnvp_sl).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_saxony = parseFloat((Q.dnvp_sl + Q.nsdap_sl).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_saxony = parseFloat((Q.dnf_sl + Q.nsdap_sl).toFixed(1));
+
+
+Q.in_dvp_majority_saxony = 0;
+Q.in_grand_coalition_saxony = 0;
+Q.in_bourgeois_coalition_saxony = 0;
+Q.in_far_right_coalition_saxony = 0;
+!}
