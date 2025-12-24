@@ -348,6 +348,14 @@ Government: [? if in_dvp_majority_wurttemberg: <span style="color: var(--dvp-col
 
 Next election: [+ next_election_month_wurttemberg: month +] [+ next_election_year_wurttemberg +]
 
+= Saxony
+
+Minister-President: [+ saxony_leader +] ([?if saxony_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?])
+
+Government: [? if in_dvp_majority_saxony: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_weimar_coalition_saxony: Weimar Coalition ?][? if in_grand_coalition_saxony: Grand Coalition ?][? if in_bourgeois_coalition_saxony: Bourgeois Coalition ?][? if in_far_right_coalition_saxony: Far-Right Coalition ?]
+
+Next election: [+ next_election_month_saxony: month +] [+ next_election_year_saxony +]
+
 [? if reichsreform: = Hanover ?]
 
 [? if reichsreform: Minister-President: [+ hanover_leader +] ([?if hanover_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if hanover_leader_party=="DHP":<span style="color: #63C489;">**DHP**</span>?][?if hanover_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if hanover_leader_party=="DNVP":<span style="color: #3F7BC1;">**DNVP**</span>?][?if hanover_leader_party=="DNF":<span style="color: #003755;">**DNF**</span>?]) ?]
