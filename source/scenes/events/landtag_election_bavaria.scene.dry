@@ -1,5 +1,5 @@
 title: Bavarian Landtag Election
-view-if: year = next_election_year_bavaria and month >= next_election_month_bavaria and wip
+view-if: year = next_election_year_bavaria and month >= next_election_month_bavaria
 new-page: true
 tags: event
 priority: 3
