@@ -50,6 +50,9 @@ if (!Q.vrp_exist) {
 if (!Q.vnr_exist) {
     Q.adjustmentFactors_other_saxony -= 0.3;
 }
+if (Q.wp_dvp) {
+    Q.adjustmentFactors_dvp_saxony += 0.8;
+}
 
 
 
