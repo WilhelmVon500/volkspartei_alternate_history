@@ -347,6 +347,49 @@ Q.old_nsdap_votes_wurttemberg = 4.0;
 Q.old_other_votes_wurttemberg = 1.6;
 
 
+// saxony
+Q.dvp_saxony = 1
+Q.saxony_leader = "Heldt"
+Q.saxony_leader_party = "ASPD"
+Q.in_bourgeois_coalition_saxony = 1
+Q.next_election_year_saxony = 1929;
+Q.next_election_month_saxony = 5;
+
+Q.spd_sl = 32.3;
+Q.aspd_sl = 4.2;
+Q.kpd_sl = 14.6;
+Q.z_sl = 0.0;
+Q.ddp_sl = 5.2;
+Q.dvp_sl = 12.5;
+Q.vnr_sl = 0.0;
+Q.csvd_sl = 0.0;
+Q.vrp_sl = 4.2;
+Q.wp_sl = 10.4;
+Q.cnblp_sl = 0.0;
+Q.kvp_sl = 0.0;
+Q.dnvp_sl = 14.6;
+Q.dnf_sl = 0.0;
+Q.nsdap_sl = 2.0;
+Q.other_sl = 0.0;
+
+Q.old_spd_votes_saxony = 32.1;
+Q.old_aspd_votes_saxony = 4.2;
+Q.old_kpd_votes_saxony = 14.5;
+Q.old_z_votes_saxony = 1.0;
+Q.old_ddp_votes_saxony = 4.7;
+Q.old_dvp_votes_saxony = 12.4;
+Q.old_vnr_votes_saxony = 0.0;
+Q.old_csvd_votes_saxony = 0.0;
+Q.old_vrp_votes_saxony = 4.2;
+Q.old_wp_votes_saxony = 10.1;
+Q.old_cnblp_votes_saxony = 0.0;
+Q.old_kvp_votes_saxony = 0.0;
+Q.old_dnvp_votes_saxony = 14.5;
+Q.old_dnf_votes_saxony = 0.0;
+Q.old_nsdap_votes_saxony = 1.6;
+Q.old_other_votes_saxony = 0.7;
+
+
 // hanover
 Q.spd_hl = 0.0;
 Q.aspd_hl = 0.0;
@@ -490,7 +533,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
-Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover', 'wurttemberg'];
+Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover', 'wurttemberg', 'saxony'];
 
 // TODO: add 'sapd' later on
 Q.lvp_formed = 0;
@@ -507,7 +550,7 @@ Q.cnblp_exist = 1
 Q.csvd_exist = 0
 
 Q.vrp_exist = 1
-Q.vnr_exist = 0
+Q.vnr_exist = 1
 
 Q.ddp_exist = 1
 Q.dstp_formed = 0
