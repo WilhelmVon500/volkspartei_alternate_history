@@ -478,9 +478,32 @@ There are some potential coalition arrangements.
 
 @coalition_menu
 
+- @dvp_majority_saxony
+- @grand_coalition_saxony
+- @bourgeois_coalition_saxony
+- @far_right_coalition_saxony
+
+
+@far_right_coalition_saxony
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_saxony >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_saxony +]%)
+on-arrival: in_far_right_coalition_saxony = 1;
+
+A Far-right Coalition is formed.
+
 - @saxony_mp
 
 
+@dvp_majority_saxony
+title: We can rule alone!
+view-if: dvp_sl >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_sl +]%)
+on-arrival: in_dvp_majority_saxony = 1; dvp_saxony = 1;
+
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
+
+- @saxony_mp
 
 @saxony_mp
 title: The coalition will choose the Minister-President.
