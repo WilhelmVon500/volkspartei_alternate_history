@@ -3,7 +3,7 @@ view-if: year = next_election_year_saxony and month >= next_election_month_saxon
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_saxony = next_election_year_saxony + 4; next_election_time_saxony = time + 48; dvp_saxony = 0
+on-arrival: next_election_year_saxony = next_election_year_saxony + 4; next_election_time_saxony = time + 48; dvp_saxony = 0; was_in_dvp_majority_saxony = 0; was_in_grand_coalition_saxony = 0; was_in_bourgeois_coalition_saxony = 0; was_in_far_right_coalition_saxony = 0;
 
 = Saxon Elections, [+ month : month +] [+ year +]
 
@@ -254,6 +254,20 @@ Q.bourgeois_coalition_saxony = parseFloat((Q.aspd_sl + Q.ddp_sl + Q.z_sl + Q.dvp
 if (Q.dnvp_ideology === "Moderate") Q.bourgeois_coalition_saxony = parseFloat((Q.bourgeois_coalition_saxony + Q.dnvp_sl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_saxony = parseFloat((Q.dnvp_sl + Q.nsdap_sl).toFixed(1));
 if (Q.dnf_formed) Q.far_right_coalition_saxony = parseFloat((Q.dnf_sl + Q.nsdap_sl).toFixed(1));
+
+
+
+
+if (Q.in_dvp_majority_saxony) {
+    Q.was_in_dvp_majority_saxony = 1
+} else if (Q.in_grand_coalition_saxony) {
+    Q.was_in_grand_coalition_saxony = 1
+} else if (Q.in_bourgeois_coalition_saxony) {
+    Q.was_in_bourgeois_coalition_saxony = 1
+} else if (Q.in_far_right_coalition_saxony) {
+    Q.was_in_far_right_coalition_saxony = 1
+}
+
 
 
 Q.in_dvp_majority_saxony = 0;
@@ -606,6 +620,6 @@ Manfred Killinger was elected.
 @no_majority
 title: There is no clear governing majority.
 view-if: bourgeois_coalition_saxony < 50 and grand_coalition_saxony < 50 and far_right_coalition_saxony < 50
-on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
+on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1; in_dvp_majority_saxony = 1 if was_in_dvp_majority_saxony; in_grand_coalition_saxony = 1 if was_in_grand_coalition_saxony; in_bourgeois_coalition_saxony = 1 if was_in_bourgeois_coalition_saxony; in_far_right_coalition_saxony = 1 if was_in_far_right_coalition_saxony; 
 
 There is no path to a majority government for now. The current government will stay in power as a minority coalition.
