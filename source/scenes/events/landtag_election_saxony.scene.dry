@@ -44,6 +44,13 @@ Q.adjustmentFactors_dnf_saxony = 0.3;
 Q.adjustmentFactors_nsdap_saxony = 1.0;
 Q.adjustmentFactors_other_saxony = 1.9;
 
+if (!Q.vrp_exist) {
+    Q.adjustmentFactors_other_saxony -= 0.5;
+}
+if (!Q.vnr_exist) {
+    Q.adjustmentFactors_other_saxony -= 0.3;
+}
+
 
 
 // Calculate support for each of the parties
