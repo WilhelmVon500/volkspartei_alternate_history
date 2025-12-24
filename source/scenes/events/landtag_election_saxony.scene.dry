@@ -590,6 +590,8 @@ Wilhelm Bünger was elected.
 
 @heldt
 view-if: in_grand_coalition_saxony or in_bourgeois_coalition_saxony
+choose-if: not far_right_toleration_saxony
+unavailable-subtitle: The Far-Right will never support him.
 on-arrival: saxony_leader = "Heldt"; saxony_leader_party = "ASPD"
 face-image: img/portraits/HeldtMax.jpg
 
