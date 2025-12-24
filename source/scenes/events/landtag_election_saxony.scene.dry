@@ -582,7 +582,7 @@ Bernhard Blüher was elected.
 @bunger
 view-if: dvp_saxony
 choose-if: in_dvp_majority_saxony or (in_bourgeois_coalition_saxony and not spd_toleration_saxony)
-unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> will not support him.
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> will never support him.
 on-arrival: saxony_leader = "Bünger"; saxony_leader_party = dvp_name
 face-image: img/portraits/BüngerWilhelm.jpg
 
