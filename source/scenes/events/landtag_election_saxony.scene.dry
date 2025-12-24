@@ -441,7 +441,7 @@ if (window && d3) {
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_saxony +]% {!</td><td>!} [+ votes_change_csvd_saxony +] {!</td><td>!} [+ csvd_sl +]% {!</td><td>!} [+ change_csvd_sl +] {!</td><td>!} ?]
 
-[? if wp_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} WP: {!</td><td>!} [+ wp_votes_saxony +]% {!</td><td>!} [+ votes_change_wp_saxony +] {!</td><td>!} [+ wp_sl +]% {!</td><td>!} [+ change_wp_sl +] {!</td><td>!} ?]
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes_saxony +]% {!</td><td>!} [+ votes_change_wp_saxony +] {!</td><td>!} [+ wp_sl +]% {!</td><td>!} [+ change_wp_sl +] {!</td><td>!} ?]
 
 [? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} SLV: {!</td><td>!} [+ cnblp_votes_saxony +]% {!</td><td>!} [+ votes_change_cnblp_saxony +] {!</td><td>!} [+ cnblp_sl +]% {!</td><td>!} [+ change_cnblp_sl +] {!</td><td>!} ?]
 
