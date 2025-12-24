@@ -122,7 +122,7 @@ if (new_party_sum > 0) {
 
 
 
-Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.dvp_bl).toFixed(1));
+Q.grand_coalition_bavaria = parseFloat((Q.spd_bl + Q.ddp_bl + Q.dbp_bl + Q.dvp_bl + Q.csrp_bl).toFixed(1));
 Q.bourgeois_coalition_bavaria = parseFloat((Q.ddp_bl + Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
 Q.right_coalition_bavaria = parseFloat((Q.z_bl + Q.dvp_bl + Q.other_bl + Q.dbp_bl + Q.kvp_bl + Q.dnvp_bl + Q.wp_bl + Q.csvd_bl).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_bavaria = parseFloat((Q.dnvp_bl + Q.nsdap_bl).toFixed(1));
@@ -199,6 +199,14 @@ if (Q.lvp_formed && Q.dvp_bl) {
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
         "seats": Math.round(Q.dvp_bl*1.28),
+    });
+}
+if (Q.csrp_exist && Q.csrp_bl) {
+    data.push({
+        "id": "csrp",
+        "legend": "CSRP",
+        "name": "CSRP",
+        "seats": Math.round(Q.csrp_bl*1.28),
     });
 }
 if (Q.z_bl) {
@@ -319,6 +327,8 @@ go-to: coalition_menu
 
 [? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} BB: {!</td><td>!} [+ dbp_votes_bavaria +]% {!</td><td>!} [+ votes_change_dbp_bavaria +] {!</td><td>!} [+ dbp_bl +]% {!</td><td>!} [+ change_dbp_bl +] {!</td></tr>!} ?]
 
+[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes_bavaria +]% {!</td><td>!} [+ votes_change_csrp_bavaria +] {!</td><td>!} [+ csrp_bl +]% {!</td><td>!} [+ change_csrp_bl +] {!</td></tr>!} ?]
+
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ z_votes_bavaria +]% {!</td><td>!} [+ votes_change_z_bavaria +] {!</td><td>!} [+ z_bl +]% {!</td><td>!} [+ change_z_bl +] {!</td></tr>!}
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_bavaria +]% {!</td><td>!} [+ votes_change_csvd_bavaria +] {!</td><td>!} [+ csvd_bl +]% {!</td><td>!} [+ change_csvd_bl +] {!</td><td>!} ?]
@@ -338,7 +348,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_bavaria +]%
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?]): [+ grand_coalition_bavaria +]%
 
 Bourgeois Coalition (<span style="color: #69A2BE;">**BVP**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_bavaria +]%
 
@@ -360,7 +370,7 @@ There are some potential coalition arrangements.
 @grand_coalition_bavaria
 title: We can form a Grand Coalition.
 view-if: grand_coalition_bavaria >= 50
-subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if dbp_exist: <span style="color: #38C538;">**BB**</span> + ?][? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_bavaria +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?] + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> [? if dbp_exist: + <span style="color: #38C538;">**BB**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] ([+ grand_coalition_bavaria +]%)
 on-arrival: in_grand_coalition_bavaria = 1; dvp_bavaria = 1;
 
 We will form a Grand Coalition.
