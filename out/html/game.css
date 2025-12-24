@@ -607,11 +607,18 @@ table {
 .seat.sapd {
     fill: #C40000;
 }
+
 .seat.dhp {
     fill: #63C489;
 }
 .seat.wbwb {
     fill: #006400;
+}
+.seat.vnr {
+    fill: #D3D3A9;
+}
+.seat.vrp {
+    fill: #0075EB;
 }
 
 .seat.for {
