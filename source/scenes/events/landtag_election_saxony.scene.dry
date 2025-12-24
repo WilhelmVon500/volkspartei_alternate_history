@@ -435,9 +435,9 @@ if (window && d3) {
 
 {!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_saxony +]% {!</td><td>!} [+ votes_change_z_saxony +] {!</td><td>!} [+ z_sl +]% {!</td><td>!} [+ change_z_sl +] {!</td></tr>!}
 
-[? if vnr_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} VNR: {!</td><td>!} [+ vnr_votes_saxony +]% {!</td><td>!} [+ votes_change_vnr_saxony +] {!</td><td>!} [+ vnr_sl +]% {!</td><td>!} [+ change_vnr_sl +] {!</td><td>!} ?]
+[? if vnr_exist: {!<tr><td><div class="box" style='background-color:#D3D3A9'> </div> !} VNR: {!</td><td>!} [+ vnr_votes_saxony +]% {!</td><td>!} [+ votes_change_vnr_saxony +] {!</td><td>!} [+ vnr_sl +]% {!</td><td>!} [+ change_vnr_sl +] {!</td><td>!} ?]
 
-[? if vrp_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} VRP: {!</td><td>!} [+ vrp_votes_saxony +]% {!</td><td>!} [+ votes_change_vrp_saxony +] {!</td><td>!} [+ vrp_sl +]% {!</td><td>!} [+ change_vrp_sl +] {!</td><td>!} ?]
+[? if vrp_exist: {!<tr><td><div class="box" style='background-color:#0075EB'> </div> !} VRP: {!</td><td>!} [+ vrp_votes_saxony +]% {!</td><td>!} [+ votes_change_vrp_saxony +] {!</td><td>!} [+ vrp_sl +]% {!</td><td>!} [+ change_vrp_sl +] {!</td><td>!} ?]
 
 [? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes_saxony +]% {!</td><td>!} [+ votes_change_csvd_saxony +] {!</td><td>!} [+ csvd_sl +]% {!</td><td>!} [+ change_csvd_sl +] {!</td><td>!} ?]
 
