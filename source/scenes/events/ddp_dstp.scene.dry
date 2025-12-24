@@ -53,7 +53,7 @@ However, internal opposition to Koch-Weser has reached a boiling point. Forces w
 
 @dstp
 view-if: dstp_formation_points >= 3
-on-arrival: dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
+on-arrival: vnr_exist = 0; dstp_formed = 1; ddp_name = "DStP"; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5;
 go-to: dstp_formed
 
 This has come as a complete shock to those inside and outside the party, for the <span style="color: #DCCA4A;">**DDP**</span> to merge with the political wing of a mildly anti-Semitic paramilitary group "Young German Order".
