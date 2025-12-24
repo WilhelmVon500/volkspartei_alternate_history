@@ -56,7 +56,7 @@ It seems this experiment will persist, with the <span style="color: #DCCA4A;">**
 
 @dstp_collapse
 view-if: dstp_collapse_points >= 4
-on-arrival: dstp_collapsed = 1; new_middle_ddp -= 4; old_middle_ddp -= 6; ddp_right += 1; ddp_relation -= 3; ddp_leader = "Dietrich"
+on-arrival: vnr_exist = 1; dstp_collapsed = 1; new_middle_ddp -= 4; old_middle_ddp -= 6; ddp_right += 1; ddp_relation -= 3; ddp_leader = "Dietrich"
 
 Negotiations between Mahraun and the <span style="color: #DCCA4A;">democrats</span> have finally collapsed; the experiment has finally fallen apart. The members from Mahraun's <span style="color: #D3D3A9;">**VNR**</span> have split[? if dstp_election:, taking their Reichstag seats with them?]. Responsibility for the break is argued on both sides, with the old-line <span style="color: #DCCA4A;">democrats</span> Mahraun's refusal to compromise and the Order blaming purposeful obstruction.
 
