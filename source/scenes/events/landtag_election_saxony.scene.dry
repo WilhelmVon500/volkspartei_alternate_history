@@ -428,7 +428,7 @@ if (window && d3) {
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_saxony +]% {!</td><td>!} [+ votes_change_spd_saxony +] {!</td><td>!} [+ spd_sl +]% {!</td><td>!} [+ change_spd_sl +] {!</td></tr>!}
 
-[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes_saxony +]% {!</td><td>!} [+ votes_change_aspd_saxony +] {!</td><td>!} [+ aspd_sl +]% {!</td><td>!} [+ change_aspd_sl +] {!</td><td>!} ?]
+{!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes_saxony +]% {!</td><td>!} [+ votes_change_aspd_saxony +] {!</td><td>!} [+ aspd_sl +]% {!</td><td>!} [+ change_aspd_sl +] {!</td><td>!}
 
 [? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_saxony +]% {!</td><td>!} [+ votes_change_ddp_saxony +] {!</td><td>!} [+ ddp_sl +]% {!</td><td>!} [+ change_ddp_sl +] {!</td></tr>!} ?]
 
