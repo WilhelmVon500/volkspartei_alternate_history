@@ -68,7 +68,7 @@ for (var party of Q.parties) {
     Q[party + '_votes_saxony'] = Math.round(Q[party + '_normalized_saxony'] * 1000) / 10;
 }
 
-var old_z_saxony = Q.old_z_votes_saxony;
+var old_other_saxony = Q.old_other_votes_saxony;
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_sl'] = Q[party + '_sl'];
