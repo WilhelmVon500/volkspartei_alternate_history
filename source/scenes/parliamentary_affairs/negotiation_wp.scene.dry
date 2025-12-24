@@ -64,6 +64,8 @@ Q.dvp_bl = parseFloat((Q.dvp_bl + Q.wp_bl).toFixed(1));
 Q.wp_bl = 0;
 Q.dvp_wl = parseFloat((Q.dvp_wl + Q.wp_wl).toFixed(1));
 Q.wp_wl = 0;
+Q.dvp_sl = parseFloat((Q.dvp_sl + Q.wp_sl).toFixed(1));
+Q.wp_sl = 0;
 Q.dvp_hl = parseFloat((Q.dvp_hl + Q.wp_hl).toFixed(1));
 Q.wp_hl = 0;
 !}
