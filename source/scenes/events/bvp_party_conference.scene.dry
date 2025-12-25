@@ -23,7 +23,7 @@ Fritz Schäffer has been selected as the chairman of the <span style="color: #69
 
 @held
 unavailable-subtitle: Held doesn't have enough support.
-on-arrival: bvp_leader = "Held"; bvp_ideology = "Left";; pro_republic += 1
+on-arrival: bvp_leader = "Held"; bvp_ideology = "Left"; pro_republic += 1;
 choose-if: pro_republic >= 65 and z_ideology = "Right"
 face-image: img/portraits/HeldHeinrich.jpg
 
@@ -32,7 +32,7 @@ Heinrich Held has been selected as the chairman of the <span style="color: #69A2
 @stang
 unavailable-subtitle: Stang doesn't have enough support.
 choose-if: pro_republic >= 65 and z_ideology = "Left"
-on-arrival: bvp_leader = "Stang"; bvp_ideology = "Left"; pro_republic += 2
+on-arrival: bvp_leader = "Stang"; bvp_ideology = "Left"; pro_republic += 2;
 face-image: img/portraits/StangGeorg.jpg
 
 Georg Stang has been elected as the chairman of the <span style="color: #69A2BE;">**BVP**</span>.
