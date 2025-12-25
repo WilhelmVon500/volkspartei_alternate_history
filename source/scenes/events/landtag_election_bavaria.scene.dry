@@ -440,7 +440,7 @@ unavailable-subtitle: The <span style="color: #69A2BE;">**BVP**</span> can preve
 on-arrival: bavaria_leader = "Beyer"; bavaria_leader_party = dvp_name;
 face-image: img/portraits/BeyerOtto.jpg
 
-Eduard Hamm was chosen.
+Otto Beyer was elected.
 
 @hamm
 view-if: (dvp_bavaria and (lvp_formed or nfvp_formed)) or in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria
@@ -449,28 +449,28 @@ unavailable-subtitle: The <span style="color: #69A2BE;">**BVP**</span> can preve
 on-arrival: bavaria_leader = "Hamm"; bavaria_leader_party = ddp_name if ddp_exist; bavaria_leader_party = dvp_name if lvp_formed or nfvp_formed;
 face-image: img/portraits/HammEduard.jpg
 
-Eduard Hamm was chosen.
+Eduard Hamm was elected.
 
 @held
 view-if: in_bourgeois_coalition_bavaria or in_right_coalition_bavaria
 on-arrival: bavaria_leader = "Held"; bavaria_leader_party = "BVP"
 face-image: img/portraits/HeldHeinrich.jpg
 
-Heinrich Held was chosen.
+Heinrich Held was elected.
 
 @vogel
 view-if: in_grand_coalition_bavaria
 on-arrival: bavaria_leader = "Vogel"; bavaria_leader_party = "SPD"
 face-image: img/portraits/VogelHans.jpg
 
-Hans Vogel was chosen.
+Hans Vogel was elected.
 
 @epp
 view-if: in_far_right_coalition_bavaria
 on-arrival: bavaria_leader = "Epp"; bavaria_leader_party = "NSDAP"
 face-image: img/portraits/EppFranz.jpg
 
-Franz Ritter von Epp was chosen.
+Franz Ritter von Epp was elected.
 
 
 @no_majority
