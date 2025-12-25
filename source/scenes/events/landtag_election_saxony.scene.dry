@@ -587,8 +587,8 @@ WIP
 
 @blucher
 view-if: dvp_saxony
-choose-if: in_dvp_majority_saxony or in_bourgeois_coalition_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl)
-unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
+choose-if: in_dvp_majority_saxony or (in_bourgeois_coalition_saxony and not far_right_toleration_saxony) or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl)
+unavailable-subtitle: [? if in_grand_coalition_saxony: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President. ?][? if far_right_toleration_saxony: The far-right will never support him. ?]
 on-arrival: saxony_leader = "Blüher"; saxony_leader_party = dvp_name
 face-image: img/portraits/BlüherBernhard.jpg
 
@@ -606,7 +606,7 @@ Wilhelm Bünger was elected.
 @heldt
 view-if: in_grand_coalition_saxony or in_bourgeois_coalition_saxony
 choose-if: not far_right_toleration_saxony
-unavailable-subtitle: The Far-Right will never support him.
+unavailable-subtitle: The far-right will never support him.
 on-arrival: saxony_leader = "Heldt"; saxony_leader_party = "ASPD"
 face-image: img/portraits/HeldtMax.jpg
 
