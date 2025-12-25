@@ -361,7 +361,7 @@ go-to: coalition_menu
 
 [? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes_hanover +]% {!</td><td>!} [+ votes_change_wp_hanover +] {!</td><td>!} [+ wp_hl +]% {!</td><td>!} [+ change_wp_hl +] {!</td><td>!} ?]
 
-[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ wp_votes_hanover +]% {!</td><td>!} [+ votes_change_wp_hanover +] {!</td><td>!} [+ wp_hl +]% {!</td><td>!} [+ change_wp_hl +] {!</td><td>!} ?]
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes_hanover +]% {!</td><td>!} [+ votes_change_cnblp_hanover +] {!</td><td>!} [+ cnblp_hl +]% {!</td><td>!} [+ change_cnblp_hl +] {!</td><td>!} ?]
 
 [? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_hanover +]% {!</td><td>!} [+ votes_change_kvp_hanover +] {!</td><td>!} [+ kvp_hl +]% {!</td><td>!} [+ change_kvp_hl +] {!</td></tr>!} ?]
 
