@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 card-image: img/spd.jpg
 view-if: negotiation_spd_timer = 0
-on-arrival: negotiation_spd_timer = 12
+on-arrival: negotiation_spd_timer = 6
 tags: parliamentary_affairs
 
 = Negotiations with the <span style="color: #E3000F;">**SPD**</span>
