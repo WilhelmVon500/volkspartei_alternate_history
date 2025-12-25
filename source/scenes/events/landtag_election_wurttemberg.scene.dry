@@ -3,7 +3,7 @@ view-if: year = next_election_year_wurttemberg and month >= next_election_month_
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_wurttemberg = next_election_year_wurttemberg + 4; next_election_time_wurttemberg = time + 48; dvp_wurttemberg = 0
+on-arrival: next_election_year_wurttemberg = next_election_year_wurttemberg + 4; next_election_time_wurttemberg = time + 48; dvp_wurttemberg = 0; was_in_dvp_majority_wurttemberg = 0; was_in_weimar_coalition_wurttemberg = 0; was_in_grand_coalition_wurttemberg = 0; was_in_bourgeois_coalition_wurttemberg = 0; was_in_far_right_coalition_wurttemberg = 0;
 set-jump: new_elections
 
 = Württemberg Elections, [+ month : month +] [+ year +]
@@ -139,6 +139,22 @@ if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.bourgeois_coalition_wurttem
 
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_wurttemberg = parseFloat((Q.dnvp_wl + Q.nsdap_wl).toFixed(1));
 if (Q.dnf_formed) Q.far_right_coalition_wurttemberg = parseFloat((Q.dnf_wl + Q.nsdap_wl).toFixed(1));
+
+
+
+
+if (Q.in_dvp_majority_wurttemberg) {
+    Q.was_in_dvp_majority_wurttemberg = 1
+} else if (Q.in_weimar_coalition_wurttemberg) {
+    Q.was_in_weimar_coalition_wurttemberg = 1
+} else if (Q.in_grand_coalition_wurttemberg) {
+    Q.was_in_grand_coalition_wurttemberg = 1
+} else if (Q.in_bourgeois_coalition_wurttemberg) {
+    Q.was_in_bourgeois_coalition_wurttemberg = 1
+} else if (Q.in_far_right_coalition_wurttemberg) {
+    Q.was_in_far_right_coalition_wurttemberg = 1
+}
+
 
 
 Q.in_dvp_majority_wurttemberg = 0;
@@ -462,6 +478,6 @@ Eugen Bolz was chosen.
 @no_majority
 title: There is no clear governing majority.
 view-if: weimar_coalition_wurttemberg < 50 and bourgeois_coalition_wurttemberg < 50 and grand_coalition_wurttemberg < 50 and far_right_coalition_wurttemberg < 50
-on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1;
+on-arrival: workers_nsdap += 2; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 1; in_dvp_majority_wurttemberg = 1 if was_in_dvp_majority_wurttemberg; in_weimar_coalition_wurttemberg = 1 if was_in_weimar_coalition_wurttemberg; in_grand_coalition_wurttemberg = 1 if was_in_grand_coalition_wurttemberg; in_bourgeois_coalition_wurttemberg = 1 if was_in_bourgeois_coalition_wurttemberg; in_far_right_coalition_wurttemberg = 1 if was_in_far_right_coalition_wurttemberg;
 
 There is no path to a majority government for now. The current government will stay in power as a minority coalition.
