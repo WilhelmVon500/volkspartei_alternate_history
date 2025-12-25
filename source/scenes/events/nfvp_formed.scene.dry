@@ -141,9 +141,5 @@ Q.ddp_hl = 0;
 if (Q.in_grand_coaliton_prussia) {
   Q.in_grand_coaliton_prussia = 0
   Q.in_weimar_coalition_prussia = 1
-  if (Q.in_grand_coaliton_prussia) {
-    Q.in_minority_grand_coalition_prussia = 0
-    Q.in_minority_weimar_coalition_prussia = 1
-  }
 }
 !}
