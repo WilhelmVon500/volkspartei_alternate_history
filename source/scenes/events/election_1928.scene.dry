@@ -571,7 +571,7 @@ Ernst Scholz has been appointed chancellor.
 
 @weimar_coalition
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][? if csrp_exist:  + <span style="color: #FF6B21;">**CSRP**</span>?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 
 There are enough votes for a Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]. [? if largest_party == dvp_name and not lvp_formed and not nfvp_formed: However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
