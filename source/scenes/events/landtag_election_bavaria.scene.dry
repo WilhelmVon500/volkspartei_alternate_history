@@ -3,7 +3,7 @@ view-if: year = next_election_year_bavaria and month >= next_election_month_bava
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_bavaria = next_election_year_bavaria + 4; next_election_time_bavaria = time + 48; was_in_dvp_majority_bavaria = 0; was_in_grand_coalition_bavaria = 0; was_in_bourgeois_coalition_bavaria = 0; was_in_right_coalition_bavaria = 0; was_in_far_right_coalition_bavaria = 0;
+on-arrival: next_election_year_bavaria = next_election_year_bavaria + 4; next_election_time_bavaria = time + 48; was_dvp_bavaria = 0; was_in_dvp_majority_bavaria = 0; was_in_grand_coalition_bavaria = 0; was_in_bourgeois_coalition_bavaria = 0; was_in_right_coalition_bavaria = 0; was_in_far_right_coalition_bavaria = 0;
 
 = Bavarian Elections, [+ month : month +] [+ year +]
 
