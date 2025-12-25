@@ -3,6 +3,7 @@ Q.newspaper += 2
 
 Q.nfvp_formed = 1;
 Q.ddp_exist = 0;
+Q.vnr_exist = 0;
 
 Q.dvp_name = "NFVP";
 Q.dvp_color = "#00A2DE";
