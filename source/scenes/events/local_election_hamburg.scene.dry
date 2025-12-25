@@ -136,7 +136,7 @@ if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap
 
 
 
-if (Q.in_dvp_hamburg) {
+if (Q.dvp_hamburg) {
     Q.was_dvp_hamburg = 1
 }
 if (Q.in_dvp_majority_hamburg) {
