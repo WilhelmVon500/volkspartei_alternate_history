@@ -142,7 +142,7 @@ if (Q.dnf_formed) Q.far_right_coalition_wurttemberg = parseFloat((Q.dnf_wl + Q.n
 
 
 
-if (Q.in_dvp_wurttemberg) {
+if (Q.dvp_wurttemberg) {
     Q.was_dvp_wurttemberg = 1
 }
 if (Q.in_dvp_majority_wurttemberg) {
