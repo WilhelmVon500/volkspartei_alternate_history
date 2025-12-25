@@ -17,4 +17,4 @@ title: Campaign
 subtitle: Colosser is a skilled agitator. He can get us more support among the middle class.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: new_middle_dvp += 3; old_middle_dvp += 3
+on-arrival: new_middle_dvp += 6; old_middle_dvp += 8
