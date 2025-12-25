@@ -3,7 +3,6 @@ Q.newspaper += 2
 
 Q.lvp_formed = 1;
 Q.ddp_exist = 0;
-Q.parties = Q.parties.filter(party => party !== 'ddp');
 
 Q.dvp_name = "LVP";
 Q.dvp_color = "#FFCC00";
