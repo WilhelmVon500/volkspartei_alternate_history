@@ -1,0 +1,38 @@
+title: <span style="color: #69A2BE;">**BVP**</span> Party Conference
+subtitle: The <span style="color: #69A2BE;">**BVP**</span> chooses their new leader...
+view-if: year = 1929 and month = 5
+max-visits: 1
+tags: event
+new-page: true
+
+= <span style="color: #69A2BE;">**BVP**</span> Party Conference
+
+WIP
+
+- @schaffer: The <span style="color: #69A2BE;">**BVP**</span> elects Fritz Schäffer as the party chair.
+- @held: The <span style="color: #69A2BE;">**BVP**</span> elects Heinrich Held as the party chair.
+- @stang: The <span style="color: #69A2BE;">**BVP**</span> elects Georg Stang as the party chair.
+
+@schaffer
+unavailable-subtitle: Schäffer doesn't have enough support.
+on-arrival: bvp_leader = "Schäffer"; bvp_ideology = "Right";
+choose-if: pro_republic < 65
+face-image: img/portraits/SchäfferFritz.jpg
+
+Fritz Schäffer has been selected as the chairman of the <span style="color: #69A2BE;">**BVP**</span>.
+
+@held
+unavailable-subtitle: Held doesn't have enough support.
+on-arrival: bvp_leader = "Held"; bvp_ideology = "Left";; pro_republic += 1
+choose-if: pro_republic >= 65 and z_ideology = "Right"
+face-image: img/portraits/HeldHeinrich.jpg
+
+Heinrich Held has been selected as the chairman of the <span style="color: #69A2BE;">**BVP**</span>.
+
+@stang
+unavailable-subtitle: Stang doesn't have enough support.
+choose-if: pro_republic >= 65 and z_ideology = "Left"
+on-arrival: bvp_leader = "Stang"; bvp_ideology = "Left"; pro_republic += 2
+face-image: img/portraits/StangGeorg.jpg
+
+Georg Stang has been elected as the chairman of the <span style="color: #69A2BE;">**BVP**</span>.
