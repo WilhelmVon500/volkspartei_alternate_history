@@ -3,7 +3,7 @@ view-if: year = next_election_year_hamburg and month >= next_election_month_hamb
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48; dvp_hamburg = 0; was_in_dvp_majority_hamburg = 0; was_in_weimar_coalition_hamburg = 0; was_in_grand_coalition_hamburg = 0; was_in_bourgeois_coalition_hamburg = 0; was_in_far_right_coalition_hamburg = 0;
+on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48; was_dvp_hamburg = 0; was_in_dvp_majority_hamburg = 0; was_in_weimar_coalition_hamburg = 0; was_in_grand_coalition_hamburg = 0; was_in_bourgeois_coalition_hamburg = 0; was_in_far_right_coalition_hamburg = 0;
 
 = Hamburg Elections, [+ month : month +] [+ year +]
 
@@ -136,7 +136,9 @@ if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap
 
 
 
-
+if (Q.in_dvp_hamburg) {
+    Q.was_dvp_hamburg = 1
+}
 if (Q.in_dvp_majority_hamburg) {
     Q.was_in_dvp_majority_hamburg = 1
 } else if (Q.in_weimar_coalition_hamburg) {
@@ -150,7 +152,7 @@ if (Q.in_dvp_majority_hamburg) {
 }
 
 
-
+Q.dvp_hamburg = 0;
 Q.in_dvp_majority_hamburg = 0
 Q.in_weimar_coalition_hamburg = 0;
 Q.in_grand_coalition_hamburg = 0;
@@ -467,7 +469,7 @@ Alfred Hugenberg was chosen.
 @no_majority
 title: There is no clear governing majority.
 view-if: weimar_coalition_hamburg < 50 and grand_coalition_hamburg < 50 and bourgeois_coalition_hamburg < 50 and far_right_coalition_hamburg < 50
-on-arrival: workers_kpd += 2; workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; in_dvp_majority_hamburg = 1 if was_in_dvp_majority_hamburg; in_weimar_coalition_hamburg = 1 if was_in_weimar_coalition_hamburg; in_grand_coalition_hamburg = 1 if was_in_grand_coalition_hamburg; in_bourgeois_coalition_hamburg = 1 if was_in_bourgeois_coalition_hamburg; in_far_right_coalition_hamburg = 1 if was_in_far_right_coalition_hamburg;
+on-arrival: workers_kpd += 2; workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; dvp_hamburg = 1 if was_dvp_hamburg; in_dvp_majority_hamburg = 1 if was_in_dvp_majority_hamburg; in_weimar_coalition_hamburg = 1 if was_in_weimar_coalition_hamburg; in_grand_coalition_hamburg = 1 if was_in_grand_coalition_hamburg; in_bourgeois_coalition_hamburg = 1 if was_in_bourgeois_coalition_hamburg; in_far_right_coalition_hamburg = 1 if was_in_far_right_coalition_hamburg;
 
 There is no path to a majority government for now. The current government will stay in power as a minority coalition.
 
