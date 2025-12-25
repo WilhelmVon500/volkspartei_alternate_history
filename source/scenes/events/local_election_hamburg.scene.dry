@@ -153,7 +153,7 @@ if (Q.in_dvp_majority_hamburg) {
 
 
 Q.dvp_hamburg = 0;
-Q.in_dvp_majority_hamburg = 0
+Q.in_dvp_majority_hamburg = 0;
 Q.in_weimar_coalition_hamburg = 0;
 Q.in_grand_coalition_hamburg = 0;
 Q.in_bourgeois_coalition_hamburg = 0;
