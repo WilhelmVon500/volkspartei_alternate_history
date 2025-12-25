@@ -1,9 +1,9 @@
 title: Hamburg Bürgerschaft Election
-view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg and wip
+view-if: year = next_election_year_hamburg and month >= next_election_month_hamburg
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48; dvp_hamburg = 0
+on-arrival: next_election_year_hamburg = next_election_year_hamburg + 4; next_election_time_hamburg = time + 48; dvp_hamburg = 0; was_in_dvp_majority_hamburg = 0; was_in_weimar_coalition_hamburg = 0; was_in_grand_coalition_hamburg = 0; was_in_bourgeois_coalition_hamburg = 0; was_in_far_right_coalition_hamburg = 0;
 
 = Hamburg Elections, [+ month : month +] [+ year +]
 
@@ -123,10 +123,32 @@ if (new_party_sum > 0) {
 
 if (!Q.lvp_formed && !Q.nfvp_formed) Q.weimar_coalition_hamburg = parseFloat((Q.spd_hb + Q.ddp_hb + Q.z_hb).toFixed(1));
 if (Q.lvp_formed || Q.nfvp_formed) Q.weimar_coalition_hamburg = parseFloat((Q.spd_hb + Q.dvp_hb + Q.z_hb).toFixed(1));
+if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.weimar_coalition_hamburg = parseFloat((Q.weimar_coalition_hamburg + Q.aspd_hb).toFixed(1));
+
 Q.grand_coalition_hamburg = parseFloat((Q.spd_hb + Q.ddp_hb + Q.z_hb + Q.dvp_hb).toFixed(1));
+if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.grand_coalition_hamburg = parseFloat((Q.grand_coalition_hamburg + Q.aspd_hb).toFixed(1));
+
 Q.bourgeois_coalition_hamburg = parseFloat((Q.ddp_hb + Q.z_hb + Q.dvp_hb + Q.other_hb + Q.kvp_hb + Q.wp_hb + Q.csvd_hb).toFixed(1));
+if (Q.aspd_exist && Q.aspd_ideology == "Moderate") Q.bourgeois_coalition_hamburg = parseFloat((Q.bourgeois_coalition_hamburg + Q.aspd_hb).toFixed(1));
+
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_hamburg = parseFloat((Q.dnvp_hb + Q.nsdap_hb).toFixed(1));
 if (Q.dnf_formed) Q.far_right_coalition_hamburg = parseFloat((Q.dnf_hb + Q.nsdap_hb).toFixed(1));
+
+
+
+
+if (Q.in_dvp_majority_hamburg) {
+    Q.was_in_dvp_majority_hamburg = 1
+} else if (Q.in_weimar_coalition_hamburg) {
+    Q.was_in_weimar_coalition_hamburg = 1
+} else if (Q.in_grand_coalition_hamburg) {
+    Q.was_in_grand_coalition_hamburg = 1
+} else if (Q.in_bourgeois_coalition_hamburg) {
+    Q.was_in_bourgeois_coalition_hamburg = 1
+} else if (Q.in_far_right_coalition_hamburg) {
+    Q.was_in_far_right_coalition_hamburg = 1
+}
+
 
 
 Q.in_dvp_majority_hamburg = 0
@@ -136,20 +158,23 @@ Q.in_bourgeois_coalition_hamburg = 0;
 Q.in_far_right_coalition_hamburg = 0;
 !}
 on-display: {!
-data = [
-    {
+data = []
+if (Q.kpd_hb) {
+    data.push({
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
         "seats": Math.round(Q.kpd_hb*1.6),
-    },
-    {
+    });
+}
+if (Q.spd_hb) {
+    data.push({
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
         "seats": Math.round(Q.spd_hb*1.6),
-    }
-];
+    });
+}
 if (Q.aspd_exist && Q.aspd_hb) {
     data.push({
         "id": "aspd",
@@ -311,11 +336,11 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?]): [+ weimar_coalition_hamburg +]%
+Weimar Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?]): [+ weimar_coalition_hamburg +]%
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>): [+ grand_coalition_hamburg +]%
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?]): [+ grand_coalition_hamburg +]%
 
-Bourgeois Coalition (<span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_hamburg +]%
+Bourgeois Coalition (<span style="color: #000000;">**Z**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span>?][? if wp_exist: + <span style="color: #B8996F;">**WP**</span>?][? if csvd_exist: + <span style="color: #8ED8E4;">**CSVD**</span>?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?] + <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_hamburg +]%
 
 Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_hamburg +]%
 
@@ -332,7 +357,7 @@ There are some potential coalition arrangements.
 
 @weimar_coalition_hamburg
 title: [? if not lvp_formed and not nfvp_formed: Refuse to participate in a government, so that a Weimar Coalition may be formed. ?][? if lvp_formed or nfvp_formed: We can form a Weimar Coalition. ?]
-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?] ([+ weimar_coalition_hamburg +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?] ([+ weimar_coalition_hamburg +]%)
 view-if: weimar_coalition_hamburg >= 50
 
 There are enough votes for a majority Weimar Coalition of the <span style="color: #000000;">**Center**</span>, <span style="color: #E3000F;">**SPD**</span> and [? if not lvp_formed and not nfvp_formed: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if lvp_formed or nfvp_formed: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?].
@@ -361,7 +386,7 @@ A Weimar Coalition is formed.
 @grand_coalition_hamburg
 title: We can form a Grand Coalition.
 view-if: grand_coalition_hamburg >= 50 and not (lvp_formed or nfvp_formed)
-subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ grand_coalition_hamburg +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + <span style="color: #000000;">**Z**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?] ([+ grand_coalition_hamburg +]%)
 on-arrival: in_grand_coalition_hamburg = 1; dvp_hamburg = 1;
 
 We will form a Grand Coalition.
@@ -371,7 +396,7 @@ We will form a Grand Coalition.
 @bourgeois_coalition_hamburg
 title: We can form a Bourgeois Coalition.
 view-if: bourgeois_coalition_hamburg >= 50
-subtitle: <span style="color: #000000;">**Z**</span> [? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]+ <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + [? if kvp_formed: <span style="color: #455B95;">**KVP**</span> +  ?][? if wp_exist: <span style="color: #B8996F;">**WP**</span> +  ?][? if csvd_exist: <span style="color: #8ED8E4;">**CSVD**</span> +  ?] <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_hamburg +]%)
+subtitle: <span style="color: #000000;">**Z**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span>?][? if wp_exist: + <span style="color: #B8996F;">**WP**</span>?][? if csvd_exist: + <span style="color: #8ED8E4;">**CSVD**</span>?][? if aspd_exist and aspd_ideology = "Moderate": + <span style="color: #FE9E00;">**ASPD**</span>?] + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_hamburg +]%)
 on-arrival: in_bourgeois_coalition_hamburg = 1; dvp_hamburg = 1;
 
 A Bourgeois Coalition is formed.
@@ -442,7 +467,7 @@ Alfred Hugenberg was chosen.
 @no_majority
 title: There is no clear governing majority.
 view-if: weimar_coalition_hamburg < 50 and grand_coalition_hamburg < 50 and bourgeois_coalition_hamburg < 50 and far_right_coalition_hamburg < 50
-on-arrival: workers_kpd += 2; workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1;
+on-arrival: workers_kpd += 2; workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; in_dvp_majority_hamburg = 1 if was_in_dvp_majority_hamburg; in_weimar_coalition_hamburg = 1 if was_in_weimar_coalition_hamburg; in_grand_coalition_hamburg = 1 if was_in_grand_coalition_hamburg; in_bourgeois_coalition_hamburg = 1 if was_in_bourgeois_coalition_hamburg; in_far_right_coalition_hamburg = 1 if was_in_far_right_coalition_hamburg;
 
 There is no path to a majority government for now. The current government will stay in power as a minority coalition.
 
