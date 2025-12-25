@@ -3,7 +3,7 @@ view-if: year = next_election_year_bavaria and month >= next_election_month_bava
 new-page: true
 tags: event
 priority: 3
-on-arrival: next_election_year_bavaria = next_election_year_bavaria + 4; next_election_time_bavaria = time + 48; dvp_bavaria = 0; was_in_dvp_majority_bavaria = 0; was_in_grand_coalition_bavaria = 0; was_in_bourgeois_coalition_bavaria = 0; was_in_right_coalition_bavaria = 0; was_in_far_right_coalition_bavaria = 0;
+on-arrival: next_election_year_bavaria = next_election_year_bavaria + 4; next_election_time_bavaria = time + 48; was_in_dvp_majority_bavaria = 0; was_in_grand_coalition_bavaria = 0; was_in_bourgeois_coalition_bavaria = 0; was_in_right_coalition_bavaria = 0; was_in_far_right_coalition_bavaria = 0;
 
 = Bavarian Elections, [+ month : month +] [+ year +]
 
@@ -135,7 +135,9 @@ if (Q.dnf_formed) Q.far_right_coalition_bavaria = parseFloat((Q.dnf_bl + Q.nsdap
 
 
 
-
+if (Q.in_dvp_bavaria) {
+    Q.was_dvp_bavaria = 1
+} 
 if (Q.in_dvp_majority_bavaria) {
     Q.was_in_dvp_majority_bavaria = 1
 } else if (Q.in_grand_coalition_bavaria) {
@@ -149,8 +151,8 @@ if (Q.in_dvp_majority_bavaria) {
 }
 
 
-
-Q.in_dvp_majority_bavaria = 0
+Q.dvp_bavaria = 0;
+Q.in_dvp_majority_bavaria = 0;
 Q.in_grand_coalition_bavaria = 0;
 Q.in_bourgeois_coalition_bavaria = 0;
 Q.in_right_coalition_bavaria = 0;
@@ -476,6 +478,6 @@ Franz Ritter von Epp was elected.
 @no_majority
 title: There is no clear governing majority.
 view-if: grand_coalition_bavaria < 50 and bourgeois_coalition_bavaria < 50 and right_coalition_bavaria < 50 and far_right_coalition_bavaria < 50
-on-arrival: workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 2; in_dvp_majority_bavaria = 1 if was_in_dvp_majority_bavaria; in_grand_coalition_bavaria = 1 if was_in_grand_coalition_bavaria; in_bourgeois_coalition_bavaria = 1 if was_in_bourgeois_coalition_bavaria; in_right_coalition_bavaria = 1 if was_in_right_coalition_bavaria; in_far_right_coalition_bavaria = 1 if was_in_far_right_coalition_bavaria;
+on-arrival: workers_nsdap += 1; unemployed_nsdap += 2; old_middle_nsdap += 1; new_middle_nsdap += 1; rural_nsdap += 2; dvp_bavaria = 1 if was_dvp_bavaria; in_dvp_majority_bavaria = 1 if was_in_dvp_majority_bavaria; in_grand_coalition_bavaria = 1 if was_in_grand_coalition_bavaria; in_bourgeois_coalition_bavaria = 1 if was_in_bourgeois_coalition_bavaria; in_right_coalition_bavaria = 1 if was_in_right_coalition_bavaria; in_far_right_coalition_bavaria = 1 if was_in_far_right_coalition_bavaria;
 
 There is no path to a majority government for now. The current government will stay in power as a minority coalition.
