@@ -142,4 +142,12 @@ if (Q.in_grand_coaliton_prussia) {
   Q.in_grand_coaliton_prussia = 0
   Q.in_weimar_coalition_prussia = 1
 }
+if (Q.in_grand_coaliton_hamburg) {
+  Q.in_grand_coaliton_hamburg = 0
+  Q.in_weimar_coalition_hamburg = 1
+}
+if (Q.in_grand_coaliton_wurttemberg) {
+  Q.in_grand_coaliton_wurttemberg = 0
+  Q.in_weimar_coalition_wurttemberg = 1
+}
 !}
