@@ -7,7 +7,7 @@ view-if: dbp_exist
 
 WIP
 
-- @dbp_agricultural_finance: Agricultural Financing
+- @dbp_land_reform: Agricultural Financing
 - @build_support: We must build more support for this merger.
 - @convince_dbp: We can convince the <span style="color: #38C538;">**DBP**</span> to join our ranks!
 - @go_to_negotiation_others: Actually, we wish to negotiate with some other party.
@@ -25,15 +25,15 @@ on-arrival: dbp_relation += 3; nationalist_dissent += 5; industrialist_dissent +
 We are pushing forward proposals for a merger of liberal peasant organizations into our party.
 
 
-@dbp_agricultural_finance
-subtitle: -1 budget - Increase financing for agricultural credit and insurance.
-unavailable-subtitle: -1 budget - [? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?][? if agriculture_minister_party = dvp_name and budget < 1: We do not have the necessary budget. ?]
-choose-if: agriculture_minister_party = dvp_name and budget >= 1
-go-to: agricultural_policy.agricultural_finance
+@dbp_land_reform
+subtitle: -1 budget - Break up the large aristocratic estates and give land to landless workers.
+unavailable-subtitle: [? if budget < 1 : Requires 1 budget. ?][? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?][? if judicial_reform < 2 : The judiciary would never allow this. ?]
+choose-if: agriculture_minister_party = dvp_name and judicial_reform >= 2 and budget >= 1
+go-to: agricultural_policy.land_reform
 
 @convince_dbp
 view-if: nfvp_formed or lvp_formed
-unavailable-subtitle: [? if dbp_relation < 60: Our relations with <span style="color: #38C538;">**DBP**</span> are not good enough. ?][? if agricultural_finance < 2: We have not done enough agricultural policies for <span style="color: #38C538;">**DBP**</span> to merge with us. ?]
+unavailable-subtitle: [? if dbp_relation < 60: Our relations with <span style="color: #38C538;">**DBP**</span> are not good enough. ?][? if not dvp_land_reform: <span style="color: #38C538;">**DBP**</span> wants us to support the Land Reform first. ?]
 choose-if: dbp_relation >= 60 and agricultural_finance >= 2
 on-arrival: {!
 Q.dbp_exist = 0;
