@@ -134,8 +134,8 @@ if (Q.braun_campaign) {
     if (Q.z_candidate == "Braun") {
         Q.braun_votes += (Q.z_normalized - Q.bvp_votes);
     }
-    if (Q.csrp_candidate == "Braun") {
-        Q.braun_votes += (Q.csrp_normalized);
+    if (Q.csrp_candidate == "Braun" && Q.csrp_exist) {
+        Q.braun_votes += Q.csrp_normalized;
     }
     if (Q.ddp_candidate == "Braun" && Q.ddp_exist) {
         Q.braun_votes += Q.ddp_normalized;
