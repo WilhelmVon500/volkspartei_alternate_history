@@ -1,0 +1,14 @@
+title: Negotiations with <span style="color: #000000;">**Zentrum**</span>
+new-page: true
+is-card: true
+card-image: img/zentrum.jpg
+view-if: negotiation_z_timer = 0
+on-arrival: negotiation_z_timer = 6
+tags: parliamentary_affairs
+
+= Negotiations with <span style="color: #000000;">**Zentrum**</span>
+
+WIP
+
+- @root: Perhaps we can discuss this at a later time.
+- @easy_discard
