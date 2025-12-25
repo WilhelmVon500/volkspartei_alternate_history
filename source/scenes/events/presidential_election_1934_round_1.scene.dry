@@ -152,6 +152,9 @@ if (Q.braun_campaign) {
     if (Q.dbp_candidate == "Braun" && Q.dbp_exist) {
         Q.braun_votes += Q.dbp_normalized;
     }
+    if (Q.csrp_candidate == "Braun" && Q.csrp_exist) {
+        Q.braun_votes += Q.csrp_normalized;
+    }
     if (Q.dvp_candidate == "Braun") {
         Q.braun_votes += Q.dvp_normalized;
     }
