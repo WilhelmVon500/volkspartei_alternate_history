@@ -587,8 +587,8 @@ WIP
 
 @blucher
 view-if: dvp_saxony
-choose-if: in_dvp_majority_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl) or (in_bourgeois_coalition_saxony and spd_toleration_saxony)
-unavailable-subtitle: [? if in_grand_coalition_saxony: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President. ?][? if in_bourgeois_coalition_saxony and not spd_toleration_saxony: Our coalition partners consider him too liberal. ?]
+choose-if: in_dvp_majority_saxony or in_bourgeois_coalition_saxony or (in_grand_coalition_saxony and (dvp_sl + ddp_sl + aspd_sl) > spd_sl)
+unavailable-subtitle: The <span style="color: #E3000F;">**SPD**</span> can prevent him from becoming the Minister-President.
 on-arrival: saxony_leader = "Blüher"; saxony_leader_party = dvp_name
 face-image: img/portraits/BlüherBernhard.jpg
 
