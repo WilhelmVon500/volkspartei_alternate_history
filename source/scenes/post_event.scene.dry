@@ -567,6 +567,13 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
                 Q.old_middle_wp += 4/12;
             }
 
+            if (Q.new_middle_other_normalized < 5 && (Q.vnr_exist || Q.vrp_exist)) {
+                Q.new_middle_other += 6/12;
+            }
+            if (Q.old_middle_other_normalized < 5 && (Q.vnr_exist || Q.vrp_exist)) {
+                Q.old_middle_other += 6/12;
+            }
+
             if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
                 Q.old_middle_kvp += 6/12;
             }
@@ -861,6 +868,15 @@ if (!Q.aspd_exist) {
     Q.rural_aspd = 0;
     Q.unemployed_aspd = 0;
     Q.catholics_aspd = 0;
+}
+
+if (!Q.csrp_exist) {
+    Q.workers_csrp = 0;
+    Q.new_middle_csrp = 0;
+    Q.old_middle_csrp = 0;
+    Q.rural_csrp = 0;
+    Q.unemployed_csrp = 0;
+    Q.catholics_csrp = 0;
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
