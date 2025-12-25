@@ -169,7 +169,7 @@ if (Q.dnf_formed) Q.far_right_coalition_hanover = parseFloat((Q.dnf_hl + Q.nsdap
 
 
 
-if (Q.in_dvp_hanover) {
+if (Q.dvp_hanover) {
     Q.was_dvp_hanover = 1
 }
 if (Q.in_dvp_majority_hanover) {
