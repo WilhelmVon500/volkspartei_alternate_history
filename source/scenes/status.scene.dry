@@ -147,7 +147,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 <span class="tooltip-text" title="Center Party" style="color: #000000;">**Z**</span>: [? if z_ideology = "Right" and not z_leader = "Stegerwald": Christian Democracy ?][? if z_ideology = "Left" and not z_leader = "Stegerwald": Christian Democracy ?][? if z_leader = "Stegerwald": Paternalistic Conservatism ?] ([+ z_leader +])
 
-<span class="tooltip-text" title="Bavarian People's Party" style="color: #69A2BE;">**BVP**</span>: Catholic Conservatism (Speck)
+<span class="tooltip-text" title="Bavarian People's Party" style="color: #69A2BE;">**BVP**</span>: [? if bvp_ideology = "Right": Catholic Conservatism ?][? if bvp_leader = "Held": Federalist Conservatism ?][? if bvp_leader = "Stang": Christian Democracy ?] ([+bvp_leader+])
 
 [? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: Christian Socialism (Simpfendörfer) ?]
 
