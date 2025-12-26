@@ -35,7 +35,7 @@ We have succeeded in convincing some of DGB-affiliated unions to join us!
 
 
 @dgb_fail
-on-arrival: dgb_success = 0; z_relation -= 3; csrp_relation -= 3; csvd_relation -= 3;
+on-arrival: dgb_success = 0; z_relation -= 3; csrp_relation -= 3;
 
 We have failed to convince Christian Unionists to join us.
 
