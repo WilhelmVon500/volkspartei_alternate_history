@@ -1,0 +1,12 @@
+title: Heinrich Imbusch
+is-pinned-card: true
+tags: advisor, labor
+card-image: img/portraits/ImbuschHeinrich.jpg
+view-if: imbusch_advisor = 1
+new-page: true 
+
+= Heinrich Imbusch
+
+WIP.
+
+- @root: Return to main
