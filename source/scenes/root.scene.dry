@@ -434,6 +434,36 @@ Q.old_nsdap_votes_hanover = 0.0;
 Q.old_other_votes_hanover = 0.0;
 
 
+// austria
+Q.spd_al = 0.0;
+Q.kpd_al = 0.0;
+Q.z_al = 0.0;
+Q.ddp_al = 0.0;
+Q.dvp_al = 0.0;
+Q.cnblp_al = 0.0;
+Q.kvp_al = 0.0;
+Q.dnvp_al = 0.0;
+Q.dnf_al = 0.0;
+Q.nsdap_al = 0.0;
+Q.other_al = 0.0;
+Q.vb_al = 0.0;
+
+Q.old_vb_al = 0.0;
+
+Q.old_spd_votes_austria = 0.0;
+Q.old_kpd_votes_austria = 0.0;
+Q.old_z_votes_austria = 0.0;
+Q.old_ddp_votes_austria = 0.0;
+Q.old_dvp_votes_austria = 0.0;
+Q.old_cnblp_votes_austria = 0.0;
+Q.old_kvp_votes_austria = 0.0;
+Q.old_dnvp_votes_austria = 0.0;
+Q.old_dnf_votes_austria = 0.0;
+Q.old_nsdap_votes_austria = 0.0;
+Q.old_other_votes_austria = 0.0;
+Q.old_vb_votes_austria = 0.0;
+
+
 
 
 
