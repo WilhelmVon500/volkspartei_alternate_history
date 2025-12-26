@@ -16,17 +16,137 @@ tags: party_affairs
 
 First thing we have done is merging more liberal parts of DHV with Hirsch-Duncker Unions.
 
+[? if csvd_exist: The <span style="color: #8ED8E4;">**CSVD**</span> has decided to join our party! ?]
+
 - @dgb: Negotiate with the Deutscher Gewerkschaftsbund
 
 @dgb
 go-to: dgb_success if z_leader != "Joos" and z_leader != "Stegerwald"; dgb_fail if z_leader = "Joos" or z_leader = "Stegerwald"
 
+
 @dgb_success
-on-arrival: workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-dissent); workers_dvp += 6*(1-dissent)
+on-arrival: dgb_success = 1; workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-dissent); workers_csvd -= 3*(1-dissent); workers_dvp += 9*(1-dissent)
 
 We have succeeded in convincing some of DGB factions to join us!
 
+- @election: The Deutscher Freier Gewerkschaftsbund is formed!
+
+
 @dgb_fail
-on-arrival: z_relation -= 3; csrp_relation -= 3;
-  
+on-arrival: dgb_success = 0; z_relation -= 3; csrp_relation -= 3; csvd_relation -= 3;
+
 We have failed to convince Christian Unionists to join us.
+
+- @election: The Deutscher Freier Gewerkschaftsbund is formed!
+
+@election
+on-arrival: {!
+if (Q.csvd_exist) {
+    Q.csvd_influence = (Q.workers_csvd + Q.new_middle_csvd)*10
+}
+
+Q.ddp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.progressive_strength+Q.democratic_strength)
+Q.dvp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.liberal_strength+Q.labor_strength)
+
+if (Q.dgb_success) {
+    Q.dgb_influence = (Q.workers_z + Q.new_middle_z)*Q.z_relation*0.5
+    if (Q.csrp_exist) {
+        Q.dgb_influence += Q.workers_csrp*Q.csrp_relation
+    }
+}
+
+Q.total_influence = Q.dvp_influence + Q.ddp_influence
+if (Q.csvd_exist) {
+    Q.total_influence += Q.csvd_influence
+    Q.csvd_influence = parseFloat((Q.csvd_influence/Q.total_influence*100).toFixed(1))
+}
+if (Q.csvd_exist) {
+    Q.total_influence += Q.dgb_influence
+    Q.dgb_influence = parseFloat((Q.dgb_influence/Q.total_influence*100).toFixed(1))
+}
+Q.ddp_influence = parseFloat((Q.ddp_influence/Q.total_influence*100).toFixed(1))
+Q.dvp_influence = parseFloat((Q.dvp_influence/Q.total_influence*100).toFixed(1))
+!}
+on-departure: {!
+if (Q.csvd_exist) {
+    Q.csvd_exist = 0;
+    Q.christian_socials_dvp = 1;
+
+    Q.workers_dvp += Q.workers_csvd;
+    Q.workers_csvd = 0;
+    Q.new_middle_dvp += Q.new_middle_csvd;
+    Q.new_middle_csvd = 0;
+
+    Q.dvp_r = parseFloat((Q.dvp_r + Q.csvd_r).toFixed(1));
+    Q.csvd_r = 0;
+}
+!}
+on-display: {!
+data = []
+if (Q.ddp_r) {
+    data.push({
+        "id": "ddp",
+        "legend": "Hirsch-Duncker Unions",
+        "name": "Hirsch-Duncker Unions",
+        "seats": Math.round(Q.ddp_r*2.0),
+    });
+}
+if (Q.csvd_r) {
+    data.push({
+        "id": "z",
+        "legend": "Christian Unions",
+        "name": "Christian Unions",
+        "seats": Math.round(Q.csvd_r*2.0),
+    });
+}
+if (Q.dvp_r) {
+    data.push({
+        "id": "nfvp",
+        "legend": "DHV",
+        "name": "DHV",
+        "seats": Math.round(Q.dvp_r*2.0),
+    });
+}
+if (Q.csvd_r) {
+    data.push({
+        "id": "csvd",
+        "legend": "Christian-Social Organizations",
+        "name": "Christian-Social Organizations",
+        "seats": Math.round(Q.csvd_r*2.0),
+    });
+}
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: leader
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Organization</td><td>Delegates Share</td>
+{!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} DHV: {!</td><td>!} [+ dvp_influence +]% {!</td><td>!}
+
+{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Hirsch-Duncker Unions: {!</td><td>!} [+ ddp_influence +]% {!</td><td>!}
+
+[? if dgb_influence: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} DGB: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
+
+[? if csvd_influence: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} Christian-Social Organizations: {!</td><td>!} [+ csvd_influence +]% {!</td><td>!} ?]
+
+@leader
