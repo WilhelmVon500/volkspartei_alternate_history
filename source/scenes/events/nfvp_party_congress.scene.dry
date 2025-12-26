@@ -17,7 +17,7 @@ Q.curtius_points = Q.liberal_strength + Q.democratic_strength*0.5;
 Q.thiel_points = Q.labor_strength + Q.liberal_strength*0.5;
 Q.raumer_points = Q.industrialist_strength + Q.peoples_conservative_strength;
 Q.lemmer_points = Q.progressive_strength + Q.democratic_strength*0.25 + Q.labor_strength*0.25;
-}!
+!}
 
 WIP
 
