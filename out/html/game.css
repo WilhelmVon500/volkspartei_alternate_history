@@ -620,6 +620,9 @@ table {
 .seat.vrp {
     fill: #0075EB;
 }
+.seat.vb {
+    fill: #ABDDA4;
+}
 
 .seat.for {
     fill: #158e33;
