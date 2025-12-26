@@ -29,6 +29,8 @@ on-arrival: dgb_success = 1; workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-di
 
 We have succeeded in convincing some of DGB factions to join us!
 
+[? if csrp_exist and progressives_dvp: The <span style="color: #FF6B21;">**CSRP**</span> has decided to join our party! ?]
+
 - @election: The Deutscher Freier Gewerkschaftsbund is formed!
 
 
@@ -79,6 +81,20 @@ if (Q.csvd_exist) {
 
     Q.dvp_r = parseFloat((Q.dvp_r + Q.csvd_r).toFixed(1));
     Q.csvd_r = 0;
+}
+if (Q.csrp_exist && Q.progressives_dvp) {
+    Q.csrp_exist = 0;
+
+    Q.workers_dvp += Q.workers_csrp;
+    Q.workers_csrp = 0;
+    Q.catholics_dvp += Q.catholics_csrp;
+    Q.catholics_csrp = 0;
+
+    Q.dvp_r = parseFloat((Q.dvp_r + Q.csrp_r).toFixed(1));
+    Q.csrp_r = 0;
+}
+if (Q.dgb_success) {
+    Q.social_catholics_dvp = 1;
 }
 !}
 on-display: {!
@@ -145,7 +161,7 @@ go-to: leader
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Hirsch-Duncker Unions: {!</td><td>!} [+ ddp_influence +]% {!</td><td>!}
 
-[? if dgb_influence: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} DGB: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
+[? if dgb_success: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} DGB: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
 
 [? if csvd_influence: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} Christian-Social Organizations: {!</td><td>!} [+ csvd_influence +]% {!</td><td>!} ?]
 
