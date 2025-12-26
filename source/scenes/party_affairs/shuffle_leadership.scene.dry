@@ -168,6 +168,15 @@ go-to: rm_main
 
 Behrens has been removed as an advisor. The Labor faction disapproves.
 
+@remove_imbusch
+title: Remove Imbusch
+view-if: imbusch_advisor = 1
+tags: remove_advisor
+on-arrival: imbusch_advisor = 0; labor_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Imbusch has been removed as an advisor. The Labor faction disapproves.
+
 
 # peoples conservative
 
@@ -281,6 +290,15 @@ on-arrival: erkelenz_advisor = 0; progressive_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Erkelenz has been removed as an advisor. The Progressive faction disapproves.
+
+@remove_wirth
+title: Remove Wirth
+view-if: wirth_advisor = 1
+tags: remove_advisor
+on-arrival: wirth_advisor = 0; progressive_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Wirth has been removed as an advisor. The Progressive faction disapproves.
 
 
 ## Special interest
@@ -722,6 +740,18 @@ go-to: advisor_menu
 
 Franz Behrens is now an advisor.
 
+@add_imbusch
+title: Heinrich Imbusch
+subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/ImbuschHeinrich.jpg
+tags: labor_advisor
+view-if: imbusch_advisor = 0 and n_advisors < 4 and unions_independent = 0 and social_catholics_dvp
+on-arrival: imbusch_advisor = 1; n_advisors += 1; labor_strength += 5
+go-to: advisor_menu
+
+Heinrich Imbusch is now an advisor.
+
 
 # democratic leaders
 
@@ -730,7 +760,7 @@ title: Hermann Dietrich
 subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/DietrichHermann.jpg
-view-if: dietrich_advisor = 0 and n_advisors < 4
+view-if: dietrich_advisor = 0 and n_advisors < 4 and democrats_dvp
 on-arrival: dietrich_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
@@ -742,7 +772,7 @@ title: Willy Hellpach
 subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/HellpachWilly.jpg
-view-if: hellpach_advisor = 0 and n_advisors < 4
+view-if: hellpach_advisor = 0 and n_advisors < 4 and democrats_dvp
 on-arrival: hellpach_advisor = 1; n_advisors += 1; democratic_strength += 5
 go-to: advisor_menu
 tags: democratic_advisor
@@ -754,22 +784,34 @@ Willy Hellpach is now an advisor.
 
 @add_erkelenz
 title: Anton Erkelenz
-subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/ErkelenzAnton.jpg
 tags: progressive_advisor
-view-if: erkelenz_advisor = 0 and n_advisors < 4
+view-if: erkelenz_advisor = 0 and n_advisors < 4 and progressives_dvp
 on-arrival: erkelenz_advisor = 1; n_advisors += 1; progressive_strength += 5
 go-to: advisor_menu
 
 Anton Erkelenz is now an advisor.
+
+@add_wirth
+title: Joseph Wirth
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
+is-card: true
+card-image: img/portraits/WirthJoseph.jpg
+tags: progressive_advisor
+view-if: wirth_advisor = 0 and n_advisors < 4 and social_catholics_dvp
+on-arrival: wirth_advisor = 1; n_advisors += 1; progressive_strength += 5
+go-to: advisor_menu
+
+Joseph Wirth is now an advisor.
 
 
 # Special Interest advisors
 
 @add_kubler
 title: Konrad Kübler
-subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
+subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/KublerKonrad.jpg
 tags: special_interest_advisor
