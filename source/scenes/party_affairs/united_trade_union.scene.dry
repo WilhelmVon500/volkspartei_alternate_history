@@ -185,6 +185,7 @@ face-image: img/portraits/BechlyHans.jpg
 WIP
 
 @imbusch
+view-if: dgb_success
 on-arrival: dfgb_leader = "Imbusch"; labor_strength += 8;
 face-image: img/portraits/ImbuschHeinrich.jpg
 
