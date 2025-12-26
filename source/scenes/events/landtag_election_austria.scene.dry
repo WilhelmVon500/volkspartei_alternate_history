@@ -117,7 +117,7 @@ if (new_party_sum > 0) {
 
 
 Q.vb_votes_austria = parseFloat((Q.nsdap_votes_austria*0.25).toFixed(1));
-Q.vb_al = parseFloat((Q.vb_votes_austria*1.01).toFixed(1));
+if (Q.vb_votes_austria > Q.electoral_threshold) Q.vb_al = parseFloat((Q.vb_votes_austria*1.01).toFixed(1));
 
 Q.nsdap_votes_austria = parseFloat((Q.nsdap_votes_austria - Q.vb_votes_austria).toFixed(1));
 Q.nsdap_al = parseFloat((Q.nsdap_al - Q.vb_al).toFixed(1));
