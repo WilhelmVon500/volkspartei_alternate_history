@@ -94,7 +94,10 @@ for (var state of Q.states) {
 if (Q.wp_split_seen == 1) {
   Q.special_interest_strength += 5;
   Q.colosser_dvp = 1;
-  Q.special_interest_dvp = 1
+  Q.special_interest_dvp = 1;
+}
+if (Q.dstp_formed && !Q.dstp_collapsed) {
+  Q.vnr_dvp = 1;
 }
 
 
