@@ -70,6 +70,7 @@ Q.ddp_influence = parseFloat((Q.ddp_influence/Q.total_influence*100).toFixed(1))
 Q.dvp_influence = parseFloat((Q.dvp_influence/Q.total_influence*100).toFixed(1))
 !}
 on-departure: {!
+Q.dfgb_formed = 1;
 if (Q.csvd_exist) {
     Q.csvd_exist = 0;
     Q.christian_socials_dvp = 1;
