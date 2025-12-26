@@ -324,7 +324,7 @@ go-to: coalition_menu
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_bavaria +]%** {!</td><td>!} **[+ votes_change_dvp_bavaria +]** {!</td><td>!} **[+ dvp_bl +]%** {!</td><td>!} **[+ change_dvp_bl +]** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_bavaria +]% {!</td><td>!} [+ votes_change_kpd_bavaria +] {!</td><td>!} [+ kpd_bl +]% {!</td><td>!} [+ change_kpd_bl +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes_bavaria +]% {!</td><td>!} [+ votes_change_kpd_bavaria +] {!</td><td>!} [+ kpd_bl +]% {!</td><td>!} [+ change_kpd_bl +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_bavaria +]% {!</td><td>!} [+ votes_change_spd_bavaria +] {!</td><td>!} [+ spd_bl +]% {!</td><td>!} [+ change_spd_bl +] {!</td></tr>!}
 
