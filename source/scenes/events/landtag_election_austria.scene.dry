@@ -375,3 +375,96 @@ Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp
 There are some potential coalition arrangements.
 
 @coalition_menu
+
+- @dvp_majority_austria
+- @grand_coalition_austria
+- @bourgeois_coalition_austria
+- @far_right_coalition_austria
+- @no_majority
+
+@grand_coalition_austria
+title: We can form a Grand Coalition.
+view-if: grand_coalition_austria >= 50
+subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span> ([+ grand_coalition_austria +]%)
+on-arrival: in_grand_coalition_austria = 1; dvp_austria = 1;
+
+We will form a Grand Coalition.
+
+- @austria_mp
+
+@bourgeois_coalition_austria
+title: We can form a Bourgeois Coalition.
+view-if: bourgeois_coalition_austria >= 50
+subtitle: <span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_austria +]%)
+on-arrival: in_bourgeois_coalition_austria = 1; dvp_austria = 1;
+
+A Bourgeois Coalition is formed.
+
+- @austria_mp
+
+@far_right_coalition_austria
+title: Far-right Coalition is formed!
+view-if: far_right_coalition_austria >= 50
+subtitle: <span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?] ([+ far_right_coalition_austria +]%)
+on-arrival: in_far_right_coalition_austria = 1;
+
+A Far-right Coalition is formed.
+
+- @austria_mp
+
+@dvp_majority_austria
+title: We can rule alone!
+view-if: dvp_al >= 50
+subtitle: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ([+ dvp_al +]%)
+on-arrival: in_dvp_majority_austria = 1; dvp_austria = 1;
+
+A <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> majority government is formed.
+
+- @austria_mp
+
+@austria_mp
+title: The coalition will choose the Minister-President.
+
+WIP
+
+- @straffner: Sepp Straffner
+- @miklas: Wilhelm Miklas
+- @renner: Karl Renner
+- @leopold: Josef Leopold
+
+@straffner
+view-if: dvp_austria
+choose-if: in_dvp_majority_austria or (in_grand_coalition_austria and (dvp_al + ddp_al > spd_al) and (dvp_al + ddp_al > z_al)) or (in_bourgeois_coalition_austria and (dvp_al + ddp_al > z_al))
+unavailable-subtitle: We lack enough influence to appoint our Minister-President.
+on-arrival: austria_leader = "Straffner"; austria_leader_party = dvp_name;
+face-image: img/portraits/StraffnerSepp.jpg
+
+Sepp Straffner was elected.
+
+@miklas
+view-if: in_grand_coalition_austria or in_bourgeois_coalition_austria
+on-arrival: austria_leader = "Miklas"; austria_leader_party = "CSP"
+face-image: img/portraits/MiklasWilhelm.jpg
+
+Wilhelm Miklas was elected.
+
+@renner
+view-if: in_grand_coalition_austria
+on-arrival: austria_leader = "Renner"; austria_leader_party = "SPD"
+face-image: img/portraits/RennerKarl.jpg
+
+Karl Renner was elected.
+
+@leopold
+view-if: in_far_right_coalition_austria
+on-arrival: austria_leader = "Leopold"; austria_leader_party = "NSDAP"
+
+Josef Leopold was elected.
+
+
+@no_majority
+title: There is no clear governing majority.
+view-if: grand_coalition_austria < 50 and bourgeois_coalition_austria < 50 and far_right_coalition_austria < 50
+on-arrival: workers_nsdap += 1; unemployed_nsdap += 1; rural_nsdap += 2; dvp_austria = 1 if was_dvp_austria; in_dvp_majority_austria = 1 if was_in_dvp_majority_austria; in_grand_coalition_austria = 1 if was_in_grand_coalition_austria; in_bourgeois_coalition_austria = 1 if was_in_bourgeois_coalition_austria; in_far_right_coalition_austria = 1 if was_in_far_right_coalition_austria;
+
+There is no path to a majority government for now. The current government will stay in power as a minority coalition.
