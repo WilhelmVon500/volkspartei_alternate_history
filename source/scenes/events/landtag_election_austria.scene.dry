@@ -234,8 +234,8 @@ if (Q.csrp_exist && Q.csrp_al) {
 if (Q.z_al) {
     data.push({
         "id": "z",
-        "legend": "Center",
-        "name": "Center",
+        "legend": "CSP",
+        "name": "CSP",
         "seats": Math.round(Q.z_al*1.65),
     });
 }
@@ -300,7 +300,7 @@ if (Q.vb_al) {
         "id": "vb",
         "legend": "VB",
         "name": "VB",
-        "seats": Math.round(Q.dhp_al*1.65),
+        "seats": Math.round(Q.vb_al*1.65),
     });
 }
 if (Q.nsdap_al) {
@@ -347,7 +347,7 @@ if (window && d3) {
 
 [? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes_austria +]% {!</td><td>!} [+ votes_change_csrp_austria +] {!</td><td>!} [+ csrp_al +]% {!</td><td>!} [+ change_csrp_al +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_austria +]% {!</td><td>!} [+ votes_change_z_austria +] {!</td><td>!} [+ z_al +]% {!</td><td>!} [+ change_z_al +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} CSP: {!</td><td>!} [+ z_votes_austria +]% {!</td><td>!} [+ votes_change_z_austria +] {!</td><td>!} [+ z_al +]% {!</td><td>!} [+ change_z_al +] {!</td></tr>!}
 
 [? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#385A38'> </div> !} LB: {!</td><td>!} [+ cnblp_votes_austria +]% {!</td><td>!} [+ votes_change_cnblp_austria +] {!</td><td>!} [+ cnblp_al +]% {!</td><td>!} [+ change_cnblp_al +] {!</td><td>!} ?]
 
