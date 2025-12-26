@@ -347,7 +347,7 @@ go-to: coalition_menu
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_hanover +]%** {!</td><td>!} **[+ votes_change_dvp_hanover +]** {!</td><td>!} **[+ dvp_hl +]%** {!</td><td>!} **[+ change_dvp_hl +]** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_hanover +]% {!</td><td>!} [+ votes_change_kpd_hanover +] {!</td><td>!} [+ kpd_hl +]% {!</td><td>!} [+ change_kpd_hl +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes_hanover +]% {!</td><td>!} [+ votes_change_kpd_hanover +] {!</td><td>!} [+ kpd_hl +]% {!</td><td>!} [+ change_kpd_hl +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_hanover +]% {!</td><td>!} [+ votes_change_spd_hanover +] {!</td><td>!} [+ spd_hl +]% {!</td><td>!} [+ change_spd_hl +] {!</td></tr>!}
 
