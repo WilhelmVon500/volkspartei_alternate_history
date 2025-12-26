@@ -17,7 +17,7 @@ Q.democrats_dvp = 1;
 Q.progressives_dvp = 1;
 
 Q.liberal_strength += 10;
-Q.democratic_strength += 25;
+Q.democratic_strength += 35;
 Q.progressive_strength += 5;
 
 Q.workers_dvp += Q.workers_ddp;
