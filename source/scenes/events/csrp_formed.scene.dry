@@ -28,9 +28,6 @@ if (Q.dvp_ideology == "Left") {
 if (Q.interior_minister == "Wirth") {
   Q.interior_minister_party = "CSRP"
 }
-if (Q.foreign_minister == "Wirth") {
-  Q.foreign_minister_party = "CSRP"
-}
 
 
 
