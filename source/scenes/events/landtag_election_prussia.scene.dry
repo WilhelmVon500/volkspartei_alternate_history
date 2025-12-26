@@ -424,7 +424,7 @@ go-to: coalition_menu
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_prussia +]%** {!</td><td>!} **[+ votes_change_dvp_prussia +]** {!</td><td>!} **[+ dvp_pl +]%** {!</td><td>!} **[+ change_dvp_pl +]** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_prussia +]% {!</td><td>!} [+ votes_change_kpd_prussia +] {!</td><td>!} [+ kpd_pl +]% {!</td><td>!} [+ change_kpd_pl +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes_prussia +]% {!</td><td>!} [+ votes_change_kpd_prussia +] {!</td><td>!} [+ kpd_pl +]% {!</td><td>!} [+ change_kpd_pl +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_prussia +]% {!</td><td>!} [+ votes_change_spd_prussia +] {!</td><td>!} [+ spd_pl +]% {!</td><td>!} [+ change_spd_pl +] {!</td></tr>!}
 
