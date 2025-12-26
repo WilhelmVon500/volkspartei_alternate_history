@@ -18,6 +18,7 @@ WIP
 
 @convince_parties
 subtitle: -1 resources
+view-if: bourgeois_parliament_support < 3
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; bourgeois_parliament_support += 1;
