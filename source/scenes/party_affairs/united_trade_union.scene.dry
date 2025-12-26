@@ -62,7 +62,7 @@ if (Q.csvd_exist) {
     Q.total_influence += Q.csvd_influence
     Q.csvd_influence = parseFloat((Q.csvd_influence/Q.total_influence*100).toFixed(1))
 }
-if (Q.csvd_exist) {
+if (Q.dgb_success) {
     Q.total_influence += Q.dgb_influence
     Q.dgb_influence = parseFloat((Q.dgb_influence/Q.total_influence*100).toFixed(1))
 }
@@ -107,28 +107,28 @@ data.push({
     "id": "ddp",
     "legend": "Hirsch-Duncker Unions",
     "name": "Hirsch-Duncker Unions",
-    "seats": Math.round(Q.ddp_influence*2.0),
+    "seats": Math.round(Q.ddp_influence*4.0),
 });
 if (Q.dgb_success) {
     data.push({
         "id": "z",
         "legend": "Christian Unions",
         "name": "Christian Unions",
-        "seats": Math.round(Q.dgb_influence*2.0),
+        "seats": Math.round(Q.dgb_influence*4.0),
     });
 }
 data.push({
     "id": "dhv",
     "legend": "DHV",
     "name": "DHV",
-    "seats": Math.round(Q.dvp_influence*2.0),
+    "seats": Math.round(Q.dvp_influence*4.0),
 });
 if (Q.csvd_influence) {
     data.push({
         "id": "csvd",
         "legend": "Christian-Social Organizations",
         "name": "Christian-Social Organizations",
-        "seats": Math.round(Q.csvd_influence*2.0),
+        "seats": Math.round(Q.csvd_influence*4.0),
     });
 }
 
