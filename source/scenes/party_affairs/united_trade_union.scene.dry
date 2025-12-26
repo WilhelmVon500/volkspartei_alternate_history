@@ -44,7 +44,7 @@ We have failed to convince Christian Unionists to join us.
 @election
 on-arrival: {!
 if (Q.csvd_exist) {
-    Q.csvd_influence = (Q.workers_csvd + Q.new_middle_csvd)*10
+    Q.csvd_influence = (Q.workers_csvd + Q.new_middle_csvd)*20
 }
 
 Q.ddp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.progressive_strength+Q.democratic_strength)
@@ -152,7 +152,7 @@ go-to: leader
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<tr><td>Organization</td><td>Delegates Share</td>
+{!<tr><td>Organization</td><td>Delegates Share</td>!}
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Hirsch-Duncker Unions: {!</td><td>!} [+ ddp_influence +]% {!</td><td>!}
 
 [? if dgb_success: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} Christian Unions: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
