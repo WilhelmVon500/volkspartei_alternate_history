@@ -16,7 +16,7 @@ tags: party_affairs
 
 First thing we have done is merging more liberal parts of DHV with Hirsch-Duncker Unions.
 
-[? if csvd_exist: The <span style="color: #8ED8E4;">**CSVD**</span> has decided to join our party! ?]
+[? if csvd_exist: The <span style="color: #8ED8E4;">**CSVD**</span> have decided to join our party! ?]
 
 - @dgb: Negotiate with the Deutscher Gewerkschaftsbund
 
@@ -27,9 +27,9 @@ go-to: dgb_success if z_leader != "Joos" and z_leader != "Stegerwald"; dgb_fail 
 @dgb_success
 on-arrival: dgb_success = 1; workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-dissent); workers_csvd -= 3*(1-dissent); workers_dvp += 9*(1-dissent)
 
-We have succeeded in convincing some of DGB factions to join us!
+We have succeeded in convincing some of DGB-affiliated unions to join us!
 
-[? if csrp_exist and progressives_dvp: The <span style="color: #FF6B21;">**CSRP**</span> has decided to join our party! ?]
+[? if csrp_exist and progressives_dvp: The <span style="color: #FF6B21;">**CSRP**</span> have decided to join our party! ?]
 
 - @election: The Deutscher Freier Gewerkschaftsbund is formed!
 
