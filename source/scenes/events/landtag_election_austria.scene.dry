@@ -368,7 +368,7 @@ go-to: coalition_menu
 
 Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span>[? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?]): [+ grand_coalition_austria +]%
 
-Bourgeois Coalition (<span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if cnblp_exist: + <span style="color: #385A38;">**LB**</span>?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_austria +]%
+Bourgeois Coalition (<span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if cnblp_exist: + <span style="color: #385A38;">**LB**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_austria +]%
 
 Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_austria +]%
 
@@ -395,7 +395,7 @@ We will form a Grand Coalition.
 @bourgeois_coalition_austria
 title: We can form a Bourgeois Coalition.
 view-if: bourgeois_coalition_austria >= 50
-subtitle: <span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if cnblp_exist: + <span style="color: #385A38;">**LB**</span>?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_austria +]%)
+subtitle: <span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if cnblp_exist: + <span style="color: #385A38;">**LB**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span> ([+ bourgeois_coalition_austria +]%)
 on-arrival: in_bourgeois_coalition_austria = 1; dvp_austria = 1;
 
 A Bourgeois Coalition is formed.
