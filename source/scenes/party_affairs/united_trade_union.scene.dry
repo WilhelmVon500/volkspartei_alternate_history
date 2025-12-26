@@ -96,6 +96,9 @@ if (Q.csrp_exist && Q.progressives_dvp) {
 }
 if (Q.dgb_success) {
     Q.social_catholics_dvp = 1;
+    if (Q.interior_minister == "Wirth") {
+        Q.interior_minister_party = dvp_name
+    }
 }
 !}
 on-display: {!
