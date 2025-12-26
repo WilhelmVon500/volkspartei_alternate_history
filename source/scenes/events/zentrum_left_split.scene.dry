@@ -1,6 +1,6 @@
 title: Christian Left faction leaves <span style="color: #000000;">**Center Party**</span>!
 subtitle: Wirth and his supporters join <span style="color: #FF6B21;">**CSRP**</span>
-view-if: year >= 1930 and z_leader = "Stegerwald" and not csrp_dvp
+view-if: year >= 1930 and z_leader = "Stegerwald" and not social_catholics_dvp
 max-visits: 1
 tags: event
 new-page: true
