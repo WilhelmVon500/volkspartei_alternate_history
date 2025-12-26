@@ -1,0 +1,32 @@
+title: A Unified Right-Wing Trade Union?
+subtitle: Can we unite German National, Liberal and Christian Unions?
+new-page: true
+is-card: true
+card-image: img/portraits/BechlyHans.jpg
+view-if: nfvp_formed and dvp_leader = "Thiel"
+tags: party_affairs
+
+= Building a Right-Wing Trade Union
+
+- @start_negotiations: Begin negotiating with other unions.
+- @root: Perhaps we can discuss this at a later time.
+- @easy_discard
+
+@start_negotiations
+
+First thing we have done is merging more liberal parts of DHV with Hirsch-Duncker Unions.
+
+- @dgb: Negotiate with the Deutscher Gewerkschaftsbund
+
+@dgb
+go-to: dgb_success if z_leader != "Joos" and z_leader != "Stegerwald"; dgb_fail if z_leader = "Joos" or z_leader = "Stegerwald"
+
+@dgb_success
+on-arrival: workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-dissent); workers_dvp += 6*(1-dissent)
+
+We have succeeded in convincing some of DGB factions to join us!
+
+@dgb_fail
+on-arrival: z_relation -= 3; csrp_relation -= 3;
+  
+We have failed to convince Christian Unionists to join us.
