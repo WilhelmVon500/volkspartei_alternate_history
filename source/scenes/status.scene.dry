@@ -366,3 +366,11 @@ Next election: [+ next_election_month_saxony: month +] [+ next_election_year_sax
 
 [? if reichsreform: Next election: [+ next_election_month_hanover: month +] [+ next_election_year_hanover +] ?]
 
+= [? if austria_annexed: Austria ?]
+
+[? if austria_annexed: Minister-President: [+ austria_leader +] ([?if austria_leader_party=="SPD":<span style="color: #E3000F;">**SPD**</span>?][?if austria_leader_party=="CSP":<span style="color: #000000;">**CSP**</span>?][?if austria_leader_party==dvp_name:<span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>?][?if austria_leader_party=="NSDAP":<span style="color: #954B00;">**NSDAP**</span>?]) ?]
+
+[? if austria_annexed: Government: [? if in_dvp_majority_austria: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Majority ?][? if in_grand_coalition_austria: Grand Coalition ?][? if in_bourgeois_coalition_austria: Bourgeois Coalition ?][? if in_far_right_coalition_austria: Far-Right Coalition ?] ?]
+
+[? if austria_annexed: Next election: [+ next_election_month_austria: month +] [+ next_election_year_austria +] ?]
+
