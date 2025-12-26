@@ -13,9 +13,12 @@ tags: party_affairs
 
 The party is being torn apart by internal dissent. Upset at the leadership and general direction, factions have started sabotaging their rivals, hampering our efforts to win votes and carry out our policies.
 
-[? if liberal_dissent > 30 : The liberals are upset at our direction.  ?]
+[? if progressive_dissent > 30 : The progressives are upset at our direction. ?]
+[? if democratic_dissent > 30 : The democrats are upset at our direction. ?]
+[? if liberal_dissent > 30 : The liberals are upset at our direction. ?]
 [? if industrialist_dissent > 30 : The industrialists are displeased with the direction of our party. ?]
 [? if labor_dissent > 30 : The trade unions disagree with our present course of action. ?]
+[? if peoples_conservative_dissent > 30 : The people's conservatives are upset at our direction. ?]
 [? if nationalist_dissent > 30: Nationalists are making noises about another party split. ?]
 [? if special_interest_dissent > 30 and special_interest_dvp: Special interest groups are in disagreement about our political direction. ?]
 
@@ -35,7 +38,7 @@ Something must be done to reinforce party unity.
 
 @enforce_unity
 title: Enforce party discipline.
-on-arrival: progressive_dissent -= 5; democratic_dissent -= 5; liberal_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 5; peoples_conservative_dissent -= 5; nationalist_dissent -= 5; workers_dvp -= 2; new_middle_dvp -= 4; old_middle_dvp -= 2
+on-arrival: progressive_dissent -= 5; democratic_dissent -= 5; liberal_dissent -= 5; labor_dissent -= 5; industrialist_dissent -= 5; peoples_conservative_dissent -= 5; nationalist_dissent -= 5; special_interest_dissent -= 5; workers_dvp -= 2; new_middle_dvp -= 4; old_middle_dvp -= 2
 
 Enforcing party discipline reduces dissent, but it could lead to an exit of dissenting members.
 
