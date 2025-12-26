@@ -329,7 +329,7 @@ if (window && d3) {
     d3.select("#reichstag").datum(data).call(parliament);
 }
 !}
-#go-to: coalition_menu
+go-to: coalition_menu
 
 = Election results
 
@@ -363,3 +363,15 @@ if (window && d3) {
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_austria +]% {!</td><td>!} [+ votes_change_other_austria +] {!</td><td>!} [+ other_al +]% {!</td><td>!} [+ change_other_al +] {!</td></tr>!}
 {!</table>!}
+
+**Potential coalitions:**
+
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span>): [+ grand_coalition_austria +]%
+
+Bourgeois Coalition (<span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_austria +]%
+
+Far-Right Coalition (<span style="color: #954B00;">**NSDAP**</span> + [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?]): [+ far_right_coalition_austria +]%
+
+There are some potential coalition arrangements.
+
+@coalition_menu
