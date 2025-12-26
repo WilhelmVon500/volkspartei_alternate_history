@@ -2,7 +2,7 @@ title: A Unified Right-Wing Trade Union?
 new-page: true
 is-card: true
 card-image: img/portraits/BechlyHans.jpg
-view-if: nfvp_formed and (dvp_leader = "Thiel" or dvp_leader = "Lemmer") and united_trade_union_timer = 0
+view-if: nfvp_formed and not dfgb_formed and (dvp_leader = "Thiel" or dvp_leader = "Lemmer") and united_trade_union_timer = 0
 on-arrival: month_actions += 1; united_trade_union_timer = 6
 tags: party_affairs
 
