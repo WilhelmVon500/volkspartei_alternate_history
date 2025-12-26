@@ -60,18 +60,18 @@ Q.factions = ['nationalist', 'peoples_conservative', 'industrialist', 'labor', '
 Q.nationalist_strength = 20;
 Q.nationalist_dissent = 15;
 Q.peoples_conservative_strength = 0;
-Q.peoples_conservative_dissent = 10;
+Q.peoples_conservative_dissent = 0;
 Q.industrialist_strength = 30;
 Q.industrialist_dissent = 0;
 Q.labor_strength = 10;
 Q.labor_dissent = 20;
 Q.liberal_strength = 35;
 Q.liberal_dissent = 5;
-Q.democratic_strength = 5;
+Q.democratic_strength = 0;
 Q.democratic_dissent = 0;
-Q.progressive_strength = 5;
+Q.progressive_strength = 0;
 Q.progressive_dissent = 0;
-Q.special_interest_strength = 5;
+Q.special_interest_strength = 0;
 Q.special_interest_dissent = 0;
 
 // secret events...
