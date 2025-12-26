@@ -918,7 +918,7 @@ Q.timers = ['advisor_action', 'crisis_program',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally', 'reichsbanner',
             'shuffle_leadership', 'streetfighting', 'liberal_peoples_party',
-            'party_disunity',
+            'party_disunity', 'united_trade_union',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy', 'monetary_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
@@ -933,6 +933,7 @@ Q.timers = ['advisor_action', 'crisis_program',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes',
+            //parliament
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
             'negotiation_spd', 'negotiation_z', 'negotiation_others'];
 Q.rubicon_timers = ['advisor_action', 'crisis_program',
@@ -941,7 +942,7 @@ Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally', 'reichsbanner',
             'shuffle_leadership', 'streetfighting', 'liberal_peoples_party',
-            'party_disunity',
+            'party_disunity', 'united_trade_union',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy', 'monetary_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
@@ -956,6 +957,7 @@ Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
             'understanding_enemy', 'schleichers_schemes',
+            //parliament
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
             'negotiation_spd', 'negotiation_z', 'negotiation_others'];
 Q.advisor_action_timer = 0;
@@ -975,6 +977,7 @@ Q.reichsbanner_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
 Q.liberal_peoples_party_timer = 0;
+Q.united_trade_union_timer = 0;
 Q.bourgeois_parliament_formation_timer = 0;
 Q.bourgeois_parliament_timer = 0;
 Q.negotiation_spd_timer = 0;
