@@ -53,7 +53,7 @@ Q.dvp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.liberal_strength+Q.labor
 if (Q.dgb_success) {
     Q.dgb_influence = (Q.workers_z + Q.new_middle_z)*Q.z_relation*0.5
     if (Q.csrp_exist) {
-        Q.dgb_influence += Q.workers_csrp*Q.csrp_relation
+        Q.dgb_influence += Q.workers_csrp*Q.csrp_relation*0.75
     }
 }
 
@@ -164,3 +164,25 @@ go-to: leader
 {!</table>!}
 
 @leader
+
+- @lemmer: Ernst Lemmer, the Social-Liberal candidate!
+- @bechly: Hans Bechly, the National-Liberal candidate!
+- @imbusch: Heinrich Imbusch, the Christian candidate!
+
+@lemmer
+on-arrival: dfgb_leader = "Lemmer"; progressive_strength += 5; democratic_strength += 5;
+face-image: img/portraits/LemmerErnst.jpg
+
+WIP
+
+@bechly
+on-arrival: dfgb_leader = "Bechly"; liberal_strength += 5; labor_strength += 5;
+face-image: img/portraits/BechlyHans.jpg
+
+WIP
+
+@imbusch
+on-arrival: dfgb_leader = "Imbusch"; labor_strength += 8;
+face-image: img/portraits/ImbuschHeinrich.jpg
+
+WIP
