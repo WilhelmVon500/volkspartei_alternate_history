@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 card-image: img/ballot.jpg
 view-if: negotiation_others_timer = 0
-on-arrival: negotiation_others_timer = 3
+on-arrival: negotiation_others_timer = 6
 tags: parliamentary_affairs
 
 = Negotiations with Smaller Parties
