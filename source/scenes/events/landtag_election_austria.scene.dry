@@ -257,7 +257,7 @@ if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_al) {
 }
 if (Q.cnblp_exist && Q.cnblp_al) {
     data.push({
-        "id": "cnblp",
+        "id": "lb",
         "legend": "CNBLP",
         "name": "CNBLP",
         "seats": Math.round(Q.cnblp_al*1.65),
@@ -334,3 +334,32 @@ if (window && d3) {
 = Election results
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Landtag Seats</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_austria +]%** {!</td><td>!} **[+ votes_change_dvp_austria +]** {!</td><td>!} **[+ dvp_al +]%** {!</td><td>!} **[+ change_dvp_al +]** {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes_austria +]% {!</td><td>!} [+ votes_change_kpd_austria +] {!</td><td>!} [+ kpd_al +]% {!</td><td>!} [+ change_kpd_al +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_austria +]% {!</td><td>!} [+ votes_change_spd_austria +] {!</td><td>!} [+ spd_al +]% {!</td><td>!} [+ change_spd_al +] {!</td></tr>!}
+
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes_austria +]% {!</td><td>!} [+ votes_change_ddp_austria +] {!</td><td>!} [+ ddp_al +]% {!</td><td>!} [+ change_ddp_al +] {!</td></tr>!} ?]
+
+[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes_austria +]% {!</td><td>!} [+ votes_change_csrp_austria +] {!</td><td>!} [+ csrp_al +]% {!</td><td>!} [+ change_csrp_al +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_votes_austria +]% {!</td><td>!} [+ votes_change_z_austria +] {!</td><td>!} [+ z_al +]% {!</td><td>!} [+ change_z_al +] {!</td></tr>!}
+
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#385A38'> </div> !} LB: {!</td><td>!} [+ cnblp_votes_austria +]% {!</td><td>!} [+ votes_change_cnblp_austria +] {!</td><td>!} [+ cnblp_al +]% {!</td><td>!} [+ change_cnblp_al +] {!</td><td>!} ?]
+
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes_austria +]% {!</td><td>!} [+ votes_change_kvp_austria +] {!</td><td>!} [+ kvp_al +]% {!</td><td>!} [+ change_kvp_al +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes_austria +]% {!</td><td>!} [+ votes_change_dnvp_austria +] {!</td><td>!} [+ dnvp_al +]% {!</td><td>!} [+ change_dnvp_al +] {!</td></tr>!}
+
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes_austria +]% {!</td><td>!} [+ votes_change_dnf_austria +] {!</td><td>!} [+ dnf_al +]% {!</td><td>!} [+ change_dnf_al +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#ABDDA4'> </div> !} VB: {!</td><td>!} [+ vb_votes_austria +]% {!</td><td>!} [+ votes_change_vb_austria +] {!</td><td>!} [+ vb_al +]% {!</td><td>!} [+ change_vb_al +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes_austria +]% {!</td><td>!} [+ votes_change_nsdap_austria +] {!</td><td>!} [+ nsdap_al +]% {!</td><td>!} [+ change_nsdap_al +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_austria +]% {!</td><td>!} [+ votes_change_other_austria +] {!</td><td>!} [+ other_al +]% {!</td><td>!} [+ change_other_al +] {!</td></tr>!}
+{!</table>!}
