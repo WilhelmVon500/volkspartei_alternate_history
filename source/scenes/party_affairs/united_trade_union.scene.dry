@@ -25,7 +25,7 @@ go-to: dgb_success if (z_leader != "Joos" and z_leader != "Stegerwald") or csrp_
 
 
 @dgb_success
-on-arrival: dgb_success = 1; workers_z -= 3*(1-dissent); workers_csrp -= 3*(1-dissent); workers_dvp += 6*(1-dissent)
+on-arrival: dgb_success = 1; workers_z -= 5*(1-dissent); workers_dvp += 5*(1-dissent)
 
 We have succeeded in convincing some of DGB-affiliated unions to join us!
 
