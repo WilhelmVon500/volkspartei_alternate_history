@@ -155,7 +155,7 @@ go-to: leader
 {!<tr><td>Organization</td><td>Delegates Share</td>
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Hirsch-Duncker Unions: {!</td><td>!} [+ ddp_influence +]% {!</td><td>!}
 
-[? if dgb_success: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} DGB: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
+[? if dgb_success: {!<tr><td><div class="box" style='background-color:#000000'> </div> !} Christian Unions: {!</td><td>!} [+ dgb_influence +]% {!</td><td>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} DHV: {!</td><td>!} [+ dvp_influence +]% {!</td><td>!}
 
