@@ -426,7 +426,7 @@ view-if: n_advisors < 4
 - #industrialist_advisor
 
 @peoples_conservative
-view-if: peoples_conservatives_dvp > 0 and n_advisors < 4
+view-if: peoples_conservatives_dvp and n_advisors < 4
 
 - #peoples_conservative_advisor
 
@@ -441,12 +441,12 @@ view-if: n_advisors < 4
 - #labor_advisor
 
 @democratic
-view-if: democrats_dvp > 0 and n_advisors < 4
+view-if: democrats_dvp and n_advisors < 4
 
 - #democratic_advisor
 
 @progressive
-view-if: progressives_dvp > 0 and n_advisors < 4
+view-if: (progressives_dvp or social_catholics_dvp) and n_advisors < 4
 
 - #progressive_advisor
 
@@ -456,7 +456,7 @@ view-if: n_advisors < 4
 - #nonfactional_advisor
 
 @special_interest
-view-if: special_interest_dvp > 0 and n_advisors < 4
+view-if: special_interest_dvp and n_advisors < 4
 
 - #special_interest_advisor
 
