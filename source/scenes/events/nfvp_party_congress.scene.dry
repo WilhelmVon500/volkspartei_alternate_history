@@ -11,6 +11,13 @@ WIP
 - @leader: The party will elect its leader for the next 2 years.
 
 @leader
+on-arrival: {!
+Q.dietrich_points = democratic_strength + Q.liberal_strength*0.5;
+Q.curtius_points = Q.liberal_strength + democratic_strength*0.5;
+Q.thiel_points = Q.labor_strength + Q.liberal_strength*0.5;
+Q.raumer_points = Q.industrialist_strength + Q.peoples_conservative_strength;
+Q.lemmer_points = Q.progressive_strength + Q.democratic_strength*0.25 + Q.labor_strength*0.25;
+}!
 
 WIP
 
@@ -22,6 +29,8 @@ WIP
 
 @dietrich
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
+unavailable-subtitle: Dietrich doesn't have enough support.
+#choose-if: 
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
 
@@ -30,6 +39,8 @@ WIP
 
 @curtius
 subtitle: Curtius belongs to the Stresemannite wing of our party.
+unavailable-subtitle: Curtius doesn't have enough support.
+#choose-if: 
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
 
@@ -38,6 +49,8 @@ WIP
 
 @thiel
 subtitle: Thiel is a prominent labor leader.
+unavailable-subtitle: Thiel doesn't have enough support.
+#choose-if: 
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
 
@@ -46,6 +59,8 @@ WIP
 
 @raumer
 subtitle: Raumer is backed by industrialists.
+unavailable-subtitle: Raumer doesn't have enough support.
+#choose-if: 
 on-arrival: dvp_leader = "Raumer"
 face-image: img/portraits/RaumerHans.jpg
 
@@ -54,6 +69,8 @@ Hans von Raumer secured the chairmanship by consolidating the party’s pro�
 
 @lemmer
 subtitle: Lemmer is a prominent labor leader.
+unavailable-subtitle: Lemmer doesn't have enough support.
+#choose-if: 
 on-arrival: dvp_leader = "Lemmer"
 face-image: img/portraits/LemmerErnst.jpg
 
