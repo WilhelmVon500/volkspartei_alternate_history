@@ -21,7 +21,7 @@ First thing we have done is merging more liberal parts of DHV with Hirsch-Duncke
 - @dgb: Negotiate with the Deutscher Gewerkschaftsbund
 
 @dgb
-go-to: dgb_success if z_leader != "Joos" and z_leader != "Stegerwald"; dgb_fail if z_leader = "Joos" or z_leader = "Stegerwald"
+go-to: dgb_success if (z_leader != "Joos" and z_leader != "Stegerwald") or csrp_exist; dgb_fail if (z_leader = "Joos" or z_leader = "Stegerwald") and not csrp_exist
 
 
 @dgb_success
