@@ -162,8 +162,8 @@ Q.old_nsdap_al = Q.nsdap_al;
 
 
 
-Q.grand_coalition_austria = parseFloat((Q.spd_al + Q.ddp_al + Q.dvp_al + Q.z_al).toFixed(1));
-Q.bourgeois_coalition_austria = parseFloat((Q.ddp_al + Q.z_al + Q.dvp_al + Q.kvp_al + Q.cnblp_al + Q.other_al).toFixed(1));
+Q.grand_coalition_austria = parseFloat((Q.spd_al + Q.ddp_al + Q.dvp_al + Q.z_al + Q.csrp_al).toFixed(1));
+Q.bourgeois_coalition_austria = parseFloat((Q.ddp_al + Q.z_al + Q.dvp_al + Q.kvp_al + Q.cnblp_al + Q.csrp_al + Q.other_al).toFixed(1));
 if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_austria = parseFloat((Q.dnvp_al + Q.nsdap_al).toFixed(1));
 if (Q.dnf_formed) Q.far_right_coalition_austria = parseFloat((Q.dnf_al + Q.nsdap_al).toFixed(1));
 
@@ -366,7 +366,7 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span>): [+ grand_coalition_austria +]%
+Grand Coalition (<span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span>[? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?]): [+ grand_coalition_austria +]%
 
 Bourgeois Coalition (<span style="color: #000000;">**CSP**</span> + <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>[? if ddp_exist: + <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?][? if kvp_formed: + <span style="color: #455B95;">**KVP**</span> ?][? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] + <span style="color: #909090;">**Others**</span>): [+ bourgeois_coalition_austria +]%
 
@@ -385,7 +385,7 @@ There are some potential coalition arrangements.
 @grand_coalition_austria
 title: We can form a Grand Coalition.
 view-if: grand_coalition_austria >= 50
-subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span> ([+ grand_coalition_austria +]%)
+subtitle: <span style="color: #E3000F;">**SPD**</span> + [? if ddp_exist: <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> + ?] <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> + <span style="color: #000000;">**CSP**</span>[? if csrp_exist: + <span style="color: #FF6B21;">**CSRP**</span>?] ([+ grand_coalition_austria +]%)
 on-arrival: in_grand_coalition_austria = 1; dvp_austria = 1;
 
 We will form a Grand Coalition.
