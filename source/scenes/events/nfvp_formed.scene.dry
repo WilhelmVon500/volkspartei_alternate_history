@@ -135,6 +135,8 @@ Q.dvp_sl = parseFloat((Q.dvp_sl + Q.ddp_sl).toFixed(1));
 Q.ddp_sl = 0;
 Q.dvp_hl = parseFloat((Q.dvp_hl + Q.ddp_hl).toFixed(1));
 Q.ddp_hl = 0;
+Q.dvp_al = parseFloat((Q.dvp_al + Q.ddp_al).toFixed(1));
+Q.ddp_al = 0;
 
 
 
