@@ -1,0 +1,12 @@
+title: Joseph Wirth
+is-pinned-card: true
+tags: advisor, progressive
+card-image: img/portraits/WirthJoseph.jpg
+view-if: wirth_advisor = 1
+new-page: true 
+
+= Joseph Wirth
+
+WIP
+
+- @root: Return to main
