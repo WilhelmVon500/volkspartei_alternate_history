@@ -932,7 +932,7 @@ Q.timers = ['advisor_action', 'crisis_program',
             'rb_ban', 'sa_ban', 'sh_ban', 'papen_chancellor',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes',
+            'understanding_enemy', 'schleichers_schemes', 'nfvp_party_congress',
             //parliament
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
             'negotiation_spd', 'negotiation_z', 'negotiation_others'];
@@ -956,7 +956,7 @@ Q.rubicon_timers = ['advisor_action', 'crisis_program',
             'rb_ban', 'sa_ban', 'sh_ban', 'papen_chancellor',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes',
+            'understanding_enemy', 'schleichers_schemes', 'nfvp_party_congress',
             //parliament
             'bourgeois_parliament_formation', 'bourgeois_parliament', 
             'negotiation_spd', 'negotiation_z', 'negotiation_others'];
@@ -978,6 +978,7 @@ Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
 Q.liberal_peoples_party_timer = 0;
 Q.united_trade_union_timer = 0;
+Q.nfvp_party_congress_timer = 0;
 Q.bourgeois_parliament_formation_timer = 0;
 Q.bourgeois_parliament_timer = 0;
 Q.negotiation_spd_timer = 0;
