@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 card-image: img/portraits/BechlyHans.jpg
 view-if: nfvp_formed and dvp_leader = "Thiel" and united_trade_union_timer = 0
-on-arrival: united_trade_union_timer = 6
+on-arrival: month_actions += 1; united_trade_union_timer = 6
 tags: party_affairs
 
 = Can we unite German National, Liberal and Christian Unions?
