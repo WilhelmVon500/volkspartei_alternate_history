@@ -816,7 +816,7 @@ Q.minority_government = 0;
 // ministries - which parties control the ministries?
 // starting with the 4th Marx cabinet https://en.wikipedia.org/wiki/Fourth_Marx_cabinet
 // is the agricultural ministry useful at all?
-Q.foreign_minister = 'Streseman';
+Q.foreign_minister = 'Stresemann';
 Q.foreign_minister_party = 'DVP';
 Q.interior_minister = 'von Keudell';
 Q.interior_minister_party = 'DNVP';
