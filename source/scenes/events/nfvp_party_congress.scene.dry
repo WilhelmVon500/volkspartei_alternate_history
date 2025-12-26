@@ -1,0 +1,51 @@
+title: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
+view-if: nfvp_formed and nfvp_party_congress_timer = 0
+on-arrival: nfvp_party_congress_timer = 24
+tags: event
+new-page: true
+
+= <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
+
+WIP
+
+- @leader: The party will elect its leader for the next 2 years.
+
+@leader
+
+WIP
+
+- @dietrich: Hermann Dietrich will lead our party.
+- @curtius: Julius Curtius will lead our party.
+- @thiel: Otto Thiel will lead our party.
+- @raumer: Hans Raumer will lead our party.
+
+@dietrich
+subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
+on-arrival: dvp_leader = "Dietrich"
+face-image: img/portraits/DietrichHermann.jpg
+
+WIP
+  
+
+@curtius
+subtitle: Curtius belongs to the Stresemannite wing of our party.
+on-arrival: dvp_leader = "Curtius"
+face-image: img/portraits/CurtiusJulius.jpg
+
+WIP
+  
+
+@thiel
+subtitle: Thiel is a prominent labor leader.
+on-arrival: dvp_leader = "Thiel"
+face-image: img/portraits/ThielOtto.jpg
+
+WIP
+  
+
+@raumer
+subtitle: Raumer is backed by industrialists.
+on-arrival: dvp_leader = "Raumer"
+face-image: img/portraits/RaumerHans.jpg
+
+Hans von Raumer secured the chairmanship by consolidating the party’s pro‑business wing.
