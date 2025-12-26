@@ -1,12 +1,11 @@
 title: A Unified Right-Wing Trade Union?
-subtitle: Can we unite German National, Liberal and Christian Unions?
 new-page: true
 is-card: true
 card-image: img/portraits/BechlyHans.jpg
 view-if: nfvp_formed and dvp_leader = "Thiel"
 tags: party_affairs
 
-= Building a Right-Wing Trade Union
+= Can we unite German National, Liberal and Christian Unions?
 
 - @start_negotiations: Begin negotiating with other unions.
 - @root: Perhaps we can discuss this at a later time.
