@@ -41,7 +41,7 @@ Q.adjustmentFactors_cnblp_austria = 1.6;
 Q.adjustmentFactors_kvp_austria = 0.5;
 Q.adjustmentFactors_dnvp_austria = 0.7;
 Q.adjustmentFactors_dnf_austria = 0.7;
-Q.adjustmentFactors_nsdap_austria = 1.3;
+Q.adjustmentFactors_nsdap_austria = 1.4;
 Q.adjustmentFactors_other_austria = 0.3;
 
 
@@ -116,7 +116,7 @@ if (new_party_sum > 0) {
 
 
 
-Q.vb_votes_austria = parseFloat((Q.nsdap_votes_austria*0.8).toFixed(1));
+Q.vb_votes_austria = parseFloat((Q.nsdap_votes_austria*0.25).toFixed(1));
 Q.vb_al = parseFloat((Q.vb_votes_austria*1.01).toFixed(1));
 
 Q.nsdap_votes_austria = parseFloat((Q.nsdap_votes_austria - Q.vb_votes_austria).toFixed(1));
@@ -162,10 +162,10 @@ Q.old_nsdap_al = Q.nsdap_al;
 
 
 
-Q.grand_coalition_austria = parseFloat((Q.spd_hl + Q.ddp_hl + Q.dvp_hl + Q.z_hl).toFixed(1));
-Q.bourgeois_coalition_austria = parseFloat((Q.ddp_hl + Q.z_hl + Q.dhp_hl + Q.dvp_hl + Q.other_hl + Q.kvp_hl + Q.wp_hl + Q.csvd_hl + Q.cnblp_hl).toFixed(1));
-if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_austria = parseFloat((Q.dnvp_hl + Q.nsdap_hl).toFixed(1));
-if (Q.dnf_formed) Q.far_right_coalition_austria = parseFloat((Q.dnf_hl + Q.nsdap_hl).toFixed(1));
+Q.grand_coalition_austria = parseFloat((Q.spd_al + Q.ddp_al + Q.dvp_al + Q.z_al).toFixed(1));
+Q.bourgeois_coalition_austria = parseFloat((Q.ddp_al + Q.z_al + Q.dvp_al + Q.kvp_al + Q.cnblp_al + Q.other_al).toFixed(1));
+if (Q.dnvp_ideology === "Radical") Q.far_right_coalition_austria = parseFloat((Q.dnvp_al + Q.nsdap_al).toFixed(1));
+if (Q.dnf_formed) Q.far_right_coalition_austria = parseFloat((Q.dnf_al + Q.nsdap_al).toFixed(1));
 
 
 
@@ -181,3 +181,148 @@ if (Q.in_dvp_majority_austria) {
 } else if (Q.in_far_right_coalition_austria) {
     Q.was_in_far_right_coalition_austria = 1
 }
+
+
+Q.dvp_austria = 0;
+Q.in_dvp_majority_austria = 0;
+Q.in_grand_coalition_austria = 0;
+Q.in_bourgeois_coalition_austria = 0;
+Q.in_far_right_coalition_austria = 0;
+!}
+on-display: {!
+data = []
+if (Q.kpd_al) {
+    data.push({
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_al*1.65),
+    });
+}
+if (Q.spd_al) {
+    data.push({
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_al*1.65),
+    });
+}
+if (Q.ddp_exist && Q.ddp_al) {
+    data.push({
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_al*1.65),
+    });
+}
+if (Q.lvp_formed && Q.dvp_al) {
+    data.push({
+        "id": "lvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_al*1.65),
+    });
+}
+if (Q.z_al) {
+    data.push({
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round(Q.z_al*1.65),
+    });
+}
+if (Q.nfvp_formed && Q.dvp_al) {
+    data.push({
+        "id": "nfvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_al*1.65),
+    });
+}
+if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_al) {
+    data.push({
+        "id": "dvp",
+        "legend": Q.dvp_name,
+        "name": Q.dvp_name,
+        "seats": Math.round(Q.dvp_al*1.65),
+    });
+}
+if (Q.cnblp_exist && Q.cnblp_al) {
+    data.push({
+        "id": "cnblp",
+        "legend": "CNBLP",
+        "name": "CNBLP",
+        "seats": Math.round(Q.cnblp_al*1.65),
+    });
+}
+if (Q.other_al) {
+    data.push({
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_al*1.65),
+    });
+}
+if (Q.kvp_formed && Q.kvp_al) {
+    data.push({
+        "id": "kvp",
+        "legend": "KVP",
+        "name": "KVP",
+        "seats": Math.round(Q.kvp_al*1.65),
+    });
+}
+if (Q.dnvp_al) {
+    data.push({
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_al*1.65),
+    });
+}
+if (Q.dnf_formed && Q.dnf_al) {
+    data.push({
+        "id": "dnf",
+        "legend": "DNF",
+        "name": "DNF",
+        "seats": Math.round(Q.dnf_al*1.65),
+    });
+}
+if (Q.vb_al) {
+    data.push({
+        "id": "vb",
+        "legend": "VB",
+        "name": "VB",
+        "seats": Math.round(Q.dhp_al*1.65),
+    });
+}
+if (Q.nsdap_al) {
+    data.push({
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_al*1.65),
+    });
+}
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+#go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
