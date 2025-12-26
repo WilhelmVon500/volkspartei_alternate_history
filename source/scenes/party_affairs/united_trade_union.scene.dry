@@ -147,11 +147,11 @@ if (window && d3) {
 !}
 go-to: leader
 
-= Election results
+= DFGB congress
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
-{!<table>!} 
+{!<table>!}
 {!<tr><td>Organization</td><td>Delegates Share</td>
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Hirsch-Duncker Unions: {!</td><td>!} [+ ddp_influence +]% {!</td><td>!}
 
@@ -160,5 +160,6 @@ go-to: leader
 {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} DHV: {!</td><td>!} [+ dvp_influence +]% {!</td><td>!}
 
 [? if csvd_influence: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} Christian-Social Organizations: {!</td><td>!} [+ csvd_influence +]% {!</td><td>!} ?]
+{!</table>!}
 
 @leader
