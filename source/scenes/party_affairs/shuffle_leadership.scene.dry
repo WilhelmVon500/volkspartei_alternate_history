@@ -150,14 +150,14 @@ go-to: rm_main
 
 Thiel has been removed as an advisor. The Labor faction disapproves.
 
-@remove_wissell
-title: Remove Wissell
-view-if: wissell_advisor = 1
+@remove_baltrusch
+title: Remove Baltrusch
+view-if: baltrusch_advisor = 1
 tags: remove_advisor
-on-arrival: wissell_advisor = 0; labor_dissent += 3; n_advisors -= 1
+on-arrival: baltrusch_advisor = 0; labor_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Wissell has been removed as an advisor. The Labor faction disapproves.
+Baltrusch has been removed as an advisor. The Labor faction disapproves.
 
 @remove_behrens
 title: Remove Behrens
@@ -698,17 +698,17 @@ go-to: advisor_menu
 
 Otto Thiel is now an advisor.
 
-@add_wissell
-title: Rudolf Wissell
-subtitle: Rudolf Wissell is an economist who has been the Labor Minister, and is an advocate for the interests of labor within the government. {!<br><br>!}[? if difficulty < 0 : Actions - Union-Party Coordination, Labor Rights ?]
+@add_baltrusch
+title: Friedrich Baltrusch
+subtitle: Friedrich Baltrusch is WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
-card-image: img/portraits/WissellRudolf.jpg
+card-image: img/portraits/BaltruschFriedrich.jpg
 tags: labor_advisor
-view-if: wissell_advisor = 0 and n_advisors < 4 and unions_independent = 0
-on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3
+view-if: baltrusch_advisor = 0 and n_advisors < 4 and unions_independent = 0 and vnr_dvp
+on-arrival: baltrusch_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
-Rudolf Wissell is now an advisor.
+Friedrich Baltrusch is now an advisor.
 
 @add_behrens
 title: Franz Behrens
