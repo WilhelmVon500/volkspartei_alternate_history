@@ -627,6 +627,10 @@ table {
     fill: #ABDDA4;
 }
 
+.seat.dhv {
+    fill: #C0A054;
+}
+
 .seat.for {
     fill: #158e33;
 }
