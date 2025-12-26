@@ -41,7 +41,7 @@ Q.adjustmentFactors_cnblp_austria = 1.6;
 Q.adjustmentFactors_kvp_austria = 0.5;
 Q.adjustmentFactors_dnvp_austria = 0.7;
 Q.adjustmentFactors_dnf_austria = 0.7;
-Q.adjustmentFactors_nsdap_austria = 1.4;
+Q.adjustmentFactors_nsdap_austria = 1.6;
 Q.adjustmentFactors_other_austria = 0.3;
 
 
