@@ -223,6 +223,14 @@ if (Q.lvp_formed && Q.dvp_al) {
         "seats": Math.round(Q.dvp_al*1.65),
     });
 }
+if (Q.csrp_exist && Q.csrp_al) {
+    data.push({
+        "id": "csrp",
+        "legend": "CSRP",
+        "name": "CSRP",
+        "seats": Math.round(Q.csrp_al*1.65),
+    });
+}
 if (Q.z_al) {
     data.push({
         "id": "z",
