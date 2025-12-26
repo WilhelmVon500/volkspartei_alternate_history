@@ -518,11 +518,6 @@ Q.kpd_banned = 0;
 Q.nsdap_banned = 0;
 
 
-
-// austria
-Q.austria_annexed = 0;
-
-
 // coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
 // when coup_progress reaches 10 or capital_strike_progress reaches 10, there's a special event that launches the coup.
 Q.coup_progress = 0;
@@ -888,6 +883,9 @@ Q.moderate_plan_progress = 0;
 // Europabund negotiation process
 Q.europabund = 0;
 Q.eb_progress = 0;
+// Austria annexation process
+Q.austria_annexed = 0;
+Q.austria_annexation_progress = 0;
 // science/education
 Q.science = 0;
 Q.education_science = 0;
