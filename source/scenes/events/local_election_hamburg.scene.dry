@@ -311,7 +311,7 @@ go-to: coalition_menu
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Bürgerschaft Seats</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes_hamburg +]%** {!</td><td>!} **[+ votes_change_dvp_hamburg +]** {!</td><td>!} **[+ dvp_hb +]%** {!</td><td>!} **[+ change_dvp_hb +]** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_votes_hamburg +]% {!</td><td>!} [+ votes_change_kpd_hamburg +] {!</td><td>!} [+ kpd_hb +]% {!</td><td>!} [+ change_kpd_hb +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes_hamburg +]% {!</td><td>!} [+ votes_change_kpd_hamburg +] {!</td><td>!} [+ kpd_hb +]% {!</td><td>!} [+ change_kpd_hb +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes_hamburg +]% {!</td><td>!} [+ votes_change_spd_hamburg +] {!</td><td>!} [+ spd_hb +]% {!</td><td>!} [+ change_spd_hb +] {!</td></tr>!}
 
