@@ -497,6 +497,12 @@ Q.constitutional_protection = 0;
 Q.kpd_banned = 0;
 Q.nsdap_banned = 0;
 
+
+
+// austria
+Q.austria_annexed = 0;
+
+
 // coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
 // when coup_progress reaches 10 or capital_strike_progress reaches 10, there's a special event that launches the coup.
 Q.coup_progress = 0;
@@ -539,7 +545,7 @@ Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'wp', 'dnvp', 'nsdap', 'other', 'dbp', 'cnblp'];
-Q.states = ['prussia', 'bavaria', 'hamburg', 'hanover', 'wurttemberg', 'saxony'];
+Q.states = ['prussia', 'bavaria', 'hamburg', 'wurttemberg', 'saxony', 'hanover', 'austria'];
 
 // TODO: add 'sapd' later on
 Q.lvp_formed = 0;
