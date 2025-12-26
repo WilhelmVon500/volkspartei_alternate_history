@@ -17,6 +17,8 @@ What should our foreign policy priority be?
 - @improve_west
 - @improve_east
 - @customs_union
+- @negotiate_austria
+- @annex_austria
 - @negotiate
 - @reduce_reparations
 - @expose
@@ -24,8 +26,6 @@ What should our foreign policy priority be?
 - @europabund_2
 - @concordat_negotiate
 - @concordat
-- @support_austria
-- @support_austria_2
 - @root: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
@@ -47,8 +47,8 @@ We also aim to improve relations with our eastern neighbors, Poland and Czechosl
 title: Form a customs union with Austria?
 subtitle: This will likely incur the wrath of France.
 unavailable-subtitle: This is superseded by the Europabund.
-choose-if: eb = 0
-view-if: black_thursday_seen = 1 and customs_union = 0
+choose-if: europabund = 0
+view-if: black_thursday_seen = 1 and customs_union = 0 and not austria_annexed
 
 The right has long desired closer ties with Austria, with the eventual goal of the merger of the two German-speaking countries. A customs union with Austria is the first step towards this goal. Additionally, many believe that a union with Austria would improve our current economic circumstances.
 
@@ -64,6 +64,24 @@ max-visits: 1
 We have formed a customs union with Austria! The right-wing parties are praising us for this unexpected turn of events.
 
 Immediately, France and other neighboring countries lodge their protests. The longer-term response is yet to be seen.
+
+
+@negotiate_austria
+title: Negotiate with Austrian government about annexation.
+subtitle: This will likely incur the wrath of the Entente and our neighbors.
+view-if: (customs_union or europabund) and austria_annexation_progress < 3
+on-arrival: austria_annexation_progress += 1
+
+WIP.
+
+
+@annex_austria
+title: Negotiate with Austrian government about annexation.
+subtitle: This will likely incur the wrath of the Entente and our neighbors.
+view-if: (customs_union or europabund) and austria_annexation_progress >= 3 and not austria_annexed
+on-arrival: austria_annexed = 1; banking_crisis_timer = 2 if not banking_crisis_seen; west_relation -= 3; east_relation -= 3; new_middle_dvp += 10*(1-dissent); old_middle_dvp += 10*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 3*(1-dissent); new_middle_nsdap -= 5*(1-dissent); old_middle_dvp -= 5*(1-dissent); next_election_time_austria = time+3; next_election_month_austria = month + 3; next_election_year_austria = year; next_election_year_austria += 1 if next_election_month_austria > 12; next_election_month_austria -= 12 if next_election_month_austria > 12; dvp_austria = 1; austria_leader = "Miklas"; austria_leader_party = "CSP"; in_bourgeois_coalition_austria = 1;
+
+WIP.
 
 
 @negotiate
@@ -113,21 +131,6 @@ achievement: reichskonkordat
 
 We have successfully signed a Concordat between Germany and the Roman Catholic Church! This treaty defines a formal relationship between the Church and the German state, guaranteeing freedom of worship for Catholics, and the right of the church to appoint their own clergy. Catholics in Germany are pleased, as are their representatives in the Center Party.
 
-@support_austria
-title: Diplomatically support Austrian democracy against the Dollfuß dictatorship.
-view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: sdapo_strength += 1; left_dissent -= 3; center_dissent -= 3
-
-We provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Time will tell if it will be enough.
-
-@support_austria_2
-title: Provide material support to Austrian democracy against the Dollfuß dictatorship.
-subtitle: -1 budget
-choose-if: budget >= 1
-view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; center_dissent -= 6
-
-In public, we provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Privately, we provide financial and various forms of "support" to our comrades in Austria in their struggle against dictatorship.
 
 @europabund
 title: Take steps to form a "Europabund".
@@ -143,9 +146,9 @@ Forming a "United States of Europe" has long been part of the Social Democratic 
 @europabund_2
 title: We can sign a treaty to form a Europabund!
 view-if: west_relation >= 5 and east_relation >= 4 and eb_progress >= 2
-on-arrival: eb = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_dvp += 2*(1-dissent); new_middle_dvp += 7*(1-dissent); old_middle_dvp += 7*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 4*(1-dissent); unemployed_dvp += 2*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
+on-arrival: europabund = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_dvp += 2*(1-dissent); new_middle_dvp += 7*(1-dissent); old_middle_dvp += 7*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 4*(1-dissent); unemployed_dvp += 2*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
 max-visits: 1
-achievement: eb
+achievement: europabund
 
 Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a Europabund! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
 
