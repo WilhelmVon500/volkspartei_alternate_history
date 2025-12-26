@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 card-image: img/poster_0.jpg
 view-if: dvp_ideology == "Left" and ddp_relation >= 65 and not lvp_formed and not nfvp_formed and liberal_peoples_party_timer == 0 and liberal_peoples_party_progress > 3
-on-arrival: liberal_peoples_party_timer = 6
+on-arrival: month_actions += 1; liberal_peoples_party_timer = 6
 tags: party_affairs
 #subtitle: Can the <span style="color: var(--dvp-color);">**DVP**</span> unite with [+ ddp_name +]?
 
