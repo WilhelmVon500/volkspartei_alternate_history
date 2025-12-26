@@ -130,7 +130,7 @@ Q.vrp_sl = 0;
 Q.vnr_sl = 0;
 if (Q.vrp_exist && Q.other_sl) {
     Q.vrp_votes_saxony = parseFloat((Q.other_votes_saxony*0.55).toFixed(1));
-    Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
+    if (Q.vrp_votes_saxony > Q.electoral_threshold) Q.vrp_sl = parseFloat((Q.vrp_votes_saxony*1.01).toFixed(1));
 
     Q.change_vrp_votes_saxony = Q.vrp_votes_saxony - Q.old_vrp_votes_saxony;
     var sign2 = Q.change_vrp_votes_saxony > 0 
@@ -153,7 +153,7 @@ if (Q.vrp_exist && Q.other_sl) {
 }
 if (Q.vnr_exist && Q.other_sl) {
     Q.vnr_votes_saxony = parseFloat((Q.other_votes_saxony*0.4).toFixed(1));
-    Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
+    if (Q.vnr_votes_saxony > Q.electoral_threshold) Q.vnr_sl = parseFloat((Q.vnr_votes_saxony*1.01).toFixed(1));
 
     Q.change_vnr_votes_saxony = Q.vnr_votes_saxony - Q.old_vnr_votes_saxony;
     var sign2 = Q.change_vnr_votes_saxony > 0 
@@ -204,7 +204,7 @@ Q.old_other_sl = Q.other_sl;
 
 if (!Q.aspd_exist) {
     Q.aspd_votes_saxony = parseFloat((Q.spd_votes_saxony*0.08).toFixed(1));
-    Q.aspd_sl = parseFloat((Q.aspd_votes_saxony*1.01).toFixed(1));
+    if (Q.aspd_votes_saxony > Q.electoral_threshold) Q.aspd_sl = parseFloat((Q.aspd_votes_saxony*1.01).toFixed(1));
     
     Q.spd_votes_saxony = parseFloat((Q.spd_votes_saxony - Q.aspd_votes_saxony).toFixed(1));
     Q.spd_sl = parseFloat((Q.spd_sl - Q.aspd_sl).toFixed(1));
