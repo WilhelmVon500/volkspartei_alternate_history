@@ -18,6 +18,7 @@ WIP
 - @curtius: Julius Curtius will lead our party.
 - @thiel: Otto Thiel will lead our party.
 - @raumer: Hans Raumer will lead our party.
+- @lemmer: Ernst Lemmer will lead our party.
 
 @dietrich
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
@@ -49,3 +50,11 @@ on-arrival: dvp_leader = "Raumer"
 face-image: img/portraits/RaumerHans.jpg
 
 Hans von Raumer secured the chairmanship by consolidating the party’s pro‑business wing.
+  
+
+@lemmer
+subtitle: Lemmer is a prominent labor leader.
+on-arrival: dvp_leader = "Lemmer"
+face-image: img/portraits/LemmerErnst.jpg
+
+WIP
