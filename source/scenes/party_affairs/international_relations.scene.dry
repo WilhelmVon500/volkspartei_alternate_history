@@ -56,14 +56,13 @@ Negotiations with the SPD have proven successful, with both the Liberal and Soci
 
 
 @austria
-subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war_seen: - We will also help the Austrians oppose their dictatorship. ?]
+subtitle: -1 resources
+view-if: not austria_annexed
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; austria_relation += 1; gdvp_strength += 1
 
 WIP.
-
-[? if austrian_parliament_seen and not austrian_civil_war_seen: WIP. ?]
 
 
 @sudetenland
