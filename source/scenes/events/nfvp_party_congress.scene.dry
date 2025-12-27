@@ -23,6 +23,7 @@ Q.special_interest_influence = 0;
 
 Q.vnr_influence = 0;
 Q.social_catholics_influence = 0;
+Q.christian_socials_influence = 0;
 Q.dbp_influence = 0;
 Q.wp_influence = 0;
 Q.cnblp_influence = 0;
@@ -54,6 +55,9 @@ if (Q.vnr_dvp) {
 if (Q.social_catholics_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.01).toFixed(1))
 }
+if (Q.christian_socials_dvp) {
+    Q.total_influence = parseFloat((Q.total_influence + Q.workers_dvp*(Q.labor_strength+Q.peoples_conservative_strength)*0.01).toFixed(1))
+}
 if (Q.special_interest_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.special_interest_strength).toFixed(1))
     Q.total_special_interest = 0;
@@ -81,6 +85,7 @@ if (Q.industrialists_dvp) Q.industrialist_influence = parseFloat((Q.industrialis
 if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
 
 if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.01/Q.total_influence*100).toFixed(1))
+if (Q.christian_socials_dvp) Q.christian_socials_influence = parseFloat((Q.workers_dvp*(Q.labor_strength+Q.peoples_conservative_strength)*0.01/Q.total_influence*100).toFixed(1))
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.02/Q.total_influence*100).toFixed(1))
 if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
@@ -152,6 +157,14 @@ if (Q.wp_dvp) {
         "seats": Math.round(Q.wp_influence*5.0),
     });
 }
+if (Q.christian_socials_dvp) {
+    data.push({
+        "id": "csvd",
+        "legend": "Christian Socials",
+        "name": "Christian Socials",
+        "seats": Math.round(Q.christian_socials_influence*5.0),
+    });
+}
 if (Q.industrialists_dvp) {
     data.push({
         "id": "dvp_2",
@@ -217,6 +230,8 @@ go-to: leader
 [? if liberals_dvp: {!<tr><td><div class="box" style='background-color:#98C22C'> </div> !} Liberals: {!</td><td>!} [+ liberal_influence +]% {!</td><td>!} ?]
 
 [? if wp_dvp: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} Middle Class Groups: {!</td><td>!} [+ wp_influence +]% {!</td><td>!} ?]
+
+[? if christian_socials_dvp: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} Christian Socials: {!</td><td>!} [+ christian_socials_influence +]% {!</td><td>!} ?]
 
 [? if industrialists_dvp: {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} Industrialists: {!</td><td>!} [+ industrialist_influence +]% {!</td><td>!} ?]
 
