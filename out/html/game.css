@@ -630,6 +630,15 @@ table {
 .seat.dvp_2 {
     fill: #C0A054;
 }
+.seat.nlp {
+    fill: #98C22C;
+}
+.seat.labor {
+    fill: #6D5298;
+}
+.seat.rdp {
+    fill: #E0B0FF;
+}
 
 .seat.for {
     fill: #158e33;
