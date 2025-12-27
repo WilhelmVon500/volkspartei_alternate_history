@@ -3,7 +3,7 @@ new-page: true
 subtitle: Industrialist disagreements with our policies have grown too severe.
 tags: event
 view-if: industrialist_dissent >= 60
-on-arrival: industrialist_strength *= 0.3; old_middle_dvp -= 5; n_advisors -= 1 if scholz_advisor == 1; n_advisors -= 1 if hilferding_advisor == 1; n_advisors -= 1 if muller_advisor == 1; scholz_advisor = 0; hilferding_advisor = 0; muller_advisor = 0; industrualists_leave = 1
+on-arrival: industrialist_strength *= 0.3; old_middle_dvp -= 5; n_advisors -= 1 if scholz_advisor == 1; n_advisors -= 1 if hilferding_advisor == 1; n_advisors -= 1 if muller_advisor == 1; scholz_advisor = 0; hilferding_advisor = 0; muller_advisor = 0; industrualists_dvp = 0
 max-visits: 1
 
 = Industrialists leave
