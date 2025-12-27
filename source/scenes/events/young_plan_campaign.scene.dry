@@ -1,6 +1,6 @@
-title: Young Plan
+title: Young Plan Campaigning
 new-page: true
-subtitle: A new agreement on reparations
+subtitle: How should we campaign on the Plan?
 tags: event
 view-if: year = 1929 and month >= 10 and young_plan_seen = 0
 on-arrival: young_plan_seen = 1
