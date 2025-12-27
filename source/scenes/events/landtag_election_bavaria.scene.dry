@@ -445,8 +445,8 @@ face-image: img/portraits/BeyerOtto.jpg
 Otto Beyer was elected.
 
 @hamm
-view-if: (dvp_bavaria and (lvp_formed or nfvp_formed)) or in_grand_coalition_bavaria or (in_bourgeois_coalition_bavaria and (dvp_bl + ddp_bl) > z_bl)
-choose-if: in_dvp_majority_bavaria or in_grand_coalition_bavaria or ((in_bourgeois_coalition_bavaria or in_right_coalition_bavaria) and (dvp_bl + ddp_bl) > z_bl)
+view-if: (dvp_bavaria and (lvp_formed or nfvp_formed)) or in_grand_coalition_bavaria or in_bourgeois_coalition_bavaria
+choose-if: in_dvp_majority_bavaria or in_grand_coalition_bavaria or ((in_bourgeois_coalition_bavaria or (in_right_coalition_bavaria and (lvp_formed or nfvp_formed))) and (dvp_bl + ddp_bl) > z_bl)
 unavailable-subtitle: The <span style="color: #69A2BE;">**BVP**</span> can prevent him from becoming the Minister-President.
 on-arrival: bavaria_leader = "Hamm"; bavaria_leader_party = ddp_name if ddp_exist; bavaria_leader_party = dvp_name if lvp_formed or nfvp_formed;
 face-image: img/portraits/HammEduard.jpg
