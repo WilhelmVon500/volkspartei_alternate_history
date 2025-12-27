@@ -21,14 +21,14 @@ Our party is once again in turmoil. What do we do?
 subtitle: Stresemann’s greatest achievement must not be destroyed!
 unavailable-subtitle: Stresemann is too preoccupied with trying to restore his position.
 choose-if: ((liberal_strength+labor_strength)>=(nationalist_strength+industrialist_strength*0.5)) or lvp_formed or nfvp_formed
-on-arrival: dvp_pro_young_plan = 1; spd_relation += 3; z_relation += 3; ddp_relation += 3; dnvp_relation -= 3; dnvp_relation -= 5 if dnvp_ideology = "Radical"; nsdap_relation -= 7; nationalist_dissent += 10; nationalist_strength -= 7; industrialist_dissent += 7; industrialist_strength -= 5; liberal_dissent -= 5; labor_dissent -= 5; dvp_left += 1; rural_dvp -= 4; Q.pro_republic -= 2; Q.nationalism += 5; Q.workers_nsdap += 4; Q.rural_nsdap += 5;
+on-arrival: dvp_pro_young_plan = 1; spd_relation += 3; z_relation += 3; ddp_relation += 3; dnvp_relation -= 3; dnvp_relation -= 5 if dnvp_ideology = "Radical"; nsdap_relation -= 7; nationalist_dissent += 10; nationalist_strength -= 7; industrialist_dissent += 7; industrialist_strength -= 5; liberal_dissent -= 5; labor_dissent -= 5; dvp_left += 1; rural_dvp -= 4; pro_republic -= 2; nationalism += 5; workers_nsdap += 4; rural_nsdap += 5;
 go-to: calculate
 
 We will support the plan and oppose referendum.
 
 @no_plan
 subtitle: This position alienates nobody.
-on-arrival: dvp_neutral_young_plan = 1; dnvp_relation += 3; spd_relation -= 3; Q.rural_dvp -= 2; Q.new_middle_dvp -= 2; Q.pro_republic -= 3; Q.nationalism += 5; Q.workers_nsdap += 4; Q.rural_nsdap += 5;
+on-arrival: dvp_neutral_young_plan = 1; dnvp_relation += 3; spd_relation -= 3; rural_dvp -= 2; new_middle_dvp -= 2; pro_republic -= 3; nationalism += 5; workers_nsdap += 4; rural_nsdap += 5;
 go-to: calculate
 
 We will stay neutral.
@@ -38,7 +38,7 @@ We will stay neutral.
 subtitle: We shall campaign against the plan.
 unavailable-subtitle: Are we lunatics?
 choose-if: ((liberal_strength+labor_strength)<(nationalist_strength+industrialist_strength*0.5)) and not lvp_formed and not nfvp_formed
-on-arrival: dvp_against_young_plan = 1; spd_relation -= 3; z_relation -= 3; ddp_relation -= 3; ddp_left += 1; dnvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Radical"; nsdap_relation += 5; liberal_dissent += 10; liberal_strength -= 7; labor_dissent += 7; labor_strength -= 5; nationalist_dissent -= 5; nationalist_strength += 5; industrialist_dissent -= 5; dvp_right += 2; Q.new_middle_dvp -= 4; Q.pro_republic -= 3; Q.nationalism += 5; Q.workers_nsdap += 4; Q.rural_nsdap += 5;
+on-arrival: dvp_against_young_plan = 1; spd_relation -= 3; z_relation -= 3; ddp_relation -= 3; ddp_left += 1; dnvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Radical"; nsdap_relation += 5; liberal_dissent += 10; liberal_strength -= 7; labor_dissent += 7; labor_strength -= 5; nationalist_dissent -= 5; nationalist_strength += 5; industrialist_dissent -= 5; dvp_right += 2; new_middle_dvp -= 4; pro_republic -= 3; nationalism += 5; workers_nsdap += 4; rural_nsdap += 5;
 go-to: calculate
 
 We will oppose the plan and support referendum.
