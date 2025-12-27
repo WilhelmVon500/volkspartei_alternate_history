@@ -20,9 +20,6 @@ if (Q.dvp_reform) {
 if (((Q.nationalist_strength + Q.industrialist_strength) >= (Q.liberal_strength + Q.labor_strength)) || Q.dvp_ideology == "Right") {
     Q.nfvp_formation_points -= 5;
 }
-if (Q.dvp_against_young_plan) {
-    Q.nfvp_formation_points -= 3;
-}
 !}
 max-visits: 1
 tags: event
