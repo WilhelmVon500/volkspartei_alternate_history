@@ -63,3 +63,5 @@ if (!Q.dnf_formed) {
     }
 }
 !}
+
+The initiative against the Young Plan has finished collecting its signatures for it to become a referendum, with [+ young_plan_signatures +]% of eligible voters signing [? if young_plan_signatures >= 10: exceeding the 10% minimum requirement. ?][? if young_plan_signatures < 10: falling short of the 10% minimum requirement. This will certainly spark some debates within the right-wing parties. ?]
