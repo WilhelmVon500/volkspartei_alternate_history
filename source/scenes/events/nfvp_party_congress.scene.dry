@@ -18,7 +18,7 @@ Hans Raumer’s base with the Industrialists has largely decayed after the <span
 
 Ernst Lemmer’s coalition is rather small; the former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> progressives and democrats are willing to endorse him, along with the fringe left republican groups within Labor and minor factions, but he is not set to win this party congress. Unless the Progressives make a comeback, he is likely to endorse Dietrich; due to their mutual former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> status.
 
-[? if peoples_conservatives_dvp: Gottfried Treviranus is not set to command a large amount of influence, as the People’s Conservatives and Christian Socials are quite the small groups within the NFVP. The Liberals may be preoccupied with Dietrich, Curtius and Thiel, but if the People’s Conservatives and Christian Socials manage to grow their influence, former <span style="color: #C0A054;">**DVP**</span> Liberals could see Treviranus as a potential ally. ?]
+[? if peoples_conservatives_dvp: Gottfried Treviranus is not set to command a large amount of influence, as the People’s Conservatives and Christian Socials are quite the small groups within the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. The Liberals may be preoccupied with Dietrich, Curtius and Thiel, but if the People’s Conservatives and Christian Socials manage to grow their influence, former <span style="color: #C0A054;">**DVP**</span> Liberals could see Treviranus as a potential ally. ?]
 
 Hans Luther, as president of the Reichsbank, is largely seen as a unifying independent, though mainly by the former <span style="color: #C0A054;">**DVP**</span>. Outside of former <span style="color: #C0A054;">**DVP**</span> members, the Middle Class Groups and some Democrats have endorsed him, though they see his candidacy as insufficient for the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>’s big-tent nature amongst the political bourgeois.
 
@@ -276,7 +276,7 @@ unavailable-subtitle: Lemmer doesn't have enough support.
 on-arrival: dvp_leader = "Lemmer"
 face-image: img/portraits/LemmerErnst.jpg
 
-WIP
+Ernst Lemmer has managed to, with the backing of Thiel’s unions, and the former <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, become leader of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. He is expected to cooperate closely with Thiel, and the socialists of the <span style="color: #E3000F;">**SPD**</span> will be watching his leadership closely. He will certainly be a divisive leader of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, with his progressive stance sure to render any cooperation with the parties to our right difficult for the near future.
   
 
 @dietrich
@@ -286,7 +286,7 @@ unavailable-subtitle: Dietrich doesn't have enough support.
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
 
-WIP
+Hermann Dietrich has been elected as the leader of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. Having a former <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> member at the helm of the party will shift it left, if only slightly due to Dietrich’s leanings to the right, and the fact the industrialist votes got him elected. He is, however, staunchly republican and this enables him to have a good hold over the party.
   
 
 @luther
@@ -306,7 +306,7 @@ unavailable-subtitle: Curtius doesn't have enough support.
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
 
-WIP
+Julius Curtius, Stresemann’s successor, has been elected as the leader of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. Whilst he may alienate the extremes of the party, his foreign policy experience and the mantle of Stresemann’s successor will help him be a strong <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> leader. He is expected to be a similar leader to Stresemann, furthering his ‘party of reason’ ideals.
   
 
 @thiel
@@ -316,7 +316,7 @@ unavailable-subtitle: Thiel doesn't have enough support.
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
 
-WIP
+Otto Thiel, close ally of Stresemann and former <span style="color: #C0A054;">**DVP**</span> member, has managed to secure the chairmanship of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>. He is expected to be a decisive leader, with his willingness to extend the party into the <span style="color: #E3000F;">**SPD**</span>-dominated working class. Already, he has made many enemies amongst the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>’s industrial backers - what’s left of them anyways. He will pursue his ideal of a nationalistic, democratic and progressive party. Only time will tell how sucessful he shall be.
   
 
 @raumer
@@ -326,7 +326,7 @@ unavailable-subtitle: Raumer doesn't have enough support.
 on-arrival: dvp_leader = "Raumer"
 face-image: img/portraits/RaumerHans.jpg
 
-Hans von Raumer secured the chairmanship by consolidating the party’s pro‑business wing.
+In a shock upset, Hans Raumer has been elected as the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>’s leader. He shall shift the party to the right, hopefully drawing heavy industry away from the [? if kvp_formed: <span style="color: #455B95;">**KVP**</span>?][? if dnvp_ideology="Moderate": <span style="color: #3F7BC1;">**DNVP**</span>?], <span style="color: #954B00;">Nazis</span>[?if dnvp_ideology="Radical":, and what’s left of the <span style="color: #3F7BC1;">**DNVP**</span>?][?if dnf_formed: <span style="color: #003755;">**DNF**</span>?]. The left-wing elements of the party have already began to agitate for his removal, with Thiel in particular becoming an enemy of the chairman.
   
 
 @treviranus
