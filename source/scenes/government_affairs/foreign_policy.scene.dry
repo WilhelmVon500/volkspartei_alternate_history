@@ -78,7 +78,7 @@ WIP.
 title: We can annex Austria!
 subtitle: This will likely incur the wrath of the Entente and our neighbors.
 view-if: (customs_union or europabund) and austria_annexation_progress >= 3 and not austria_annexed
-on-arrival: austria_annexed = 1; catholics += 10; rural += 5; banking_crisis_timer = 2 if not banking_crisis_seen; west_relation -= 3; east_relation -= 3; new_middle_dvp += 10*(1-dissent); old_middle_dvp += 10*(1-dissent); workers_dvp += 3*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 3*(1-dissent); new_middle_nsdap -= 5*(1-dissent); old_middle_dvp -= 5*(1-dissent); next_election_time_austria = time+3; next_election_month_austria = month + 3; next_election_year_austria = year; next_election_year_austria += 1 if next_election_month_austria > 12; next_election_month_austria -= 12 if next_election_month_austria > 12; dvp_austria = 1; austria_leader = "Miklas"; austria_leader_party = "CSP"; in_bourgeois_coalition_austria = 1;
+on-arrival: austria_annexed = 1; catholics += 10; rural += 5; banking_crisis_timer = 2 if not banking_crisis_seen and not europabund; west_relation -= 3 if not europabund; east_relation -= 3 if not europabund; new_middle_dvp += 10*(1-dissent); old_middle_dvp += 10*(1-dissent); workers_dvp += 3*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 3*(1-dissent); new_middle_nsdap -= 5*(1-dissent); old_middle_dvp -= 5*(1-dissent); next_election_time_austria = time+3; next_election_month_austria = month + 3; next_election_year_austria = year; next_election_year_austria += 1 if next_election_month_austria > 12; next_election_month_austria -= 12 if next_election_month_austria > 12; dvp_austria = 1; austria_leader = "Miklas"; austria_leader_party = "CSP"; in_bourgeois_coalition_austria = 1;
 
 WIP.
 
