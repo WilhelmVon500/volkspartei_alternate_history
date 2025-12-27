@@ -3,6 +3,8 @@ subtitle: A new nationalist organization emerges.
 on-arrival: {!
 Q.vnr_exist = 1;
 Q.ddp_right += 1;
+Q.new_middle_other += 2;
+Q.old_middle_other += 1;
 !}
 tags: event
 view-if: year = 1929 and month = 10 and not nfvp_success and not nfvp_formed
