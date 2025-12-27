@@ -38,8 +38,6 @@ Germany will be rejuvenated, for the nation was infiltrated and subjugated by th
 
 @peoples_conservative
 view-if: peoples_conservatives_dvp
-unavailable-subtitle: The party will not support this.
-choose-if: not lvp_formed and not nfvp_formed
 on-arrival: {!
 if (Q.ideology && Q.ideology != "people's conservative") {
     Q.changed = 1;
