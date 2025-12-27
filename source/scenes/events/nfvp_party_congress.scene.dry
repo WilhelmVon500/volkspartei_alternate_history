@@ -13,6 +13,20 @@ WIP
 @congress
 on-arrival: {!
 Q.total_influence = 0;
+Q.progressive_influence = 0;
+Q.democratic_influence = 0;
+Q.liberal_influence = 0;
+Q.labor_influence = 0;
+Q.industrialist_influence = 0;
+Q.peoples_conservative_influence = 0;
+Q.special_interest_influence = 0;
+
+Q.vnr_influence = 0;
+Q.dbp_influence = 0;
+Q.wp_influence = 0;
+
+
+
 if (Q.progressives_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.progressive_strength).toFixed(1))
 }
