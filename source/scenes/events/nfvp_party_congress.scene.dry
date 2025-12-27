@@ -8,7 +8,138 @@ new-page: true
 
 WIP
 
-- @leader: The party will elect its leader for the next 2 years.
+- @congress: The party will elect its leader for the next 2 years.
+
+@congress
+on-arrival: {!
+Q.total_influence = 0;
+if (progressives_dvp) {
+    Q.total_influence += Q.progressive_strength
+}
+if (democrats_dvp) {
+    Q.total_influence += Q.democratic_strength
+}
+if (liberals_dvp) {
+    Q.total_influence += Q.liberal_strength
+}
+if (labor_dvp) {
+    Q.total_influence += Q.labor_strength
+}
+if (industrialists_dvp) {
+    Q.total_influence += Q.industrialist_strength
+}
+if (peoples_conservatives_dvp){
+    Q.total_influence += Q.peoples_conservative_strength
+}
+if (special_interest_dvp){
+    Q.total_influence += Q.special_interest_strength
+}
+Q.progressive_influence = parseFloat((Q.progressive_strength/Q.total_influence*100).toFixed(1))
+Q.democratic_influence = parseFloat((Q.democratic_strength/Q.total_influence*100).toFixed(1))
+Q.liberal_influence = parseFloat((Q.liberal_strength/Q.total_influence*100).toFixed(1))
+Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influence*100).toFixed(1))
+Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
+Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
+Q.special_interest_influence = parseFloat((Q.special_interest_strength/Q.total_influence*100).toFixed(1))
+!}
+on-display: {!
+data = []
+if (Q.progressives_dvp) {
+    data.push({
+        "id": "rdp",
+        "legend": "Progressives",
+        "name": "Progressives",
+        "seats": Math.round(Q.progressive_influence*5.0),
+    });
+}
+if (Q.democrats_dvp) {
+    data.push({
+        "id": "ddp",
+        "legend": "Democrats",
+        "name": "Democrats",
+        "seats": Math.round(Q.democratic_influence*5.0),
+    });
+}
+if (Q.liberals_dvp) {
+    data.push({
+        "id": "nlp",
+        "legend": "Liberals",
+        "name": "Liberals",
+        "seats": Math.round(Q.liberal_influence*5.0),
+    });
+}
+if (Q.labor_dvp) {
+    data.push({
+        "id": "labor",
+        "legend": "Labor",
+        "name": "Labor",
+        "seats": Math.round(Q.labor_influence*5.0),
+    });
+}
+if (Q.industrialists_dvp) {
+    data.push({
+        "id": "dvp_2",
+        "legend": "Industrialists",
+        "name": "Industrialists",
+        "seats": Math.round(Q.industrialist_influence*5.0),
+    });
+}
+if (Q.peoples_conservatives_dvp) {
+    data.push({
+        "id": "ppcon",
+        "legend": "People's Conservatives",
+        "name": "People's Conservatives",
+        "seats": Math.round(Q.peoples_conservative_influence*5.0),
+    });
+}
+if (Q.special_interest_dvp) {
+    data.push({
+        "id": "other",
+        "legend": "Special Interest Groups",
+        "name": "Special Interest Groups",
+        "seats": Math.round(Q.special_interest_influence*5.0),
+    });
+}
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: leader
+
+= <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!}
+{!<tr><td>Organization</td><td>Delegates Share</td>!}
+[? if progressives_dvp: {!<tr><td><div class="box" style='background-color:#E0B0FF'> </div> !} Progressives: {!</td><td>!} [+ progressive_influence +]% {!</td><td>!} ?]
+
+[? if democrats_dvp: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Democrats: {!</td><td>!} [+ democratic_influence +]% {!</td><td>!} ?]
+
+[? if liberals_dvp: {!<tr><td><div class="box" style='background-color:#98C22C'> </div> !} Liberals: {!</td><td>!} [+ liberal_influence +]% {!</td><td>!} ?]
+
+[? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
+
+[? if industrialists_dvp: {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} Industrialists: {!</td><td>!} [+ industrialist_influence +]% {!</td><td>!} ?]
+
+[? if peoples_conservatives_dvp: {!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} People's Conservatives: {!</td><td>!} [+ peoples_conservative_influence +]% {!</td><td>!} ?]
+
+[? if special_interest_dvp: {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Special Interest Groups: {!</td><td>!} [+ special_interest_influence +]% {!</td><td>!} ?]
+{!</table>!}
 
 @leader
 on-arrival: {!
