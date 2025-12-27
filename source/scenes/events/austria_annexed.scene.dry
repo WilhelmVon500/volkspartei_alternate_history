@@ -1,0 +1,14 @@
+title: Austria joins Germany!
+subtitle: Ein Volk, ein Staat, eine Republik!
+tags: event
+view-if: austria_annexed
+priority: 10
+max-visits: 1
+
+Austria and Germany for over 500 years were both the same. After the Prussian-Austrian war in 1866, the German Kaiserreich was established in 1871 and Reichskanzler Bismarck agreed to form a German-Austrian alliance. The great war brought down the Austro-Hungarian monarchy and Austria was left smaller then for a long time. Nationalists from both prefered a unified state. 
+
+[? if europabund: The Treaty of Versailles prohibited it, but today, after we finally talked with the Allied Powers, formed the Europabund and brought peace to Europe, we reached an agreement: Austria joins the Weimar Republic. It‘s a day for celebration, all parties, from <span style="color: #8B0000;">**KPD**</span> to <span style="color: #954B00;">**NSDAP**</span>, celebrate this moment. ?]
+
+[? if not europabund: A day for celebration! German and Austrian people are finally united in one state! French and English politicians critize the actions heavily, as a violation of the Treaty of Versailles. Economic consequences haven‘t followed yet, but are probably going to happen... International investors are surprised by this unification, potentially hurting our economy. ?]
+  
+Thanks to our policy, we gain lots of support among patriotic people.
