@@ -44,20 +44,20 @@ We have failed to convince Christian Unionists to join us.
 @election
 on-arrival: {!
 if (Q.csvd_exist) {
-    Q.csvd_influence = parseFloat(((Q.workers_csvd + Q.new_middle_csvd)*20).toFixed(1))
+    Q.csvd_influence = (Q.workers_csvd + Q.new_middle_csvd)*20
 }
 
-Q.ddp_influence = parseFloat(((Q.workers_dvp + Q.new_middle_dvp)*(Q.progressive_strength+Q.democratic_strength)).toFixed(1))
-Q.dvp_influence = parseFloat(((Q.workers_dvp + Q.new_middle_dvp)*(Q.liberal_strength+Q.labor_strength)).toFixed(1))
+Q.ddp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.progressive_strength+Q.democratic_strength)
+Q.dvp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.liberal_strength+Q.labor_strength)
 
 if (Q.dgb_success) {
-    Q.dgb_influence = parseFloat(((Q.workers_z + Q.new_middle_z)*Q.z_relation*0.5).toFixed(1))
+    Q.dgb_influence = (Q.workers_z + Q.new_middle_z)*Q.z_relation*0.5
     if (Q.csrp_exist) {
-        Q.dgb_influence = parseFloat((Q.dgb_influence + (Q.workers_csrp*Q.csrp_relation*0.75)).toFixed(1))
+        Q.dgb_influence = Q.dgb_influence + (Q.workers_csrp*Q.csrp_relation*0.75)
     }
 }
 
-Q.total_influence = parseFloat((Q.dvp_influence + Q.ddp_influence).toFixed(1))
+Q.total_influence = Q.dvp_influence + Q.ddp_influence
 if (Q.csvd_exist) {
     Q.total_influence = parseFloat((Q.total_influence + Q.csvd_influence).toFixed(1))
 }
