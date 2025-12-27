@@ -1,0 +1,11 @@
+title: <span style="color: #D3D3A9;">**VNR**</span> formed!
+subtitle: A new nationalist organization emerges.
+on-arrival: {!
+Q.vnr_exist = 1;
+Q.ddp_right += 1;
+!}
+tags: event
+view-if: year = 1929 and month = 10 and not nfvp_success and not nfvp_formed
+max-visits: 1
+
+A small nationalist paramilitary, the Young German Order has formed a new political organization, the People’s National Reich Association(<span style="color: #D3D3A9;">**VNR**</span>), with the goal of becoming the crystallization point which a "great party of national regeneration" could form. Disillusioned <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> politicians such as Koch-Weser and Ernst Lemmer have shown interest in collaborating with this new party, to unite the German middle in a new "state party".
