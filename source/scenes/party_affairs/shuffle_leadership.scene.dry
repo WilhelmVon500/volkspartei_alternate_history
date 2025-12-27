@@ -469,7 +469,7 @@ subtitle: Ernst Scholz is the leader of our faction in Reichstag. {!<br><br>!}[?
 is-card: true
 card-image: img/portraits/ScholzErnst.jpg
 tags: industrialist_advisor
-view-if: scholz_advisor = 0 and n_advisors < 4 and industrialists_leave = 0
+view-if: scholz_advisor = 0 and n_advisors < 4 and industrialists_dvp
 on-arrival: scholz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -482,7 +482,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, P
 is-card: true
 card-image: img/portraits/JarresKarl.jpg
 tags: industrialist_advisor
-view-if: jarres_advisor = 0 and n_advisors < 4 and industrialists_leave = 0
+view-if: jarres_advisor = 0 and n_advisors < 4 and industrialists_dvp
 on-arrival: jarres_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -524,7 +524,7 @@ subtitle: Hans Luther is a prominent politician and banker, who has served as Ch
 is-card: true
 card-image: img/portraits/LutherHans.jpg
 tags: liberal_advisor
-view-if: luther_advisor = 0 and n_advisors < 4
+view-if: luther_advisor = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: luther_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -537,7 +537,7 @@ subtitle: Stresemann is a former [? if chancellor = "Stresemann": and current ?]
 is-card: true
 card-image: img/portraits/StresemannGustav.jpg
 tags: liberal_advisor
-view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 4
+view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: stresemann_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -550,7 +550,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Media ?]
 is-card: true
 card-image: img/portraits/RheinbabenRochus.jpg
 tags: liberal_advisor
-view-if: rheinbaben_advisor = 0 and n_advisors < 4
+view-if: rheinbaben_advisor = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: rheinbaben_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -563,7 +563,7 @@ subtitle: WIP {!<br><br>!}[? if difficulty < 0 : Actions - International Relatio
 is-card: true
 card-image: img/portraits/CurtiusJulius.jpg
 tags: liberal_advisor
-view-if: curtius_advisor = 0 and n_advisors < 4
+view-if: curtius_advisor = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: curtius_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
@@ -575,7 +575,7 @@ title: Siegfried Kardorff
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/KardorffSiegfried.jpg
-view-if: kardorff_advisor = 0 and n_advisors < 4
+view-if: kardorff_advisor = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: kardorff_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
@@ -588,7 +588,7 @@ title: Alexander zu Dohna-Schlodien
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/DohnaSchlodienAlexander.jpg
-view-if: dohna_schlodien_advisor = 0 and n_advisors < 4
+view-if: dohna_schlodien_advisor = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: dohna_schlodien_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 tags: liberal_advisor
@@ -633,7 +633,7 @@ title: Paul Levi
 subtitle: Paul Levi is a former KPD leader who was purged for criticizing Communist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD ?]
 is-card: true
 card-image: img/portraits/LeviPaul.jpg
-view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 4 and left_split = 0
+view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 4 and nationalists_dvp
 on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -645,7 +645,7 @@ title: Hans von Seeckt
 subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Right, Military affairs, Against Toleration ?]
 is-card: true
 card-image: img/portraits/SeecktHans.jpg
-view-if: seeckt_advisor = 0 and n_advisors < 4
+view-if: seeckt_advisor = 0 and n_advisors < 4 and nationalists_dvp
 on-arrival: seeckt_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -657,7 +657,7 @@ title: Otto Hugo
 subtitle: Otto Hugo is a prominent member of the right wing in the <span style="color: var(--dvp-color);">**DVP**</span>, known for his nationalist views and cooperative stance towards far-right groups. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD, Against Toleration ?]
 is-card: true
 card-image: img/portraits/HugoOtto.jpg
-view-if: hugo_advisor = 0 and n_advisors < 4 and left_split = 0
+view-if: hugo_advisor = 0 and n_advisors < 4 and nationalists_dvp
 on-arrival: hugo_advisor = 1; n_advisors += 1; nationalist_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -669,7 +669,7 @@ title: Max Seydewitz
 subtitle: Max Seydewitz is a former leader of the youth wing, current supporter of the left wing of the SPD, and advocates for class struggle. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Class Struggle, Socialist Youth, Against Toleration ?]
 is-card: true
 card-image: img/portraits/SeydewitzMax.jpg
-view-if: seydewitz_advisor = 0 and n_advisors < 4 and left_split = 0
+view-if: seydewitz_advisor = 0 and n_advisors < 4 and nationalists_dvp
 on-arrival: seydewitz_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -681,7 +681,7 @@ title: Anna Siemsen
 subtitle: Anna Siemsen is an and educational reform advocate and pacifist, who was one of the few German women to receive a PhD in the pre-war period. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Pacifism, Educational Curriculum, Educational Structure ?]
 is-card: true
 card-image: img/portraits/SiemsenAnna.jpg
-view-if: siemsen_advisor = 0 and n_advisors < 4 and left_split = 0
+view-if: siemsen_advisor = 0 and n_advisors < 4 and nationalists_dvp
 on-arrival: siemsen_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
 tags: nationalist_advisor
@@ -698,7 +698,7 @@ subtitle: Hans Bechly is the leader of the DHV, the German National Association 
 is-card: true
 card-image: img/portraits/BechlyHans.jpg
 tags: labor_advisor
-view-if: bechly_advisor = 0 and n_advisors < 4 and unions_independent = 0
+view-if: bechly_advisor = 0 and n_advisors < 4 and labor_dvp
 on-arrival: bechly_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -710,7 +710,7 @@ subtitle: Otto Thiel is a politician and unionist affiliated with the DHV, the r
 is-card: true
 card-image: img/portraits/ThielOtto.jpg
 tags: labor_advisor
-view-if: thiel_advisor = 0 and n_advisors < 4
+view-if: thiel_advisor = 0 and n_advisors < 4 and labor_dvp
 on-arrival: thiel_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -722,7 +722,7 @@ subtitle: Friedrich Baltrusch is WIP. {!<br><br>!}[? if difficulty < 0 : Actions
 is-card: true
 card-image: img/portraits/BaltruschFriedrich.jpg
 tags: labor_advisor
-view-if: baltrusch_advisor = 0 and n_advisors < 4 and unions_independent = 0 and vnr_dvp
+view-if: baltrusch_advisor = 0 and n_advisors < 4 and labor_dvp and vnr_dvp
 on-arrival: baltrusch_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -734,7 +734,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/BehrensFranz.jpg
 tags: labor_advisor
-view-if: behrens_advisor = 0 and n_advisors < 4 and unions_independent = 0 and christian_socials_dvp
+view-if: behrens_advisor = 0 and n_advisors < 4 and labor_dvp and christian_socials_dvp
 on-arrival: behrens_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
@@ -746,7 +746,7 @@ subtitle: WIP. {!<br><br>!}[? if difficulty < 0 : Actions - WIP ?]
 is-card: true
 card-image: img/portraits/ImbuschHeinrich.jpg
 tags: labor_advisor
-view-if: imbusch_advisor = 0 and n_advisors < 4 and unions_independent = 0 and social_catholics_dvp
+view-if: imbusch_advisor = 0 and n_advisors < 4 and labor_dvp and social_catholics_dvp
 on-arrival: imbusch_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
 
