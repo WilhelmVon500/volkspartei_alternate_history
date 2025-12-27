@@ -80,7 +80,7 @@ if (Q.labor_dvp) Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influe
 if (Q.industrialists_dvp) Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
 if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
 
-if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.total_influence + Q.catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.025/Q.total_influence*100).toFixed(1))
+if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.025/Q.total_influence*100).toFixed(1))
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.02/Q.total_influence*100).toFixed(1))
 if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
