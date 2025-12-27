@@ -99,14 +99,6 @@ if (Q.democrats_dvp) {
         "seats": Math.round(Q.democratic_influence*5.0),
     });
 }
-if (Q.labor_dvp) {
-    data.push({
-        "id": "labor",
-        "legend": "Labor",
-        "name": "Labor",
-        "seats": Math.round(Q.labor_influence*5.0),
-    });
-}
 if (Q.dbp_dvp) {
     data.push({
         "id": "dbp",
@@ -121,6 +113,14 @@ if (Q.vnr_dvp) {
         "legend": "Young German Order",
         "name": "Young German Order",
         "seats": Math.round(Q.vnr_influence*5.0),
+    });
+}
+if (Q.labor_dvp) {
+    data.push({
+        "id": "labor",
+        "legend": "Labor",
+        "name": "Labor",
+        "seats": Math.round(Q.labor_influence*5.0),
     });
 }
 if (Q.liberals_dvp) {
@@ -193,11 +193,11 @@ go-to: leader
 
 [? if democrats_dvp: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Democrats: {!</td><td>!} [+ democratic_influence +]% {!</td><td>!} ?]
 
-[? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
-
 [? if dbp_dvp: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} Farmer Groups: {!</td><td>!} [+ dbp_influence +]% {!</td><td>!} ?]
 
 [? if vnr_dvp: {!<tr><td><div class="box" style='background-color:#D3D3A9'> </div> !} Young German Order: {!</td><td>!} [+ vnr_influence +]% {!</td><td>!} ?]
+
+[? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
 
 [? if liberals_dvp: {!<tr><td><div class="box" style='background-color:#98C22C'> </div> !} Liberals: {!</td><td>!} [+ liberal_influence +]% {!</td><td>!} ?]
 
@@ -212,20 +212,27 @@ go-to: leader
 
 @leader
 on-arrival: {!
-Q.dietrich_points = Q.democratic_strength + Q.liberal_strength*0.5;
-Q.curtius_points = Q.liberal_strength + Q.democratic_strength*0.5;
-Q.thiel_points = Q.labor_strength + Q.liberal_strength*0.5;
-Q.raumer_points = Q.industrialist_strength + Q.peoples_conservative_strength;
-Q.lemmer_points = Q.progressive_strength + Q.democratic_strength*0.25 + Q.labor_strength*0.25;
 !}
 
 WIP
 
+- @lemmer: Ernst Lemmer will lead our party.
 - @dietrich: Hermann Dietrich will lead our party.
+- @luther: Hans Luther will lead our party.
 - @curtius: Julius Curtius will lead our party.
 - @thiel: Otto Thiel will lead our party.
 - @raumer: Hans Raumer will lead our party.
-- @lemmer: Ernst Lemmer will lead our party.
+- @treviranus: Gottfried Treviranus will lead our party.
+
+@lemmer
+subtitle: Lemmer is a prominent labor leader.
+unavailable-subtitle: Lemmer doesn't have enough support.
+#choose-if: 
+on-arrival: dvp_leader = "Lemmer"
+face-image: img/portraits/LemmerErnst.jpg
+
+WIP
+  
 
 @dietrich
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
@@ -233,6 +240,16 @@ unavailable-subtitle: Dietrich doesn't have enough support.
 #choose-if: 
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
+
+WIP
+  
+
+@luther
+subtitle: WIP.
+unavailable-subtitle: Luther doesn't have enough support.
+#choose-if: 
+on-arrival: dvp_leader = "Luther"
+face-image: img/portraits/LutherHans.jpg
 
 WIP
   
@@ -267,11 +284,12 @@ face-image: img/portraits/RaumerHans.jpg
 Hans von Raumer secured the chairmanship by consolidating the party’s pro‑business wing.
   
 
-@lemmer
-subtitle: Lemmer is a prominent labor leader.
-unavailable-subtitle: Lemmer doesn't have enough support.
+@treviranus
+subtitle: Treviranus is the leader of People's Conservatives.
+unavailable-subtitle: Treviranus doesn't have enough support.
+view-if: peoples_conservatives_dvp
 #choose-if: 
-on-arrival: dvp_leader = "Lemmer"
-face-image: img/portraits/LemmerErnst.jpg
+on-arrival: dvp_leader = "Treviranus"
+face-image: img/portraits/TreviranusGottfried.jpg
 
 WIP
