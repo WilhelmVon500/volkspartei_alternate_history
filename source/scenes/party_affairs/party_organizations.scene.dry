@@ -12,6 +12,7 @@ WIP
 
 - @newspapers: Fund more newspapers and journalists.
 - @dhv: Strengthen our influence in the DHV.
+- @dfgb: Support DFGB, our trade union.
 - @liberal_association: Fund the Liberal Association, interparty organization calling for liberal unity.
 - @youth: Support the youth organizations.
 - @nothing: Do not increase funding for any program.
@@ -28,12 +29,22 @@ go-to: media
 
 
 @dhv
+view-if: not dfgb_formed
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; unions += 1; workers_dvp += 2*(1 - dissent); new_middle_dvp += 1*(1 - dissent); labor_strength += 5; progressive_strength += 3;
+on-arrival: resources -= 1; unions += 1; workers_dvp += 2*(1 - dissent); new_middle_dvp += 1*(1 - dissent); labor_strength += 5; progressive_strength += 2;
 
 We have increased our influence in the DHV.
+
+@dfgb
+view-if: dfgb_formed
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; unions += 1; workers_dvp += 3*(1 - dissent); new_middle_dvp += 3*(1 - dissent); labor_strength += 6; progressive_strength += 4;
+
+WIP.
 
 @liberal_association
 choose-if: resources > 0
