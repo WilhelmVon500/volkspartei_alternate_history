@@ -6,7 +6,17 @@ new-page: true
 
 = <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
 
-WIP
+The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> is a very mighty political beast, made as the political manifestation of the Middle Class and other minor bourgeois groups. While the size of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> has lent it influence far greater than its fractured predecessors, several factions have also begun to vie for control. 2 years have passed since [+ dvp_leader +] has taken charge of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, and it is now time for another party congress to decide the course of the party.
+
+Hermann Dietrich represents the moderate elements of the <span style="color: #DCCA4A;">**[+ddp_name+]**</span>, and is generally supported by its former members; if only begrudgingly by its progressive wing due to his stern pro-democratic stance. The Liberals of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> seem to be keen on endorsing him, but have mainly stayed with Julius Curtius and Otto Thiel.
+
+Julius Curtius, being Stresseman’s successor, has great sway over its Liberal and Middle Class groups[?if peoples_conservatives_dvp:; and has allied himself with the People’s Conservatives?], along with a tenative mutual endorsement agreement with Otto Thiel’s DHV connections.
+
+Otto Thiel, widely regarded as one of the key figures of Stresseman’s reform efforts, maintains wide appeal amongst many of the party’s factions, aside from the Progressives and Industrialist remnants due to his nationalistic tendencies and previous disagreements.
+
+Hans Raumer’s base with the Industrialists has largely decayed after the <span style="color: #C0A054;">**DVP**</span>’s party reform with only a handful of Industrialists remaining in the party, although he has gotten the attention of the Anti-Hugenburg Right. Many in the party do not even consider him as a candidate, but rather as an outcry of a bygone era.
+
+Ernst Lemmer’s coalition is rather small; the former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> progressives and democrats are willing to endorse him, along with the fringe left republican groups within Labor and minor factions, but he is not set to win this party congress. Unless the Progressives make a comeback, he is likely to endorse Dietrich; due to their mutual former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> status.
 
 - @congress: The party will elect its leader for the next 2 years.
 
