@@ -15,9 +15,12 @@ max-visits: 3
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
 - @nationalist: Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
+- @peoples_conservative: People's Conservative.
 - @industrialist: The free enterprise system must be unchained — heavy industry needs a party willing to support it.
 - @labor: In pursuit of a Volksgemeinschaft, we must extend the party to the left, and to nationalist parts of the working class.
 - @liberal: We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
+- @democratic: Democratic.
+- @progressive: We will embrace democratic system and be open to work with the SPD, rejecting right-wing influences.
 - @easy_discard
 
 @nationalist
@@ -32,6 +35,20 @@ go-to: changed if changed = 1
 on-departure: ideology = "nationalist"; nationalist_strength += 10; nationalist_dissent -= 5; z_relation -= 3; spd_relation -= 5; nationalization_support += 1; dnvp_relation += 3; dvp_right += 3
 
 Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
+
+@peoples_conservative
+view-if: peoples_conservatives_dvp
+unavailable-subtitle: The party will not support this.
+choose-if: not lvp_formed and not nfvp_formed
+on-arrival: {!
+if (Q.ideology && Q.ideology != "people's conservative") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "people's conservative"; peoples_conservative_strength += 10; peoples_conservative_dissent -= 5; z_relation += 5; spd_relation -= 3; kvp_relation += 5; dnvp_relation += 5 if dnvp_ideology = "Moderate"
+
+WIP.
 
 @industrialist
 on-arrival: {!
@@ -65,6 +82,30 @@ go-to: changed if changed = 1
 on-departure: ideology = "liberal"; liberal_strength += 10; democratization += 1; liberal_dissent -= 5; z_relation += 5; ddp_relation += 5; kvp_relation += 5; spd_relation += 5; dnvp_relation -= 5 if dnvp_leader = "Hugenberg"; nsdap_relation -= 10; dvp_left += 3
 
 We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
+
+@democratic
+view-if: democrats_dvp
+on-arrival: {!
+if (Q.ideology && Q.ideology != "democratic") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "democratic"; democratic_strength += 10; democratization += 1; democratic_dissent -= 5; z_relation += 5; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"
+
+WIP.
+
+@progressive
+view-if: progressives_dvp
+on-arrival: {!
+if (Q.ideology && Q.ideology != "progressive") {
+    Q.changed = 1;
+}
+!}
+go-to: changed if changed = 1
+on-departure: ideology = "progressive"; progressive_strength += 10; democratization += 1; progressive_dissent -= 5; spd_relation += 5;
+
+We will embrace democratic system and be open to work with the SPD, rejecting right-wing influences.
 
 @changed
 on-arrival: nationalist_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; liberal_dissent += 5
