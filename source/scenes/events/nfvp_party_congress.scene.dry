@@ -14,35 +14,35 @@ WIP
 on-arrival: {!
 Q.total_influence = 0;
 if (Q.progressives_dvp) {
-    Q.total_influence += Q.progressive_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.progressive_strength).toFixed(1))
 }
 if (Q.democrats_dvp) {
-    Q.total_influence += Q.democratic_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.democratic_strength).toFixed(1))
 }
 if (Q.liberals_dvp) {
-    Q.total_influence += Q.liberal_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.liberal_strength).toFixed(1))
 }
 if (Q.labor_dvp) {
-    Q.total_influence += Q.labor_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.labor_strength).toFixed(1))
 }
 if (Q.industrialists_dvp) {
-    Q.total_influence += Q.industrialist_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.industrialist_strength).toFixed(1))
 }
 if (Q.peoples_conservatives_dvp) {
-    Q.total_influence += Q.peoples_conservative_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.peoples_conservative_strength).toFixed(1))
 }
 if (Q.special_interest_dvp) {
-    Q.total_influence += Q.special_interest_strength
+    Q.total_influence = parseFloat((Q.total_influence + Q.special_interest_strength).toFixed(1))
 }
 
 if (Q.vnr_dvp) {
-    Q.total_influence += (Q.democratic_strength+Q.liberal_strength)*0.01
+    Q.total_influence = parseFloat((Q.total_influence + (Q.democratic_strength+Q.liberal_strength)*0.01).toFixed(1))
 }
 if (Q.dbp_dvp) {
-    Q.total_influence += Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.5
+    Q.total_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.5).toFixed(1))
 }
 if (Q.wp_dvp) {
-    Q.total_influence += (Q.new_middle_dvp+Q.old_middle_dvp)*0.01*special_interest_strength*0.5
+    Q.total_influence = parseFloat((Q.total_influence + (Q.new_middle_dvp+Q.old_middle_dvp)*0.01*special_interest_strength*0.5).toFixed(1))
 }
 
 
