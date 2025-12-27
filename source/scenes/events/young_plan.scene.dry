@@ -2,7 +2,7 @@ title: Young Plan
 new-page: true
 subtitle: A new agreement on reparations
 tags: event
-view-if: year = 1929 and month >= 7 and young_plan_seen = 0
+view-if: year = 1929 and month >= 10 and young_plan_seen = 0
 on-arrival: young_plan_seen = 1
 max-visits: 1
 
@@ -19,7 +19,7 @@ Our party is once again in turmoil. What do we do?
 @pro_plan
 subtitle: Stresemann’s greatest achievement must not be destroyed!
 unavailable-subtitle: Stresemann is too preoccupied with trying to restore his position.
-choose-if: (liberal_strength+labor_strength)>=(nationalist_strength+industrialist_strength*0.5)
+choose-if: ((liberal_strength+labor_strength)>=(nationalist_strength+industrialist_strength*0.5)) or lvp_formed or nfvp_formed
 on-arrival: dvp_pro_young_plan = 1; spd_relation += 3; z_relation += 3; ddp_relation += 3; dnvp_relation -= 3; dnvp_relation -= 5 if dnvp_ideology = "Radical"; nsdap_relation -= 7; nationalist_dissent += 10; nationalist_strength -= 7; industrialist_dissent += 7; industrialist_strength -= 5; liberal_dissent -= 5; labor_dissent -= 5; dvp_left += 1
 
 We will support the plan and oppose referendum.
@@ -34,7 +34,7 @@ We will stay neutral.
 @against_plan
 subtitle: We shall campaign against the plan.
 unavailable-subtitle: Are we lunatics?
-choose-if: (liberal_strength+labor_strength)<(nationalist_strength+industrialist_strength*0.5)
+choose-if: ((liberal_strength+labor_strength)<(nationalist_strength+industrialist_strength*0.5)) and not lvp_formed and not nfvp_formed
 on-arrival: dvp_against_young_plan = 1; spd_relation -= 3; z_relation -= 3; ddp_relation -= 3; ddp_left += 1; dnvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Radical"; nsdap_relation += 5; liberal_dissent += 10; liberal_strength -= 7; labor_dissent += 7; labor_strength -= 5; nationalist_dissent -= 5; nationalist_strength += 5; industrialist_dissent -= 5; dvp_right += 2
 
 We will oppose the plan and support referendum.
