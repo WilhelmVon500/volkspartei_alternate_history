@@ -2,26 +2,39 @@ title: Young Plan
 new-page: true
 subtitle: A new agreement on reparations
 tags: event
-view-if: year = 1929 and month >= 7 and in_right_coalition = 0 and young_plan_seen = 0
+view-if: year = 1929 and month >= 7 and young_plan_seen = 0
 on-arrival: young_plan_seen = 1
 max-visits: 1
 
 = Young Plan
 
-The Young Plan is an agreement with the Western powers to reduce Germany's reparation payments and give us more fiscal autonomy. Simultaneously, France will agree to withdraw its military occupation from the Rhineland.
+The Young Plan is an agreement with the Western powers authored by Gustav Stresemann of our party. It ensures the withdrawal of the French from the Rhineland, and cuts our reparations significantly. Whilst this goes far in reducing our obligations for the Treaty of Versailles, the far-right have opposed this development. Hoping to radicalise the political system in their favour, Hugenberg has proposed a referendum that would repeal the Young Plan and result in the arrest of the government’s ministers[?if dvp_in_government:, which is ovbiously very bad for us?]. He has also included Hitler, with the Nazis now gaining national traction. Our industrialist backers in heavy industry are displeased at the plan. Nationalists are discontent with Stresemann’s seeming submission to national slavery.
 
-While this seems to be a positive development for the country, the far right is campaigning hard against this plan, as are the Communists for whatever reason. They claim that any reparations are a form of national slavery, and have organized a referendum against it.
+Our party is once again in turmoil. What do we do?
 
-- @pro_plan: Campaign in favor of the Young Plan and against the referendum.
-- @no_plan: Do not campaign on the Young Plan, one way or another.
+- @pro_plan: Campaign against the referendum and for the plan.
+- @no_plan: Do nothing.
+- @against_plan: No national slavery!
 
 @pro_plan
-on-arrival: nationalism += 5; workers_nsdap += 4; rural_nsdap += 5; catholics_dvp -= 4; catholics_spd -= 2; workers_spd -= 2; rural_dvp -= 5
+subtitle: Stresemann’s greatest achievement must not be destroyed!
+unavailable-subtitle: Stresemann is too preoccupied with trying to restore his position.
+choose-if: (liberal_strength+labor_strength)>=(nationalist_strength+industrialist_strength*0.5)
+on-arrival: dvp_pro_young_plan = 1; spd_relation += 3; z_relation += 3; ddp_relation += 3; dnvp_relation -= 3; dnvp_relation -= 5 if dnvp_ideology = "Radical"; nsdap_relation -= 7; nationalist_dissent += 10; nationalist_strength -= 7; industrialist_dissent += 7; industrialist_strength -= 5; liberal_dissent -= 5; labor_dissent -= 5; dvp_left += 1
 
-The referendum easily fails, with only around 15% of voters supporting it. It seems that the German people have a sense of rationality, after all.
-
+We will support the plan and oppose referendum.
 
 @no_plan
-on-arrival: nationalism += 5; workers_dvp -= 3; old_middle_dvp -= 3; new_middle_dvp -= 3; workers_spd -= 2; old_middle_spd -= 1; new_middle_spd -= 1; pacifism -= 1; workers_nsdap += 5; rural_nsdap += 5; rural_z -= 5; catholics_spd -= 2; catholics_dvp -= 5; rural_dvp -= 5;
+subtitle: This position alienates nobody.
+on-arrival: dvp_neutral_young_plan = 1; dnvp_relation += 3; spd_relation -= 3;
 
-The referendum easily fails with or without our presence in the campaign, with only around 15% of voters supporting it. However, nationalist sentiment is inflammed, and the right-wing parties are using our silence around the Plan as a tacit admission of its faults. Our silence has only emboldened the Right, especially the NSDAP.
+We will stay neutral.
+
+
+@against_plan
+subtitle: We shall campaign against the plan.
+unavailable-subtitle: Are we lunatics?
+choose-if: (liberal_strength+labor_strength)<(nationalist_strength+industrialist_strength*0.5)
+on-arrival: dvp_against_young_plan = 1; spd_relation -= 3; z_relation -= 3; ddp_relation -= 3; ddp_left += 1; dnvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Radical"; nsdap_relation += 5; liberal_dissent += 10; liberal_strength -= 7; labor_dissent += 7; labor_strength -= 5; nationalist_dissent -= 5; nationalist_strength += 5; industrialist_dissent -= 5; dvp_right += 2
+
+We will oppose the plan and support referendum.
