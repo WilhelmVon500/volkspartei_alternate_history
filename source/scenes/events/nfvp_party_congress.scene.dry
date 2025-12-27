@@ -99,6 +99,22 @@ if (Q.democrats_dvp) {
         "seats": Math.round(Q.democratic_influence*5.0),
     });
 }
+if (Q.labor_dvp) {
+    data.push({
+        "id": "labor",
+        "legend": "Labor",
+        "name": "Labor",
+        "seats": Math.round(Q.labor_influence*5.0),
+    });
+}
+if (Q.dbp_dvp) {
+    data.push({
+        "id": "dbp",
+        "legend": "Farmer Groups",
+        "name": "Farmer Groups",
+        "seats": Math.round(Q.dbp_influence*5.0),
+    });
+}
 if (Q.vnr_dvp) {
     data.push({
         "id": "vnr",
@@ -115,28 +131,12 @@ if (Q.liberals_dvp) {
         "seats": Math.round(Q.liberal_influence*5.0),
     });
 }
-if (Q.dbp_dvp) {
-    data.push({
-        "id": "dbp",
-        "legend": "Farmer Groups",
-        "name": "Farmer Groups",
-        "seats": Math.round(Q.dbp_influence*5.0),
-    });
-}
 if (Q.wp_dvp) {
     data.push({
         "id": "wp",
         "legend": "Middle Class Groups",
         "name": "Middle Class Groups",
         "seats": Math.round(Q.wp_influence*5.0),
-    });
-}
-if (Q.labor_dvp) {
-    data.push({
-        "id": "labor",
-        "legend": "Labor",
-        "name": "Labor",
-        "seats": Math.round(Q.labor_influence*5.0),
     });
 }
 if (Q.industrialists_dvp) {
@@ -193,15 +193,15 @@ go-to: leader
 
 [? if democrats_dvp: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Democrats: {!</td><td>!} [+ democratic_influence +]% {!</td><td>!} ?]
 
+[? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
+
+[? if dbp_dvp: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} Farmer Groups: {!</td><td>!} [+ dbp_influence +]% {!</td><td>!} ?]
+
 [? if vnr_dvp: {!<tr><td><div class="box" style='background-color:#D3D3A9'> </div> !} Young German Order: {!</td><td>!} [+ vnr_influence +]% {!</td><td>!} ?]
 
 [? if liberals_dvp: {!<tr><td><div class="box" style='background-color:#98C22C'> </div> !} Liberals: {!</td><td>!} [+ liberal_influence +]% {!</td><td>!} ?]
 
-[? if dbp_dvp: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} Farmer Groups: {!</td><td>!} [+ dbp_influence +]% {!</td><td>!} ?]
-
 [? if wp_dvp: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} Middle Class Groups: {!</td><td>!} [+ wp_influence +]% {!</td><td>!} ?]
-
-[? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
 
 [? if industrialists_dvp: {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} Industrialists: {!</td><td>!} [+ industrialist_influence +]% {!</td><td>!} ?]
 
