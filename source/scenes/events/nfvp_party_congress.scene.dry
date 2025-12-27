@@ -18,6 +18,11 @@ Hans Raumer’s base with the Industrialists has largely decayed after the <span
 
 Ernst Lemmer’s coalition is rather small; the former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> progressives and democrats are willing to endorse him, along with the fringe left republican groups within Labor and minor factions, but he is not set to win this party congress. Unless the Progressives make a comeback, he is likely to endorse Dietrich; due to their mutual former <span style="color: #DCCA4A;">**[+ddp_name+]**</span> status.
 
+[? if peoples_conservatives_dvp: Gottfried Treviranus is not set to command a large amount of influence, as the People’s Conservatives and Christian Socials are quite the small groups within the NFVP. The Liberals may be preoccupied with Dietrich, Curtius and Thiel, but if the People’s Conservatives and Christian Socials manage to grow their influence, former <span style="color: #C0A054;">**DVP**</span> Liberals could see Treviranus as a potential ally. ?]
+
+Hans Luther, as president of the Reichsbank, is largely seen as a unifying independent, though mainly by the former <span style="color: #C0A054;">**DVP**</span>. Outside of former <span style="color: #C0A054;">**DVP**</span> members, the Middle Class Groups and some Democrats have endorsed him, though they see his candidacy as insufficient for the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>’s big-tent nature amongst the political bourgeois.
+
+
 - @congress: The party will elect its leader for the next 2 years.
 
 @congress
