@@ -24,6 +24,7 @@ Q.special_interest_influence = 0;
 Q.vnr_influence = 0;
 Q.dbp_influence = 0;
 Q.wp_influence = 0;
+Q.cnblp_influence = 0;
 
 
 
@@ -77,6 +78,7 @@ if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.01/Q.total_influence*100).toFixed(1))
 if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
+if (Q.cnblp_dvp) Q.cnblp_influence = parseFloat((Q.special_interest_strength*(Q.cnblp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
 data = []
@@ -144,6 +146,14 @@ if (Q.industrialists_dvp) {
         "seats": Math.round(Q.industrialist_influence*5.0),
     });
 }
+if (Q.cnblp_dvp) {
+    data.push({
+        "id": "cnblp",
+        "legend": "Nationalist Farmer Groups",
+        "name": "Nationalist Farmer Groups",
+        "seats": Math.round(Q.cnblp_influence*5.0),
+    });
+}
 if (Q.peoples_conservatives_dvp) {
     data.push({
         "id": "ppcon",
@@ -193,6 +203,8 @@ go-to: leader
 [? if labor_dvp: {!<tr><td><div class="box" style='background-color:#6D5298'> </div> !} Labor: {!</td><td>!} [+ labor_influence +]% {!</td><td>!} ?]
 
 [? if industrialists_dvp: {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} Industrialists: {!</td><td>!} [+ industrialist_influence +]% {!</td><td>!} ?]
+
+[? if cnblp_dvp: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} Nationalist Farmer Groups: {!</td><td>!} [+ cnblp_influence +]% {!</td><td>!} ?]
 
 [? if peoples_conservatives_dvp: {!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} People's Conservatives: {!</td><td>!} [+ peoples_conservative_influence +]% {!</td><td>!} ?]
 {!</table>!}
