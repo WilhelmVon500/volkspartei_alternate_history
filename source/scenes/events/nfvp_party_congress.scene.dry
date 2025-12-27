@@ -13,25 +13,25 @@ WIP
 @congress
 on-arrival: {!
 Q.total_influence = 0;
-if (progressives_dvp) {
+if (Q.progressives_dvp) {
     Q.total_influence += Q.progressive_strength
 }
-if (democrats_dvp) {
+if (Q.democrats_dvp) {
     Q.total_influence += Q.democratic_strength
 }
-if (liberals_dvp) {
+if (Q.liberals_dvp) {
     Q.total_influence += Q.liberal_strength
 }
-if (labor_dvp) {
+if (Q.labor_dvp) {
     Q.total_influence += Q.labor_strength
 }
-if (industrialists_dvp) {
+if (Q.industrialists_dvp) {
     Q.total_influence += Q.industrialist_strength
 }
-if (peoples_conservatives_dvp) {
+if (Q.peoples_conservatives_dvp) {
     Q.total_influence += Q.peoples_conservative_strength
 }
-if (special_interest_dvp) {
+if (Q.special_interest_dvp) {
     Q.total_influence += Q.special_interest_strength
 }
 Q.progressive_influence = parseFloat((Q.progressive_strength/Q.total_influence*100).toFixed(1))
