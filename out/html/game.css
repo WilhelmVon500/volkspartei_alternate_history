@@ -627,14 +627,17 @@ table {
     fill: #ABDDA4;
 }
 
+.seat.ppcon {
+    fill: #0087DC;
+}
 .seat.dvp_2 {
     fill: #C0A054;
 }
-.seat.nlp {
-    fill: #98C22C;
-}
 .seat.labor {
     fill: #6D5298;
+}
+.seat.nlp {
+    fill: #98C22C;
 }
 .seat.rdp {
     fill: #E0B0FF;
