@@ -5,6 +5,7 @@ tags: event
 view-if: year = 1929 and month >= 10 and young_plan_seen = 0
 on-arrival: young_plan_seen = 1
 max-visits: 1
+priority: 2
 
 = Young Plan
 
