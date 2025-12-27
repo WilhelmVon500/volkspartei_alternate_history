@@ -18,7 +18,7 @@ if (Q.ddp_relation < 55) {
 if (Q.unemployed >= 18) {
     Q.lemmer_points -= 1;
 }
-if (Q.liberals_resign) {
+if (!Q.liberals_dvp) {
     Q.dietrich_points += 3;
 } else if (Q.liberal_dissent >= 30) {
     Q.dietrich_points += 1;
