@@ -296,7 +296,7 @@ unavailable-subtitle: Luther doesn't have enough support.
 on-arrival: dvp_leader = "Luther"
 face-image: img/portraits/LutherHans.jpg
 
-WIP
+Hans Luther, [? if not president = "Luther": president of the Reichsbank?][? if president = "Luther": President of the Republic?], has been elected, commanding great confidence amongst the party’s many factions. He is, however, as the [? if not president = "Luther": president of the Reichsbank?][? if president = "Luther": President of the Republic?], expected to take a hands-off approach, delegating the party’s day to day running to his former <span style="color: #C0A054;">**DVP**</span> allies Curtius and Thiel. All in all, many view him as simply a caretaker until their faction can seize power at the next congress. We shall see how accurate they are.
   
 
 @curtius
@@ -337,4 +337,5 @@ view-if: peoples_conservatives_dvp
 on-arrival: dvp_leader = "Treviranus"
 face-image: img/portraits/TreviranusGottfried.jpg
 
-WIP
+Gottfried Treviranus, dissenting <span style="color: #3F7BC1;">**DNVP**</span> member, has somehow been elected as <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> leader. This possibly signifies a rightward turn, with the industrialists being pleased at his leadership. However, he is not set to shift the party forward the <span style="color: #3F7BC1;">**DNVP**</span> [? if kvp_formed: and <span style="color: #455B95;">**KVP**</span> ?] too drastically. The left-wing of the party are somewhat discontented, but seemingly taking a wait-and-see approach for now.
+
