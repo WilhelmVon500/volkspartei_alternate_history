@@ -28,7 +28,7 @@ if (Q.nfvp_peoples_conservatives_success) {
 Q.industrialist_dissent += 30
 Q.nationalist_dissent += 100
 
-Q.nfvp_party_congress_timer = 12
+Q.nfvp_party_congress_timer = 24
 
 Q.workers_dvp += Q.workers_ddp;
 Q.workers_ddp = 0;
