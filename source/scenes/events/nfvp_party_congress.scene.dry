@@ -22,10 +22,10 @@ Q.peoples_conservative_influence = 0;
 Q.special_interest_influence = 0;
 
 Q.vnr_influence = 0;
+Q.social_catholics_influence = 0;
 Q.dbp_influence = 0;
 Q.wp_influence = 0;
 Q.cnblp_influence = 0;
-Q.social_catholics_influence = 0;
 
 
 
@@ -51,6 +51,9 @@ if (Q.peoples_conservatives_dvp) {
 if (Q.vnr_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + (Q.democratic_strength+Q.liberal_strength)*0.02).toFixed(1))
 }
+if (Q.social_catholics_dvp) {
+    Q.total_influence = parseFloat((Q.total_influence + catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.025).toFixed(1))
+}
 if (Q.special_interest_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.special_interest_strength).toFixed(1))
     Q.total_special_interest = 0;
@@ -66,10 +69,6 @@ if (Q.special_interest_dvp) {
         Q.cnblp_share = parseFloat((Q.rural_dvp*(Q.industrialist_strength + Q.peoples_conservative_strength)*0.05).toFixed(1))
         Q.total_special_interest += Q.cnblp_share
     }
-    if (Q.social_catholics_dvp) {
-        Q.social_catholics_share = parseFloat((Q.catholics_dvp*(Q.progressive_strength + Q.labor_strength)*0.05).toFixed(1))
-        Q.total_special_interest += Q.social_catholics_share
-    }
 }
 
 
@@ -81,11 +80,11 @@ if (Q.labor_dvp) Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influe
 if (Q.industrialists_dvp) Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
 if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
 
+if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.total_influence + catholics_dvp*(Q.progressive_strength+Q.labor_strength)*0.025/Q.total_influence*100).toFixed(1))
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.02/Q.total_influence*100).toFixed(1))
 if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.cnblp_dvp) Q.cnblp_influence = parseFloat((Q.special_interest_strength*(Q.cnblp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
-if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.special_interest_strength*(Q.social_catholics_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
 data = []
