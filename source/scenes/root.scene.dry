@@ -75,10 +75,10 @@ Q.special_interest_strength = 0;
 Q.special_interest_dissent = 0;
 
 // secret events...
-Q.unions_independent = 0;
-Q.industrialists_leave = 0;
-Q.nationalist_split = 0;
-Q.liberals_dvp = 0;
+Q.labor_dvp = 1;
+Q.industrialists_dvp = 1;
+Q.nationalists_dvp = 1;
+Q.liberals_dvp = 1;
 
 // have we discovered neorevisionism?
 Q.peoples_conservatives_dvp = 0;
