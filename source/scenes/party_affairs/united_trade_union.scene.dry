@@ -118,7 +118,7 @@ if (Q.dgb_success) {
     });
 }
 data.push({
-    "id": "dhv",
+    "id": "dvp_2",
     "legend": "DHV",
     "name": "DHV",
     "seats": Math.round(Q.dvp_influence*4.0),
