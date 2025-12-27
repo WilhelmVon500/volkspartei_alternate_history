@@ -53,7 +53,7 @@ if (Q.vnr_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + (Q.democratic_strength+Q.liberal_strength)*0.01).toFixed(1))
 }
 if (Q.dbp_dvp) {
-    Q.total_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.025).toFixed(1))
+    Q.total_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength+Q.special_interest_strength)*0.025).toFixed(1))
 }
 if (Q.wp_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + (Q.new_middle_dvp+Q.old_middle_dvp)*0.01*Q.special_interest_strength*0.5).toFixed(1))
@@ -70,7 +70,7 @@ if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((
 if (Q.special_interest_dvp) Q.special_interest_influence = parseFloat((Q.special_interest_strength/Q.total_influence*100).toFixed(1))
 
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.01/Q.total_influence*100).toFixed(1))
-if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.025/Q.total_influence*100).toFixed(1))
+if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength+Q.special_interest_strength)*0.025/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat(((Q.new_middle_dvp+Q.old_middle_dvp)*0.01*Q.special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
