@@ -46,17 +46,23 @@ if (Q.peoples_conservatives_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.peoples_conservative_strength).toFixed(1))
 }
 if (Q.special_interest_dvp) {
-    Q.total_influence = parseFloat((Q.total_influence + Q.special_interest_strength).toFixed(1))
+    Q.total_special_interest = 0;
+    if (Q.dbp_dvp) {
+        Q.dbp_share = parseFloat((Q.rural_dvp*(Q.progressive_strength + Q.democratic_strength + Q.liberal_strength)*0.05).toFixed(1))
+        Q.total_special_interest += Q.dbp_share
+    }
+    if (Q.wp_dvp) {
+        Q.wp_share = parseFloat((Q.new_middle_dvp + Q.old_middle_dvp).toFixed(1))
+        Q.total_special_interest += Q.wp_share
+    }
+    if (Q.cnblp_dvp) {
+        Q.cnblp_share = parseFloat((Q.rural_dvp*(Q.industrialist_strength + Q.peoples_conservative_strength)*0.05).toFixed(1))
+        Q.total_special_interest += Q.cnblp_share
+    }
 }
 
 if (Q.vnr_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + (Q.democratic_strength+Q.liberal_strength)*0.01).toFixed(1))
-}
-if (Q.dbp_dvp) {
-    Q.total_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength+Q.special_interest_strength)*0.025).toFixed(1))
-}
-if (Q.wp_dvp) {
-    Q.total_influence = parseFloat((Q.total_influence + (Q.new_middle_dvp+Q.old_middle_dvp)*0.01*Q.special_interest_strength*0.5).toFixed(1))
 }
 
 
@@ -67,11 +73,10 @@ if (Q.liberals_dvp) Q.liberal_influence = parseFloat((Q.liberal_strength/Q.total
 if (Q.labor_dvp) Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influence*100).toFixed(1))
 if (Q.industrialists_dvp) Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
 if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
-if (Q.special_interest_dvp) Q.special_interest_influence = parseFloat((Q.special_interest_strength/Q.total_influence*100).toFixed(1))
 
 if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.01/Q.total_influence*100).toFixed(1))
-if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.total_influence + Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength+Q.special_interest_strength)*0.025/Q.total_influence*100).toFixed(1))
-if (Q.wp_dvp) Q.wp_influence = parseFloat(((Q.new_middle_dvp+Q.old_middle_dvp)*0.01*Q.special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
+if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
+if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
 data = []
@@ -147,14 +152,6 @@ if (Q.peoples_conservatives_dvp) {
         "seats": Math.round(Q.peoples_conservative_influence*5.0),
     });
 }
-if (Q.special_interest_dvp) {
-    data.push({
-        "id": "other",
-        "legend": "Special Interest Groups",
-        "name": "Special Interest Groups",
-        "seats": Math.round(Q.special_interest_influence*5.0),
-    });
-}
 
 if (window && d3) {
     var width = 500; 
@@ -198,8 +195,6 @@ go-to: leader
 [? if industrialists_dvp: {!<tr><td><div class="box" style='background-color:#C0A054'> </div> !} Industrialists: {!</td><td>!} [+ industrialist_influence +]% {!</td><td>!} ?]
 
 [? if peoples_conservatives_dvp: {!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} People's Conservatives: {!</td><td>!} [+ peoples_conservative_influence +]% {!</td><td>!} ?]
-
-[? if special_interest_dvp: {!<tr><td><div class="box" style='background-color:#909090'> </div> !} Special Interest Groups: {!</td><td>!} [+ special_interest_influence +]% {!</td><td>!} ?]
 {!</table>!}
 
 @leader
