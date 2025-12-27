@@ -3,7 +3,7 @@ new-page: true
 subtitle: Labor's disagreements with our policies have grown too severe.
 tags: event
 view-if: labor_dissent >= 60
-on-arrival: labor_dvp = 0; labor_strength = labor_strength/2; workers_dvp -= 20; unemployed_dvp -= 10; workers_other += 5; workers_dnvp += 5; workers_nsdap += 5; n_advisors -= 1 if thiel_advisor == 1; n_advisors -= 1 if leipart_advisor == 1; thiel_advisor = 0; leipart_advisor = 0;
+on-arrival: labor_dvp = 0; christian_socials_dvp = 0; social_catholics_dvp = 0; labor_strength = labor_strength/2; workers_dvp -= 20; unemployed_dvp -= 10; workers_other += 5; workers_dnvp += 5; workers_nsdap += 5; n_advisors -= 1 if thiel_advisor == 1; n_advisors -= 1 if leipart_advisor == 1; thiel_advisor = 0; leipart_advisor = 0;
 max-visits: 1
 
 = Unions Declare Independence
