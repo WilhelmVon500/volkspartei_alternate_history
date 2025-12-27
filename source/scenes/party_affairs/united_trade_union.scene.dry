@@ -51,7 +51,7 @@ Q.ddp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.progressive_strength+Q.d
 Q.dvp_influence = (Q.workers_dvp + Q.new_middle_dvp)*(Q.liberal_strength+Q.labor_strength)
 
 if (Q.dgb_success) {
-    Q.dgb_influence = (Q.workers_z + Q.new_middle_z)*Q.z_relation*0.5
+    Q.dgb_influence = (Q.workers_z + Q.new_middle_z)*Q.z_relation*0.75
     if (Q.csrp_exist) {
         Q.dgb_influence = Q.dgb_influence + (Q.workers_csrp*Q.csrp_relation*0.75)
     }
