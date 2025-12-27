@@ -51,15 +51,24 @@ if (!Q.dnf_formed) {
     if (Q.dvp_against_young_plan) {
         Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100))).toFixed(1))
     }
+    if (Q.dvp_neutral_young_plan) {
+        Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100) * 0.5)).toFixed(1))
+    }
 } else if (Q.dnf_formed && Q.pro_republic < 67) {
     Q.young_plan_signatures = parseFloat((((Q.dnvp_votes / 2) + Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
     if (Q.dvp_against_young_plan) {
         Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100))).toFixed(1))
     }
+    if (Q.dvp_neutral_young_plan) {
+        Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100) * 0.5)).toFixed(1))
+    }
 } else if (Q.dnf_formed && Q.pro_republic >= 67) {
     Q.young_plan_signatures = parseFloat(((Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
     if (Q.dvp_against_young_plan) {
         Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100))).toFixed(1))
+    }
+    if (Q.dvp_neutral_young_plan) {
+        Q.young_plan_signatures = parseFloat((Q.young_plan_signatures + (Q.dvp_votes * ((100 - Q.pro_republic) / 100) * 0.5)).toFixed(1))
     }
 }
 !}
