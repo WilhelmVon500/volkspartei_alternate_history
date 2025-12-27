@@ -25,6 +25,7 @@ Q.vnr_influence = 0;
 Q.dbp_influence = 0;
 Q.wp_influence = 0;
 Q.cnblp_influence = 0;
+Q.social_catholics_influence = 0;
 
 
 
@@ -65,6 +66,10 @@ if (Q.special_interest_dvp) {
         Q.cnblp_share = parseFloat((Q.rural_dvp*(Q.industrialist_strength + Q.peoples_conservative_strength)*0.05).toFixed(1))
         Q.total_special_interest += Q.cnblp_share
     }
+    if (Q.social_catholics_dvp) {
+        Q.social_catholics_share = parseFloat((Q.catholics_dvp*(Q.progressive_strength + Q.labor_strength)*0.05).toFixed(1))
+        Q.total_special_interest += Q.social_catholics_share
+    }
 }
 
 
@@ -80,6 +85,7 @@ if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_st
 if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.special_interest_strength*(Q.dbp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.wp_dvp) Q.wp_influence = parseFloat((Q.special_interest_strength*(Q.wp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 if (Q.cnblp_dvp) Q.cnblp_influence = parseFloat((Q.special_interest_strength*(Q.cnblp_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
+if (Q.social_catholics_dvp) Q.social_catholics_influence = parseFloat((Q.special_interest_strength*(Q.social_catholics_share/Q.total_special_interest)/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
 data = []
@@ -89,6 +95,14 @@ if (Q.progressives_dvp) {
         "legend": "Progressives",
         "name": "Progressives",
         "seats": Math.round(Q.progressive_influence*5.0),
+    });
+}
+if (Q.social_catholics_dvp) {
+    data.push({
+        "id": "csrp",
+        "legend": "Social Catholics",
+        "name": "Social Catholics",
+        "seats": Math.round(Q.social_catholics_influence*5.0),
     });
 }
 if (Q.democrats_dvp) {
@@ -190,6 +204,8 @@ go-to: leader
 {!<table>!}
 {!<tr><td>Organization</td><td>Delegates Share</td>!}
 [? if progressives_dvp: {!<tr><td><div class="box" style='background-color:#E0B0FF'> </div> !} Progressives: {!</td><td>!} [+ progressive_influence +]% {!</td><td>!} ?]
+
+[? if social_catholics_dvp: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} Social Catholics: {!</td><td>!} [+ social_catholics_influence +]% {!</td><td>!} ?]
 
 [? if democrats_dvp: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Democrats: {!</td><td>!} [+ democratic_influence +]% {!</td><td>!} ?]
 
