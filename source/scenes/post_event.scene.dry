@@ -25,6 +25,78 @@ if (Q.pro_republic >= 100) {
     Q.pro_republic = 99;
 }
 
+if (!Q.ddp_exist) {
+    Q.workers_ddp = 0;
+    Q.new_middle_ddp = 0;
+    Q.old_middle_ddp = 0;
+    Q.rural_ddp = 0;
+    Q.unemployed_ddp = 0;
+    Q.catholics_ddp = 0;
+}
+
+if (!Q.kvp_formed) {
+    Q.workers_kvp = 0;
+    Q.new_middle_kvp = 0;
+    Q.old_middle_kvp = 0;
+    Q.rural_kvp = 0;
+    Q.unemployed_kvp = 0;
+    Q.catholics_kvp = 0;
+}
+
+if (!Q.wp_exist) {
+    Q.workers_wp = 0;
+    Q.new_middle_wp = 0;
+    Q.old_middle_wp = 0;
+    Q.rural_wp = 0;
+    Q.unemployed_wp = 0;
+    Q.catholics_wp = 0;
+}
+
+if (!Q.dbp_exist) {
+    Q.workers_dbp = 0;
+    Q.new_middle_dbp = 0;
+    Q.old_middle_dbp = 0;
+    Q.rural_dbp = 0;
+    Q.unemployed_dbp = 0;
+    Q.catholics_dbp = 0;
+}
+
+if (!Q.cnblp_exist) {
+    Q.workers_cnblp = 0;
+    Q.new_middle_cnblp = 0;
+    Q.old_middle_cnblp = 0;
+    Q.rural_cnblp = 0;
+    Q.unemployed_cnblp = 0;
+    Q.catholics_cnblp = 0;
+}
+
+if (!Q.csvd_exist) {
+    Q.workers_csvd = 0;
+    Q.new_middle_csvd = 0;
+    Q.old_middle_csvd = 0;
+    Q.rural_csvd = 0;
+    Q.unemployed_csvd = 0;
+    Q.catholics_csvd = 0;
+}
+
+if (!Q.aspd_exist) {
+    Q.workers_aspd = 0;
+    Q.new_middle_aspd = 0;
+    Q.old_middle_aspd = 0;
+    Q.rural_aspd = 0;
+    Q.unemployed_aspd = 0;
+    Q.catholics_aspd = 0;
+}
+
+if (!Q.csrp_exist) {
+    Q.workers_csrp = 0;
+    Q.new_middle_csrp = 0;
+    Q.old_middle_csrp = 0;
+    Q.rural_csrp = 0;
+    Q.unemployed_csrp = 0;
+    Q.catholics_csrp = 0;
+}
+
 // re-calculate party support
 // calculate normalized class voting for the achievements
 for (var c of Q.classes) {
@@ -805,78 +877,6 @@ if (this.ui && this.ui.show_portraits) {
             im.url = cc.faceImage;
         }
     }
-}
-
-if (!Q.ddp_exist) {
-    Q.workers_ddp = 0;
-    Q.new_middle_ddp = 0;
-    Q.old_middle_ddp = 0;
-    Q.rural_ddp = 0;
-    Q.unemployed_ddp = 0;
-    Q.catholics_ddp = 0;
-}
-
-if (!Q.kvp_formed) {
-    Q.workers_kvp = 0;
-    Q.new_middle_kvp = 0;
-    Q.old_middle_kvp = 0;
-    Q.rural_kvp = 0;
-    Q.unemployed_kvp = 0;
-    Q.catholics_kvp = 0;
-}
-
-if (!Q.wp_exist) {
-    Q.workers_wp = 0;
-    Q.new_middle_wp = 0;
-    Q.old_middle_wp = 0;
-    Q.rural_wp = 0;
-    Q.unemployed_wp = 0;
-    Q.catholics_wp = 0;
-}
-
-if (!Q.dbp_exist) {
-    Q.workers_dbp = 0;
-    Q.new_middle_dbp = 0;
-    Q.old_middle_dbp = 0;
-    Q.rural_dbp = 0;
-    Q.unemployed_dbp = 0;
-    Q.catholics_dbp = 0;
-}
-
-if (!Q.cnblp_exist) {
-    Q.workers_cnblp = 0;
-    Q.new_middle_cnblp = 0;
-    Q.old_middle_cnblp = 0;
-    Q.rural_cnblp = 0;
-    Q.unemployed_cnblp = 0;
-    Q.catholics_cnblp = 0;
-}
-
-if (!Q.csvd_exist) {
-    Q.workers_csvd = 0;
-    Q.new_middle_csvd = 0;
-    Q.old_middle_csvd = 0;
-    Q.rural_csvd = 0;
-    Q.unemployed_csvd = 0;
-    Q.catholics_csvd = 0;
-}
-
-if (!Q.aspd_exist) {
-    Q.workers_aspd = 0;
-    Q.new_middle_aspd = 0;
-    Q.old_middle_aspd = 0;
-    Q.rural_aspd = 0;
-    Q.unemployed_aspd = 0;
-    Q.catholics_aspd = 0;
-}
-
-if (!Q.csrp_exist) {
-    Q.workers_csrp = 0;
-    Q.new_middle_csrp = 0;
-    Q.old_middle_csrp = 0;
-    Q.rural_csrp = 0;
-    Q.unemployed_csrp = 0;
-    Q.catholics_csrp = 0;
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
