@@ -47,17 +47,17 @@ if (Q.wp_dvp) {
 
 
 
-Q.progressive_influence = parseFloat((Q.progressive_strength/Q.total_influence*100).toFixed(1))
-Q.democratic_influence = parseFloat((Q.democratic_strength/Q.total_influence*100).toFixed(1))
-Q.liberal_influence = parseFloat((Q.liberal_strength/Q.total_influence*100).toFixed(1))
-Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influence*100).toFixed(1))
-Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
-Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
-Q.special_interest_influence = parseFloat((Q.special_interest_strength/Q.total_influence*100).toFixed(1))
+if (Q.progressives_dvp) Q.progressive_influence = parseFloat((Q.progressive_strength/Q.total_influence*100).toFixed(1))
+if (Q.democrats_dvp) Q.democratic_influence = parseFloat((Q.democratic_strength/Q.total_influence*100).toFixed(1))
+if (Q.liberals_dvp) Q.liberal_influence = parseFloat((Q.liberal_strength/Q.total_influence*100).toFixed(1))
+if (Q.labor_dvp) Q.labor_influence = parseFloat((Q.labor_strength/Q.total_influence*100).toFixed(1))
+if (Q.industrialists_dvp) Q.industrialist_influence = parseFloat((Q.industrialist_strength/Q.total_influence*100).toFixed(1))
+if (Q.peoples_conservatives_dvp) Q.peoples_conservative_influence = parseFloat((Q.peoples_conservative_strength/Q.total_influence*100).toFixed(1))
+if (Q.special_interest_dvp) Q.special_interest_influence = parseFloat((Q.special_interest_strength/Q.total_influence*100).toFixed(1))
 
-Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.01/Q.total_influence*100).toFixed(1))
-Q.dbp_influence = parseFloat((Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
-Q.wp_influence = parseFloat(((Q.new_middle_dvp+Q.old_middle_dvp)*0.01*special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
+if (Q.vnr_dvp) Q.vnr_influence = parseFloat(((Q.democratic_strength+Q.liberal_strength)*0.01/Q.total_influence*100).toFixed(1))
+if (Q.dbp_dvp) Q.dbp_influence = parseFloat((Q.rural_dvp*(Q.progressive_strength+Q.democratic_strength+Q.liberal_strength)*0.05*Q.special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
+if (Q.wp_dvp) Q.wp_influence = parseFloat(((Q.new_middle_dvp+Q.old_middle_dvp)*0.01*special_interest_strength*0.5/Q.total_influence*100).toFixed(1))
 !}
 on-display: {!
 data = []
