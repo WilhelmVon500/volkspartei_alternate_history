@@ -28,10 +28,10 @@ if (labor_dvp) {
 if (industrialists_dvp) {
     Q.total_influence += Q.industrialist_strength
 }
-if (peoples_conservatives_dvp){
+if (peoples_conservatives_dvp) {
     Q.total_influence += Q.peoples_conservative_strength
 }
-if (special_interest_dvp){
+if (special_interest_dvp) {
     Q.total_influence += Q.special_interest_strength
 }
 Q.progressive_influence = parseFloat((Q.progressive_strength/Q.total_influence*100).toFixed(1))
