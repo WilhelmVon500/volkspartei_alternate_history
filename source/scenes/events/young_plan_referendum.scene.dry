@@ -1,1 +1,36 @@
+title: Young Plan Referendum
+new-page: true
+subtitle: The results have come in.
+tags: event
+view-if: year = 1929 and month >= 12 and young_plan_signatures >= 10
+max-visits: 1
+on-arrival: {!
+if (!Q.dnf_formed) {
+    Q.young_plan_votes = parseFloat(((Q.dnvp_votes + Q.nsdap_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+} else if (Q.dnf_formed && Q.pro_republic < 67) {
+    Q.young_plan_votes = parseFloat((((Q.dnvp_votes / 2) + Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+} else if (Q.dnf_formed && Q.pro_republic >= 67) {
+    Q.young_plan_votes = parseFloat(((Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+}
 
+if (Q.dvp_against_young_plan) {
+    Q.young_plan_votes = parseFloat((Q.young_plan_votes + (Q.dvp_votes * ((100 - Q.pro_republic) / 100))).toFixed(1))
+}
+if (Q.dvp_neutral_young_plan) {
+    Q.young_plan_votes = parseFloat((Q.young_plan_votes + (Q.dvp_votes * ((100 - Q.pro_republic) / 100) * 0.5)).toFixed(1))
+}
+!}
+
+= Young Plan Referendum
+
+After months of campaigning and propaganda by both sides, the German people have come to vote on the referendum against the Young Plan, which has taken the backseat in comparison to the devastating economic depression. 
+
+Passing the referendum would need to require the approval of more than 50% of those eligible to vote, rather than a majority of those that do vote. This makes it impossible for the referendum to succeed, even with the recent economic depression.
+
+- @results: The nation votes...
+
+@results
+on-arrival: nationalism += 3; nationalism -= 5 if young_plan_votes < 12 else nationalism += 3; new_middle_nsdap += 4; old_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; workers_nsdap += 4 if nationalism >= 55 and young_plan_votes >= 18; rural_nsdap += 5 if nationalism >= 55 and young_plan_votes >= 18; ddp_right += 2 if young_plan_votes >= 18; ddp_cohesion -= 1 if young_plan_votes >= 18; pro_republic -= 5 if young_plan_votes >= 18; pro_republic += 5 if young_plan_votes < 12; rural_dnf -= 2 if dnf_formed; old_middle_dnf -= 2 if dnf_formed; rural_nsdap += 2 if dnf_formed; old_middle_nsdap += 2 if dnf_formed; ddp_left += 0.5 if young_plan_votes < 12; ddp_cohesion += 1 if young_plan_votes < 12; industrialist_strength += 5 if young_plan_votes >= 18; nationalist_strength += 7 if young_plan_votes >= 18; dvp_right += 3 if young_plan_votes >= 18; industrialist_strength -= 3 if young_plan_votes < 12; nationalist_strength -= 5 if young_plan_votes < 12; dvp_left += 1 if young_plan_votes < 12; rural_dvp -= 4 if young_plan_votes >= 18 and not dvp_against_young_plan; new_middle_dvp += 3 if dvp_pro_young_plan and young_plan_votes < 12
+
+
+The referendum easily fails, with only around [+ young_plan_votes +]% of voters participating in it. It seems that nationalism is not omnipotent in Germany, despite everything. [? if young_plan_votes >= 20: However, the support for the referendum is higher than expected. ?][? if young_plan_votes < 12: The support for the referendum was lower than expected, this should weaken the right-wing parties. ?] The <span style="color: #954B00;">**NSDAP**</span> is the main beneficiary of this campaign to the detriment of the [? if dnvp_ideology = "Radical": <span style="color: #3F7BC1;">**DNVP**</span>?][? if dnf_formed: <span style="color: #003755;">**DNF**</span>?].
