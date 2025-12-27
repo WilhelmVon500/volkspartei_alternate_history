@@ -47,6 +47,7 @@ if (Q.peoples_conservatives_dvp) {
     Q.total_influence = parseFloat((Q.total_influence + Q.peoples_conservative_strength).toFixed(1))
 }
 if (Q.special_interest_dvp) {
+    Q.total_influence = parseFloat((Q.total_influence + Q.special_interest_strength).toFixed(1))
     Q.total_special_interest = 0;
     if (Q.dbp_dvp) {
         Q.dbp_share = parseFloat((Q.rural_dvp*(Q.progressive_strength + Q.democratic_strength + Q.liberal_strength)*0.05).toFixed(1))
