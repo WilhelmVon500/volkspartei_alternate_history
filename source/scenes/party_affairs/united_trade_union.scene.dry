@@ -59,10 +59,10 @@ if (Q.dgb_success) {
 
 Q.total_influence = Q.dvp_influence + Q.ddp_influence
 if (Q.csvd_exist) {
-    Q.total_influence = parseFloat((Q.total_influence + Q.csvd_influence).toFixed(1))
+    Q.total_influence = Q.total_influence + Q.csvd_influence
 }
 if (Q.dgb_success) {
-    Q.total_influence = parseFloat((total_influence + Q.dgb_influence).toFixed(1));
+    Q.total_influence = Q.total_influence + Q.dgb_influence
 }
 if (Q.csvd_exist) {
     Q.csvd_influence = parseFloat((Q.csvd_influence/Q.total_influence*100).toFixed(1));
