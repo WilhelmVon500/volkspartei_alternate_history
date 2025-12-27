@@ -3,7 +3,7 @@ new-page: true
 subtitle: The Right's disagreements with our policies have grown too severe.
 tags: event
 view-if: nationalist_dissent >= 60
-on-arrival: nationalist_split = 1; nationalist_strength = nationalist_strength/2; old_middle_dvp -= 5; old_middle_dnvp += 4; old_middle_other += 1; n_advisors -= 1 if levi_advisor == 1; levi_advisor = 0; DNVP_relation -= 5; n_advisors -= 1 if seydewitz_advisor == 1; seydewitz_advisor = 0; n_advisors -= 1 if hugo_advisor == 1; hugo_advisor = 0; n_advisors -= 1 if siemsen_advisor == 1; siemsen_advisor = 0
+on-arrival: nationalists_dvp = 0; nationalist_strength = nationalist_strength/2; old_middle_dvp -= 5; old_middle_dnvp += 4; old_middle_other += 1; n_advisors -= 1 if levi_advisor == 1; levi_advisor = 0; DNVP_relation -= 5; n_advisors -= 1 if seydewitz_advisor == 1; seydewitz_advisor = 0; n_advisors -= 1 if hugo_advisor == 1; hugo_advisor = 0; n_advisors -= 1 if siemsen_advisor == 1; siemsen_advisor = 0
 max-visits: 1
 
 = Nationalist members split
