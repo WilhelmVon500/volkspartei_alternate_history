@@ -1,0 +1,11 @@
+title: Right coalition collapses
+subtitle: The right-wing coalition has collapsed...
+new-page: true
+tags: event
+view-if: dnvp_ideology = "Radical" and year = 1928 and month >= 11 and in_right_coalition
+on-arrival: in_right_coalition = 0
+max-visits: 1
+
+= Hugenberg's exit from the coalition
+
+One of Hugenberg's first acts as leader of the <span style="color: #3F7BC1;">**DNVP**</span> is to terminate the coalition with the bourgeois parties as expected.
