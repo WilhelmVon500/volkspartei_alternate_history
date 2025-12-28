@@ -21,11 +21,11 @@ First thing we have done is merging more liberal parts of DHV with Hirsch-Duncke
 - @dgb: Negotiate with the Deutscher Gewerkschaftsbund
 
 @dgb
-go-to: dgb_success if (z_leader != "Joos" and z_leader != "Stegerwald") or csrp_exist; dgb_fail if (z_leader = "Joos" or z_leader = "Stegerwald") and not csrp_exist
+go-to: dgb_success if ((z_leader != "Joos" and z_leader != "Stegerwald") or csrp_exist) and progressives_dvp; dgb_fail if ((z_leader = "Joos" or z_leader = "Stegerwald") and not csrp_exist) or not progressives_dvp
 
 
 @dgb_success
-on-arrival: dgb_success = 1; workers_z -= 5*(1-dissent); workers_dvp += 5*(1-dissent)
+on-arrival: dgb_success = 1; workers_z -= 5*(1-dissent); workers_dvp += 5*(1-dissent); progressive_strength += 3;
 
 We have succeeded in convincing some of DGB-affiliated unions to join us!
 
