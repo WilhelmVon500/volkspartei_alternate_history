@@ -27,7 +27,7 @@ We have already formulated an economic plan. Now we have to implement it.
 title: Implement the Schacht plan.
 subtitle: -2 budget. This violates Treaty of Versailles
 unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?]
-view-if: schacht_plan_adopted == 1
+view-if: schacht_plan_adopted
 choose-if: budget >= 2 and unemployed >= 8
 on-arrival: budget -= 2; works_program += 1; unemployed -= 4 if unemployed >= 8; inflation += 1.5; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 3*(1-dissent); old_middle_nsdap -= 2*(1-dissent); workers_dvp += 2*(1-dissent); unemployed_dvp += 1*(1-dissent); new_middle_dvp += 2*(1-dissent); old_middle_dvp += 2*(1-dissent); rural_dvp += 1*(1-dissent); schacht_plan_progress += 1; inflation += 1 if unemployed < 10; economic_growth += 2; pro_republic += 3*(1-dissent); ddp_relation += 3; spd_relation -= 1; west_relation -= 1; east_relation -= 1;
 achievement: wirtschaftspolitik
@@ -45,7 +45,7 @@ achievement: wirtschaftspolitik
 title: Implement the Lautenbach's job-creation plan.
 subtitle: -2 budget.
 unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?][? if inflation >= 5: The threat of inflation forces the Reichsbank to pause implementation of the plan. ?]
-view-if: lautenbach_plan_adopted == 1
+view-if: lautenbach_plan_adopted
 choose-if: budget >= 2 and unemployed >= 8 and inflation < 5
 on-arrival: budget -= 2; lautenbach_plan_progress += 1; works_program += 1; unemployed -= 2 if unemployed >= 25; unemployed -= 1; inflation += 1; economic_growth += 1.6; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 2*(1-dissent); workers_kpd -= 2*(1-dissent); unemployed_kpd -= 2*(1-dissent); workers_dvp += 2*(1-dissent); workers_z += 2*(1-dissent); unemployed_dvp += 1*(1-dissent); new_middle_dvp += 5*(1-dissent); old_middle_dvp += 5*(1-dissent); rural_dvp += 2*(1-dissent); rural_z += 3*(1-dissent); pro_republic += 3*(1-dissent); z_relation += 3; ddp_relation += 2; spd_relation += 1;
 achievement: wirtschaftspolitik
@@ -65,11 +65,11 @@ achievement: wirtschaftspolitik
 title: Implement the Lautenbach-WTB plan.
 subtitle: -2 budget.
 unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?][? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?][? if inflation >= 5: The threat of inflation forces the Reichsbank to pause implementation of the plan. ?]
-view-if: lautenbach_wtb_adopted == 1
+view-if: lautenbach_wtb_adopted
 choose-if: unemployed >= 10 and budget >= 2 and inflation < 5
 on-arrival: lautenbach_wtb_progress += 1; works_program += 1; workers_spd += 4*(1-dissent); workers_dvp += 2*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_dvp += 4*(1-dissent); old_middle_dvp += 4*(1-dissent); rural_dvp += 2*(1-dissent); rural_z += 2*(1-dissent); workers_nsdap -= 6; spd_relation += 3; z_relation += 3; ddp_relation += 3; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"; coalition_dissent -= 1 if coalition_dissent >= 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 2; ddp_cohesion += 1; pro_republic += 5; unemployed -= 2 if unemployed >= 15; unemployed -= 2; inflation += 2; economic_growth += 2.6;
 max-visits: 1
 
-We have considerably expanded the public works program, and together with a campaign to raise wages, money is beginning to flow through the economy. The bourgeois parties express concerns about inflation and spending, preferring a more cautious approach. However, they accept our plan, reassured by the surplus we’ve built up.
+We have considerably expanded the public works program, and together with a campaign to raise wages, money is beginning to flow through the economy. Some parties express concerns about inflation and spending, preferring a more cautious approach. However, they accept our plan, reassured by the surplus we’ve built up.
 
 Our spending on public works has reduced the need for unemployment insurance and welfare, while also increasing tax receipts through the multiplier effect as the new money circulates in the economy, helping to recover some of our spending. We continue to reinvest most of this new revenue into the program.
