@@ -1,7 +1,7 @@
 title: The Weltbühne Trial
 new-page: true
 subtitle: A magazine is tried for revealing military secrets...
-view-if: year = 1929 and (month = 8 or month = 9) and judicial_reform < 4
+view-if: year = 1929 and (month = 8 or month = 9) and judicial_reform < 4 and wip
 max-visits: 1
 on-arrival: weltbuhne_seen = 1
 face-image: img/weltbune.jpg
