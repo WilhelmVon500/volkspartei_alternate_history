@@ -1,0 +1,44 @@
+title: Negotiate with the <span style="color: #0075EB;">**VRP**</span>.
+new-page: true
+view-if: vrp_exist
+
+= Negotiations with the <span style="color: #0075EB;">**VRP**</span>
+
+WIP
+
+- @vrp_raise_interest_rates: Raise interest rates.
+- @convince_vrp: We can convince the <span style="color: #0075EB;">**VRP**</span> to join our ranks!
+- @go_to_negotiation_others: Actually, we wish to negotiate with some other party.
+
+
+@go_to_negotiation_others
+on-arrival: negotiation_others_timer = 0
+go-to: negotiation_others
+
+
+@vrp_raise_interest_rates
+subtitle: The currency would contract, and overall demand would lower.
+unavailable-subtitle: [? if reichsbank_president_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Reichsbank President ?]
+choose-if: reichsbank_president_party = dvp_name
+go-to: monetary_policy.raise_interest_rates
+
+@convince_vrp
+view-if: nfvp_formed and return_to_normalcy
+on-arrival: {!
+Q.vrp_exist = 0;
+Q.special_interest_dvp = 1;
+Q.vrp_dvp = 1;
+
+Q.special_interest_strength += 5;
+Q.peoples_conservative_strength += 5;
+
+Q.new_middle_dvp += 3;
+Q.new_middle_other -= 3;
+Q.old_middle_dvp += 2;
+Q.old_middle_other -= 2;
+
+Q.dvp_sl = parseFloat((Q.dvp_sl + Q.vrp_sl).toFixed(1));
+Q.vrp_sl = 0;
+!}
+
+WIP
