@@ -2,7 +2,7 @@ title: Negotiations with Smaller Parties
 new-page: true
 is-card: true
 card-image: img/ballot.jpg
-view-if: negotiation_others_timer = 0
+view-if: negotiation_others_timer = 0 and (wp_exist or dbp_exist or cnblp_exist)
 on-arrival: negotiation_others_timer = 6
 tags: parliamentary_affairs
 
