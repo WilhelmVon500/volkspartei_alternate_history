@@ -61,6 +61,10 @@ Q.dvp_sl = parseFloat((Q.dvp_sl + Q.cnblp_sl).toFixed(1));
 Q.cnblp_sl = 0;
 Q.dvp_al = parseFloat((Q.dvp_al + Q.cnblp_al).toFixed(1));
 Q.cnblp_al = 0;
+
+if (Q.agriculture_minister_party == "CNBLP") {
+  Q.agriculture_minister_party = Q.dvp_name
+}
 !}
 
 WIP
