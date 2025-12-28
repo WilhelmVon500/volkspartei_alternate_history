@@ -10,6 +10,7 @@ tags: parliamentary_affairs
 
 WIP
 
+- @lautenbach_wtb: Infuse the WTB Plan with the Lautenbach plan, with a considerable expansion of public works and wages.
 - @cut_poor_spd: Cut consumption taxes for the poor.
 - @safety_spd: Develop and enforce safety regulations.
 - @root: Perhaps we can discuss this at a later time.
@@ -28,3 +29,13 @@ go-to: fiscal_policy.cut_poor
 unavailable-subtitle: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Labor Ministry
 choose-if: labor_minister_party = dvp_name
 go-to: labor_rights.safety
+
+
+
+@lautenbach_wtb
+unavailable-subtitle: The <span style="color: #E3000F;">**Social Democrats**</span> haven't fully formulated their plan yet.
+choose-if: year >= 1932
+view-if: year >= 1930 and not return_to_normalcy and lautenbach_plan_adopted and not lautenbach_wtb_adopted
+on-arrival: lautenbach_wtb_adopted = 1; spd_relation += 3; labor_strength += 5; progressive_strength += 5;
+
+WIP
