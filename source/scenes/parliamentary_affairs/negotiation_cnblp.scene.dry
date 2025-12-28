@@ -45,8 +45,6 @@ Q.peoples_conservative_strength += 5;
 
 Q.rural_dvp += Q.rural_cnblp;
 Q.rural_cnblp = 0;
-Q.catholics_dvp += Q.catholics_cnblp;
-Q.catholics_cnblp = 0;
 
 Q.dvp_r = parseFloat((Q.dvp_r + Q.cnblp_r).toFixed(1));
 Q.cnblp_r = 0;
