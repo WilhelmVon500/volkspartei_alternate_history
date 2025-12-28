@@ -39,7 +39,7 @@ unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary
 view-if: lautenbach_wtb_adopted and (chancellor_party = "Z" or finance_minister_party = "Z" or economic_minister_party = "Z") and economic_policy_timer = 0
 choose-if: unemployed >= 10 and budget >= 2 and inflation < 5
 on-arrival: economic_policy_timer += 12; lautenbach_wtb_progress += 1; works_program += 1; workers_spd += 4*(1-dissent); workers_dvp += 1*(1-dissent); workers_z += 1*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_dvp += 3*(1-dissent); new_middle_z += 1*(1-dissent); old_middle_dvp += 3*(1-dissent); old_middle_z += 1*(1-dissent); rural_dvp += 1*(1-dissent); rural_z += 3*(1-dissent); workers_nsdap -= 6; spd_relation += 3; z_relation += 3; ddp_relation += 3; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"; coalition_dissent -= 1 if coalition_dissent >= 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 2; ddp_cohesion += 1; pro_republic += 5; unemployed -= 2 if unemployed >= 15; unemployed -= 2; inflation += 2; economic_growth += 2.6;
-max-visits: 1
+achievement: wirtschaftspolitik
 
 [? if lautenbach_wtb_progress == 1 : We have convinced <span style="color: #000000;">**Center Party**</span> to implement the job-creation plan! Funds are sent to build public works projects across Germany, reducing unemployment. ?]
 
