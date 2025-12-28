@@ -271,7 +271,7 @@ WIP
 
 @lemmer
 subtitle: Lemmer is a prominent labor leader.
-unavailable-subtitle: Lemmer doesn't have enough support.
+unavailable-subtitle: Lemmer isn’t seen as a viable candidate, with the party viewing him as too left-wing. He has endorsed Dietrich or Thiel.
 #choose-if: 
 on-arrival: dvp_leader = "Lemmer"
 face-image: img/portraits/LemmerErnst.jpg
@@ -281,7 +281,7 @@ Ernst Lemmer has managed to, with the backing of Thiel’s unions, and the forme
 
 @dietrich
 subtitle: Dietrich was the former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s business wing.
-unavailable-subtitle: Dietrich doesn't have enough support.
+unavailable-subtitle: The party prefers a former <span style="color: #C0A054;">**DVP**</span> member than Dietrich, with the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> not holding enough sway. Dietrich has endorsed Curtius.
 #choose-if: 
 on-arrival: dvp_leader = "Dietrich"
 face-image: img/portraits/DietrichHermann.jpg
@@ -291,7 +291,7 @@ Hermann Dietrich has been elected as the leader of the <span style="color: var(-
 
 @luther
 subtitle: WIP.
-unavailable-subtitle: Luther doesn't have enough support.
+unavailable-subtitle: Luther sees no need to run, currently.
 #choose-if: 
 on-arrival: dvp_leader = "Luther"
 face-image: img/portraits/LutherHans.jpg
@@ -301,7 +301,7 @@ Hans Luther, [? if not president = "Luther": president of the Reichsbank?][? if 
 
 @curtius
 subtitle: Curtius belongs to the Stresemannite wing of our party.
-unavailable-subtitle: Curtius doesn't have enough support.
+unavailable-subtitle: Curtius prefers Thiel or Dietrich currently, with the former <span style="color: #C0A054;">**DVP**</span> too weak to push him, anyways.
 #choose-if: 
 on-arrival: dvp_leader = "Curtius"
 face-image: img/portraits/CurtiusJulius.jpg
@@ -311,7 +311,7 @@ Julius Curtius, Stresemann’s successor, has been elected as the leader of the 
 
 @thiel
 subtitle: Thiel is a prominent labor leader.
-unavailable-subtitle: Thiel doesn't have enough support.
+unavailable-subtitle: The unions aren’t willing to run Thiel, and he prefers to work behind the scenes at the moment, anyways. He has endorsed Curtius.
 #choose-if: 
 on-arrival: dvp_leader = "Thiel"
 face-image: img/portraits/ThielOtto.jpg
@@ -321,7 +321,7 @@ Otto Thiel, close ally of Stresemann and former <span style="color: #C0A054;">**
 
 @raumer
 subtitle: Raumer is backed by industrialists.
-unavailable-subtitle: Raumer doesn't have enough support.
+unavailable-subtitle: The party doesn’t view Raumer seriously, with what’s left of the industrialists being too scattered to push him, anyhow.
 #choose-if: 
 on-arrival: dvp_leader = "Raumer"
 face-image: img/portraits/RaumerHans.jpg
@@ -331,7 +331,7 @@ In a shock upset, Hans Raumer has been elected as the <span style="color: var(--
 
 @treviranus
 subtitle: Treviranus is the leader of People's Conservatives.
-unavailable-subtitle: Treviranus doesn't have enough support.
+unavailable-subtitle: Trevarinus prefers Curtius or Luther.
 view-if: peoples_conservatives_dvp
 #choose-if: 
 on-arrival: dvp_leader = "Treviranus"
