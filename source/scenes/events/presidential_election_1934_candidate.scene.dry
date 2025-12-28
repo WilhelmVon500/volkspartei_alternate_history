@@ -140,19 +140,19 @@ go-to: endorsements_dvp if dvp_campaign; endorsements_reactionary if dvp_candida
 
 [? if heuss_campaign: <span style="color: #DCCA4A;">**Theodor Heuss**</span> - supported by: ?]
 
-[? if spd_candidate = "Heuss": - <span style="color: #E3000F;">**SPD**</span> ?]
+[? if spd_candidate = "Heuss" and heuss_campaign: - <span style="color: #E3000F;">**SPD**</span> ?]
 
-[? if ddp_candidate = "Heuss" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+[? if ddp_candidate = "Heuss" and ddp_exist and heuss_campaign: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if dbp_candidate = "Heuss" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+[? if dbp_candidate = "Heuss" and dbp_exist and heuss_campaign: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if csrp_candidate = "Heuss" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+[? if csrp_candidate = "Heuss" and csrp_exist and heuss_campaign: - <span style="color: #FF6B21;">**CSRP**</span> ?]
 
-[? if z_candidate = "Heuss": - <span style="color: #000000;">**Z**</span> ?]
+[? if z_candidate = "Heuss" and heuss_campaign: - <span style="color: #000000;">**Z**</span> ?]
 
-[? if bvp_candidate = "Heuss": - <span style="color: #69A2BE;">**BVP**</span> ?]
+[? if bvp_candidate = "Heuss" and heuss_campaign: - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if dvp_candidate = "Heuss": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
+[? if dvp_candidate = "Heuss" and heuss_campaign: - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if braun_campaign: <span style="color: #E3000F;">**Otto Braun**</span> - supported by: ?]
 
