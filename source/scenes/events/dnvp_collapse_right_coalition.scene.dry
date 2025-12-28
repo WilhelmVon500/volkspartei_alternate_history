@@ -26,3 +26,5 @@ Heinrich Brüning welcomes us into the new cabinet. Now, we have our pick of min
 subtitle: The government will collapse, and there will be new elections.
 on-arrival: time_to_election = 3; pro_republic -= 2; spd_relation -= 4; z_relation -= 3; ddp_relation -= 3; ddp_cohesion -= 0.5; ddp_left += 0.5; dvp_right += 2; nationalist_strength += 5; liberal_dissent += 5;
 call: set_next_election_time
+
+The right-wing coalition has fallen. New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
