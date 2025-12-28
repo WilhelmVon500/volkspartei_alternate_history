@@ -2,7 +2,7 @@ title: Negotiations with Smaller Parties
 new-page: true
 is-card: true
 card-image: img/ballot.jpg
-view-if: negotiation_others_timer = 0 and (wp_exist or dbp_exist or cnblp_exist)
+view-if: negotiation_others_timer = 0 and (wp_exist or dbp_exist or cnblp_exist or vrp_exist)
 on-arrival: negotiation_others_timer = 6
 tags: parliamentary_affairs
 
@@ -13,5 +13,6 @@ WIP
 - @negotiation_wp
 - @negotiation_dbp
 - @negotiation_cnblp
+- @negotiation_vrp
 - @root: Perhaps we can discuss this at a later time.
 - @easy_discard
