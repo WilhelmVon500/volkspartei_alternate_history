@@ -1,7 +1,7 @@
 title: The conclusion of the Weltbühne case
 subtitle: Carl von Ossietzky and collaborators are finally sentenced.
 new-page: true
-view-if: year = 1931 and month >= 11 and weltbuhne_seen = 1 and not weltbuhne_dropped
+view-if: year = 1931 and month >= 11 and weltbuhne_seen = 1 and not weltbuhne_dropped and wip
 max-visits: 1
 on-arrival: weltbuhne_conclusion = 1
 face-image: img/weltbune.jpg
