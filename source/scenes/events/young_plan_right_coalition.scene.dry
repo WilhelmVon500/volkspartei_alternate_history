@@ -2,8 +2,8 @@ title: Young Plan
 new-page: true
 subtitle: The right-wing coalition has collapsed...
 tags: event
-view-if: year = 1929 and month >= 7 and not young_plan_seen and in_right_coalition
-on-arrival: young_plan_seen = 1
+view-if: year = 1929 and month >= 7 and in_right_coalition
+on-arrival: in_right_coalition = 0
 max-visits: 1
 
 = The Young Plan and the fall of the coalition
