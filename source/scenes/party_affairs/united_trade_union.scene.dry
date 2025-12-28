@@ -177,7 +177,7 @@ go-to: leader
 - @imbusch: Heinrich Imbusch, the Christian candidate!
 
 @lemmer
-on-arrival: dfgb_leader = "Lemmer"; progressive_strength += 5; democratic_strength += 5;
+on-arrival: dfgb_leader = "Lemmer"; progressive_strength += 5; labor_strength += 5;
 face-image: img/portraits/LemmerErnst.jpg
 
 WIP
