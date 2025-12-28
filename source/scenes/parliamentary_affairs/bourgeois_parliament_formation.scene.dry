@@ -18,7 +18,7 @@ WIP
 
 @convince_parties
 subtitle: -1 resources
-view-if: bourgeois_parliament_support < 3
+view-if: bourgeois_parliament_support < 1
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; bourgeois_parliament_support += 1;
@@ -27,7 +27,7 @@ We are negotiating with [? if dnvp_ideology = "Moderate": <span style="color: #3
 
 
 @form_bourgeois_parliament
-view-if: bourgeois_parliament_support >= 3
+view-if: bourgeois_parliament_support >= 1
 on-arrival: bourgeois_parliament = 1; bourgeois_parliament_wp = 1 if wp_exist and wp_ideology = "Moderate"; bourgeois_parliament_ddp = 1 if ddp_exist and ddp_ideology != "Left";
 
 WIP
