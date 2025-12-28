@@ -1,0 +1,66 @@
+title: Negotiate with the <span style="color: #7FCEB1;">**CNBLP**</span>.
+face-image: img/cnblp.jpg
+new-page: true
+view-if: cnblp_exist
+
+= Negotiations with the <span style="color: #7FCEB1;">**CNBLP**</span>
+
+WIP
+
+- @cnblp_agricultural_finance: Agricultural Financing
+- @build_support: We must build more support for this merger.
+- @convince_cnblp: We can convince the <span style="color: #7FCEB1;">**CNBLP**</span> to join our ranks!
+- @go_to_negotiation_others: Actually, we wish to negotiate with some other party.
+
+
+@go_to_negotiation_others
+on-arrival: negotiation_others_timer = 0
+go-to: negotiation_others
+
+
+@build_support
+view-if: nfvp_formed and peoples_conservatives_dvp
+on-arrival: cnblp_relation += 3; progressive_dissent += 5;
+
+We are pushing forward proposals for a merger of nationalist peasant organizations into our party.
+
+
+@cnblp_agricultural_finance
+subtitle: -1 budget - Increase financing for agricultural credit and insurance.
+unavailable-subtitle: [? if budget < 1 : Requires 1 budget. ?][? if agriculture_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Agriculture Ministry ?]
+choose-if: agriculture_minister_party = dvp_name and budget >= 1
+go-to: agricultural_policy.agricultural_finance
+
+@convince_cnblp
+view-if: nfvp_formed and peoples_conservatives_dvp
+unavailable-subtitle: [? if cnblp_relation < 65: Our relations with <span style="color: #7FCEB1;">**CNBLP**</span> are not good enough. ?][? if not dvp_agricultural_finance: <span style="color: #7FCEB1;">**CNBLP**</span> wants us to finance agriculture first. ?]
+choose-if: cnblp_relation >= 65 and dvp_agricultural_finance
+on-arrival: {!
+Q.cnblp_exist = 0;
+Q.special_interest_dvp = 1;
+Q.cnblp_dvp = 1;
+
+Q.special_interest_strength += 5;
+Q.peoples_conservative_strength += 5;
+
+Q.rural_dvp += Q.rural_cnblp;
+Q.rural_cnblp = 0;
+Q.catholics_dvp += Q.catholics_cnblp;
+Q.catholics_cnblp = 0;
+
+Q.dvp_r = parseFloat((Q.dvp_r + Q.cnblp_r).toFixed(1));
+Q.cnblp_r = 0;
+
+Q.dvp_pl = parseFloat((Q.dvp_pl + Q.cnblp_pl).toFixed(1));
+Q.cnblp_pl = 0;
+Q.dvp_wl = parseFloat((Q.dvp_wl + Q.cnblp_wl).toFixed(1));
+Q.cnblp_wl = 0;
+Q.dvp_hl = parseFloat((Q.dvp_hl + Q.cnblp_hl).toFixed(1));
+Q.cnblp_hl = 0;
+Q.dvp_sl = parseFloat((Q.dvp_sl + Q.cnblp_sl).toFixed(1));
+Q.cnblp_sl = 0;
+Q.dvp_al = parseFloat((Q.dvp_al + Q.cnblp_al).toFixed(1));
+Q.cnblp_al = 0;
+!}
+
+WIP
