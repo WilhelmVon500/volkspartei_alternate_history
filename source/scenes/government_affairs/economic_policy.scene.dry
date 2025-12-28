@@ -68,6 +68,7 @@ unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary
 view-if: lautenbach_wtb_adopted
 choose-if: unemployed >= 10 and budget >= 2 and inflation < 5
 on-arrival: lautenbach_wtb_progress += 1; works_program += 1; workers_spd += 4*(1-dissent); workers_dvp += 2*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_dvp += 4*(1-dissent); old_middle_dvp += 4*(1-dissent); rural_dvp += 2*(1-dissent); rural_z += 2*(1-dissent); workers_nsdap -= 6; spd_relation += 3; z_relation += 3; ddp_relation += 3; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"; coalition_dissent -= 1 if coalition_dissent >= 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 2; ddp_cohesion += 1; pro_republic += 5; unemployed -= 2 if unemployed >= 15; unemployed -= 2; inflation += 2; economic_growth += 2.6;
+achievement: wirtschaftspolitik
 
 We have considerably expanded the public works program, and together with a campaign to raise wages, money is beginning to flow through the economy. Some parties express concerns about inflation and spending, preferring a more cautious approach. However, they accept our plan, reassured by the surplus we’ve built up.
 
