@@ -29,8 +29,7 @@ Q.vrp_exist = 0;
 Q.special_interest_dvp = 1;
 Q.vrp_dvp = 1;
 
-Q.special_interest_strength += 5;
-Q.peoples_conservative_strength += 5;
+Q.special_interest_strength += 2;
 
 Q.new_middle_dvp += 3;
 Q.new_middle_other -= 3;
