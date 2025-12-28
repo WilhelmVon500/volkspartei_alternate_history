@@ -16,6 +16,9 @@ if (Q.ddp_right > (Q.ddp_left + 2)) {
 if (Q.dvp_reform) {
     Q.nfvp_formation_points += 1;
 }
+if (Q.bourgeois_parliament) {
+    Q.nfvp_formation_points += 1;
+}
 
 if (((Q.nationalist_strength + Q.industrialist_strength) >= (Q.liberal_strength + Q.labor_strength)) || Q.dvp_ideology == "Right") {
     Q.nfvp_formation_points -= 5;
@@ -33,13 +36,13 @@ The <span style="color: #D3D3A9;">**Young German Order**</span> has already agre
 - @nfvp_ddp_fail: The <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> refuses!
 
 @nfvp_ddp_fail
-view-if: nfvp_formation_points < 3
+view-if: nfvp_formation_points < 4
 on-arrival: nfvp_failed = 1
 
 fail. its joever...
   
 @nfvp_ddp_success
-view-if: nfvp_formation_points >= 3
+view-if: nfvp_formation_points >= 4
 on-arrival: nfvp_success = 1
 
 success
