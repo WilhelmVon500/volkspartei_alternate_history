@@ -10,5 +10,37 @@ tags: parliamentary_affairs
 
 WIP
 
+- @convince_z_lautenbach: Convince <span style="color: #000000;">**Center Party**</span> to implement Schacht's Plan.
+- @convince_z_lautenbach_wtb: Convince <span style="color: #000000;">**Center Party**</span> to implement Schacht's Plan.
 - @root: Perhaps we can discuss this at a later time.
 - @easy_discard
+
+@convince_z_lautenbach
+subtitle: -2 budget.
+unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?] [? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?][? if inflation >= 5: The threat of inflation forces the Reichsbank to pause implementation of the plan. ?]
+view-if: lautenbach_plan_adopted and (chancellor_party = "Z" or finance_minister_party = "Z" or economic_minister_party = "Z")
+choose-if: budget >= 2 and unemployed >= 8 and inflation < 5
+on-arrival: budget -= 2; lautenbach_plan_progress += 1; works_program += 1; unemployed -= 2 if unemployed >= 25; unemployed -= 1; inflation += 1; economic_growth += 1.6; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 2*(1-dissent); workers_kpd -= 2*(1-dissent); unemployed_kpd -= 2*(1-dissent); workers_dvp += 1*(1-dissent); workers_z += 3*(1-dissent); new_middle_dvp += 3*(1-dissent); new_middle_z += 2*(1-dissent); old_middle_dvp += 3*(1-dissent); old_middle_z += 2*(1-dissent); rural_dvp += 1*(1-dissent); rural_z += 4*(1-dissent); pro_republic += 3*(1-dissent); z_relation += 3; ddp_relation += 2; spd_relation += 1;
+achievement: wirtschaftspolitik
+
+[? if lautenbach_plan_progress == 1 : We have convinced <span style="color: #000000;">**Center Party**</span> to implement the job-creation plan! Funds are sent to build public works projects across Germany, reducing unemployment. ?]
+
+[? if lautenbach_plan_progress > 1 : We have convinced <span style="color: #000000;">**Center Party**</span> to continue to fund the job-creation plan, using our funds to build public works throughout Germany. ?]
+
+[? if unemployed >= 10 : The Social Democrats approve of this plan as the "least bad" alternative, seeing it as necessary to save Germany's economy. ?]
+
+[? if unemployed < 10 : Unemployment is low enough that the plan does not seem to have the intended effect. ?]
+
+
+
+@convince_z_lautenbach_wtb
+subtitle: -2 budget.
+unavailable-subtitle: -2 budget. [? if budget < 2 : We do not have the necessary budget. ?][? if unemployed < 8 : Unemployment is low enough that job creation is not necessary. ?][? if inflation >= 5: The threat of inflation forces the Reichsbank to pause implementation of the plan. ?]
+view-if: lautenbach_wtb_adopted
+choose-if: unemployed >= 10 and budget >= 2 and inflation < 5
+on-arrival: lautenbach_wtb_progress += 1; works_program += 1; workers_spd += 4*(1-dissent); workers_dvp += 1*(1-dissent); workers_z += 1*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_dvp += 3*(1-dissent); new_middle_z += 1*(1-dissent); old_middle_dvp += 3*(1-dissent); old_middle_z += 1*(1-dissent); rural_dvp += 1*(1-dissent); rural_z += 3*(1-dissent); workers_nsdap -= 6; spd_relation += 3; z_relation += 3; ddp_relation += 3; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"; coalition_dissent -= 1 if coalition_dissent >= 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 2; ddp_cohesion += 1; pro_republic += 5; unemployed -= 2 if unemployed >= 15; unemployed -= 2; inflation += 2; economic_growth += 2.6;
+max-visits: 1
+
+[? if lautenbach_wtb_progress == 1 : We have convinced <span style="color: #000000;">**Center Party**</span> to implement the job-creation plan! Funds are sent to build public works projects across Germany, reducing unemployment. ?]
+
+[? if lautenbach_wtb_progress > 1 : We have convinced <span style="color: #000000;">**Center Party**</span> to continue to fund the job-creation plan, using our funds to build public works throughout Germany. ?]
