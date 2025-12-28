@@ -47,11 +47,11 @@ We will oppose the plan and support referendum.
 @calculate
 on-arrival: {!
 if (!Q.dnf_formed) {
-    Q.young_plan_signatures = parseFloat(((Q.dnvp_votes + Q.nsdap_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+    Q.young_plan_signatures = parseFloat(((Q.dnvp_votes + Q.nsdap_votes + Q.cnblp_votes + Q.other_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
 } else if (Q.dnf_formed && Q.pro_republic < 67) {
-    Q.young_plan_signatures = parseFloat((((Q.dnvp_votes / 2) + Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+    Q.young_plan_signatures = parseFloat((((Q.dnvp_votes / 2) + Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes + Q.other_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
 } else if (Q.dnf_formed && Q.pro_republic >= 67) {
-    Q.young_plan_signatures = parseFloat(((Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
+    Q.young_plan_signatures = parseFloat(((Q.nsdap_votes + Q.dnf_votes + Q.cnblp_votes + Q.other_votes) * ((100 - Q.pro_republic) / 100)).toFixed(1))
 }
 
 if (Q.dvp_against_young_plan) {
