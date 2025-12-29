@@ -537,7 +537,7 @@ subtitle: Stresemann is a former [? if chancellor = "Stresemann": and current ?]
 is-card: true
 card-image: img/portraits/StresemannGustav.jpg
 tags: liberal_advisor
-view-if: stresemann_advisor = 0 and stresemann_dead = 0 and n_advisors < 4 and liberals_dvp
+view-if: stresemann_advisor = 0 and no_stresemann = 0 and n_advisors < 4 and liberals_dvp
 on-arrival: stresemann_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
