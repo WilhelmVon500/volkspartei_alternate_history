@@ -7,8 +7,6 @@ face-image: img/portraits/StresemannGustav.jpg
 new-page: true
 on-arrival: {!
 Q.no_stresemann = 1;
-Q.n_advisors -= 1 if stresemann_advisor == 1;
-Q.stresemann_advisor = 0;
 if (Q.foreign_minister == "Stresemann") Q.foreign_minister = "Curtius";
 
 Q.stresemann_survive_points = 0;
@@ -31,12 +29,12 @@ if (Q.medical_research >= 1) Q.stresemann_survive_points += 1;
 
 @stresemanndiedchairman
 view-if: dvp_leader = "Stresemann" and stresemann_survive_points < 3
-on-arrival: stresemann_dead = 1; spd_relation -= 3;
+on-arrival: stresemann_dead = 1; spd_relation -= 3; n_advisors -= 1 if stresemann_advisor; stresemann_advisor = 0;
 go-to: dvp_congress_1929
 
 @stresemanndied
 view-if: not dvp_leader = "Stresemann" and stresemann_survive_points < 3
-on-arrival: stresemann_dead = 1; spd_relation -= 3;
+on-arrival: stresemann_dead = 1; spd_relation -= 3; n_advisors -= 1 if stresemann_advisor; stresemann_advisor = 0;
 go-to: root
 
 
