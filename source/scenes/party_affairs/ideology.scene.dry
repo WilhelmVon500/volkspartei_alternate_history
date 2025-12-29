@@ -5,7 +5,6 @@ tags: party_affairs
 view-if: ideology_timer = 0
 on-arrival: month_actions += 1; old_ideology = ideology; ideology_timer = 18
 card-image: img/arbeiterbew.jpg
-max-visits: 3
 #subtitle: Setting the party's ideological direction.
 
 = Questions of Ideology
@@ -15,12 +14,12 @@ max-visits: 3
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
 - @nationalist: Germany will be rejuvenated, for the nation was infiltrated and subjugated by the West and its values.
-- @peoples_conservative: People's Conservative.
+- @peoples_conservative: The party must lead Germany with a strong hand; united in tradition, popular will, and the state.
 - @industrialist: The free enterprise system must be unchained — heavy industry needs a party willing to support it.
 - @labor: In pursuit of a Volksgemeinschaft, we must extend the party to the left, and to nationalist parts of the working class.
 - @liberal: We must follow Stresemann’s example, to embrace or even just tolerate the parliamentary system, and to build ties with the parties of democracy.
-- @democratic: Democratic.
-- @progressive: We will embrace democratic system and be open to work with the SPD, rejecting right-wing influences.
+- @democratic: We will fervently defend the republic, standing on our own and accepting collaboration with the Weimar Parties.
+- @progressive: We will embrace the democratic system, along with incorporating labour-oriented rhetoric into our party platform.
 - @easy_discard
 
 @nationalist
@@ -46,7 +45,7 @@ if (Q.ideology && Q.ideology != "people's conservative") {
 go-to: changed if changed = 1
 on-departure: ideology = "people's conservative"; peoples_conservative_strength += 10; peoples_conservative_dissent -= 5; z_relation += 5; spd_relation -= 3; kvp_relation += 5; dnvp_relation += 5 if dnvp_ideology = "Moderate"
 
-WIP.
+The party must lead Germany with a strong hand; united in tradition, popular will, and the state.
 
 @industrialist
 on-arrival: {!
@@ -91,7 +90,7 @@ if (Q.ideology && Q.ideology != "democratic") {
 go-to: changed if changed = 1
 on-departure: ideology = "democratic"; democratic_strength += 10; democratization += 1; democratic_dissent -= 5; z_relation += 5; kvp_relation += 3; dnvp_relation += 3 if dnvp_ideology = "Moderate"
 
-WIP.
+We will fervently defend the republic, standing on our own and accepting collaboration with the Weimar Parties.
 
 @progressive
 view-if: progressives_dvp
@@ -103,7 +102,7 @@ if (Q.ideology && Q.ideology != "progressive") {
 go-to: changed if changed = 1
 on-departure: ideology = "progressive"; progressive_strength += 10; democratization += 1; progressive_dissent -= 5; spd_relation += 5;
 
-We will embrace democratic system and be open to work with the SPD, rejecting right-wing influences.
+We will embrace the democratic system, along with incorporating labour-oriented rhetoric into our party platform.
 
 @changed
 on-arrival: nationalist_dissent += 5; industrialist_dissent += 5; labor_dissent += 5; liberal_dissent += 5
