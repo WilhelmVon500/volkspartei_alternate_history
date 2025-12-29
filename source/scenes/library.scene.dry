@@ -234,7 +234,7 @@ Current relations: [+ kpd_relation: relationships +]
 
 Current relations: [+ spd_relation : relationships +]
 
-[? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span> - <span style="color: #FE9E00;"><i>Alte Sozialdemokratische Partei Deutschlands</i></span> (Old Social Democratic Party of Germany) - WIP ?]
+[? if aspd_exist: <span style="color: #FE9E00;">**ASPD**</span> - <span style="color: #FE9E00;"><i>Alte Sozialdemokratische Partei Deutschlands</i></span> (Old Social Democratic Party of Germany) - a labour-nationalist Saxony-based party borne through disagreements with the local <span style="color: #E3000F;">**SPD**</span> branch. They are an oddity within the political sphere: combining proletarian appeals with Völkisch nationalism and a renunciation of Marxism. [? if aspd_ideology = "Moderate": Recently, the <span style="color: #FE9E00;">**ASPD**</span> has resurfaced under Max Heldt, departing from its national-revolutionary or social fascist positions. They are drifting towards the <span style="color: #E3000F;">**SPD**</span> in terms of ideological direction, participating in Saxony’s state elections as a more moderate alternative to the Saxon <span style="color: #E3000F;">**SPD**</span>. ?][? if aspd_ideology = "Radical": Recently, the <span style="color: #FE9E00;">**ASPD**</span> has resurfaced under Ernst Niekisch, retaining its national-revolutionary character under Niekisch’s guidance. Their reemergence will be brief, curious labour unions in Saxony have already left the <span style="color: #FE9E00;">**ASPD**</span> to rot. ?] ?]
 
 [? if aspd_exist: Current relations: [+ aspd_relation : relationships +] ?]
 
@@ -246,7 +246,7 @@ Current relations: [+ spd_relation : relationships +]
 
 [? if dbp_exist: Current relations: [+ dbp_relation : relationships +] ?]
 
-[? if csrp_exist: <span style="color: #FF6B21;">**CSRP**</span> - <span style="color: #FF6B21;"><i>Christlich-Soziale Reichspartei</i></span> (Christian Social Reich Party) - WIP ?]
+[? if csrp_exist: <span style="color: #FF6B21;">**CSRP**</span> - <span style="color: #FF6B21;"><i>Christlich-Soziale Reichspartei</i></span> (Christian Social Reich Party) - a center-left party splintering from <span style="color: #000000;">**Z**</span> due to alienation from the clerical and interconfessional labour wings. They promote Catholic Social Doctrine, greater social security, and labour unions. Currently, they have united under Joseph Wirth, an infamous former Chancellor known for his temporary defection to the <span style="color: #E3000F;">**SPD**</span>. ?]
 
 [? if csrp_exist: Current relations: [+ csrp_relation : relationships +] ?]
 
