@@ -16,8 +16,8 @@ WIP.
 @economic_policy
 title: Economic Policy
 subtitle: As Economic Minister, Lejeune-Jung can enact economic policies.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if dvp_in_government = 0: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> not in government: ?][? if economic_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not control the Economic Ministry. ?][? if foreign_minister != "Lejeune-Jung" : Lejeune-Jung is not the Economic Minister. ?]
-choose-if: advisor_action_timer == 0 and dvp_in_government and economic_minister_party == dvp_name and economic_minister = "Lejeune-Jung"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if dvp_in_government = 0: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> not in government: ?][? if economic_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not control the Economic Ministry. ?][? if foreign_minister != "Lejeune-Jung" : Lejeune-Jung is not the Economic Minister. ?][? if not economic_plan: We have not adopted any Economic Plan yet. ?]
+choose-if: advisor_action_timer == 0 and dvp_in_government and economic_minister_party == dvp_name and economic_minister = "Lejeune-Jung" and economic_plan > 0
 on-arrival: advisor_action_timer = 6; economic_policy_timer -= 6; last_advisor_action = 1
 go-to: economic_policy
 
