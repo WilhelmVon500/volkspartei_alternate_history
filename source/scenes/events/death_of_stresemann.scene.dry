@@ -7,7 +7,6 @@ face-image: img/portraits/StresemannGustav.jpg
 new-page: true
 on-arrival: {!
 Q.no_stresemann = 1;
-Q.stresemann_dead = 1;
 Q.n_advisors -= 1 if stresemann_advisor == 1;
 Q.stresemann_advisor = 0;
 if (Q.foreign_minister == "Stresemann") Q.foreign_minister = "Curtius";
