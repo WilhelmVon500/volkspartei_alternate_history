@@ -1,4 +1,4 @@
-title: The Death of Gustav Stresemann
+title: The Health of Gustav Stresemann
 view-if: year = 1929 and month >= 10
 frequency: 1000
 max-visits: 1
@@ -19,9 +19,10 @@ if (Q.dnvp_ideology == "Moderate") Q.stresemann_survive_points += 1;
 if (Q.medical_research >= 1) Q.stresemann_survive_points += 1;
 !}
 
-= The Death of Gustav Stresemann
+= The Health of Gustav Stresemann
 
-Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker.
+[? if stresemann_survive_points < 3: Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker. ?]
+[? if stresemann_survive_points >= 3: Gustav Stresemann, the leader of our party and longtime foreign minister, has resigned from all positions, as he wants to improve his health. Still, he will stay an important figure in German politics. ?]
 
 - @stresemanndiedchairman: New leader will be elected.
 - @stresemanndied: He will be missed.
