@@ -8,7 +8,7 @@ new-page: false
 
 = <span style="color: var(--dvp-color);">**DVP**</span> Congress
 
-Following the death of Gustav Stresemann, leader of the liberal wing despite his monarchist beliefs and the main proponent of republican collaboration, our party has become polarized on the trajectory we should take. 
+Following the [? if stresemann_dead: death ?][? if stresemann_survived: resignation ?] of Gustav Stresemann, leader of the liberal wing despite his monarchist beliefs and the main proponent of republican collaboration, our party has become polarized on the trajectory we should take. 
 
 On one side are the Stresemannites currently rallying around Julius Curtius. a man whose views promise a continuation of Stresemann’s steps towards our transformation into a true <span style="color: var(--dvp-color);">People’s Party</span>. This would essentially be going forward with the status quo, a stance that has seen criticism from the right-wing.
 
