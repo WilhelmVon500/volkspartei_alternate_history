@@ -9,7 +9,7 @@ card-image: img/arbeiterbew.jpg
 
 = Questions of Ideology
 
-[? if stresemann_dead = 0: Stresemann’s presence in the party has been steadily waning due to his advanced age and duties within the foreign ministry. ?][? if stresemann_dead = 1: Stresemann, who led our party for many years, is dead. ?] As time goes on, the right-wing has slowly been creeping in through lobbyists, poisoning Stresemann’s original vision for the party. Do we reinforce our republican stance and fight against the new nationalists and industrialists, or allow their elements to spread, shifting our party towards the extremist right?
+[? if no_stresemann = 0: Stresemann’s presence in the party has been steadily waning due to his advanced age and duties within the foreign ministry. ?][? if no_stresemann = 1: Stresemann, who led our party for many years, [? if stresemann_dead: is dead. ?][? if stresemann_survived: has resigned from party politics. ?] ?] As time goes on, the right-wing has slowly been creeping in through lobbyists, poisoning Stresemann’s original vision for the party. Do we reinforce our republican stance and fight against the new nationalists and industrialists, or allow their elements to spread, shifting our party towards the extremist right?
 
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
