@@ -1,5 +1,5 @@
 title: The Death of Hermann Müller
-view-if: year = 1931 and month >= 3
+view-if: year = 1931 and month >= 3 and medical_research < 1
 frequency: 1000
 max-visits: 1
 tags: event
