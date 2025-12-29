@@ -3,9 +3,22 @@ view-if: year = 1929 and month >= 10
 frequency: 1000
 max-visits: 1
 tags: event
-on-arrival: stresemann_dead = 1; spd_relation -= 5; n_advisors -= 1 if stresemann_advisor == 1; stresemann_advisor = 0; foreign_minister = "Curtius" if foreign_minister = "Stresemann"; spd_relation -= 3
 face-image: img/portraits/StresemannGustav.jpg
 new-page: true
+on-arrival: {!
+Q.no_stresemann = 1;
+Q.stresemann_dead = 1;
+Q.n_advisors -= 1 if stresemann_advisor == 1;
+Q.stresemann_advisor = 0;
+if (Q.foreign_minister == "Stresemann") Q.foreign_minister = "Curtius";
+
+Q.stresemann_survive_points = 0;
+if (Q.lvp_formed || Q.nfvp_formed) Q.stresemann_survive_points += 1;
+if (Q.dvp_ideology == "Left") Q.stresemann_survive_points += 1;
+if (Q.pro_republic >= 60) Q.stresemann_survive_points += 1;
+if (Q.dnvp_ideology == "Moderate") Q.stresemann_survive_points += 1;
+if (Q.medical_research >= 1) Q.stresemann_survive_points += 1;
+!}
 
 = The Death of Gustav Stresemann
 
@@ -13,11 +26,26 @@ Gustav Stresemann, the leader of our party and longtime foreign minister, has di
 
 - @stresemanndiedchairman: New leader will be elected.
 - @stresemanndied: He will be missed.
+- @stresemannsurvivedchairman: New leader will be elected.
+- @stresemannsurvived: He has done enough for the Fatherland.
 
 @stresemanndiedchairman
-view-if: dvp_leader = "Stresemann"
+view-if: dvp_leader = "Stresemann" and stresemann_survive_points < 3
+on-arrival: stresemann_dead = 1; spd_relation -= 3;
 go-to: dvp_congress_1929
 
 @stresemanndied
-view-if: not dvp_leader = "Stresemann"
+view-if: not dvp_leader = "Stresemann" and stresemann_survive_points < 3
+on-arrival: stresemann_dead = 1; spd_relation -= 3;
+go-to: root
+
+
+@stresemannsurvivedchairman
+view-if: dvp_leader = "Stresemann" and stresemann_survive_points >= 3
+on-arrival: stresemann_survived = 1;
+go-to: dvp_congress_1929
+
+@stresemannsurvived
+view-if: not dvp_leader = "Stresemann" and stresemann_survive_points >= 3
+on-arrival: stresemann_survived = 1;
 go-to: root
