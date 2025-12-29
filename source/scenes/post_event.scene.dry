@@ -791,7 +791,7 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
         Q.ddp_right *= 0.9;
     }
     
-    if (Q.stresemann_dead != 1) {
+    if (!Q.no_stresemann) {
         Q.dvp_left += 0.1
     }
     
