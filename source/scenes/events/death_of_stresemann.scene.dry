@@ -11,6 +11,7 @@ if (Q.foreign_minister == "Stresemann") Q.foreign_minister = "Curtius";
 
 Q.stresemann_survive_points = 0;
 if (Q.lvp_formed || Q.nfvp_formed) Q.stresemann_survive_points += 1;
+if (Q.dvp_reform) Q.stresemann_survive_points += 1;
 if (Q.dvp_ideology == "Left") Q.stresemann_survive_points += 1;
 if (Q.pro_republic >= 60) Q.stresemann_survive_points += 1;
 if (Q.dnvp_ideology == "Moderate") Q.stresemann_survive_points += 1;
@@ -19,8 +20,8 @@ if (Q.medical_research >= 1) Q.stresemann_survive_points += 1;
 
 = The Health of Gustav Stresemann
 
-[? if stresemann_survive_points < 3: Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker. ?]
-[? if stresemann_survive_points >= 3: Gustav Stresemann, the leader of our party and longtime foreign minister, has resigned from all positions, as he wants to improve his health. Still, he will stay an important figure in German politics. ?]
+[? if stresemann_survive_points < 4: Gustav Stresemann, the leader of our party and longtime foreign minister, has died at the tragically young age of 51. Without him, the democratic forces in the Republic will be so much weaker. ?]
+[? if stresemann_survive_points >= 4: Gustav Stresemann, the leader of our party and longtime foreign minister, has resigned from all positions, as he wants to improve his health. Still, he will stay an important figure in German politics. ?]
 
 - @stresemanndiedchairman: New leader will be elected.
 - @stresemanndied: He will be missed.
@@ -28,22 +29,22 @@ if (Q.medical_research >= 1) Q.stresemann_survive_points += 1;
 - @stresemannsurvived: He has done enough for the Fatherland.
 
 @stresemanndiedchairman
-view-if: dvp_leader = "Stresemann" and stresemann_survive_points < 3
+view-if: dvp_leader = "Stresemann" and stresemann_survive_points < 4
 on-arrival: stresemann_dead = 1; spd_relation -= 3; n_advisors -= 1 if stresemann_advisor; stresemann_advisor = 0;
 go-to: dvp_congress_1929
 
 @stresemanndied
-view-if: not dvp_leader = "Stresemann" and stresemann_survive_points < 3
+view-if: not dvp_leader = "Stresemann" and stresemann_survive_points < 4
 on-arrival: stresemann_dead = 1; spd_relation -= 3; n_advisors -= 1 if stresemann_advisor; stresemann_advisor = 0;
 go-to: root
 
 
 @stresemannsurvivedchairman
-view-if: dvp_leader = "Stresemann" and stresemann_survive_points >= 3
+view-if: dvp_leader = "Stresemann" and stresemann_survive_points >= 4
 on-arrival: stresemann_survived = 1;
 go-to: dvp_congress_1929
 
 @stresemannsurvived
-view-if: not dvp_leader = "Stresemann" and stresemann_survive_points >= 3
+view-if: not dvp_leader = "Stresemann" and stresemann_survive_points >= 4
 on-arrival: stresemann_survived = 1;
 go-to: root
