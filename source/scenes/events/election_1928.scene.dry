@@ -151,7 +151,7 @@ var sign2 = Q.str_change_bvp > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
 
-Q.str_seats_change_bvp = parseFloat((Q.bvp_seats - Q.old_bvp_seats).toFixed(1));
+Q.str_seats_change_bvp = Math.round(Q.bvp_seats - Q.old_bvp_seats);
 var sign2 = Q.str_seats_change_bvp > 0 
 ? '<img src="img/arrowup.png"> ' 
 : Q.str_seats_change_bvp < 0 
@@ -175,7 +175,7 @@ var sign2 = Q.str_change_z > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
 
-Q.str_seats_change_z = parseFloat((Q.z_minus_bvp_seats - Q.old_z_minus_bvp_seats).toFixed(1));
+Q.str_seats_change_z = Math.round(Q.z_minus_bvp_seats - Q.old_z_minus_bvp_seats);
 var sign2 = Q.str_seats_change_z > 0
 ? '<img src="img/arrowup.png"> '
 : Q.str_seats_change_z < 0 
@@ -476,37 +476,37 @@ go-to: coalition_menu
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Reichstag Seats</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ votes_change_dvp +]** {!</td><td>!} **[+ dvp_seats +]** **([+ dvp_r +]%)** {!</td><td>!} **[+ str_seats_change_dvp +]** **([+ str_change_dvp +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +] {!</td><td>!} **[+ kpd_seats +]** **([+ kpd_r +]%)** {!</td><td>!} **[+ str_seats_change_kpd +]** **([+ str_change_kpd +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +] {!</td><td>!} [+ kpd_seats +] ([+ kpd_r +]%) {!</td><td>!} [+ str_seats_change_kpd +] ([+ str_change_kpd +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} **[+ spd_seats +]** **([+ spd_r +]%)** {!</td><td>!} **[+ str_seats_change_spd +]** **([+ str_change_spd +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} [+ spd_seats +] ([+ spd_r +]%) {!</td><td>!} [+ str_seats_change_spd +] ([+ str_change_spd +]%) {!</td></tr>!}
 
-[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes +]% {!</td><td>!} [+ votes_change_aspd +] {!</td><td>!} **[+ aspd_seats +]** **([+ aspd_r +]%)** {!</td><td>!} **[+ str_seats_change_aspd +]** **([+ str_change_aspd +]%)** {!</td></tr>!} ?]
+[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes +]% {!</td><td>!} [+ votes_change_aspd +] {!</td><td>!} [+ aspd_seats +] ([+ aspd_r +]%) {!</td><td>!} [+ str_seats_change_aspd +] ([+ str_change_aspd +]%) {!</td></tr>!} ?]
 
-[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} **[+ ddp_seats +]** **([+ ddp_r +]%)** {!</td><td>!} **[+ str_seats_change_ddp +]** **([+ str_change_ddp +]%)** {!</td></tr>!} ?]
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} [+ ddp_seats +] ([+ ddp_r +]%) {!</td><td>!} [+ str_seats_change_ddp +] ([+ str_change_ddp +]%) {!</td></tr>!} ?]
 
-[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} **[+ dbp_seats +]** **([+ dbp_r +]%)** {!</td><td>!} **[+ str_seats_change_dbp +]** **([+ str_change_dbp +]%)** {!</td></tr>!} ?]
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_seats +] ([+ dbp_r +]%) {!</td><td>!} [+ str_seats_change_dbp +] ([+ str_change_dbp +]%) {!</td></tr>!} ?]
 
-[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes +]% {!</td><td>!} [+ votes_change_csrp +] {!</td><td>!} **[+ csrp_seats +]** **([+ csrp_r +]%)** {!</td><td>!} **[+ str_seats_change_csrp +]** **([+ str_change_csrp +]%)** {!</td></tr>!} ?]
+[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes +]% {!</td><td>!} [+ votes_change_csrp +] {!</td><td>!} [+ csrp_seats +] ([+ csrp_r +]%) {!</td><td>!} [+ str_seats_change_csrp +] ([+ str_change_csrp +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} **[+ z_minus_bvp_seats +]** **([+ z_minus_bvp_r +]%)** {!</td><td>!} **[+ str_seats_change_z +]** **([+ str_change_z +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_seats +] ([+ z_minus_bvp_r +]%) {!</td><td>!} [+ str_seats_change_z +] ([+ str_change_z +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} [+ votes_change_bvp +] {!</td><td>!} **[+ bvp_seats +]** **([+ bvp_r +]%)** {!</td><td>!} **[+ str_seats_change_bvp +]** **([+ str_change_bvp +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} [+ votes_change_bvp +] {!</td><td>!} [+ bvp_seats +] ([+ bvp_r +]%) {!</td><td>!} [+ str_seats_change_bvp +] ([+ str_change_bvp +]%) {!</td></tr>!}
 
-[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} **[+ csvd_seats +]** **([+ csvd_r +]%)** {!</td><td>!} **[+ str_seats_change_csvd +]** **([+ str_change_csvd +]%)** {!</td></tr>!} ?]
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} [+ csvd_seats +] ([+ csvd_r +]%) {!</td><td>!} [+ str_seats_change_csvd +] ([+ str_change_csvd +]%) {!</td></tr>!} ?]
 
-[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +] {!</td><td>!} **[+ wp_seats +]** **([+ wp_r +]%)** {!</td><td>!} **[+ str_seats_change_wp +]** **([+ str_change_wp +]%)** {!</td></tr>!} ?]
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +] {!</td><td>!} [+ wp_seats +] ([+ wp_r +]%) {!</td><td>!} [+ str_seats_change_wp +] ([+ str_change_wp +]%) {!</td></tr>!} ?]
 
-[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} **[+ cnblp_seats +]** **([+ cnblp_r +]%)** {!</td><td>!} **[+ str_seats_change_cnblp +]** **([+ str_change_cnblp +]%)** {!</td></tr>!} ?]
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} [+ cnblp_seats +] ([+ cnblp_r +]%) {!</td><td>!} [+ str_seats_change_cnblp +] ([+ str_change_cnblp +]%) {!</td></tr>!} ?]
 
-[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} **[+ kvp_seats +]** **([+ kvp_r +]%)** {!</td><td>!} **[+ str_seats_change_kvp +]** **([+ str_change_kvp +]%)** {!</td></tr>!} ?]
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} [+ kvp_seats +] ([+ kvp_r +]%) {!</td><td>!} [+ str_seats_change_kvp +] ([+ str_change_kvp +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} **[+ dnvp_seats +]** **([+ dnvp_r +]%)** {!</td><td>!} **[+ str_seats_change_dnvp +]** **([+ str_change_dnvp +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_seats +] ([+ dnvp_r +]%) {!</td><td>!} [+ str_seats_change_dnvp +] ([+ str_change_dnvp +]%) {!</td></tr>!}
 
-[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} **[+ dnf_seats +]** **([+ dnf_r +]%)** {!</td><td>!} **[+ str_seats_change_dnf +]** **([+ str_change_dnf +]%)** {!</td></tr>!} ?]
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} [+ dnf_seats +] ([+ dnf_r +]%) {!</td><td>!} [+ str_seats_change_dnf +] ([+ str_change_dnf +]%) {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} **[+ nsdap_seats +]** **([+ nsdap_r +]%)** {!</td><td>!} **[+ str_seats_change_nsdap +]** **([+ str_change_nsdap +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} [+ nsdap_seats +] ([+ nsdap_r +]%) {!</td><td>!} [+ str_seats_change_nsdap +] ([+ str_change_nsdap +]%) {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} **[+ other_seats +]** **([+ other_r +]%)** {!</td><td>!} **[+ str_seats_change_other +]** **([+ str_change_other +]%)** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_seats +] ([+ other_r +]%) {!</td><td>!} [+ str_seats_change_other +] ([+ str_change_other +]%) {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
