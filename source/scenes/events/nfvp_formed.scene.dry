@@ -123,7 +123,7 @@ if (Q.wp_split_seen == 1) {
 
 
 // update all records
-Q.dvp_seats = parseFloat((Q.dvp_seats + Q.ddp_seats).toFixed(1));
+Q.dvp_seats = Math.round(Q.dvp_seats + Q.ddp_seats);
 Q.ddp_seats = 0;
 
 Q.dvp_r = parseFloat((Q.dvp_r + Q.ddp_r).toFixed(1));
