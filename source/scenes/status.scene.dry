@@ -53,33 +53,33 @@ Next election: [+ next_election_month : month +] [+ next_election_year +][?if we
 [? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 [? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
 #
-<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_r +]%
+<span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_seats +] ([+ kpd_r +]%)
 #
-<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_r +]%
+<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: [+ spd_seats +] ([+ spd_r +]%)
 #
-[? if aspd_exist: <span class="tooltip-text" title="Old Social Democratic Party of Germany" style="color: #FE9E00;">**ASPD**</span>: [+ aspd_r +]% ?]
+[? if aspd_exist: <span class="tooltip-text" title="Old Social Democratic Party of Germany" style="color: #FE9E00;">**ASPD**</span>: [+ aspd_seats +] ([+ aspd_r +]%) ?]
 #
-[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_r +]% ?]
+[? if ddp_exist: <span class="tooltip-text" title="German Democratic Party" style="color: #DCCA4A;">**[+ ddp_name +]**</span>: [+ ddp_seats +] ([+ ddp_r +]%) ?]
 #
-[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_r +]% ?]
+[? if dbp_exist: <span class="tooltip-text" title="German Farmers' Party" style="color: #38C538;">**DBP**</span>: [+ dbp_seats +] ([+ dbp_r +]%) ?]
 #
-[? if csrp_exist: <span class="tooltip-text" title="Christian Social Reich Party" style="color: #FF6B21;">**CSRP**</span>: [+ csrp_r +]% ?]
+[? if csrp_exist: <span class="tooltip-text" title="Christian Social Reich Party" style="color: #FF6B21;">**CSRP**</span>: [+ csrp_seats +] ([+ csrp_r +]%) ?]
 #
-<span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>: [+ z_r +]%
+<span class="tooltip-text" title="Center Party + Bavarian People's Party"><span style="color: #000000;">**Z**</span> + <span style="color: #69A2BE;">**BVP**</span></span>: [+ z_seats +] ([+ z_r +]%)
 #
-[? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_r +]% ?]
+[? if csvd_exist: <span class="tooltip-text" title="Christian Social People's Service" style="color: #8ED8E4;">**CSVD**</span>: [+ csvd_seats +] ([+ csvd_r +]%) ?]
 #
-[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: [+ wp_r +]% ?]
+[? if wp_exist: <span class="tooltip-text" title="Economic Party" style="color: #B8996F;">**WP**</span>: [+ wp_seats +] ([+ wp_r +]%) ?]
 #
-[? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_r +]% ?]
+[? if cnblp_exist: <span class="tooltip-text" title="Christian-National Peasants' and Farmers' Party" style="color: #7FCEB1;">**CNBLP**</span>: [+ cnblp_seats +] ([+ cnblp_r +]%) ?]
 #
-[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_r +]% ?]
+[? if kvp_formed: <span class="tooltip-text" title="Conservative People's Party" style="color: #455B95;">**KVP**</span>: [+ kvp_seats +] ([+ kvp_r +]%) ?]
 #
-<span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_r +]%
+<span class="tooltip-text" title="German National People's Party" style="color: #3F7BC1;">**DNVP**</span>: [+ dnvp_seats +] ([+ dnvp_r +]%)
 #
-[? if dnf_formed: <span class="tooltip-text" title="German National Front" style="color: #003755;">**DNF**</span>: [+ dnf_r +]% ?]
+[? if dnf_formed: <span class="tooltip-text" title="German National Front" style="color: #003755;">**DNF**</span>: [+ dnf_seats +] ([+ dnf_r +]%) ?]
 #
-<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: [+ nsdap_r +]%
+<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: [+ nsdap_seats +] ([+ nsdap_r +]%)
 #
 <span style="color: #909090;">**Others**</span>: [+ other_r +]%
 
