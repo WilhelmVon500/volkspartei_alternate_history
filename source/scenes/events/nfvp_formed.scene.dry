@@ -123,6 +123,9 @@ if (Q.wp_split_seen == 1) {
 
 
 // update all records
+Q.dvp_seats = parseFloat((Q.dvp_seats + Q.ddp_seats).toFixed(1));
+Q.ddp_seats = 0;
+
 Q.dvp_r = parseFloat((Q.dvp_r + Q.ddp_r).toFixed(1));
 Q.ddp_r = 0;
 Q.dvp_pl = parseFloat((Q.dvp_pl + Q.ddp_pl).toFixed(1));
