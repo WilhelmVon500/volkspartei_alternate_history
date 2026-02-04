@@ -134,16 +134,82 @@ view-if: dvp_candidate = "Hindenburg"
 
 We have a plethora of campaign options at our disposal.
 
+- @campaigning
+
 
 @campaigning_eckener
 view-if: dvp_candidate = "Eckener"
 
 We have a plethora of campaign options at our disposal.
 
+- @campaigning
+
 
 @campaigning_braun
 view-if: dvp_candidate = "Braun"
 
 We have a plethora of campaign options at our disposal.
+
+- @campaigning
+
+
+
+
+
+
+@campaigning
+title: Accelerate campaign efforts in general.
+subtitle: This will cost us 1 resource.
+view-if: not campaigning_seen
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; campaigning_seen = 1; campaigning_count = 0
+max-visits: 1
+go-to: campaign_menu
+
+@campaign_menu
+
+Since it's election season, we are able to accelerate campaigning efforts. Buy one campaign, get another one completely free of charge!
+
+- @workers: Add 1 "Worker" to the cart.
+- @middle_class: Add 1 "Middle Class" to the cart.
+- @rural: Add 1 "Rural" to the cart.
+- @unemployed: Add "Unemployed" to the cart.
+- @catholics: Add "Catholic" to the cart.
+- @checkout
+
+@workers
+view-if: campaigning_count < 2
+on-arrival: workers_dvp += 2*(1 - dissent); campaigning_count += 1
+go-to: campaign_menu
+
+
+@middle_class
+view-if: campaigning_count < 2
+on-arrival: new_middle_dvp += 6*(1 - dissent); old_middle_dvp += 7*(1 - dissent); campaigning_count += 1
+go-to: campaign_menu
+
+
+@rural
+view-if: campaigning_count < 2
+on-arrival: rural_dvp += 3*(1 - dissent); campaigning_count += 1
+go-to: campaign_menu
+
+
+@unemployed
+view-if: campaigning_count < 2
+on-arrival: unemployed_dvp += 1*(1 - dissent); campaigning_count += 1
+go-to: campaign_menu
+
+
+@catholics
+view-if: campaigning_count < 2 and peoples_party
+on-arrival: catholics_dvp += 3*(1 - dissent); campaigning_count += 1
+go-to: campaign_menu
+
+
+@checkout
+title: Checkout your order.
+go-to: campaigning_hindenburg if dvp_candidate = "Hindenburg"; campaigning_eckener if dvp_candidate = "Eckener"; campaigning_braun if dvp_candidate = "Braun"
 
 
