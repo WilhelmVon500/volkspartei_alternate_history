@@ -43,6 +43,7 @@ Q.reichstag_size = 5;
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
+    Q['old_' + party + '_seats'] = Q[party + '_seats'];
     if (Q.electoral_threshold > 0) {
         if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
             Q[party + '_r'] = 0;
@@ -107,6 +108,14 @@ for (var party of Q.parties) {
                     ? '<img src="img/arrowdown.png"> ' 
                     : '<img src="img/steady.png"> ';
     Q['str_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_r'])).toFixed(1);
+
+    Q['change_' + party + '_seats'] = Q[party + '_seats'] - Q['old_' + party + '_seats'];
+    var sign = Q['change_' + party + '_seats'] > 0 
+            ? '<img src="img/arrowup.png"> ' 
+            : Q['change_' + party + '_seats'] < 0 
+                    ? '<img src="img/arrowdown.png"> ' 
+                    : '<img src="img/steady.png"> ';
+    Q['str_seats_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_seats'])).toFixed(1);
 }
 
 
@@ -119,11 +128,11 @@ Q.bvp_r = parseFloat((Q.bvp_votes*1.05).toFixed(1));
 if (Q.bvp_r > 3.7) {
     Q.bvp_r = 3.7;
 }
-Q.bvp_seats = Math.round(Q.bvp_r*Q.reichstag_size/100);
 
 Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
 Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
 Q.z_minus_bvp_seats = Math.round(Q.z_minus_bvp_r*Q.reichstag_size/100);
+Q.bvp_seats = Math.round(Q.z_seats - Q.z_minus_bvp_seats);
 
 
 Q.votes_change_bvp = parseFloat((Q.bvp_votes - Q.old_bvp_votes).toFixed(1));
@@ -142,6 +151,14 @@ var sign2 = Q.str_change_bvp > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_bvp = sign2 + Math.abs(Q.str_change_bvp).toFixed(1);
 
+Q.str_seats_change_bvp = parseFloat((Q.bvp_seats - Q.old_bvp_seats).toFixed(1));
+var sign2 = Q.str_seats_change_bvp > 0 
+? '<img src="img/arrowup.png"> ' 
+: Q.str_seats_change_bvp < 0 
+  ? '<img src="img/arrowdown.png"> ' 
+  : '<img src="img/steady.png"> ';
+Q.str_seats_change_bvp = sign2 + Math.abs(Q.str_seats_change_bvp).toFixed(1);
+
 Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_minus_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_z > 0 
 ? '<img src="img/arrowup.png"> ' 
@@ -158,10 +175,20 @@ var sign2 = Q.str_change_z > 0
   : '<img src="img/steady.png"> ';
 Q.str_change_z = sign2 + Math.abs(Q.str_change_z).toFixed(1);
 
+Q.str_seats_change_z = parseFloat((Q.z_minus_bvp_seats - Q.old_z_minus_bvp_seats).toFixed(1));
+var sign2 = Q.str_seats_change_z > 0
+? '<img src="img/arrowup.png"> '
+: Q.str_seats_change_z < 0 
+  ? '<img src="img/arrowdown.png"> '
+  : '<img src="img/steady.png"> ';
+Q.str_seats_change_z = sign2 + Math.abs(Q.str_seats_change_z).toFixed(1);
+
 Q.old_bvp_votes = Q.bvp_votes;
 Q.old_bvp_r = Q.bvp_r;
+Q.old_bvp_seats = Q.bvp_seats;
 Q.old_z_minus_bvp_votes = Q.z_minus_bvp_votes;
 Q.old_z_minus_bvp_r = Q.z_minus_bvp_r;
+Q.old_z_minus_bvp_seats = Q.z_minus_bvp_seats;
 
 
 
@@ -266,7 +293,7 @@ if (Q.kpd_r) {
         "id": "kpd",
         "legend": "KPD",
         "name": "KPD",
-        "seats": Math.round(Q.kpd_r*Q.reichstag_size),
+        "seats": Math.round(Q.kpd_seats),
     });
 }
 if (Q.sapd_formed && Q.sapd_r) {
@@ -274,7 +301,7 @@ if (Q.sapd_formed && Q.sapd_r) {
             "id": "sapd",
             "legend": "SAPD",
             "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*Q.reichstag_size),
+            "seats": Math.round(Q.sapd_seats),
             });
 }
 if (Q.spd_r) {
@@ -282,7 +309,7 @@ if (Q.spd_r) {
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
-        "seats": Math.round(Q.spd_r*Q.reichstag_size),
+        "seats": Math.round(Q.spd_seats),
     });
 }
 if (Q.aspd_exist && Q.aspd_r) {
@@ -290,7 +317,7 @@ if (Q.aspd_exist && Q.aspd_r) {
         "id": "aspd",
         "legend": "ASPD",
         "name": "ASPD",
-        "seats": Math.round(Q.aspd_r*Q.reichstag_size),
+        "seats": Math.round(Q.aspd_seats),
     });
 }
 if (Q.ddp_exist && Q.ddp_r) {
@@ -298,7 +325,7 @@ if (Q.ddp_exist && Q.ddp_r) {
         "id": "ddp",
         "legend": Q.ddp_name,
         "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r*Q.reichstag_size),
+        "seats": Math.round(Q.ddp_seats),
     });
 }
 if (Q.dbp_exist && Q.dbp_r) {
@@ -306,7 +333,7 @@ if (Q.dbp_exist && Q.dbp_r) {
         "id": "dbp",
         "legend": "DBP",
         "name": "DBP",
-        "seats": Math.round(Q.dbp_r*Q.reichstag_size),
+        "seats": Math.round(Q.dbp_seats),
     });
 }
 if (Q.lvp_formed && Q.dvp_r) {
@@ -314,7 +341,7 @@ if (Q.lvp_formed && Q.dvp_r) {
         "id": "lvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.dvp_seats),
     });
 }
 if (Q.csrp_exist && Q.csrp_r) {
@@ -322,7 +349,7 @@ if (Q.csrp_exist && Q.csrp_r) {
         "id": "csrp",
         "legend": "CSRP",
         "name": "CSRP",
-        "seats": Math.round(Q.csrp_r*Q.reichstag_size),
+        "seats": Math.round(Q.csrp_seats),
     });
 }
 if (Q.z_r) {
@@ -330,7 +357,7 @@ if (Q.z_r) {
         "id": "z",
         "legend": "Center",
         "name": "Center",
-        "seats": Math.round(Q.z_r*Q.reichstag_size),
+        "seats": Math.round(Q.z_seats),
     });
 }
 if (Q.bvp_r) {
@@ -338,7 +365,7 @@ if (Q.bvp_r) {
         "id": "bvp",
         "legend": "BVP",
         "name": "BVP",
-        "seats": Math.round(Q.bvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.bvp_seats),
     });
 }
 if (Q.nfvp_formed && Q.dvp_r) {
@@ -346,7 +373,7 @@ if (Q.nfvp_formed && Q.dvp_r) {
         "id": "nfvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.dvp_seats),
     });
 }
 if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_r) {
@@ -354,7 +381,7 @@ if (!Q.lvp_formed && !Q.nfvp_formed && Q.dvp_r) {
         "id": "dvp",
         "legend": Q.dvp_name,
         "name": Q.dvp_name,
-        "seats": Math.round(Q.dvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.dvp_seats),
     });
 }
 if (Q.csvd_exist && Q.csvd_r) {
@@ -362,7 +389,7 @@ if (Q.csvd_exist && Q.csvd_r) {
         "id": "csvd",
         "legend": "CSVD",
         "name": "CSVD",
-        "seats": Math.round(Q.csvd_r*Q.reichstag_size),
+        "seats": Math.round(Q.csvd_seats),
     });
 }
 if (Q.wp_exist && Q.wp_r) {
@@ -370,7 +397,7 @@ if (Q.wp_exist && Q.wp_r) {
         "id": "wp",
         "legend": "WP",
         "name": "WP",
-        "seats": Math.round(Q.wp_r*Q.reichstag_size),
+        "seats": Math.round(Q.wp_seats),
     });
 }
 if (Q.cnblp_exist && Q.cnblp_r) {
@@ -378,7 +405,7 @@ if (Q.cnblp_exist && Q.cnblp_r) {
         "id": "cnblp",
         "legend": "CNBLP",
         "name": "CNBLP",
-        "seats": Math.round(Q.cnblp_r*Q.reichstag_size),
+        "seats": Math.round(Q.cnblp_seats),
     });
 }
 if (Q.other_r) {
@@ -386,7 +413,7 @@ if (Q.other_r) {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Math.round(Q.other_r*Q.reichstag_size),
+        "seats": Math.round(Q.other_seats),
     });
 }
 if (Q.kvp_formed && Q.kvp_r) {
@@ -394,7 +421,7 @@ if (Q.kvp_formed && Q.kvp_r) {
         "id": "kvp",
         "legend": "KVP",
         "name": "KVP",
-        "seats": Math.round(Q.kvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.kvp_seats),
     });
 }
 if (Q.dnvp_r) {
@@ -402,7 +429,7 @@ if (Q.dnvp_r) {
         "id": "dnvp",
         "legend": "DNVP",
         "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r*Q.reichstag_size),
+        "seats": Math.round(Q.dnvp_seats),
     });
 }
 if (Q.dnf_formed && Q.dnf_r) {
@@ -410,7 +437,7 @@ if (Q.dnf_formed && Q.dnf_r) {
         "id": "dnf",
         "legend": "DNF",
         "name": "DNF",
-        "seats": Math.round(Q.dnf_r*Q.reichstag_size),
+        "seats": Math.round(Q.dnf_seats),
     });
 }
 if (Q.nsdap_r) {
@@ -418,7 +445,7 @@ if (Q.nsdap_r) {
         "id": "nsdap",
         "legend": "NSDAP",
         "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_r*Q.reichstag_size),
+        "seats": Math.round(Q.nsdap_seats),
     });
 }
 
@@ -447,39 +474,39 @@ go-to: coalition_menu
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote Share</td><td>% Change</td><td>Reichstag Seats</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ votes_change_dvp +]** {!</td><td>!} **[+ dvp_r +]%** {!</td><td>!} **[+ str_change_dvp +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color: var(--dvp-color); outline: 2px; outline-style: solid;'> </div> !} **[+ dvp_name +]**: {!</td><td>!} **[+ dvp_votes +]%** {!</td><td>!} **[+ votes_change_dvp +]** {!</td><td>!} **[+ dvp_seats +]** **([+ dvp_r +]%)** {!</td><td>!} **[+ str_seats_change_dvp +]** **([+ str_change_dvp +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +] {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} KPD: {!</td><td>!} [+ kpd_votes +]% {!</td><td>!} [+ votes_change_kpd +] {!</td><td>!} **[+ kpd_seats +]** **([+ kpd_r +]%)** {!</td><td>!} **[+ str_seats_change_kpd +]** **([+ str_change_kpd +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} [+ spd_r +]% {!</td><td>!} [+ str_change_spd +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F'> </div> !} SPD: {!</td><td>!} [+ spd_votes +]% {!</td><td>!} [+ votes_change_spd +] {!</td><td>!} **[+ spd_seats +]** **([+ spd_r +]%)** {!</td><td>!} **[+ str_seats_change_spd +]** **([+ str_change_spd +]%)** {!</td></tr>!}
 
-[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes +]% {!</td><td>!} [+ votes_change_aspd +] {!</td><td>!} [+ aspd_r +]% {!</td><td>!} [+ str_change_aspd +] {!</td><td>!} ?]
+[? if aspd_exist: {!<tr><td><div class="box" style='background-color:#FE9E00'> </div> !} ASPD: {!</td><td>!} [+ aspd_votes +]% {!</td><td>!} [+ votes_change_aspd +] {!</td><td>!} **[+ aspd_seats +]** **([+ aspd_r +]%)** {!</td><td>!} **[+ str_seats_change_aspd +]** **([+ str_change_aspd +]%)** {!</td></tr>!} ?]
 
-[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!} ?]
+[? if ddp_exist: {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_votes +]% {!</td><td>!} [+ votes_change_ddp +] {!</td><td>!} **[+ ddp_seats +]** **([+ ddp_r +]%)** {!</td><td>!} **[+ str_seats_change_ddp +]** **([+ str_change_ddp +]%)** {!</td></tr>!} ?]
 
-[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} [+ dbp_r +]% {!</td><td>!} [+ str_change_dbp +] {!</td></tr>!} ?]
+[? if dbp_exist: {!<tr><td><div class="box" style='background-color:#38C538'> </div> !} DBP: {!</td><td>!} [+ dbp_votes +]% {!</td><td>!} [+ votes_change_dbp +] {!</td><td>!} **[+ dbp_seats +]** **([+ dbp_r +]%)** {!</td><td>!} **[+ str_seats_change_dbp +]** **([+ str_change_dbp +]%)** {!</td></tr>!} ?]
 
-[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes +]% {!</td><td>!} [+ votes_change_csrp +] {!</td><td>!} [+ csrp_r +]% {!</td><td>!} [+ str_change_csrp +] {!</td><td>!} ?]
+[? if csrp_exist: {!<tr><td><div class="box" style='background-color:#FF6B21'> </div> !} CSRP: {!</td><td>!} [+ csrp_votes +]% {!</td><td>!} [+ votes_change_csrp +] {!</td><td>!} **[+ csrp_seats +]** **([+ csrp_r +]%)** {!</td><td>!} **[+ str_seats_change_csrp +]** **([+ str_change_csrp +]%)** {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_votes +]% {!</td><td>!} [+ votes_change_z +] {!</td><td>!} **[+ z_minus_bvp_seats +]** **([+ z_minus_bvp_r +]%)** {!</td><td>!} **[+ str_seats_change_z +]** **([+ str_change_z +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} [+ votes_change_bvp +] {!</td><td>!} [+ bvp_r +]% {!</td><td>!} [+ str_change_bvp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} [+ bvp_votes +]% {!</td><td>!} [+ votes_change_bvp +] {!</td><td>!} **[+ bvp_seats +]** **([+ bvp_r +]%)** {!</td><td>!} **[+ str_seats_change_bvp +]** **([+ str_change_bvp +]%)** {!</td></tr>!}
 
-[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} [+ csvd_r +]% {!</td><td>!} [+ str_change_csvd +] {!</td><td>!} ?]
+[? if csvd_exist: {!<tr><td><div class="box" style='background-color:#8ED8E4'> </div> !} CSVD: {!</td><td>!} [+ csvd_votes +]% {!</td><td>!} [+ votes_change_csvd +] {!</td><td>!} **[+ csvd_seats +]** **([+ csvd_r +]%)** {!</td><td>!} **[+ str_seats_change_csvd +]** **([+ str_change_csvd +]%)** {!</td></tr>!} ?]
 
-[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +] {!</td><td>!} [+ wp_r +]% {!</td><td>!} [+ str_change_wp +] {!</td><td>!} ?]
+[? if wp_exist: {!<tr><td><div class="box" style='background-color:#B8996F'> </div> !} WP: {!</td><td>!} [+ wp_votes +]% {!</td><td>!} [+ votes_change_wp +] {!</td><td>!} **[+ wp_seats +]** **([+ wp_r +]%)** {!</td><td>!} **[+ str_seats_change_wp +]** **([+ str_change_wp +]%)** {!</td></tr>!} ?]
 
-[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} [+ cnblp_r +]% {!</td><td>!} [+ str_change_cnblp +] {!</td><td>!} ?]
+[? if cnblp_exist: {!<tr><td><div class="box" style='background-color:#7FCEB1'> </div> !} CNBLP: {!</td><td>!} [+ cnblp_votes +]% {!</td><td>!} [+ votes_change_cnblp +] {!</td><td>!} **[+ cnblp_seats +]** **([+ cnblp_r +]%)** {!</td><td>!} **[+ str_seats_change_cnblp +]** **([+ str_change_cnblp +]%)** {!</td></tr>!} ?]
 
-[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} [+ kvp_r +]% {!</td><td>!} [+ str_change_kvp +] {!</td></tr>!} ?]
+[? if kvp_formed: {!<tr><td><div class="box" style='background-color:#455B95'> </div> !} KVP: {!</td><td>!} [+ kvp_votes +]% {!</td><td>!} [+ votes_change_kvp +] {!</td><td>!} **[+ kvp_seats +]** **([+ kvp_r +]%)** {!</td><td>!} **[+ str_seats_change_kvp +]** **([+ str_change_kvp +]%)** {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_votes +]% {!</td><td>!} [+ votes_change_dnvp +] {!</td><td>!} **[+ dnvp_seats +]** **([+ dnvp_r +]%)** {!</td><td>!} **[+ str_seats_change_dnvp +]** **([+ str_change_dnvp +]%)** {!</td></tr>!}
 
-[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} [+ dnf_r +]% {!</td><td>!} [+ str_change_dnf +] {!</td></tr>!} ?]
+[? if dnf_formed: {!<tr><td><div class="box" style='background-color:#003755'> </div> !} DNF: {!</td><td>!} [+ dnf_votes +]% {!</td><td>!} [+ votes_change_dnf +] {!</td><td>!} **[+ dnf_seats +]** **([+ dnf_r +]%)** {!</td><td>!} **[+ str_seats_change_dnf +]** **([+ str_change_dnf +]%)** {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_votes +]% {!</td><td>!} [+ votes_change_nsdap +] {!</td><td>!} **[+ nsdap_seats +]** **([+ nsdap_r +]%)** {!</td><td>!} **[+ str_seats_change_nsdap +]** **([+ str_change_nsdap +]%)** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} [+ other_r +]% {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes +]% {!</td><td>!} [+ votes_change_other +] {!</td><td>!} **[+ other_seats +]** **([+ other_r +]%)** {!</td><td>!} **[+ str_seats_change_other +]** **([+ str_change_other +]%)** {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
