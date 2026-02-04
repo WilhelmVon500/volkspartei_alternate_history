@@ -601,31 +601,31 @@ Q.bourgeois_parliament_wp = 0
 
 
 // sapd isn't formed yet, but it may be formed
-Q.sapd_r = 0;
-Q.old_sapd_r = 0;
-Q.sapd_votes = 0;
-Q.old_sapd_votes = 0;
-
+Q.kvp_seats = 0;
 Q.kvp_r = 0;
 Q.old_kvp_r = 0;
 Q.kvp_votes = 0;
 Q.old_kvp_votes = 0;
 
+Q.dnf_seats = 0;
 Q.dnf_r = 0;
 Q.old_dnf_r = 0;
 Q.dnf_votes = 0;
 Q.old_dnf_votes = 0;
 
+Q.csvd_seats = 0;
 Q.csvd_r = 0;
 Q.old_csvd_r = 0;
 Q.csvd_votes = 0;
 Q.old_csvd_votes = 0;
 
+Q.csrp_seats = 0;
 Q.csrp_r = 0;
 Q.old_csrp_r = 0;
 Q.csrp_votes = 0;
 Q.old_csrp_votes = 0;
 
+Q.aspd_seats = 0;
 Q.aspd_r = 0;
 Q.old_aspd_r = 0;
 Q.aspd_votes = 0;
@@ -713,7 +713,22 @@ Q.catholics_other = 1;
 // note: the Z figures also include the BVP (Bavarian people's party)
 // since they were ideologically similar, but they were separate parties.
 // They did not have a CDU/CSU-style relationship.
-Q.reichstag_size = 5;
+Q.reichstag_size = 4.93;
+
+
+Q.spd_seats = 131;
+Q.kpd_seats = 45;
+Q.z_seats = 88;
+Q.z_minus_bvp_seats = 69;
+Q.bvp_seats = 19;
+Q.ddp_seats = 32;
+Q.dvp_seats = 51;
+Q.wp_seats = 12;
+Q.dnvp_seats = 103;
+Q.nsdap_seats = 14;
+Q.dbp_seats = 5;
+Q.cnblp_seats = 8;
+Q.other_seats = 4;
 
 
 Q.spd_r = 26.5;
