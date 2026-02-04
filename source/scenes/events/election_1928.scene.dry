@@ -38,7 +38,34 @@ Let us hope this does not backfire.
 
 @post_election_1928
 on-arrival: {!
-Q.reichstag_size = 5;
+if (Q.year < 1929) {
+    Q.reichstag_size = 4.91;
+} else if (Q.year < 1930) {
+    Q.reichstag_size = 5.2;
+} else if (Q.year < 1931) {
+    Q.reichstag_size = 5.77;
+    if (Q.unemployed < 8) Q.reichstag_size -= 0.1;
+} else if (Q.year < 1932) {
+    Q.reichstag_size = 5.95;
+    if (Q.unemployed < 20) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 25) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 30) Q.reichstag_size -= 0.1;
+} else if (Q.year < 1933) {
+    Q.reichstag_size = 6.08;
+    if (Q.unemployed < 20) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 25) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 30) Q.reichstag_size -= 0.1;
+} else if (Q.year < 1934) {
+    Q.reichstag_size = 5.95;
+    if (Q.unemployed < 20) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 25) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 30) Q.reichstag_size -= 0.1;
+} else {
+    Q.reichstag_size = 5.5;
+    if (Q.unemployed < 20) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 25) Q.reichstag_size -= 0.1;
+    if (Q.unemployed < 30) Q.reichstag_size -= 0.1;
+}
 
 var new_party_sum = 0;
 for (var party of Q.parties) {
