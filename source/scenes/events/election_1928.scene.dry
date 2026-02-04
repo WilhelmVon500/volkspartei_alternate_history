@@ -131,7 +131,7 @@ if (Q.bvp_r > 3.7) {
 
 Q.z_minus_bvp_votes = parseFloat((Q.z_votes - Q.bvp_votes).toFixed(1));
 Q.z_minus_bvp_r = parseFloat((Q.z_r - Q.bvp_r).toFixed(1));
-Q.z_minus_bvp_seats = Math.round(Q.z_minus_bvp_r*Q.reichstag_size/100);
+Q.z_minus_bvp_seats = Math.round(Q.z_minus_bvp_r*Q.reichstag_size);
 Q.bvp_seats = Math.round(Q.z_seats - Q.z_minus_bvp_seats);
 
 
