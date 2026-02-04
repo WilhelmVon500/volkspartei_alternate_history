@@ -42,29 +42,33 @@ WIP
 
 @view_candidates
 
-<span style="color: #808080;">**Paul von Hindenburg**</span> - supported by:
+[? if reactionary_candidate = "Hindenburg": <span style="color: #808080;">**Paul von Hindenburg**</span> ?][? if reactionary_candidate = "Lettow-Vorbeck": [? if kvp_formed: <span style="color: #455B95;">**Paul von Lettow-Vorbeck**</span>?][? if dnvp_ideology == "Moderate": <span style="color: #3F7BC1;">**Paul von Lettow-Vorbeck**</span>?] ?] - supported by:
 
-[? if spd_candidate = "Hindenburg": - <span style="color: #E3000F;">**SPD**</span> ?]
+[? if spd_candidate = reactionary_candidate: - <span style="color: #E3000F;">**SPD**</span> ?]
 
-[? if ddp_candidate = "Hindenburg" and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
+[? if ddp_candidate = reactionary_candidate and ddp_exist: - <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> ?]
 
-[? if dbp_candidate = "Hindenburg" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
+[? if dbp_candidate = reactionary_candidate and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
-[? if z_candidate = "Hindenburg": - <span style="color: #000000;">**Z**</span> ?]
+[? if csrp_candidate = reactionary_candidate and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
 
-[? if dvp_candidate = "Hindenburg": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if z_candidate = reactionary_candidate: - <span style="color: #000000;">**Z**</span> ?]
 
-[? if csvd_candidate = "Hindenburg" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
+[? if bvp_candidate = reactionary_candidate: - <span style="color: #69A2BE;">**BVP**</span> ?]
 
-[? if wp_candidate = "Hindenburg" and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
+[? if dvp_candidate = reactionary_candidate: - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
-[? if cnblp_candidate = "Hindenburg" and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
+[? if csvd_candidate = reactionary_candidate and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
-[? if kvp_candidate = "Hindenburg" and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+[? if wp_candidate = reactionary_candidate and wp_exist: - <span style="color: #B8996F;">**WP**</span> ?]
 
-[? if dnvp_candidate = "Hindenburg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+[? if cnblp_candidate = reactionary_candidate and cnblp_exist: - <span style="color: #7FCEB1;">**CNBLP**</span> ?]
 
-[? if other_candidate = "Hindenburg": - <span style="color: #909090;">**Others**</span> ?]
+[? if kvp_candidate = reactionary_candidate and kvp_formed: - <span style="color: #455B95;">**KVP**</span> ?]
+
+[? if dnvp_candidate = reactionary_candidate: - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if other_candidate = reactionary_candidate: - <span style="color: #909090;">**Others**</span> ?]
 
 [? if eckener_campaign: **Hugo** <span style="color: #000000;">**Ec**</span><span style="color: #DD0000;">**ken**</span><span style="color: #FFCC00;">**er**</span> - supported by: ?]
 
@@ -74,9 +78,13 @@ WIP
 
 [? if dbp_candidate = "Eckener" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = "Eckener" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Eckener": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if dvp_candidate = "Eckener": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if bvp_candidate = "Eckener": - <span style="color: #69A2BE;">**BVP**</span> ?]
+
+[? if dvp_candidate = "Eckener": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 [? if csvd_candidate = "Eckener" and csvd_exist: - <span style="color: #8ED8E4;">**CSVD**</span> ?]
 
@@ -96,17 +104,21 @@ WIP
 
 [? if dbp_candidate = "Braun" and dbp_exist: - <span style="color: #38C538;">**DBP**</span> ?]
 
+[? if csrp_candidate = "Braun" and csrp_exist: - <span style="color: #FF6B21;">**CSRP**</span> ?]
+
 [? if z_candidate = "Braun": - <span style="color: #000000;">**Z**</span> ?]
 
-[? if dvp_candidate = "Braun": - [? if not lvp_formed: <span style="color: #C0A054;">**[+ dvp_name +]**</span>?][? if lvp_formed: <span style="color: #FFA500;">**[+ dvp_name +]**</span>?] ?]
+[? if dvp_candidate = "Braun": - <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> ?]
 
 <span style="color: #8B0000;">**Ernst Thälmann**</span> - supported by:
 
 [? if kpd_candidate = "Thälmann": - <span style="color: #8B0000;">**KPD**</span> ?]
 
-[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?]
+[? if dnvp_candidate = "Duesterberg": <span style="color: #3F7BC1;">**Theodor Duesterberg**</span> - supported by: ?][? if dnf_candidate = "Duesterberg" and dnf_formed: <span style="color: #003755;">**Theodor Duesterberg**</span> - supported by: ?]
 
 [? if dnvp_candidate = "Duesterberg": - <span style="color: #3F7BC1;">**DNVP**</span> ?]
+
+[? if dnf_candidate = "Duesterberg" and dnf_formed: - <span style="color: #003755;">**DNF**</span> ?]
 
 [? if nsdap_candidate = "Hitler": <span style="color: #954B00;">**Adolf Hitler**</span> - supported by: ?][? if nsdap_candidate = "Göring": <span style="color: #954B00;">**Hermann Göring**</span> - supported by: ?]
 
