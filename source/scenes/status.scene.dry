@@ -49,9 +49,9 @@ Next election: [+ next_election_month : month +] [+ next_election_year +][?if we
 
 [? if rubicon: Reichstag: [? if reichstag_rubicon: in session?][? if not reichstag_rubicon and not reichstag_break: dissolved?][? if next_reichstag_time > rubicon_time and next_reichstag_time and not reichstag_rubicon and next_election_time - time > 2:, reconvenes on [+ next_reichstag_month : month +] [+ next_reichstag_year +], Week [+ next_reichstag_week +]. ?][? if reichstag_break: indefinitely adjourned ?] ?]
 
-[? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
-[? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
-[? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_r +]% ?]
+[? if not lvp_formed and not nfvp_formed: <span class="tooltip-text" title="German People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_seats +] ([+ dvp_r +]%) ?]
+[? if lvp_formed: <span class="tooltip-text" title="Liberal People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_seats +] ([+ dvp_r +]%) ?]
+[? if nfvp_formed: <span class="tooltip-text" title="National Progressive People's Party" style="color: var(--dvp-color);">**[+ dvp_name +]**</span>: [+ dvp_seats +] ([+ dvp_r +]%) ?]
 #
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: [+ kpd_seats +] ([+ kpd_r +]%)
 #
