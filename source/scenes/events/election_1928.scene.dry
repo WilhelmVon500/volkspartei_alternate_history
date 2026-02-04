@@ -142,7 +142,7 @@ for (var party of Q.parties) {
             : Q['change_' + party + '_seats'] < 0 
                     ? '<img src="img/arrowdown.png"> ' 
                     : '<img src="img/steady.png"> ';
-    Q['str_seats_change_' + party] = sign + Math.abs(parseFloat(Q['change_' + party + '_seats'])).toFixed(1);
+    Q['str_seats_change_' + party] = sign + Math.abs(Q['change_' + party + '_seats']);
 }
 
 
@@ -184,7 +184,7 @@ var sign2 = Q.str_seats_change_bvp > 0
 : Q.str_seats_change_bvp < 0 
   ? '<img src="img/arrowdown.png"> ' 
   : '<img src="img/steady.png"> ';
-Q.str_seats_change_bvp = sign2 + Math.abs(Q.str_seats_change_bvp).toFixed(1);
+Q.str_seats_change_bvp = sign2 + Math.abs(Q.str_seats_change_bvp);
 
 Q.str_votes_change_z = parseFloat((Q.z_minus_bvp_votes - Q.old_z_minus_bvp_votes).toFixed(1));
 var sign2 = Q.str_votes_change_z > 0 
@@ -208,7 +208,7 @@ var sign2 = Q.str_seats_change_z > 0
 : Q.str_seats_change_z < 0 
   ? '<img src="img/arrowdown.png"> '
   : '<img src="img/steady.png"> ';
-Q.str_seats_change_z = sign2 + Math.abs(Q.str_seats_change_z).toFixed(1);
+Q.str_seats_change_z = sign2 + Math.abs(Q.str_seats_change_z);
 
 Q.old_bvp_votes = Q.bvp_votes;
 Q.old_bvp_r = Q.bvp_r;
