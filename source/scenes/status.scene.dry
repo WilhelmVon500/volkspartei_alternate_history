@@ -81,7 +81,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +][?if we
 #
 <span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)" style="color: #954B00;">**NSDAP**</span>: [+ nsdap_seats +] ([+ nsdap_r +]%)
 #
-<span style="color: #909090;">**Others**</span>: [+ other_r +]%
+<span style="color: #909090;">**Others**</span>: [+ other_seats +] ([+ other_r +]%)
 
 = Economics
 
