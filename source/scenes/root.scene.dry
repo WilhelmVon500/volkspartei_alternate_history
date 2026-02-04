@@ -730,6 +730,9 @@ Q.dbp_seats = 5;
 Q.cnblp_seats = 8;
 Q.other_seats = 4;
 
+Q.old_z_minus_bvp_seats = 69;
+Q.old_bvp_seats = 19;
+
 
 Q.spd_r = 26.5;
 Q.kpd_r = 9.1;
