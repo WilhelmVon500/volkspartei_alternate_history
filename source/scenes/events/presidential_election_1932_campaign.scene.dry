@@ -124,6 +124,26 @@ WIP
 
 [? if nsdap_candidate = nsdap_candidate: - <span style="color: #954B00;">**NSDAP**</span> ?]
 
-// - @campaigning_hindenburg: Time to hit the campaign trail!
-// - @campaigning_eckener: Time to hit the campaign trail!
-// - @campaigning_braun: Time to hit the campaign trail!
+- @campaigning_hindenburg: Time to hit the campaign trail!
+- @campaigning_eckener: Time to hit the campaign trail!
+- @campaigning_braun: Time to hit the campaign trail!
+
+
+@campaigning_hindenburg
+view-if: dvp_candidate = "Hindenburg"
+
+We have a plethora of campaign options at our disposal.
+
+
+@campaigning_eckener
+view-if: dvp_candidate = "Eckener"
+
+We have a plethora of campaign options at our disposal.
+
+
+@campaigning_braun
+view-if: dvp_candidate = "Braun"
+
+We have a plethora of campaign options at our disposal.
+
+
