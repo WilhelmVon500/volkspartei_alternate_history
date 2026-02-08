@@ -8,7 +8,7 @@ face-image: img/portraits/RheinbabenRochus.jpg
 
 = Front 1929 Movement formed
 
-Baron Rochus von Rheinbaben has reached out to all major liberal organizations in Germany, most importantly the <span style="color: #DCCA4A;">**DDP**</span>, left wing of the <span style="color: #3F7BC1;">**DNVP**</span>, several non-socialist unions and the <span style="color: #D3D3A9;">**JDO**</span> seeking to create a unified republican right. What should our stance on this effort be?
+Baron Rochus von Rheinbaben has reached out to all major liberal organizations in Germany, most importantly the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, left wing of the <span style="color: #3F7BC1;">**DNVP**</span>, several non-socialist unions and the <span style="color: #D3D3A9;">**JDO**</span> seeking to create a unified republican right. What should our stance on this effort be?
 
 - @support_front_1929: We will support this movement!
 - @do_nothing_front_1929: We will do nothing.
@@ -19,15 +19,17 @@ unavailable-subtitle: Industrialist wing is not interested in this.
 choose-if: (liberal_strength + labor_strength)>(industrialist_strength + nationalist_strength)
 on-arrival: new_middle_dvp += 2; dvp_left += 1; liberal_strength += 5; industrialist_dissent += 15; nationalist_dissent += 10; ddp_right += 1; ddp_relation += 5; supported_front_1929 = 1
 
-WIP
+With our support, von Rheinbaben has made rapid progress in negotiations for a unified republican right, with official unification expected to come in coming months.
 
 @do_nothing_front_1929
 
-WIP
+With our lukewarm support to Rheinbaben's initiative, attempts to form a unified republican right party have faltered. However our discussion with the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> over the cource of the movement has strengthened our ties, bringing the creation of a unifed liberal party closer then ever.
 
 @expel_front_1929
 unavailable-subtitle: Why would we do this?
 choose-if: (industrialist_strength + nationalist_strength)>(liberal_strength + labor_strength)
 on-arrival: new_middle_dvp -= 3; dvp_right += 1; industrialist_strength += 5; liberal_dissent += 10; labor_dissent += 5; ddp_relation -= 5;
 
-WIP
+With our rejection of Von Rheinbaben's initiative the effort for republican unity quickly collapsed. Our rejection of the Front has enraged our liberal and labor wings, and torched our relations with the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>.
+
+However our rejection has strengthened our ties with the national opposition and greatly enhanced our nationalist credentials.
