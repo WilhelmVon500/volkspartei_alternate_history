@@ -7,7 +7,7 @@ view-if: curtius_advisor = 1
 
 = Julius Curtius
 
-WIP
+Julius Curtius is one of our foreign policy leaders and a close ally of Stresemann's vision of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>.
 
 - @curtius_international
 - @curtius_foreign
