@@ -53,9 +53,9 @@ title: Raise consumption taxes, which disproportionately affect the poor.
 subtitle: +2 budget
 unavailable-subtitle: Tax rates are already too high.
 choose-if: lower_tax_rates <= 5
-on-arrival: budget += 2; workers_dvp -= 4; lower_tax_rates += 1; workers_dvp -= 5 if lower_tax_rates >= 2; labor_dissent += 3; progressive_dissent += 3
+on-arrival: budget += 2; workers_dvp -= 4; lower_tax_rates += 1; workers_dvp -= 5 if lower_tax_rates >= 2; labor_dissent += 3; progressive_dissent += 3; spd_relation -= 5;
 
-We have raised taxes for the poor and working class. This hurts our support among the workers.
+We have raised taxes for the poor and working class. This will seriously harm any efforts to work with the <span style="color: #E3000F;">**SPD**</span>.
 
 
 @cut_overall
