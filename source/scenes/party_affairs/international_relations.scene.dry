@@ -6,14 +6,13 @@ view-if: international_relations_timer <= 0
 on-arrival: month_actions += 1; international_relations_timer += 12;
 card-image: img/international.jpg
 max-visits: 4
-#subtitle: Building ties with our fraternal socialist parties.
 
 At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
 - @fr_uk: Build relationships with the French AD and British Liberal Party to move their governments in Germany's favor.
 - @austria: Support pan-German parties in Austria.
 - @sudetenland: Support German parties of Sudetenland.
-- @comintern: Forget the second international - embed a spy in the Comintern's conference.
+- @international: Though we are a relatively small party compared to the likes of the SPD, we can still create ties with Ost-German parties from beyond the Reich, as well as neighbouring countries
 - @america: Contact the Republican party of America.
 - @return: We do not need international contacts at the moment.
 - @easy_discard
@@ -73,13 +72,13 @@ on-arrival: sudetenland_strength += 1;
 
 We have improved relations with Sudeten-German parties, such as Christian <span style="color: #AA98A9;">**DCVP**</span>, agrarian <span style="color: #016A38;">**BdL**</span> and [? if dvp_ideology = "Left": liberal <span style="color: #23B68A;">**DDFP**</span>?][? if dvp_ideology = "Right": radical nationalist <span style="color: #964B00;">**SdP**</span>?].
 
-@comintern
+@international
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1
+on-arrival: resources -= 1; german_international += 1;
 
-The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
+WIP
 
 @america
 subtitle: -1 resources
