@@ -45,8 +45,7 @@ fail
 view-if: nfvp_formation_points >= 4
 on-arrival: nfvp_success = 1
 
-success
-
+Our negotiations for a unified republican right wing party have finally succeeded! The new <span style="color: #00A2DE;">**Nationalfortschrittliche Volkspartei**</span> will go a long way to strengthening the republic.
   
 - @nfvp_peoples_conservatives: Negotiate with <span style="color: #0087DC;">People's Conservatives</span>.
 
