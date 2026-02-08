@@ -39,8 +39,8 @@ The <span style="color: #D3D3A9;">**Young German Order**</span> has already agre
 view-if: nfvp_formation_points < 4
 on-arrival: nfvp_failed = 1
 
-fail. its joever...
-  
+With our lukewarm support to Rheinbaben's initiative, attempts to form a unified republican right party have faltered. However, our discussion with the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> over the cource of the movement has strengthened our ties, bringing the creation of a unifed liberal party closer then ever.
+
 @nfvp_ddp_success
 view-if: nfvp_formation_points >= 4
 on-arrival: nfvp_success = 1
