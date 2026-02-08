@@ -9,19 +9,18 @@ new-page: true
 
 = Panzerkreuzer
 
-The Reichswehr Ministry is demanding the construction of a new battlecruiser, as part of Germany's rearmament. Our coalition partners are united in support. While many of our members are vehemently against new military spending, this vote may be necessary to preserve the coalition. 
-We campaigned on food for children instead of battlecruisers. Will we really betray our campaign promises?
+The Reichswehr Ministry is demanding the construction of a new battlecruiser, as part of Germany's rearmament. We enthusiastically support this initiative as do our coalition partners bar the <span style="color: #E3000F;">**SPD**</span>. While many of the <span style="color: #E3000F;">**SPD**</span>'s members are vehemently against new military spending, this vote may be necessary to preserve the coalition. The <span style="color: #E3000F;">**SPD**</span> campaigned on food for children instead of battlecruisers. Will they really betray our campaign promises?
 
-- @vote_yes: SPD votes yes, for constructing the battlecruiser.
-- @vote_no: SPD votes no, against constructing the battlecruiser.
-- @abstain: SPD abstains from the vote.
+- @vote_yes: The <span style="color: #E3000F;">**SPD**</span> votes yes, for constructing the battlecruiser.
+- @vote_no: The <span style="color: #E3000F;">**SPD**</span> votes no, against constructing the battlecruiser.
+- @abstain: The <span style="color: #E3000F;">**SPD**</span> abstains from the vote.
 
 @vote_yes
 on-arrival: liberal_strength += 5; panzerkreuzer_funded = 1; coalition_dissent -= 1 if in_grand_coalition; workers_spd -= 3; ddp_cohesion -= 1
 
-SPD's grassroots party members are shocked by their intransigence! Many party branches have begun agitating against the cabinet, and our Reichstag members even plan a full vote on the proposal, contravening the government's decision.
+<span style="color: #E3000F;">**SPD**</span>'s grassroots party members are shocked by their intransigence! Many party branches have begun agitating against the cabinet, and our Reichstag members even plan a full vote on the proposal, contravening the government's decision.
 
-The campaign against the battlecruiser fails, with only the dissident SPD and KPD members voting against. The ship will be built.
+The campaign against the battlecruiser fails, with only the dissident <span style="color: #E3000F;">**SPD**</span> and <span style="color: #8B0000;">**KPD**</span> members voting against. The ship will be built.
 
 @vote_no
 on-arrival: spd_relation -= 3; coalition_dissent += 1 if in_grand_coalition; pacifism += 1; nationalism -= 5*(1-dissent); coalition_dissent += 1; ddp_cohesion -= 1
@@ -33,19 +32,19 @@ go-to: braun if chancellor = "Braun"; muller if chancellor = "Müller"
 @braun
 on-arrival: spd_relation -= 3; panzerkreuzer_funded = 0; nationalism -= 3*(1-dissent); panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_cohesion += 1
 
-We and our coalition partners are shocked by SPD's intransigence! However, Chancellor Braun manages to persuade our cabinet ministers to drop the plan to vote on the battlecruiser. The ship will not be built!
+We and our coalition partners are shocked by <span style="color: #E3000F;">**SPD**</span>'s intransigence! However, Chancellor Braun manages to persuade our cabinet ministers to drop the plan to vote on the battlecruiser. The ship will not be built!
 
 @muller
 on-arrival: panzerkreuzer_funded = 1
 
-We and our coalition partners are shocked by SPD's intransigence! Despite Chancellor Müller's rejection of the proposal, bourgeois parties bring the matter to a Reichstag vote, which easily passes, with only the SPD and KPD voting against. The ship will be built.
+We and our coalition partners are shocked by <span style="color: #E3000F;">**SPD**</span>'s intransigence! Despite Chancellor Müller's rejection of the proposal, bourgeois parties bring the matter to a Reichstag vote, which easily passes, with only the <span style="color: #E3000F;">**SPD**</span> and <span style="color: #8B0000;">**KPD**</span> voting against. The ship will be built.
 
 @vote_no_pass
 on-arrival: panzerkreuzer_funded = 1
 
-We and our coalition partners are shocked by SPD's intransigence! Chancellor [+ chancellor +] brings the matter to a Reichstag vote, which passes with all parties in favor except the SPD and KPD. The ship will be built.
+We and our coalition partners are shocked by <span style="color: #E3000F;">**SPD**</span>'s intransigence! Chancellor [+ chancellor +] brings the matter to a Reichstag vote, which passes with all parties in favor except the <span style="color: #E3000F;">**SPD**</span> and <span style="color: #8B0000;">**KPD**</span>. The ship will be built.
 
 @abstain
 on-arrival: panzerkreuzer_funded = 1; ddp_cohesion -= 1
 
-We and our coalition partners are shocked by SPD's intransigence! Despite their abstention, the vote in the Reichstag goes through, with all parties in favor except the SPD and KPD. The ship will be built.
+We and our coalition partners are shocked by <span style="color: #E3000F;">**SPD**</span>'s intransigence! Despite their abstention, the vote in the Reichstag goes through, with all parties in favor except the <span style="color: #E3000F;">**SPD**</span> and <span style="color: #8B0000;">**KPD**</span>. The ship will be built.
