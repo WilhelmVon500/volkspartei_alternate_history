@@ -7,7 +7,7 @@ new-page: true
 
 = The <span style="color: #FE9E00;">**ASPD**</span> is refounded!
 
-WIP
+With the decline of the Nazis, nationalist workers have been looking for a place to turn. Increasingly they have turned to the <span style="color: #FE9E00;">**ASPD**</span>, which has returned to the national stage as the party of the anti-communist working class.
 
 - @heldt: Max Heldt will be the chairman of the party.
 - @niekisch: Surprisingly, Ernst Niekisch is elected chairman!
@@ -16,7 +16,7 @@ WIP
 on-arrival: aspd_leader = "Heldt"
 go-to: aspd_formed
 
-WIP
+Max Heldt, minster-president of Saxony has won the leadership election. He will lead the <span style="color: #FE9E00;">**ASPD**</span> on a modearte course, even accecpting cooperation with the <span style="color: #E3000F;">**SPD**</span> on economic matters, while maintaining a nationalist stance on abroad.
 
 
 @niekisch
