@@ -39,7 +39,7 @@ The <span style="color: #D3D3A9;">**Young German Order**</span> has already agre
 view-if: nfvp_formation_points < 4
 on-arrival: nfvp_failed = 1
 
-fail
+Shockingly our negoations to unify with the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> have failed! It seems the increasing power of our industrial wing has scared the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> away from unification. It seems the dream of liberal unity is truly dead.
 
 @nfvp_ddp_success
 view-if: nfvp_formation_points >= 4
