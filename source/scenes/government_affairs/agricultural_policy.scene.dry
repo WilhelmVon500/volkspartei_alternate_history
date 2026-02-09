@@ -9,7 +9,7 @@ tags: govt_affairs, cabinet
 
 = Agricultural Policy
 
-While agricultural policy has historically not been the domain of the SPD, there is much need for policy in this area. Our urban constituencies hope for cheaper and more stable food supplies, while small farmers need economic relief. There is also the movement for land reform, to break up the large aristocratic estates and redistribute land to peasants.
+While agricultural policy has historically not been the domain of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>, there is much need for policy in this area. Our urban constituencies hope for cheaper and more stable food supplies, while small farmers need economic relief. There is also the movement for land reform, to break up the large aristocratic estates and redistribute land to peasants.
 
 - @land_reform
 - @agricultural_finance
