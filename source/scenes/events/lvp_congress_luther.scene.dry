@@ -28,6 +28,7 @@ face-image: img/portraits/ThielOtto.jpg
 Surprisingly, Otto Thiel was elected party leader. He is a representative of the party’s unionist faction.
 
 @luther
+subtitle: Luther has support from all factions as a compromise candidate between all wings of the party.
 on-arrival: dvp_leader = "Luther"; z_relation += 5; kvp_relation += 2; old_middle_dvp += 3; new_middle_dvp += 3; liberal_strength += 10; democratic_strength += 5
 face-image: img/portraits/LutherHans.jpg
 
