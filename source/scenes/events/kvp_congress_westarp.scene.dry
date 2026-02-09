@@ -17,7 +17,8 @@ WIP
 on-arrival: kvp_leader = "Westarp"; old_middle_kvp += 3; rural_kvp += 3
 face-image: img/portraits/WestarpKuno.jpg
 
-Despite some dissent from the more <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> forces within the <span style="color: #455B95;">**KVP**</span>, the congress goes through without incident.
+[? if not peoples_conservatives_dvp: Despite some dissent from the more <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> forces within the <span style="color: #455B95;">**KVP**</span>, the congress goes through without incident. ?]
+[? if peoples_conservatives_dvp: With the defection of most of the <span style="color: #3F7BC1;">**DNVP**</span> left to us, Kuno Von Westarp is almost entirely unopposed in his bid for <span style="color: #455B95;">**KVP**</span> leadership ?]
 
 @treviranus_lead
 view-if: not peoples_conservatives_dvp
