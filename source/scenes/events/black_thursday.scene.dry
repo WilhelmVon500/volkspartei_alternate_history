@@ -12,9 +12,9 @@ face-image: img/bankrun.jpg
 The stock market in America has had its biggest crash in history. It is too early to tell what the international effects will be, but it cannot be good. Our economy is already feeling the effects - unemployment will rise even more, and wages will fall. Germany once again stands on the brink of economic ruin, and it is our duty to save her once again.
 
 
-- @do_something: What can we do to staunch Germany's suffering? It is becoming a hotly debated question.
+- @do_something: We must do something to stop the suffering...
 
 @do_something
 on-arrival: crisis_urgency += 1
 
-What can we do to staunch the Germans' suffering? It is becoming a hotly debated question.
+What can we do to staunch Germany's suffering? It is becoming a hotly debated question.
