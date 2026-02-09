@@ -7,13 +7,13 @@ new-page: true
 
 = <span style="color: #00A2DE;">**Nationalfortschrittliche Volkspartei**</span> formed
 
-The day long thought only a dream has finally arrived! After much negations a unified party of the entire republican right has been achieved.
+Over the past few months, Gustav Stressermann and Hans Luther have been engaged in protracted negotiations over the future of the german bourgeoise movement with Koch-Weser of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> [?if dnvp_leader="Hugenberg": and some of the more republican elements of the <span style="color: #3F7BC1;">**DNVP**</span>, following the election of the reactionary Alfred Huegenberg to their leadership?]. Despite Stressermann’s declining health, the formation of the Bourgeoise Group has enabled our parties to move closer together. Now, the german bourgoisie finally have a united party to represent their interests - the <span style="color: #00A2DE;">**NFVP**</span>. Many small bourgeoise parties have been intrigued st this development, with the possiblity of merging with them now closer than ever before.
 
-- @leader: The party has to choose its new leader.
+- @leader: We now much select an interim leader for our new party until we hold our first party congress.
 
 @leader
 
-We now much select an interim leader for our new party until we hold our first party congress.
+We must select an interim leader to lead our party until our first congress, in 2 years’ time.
 
 - @dietrich: Hermann Dietrich is a prominent economist and former leader of the <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>'s right.
 - @curtius: Julius Curtius will lead our party.
