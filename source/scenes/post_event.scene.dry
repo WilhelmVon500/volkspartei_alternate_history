@@ -627,16 +627,16 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
         if (Q.return_to_normalcy) {
             // return to normalcy -> voters return to the base
             if (Q.workers_spd_normalized < 75) {
-                Q.workers_spd += 8/12;
+                Q.workers_spd += 16/12;
             }
             if (Q.new_middle_ddp_normalized < 40) {
-                Q.new_middle_ddp += 6/12;
+                Q.new_middle_ddp += 8/12;
             }
             if (Q.old_middle_ddp_normalized < 20) {
-                Q.old_middle_ddp += 4/12;
+                Q.old_middle_ddp += 6/12;
             }
             if (Q.old_middle_wp_normalized < 25) {
-                Q.old_middle_wp += 4/12;
+                Q.old_middle_wp += 6/12;
             }
 
             if (Q.new_middle_other_normalized < 5 && (Q.vnr_exist || Q.vrp_exist)) {
@@ -646,35 +646,35 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
                 Q.old_middle_other += 6/12;
             }
 
-            if (Q.old_middle_kvp_normalized < 20 && Q.kvp_formed) {
-                Q.old_middle_kvp += 6/12;
+            if (Q.old_middle_kvp_normalized < 30 && Q.kvp_formed) {
+                Q.old_middle_kvp += 8/12;
             }
-            if (Q.new_middle_kvp_normalized < 10 && Q.kvp_formed) {
-                Q.new_middle_kvp += 3/12;
+            if (Q.new_middle_kvp_normalized < 15 && Q.kvp_formed) {
+                Q.new_middle_kvp += 6/12;
             }
 
             if (Q.catholics_z_normalized < 50) {
-                Q.catholics_z += 6/12;
+                Q.catholics_z += 8/12;
             }
 
             if (Q.workers_csrp_normalized < 2) {
                 Q.workers_csrp += 4/12;
             }
             if (Q.catholics_csrp_normalized < 7) {
-                Q.catholics_csrp += 5/12;
+                Q.catholics_csrp += 6/12;
             }
 
             if (Q.rural_cnblp_normalized < 17) {
-                Q.rural_cnblp += 6/12;
+                Q.rural_cnblp += 8/12;
             }
             if (Q.rural_dbp_normalized < 8) {
-                Q.rural_dbp += 4/12;
+                Q.rural_dbp += 6/12;
             }
             if (Q.workers_csvd_normalized < 5) {
                 Q.workers_csvd += 6/12;
             }
-            if (Q.new_middle_csvd_normalized < 7) {
-                Q.new_middle_csvd += 6/12;
+            if (Q.new_middle_csvd_normalized < 8) {
+                Q.new_middle_csvd += 8/12;
             }
             if (Q.workers_aspd_normalized < 5) {
                 Q.workers_aspd += 6/12;
