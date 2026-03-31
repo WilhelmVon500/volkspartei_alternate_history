@@ -1,0 +1,91 @@
+title: Negotiate with the <span style="color: #E3000F;">**ASPD**</span>.
+face-image: img/aspd.jpg
+new-page: true
+view-if: aspd_exist
+
+= Negotiations with the <span style="color: #E3000F;">**ASPD**</span>
+
+The <span style="color: #E3000F;">**ASPD**</span> is a conservative split from the SPD. How should we approach them?
+
+- @aspd_labor_law: Pass Labor Laws.
+- @aspd_build_support: We must build more support for this merger.
+- @convince_aspd: We can convince the <span style="color: #E3000F;">**ASPD**</span> to join our ranks!
+- @go_to_negotiation_others: Actually, we wish to negotiate with some other party.
+
+@go_to_negotiation_others
+on-arrival: negotiation_others_timer = 0
+go-to: negotiation_others
+
+@aspd_build_support
+view-if: nfvp_formed or lvp_formed
+on-arrival: aspd_relation += 3; labor_dissent += 3;
+
+We are pushing forward proposals for a merger of anti-communist socialists into our party.
+
+@aspd_labor_law
+subtitle: Strengthen Labor Safety Laws
+unavailable-subtitle: [? if labor_minister_party != dvp_name: The <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> does not have the Labor Ministry ?]
+choose-if: labor_minister_party = dvp_name
+on-arrival: {!
+aspd_labor_law = 1
+!}
+
+@convince_aspd
+view-if: nfvp_formed or lvp_formed
+unavailable-subtitle: [? if aspd_relation < 60: Our relations with <span style="color: #E3000F;">**ASPD**</span> are not good enough. ?][? if not aspd_labor_law: <span style="color: #E3000F;">**ASPD**</span> wants us to strengthen Labor laws first. ?]
+choose-if: aspd_relation >= 60 and aspd_labor_law
+on-arrival: {!
+Q.aspd_exist = 0;
+Q.special_interest_dvp = 1;
+Q.aspd_dvp = 1;
+
+Q.special_interest_strength += 4;
+Q.democratic_strength += 3;
+
+if (Q.nfvp_aspd_inte_success) {
+  if (Q.workers_aspd > 0) {
+    Q.workers_dvp += Q.workers_aspd;
+    Q.workers_aspd = 0;
+  }
+  if (Q.unemployed_aspd > 0) {
+    Q.unemployed_dvp += Q.unemployed_aspd;
+    Q.unemployed_aspd = 0;
+  }
+  if (Q.new_middle_aspd > 0) {
+    Q.new_middle_dvp += Q.new_middle_aspd;
+    Q.new_middle_aspd = 0;
+  }
+  if (Q.old_middle_aspd > 0) {
+    Q.old_middle_dvp += Q.old_middle_aspd;
+    Q.old_middle_aspd = 0;
+  }
+  if (Q.rural_aspd > 0) {
+    Q.rural_dvp += Q.rural_aspd;
+    Q.rural_aspd = 0;
+  }
+  if (Q.catholics_aspd > 0) {
+    Q.catholics_dvp += Q.catholics_aspd;
+    Q.catholics_aspd = 0;
+  }
+}
+
+Q.dvp_r = parseFloat((Q.dvp_r + Q.aspd_r).toFixed(1));
+Q.aspd_r = 0;
+
+Q.dvp_pl = parseFloat((Q.dvp_pl + Q.aspd_pl).toFixed(1));
+Q.aspd_pl = 0;
+Q.dvp_hb = parseFloat((Q.dvp_hb + Q.aspd_hb).toFixed(1));
+Q.aspd_hb = 0;
+Q.dvp_bl = parseFloat((Q.dvp_bl + Q.aspd_bl).toFixed(1));
+Q.aspd_bl = 0;
+Q.dvp_wl = parseFloat((Q.dvp_wl + Q.aspd_wl).toFixed(1));
+Q.aspd_wl = 0;
+Q.dvp_sl = parseFloat((Q.dvp_sl + Q.aspd_sl).toFixed(1));
+Q.aspd_sl = 0;
+Q.dvp_hl = parseFloat((Q.dvp_hl + Q.aspd_hl).toFixed(1));
+Q.aspd_hl = 0;
+Q.dvp_al = parseFloat((Q.dvp_al + Q.aspd_al).toFixed(1));
+Q.aspd_al = 0;
+!}
+
+We have convinced the <span style="color: #E3000F;">**Old Social Democratic Party**</span> to merge with our party.

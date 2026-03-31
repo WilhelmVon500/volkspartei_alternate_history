@@ -6,11 +6,11 @@ go-to: post_event if started = 1; start_menu if started = 0
 new-page: true
 go-to: start_menu_2
 
-= Volkspartei: An Alternate History
+= VolkFork just for my testing 
 
 @start_menu_2
 
-- @start: Start game
+- @start: Start game lmao
 - @election_simulation: Election simulation
 - @credits: Credits
 - @game_over.achievements
@@ -40,9 +40,9 @@ Q.old_demographics = 0;
 Q.use_decimals = 0;
 
 // party resources
-Q.resources = 2;
+Q.resources = 50;
 // party dues
-Q.dues = 2;
+Q.dues = 3;
 
 // the state of the party
 // overall dissent reduces every increase in party support.
@@ -1107,7 +1107,7 @@ Creator of the mod does not support or justify extremist ideologies. This mod is
 - @1928_historical: Begin (historical mode)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_relation = 0; z_relation = 55; spd_relation = 45; budget = 5;
+on-arrival: difficulty = -1; resources = 100; dues = 3; rb_strength = 2500; kpd_relation = 0; z_relation = 55; spd_relation = 45; budget = 5;
 go-to: 1928_main
 
 @1928_hard

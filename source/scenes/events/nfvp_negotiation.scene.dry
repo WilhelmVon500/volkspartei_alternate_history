@@ -66,3 +66,43 @@ view-if: dnvp_ideology = "Radical"
 on-arrival: nfvp_peoples_conservatives_success = 1
 
 trevvy will join us. the christian socials too. wholesome
+
+- @nfvp_spd_inte_negotiation: Negotiate with <span style="color: #ff0000;">SPD right</span>.
+
+@nfvp_spd_inte_negotiation
+
+Now Stresemann will negotiate with <span style="color: #ff0000;">SPD right</span> faction of <span style="color: #ff0000;">**SDP**</span>.
+
+- @nfvp_SPD_neg_success: The <span style="color: #ff0000;">SPD right</span> agree to form a new party!
+- @nfvp_SPD_neg_fail: The <span style="color: #ff0000;">SPD right</span> refuse!
+
+@nfvp_SPD_neg_fail
+view-if: not (dnvp_ideology = "Radical")
+
+SPD will not join us...
+  
+@nfvp_SPD_neg_success
+view-if: dnvp_ideology = "Radical"
+on-arrival: nfvp_spd_inte_success = 1
+
+SPD will join us. the democratic socials too. wholesome double!
+
+- @nfvp_zentrum_inte_negotiation: Negotiate with <span style="color: #000000;">Zentrum Left</span>.
+
+@nfvp_zentrum_inte_negotiation
+
+Now Stresemann will negotiate with <span style="color: #000000;">Zentrum Left</span> faction of <span style="color: #000000;">**Z**</span>.
+
+- @nfvp_z_neg_success: The <span style="color: #000000;">Zentrum Left</span> agree to form a new party!
+- @nfvp_z_neg_fail: The <span style="color: #000000;">Zentrum Left</span> refuse!
+
+@nfvp_z_neg_fail
+view-if: not (dnvp_ideology = "Radical")
+
+Z will not join us...
+  
+@nfvp_z_neg_success
+view-if: dnvp_ideology = "Radical"
+on-arrival: nfvp_z_inte_success = 1
+
+Z will join us. the centrist socials too. wholesome triple!
