@@ -61,7 +61,7 @@ However, the Allies, especially France, are likely to object. This agreement wou
 on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2; z_relation += 6; curtius_resignation_timer = time + 4 if dvp_leader == "Curtius"; coup_progress -= 1
 max-visits: 1
 
-We have formed a customs union with Austria! The right-wing parties are praising us for this unexpected turn of events.
+We have expectedly formed a customs union with Austria, and the right-wing parties has praised our action.
 
 Immediately, France and other neighboring countries lodge their protests. The longer-term response is yet to be seen.
 
@@ -71,7 +71,7 @@ title: Negotiate with Austrian government about annexation.
 view-if: (customs_union or europabund) and austria_annexation_progress < 3
 on-arrival: austria_annexation_progress += 1
 
-WIP.
+Using the foreign ministry we can pressure the Austrofascist government towards liberalization and closer ties with us, bringing us closer to the dream of German unity
 
 
 @annex_austria
@@ -80,7 +80,8 @@ subtitle: [? if europabund: Allied Powers, Germany and Austria talk about a merg
 view-if: (customs_union or europabund) and austria_annexation_progress >= 3 and not austria_annexed
 on-arrival: austria_annexed = 1; catholics += 10; rural += 5; banking_crisis_timer = 2 if not banking_crisis_seen and not europabund; west_relation -= 3 if not europabund; east_relation -= 3 if not europabund; new_middle_dvp += 10*(1-dissent); old_middle_dvp += 10*(1-dissent); workers_dvp += 3*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 3*(1-dissent); new_middle_nsdap -= 5*(1-dissent); old_middle_dvp -= 5*(1-dissent); next_election_time_austria = time+3; next_election_month_austria = month + 3; next_election_year_austria = year; next_election_year_austria += 1 if next_election_month_austria > 12; next_election_month_austria -= 12 if next_election_month_austria > 12; dvp_austria = 1; austria_leader = "Miklas"; austria_leader_party = "CSP"; in_bourgeois_coalition_austria = 1;
 
-WIP.
+[? if europabund: After the formation of the Europabund, France and our eastern neighbors has become increasingly close to Germany, their hostility are mostly gone and replaced with signs of friendship. In these conditions, we can finally start to complete one of the major goals stated in our party program, the Anschluss with Austria. Negotiations have been going smoothly, as Germany has shown Europe and the world its pacifism after the great war, the general framework of the unification has been layed out by Julius Curtius and economic integration of Austria begun. Now the German and Austrian government will hamour out the details of the anschluss with the supervision of the Europabund, which will take quite some time. ?]
+[? if not europabund: Despite our neighbor's diplomatic protests, we have continued to work with the Austrian government regarding a full anschluss. With the custom's union, the German and Austrian government begins to negotiate the details of the annexation, with economic integration of Austria already taken place despite the sanctions. Seeing the blatant violation of the Treaty of Versailles, France has become increasingly hostile, with their right-wing parties even threatening a direct military operation from the Rhine, thankfully their government and the British has kept these proposals as just propaganda. However our move has certainly destroyed whatever goodwill the two nations built before, tension on the Euoprean continent start to accumulate once more, the long-term effects are yet to be seen. ?]
 
 
 @negotiate
@@ -135,16 +136,16 @@ We have successfully signed a Concordat between Germany and the Roman Catholic C
 title: Take steps to form a "Europabund".
 subtitle: Is a "United States of Europe" possible?
 unavailable-subtitle: [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
-view-if: reparations <= -2 and eb_progress < 2
+view-if: reparations <= -2 and eb_progress < 2 and dvp_ideology = "Left"
 choose-if: west_relation >= 5 and east_relation >= 4
 on-arrival: eb_progress += 1; west_relation += 1
 
-Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "Europabund", however.
+Despite forming a "United States of Europe" is not one of our major goals, France and our neighbors, due to our positive relations with them, seems to have become increasingly more enthusiastic as ever in forming such an organization. This is our chance to further reconcil with our fellow European nations and perhaps even achieve our other long-lasting goals, such as a unification with the republic of Austria. None the less, we begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "Europabund", however.
 
 
 @europabund_2
 title: We can sign a treaty to form a Europabund!
-view-if: west_relation >= 5 and east_relation >= 4 and eb_progress >= 2
+view-if: west_relation >= 5 and east_relation >= 4 and eb_progress >= 2 and dvp_ideology = "Left"
 on-arrival: europabund = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_dvp += 2*(1-dissent); new_middle_dvp += 7*(1-dissent); old_middle_dvp += 7*(1-dissent); rural_dvp += 3*(1-dissent); catholics_dvp += 4*(1-dissent); unemployed_dvp += 2*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
 max-visits: 1
 achievement: europabund
