@@ -6,7 +6,7 @@ new-page: true
 
 = <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
 
-WIP
+The German liberal movement has been notoriously factionalised since the days of the Empire. However, the scarring rise of the Nazis has pushed our parties into action. The left-liberal <span style="color: #DCCA4A;">**[+ ddp_name +]**</span>, Roght-Liberal <span style="color: #C0A054;">**DVP**</span>, and some special interest groups have finally united together into the <span style="color: var(--dvp-color);">**Liberal People’s Party**</span>. Several leadership candidates have emerged for this & upcoming conferences, with three main blocs of support; Labour and the Progressive factions of the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> have coalesced into a ‘social republican bloc’, the centres of the <span style="color: #C0A054;">**DVP**</span> and <span style="color: #DCCA4A;">**[+ ddp_name +]**</span> have merged into a ‘pragmatic centre’ bloc, and, of course, the industrialists remain on the fringes.
 
 - @congress: The party will elect its leader for the next 2 years.
 
