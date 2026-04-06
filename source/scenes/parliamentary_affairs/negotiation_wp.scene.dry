@@ -35,7 +35,7 @@ We are pushing forward proposals for a united middle class party. We are also bu
   
 @convince_wp_nfvp
 unavailable-subtitle: Our relations with <span style="color: #B8996F;">**WP**</span> are not good enough.
-view-if: nfvp_formed and wp_ideology = "Moderate"
+view-if: (nfvp_formed or lvp_formed) and wp_ideology = "Moderate"
 choose-if: wp_relation >= 60
 on-arrival: {!
 Q.wp_exist = 0;
