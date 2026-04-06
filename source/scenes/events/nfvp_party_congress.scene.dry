@@ -1,6 +1,6 @@
 title: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
-view-if: nfvp_formed and nfvp_party_congress_timer = 0
-on-arrival: nfvp_party_congress_timer = 24
+view-if: nfvp_formed and year == nfvp_next_congress_year and month == nfvp_next_congress_month
+on-arrival: nfvp_next_congress_year = year + 2
 tags: event
 new-page: true
 
