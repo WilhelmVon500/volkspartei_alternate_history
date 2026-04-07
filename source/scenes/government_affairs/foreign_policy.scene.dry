@@ -140,7 +140,7 @@ view-if: reparations <= -2 and eb_progress < 2 and dvp_ideology = "Left"
 choose-if: west_relation >= 5 and east_relation >= 4
 on-arrival: eb_progress += 1; west_relation += 1
 
-Despite forming a "United States of Europe" is not one of our major goals, France and our neighbors, due to our positive relations with them, seems to have become increasingly more enthusiastic as ever in forming such an organization. This is our chance to further reconcil with our fellow European nations and perhaps even achieve our other long-lasting goals, such as a unification with the republic of Austria. None the less, we begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "Europabund", however.
+Despite forming a "United States of Europe" is not one of our major goals, France and our neighbors, due to our positive relations with them, seems to have become increasingly more enthusiastic as ever in forming such an organization. This is our chance to further reconcil with our fellow European nations and perhaps even achieve our other long-lasting goals[?if not austria_annexed:, such as a unification with the republic of Austria?]. None the less, we begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "Europabund", however.
 
 
 @europabund_2
