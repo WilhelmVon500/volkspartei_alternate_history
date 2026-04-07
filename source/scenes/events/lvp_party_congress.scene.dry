@@ -1,5 +1,5 @@
 title: <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> Party Congress
-view-if: lvp_formed and year == lvp_next_congress_year and month == lvp_next_congress_month
+view-if: lvp_formed and year == lvp_next_congress_year and month == lvp_next_congress_month and lvp_congress_luther_seen
 on-arrival: lvp_next_congress_year = year + 2
 tags: event
 new-page: true
