@@ -43,7 +43,7 @@ on-arrival: prussian_police_strength += 20
 We have increased the size of the Prussian police.
 
 @bureaucracy
-on-arrival: prussian_police_loyalty += 0.05; nationalism -= 5; pacifism += 1; democratization += 1; pro_republic += 3*(1-dissent); new_middle_spd += 2*(1-dissent) if democratization >= 3; new_middle_spd += 2*(1-dissent) if democratization >= 4; coup_progress += 0.5
+on-arrival: prussian_police_loyalty += 0.05; nationalism -= 5; pacifism += 1; democratization += 1; pro_republic += 3*(1-dissent); new_middle_dvp += 2*(1-dissent) if democratization >= 3; new_middle_dvp += 2*(1-dissent) if democratization >= 4; coup_progress += 0.5
 
 The bureaucracy is deeply reactionary, and many abuse their power to favor the political right. By removing the pro-monarchy and pro-dictatorship elements, we can democratize it. Some of our opponents claim that we are infringing on individual freedoms, but perhaps the security of the republic requires it.
 
@@ -94,6 +94,6 @@ We are making progress towards negotiating a concordat between Prussia and the C
 
 @sign_concordat
 view-if: prussian_concordat_progress >= 1 and prussian_concordat = 0
-on-arrival: prussian_concordat = 1; z_relation += 5; catholics_spd += 3*(1-dissent)
+on-arrival: prussian_concordat = 1; z_relation += 5; catholics_dvp += 3*(1-dissent)
 
 We have signed a Concordat between the Free State of Prussia and the Roman Catholic Church, guaranteeing religious freedom for Catholics in Prussia. This sets the stage for the negotiation of a national Concordat covering all of Germany.
