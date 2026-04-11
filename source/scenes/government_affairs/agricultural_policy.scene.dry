@@ -14,7 +14,6 @@ While agricultural policy has historically not been the domain of the <span styl
 - @land_reform
 - @agricultural_finance
 - @pro_consumer
-- @state_buyer
 - @root: Do not enact any policies for now.
 - @easy_discard
 - @cancel_advisor_action
