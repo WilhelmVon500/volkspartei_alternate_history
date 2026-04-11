@@ -4,7 +4,7 @@ is-card: true
 tags: party_affairs
 view-if: party_organizations_timer <= 0
 on-arrival: month_actions += 1; party_organizations_timer = 6;
-card-image: img/Mann_der_Arbeit.jpg
+card-image: img/poster_2.jpg
 
 = Party Organizations
 
