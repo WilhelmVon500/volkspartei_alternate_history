@@ -8,7 +8,7 @@ card-image: img/portraits/ThielOtto.jpg
 
 = Social Welfare Policy
 
-The social welfare program, including unemployment insurance, healthcare, and old-age care, is the proudest achievement of the SPD in their time in government. Our party supports dismantling the welfare system[? if black_thursday_seen = 1 :, especially given the economic crisis ?].
+The social welfare program, including unemployment insurance, healthcare, and old-age care, is the proudest achievement of the <span style="color: #E3000F;">**SPD**</span> in their time in government. Our party supports dismantling or at least reforming the welfare system[? if black_thursday_seen = 1 :, especially given the economic crisis ?].
 
 - @reduce_spending: Reduce spending on welfare.
 - @increase_spending_pre_depression: Increase spending on welfare.
