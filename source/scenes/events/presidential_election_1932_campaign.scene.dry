@@ -153,6 +153,7 @@ We have a plethora of campaign options at our disposal.
 - @campaigning
 - @newspaper
 - @radio
+- @iron_front
 
 
 
@@ -223,7 +224,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: newspaper
-on-arrival: resources -= 1; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 4*(1 - dissent); pro_republic += 2*(1-dissent) if dvp_ideology = "Left"
+on-arrival: resources -= 1; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 4*(1 - dissent); pro_republic += 1*(1-dissent) if dvp_ideology = "Left"
 
 Our newspapers allow us to gain more support for our candidate.
 
@@ -234,6 +235,17 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: radio
-on-arrival: resources -= 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 6*(1 - dissent); workers_dvp += 1*(1 - dissent); pro_republic += 4*(1-dissent) if dvp_ideology = "Left"
+on-arrival: resources -= 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 6*(1 - dissent); workers_dvp += 1*(1 - dissent); pro_republic += 3*(1-dissent) if dvp_ideology = "Left"
 
 Our radio station allows us to gain more support for our candidate.
+
+
+@iron_front
+title: Cooperate with the Iron Front!
+subtitle: We can be more effective if we cooperate with more left-wing republicans.
+choose-if: spd_relation >= 50
+unavailable-subtitle: Our relations with the <span style="color: #E3000F;">**SPD**</span> are not good enough.
+view-if: iron_front_formed and dvp_ideology = "Left" and dvp_candidate = spd_candidate
+on-arrival: workers_spd += 2; new_middle_spd += 3; rural_z += 4 if z_candidate = dvp_candidate; new_middle_ddp += 5 if ddp_exist and ddp_candidate = dvp_candidate; old_middle_ddp += 3 if ddp_exist and ddp_candidate = dvp_candidate; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 2*(1 - dissent); pro_republic += 4*(1-dissent)
+
+Our cooperation allows us to greatly increase support for our unity candidate.
