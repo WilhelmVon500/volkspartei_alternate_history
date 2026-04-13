@@ -202,12 +202,12 @@ on-arrival: president = "Hindenburg"; president_party = "I"
 As expected, the incumbent Hindenburg wins the presidency.
 
 @lettow_vorbeck_wins
-on-arrival: president = "Lettow-Vorbeck"; president_party = "KVP" if kvp_formed; president_party = "DNVP" if dnvp_ideology = "Moderate"
+on-arrival: president = "Lettow-Vorbeck"; president_party = "KVP" if kvp_formed; president_party = "DNVP" if dnvp_ideology = "Moderate"; new_middle_kvp += 7 if kvp_formed; new_middle_dnvp += 7 if dnvp_ideology = "Moderate"; old_middle_kvp += 7 if kvp_formed; old_middle_dnvp += 7 if dnvp_ideology = "Moderate"; rural_kvp += 7 if kvp_formed; rural_dnvp += 7 if dnvp_ideology = "Moderate"
 
 Paul von Lettow-Vorbeck, a nationalist not far different from Hindenburg, has been elected president.
 
 @eckener_wins
-on-arrival: president = "Eckener"; president_party = "I"; new_middle_dvp += 5; old_middle_dvp += 5
+on-arrival: president = "Eckener"; president_party = "I"; new_middle_dvp += 7; old_middle_dvp += 7
 
 Nationally renown Zeppelin pilot and independent Hugo Eckener has won the presidency! This is a moment of celebration for our party, as his victory helps keep the Nazis at bay.
 
