@@ -217,12 +217,23 @@ go-to: campaigning_hindenburg if dvp_candidate = "Hindenburg"; campaigning_ecken
 
 
 
+@newspaper
+title: Use our newspapers!
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+view-if: newspaper
+on-arrival: resources -= 1; new_middle_dvp += 3*(1 - dissent); old_middle_dvp += 4*(1 - dissent); pro_republic += 2*(1-dissent) if dvp_ideology = "Left"
+
+Our newspapers allow us to gain more support for our candidate.
+
+
 @radio
 title: Use our radio station!
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: radio
-on-arrival: resources -= 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 1*(1 - dissent); pro_republic += 3*(1-dissent) if dvp_ideology = "Left"
+on-arrival: resources -= 1; new_middle_dvp += 5*(1 - dissent); old_middle_dvp += 6*(1 - dissent); workers_dvp += 1*(1 - dissent); pro_republic += 4*(1-dissent) if dvp_ideology = "Left"
 
 Our radio station allows us to gain more support for our candidate.
