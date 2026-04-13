@@ -151,6 +151,8 @@ view-if: dvp_candidate = "Braun"
 We have a plethora of campaign options at our disposal.
 
 - @campaigning
+- @radio
+- @attack_right
 
 
 
@@ -213,3 +215,14 @@ title: Checkout your order.
 go-to: campaigning_hindenburg if dvp_candidate = "Hindenburg"; campaigning_eckener if dvp_candidate = "Eckener"; campaigning_braun if dvp_candidate = "Braun"
 
 
+
+
+@radio
+title: Use our radio station!
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+view-if: radio
+on-arrival: resources -= 1; new_middle_dvp += 4*(1 - dissent); old_middle_dvp += 3*(1 - dissent); workers_dvp += 1*(1 - dissent); pro_republic += 3*(1-dissent) if dvp_ideology = "Left"
+
+Our radio station allows us to gain more support for our candidate.
