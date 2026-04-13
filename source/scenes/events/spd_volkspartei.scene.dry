@@ -2,19 +2,19 @@ title: The <span style="color: #E3000F;">**SPD**</span> is becoming a People's P
 new-page: true
 is-card: true
 max-visits: 1
-view-if: not spd_in_government and not spd_prussia and pro_republic >= 65
+view-if: not spd_in_government and not spd_prussia and pro_republic >= 65 and return_to_normalcy
 tags: event
 face-image: img/spd.jpg
 
 = The <span style="color: #E3000F;">**SPD**</span> is becoming a People's Party!
 
-WIP
+After the disastrous effects of the Wall Street crash, it seems the bourgeoisie parties have gotten the credit for the recovery, not the <span style="color: #E3000F;">**SPD**</span>. So much so that they are now excluded from the national and Prussian government, and their chances of returning are looking bleak. As such, an emergency conference has been held at the request of the so called former "Red Tsar" Otto Braun and the other reformist forces inside the <span style="color: #E3000F;">**SPD**</span> to discuss the future direction of the party - specifically, the issue of becoming a Volkspartid. Whilst such change is vehemently protested by the party's Left and Center forces, with recent performances at the ballot box, it is looking inevitable that the conference will result in a victory for the party's right.
 
 - @spd_volkspartei_formed
 
 
 @spd_volkspartei_formed
 title: The <span style="color: #E3000F;">**SPD**</span> reforms itself.
-on-arrival: spd_volkspartei = 1; workers_spd -= 5; new_middle_spd += 10; rural_spd += 10; catholics_spd += 4; pro_republic += 5*(1-dissent);
+on-arrival: spd_volkspartei = 1; spd_leader = "Braun"; workers_spd -= 5; workers_kpd += 5; unemployed_spd -= 10; unemployed_kpd += 10; new_middle_spd += 10; rural_spd += 10; catholics_spd += 4; pro_republic += 5*(1-dissent);
 
-WIP.
+In order to save its electoral chances and potentially reconcile with the German center right, the conference has approved the transformation of the <span style="color: #E3000F;">**SPD**</span> into a mass movement, not directed purely at the working class. The Left split and officially join the <span style="color: #8B0000;">**KPD**</span>, whilst most of the Centre begrudgingly accepts the change as their influence in the party continues to erode as Otto Braun also becomes the official leader of the party following the same meeting. We can expect the <span style="color: #E3000F;">socialists</span> to somewhat chip away at our votes, whilst the more radical <span style="color: #E3000F;">**SPD**</span> supporters flock to the <span style="color: #8B0000;">communists</span>
