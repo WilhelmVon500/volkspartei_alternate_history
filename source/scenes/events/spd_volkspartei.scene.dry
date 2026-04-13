@@ -4,6 +4,7 @@ is-card: true
 max-visits: 1
 view-if: not spd_in_government and not spd_prussia and pro_republic >= 65
 tags: event
+face-image: img/spd.jpg
 
 = The <span style="color: #E3000F;">**SPD**</span> is becoming a People's Party!
 
