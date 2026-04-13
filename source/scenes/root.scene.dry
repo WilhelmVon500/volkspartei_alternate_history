@@ -147,6 +147,7 @@ Q.bvp_leader = "Speck";
 Q.bvp_ideology = "Right";
 Q.dnvp_leader = "Westarp";
 Q.dnvp_ideology = "Radical";
+Q.spd_leader = "Wels";
 Q.kpd_leader = "Thälmann";
 Q.kpd_party_leader = "Thälmann";
 Q.nsdap_leader = "Hitler";
