@@ -1,6 +1,6 @@
 title: May Day, 1929
 new-page: true
-subtitle: A Communist demonstration
+subtitle: A <span style="color: #8B0000;">**Communist**</span> demonstration
 tags: event
 view-if: year = 1929 and month = 5
 max-visits: 1
@@ -8,9 +8,9 @@ face-image: img/redfront.jpg
 
 = May Day, 1929
 
-Tensions run high in Berlin. The Communists are planning a demonstration to commemorate the 10th anniversary of the Spartacist Uprising. No one has forgotten that it was our party members who ordered the uprising's suppression, and the Communists still blame us for the deaths of Rosa Luxemburg and Karl Liebknecht.
+Tensions run high in Berlin. The <span style="color: #8B0000;">**Communists**</span> are planning a demonstration to commemorate the 10th anniversary of the Spartacist Uprising. The <span style="color: #E3000F;">**SPD**</span> supressed these revolts violently, with then-president Ebert allegedly calling for the deaths of the then-<span style="color: #8B0000;">**KPD**</span> leaders.
 
-Many non-communists are afraid of the possibility of another violent uprising, and our allies in the Prussian coalition are asking the Prussian Interior Ministry to ban the demonstrations.
+All in the party are afraid of a repeat of 1919. There is but one thing to do.
 
 - @ban: Ban the demonstrations.
 - @allow_police: Allow the demonstrations to proceed, but maintain a heavy police presence.
