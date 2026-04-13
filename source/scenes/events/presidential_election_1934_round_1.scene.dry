@@ -313,7 +313,7 @@ on-arrival: president = "Jarres"; president_party = dvp_name; old_middle_dvp += 
 Perhaps surprisingly, Karl Jarres has made an unforeseen comeback and won the presidency.
 
 @luther_wins
-on-arrival: president = "Luther"; president_party = dvp_name; new_middle_ddp += 5 if ddp_candidate = "Luther"; new_middle_dvp += 7; old_middle_dvp += 7
+on-arrival: president = "Luther"; president_party = dvp_name; new_middle_dvp += 7; old_middle_dvp += 7
 
 From former Chancellor to President, Hans Luther has secured the presidency. Known for his technocratic beliefs, he's unlikely to rock the boat in either political direction.
 
