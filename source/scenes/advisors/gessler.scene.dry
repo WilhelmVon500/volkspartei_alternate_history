@@ -1,0 +1,25 @@
+title: Otto Gessler
+is-pinned-card: true
+tags: advisor, democratic
+card-image: img/portraits/GesslerOtto.jpg
+view-if: gessler_advisor = 1
+new-page: true
+#face-image: img/portraits/GesslerOtto.jpg
+
+= Otto Gessler
+
+WIP
+
+- @snap_election
+- @root: Return to main
+
+
+@snap_election
+title: Snap Election
+subtitle: Call a snap election.
+unavailable-subtitle: [? if president != "Gessler" : Gessler must be Chancellor or President. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and (president == "Gessler")
+on-arrival: advisor_action_timer = 6; time_to_election = 3
+call: set_next_election_time
+
+We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
