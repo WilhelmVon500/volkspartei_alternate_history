@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 max-visits: 1
 view-if: ((dnvp_ideology = "Radical" and dnvp_votes+nsdap_votes>20) or (dnf_formed and dnf_votes+nsdap_votes>20)) and not iron_front_formed
-on-arrival: confronting_nazis_seen += 1; confronting_nazis_timer = 5; month_actions += 1
+on-arrival: confronting_nazis_seen += 1; confronting_nazis_timer = 5;
 card-image: img/iron_front.png
 tags: party_affairs; antifascism
 
