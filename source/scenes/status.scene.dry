@@ -135,7 +135,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 <span class="tooltip-text" title="Communist Party of Germany" style="color: #8B0000;">**KPD**</span>: <span style="color: #8B0000;">Stalinism</span> ([+ kpd_leader +])
 
-<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: <span style="color: #E3000F;">Social Democracy</span> (Wels)
+<span class="tooltip-text" title="Social Democratic Party of Germany" style="color: #E3000F;">**SPD**</span>: <span style="color: #E3000F;">Social Democracy</span> ([+ spd_leader +])
 
 [? if aspd_exist: <span class="tooltip-text" title="Old Social Democratic Party of Germany" style="color: #FE9E00;">**ASPD**</span>: [? if aspd_ideology = "Moderate": <span style="color: #FE9E00;">Nationalist Social Democracy</span> ?][? if aspd_ideology = "Radical": <span style="color: #954B00;">National Bolshevism</span> ?] ([+ aspd_leader +]) ?]
 
