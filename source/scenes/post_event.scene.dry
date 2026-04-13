@@ -629,6 +629,13 @@ if ((!Q.rubicon && Q.month_actions >= 1) || (Q.rubicon && Q.month_actions >= 4))
             if (Q.workers_spd_normalized < 75) {
                 Q.workers_spd += 16/12;
             }
+            if (Q.new_middle_spd_normalized < 10 && Q.spd_volkspartei) {
+                Q.new_middle_spd += 7/12;
+            }
+            if (Q.rural_spd_normalized < 10 && Q.spd_volkspartei) {
+                Q.rural_spd += 7/12;
+            }
+
             if (Q.new_middle_ddp_normalized < 40) {
                 Q.new_middle_ddp += 8/12;
             }
