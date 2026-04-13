@@ -1,0 +1,21 @@
+title: The <span style="color: #E3000F;">**SPD**</span> is becoming a People's Party!
+new-page: true
+is-card: true
+max-visits: 1
+view-if: not spd_in_government and not spd_prussia and pro_republic >= 65
+tags: event
+
+= The <span style="color: #E3000F;">**SPD**</span> is becoming a People's Party!
+
+WIP
+
+- @spd_volkspartei_formed
+
+
+@spd_volkspartei_formed
+title: The Iron Front is formed!
+subtitle: The Iron Front consists of the <span style="color: #E3000F;">**SPD**</span>, the trade unions, and the Reichsbanner.
+on-arrival: spd_volkspartei = 1; workers_spd -= 5; new_middle_spd += 10; rural_spd += 10; catholics_spd += 4; pro_republic += 5*(1-dissent);
+achievement: eiserne_front
+
+WIP.
