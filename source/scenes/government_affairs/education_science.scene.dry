@@ -46,7 +46,7 @@ title: Increase funding for scientific research.
 choose-if: economic_minister_party = dvp_name
 unavailable-subtitle: This requires the Economic Ministry.
 
-Socialism has always stood for science and rationality. Despite the setbacks of the Great War, hyperinflation, and the politicized and reactionary attitudes of many academics, science in the German Republic is still the envy of the world. With a great expansion of funding, we hope to keep it that way, and expand on our achievements. 
+Liberalism has always stood for science and rationality. Despite the setbacks of the Great War, hyperinflation, and the politicized and reactionary attitudes of many academics, science in the German Republic is still the envy of the world. With a great expansion of funding, we hope to keep it that way, and expand on our achievements. 
 
 - @kwg
 - @applied
@@ -93,7 +93,7 @@ We have cut funding for science. This has a negative effect on our economic grow
 @structure
 title: Change the structure and funding of education.
 
-Education in Germany has traditionally been organized on religious and class lines. Schools are often either Protestant or Catholic (or rarely Jewish), and religious classes are required in most mixed-denomination schools. In addition, the working class has at most eight years of public education in primary and middle schools, while the middle and upper classes have access to private schools and Gymnasiums that prepare students for universities. Thus, the universities tend to be dominated by conservatives and reactionaries, which has negative consequences for bureaucratic recruitment.
+Education in Germany has traditionally been organized on religious and class lines. Schools are often either Protestant or Catholic (or rarely Jewish), and religious classes are required in most mixed-denomination schools. In addition, the working class has at most eight years of public education in primary and middle schools, while the middle and upper classes have access to private schools and Gymnasiums that prepare students for universities. Thus, the universities tend to be dominated by conservatives and even reactionaries, which has its consequences for bureaucratic recruitment.
 
 - @secularize
 - @public_hs
@@ -108,7 +108,7 @@ unavailable-subtitle: -1 budget - requres a majority of parties to support secul
 choose-if: budget >= 1 and (progressive_coalition + dvp_r >= 50)
 view-if: secularized = 0
 
-Are you sure about this? The Weimar Coalition had an agreement to not touch religious schools; the Catholic Center Party will revolt.
+Are you sure about this? The Coalition had an agreement to not touch religious schools; the Catholic Center Party will revolt.
 
 - @secularize_2: Yes, do it.
 - @ed_menu: No, do not touch religious education.
@@ -150,7 +150,7 @@ title: Change the educational curriculum.
 choose-if: curriculum_timer = 0
 unavailable-subtitle: [? if curriculum_timer > 0 : It is too early to change the curriculum again. ?][? if not dvp_prussia: We are not in control of the Prussian state government. ?]
 
-Many socialists believe that education in Germany is not fit for the modern era. Much of the educational system still follows imperial-era traditions of militaristic discipline, and far-right professors and students rule the universities. Nevertheless, there have been strides in bringing working-class children into the schools.
+Some liberals believe that education in Germany is not fit for the modern era. Much of the educational system still follows imperial-era traditions of militaristic discipline, and far-right professors and students rule the universities. Nevertheless, there have been strides in bringing working-class children into the schools.
 
 What should be the major focus of our new curriculum?
 
