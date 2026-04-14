@@ -8,7 +8,7 @@ tags: govt_affairs, cabinet
 
 = Judiciary Reform
 
-The Judiciary is one of the most reactionary components of the government, along with the military. Many jurists have held office since the days of the Emperor. They give violent fascists like Adolf Hitler laughably light sentences, while ruthlessly persecuting leftists and pacifists for lesser crimes.
+The Judiciary is one of the most reactionary components of the government, along with the military. Many jurists have held office since the days of the Emperor.
 
 [? if judicial_reform <= 0 : There is great demand in our membership for reforming the judiciary, although this may bring us into a collision course with our coalition allies. ?]
 [? if judicial_reform == 1 : We have started on the path to judicial reform. While some of the most antideluvian and biased justices have been replaced, many still remain. More should be done. ?]
@@ -26,7 +26,7 @@ unavailable-subtitle: Not enough budget.
 choose-if: budget >= 1
 on-arrival: budget -= 1; democratization += 2; coalition_dissent += 1 if in_grand_coalition == 1; workers_spd += 5*(1-dissent) if democratization >= 3; judicial_reform += 2; pro_republic += 5*(1-dissent); coup_progress += 1; coalition_dissent += 1 if historical_mode; hindenburg_angry += 5;
 
-We investigate jurists who have shown themselves to have biased or corrupt behavior, and try to remove them, replacing them with more democratically-oriented jurists. This obviously raises quite a great deal of ire in conservative circles, including within our coalition. 
+We investigate jurists who have shown themselves to have biased or corrupt behavior, and try to remove them, replacing them with more independent jurists. This obviously raises quite a great deal of ire in opposition circles. 
 
 @minor_reforms
 on-arrival: democratization += 1; workers_spd += 3*(1-dissent) if democratization >= 3; judicial_reform += 1; pro_republic += 3*(1-dissent); judiciary_timer += 6
