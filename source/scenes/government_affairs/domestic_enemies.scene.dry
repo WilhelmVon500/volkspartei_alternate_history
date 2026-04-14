@@ -64,8 +64,8 @@ The Stahlhelm is no longer banned.
 @persecute_sh
 title: Further persecute the Stahlhelm.
 view-if: sh_banned = 1
-choose-if: judicial_reform >= 4 and interior_police_loyalty >= 0.7
-unavailable-subtitle: [? if judicial_reform < 4 : The judiciary would not allow this. ?] [? if interior_police_loyalty < 0.7 : The police are too disloyal to be trusted with this. ?]
+choose-if: judicial_reform >= 4 and interior_police_loyalty >= 0.7 and dvp_ideology = "Left"
+unavailable-subtitle: [? if dvp_ideology != "Left": Why would we do this? ?] [? if judicial_reform < 4 : The judiciary would not allow this. ?] [? if interior_police_loyalty < 0.7 : The police are too disloyal to be trusted with this. ?]
 on-arrival: sh_strength *= 0.7; sh_militancy -= 0.05; dvp_relation -= 5; prussian_police_loyalty -= 0.1; interior_police_loyalty -= 0.05; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Hindenburg";
 
 We have arrested more of the Stahlhelm's leaders and confiscated their weapons.
