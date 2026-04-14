@@ -49,7 +49,9 @@ We have arrested more of the SA's leaders and confiscated their weapons.
 
 @ban_sh
 on-arrival: sh_strength *= 0.85; sh_strength *= 0.7 if interior_police_loyalty >= 0.7; sh_banned = 1; dnvp_relation -= 5; prussian_police_loyalty -= 0.1; interior_police_loyalty -= 0.05; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Hindenburg"; sh_ban_timer = 6;
-view-if: sh_banned == 0 and not dvp_ideology="Right"
+view-if: sh_banned == 0
+choose-if: dvp_ideology = "Left"
+unavailable-subtitle: Why would we do this?
 
 [? if president == "Hindenburg": Banning the Stahlhelm weakens our relationship with President Hindenburg, as well as the political right and the police. ?][? if president != "Hindenburg": Banning the Stahlhelm weakens our relationship with the political right and the police. ?] [? if spd_in_government = 1 and in_grand_coalition = 1 and president = "Hindenburg" : It also weakens our coalition due to the influence of Hindenburg on the right wing of our coalition. ?] In addition, the Stahlhelm still operates out of public sight.
 
@@ -72,8 +74,6 @@ We have arrested more of the Stahlhelm's leaders and confiscated their weapons.
 @ban_rb
 on-arrival: rb_strength *= 0.9; rb_strength *= 0.8 if interior_police_loyalty >= 0.7; rb_banned = 1; spd_relation -= 5; ddp_relation -= 5; interior_police_loyalty += 0.05; coalition_dissent += 10 if spd_in_government and dvp_in_government; rb_ban_timer = 6;
 view-if: rb_banned == 0
-choose-if: dvp_ideology = "Right"
-unavailable-subtitle: Why would we do this?
 
 [? if president_party = "SPD": Banning the Reichsbanner weakens our relationship with President [+president+], as well as the republican parties. ?][? if president_party != "SPD": Banning the Reichsbanner weakens our relationship with the republican parties. ?] [? if spd_in_government = 1: It also weakens our coalition due to the influence of the SPD on the left wing of our coalition. ?]
 
