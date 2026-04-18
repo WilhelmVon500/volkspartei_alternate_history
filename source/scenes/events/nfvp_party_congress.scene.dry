@@ -22,6 +22,8 @@ Ernst Lemmer’s coalition is rather small; the former <span style="color: #DCCA
 
 Hans Luther, as president of the Reichsbank, is largely seen as a unifying independent, though mainly by the former <span style="color: #C0A054;">**DVP**</span>. Outside of former <span style="color: #C0A054;">**DVP**</span> members, the Middle Class Groups and some Democrats have endorsed him, though they see his candidacy as insufficient for the <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span>’s big-tent nature amongst the political bourgeois.
 
+Walther Lambach WIP.
+
 
 - @congress: The party will elect its leader for the next 2 years.
 
@@ -268,6 +270,7 @@ WIP
 - @thiel: Otto Thiel will lead our party.
 - @raumer: Hans Raumer will lead our party.
 - @treviranus: Gottfried Treviranus will lead our party.
+- @lambach: Walther Lambach will lead our party.
 
 @lemmer
 subtitle: Lemmer is a prominent labor leader.
@@ -338,4 +341,14 @@ on-arrival: dvp_leader = "Treviranus"
 face-image: img/portraits/TreviranusGottfried.jpg
 
 Gottfried Treviranus, dissenting <span style="color: #3F7BC1;">**DNVP**</span> member, has somehow been elected as <span style="color: var(--dvp-color);">**[+ dvp_name +]**</span> leader. This possibly signifies a rightward turn, with the industrialists being pleased at his leadership. However, he is not set to shift the party forward the <span style="color: #3F7BC1;">**DNVP**</span> [? if kvp_formed: and <span style="color: #455B95;">**KVP**</span> ?] too drastically. The left-wing of the party are somewhat discontented, but seemingly taking a wait-and-see approach for now.
+  
 
+@lambach
+subtitle: Walther Lambach is the leader of Christian Socials.
+unavailable-subtitle: WIP.
+view-if: christian_socials_dvp
+#choose-if: 
+on-arrival: dvp_leader = "Lambach"
+face-image: img/portraits/LambachWalther.jpg
+
+WIP
