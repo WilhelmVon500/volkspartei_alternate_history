@@ -16,6 +16,7 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @investigate_corruption: Investigate corruption by big businesses.
 - @investigate_far_right: Investigate illegal activity among the far right.
 - @investigate_far_left: Investigate illegal activity among the far left.
+- @ban_nsdap: Ban the <span style="color: #954B00;">**NSDAP**</span>.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
 - @root: Take no action for now.
@@ -34,7 +35,7 @@ Current interior police loyalty: [+ interior_police_loyalty : loyalty +]
 go-to: investigate_corruption_success if interior_police_loyalty >= 0.5; investigate_corruption_failure if interior_police_loyalty < 0.5
 
 @investigate_corruption_success
-on-arrival: investigate_corruption += 1; workers_spd += 5*(1-dissent); inflation -= 0.1 if inflation > 3; inflation -= 0.2 if inflation >= 8
+on-arrival: investigate_corruption += 1; new_middle_dvp += 5*(1-dissent); dnvp_relation -= 3; inflation -= 0.1 if inflation > 3; inflation -= 0.2 if inflation >= 8
 
 Corruption in big business is rampant, of course. We have uncovered a number of scandals, and publicizing them brings new attention to the work of Interior Minister [+ interior_minister +], building up his popular appeal and that of the SPD.
 
@@ -50,8 +51,8 @@ go-to: investigate_far_right_success if interior_police_loyalty >= 0.55; investi
 on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_nsdap -= 3; new_middle_nsdap -= 3; nazi_urgency += 1 if investigate_far_right == 2; nazi_urgency += 2 if investigate_far_right == 3; workers_nsdap -= 3 if investigate_far_right == 3; new_middle_nsdap -= 3 if investigate_far_right == 3; old_middle_nsdap -= 3 if investigate_far_right == 3; unemployed_spd -= 3 if investigate_far_right == 3; coup_progress -= 1 if coup_progress >= 7
 
 [? if investigate_far_right == 1 : We have discovered collusion between Hjalmar Schacht, president of the Reichsbank, and the Nazis. This is very useful information. ?]
-[? if investigate_far_right == 2 : We have discovered illegal arms smuggling by the SA, the Nazi paramilitary. ?]
-[? if investigate_far_right == 3 : We have discovered a secret cache of documents from the NSDAP detailing their plan to violently take over the country if they enter into power. This is an anti-constitutional plot, and will be publicized and persecuted. ?]
+[? if investigate_far_right == 2 : We have discovered illegal arms smuggling by the <span style="color: #954B00;">**SA**</span>, the <span style="color: #954B00;">**Nazi**</span> paramilitary. ?]
+[? if investigate_far_right == 3 : We have discovered a secret cache of documents from the <span style="color: #954B00;">**NSDAP**</span> detailing their plan to violently take over the country if they enter into power. This is an anti-constitutional plot, and will be publicized and persecuted. ?]
 [? if investigate_far_right > 3 : Of course the Nazis are doing crimes; everyone knows that. Now, we finally have proof. ?]
 
 [? if coup_progress >= 6: There are reports of an imminent coup by the far-right. We have attempted to disrupt some of these plans, but the threat is still present. ?]
@@ -77,3 +78,15 @@ Of course the Communists are doing crimes; everyone knows that. Now, we finally 
 @investigate_far_left_failure
 
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
+
+
+
+
+
+@ban_nsdap
+view-if: investigate_far_right >= 3 and return_to_normalcy and dvp_ideology = "Left"
+choose-if: judicial_reform >= 4 and nsdap_votes <= 7
+unavailable-subtitle: [ if judicial_reform < 4: The judiciary is too reactionary for that to happen. ?][? if nsdap_votes > 7: The <span style="color: #954B00;">**NSDAP**</span> is too popular. ?]
+on-arrival: nsdap_banned = 1; workers_nsdap -= 10; new_middle_nsdap -= 10; old_middle_nsdap -= 10; nsdap_relation -= 50;
+
+We have banned the <span style="color: #954B00;">**NSDAP**</span>!
