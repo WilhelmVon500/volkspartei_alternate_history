@@ -345,7 +345,7 @@ Gottfried Treviranus, dissenting <span style="color: #3F7BC1;">**DNVP**</span> m
 
 @lambach
 subtitle: Walther Lambach is the leader of Christian Socials.
-unavailable-subtitle: WIP.
+unavailable-subtitle: His labor platform has rendered him irrelevant.
 view-if: christian_socials_dvp
 #choose-if: 
 on-arrival: dvp_leader = "Lambach"
